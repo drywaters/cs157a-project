@@ -4,6 +4,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.Charset;
+import java.util.HashMap;
 import java.util.concurrent.Callable;
 
 import org.apache.commons.io.IOUtils;
@@ -11,7 +12,7 @@ import org.apache.commons.io.IOUtils;
 import opennlp.tools.tokenize.TokenizerME;
 import opennlp.tools.tokenize.TokenizerModel;
 
-public class Tokenizer implements Callable<String[]> {
+public class Tokenizer implements Callable<HashMap<String, Double>> {
 	
 	private String filename = "";
 	
@@ -20,7 +21,7 @@ public class Tokenizer implements Callable<String[]> {
 	}
 
 	@Override
-	public String[] call() throws Exception {
+	public HashMap<String, Double> call() throws Exception {
 		try (InputStream modelIn = new FileInputStream("./lib/en-token.bin")) {
 			TokenizerModel model = new TokenizerModel(modelIn);
 			TokenizerME tokenizer = new TokenizerME(model);
@@ -29,7 +30,14 @@ public class Tokenizer implements Callable<String[]> {
 				String[] tokens = tokenizer.tokenize(content);
 				file.close();
 				modelIn.close();
-				return tokens;
+				
+				HashMap<String, Double> testData = new HashMap<>();
+				testData.put("test", 1.0);
+				testData.put("tested", 5.0);
+				testData.put("tests", 4.0);
+				testData.put("tester", 3.0);
+				testData.put("testy", 2.0);
+				return testData;
 			}
 		} catch (IOException e) {
 			e.printStackTrace();

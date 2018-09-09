@@ -32,8 +32,17 @@ public class Tokenizer implements Callable<HashMap<String, Double>> {
 				modelIn.close();
 				
 				HashMap<String, Double> testData = new HashMap<>();
-				testData.put("test", 1.0);
-				testData.put("tested", 5.0);
+				if (Math.random() > 0.5) {
+					testData.put("test", 1.0);	
+				}
+				if (Math.random() > 0.5) {
+					if (Math.random() > 0.5) {
+						testData.put("tested", 5.0);	
+					} else {
+						testData.put("tested", 2.0);
+					}
+				} 
+				
 				testData.put("tests", 4.0);
 				testData.put("tester", 3.0);
 				testData.put("testy", 2.0);

@@ -17,7 +17,7 @@ public class DocumentFrequency {
 				if (!docFreq.containsKey(key)) {
 					
 					// At end of documents, key not found elsewhere
-					if (i == ProjectMain.NUMBER_OF_FILES) {
+					if ((i+1) == ProjectMain.NUMBER_OF_FILES) {
 						docFreq.put(key, 1);
 					} else {
 						docFreq.put(key, calculateFreq(i+1, key, tokensList));	

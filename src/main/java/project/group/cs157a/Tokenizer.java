@@ -36,15 +36,14 @@ public class Tokenizer implements Callable<HashMap<String, Double>> {
 					int freq = 0;
 					if (tokens[i] != "") {
 						for (int j = i + 1; j < tokens.length; j++) {
-							if (tokens[i] == tokens[j]) {
+							if (tokens[i].equals(tokens[j])) {
 								freq++;
 								tokens[j] = "";
 							}
 						}
-						tokenFrequency.put(tokens[i], (double)(freq / tokens.length));
+						tokenFrequency.put(tokens[i],  freq / (double)tokens.length);
 					}
 				}
-				
 				
 				file.close();
 				modelIn.close();

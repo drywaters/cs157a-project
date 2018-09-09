@@ -11,7 +11,7 @@ import java.util.concurrent.Future;
 
 public class ProjectMain {
 
-	public static final int NUMBER_OF_FILES = 10;
+	public static final int NUMBER_OF_FILES = 12;
 
 	public static void main(String[] args) {
 
@@ -48,6 +48,7 @@ public class ProjectMain {
 			}
 		}
 		
+		System.out.println(tokenFreq.get(0));
 		// Future returned values for final frequency calculation
 		List<Future<HashMap<String, Double>>> futureValues2 = new ArrayList<>(NUMBER_OF_FILES);
 
@@ -79,6 +80,7 @@ public class ProjectMain {
 		long elapsedTime = endTime-startTime;
 		
 		System.out.println("Total time taken is: " + (double)(elapsedTime/1000000000.0));
+		System.out.println(finalTokenFreq.get(0));
 		
 	}
 

@@ -17,10 +17,7 @@ public class FrequencyCalculator implements Callable<HashMap<String, Double>>{
 	@Override
 	public HashMap<String, Double> call() throws Exception {
 		for (Map.Entry<String, Double> entry: tokenFreqs.entrySet()) {
-			System.out.println("Starting Value is " + entry.getValue());
-			System.out.println("Doc value is " + docFreqs.get(entry.getKey()));
 			entry.setValue(entry.getValue() * (ProjectMain.NUMBER_OF_FILES / (double) docFreqs.get(entry.getKey())));
-			System.out.println("Ending Value is " + entry.getValue());
 		}
 		
 		return tokenFreqs;

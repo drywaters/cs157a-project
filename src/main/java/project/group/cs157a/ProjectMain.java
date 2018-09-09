@@ -22,6 +22,7 @@ public class ProjectMain {
 //		
 		
 		long startTime = System.nanoTime();
+		
 		// Currently uses the number of files to set the number of threads open.  This
 		// should change later as number of files increases
 		ExecutorService executor = Executors.newFixedThreadPool(NUMBER_OF_FILES);
@@ -48,7 +49,6 @@ public class ProjectMain {
 			}
 		}
 		
-		System.out.println(tokenFreq.get(0));
 		// Future returned values for final frequency calculation
 		List<Future<HashMap<String, Double>>> futureValues2 = new ArrayList<>(NUMBER_OF_FILES);
 
@@ -71,6 +71,7 @@ public class ProjectMain {
 			}
 		}
 		
+		
 		// Received all threads, shutdown
 		executor.shutdown();
 		
@@ -80,7 +81,6 @@ public class ProjectMain {
 		long elapsedTime = endTime-startTime;
 		
 		System.out.println("Total time taken is: " + (double)(elapsedTime/1000000000.0));
-		System.out.println(finalTokenFreq.get(0));
 		
 	}
 

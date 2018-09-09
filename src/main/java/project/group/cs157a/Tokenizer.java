@@ -33,7 +33,7 @@ public class Tokenizer implements Callable<HashMap<String, Double>> {
 				String[] tokens = tokenizer.tokenize(content);
 				
 				for (int i = 0; i < tokens.length; i++) {
-					int freq = 0;
+					int freq = 1;
 					if (tokens[i] != "") {
 						for (int j = i + 1; j < tokens.length; j++) {
 							if (tokens[i].equals(tokens[j])) {

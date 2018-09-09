@@ -22,31 +22,34 @@ public class Tokenizer implements Callable<HashMap<String, Double>> {
 
 	@Override
 	public HashMap<String, Double> call() throws Exception {
+		
+		HashMap<String, Double> tokenFrequency = new HashMap<>();
+		
 		try (InputStream modelIn = new FileInputStream("./lib/en-token.bin")) {
 			TokenizerModel model = new TokenizerModel(modelIn);
 			TokenizerME tokenizer = new TokenizerME(model);
 			try (InputStream file = new FileInputStream("./files/" + filename)) {
 				String content = IOUtils.toString(file, Charset.defaultCharset());
 				String[] tokens = tokenizer.tokenize(content);
+				
+				for (int i = 0; i < tokens.length; i++) {
+					int freq = 0;
+					if (tokens[i] != "") {
+						for (int j = i + 1; j < tokens.length; j++) {
+							if (tokens[i] == tokens[j]) {
+								freq++;
+								tokens[j] = "";
+							}
+						}
+						tokenFrequency.put(tokens[i], (double)(freq / tokens.length));
+					}
+				}
+				
+				
 				file.close();
 				modelIn.close();
 				
-				HashMap<String, Double> testData = new HashMap<>();
-				if (Math.random() > 0.5) {
-					testData.put("test", 1.0);	
-				}
-				if (Math.random() > 0.5) {
-					if (Math.random() > 0.5) {
-						testData.put("tested", 5.0);	
-					} else {
-						testData.put("tested", 2.0);
-					}
-				} 
-				
-				testData.put("tests", 4.0);
-				testData.put("tester", 3.0);
-				testData.put("testy", 2.0);
-				return testData;
+				return tokenFrequency;
 			}
 		} catch (IOException e) {
 			e.printStackTrace();

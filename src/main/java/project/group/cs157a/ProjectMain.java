@@ -20,7 +20,8 @@ public class ProjectMain {
 //		dc.createDatabase();
 //		dc.killConnection();
 //		
-
+		
+		long startTime = System.nanoTime();
 		// Currently uses the number of files to set the number of threads open.  This
 		// should change later as number of files increases
 		ExecutorService executor = Executors.newFixedThreadPool(NUMBER_OF_FILES);
@@ -74,8 +75,10 @@ public class ProjectMain {
 		
 		// TODO: Pass document frequency hashmap and finalTokeFreq to database connector
 		
-		System.out.println(finalTokenFreq);
-		System.out.println(documentFrequency);
+		long endTime = System.nanoTime();
+		long elapsedTime = endTime-startTime;
+		
+		System.out.println("Total time taken is: " + (double)(elapsedTime/1000000000.0));
 		
 	}
 

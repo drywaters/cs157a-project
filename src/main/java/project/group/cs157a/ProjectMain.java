@@ -11,7 +11,7 @@ import java.util.concurrent.Future;
 
 public class ProjectMain {
 
-	public static final int NUMBER_OF_FILES = 12;
+	public static final int NUMBER_OF_FILES = 10;
 
 	public static void main(String[] args) {
 
@@ -62,6 +62,8 @@ public class ProjectMain {
 			frequencyCalculators[i] = new FrequencyCalculator(tokenFreq.get(i), documentFrequency);
 			futureValues2.add(executor.submit(frequencyCalculators[i]));
 		}
+		
+		
 		
 		for (Future<HashMap<String, Double>> tokens : futureValues2) {
 			try {

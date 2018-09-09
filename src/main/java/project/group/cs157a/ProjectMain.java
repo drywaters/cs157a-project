@@ -21,11 +21,17 @@ public class ProjectMain {
 //		dc.killConnection();
 //		
 
-		ExecutorService executor = Executors.newFixedThreadPool(10);
-		List<String[]> tokensList = new ArrayList<>(10);
-		Callable<String[]>[] tokenizers = new Tokenizer[10];
-		List<Future<String[]>> futureValues = new ArrayList<>(10);
+		// Currently uses the number of files to set the number of threads open.  This
+		// should change later as number of files increases
+		ExecutorService executor = Executors.newFixedThreadPool(NUMBER_OF_FILES);
+		
+		// Create a list to hold tokens returned, 10 threads that load files and token strings
+		// and 10 future objects to hold the return values from the Callable (Tokenizer)
+		List<String[]> tokensList = new ArrayList<>(NUMBER_OF_FILES);
+		Callable<String[]>[] tokenizers = new Tokenizer[NUMBER_OF_FILES];
+		List<Future<String[]>> futureValues = new ArrayList<>(NUMBER_OF_FILES);
 
+		// Create a new Callable for each file name and execute
 		for (int i = 0; i < NUMBER_OF_FILES; i++) {
 			tokenizers[i] = new Tokenizer("Data(" + (i + 1) + ").txt");
 			futureValues.add(i, executor.submit(tokenizers[i]));
@@ -44,7 +50,7 @@ public class ProjectMain {
 		// Received all threads, shutdown
 		executor.shutdown();
 
-		// Make sure all threads are there.
+		// Print all tokens to screen.  Need to add calculate TFiDF here. (New class?)
 		for (String[] tokens : tokensList) {
 			System.out.println(Arrays.toString(tokens));
 		}

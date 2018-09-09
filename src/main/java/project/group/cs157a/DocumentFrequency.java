@@ -29,15 +29,17 @@ public class DocumentFrequency {
 		return docFreq;
 	}
 	
+	// Calculates the number of occurrences found past the current document, because if it does not exist in the 
+	// document frequency map yet, then it must not have been located before this occurrence
 	private static Integer calculateFreq(int startingLocation, String key, List<HashMap<String, Double>> maps) {
-		int occurences = 1;
+		int occurrences = 1;
 		for (int i = startingLocation; i < ProjectMain.NUMBER_OF_FILES; i++) {
 			if (maps.get(i).containsKey(key)) {
-				occurences++;
+				occurrences++;
 			}
 		}
 		
-		return occurences;
+		return occurrences;
 	}
 
 }

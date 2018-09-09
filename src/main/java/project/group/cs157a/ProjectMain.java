@@ -1,10 +1,8 @@
 package project.group.cs157a;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
@@ -13,7 +11,7 @@ import java.util.concurrent.Future;
 
 public class ProjectMain {
 
-	public static final int NUMBER_OF_FILES = 10;
+	public static final int NUMBER_OF_FILES = 1;
 
 	public static void main(String[] args) {
 
@@ -49,10 +47,11 @@ public class ProjectMain {
 			}
 		}
 		
+		// Future returned values for final frequency calculation
 		List<Future<HashMap<String, Double>>> futureValues2 = new ArrayList<>(NUMBER_OF_FILES);
 
 		// Calculate DF from list of token frequencies
-		HashMap<String, Double> documentFrequency = DocumentFrequency.calculateDF(tokenFreq);
+		HashMap<String, Integer> documentFrequency = DocumentFrequency.calculateDF(tokenFreq);
 
 		// Calculate Frequency for each Document
 		List<HashMap<String, Double>> finalTokenFreq = new ArrayList<>(NUMBER_OF_FILES);
@@ -73,7 +72,10 @@ public class ProjectMain {
 		// Received all threads, shutdown
 		executor.shutdown();
 		
-		// Past document frequency hashmap and finalTokeFreq to database connector
+		// TODO: Pass document frequency hashmap and finalTokeFreq to database connector
+		
+		System.out.println(finalTokenFreq);
+		System.out.println(documentFrequency);
 		
 	}
 

@@ -2,14 +2,17 @@ package project.group.cs157a;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class DatabaseConnector {
 
 	private Connection conn = null;
-	private Connection DBconn = null;
 	private static final String DATABASE_NAME = "cs157a_project";
 	private static final String USER_NAME = "root";
 	private static final String PASSWORD = "";
@@ -19,25 +22,24 @@ public class DatabaseConnector {
 	DatabaseConnector() {
 		try {
 			conn = DriverManager.getConnection(DB_URL, USER_NAME, PASSWORD);
-			DBconn = DriverManager.getConnection(DB_URL + "/" + DATABASE_NAME, USER_NAME, PASSWORD);
 		} catch (SQLException ex) {
 			System.out.println("SQLException: " + ex.getMessage());
 		}
 	}
 
 	// Create Database with name DATABASE_NAME
-	public void createDatabase() {
-		Statement st = null; 
-		
+	private void createDatabase() {
+		Statement st = null;
+
 		// Delete old Database (if needed)
 		try {
 			st = conn.createStatement();
-			
+
 			// See if DB named DATABASE_NAME exists
 			ResultSet rs = conn.getMetaData().getCatalogs();
 			while (rs.next()) {
 				String databaseNames = rs.getString(1);
-			
+
 				// if already exists, drop it
 				if (databaseNames.contains(DATABASE_NAME)) {
 					st.execute("DROP DATABASE " + DATABASE_NAME);
@@ -47,12 +49,13 @@ public class DatabaseConnector {
 			System.out.println("Unable to get database list from server, with error: " + e.getMessage());
 			e.printStackTrace();
 		}
-		
+
 		// Create the Database
 		try {
 			st.executeUpdate("CREATE DATABASE " + DATABASE_NAME);
 		} catch (SQLException e) {
-			System.out.println("Unable to create database with name " + DATABASE_NAME + " with error: " + e.getMessage());
+			System.out
+					.println("Unable to create database with name " + DATABASE_NAME + " with error: " + e.getMessage());
 		} finally {
 			if (st != null) {
 				try {
@@ -66,84 +69,112 @@ public class DatabaseConnector {
 	}
 
 	public void createTable() {
-		// Create Table using Set of column names (HashSet)
-		// Drops Project, the table, if it already existed
-		try{
-			Statement st = DBconn.createStatement();
-			String drop = "DROP TABLE IF EXISTS Project";
-			String table = "CREATE TABLE Project " +
-				       		"(id INTEGER, " +
-				       		"strToken char(255), " +
-				       		"TFiDF INTEGER, " +
-				       		"PRIMARY KEY (id))";
+		// Drops project, the table, if it already existed
+		Statement st = null;
+		try {
+			st = conn.createStatement();
+			String useDatabase = "USE cs157a_project";
+			String drop = "DROP TABLE IF EXISTS project";
+			String table = "CREATE TABLE project " + "(doc_id INTEGER, " + "token VARCHAR(255) BINARY, "
+					+ "tfidf DECIMAL(20, 15), " + "PRIMARY KEY (doc_id, token))";
+
+			st.executeUpdate(useDatabase);
 			st.executeUpdate(drop);
 			st.executeUpdate(table);
 			System.out.println("Successfully created table");
-		}
-		catch(SQLException e){
+		} catch (SQLException e) {
 			System.out.println("Unable to create table: " + e.getMessage());
 			e.printStackTrace();
-		}
-		catch(Exception e){
+		} catch (Exception e) {
 			System.out.println("Unable to create table: " + e.getMessage());
 			e.printStackTrace();
-		}
-	}
-
-	public void insertData(int id, String strToken, int TFiDF) {
-		// Insert the calculated table data into the correct column
-		// Should look like ex.
-		// DocId | Token1 | Token2 | Token 3 | ...
-		// ----------------------------------------------------------------
-		// 1 | TFiDF# | TFiDF# | TFiDF# | ...
-		// 2 | TFiDF# | TFiDF# | TFiDF# | ...
-		// ... | ... | ... | ... | ...
-		try{
-			String insert = "INSERT INTO Project" + "(id, strToken, TFiDF)" +
-							"VALUES (" + id + ", '" + strToken + "', " + TFiDF + ")";
-			Statement st = DBconn.createStatement();
-			st.executeUpdate(insert);
-		}
-		catch(SQLException e){
-			System.out.println("Ran into an unexpected error when inserting Data: " + e.getMessage());
-			e.printStackTrace();
-		}
-		catch(Exception e){
-			System.out.println("Ran into an unexpected error when inserting Data: " + e.getMessage());
-			e.printStackTrace();
-		}
-	}
-	
-	public void getTable()	{
-		// Prints out the table
-		try{
-			String select = "SELECT * FROM Project";
-			Statement st = DBconn.createStatement();
-			ResultSet rs = st.executeQuery(select);
-			while (rs.next()){
-				int id = rs.getInt("id");
-				String strToken = rs.getString("strToken");
-				int TFiDF = rs.getInt("TFiDF");
-				System.out.format("%s, %s, %s\n", id, strToken, TFiDF);
+		} finally {
+			if (st != null) {
+				try {
+					st.close();
+				} catch (SQLException e) {
+					System.out.println("Unable to close statement with error: " + e.getMessage());
+					e.printStackTrace();
+				}
 			}
 		}
-		catch(SQLException e){
+	}
+
+	private void insertData(HashMap<String, Double> freq) {
+		// Insert the calculated table data into the correct column
+		// Should look like ex.
+		// DocId | Token | TFiDF #
+		// -------------------------
+		// 1 | token1 | 0.223
+		// 1 | token2 | 1.230
+		// 2 | token1 | 0.234
+		int documentId = (int) Math.floor(freq.get("DOCUMENT NUMBER"));
+		freq.remove("DOCUMENT NUMBER");
+
+		PreparedStatement ps = null;
+		try {
+			ps = conn.prepareStatement("INSERT INTO project VALUES (?, ?, ?)");
+			for (Map.Entry<String, Double> entry : freq.entrySet()) {
+				ps.setInt(1,  documentId);
+				ps.setString(2, entry.getKey());
+				ps.setDouble(3,  entry.getValue());
+				ps.addBatch();
+				ps.executeBatch();
+			}
+		} catch (SQLException e) {
+			System.out.println("Ran into an unexpected error when inserting Data: " + e.getMessage());
+			e.printStackTrace();
+		} catch (Exception e) {
+			System.out.println("Ran into an unexpected error when inserting Data: " + e.getMessage());
+			e.printStackTrace();
+		} finally {
+			if (ps != null) {
+				try {
+					ps.close();
+				} catch (SQLException e) {
+					System.out.println("Unable to close statement with error: " + e.getMessage());
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+
+	public void getTable() {
+		// Prints out the table
+		try {
+			String select = "SELECT * FROM project";
+			Statement st = conn.createStatement();
+			ResultSet rs = st.executeQuery(select);
+			while (rs.next()) {
+				int id = rs.getInt("doc_id");
+				String strToken = rs.getString("token");
+				double tfidf = rs.getInt("tfidf");
+				System.out.format("%s, %s, %s\n", id, strToken, tfidf);
+			}
+		} catch (SQLException e) {
 			System.out.println("An error occured when attempting to select the table: " + e.getMessage());
 			e.printStackTrace();
-		}
-		catch(Exception e){
+		} catch (Exception e) {
 			System.out.println("An error occured when attempting to select the table: " + e.getMessage());
 			e.printStackTrace();
 		}
 	}
 
-	public void killConnection() {
+	private void killConnection() {
 		try {
 			this.conn.close();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			System.out.println("Unable to kill DB connection");
 			e.printStackTrace();
 		}
 	}
 
+	public void saveData(List<HashMap<String, Double>> tokenFreq) {
+		createDatabase();
+		createTable();
+		for (int i = 0; i < ProjectMain.NUMBER_OF_FILES; i++) {
+			insertData(tokenFreq.get(i));
+		}
+		killConnection();
+	}
 }

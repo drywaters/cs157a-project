@@ -15,17 +15,6 @@ public class ProjectMain {
 
 	public static void main(String[] args) {
 
-		// Commented out DB connection for testing concurrent token loading
-//		DatabaseConnector dc = new DatabaseConnector();
-//		dc.createDatabase();
-//		dc.createDatabase();
-//		dc.createTable();
-//		dc.getTable();
-//		dc.insertData(1, "test", 2);
-//		dc.getTable();
-//		dc.killConnection();
-//		
-		
 		long startTime = System.nanoTime();
 		
 		// Currently uses the number of files to set the number of threads open.  This
@@ -83,18 +72,14 @@ public class ProjectMain {
 		
 		// Received all threads, shutdown
 		executor.shutdown();
-		
-		// TODO: Pass document frequency hashmap and finalTokeFreq to database connector
-		
-		// To print out all the keys and values
-//		finalTokenFreq.get(0).forEach((key, value) -> System.out.println(key + ":" + value));
-		
+
+		DatabaseConnector dc = new DatabaseConnector();
+		dc.saveData(finalTokenFreq);
 		
 		long endTime = System.nanoTime();
 		long elapsedTime = endTime-startTime;
 		
 		System.out.println("Total time taken is: " + (double)(elapsedTime/1000000000.0));
-
 	}
 
 }

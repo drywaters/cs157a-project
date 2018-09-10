@@ -6,11 +6,11 @@ import java.util.Map;
 
 public class DocumentFrequency {
 
-	public static HashMap<String, Integer> calculateDF(List<HashMap<String, Double>> tokensList) {
+	public static HashMap<String, Integer> calculateDF(List<HashMap<String, Integer>> tokensList) {
 		HashMap<String, Integer> docFreq = new HashMap<>();
 		
 		for (int i = 0; i < ProjectMain.NUMBER_OF_FILES; i++) {
-			for (Map.Entry<String, Double> entry: tokensList.get(i).entrySet()) {
+			for (Map.Entry<String, Integer> entry: tokensList.get(i).entrySet()) {
 				String key = entry.getKey();
 				
 				// if key has not been counted yet, add it and count frequency
@@ -31,7 +31,7 @@ public class DocumentFrequency {
 	
 	// Calculates the number of occurrences found past the current document, because if it does not exist in the 
 	// document frequency map yet, then it must not have been located before this occurrence
-	private static Integer calculateFreq(int startingLocation, String key, List<HashMap<String, Double>> maps) {
+	private static Integer calculateFreq(int startingLocation, String key, List<HashMap<String, Integer>> maps) {
 		int occurrences = 1;
 		for (int i = startingLocation; i < ProjectMain.NUMBER_OF_FILES; i++) {
 			if (maps.get(i).containsKey(key)) {

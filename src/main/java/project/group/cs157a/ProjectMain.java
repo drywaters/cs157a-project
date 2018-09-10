@@ -34,19 +34,19 @@ public class ProjectMain {
 		
 		// Create a list to hold tokens returned, 10 threads that load files and token strings
 		// and 10 future objects to hold the return values from the Callable (Tokenizer)
-		List<HashMap<String, Double>> tokenFreq = new ArrayList<>(NUMBER_OF_FILES);
-		Callable<HashMap<String, Double>> tokenizers[] = new Tokenizer[NUMBER_OF_FILES];
-		List<Future<HashMap<String, Double>>> futureValues = new ArrayList<>(NUMBER_OF_FILES);
+		List<HashMap<String, Integer>> tokenFreq = new ArrayList<>(NUMBER_OF_FILES);
+		Callable<HashMap<String, Integer>> tokenizers[] = new Tokenizer[NUMBER_OF_FILES];
+		List<Future<HashMap<String, Integer>>> futureValues = new ArrayList<>(NUMBER_OF_FILES);
 
 		// Create a new Callable for each file name and execute
 		for (int i = 0; i < NUMBER_OF_FILES; i++) {
-			tokenizers[i] = new Tokenizer("Data(" + (i + 1) + ").txt");
+			tokenizers[i] = new Tokenizer(i);
 			futureValues.add(executor.submit(tokenizers[i]));
 		}
 
 		// When thread finishes and returns a value, assign to ArrayList of HashMaps<String, Double>
 		// that contain each token frequency for each document
-		for (Future<HashMap<String, Double>> tokens : futureValues) {
+		for (Future<HashMap<String, Integer>> tokens : futureValues) {
 			try {
 				tokenFreq.add(tokens.get());
 			} catch (InterruptedException | ExecutionException e) {
@@ -68,8 +68,6 @@ public class ProjectMain {
 			futureValues2.add(executor.submit(frequencyCalculators[i]));
 		}
 		
-		
-		
 		for (Future<HashMap<String, Double>> tokens : futureValues2) {
 			try {
 				finalTokenFreq.add(tokens.get());
@@ -77,7 +75,6 @@ public class ProjectMain {
 				e.printStackTrace();
 			}
 		}
-		
 		
 		// Received all threads, shutdown
 		executor.shutdown();

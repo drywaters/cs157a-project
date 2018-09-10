@@ -6,21 +6,22 @@ import java.util.concurrent.Callable;
 
 public class FrequencyCalculator implements Callable<HashMap<String, Double>>{
 	
-	private HashMap<String, Double> tokenFreqs = null;
+	private HashMap<String, Integer> tokenFreqs = null;
 	private HashMap<String, Integer> docFreqs = null;
+	private HashMap<String, Double> finalFreqs = null;
 	
-	FrequencyCalculator(HashMap<String,Double> tokenFreqs, HashMap<String, Integer> docFreqs) {
+	FrequencyCalculator(HashMap<String, Integer> tokenFreqs, HashMap<String, Integer> docFreqs) {
 		this.tokenFreqs = tokenFreqs;
 		this.docFreqs = docFreqs;
 	}
 
 	@Override
 	public HashMap<String, Double> call() throws Exception {
-		for (Map.Entry<String, Double> entry: tokenFreqs.entrySet()) {
-			entry.setValue(entry.getValue() * Math.log(ProjectMain.NUMBER_OF_FILES / (double) docFreqs.get(entry.getKey())));
+		for (Map.Entry<String, Integer> entry: tokenFreqs.entrySet()) {
+			finalFreqs.put(entry.getKey(), (double) (entry.getValue() * Math.log(ProjectMain.NUMBER_OF_FILES / (double) docFreqs.get(entry.getKey()))));
 		}
 		
-		return tokenFreqs;
+		return finalFreqs;
 	}
 
 }

@@ -40,7 +40,7 @@ public class ProjectMain {
 
 		// Create a new Callable for each file name and execute
 		for (int i = 0; i < NUMBER_OF_FILES; i++) {
-			tokenizers[i] = new Tokenizer(i);
+			tokenizers[i] = new Tokenizer(i+1);
 			futureValues.add(executor.submit(tokenizers[i]));
 		}
 
@@ -53,6 +53,11 @@ public class ProjectMain {
 				e.printStackTrace();
 			}
 		}
+
+		// Display the number of tokens per document
+//		for (int i = 0; i < NUMBER_OF_FILES; i++) {
+//			System.out.println("Total tokens # for document " + i + " is " + (tokenFreq.get(i).get("TOTAL TOKENS") - 2));
+//		}
 		
 		// Future returned values for final frequency calculation
 		List<Future<HashMap<String, Double>>> futureValues2 = new ArrayList<>(NUMBER_OF_FILES);
@@ -81,11 +86,15 @@ public class ProjectMain {
 		
 		// TODO: Pass document frequency hashmap and finalTokeFreq to database connector
 		
+		// To print out all the keys and values
+//		finalTokenFreq.get(0).forEach((key, value) -> System.out.println(key + ":" + value));
+		
+		
 		long endTime = System.nanoTime();
 		long elapsedTime = endTime-startTime;
 		
 		System.out.println("Total time taken is: " + (double)(elapsedTime/1000000000.0));
-		
+
 	}
 
 }

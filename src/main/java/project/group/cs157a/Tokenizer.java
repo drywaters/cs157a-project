@@ -1,7 +1,6 @@
 package project.group.cs157a;
 
 import java.io.FileInputStream;
-import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.Charset;
 import java.util.HashMap;
@@ -9,18 +8,16 @@ import java.util.concurrent.Callable;
 
 import org.apache.commons.io.IOUtils;
 
-import opennlp.tools.tokenize.TokenizerME;
-import opennlp.tools.tokenize.TokenizerModel;
-
 public class Tokenizer implements Callable<HashMap<String, Integer>> {
 
 	private int fileNumber = 0;
 	private int totalTokens = 0;
 	private HashMap<String, Integer> tokens;
-	private StringBuffer token;
+	private StringBuffer tokenBuffer;
 
 	Tokenizer(int fileNumber) {
 		this.fileNumber = fileNumber;
+		this.tokenBuffer = new StringBuffer(10);
 	}
 
 	@Override
@@ -30,50 +27,70 @@ public class Tokenizer implements Callable<HashMap<String, Integer>> {
 		tokens.put("TOTAL TOKENS", 0);
 		tokens.put("DOCUMENT NUMBER", this.fileNumber);
 
-		try (InputStream file = new FileInputStream("./files/Data(" + this.fileNumber + ").txt")) {
+		try (InputStream file = new FileInputStream("./files/Data_" + this.fileNumber + ".txt")) {
 			String content = IOUtils.toString(file, Charset.defaultCharset());
 			
 			for (int i = 0; i < content.length(); i++) {
-				int currentChar = content.charAt(i);
 				
-				// First group of special characters
-				if (currentChar > 32 && currentChar < 48) {
-					addToken(currentChar);
-				} else if (currentChar > 47 && currentChar < 57) {  // Number
-					token.append(currentChar);
-				} else if (currentChar > 57 && currentChar < 65) { 	// Second group of special characters
-					addToken();
-				} else if (currentChar > 64 && currentChar < 91) {  // Capital letter
-					token.append(currentChar);
-				} else if (currentChar > 90 && currentChar < 97) {  // 3rd group of special characters
-					addToken();
-				} else if (currentChar > 96 && currentChar < 123) { // Lower case letter
-					token.append(currentChar);
-				} else if (currentChar > 122 && currentChar < 127) { // 4th group of special characters
-					addToken();
+				char currentChar = content.charAt(i);
+				int currentCharValue = (int) currentChar;
+				
+				if (currentCharValue > 96 && currentCharValue < 123) {  // Lower case letter
+					tokenBuffer.append(currentChar);
+				} else if (currentCharValue > 47 && currentCharValue < 58) {  // Number
+					tokenBuffer.append(currentChar);
+				} else if (currentCharValue > 64 && currentCharValue < 91) { 	// Capital letter
+					tokenBuffer.append(currentChar);
+				} else if (currentCharValue > 57 && currentCharValue < 65) {  // Second group of special characters
+					addSpecialCharacter(currentChar);
+				} else if (currentCharValue > 90 && currentCharValue < 97) {  // 3rd group of special characters
+					addSpecialCharacter(currentChar);
+				} else if (currentCharValue > 32 && currentCharValue < 48) { // First group of special characters
+					addSpecialCharacter(currentChar);
+				} else if (currentCharValue > 122 && currentCharValue < 127) { // 4th group of special characters
+					addSpecialCharacter(currentChar);
 				} else {
-					if (token.length() > 0) {
-						addToken();
-					} else {
-						continue;
-					}
+					checkBuffer();
 				}
 			}
+			
+			tokens.put("TOTAL TOKENS", totalTokens);
 
 			file.close();
-
 			return tokens;
 		}
 	}
 	
-	// add special character to tokens
-	public void addToken(int token) {
-		this.totalTokens++;
-		tokens.replace("TOTAL TOKENS", totalTokens);
+	// add special characters to tokens
+	private void addSpecialCharacter(char token) {
+		checkBuffer();
+		tokenBuffer.append(token);
+		addToken();
 	}
 	
-	// add whatever is in buffer not adding a character
-	public void addToken() {
-		
+	private void checkBuffer() {
+		if (tokenBuffer.length() > 0) {
+			addToken();
+		}
 	}
+	
+	private void addToken() {
+		this.totalTokens++;
+		if (tokenExists()) {
+			int currentOccur = tokens.get(tokenBuffer.toString());
+			tokens.replace(tokenBuffer.toString(), currentOccur + 1);
+		} else {
+			tokens.put(tokenBuffer.toString(), 1);
+		}
+		clearBuffer();
+	}
+	
+	private void clearBuffer() {
+		tokenBuffer.delete(0,  tokenBuffer.length());
+	}
+	
+	private boolean tokenExists() {
+		return tokens.containsKey(tokenBuffer.toString());
+	}
+	
 }

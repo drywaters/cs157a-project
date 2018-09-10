@@ -13,6 +13,7 @@ public class FrequencyCalculator implements Callable<HashMap<String, Double>>{
 	FrequencyCalculator(HashMap<String, Integer> tokenFreqs, HashMap<String, Integer> docFreqs) {
 		this.tokenFreqs = tokenFreqs;
 		this.docFreqs = docFreqs;
+		finalFreqs = new HashMap<String, Double>();
 	}
 
 	@Override

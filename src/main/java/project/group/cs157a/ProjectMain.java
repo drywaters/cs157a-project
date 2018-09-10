@@ -18,6 +18,11 @@ public class ProjectMain {
 		// Commented out DB connection for testing concurrent token loading
 //		DatabaseConnector dc = new DatabaseConnector();
 //		dc.createDatabase();
+//		dc.createDatabase();
+//		dc.createTable();
+//		dc.getTable();
+//		dc.insertData(1, "test", 2);
+//		dc.getTable();
 //		dc.killConnection();
 //		
 		

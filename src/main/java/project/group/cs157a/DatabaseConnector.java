@@ -22,6 +22,7 @@ public class DatabaseConnector {
 	DatabaseConnector() {
 		try {
 			conn = DriverManager.getConnection(DB_URL, USER_NAME, PASSWORD);
+			conn.setAutoCommit(false);
 		} catch (SQLException ex) {
 			System.out.println("SQLException: " + ex.getMessage());
 		}
@@ -109,6 +110,7 @@ public class DatabaseConnector {
 		// 1 | token2 | 1.230
 		// 2 | token1 | 0.234
 		int documentId = (int) Math.floor(freq.get("DOCUMENT NUMBER"));
+		int count = 0;
 		freq.remove("DOCUMENT NUMBER");
 
 		PreparedStatement ps = null;
@@ -119,6 +121,9 @@ public class DatabaseConnector {
 				ps.setString(2, entry.getKey());
 				ps.setDouble(3,  entry.getValue());
 				ps.addBatch();
+				if(++count % 1000 == 0){
+					ps.executeBatch();
+				}
 			}
 			ps.executeBatch();
 		} catch (SQLException e) {

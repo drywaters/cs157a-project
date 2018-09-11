@@ -17,6 +17,7 @@ public class DatabaseConnector {
 	private static final String USER_NAME = "root";
 	private static final String PASSWORD = "";
 	private static final String DB_URL = "jdbc:mysql://localhost?rewriteBatchedStatements=true";
+	private static final int BATCH_SIZE = 1000;
 
 	// Create a connection
 	DatabaseConnector() {
@@ -121,7 +122,7 @@ public class DatabaseConnector {
 				ps.setString(2, entry.getKey());
 				ps.setDouble(3,  entry.getValue());
 				ps.addBatch();
-				if(++count % 1000 == 0){
+				if(++count % BATCH_SIZE == 0){
 					ps.executeBatch();
 				}
 			}

@@ -16,7 +16,7 @@ public class DatabaseConnector {
 	private static final String DATABASE_NAME = "cs157a_project";
 	private static final String USER_NAME = "root";
 	private static final String PASSWORD = "";
-	private static final String DB_URL = "jdbc:mysql://localhost";
+	private static final String DB_URL = "jdbc:mysql://localhost?rewriteBatchedStatements=true";
 
 	// Create a connection
 	DatabaseConnector() {
@@ -119,8 +119,8 @@ public class DatabaseConnector {
 				ps.setString(2, entry.getKey());
 				ps.setDouble(3,  entry.getValue());
 				ps.addBatch();
-				ps.executeBatch();
 			}
+			ps.executeBatch();
 		} catch (SQLException e) {
 			System.out.println("Ran into an unexpected error when inserting Data: " + e.getMessage());
 			e.printStackTrace();

@@ -41,6 +41,8 @@ public class TokenTest {
 						tokenBuffer.append(currentChar);
 					} else if (currentCharValue > 64 && currentCharValue < 91) { // Capital letter
 						tokenBuffer.append(currentChar);
+					} else if (currentCharValue == 10) {
+						continue; 
 					} else {
 						addSpecialCharacter(currentChar);
 					}

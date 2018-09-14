@@ -10,13 +10,14 @@ import org.apache.commons.io.IOUtils;
 
 public class Tokenizer implements Callable<HashMap<String, Integer>> {
 
-	private int fileNumber = 0;
-	private int totalTokens = 0;
+	private int fileNumber;
+	private int totalTokens;
 	private HashMap<String, Integer> tokens;
 	private StringBuffer tokenBuffer;
 
 	Tokenizer(int fileNumber) {
 		this.fileNumber = fileNumber;
+		this.totalTokens = 0;
 		this.tokenBuffer = new StringBuffer(10);
 	}
 
@@ -28,6 +29,7 @@ public class Tokenizer implements Callable<HashMap<String, Integer>> {
 		tokens.put("DOCUMENT NUMBER", this.fileNumber);
 
 		try (InputStream file = new FileInputStream("./files/Data_" + this.fileNumber + ".txt")) {
+//		try (InputStream file = new FileInputStream("./tokenTestData/TT20")) {
 			String content = IOUtils.toString(file, Charset.defaultCharset());
 			
 			for (int i = 0; i < content.length(); i++) {
@@ -41,16 +43,8 @@ public class Tokenizer implements Callable<HashMap<String, Integer>> {
 					tokenBuffer.append(currentChar);
 				} else if (currentCharValue > 64 && currentCharValue < 91) { 	// Capital letter
 					tokenBuffer.append(currentChar);
-				} else if (currentCharValue > 57 && currentCharValue < 65) {  // Second group of special characters
+				} else { 
 					addSpecialCharacter(currentChar);
-				} else if (currentCharValue > 90 && currentCharValue < 97) {  // 3rd group of special characters
-					addSpecialCharacter(currentChar);
-				} else if (currentCharValue > 32 && currentCharValue < 48) { // First group of special characters
-					addSpecialCharacter(currentChar);
-				} else if (currentCharValue > 122 && currentCharValue < 127) { // 4th group of special characters
-					addSpecialCharacter(currentChar);
-				} else {
-					checkBuffer();
 				}
 			}
 			
@@ -64,7 +58,7 @@ public class Tokenizer implements Callable<HashMap<String, Integer>> {
 	// add special characters to tokens
 	private void addSpecialCharacter(char token) {
 		checkBuffer();
-		tokenBuffer.append(token);
+		tokenBuffer.append((int)token);
 		addToken();
 	}
 	

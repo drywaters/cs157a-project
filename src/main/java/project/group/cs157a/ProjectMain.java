@@ -11,7 +11,7 @@ import java.util.concurrent.Future;
 
 public class ProjectMain {
 
-	public static final int NUMBER_OF_FILES = 1;
+	public static final int NUMBER_OF_FILES = 10;
 
 	public static void main(String[] args) {
 

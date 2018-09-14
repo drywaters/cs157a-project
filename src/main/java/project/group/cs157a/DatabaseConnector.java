@@ -23,7 +23,6 @@ public class DatabaseConnector {
 	DatabaseConnector() {
 		try {
 			conn = DriverManager.getConnection(DB_URL, USER_NAME, PASSWORD);
-			conn.setAutoCommit(false);
 		} catch (SQLException ex) {
 			System.out.println("SQLException: " + ex.getMessage());
 		}
@@ -83,6 +82,7 @@ public class DatabaseConnector {
 			st.executeUpdate(useDatabase);
 			st.executeUpdate(drop);
 			st.executeUpdate(table);
+			
 			System.out.println("Successfully created table");
 		} catch (SQLException e) {
 			System.out.println("Unable to create table: " + e.getMessage());
@@ -113,7 +113,7 @@ public class DatabaseConnector {
 		int documentId = (int) Math.floor(freq.get("DOCUMENT NUMBER"));
 		int count = 0;
 		freq.remove("DOCUMENT NUMBER");
-
+		
 		PreparedStatement ps = null;
 		try {
 			ps = conn.prepareStatement("INSERT INTO project VALUES (?, ?, ?)");

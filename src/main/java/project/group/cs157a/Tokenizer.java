@@ -10,13 +10,14 @@ import org.apache.commons.io.IOUtils;
 
 public class Tokenizer implements Callable<HashMap<String, Integer>> {
 
-	private int fileNumber = 0;
-	private int totalTokens = 0;
+	private int fileNumber;
+	private int totalTokens;
 	private HashMap<String, Integer> tokens;
 	private StringBuffer tokenBuffer;
 
 	Tokenizer(int fileNumber) {
 		this.fileNumber = fileNumber;
+		this.totalTokens = 0;
 		this.tokenBuffer = new StringBuffer(10);
 	}
 
@@ -27,8 +28,8 @@ public class Tokenizer implements Callable<HashMap<String, Integer>> {
 		tokens.put("TOTAL TOKENS", 0);
 		tokens.put("DOCUMENT NUMBER", this.fileNumber);
 
-//		try (InputStream file = new FileInputStream("./files/Data_" + this.fileNumber + ".txt")) {
-		try (InputStream file = new FileInputStream("./tokenTestData/TT20")) {
+		try (InputStream file = new FileInputStream("./files/Data_" + this.fileNumber + ".txt")) {
+//		try (InputStream file = new FileInputStream("./tokenTestData/TT20")) {
 			String content = IOUtils.toString(file, Charset.defaultCharset());
 			
 			for (int i = 0; i < content.length(); i++) {
@@ -49,7 +50,6 @@ public class Tokenizer implements Callable<HashMap<String, Integer>> {
 			
 			tokens.put("TOTAL TOKENS", totalTokens);
 
-			System.out.println(tokens);
 			file.close();
 			return tokens;
 		}
@@ -58,7 +58,6 @@ public class Tokenizer implements Callable<HashMap<String, Integer>> {
 	// add special characters to tokens
 	private void addSpecialCharacter(char token) {
 		checkBuffer();
-		System.out.println("Token is: " + token + "  With value: " + (int) token);
 		tokenBuffer.append((int)token);
 		addToken();
 	}

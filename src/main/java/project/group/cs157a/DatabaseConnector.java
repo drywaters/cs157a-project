@@ -1,5 +1,6 @@
 package project.group.cs157a;
 
+import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -15,7 +16,7 @@ public class DatabaseConnector {
 	private Connection conn = null;
 	private static final String DATABASE_NAME = "cs157a_project";
 	private static final String USER_NAME = "root";
-	private static final String PASSWORD = "";
+	private static final String PASSWORD = "password";
 	private static final String DB_URL = "jdbc:mysql://localhost?rewriteBatchedStatements=true";
 	private static final int BATCH_SIZE = 1000;
 
@@ -165,8 +166,29 @@ public class DatabaseConnector {
 			e.printStackTrace();
 		}
 	}
+	
+	public void printTFIDF() {
+		// Prints out the table
+		try {
+			String select = "SELECT * FROM project ORDER BY tfidf DESC";
+			Statement st = conn.createStatement();
+			ResultSet rs = st.executeQuery(select);
+			while (rs.next()) {
+				int id = rs.getInt("doc_id");
+				String strToken = rs.getString("token");
+				String tfidf = rs.getString("tfidf");
+				System.out.format("%s, %s, %s\n", id, strToken, tfidf);
+			}
+		} catch (SQLException e) {
+			System.out.println("An error occured when attempting to select the table: " + e.getMessage());
+			e.printStackTrace();
+		} catch (Exception e) {
+			System.out.println("An error occured when attempting to select the table: " + e.getMessage());
+			e.printStackTrace();
+		}
+	}
 
-	private void killConnection() {
+	public void killConnection() {
 		try {
 			this.conn.close();
 		} catch (SQLException e) {
@@ -181,6 +203,5 @@ public class DatabaseConnector {
 		for (int i = 0; i < ProjectMain.NUMBER_OF_FILES; i++) {
 			insertData(tokenFreq.get(i));
 		}
-		killConnection();
 	}
 }

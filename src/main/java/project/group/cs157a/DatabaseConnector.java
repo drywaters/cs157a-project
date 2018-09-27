@@ -174,7 +174,7 @@ public class DatabaseConnector {
 			Statement st = conn.createStatement();
 			ResultSet rs = st.executeQuery(select);
 			while (rs.next()) {
-				int id = rs.getInt("doc_id");
+				String id = rs.getString("doc_id");
 				String strToken = rs.getString("token");
 				String tfidf = rs.getString("tfidf");
 				System.out.format("%s, %s, %s\n", id, strToken, tfidf);

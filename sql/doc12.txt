@@ -1,0 +1,3 @@
+select dependent_name, lname
+from employee, dependent
+where ssn = depssn;

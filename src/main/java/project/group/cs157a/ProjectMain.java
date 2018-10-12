@@ -11,7 +11,7 @@ import java.util.concurrent.Future;
 
 public class ProjectMain {
 
-	public static final int NUMBER_OF_FILES = 10;
+	public static final int NUMBER_OF_FILES = 55;
 
 	public static void main(String[] args) {
 
@@ -42,27 +42,22 @@ public class ProjectMain {
 				e.printStackTrace();
 			}
 		}
-
-		// Display the number of tokens per document
-//		for (int i = 0; i < NUMBER_OF_FILES; i++) {
-//			System.out.println("Total tokens # for document " + i + " is " + (tokenFreq.get(i).get("TOTAL TOKENS") - 2));
-//		}
 		
 		// Future returned values for final frequency calculation
-		List<Future<HashMap<String, Double>>> futureValues2 = new ArrayList<>(NUMBER_OF_FILES);
+		List<Future<HashMap<String, Token>>> futureValues2 = new ArrayList<>(NUMBER_OF_FILES);
 
 		// Calculate DF from list of token frequencies
 		HashMap<String, Integer> documentFrequency = DocumentFrequency.calculateDF(tokenFreq);
 
 		// Calculate Frequency for each Document
-		List<HashMap<String, Double>> finalTokenFreq = new ArrayList<>(NUMBER_OF_FILES);
-		Callable<HashMap<String, Double>> frequencyCalculators[] = new FrequencyCalculator[NUMBER_OF_FILES];
+		List<HashMap<String, Token>> finalTokenFreq = new ArrayList<>(NUMBER_OF_FILES);
+		Callable<HashMap<String, Token>> frequencyCalculators[] = new FrequencyCalculator[NUMBER_OF_FILES];
 		for (int i = 0; i < NUMBER_OF_FILES; i++) {
 			frequencyCalculators[i] = new FrequencyCalculator(tokenFreq.get(i), documentFrequency);
 			futureValues2.add(executor.submit(frequencyCalculators[i]));
 		}
 		
-		for (Future<HashMap<String, Double>> tokens : futureValues2) {
+		for (Future<HashMap<String, Token>> tokens : futureValues2) {
 			try {
 				finalTokenFreq.add(tokens.get());
 			} catch (InterruptedException | ExecutionException e) {
@@ -72,7 +67,7 @@ public class ProjectMain {
 		
 		// Received all threads, shutdown
 		executor.shutdown();
-
+		
 		DatabaseConnector dc = new DatabaseConnector();
 		dc.saveData(finalTokenFreq);
 		

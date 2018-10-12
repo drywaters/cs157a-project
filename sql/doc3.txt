@@ -1,0 +1,6 @@
+select fname, lname
+from employee
+where exists (select *
+ from works_on
+ where ssn = wssn and pno < 15
+ and hours >= 20);

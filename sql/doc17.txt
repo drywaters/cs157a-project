@@ -1,0 +1,2 @@
+For each employee, list his/her ssn & names of projects that he/she is working on.
+(> 1 solutions: in, exists, equal join)

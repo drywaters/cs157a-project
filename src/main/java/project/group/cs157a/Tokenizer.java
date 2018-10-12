@@ -28,7 +28,8 @@ public class Tokenizer implements Callable<HashMap<String, Integer>> {
 		tokens.put("TOTAL TOKENS", 0);
 		tokens.put("DOCUMENT NUMBER", this.fileNumber);
 
-		try (InputStream file = new FileInputStream("./files/Data_" + this.fileNumber + ".txt")) {
+		try (InputStream file = new FileInputStream("./sql/doc" + this.fileNumber + ".txt")) {
+//		try (InputStream file = new FileInputStream("./files/Data_" + this.fileNumber + ".txt")) {
 //		try (InputStream file = new FileInputStream("./tokenTestData/TT20")) {
 			String content = IOUtils.toString(file, Charset.defaultCharset());
 			

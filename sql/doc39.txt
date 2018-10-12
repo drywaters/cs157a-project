@@ -1,0 +1,5 @@
+select dnum
+from project
+where pnumber in (select pno
+ from works_on
+ where pno in (1, 2, 30));

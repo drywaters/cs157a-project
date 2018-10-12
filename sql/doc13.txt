@@ -1,0 +1,2 @@
+Get name of each department which has a location in Houston. ( > 1 solutions:
+exists, in, equal join)

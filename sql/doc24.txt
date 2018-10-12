@@ -1,0 +1,6 @@
+select fname, lname
+from employee
+where ssn in (select depssn
+ from dependent
+where depssn = ssn
+ and fname = dependent_name);

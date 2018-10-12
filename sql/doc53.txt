@@ -1,0 +1,3 @@
+Retrieve the first and last names of employees who work in Administration
+department and are supervised under James Borg.
+(> 1 solutions: equal join, in, =, exists)

@@ -76,8 +76,9 @@ public class DatabaseConnector {
 			st = conn.createStatement();
 			String useDatabase = "USE cs157a_project";
 			String drop = "DROP TABLE IF EXISTS project";
-			String table = "CREATE TABLE project " + "(doc_id INTEGER, " + "token VARCHAR(255) BINARY, "
-					+ "tfidf DECIMAL(20, 15), " + "PRIMARY KEY (doc_id, token))";
+			String table = "CREATE TABLE project (doc_id INTEGER, token VARCHAR(255) BINARY,"
+					+ "tf DECIMAL(20, 15), idf DECIMAL(20,15), tfidf DECIMAL(20, 15), " 
+					+ "PRIMARY KEY (doc_id, token))";
 
 			st.executeUpdate(useDatabase);
 			st.executeUpdate(drop);
@@ -102,25 +103,27 @@ public class DatabaseConnector {
 		}
 	}
 
-	private void insertData(HashMap<String, Double> freq) {
+	private void insertData(HashMap<String, Token> freq) {
 		// Insert the calculated table data into the correct column
 		// Should look like ex.
-		// DocId | Token | TFiDF #
-		// -------------------------
-		// 1 | token1 | 0.223
-		// 1 | token2 | 1.230
-		// 2 | token1 | 0.234
-		int documentId = (int) Math.floor(freq.get("DOCUMENT NUMBER"));
+		// doc_id | token | tf | idf | tfidf
+		// ----------------------------------
+		// 1 | token1 | 1.23   | 2.23| 0.223
+		// 1 | token2 | 1.23   | 2.23| 0.223
+		// 2 | token1 | 1.23   | 2.23| 0.223
+		int documentId = freq.get("DOCUMENT NUMBER").getDocID();
 		int count = 0;
 		freq.remove("DOCUMENT NUMBER");
 		
 		PreparedStatement ps = null;
 		try {
-			ps = conn.prepareStatement("INSERT INTO project VALUES (?, ?, ?)");
-			for (Map.Entry<String, Double> entry : freq.entrySet()) {
+			ps = conn.prepareStatement("INSERT INTO project VALUES (?, ?, ?, ?, ?)");
+			for (Map.Entry<String, Token> entry : freq.entrySet()) {
 				ps.setInt(1,  documentId);
 				ps.setString(2, entry.getKey());
-				ps.setDouble(3,  entry.getValue());
+				ps.setDouble(3,  entry.getValue().getTf());
+				ps.setDouble(4,  entry.getValue().getIdf());
+				ps.setDouble(5,  entry.getValue().getTfidf());
 				ps.addBatch();
 				if(++count % BATCH_SIZE == 0){
 					ps.executeBatch();
@@ -144,27 +147,6 @@ public class DatabaseConnector {
 			}
 		}
 	}
-
-	public void getTable() {
-		// Prints out the table
-		try {
-			String select = "SELECT * FROM project";
-			Statement st = conn.createStatement();
-			ResultSet rs = st.executeQuery(select);
-			while (rs.next()) {
-				int id = rs.getInt("doc_id");
-				String strToken = rs.getString("token");
-				double tfidf = rs.getInt("tfidf");
-				System.out.format("%s, %s, %s\n", id, strToken, tfidf);
-			}
-		} catch (SQLException e) {
-			System.out.println("An error occured when attempting to select the table: " + e.getMessage());
-			e.printStackTrace();
-		} catch (Exception e) {
-			System.out.println("An error occured when attempting to select the table: " + e.getMessage());
-			e.printStackTrace();
-		}
-	}
 	
 	public void printTFIDF() {
 		// Prints out the table
@@ -175,8 +157,10 @@ public class DatabaseConnector {
 			while (rs.next()) {
 				String id = rs.getString("doc_id");
 				String strToken = rs.getString("token");
+				String tf = rs.getString("tf");
+				String idf = rs.getString("idf");
 				String tfidf = rs.getString("tfidf");
-				System.out.format("%s, %s, %s\n", id, strToken, tfidf);
+				System.out.format("%s, %s, %s, %s, %s\n", id, strToken, tf, idf, tfidf);
 			}
 		} catch (SQLException e) {
 			System.out.println("An error occured when attempting to select the table: " + e.getMessage());
@@ -196,7 +180,7 @@ public class DatabaseConnector {
 		}
 	}
 
-	public void saveData(List<HashMap<String, Double>> tokenFreq) {
+	public void saveData(List<HashMap<String, Token>> tokenFreq) {
 		createDatabase();
 		createTable();
 		for (int i = 0; i < ProjectMain.NUMBER_OF_FILES; i++) {

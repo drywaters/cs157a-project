@@ -1,0 +1,3 @@
+select lname
+from employee, works_on
+where pno <> 1 and ssn = wssn;

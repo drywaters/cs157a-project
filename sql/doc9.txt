@@ -1,0 +1,5 @@
+select lname
+from employee
+where ssn not in (select wssn
+ from works_on
+ where pno = 1);

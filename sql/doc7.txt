@@ -1,0 +1,3 @@
+Get last name of each employee who does not work on
+ project #1. Assume every employee works on at least
+one project.

@@ -1,0 +1,3 @@
+select distinct fname, lname
+from employee, dependent
+where ssn = depssn and dependent.bdate like '__67%';

@@ -1,0 +1,2 @@
+Note: 'pno in (1, 2, 30)' can be replaced by
+ 'pno = 1 or pno = 2 or pno = 30'

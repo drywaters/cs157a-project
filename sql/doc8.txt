@@ -1,0 +1,6 @@
+select lname
+from employee
+where not exists
+(select *
+ from works_on
+ where wssn = ssn and pno = 1);

@@ -1,0 +1,1 @@
+Get department name & the average salary of all employees in each department.

@@ -1,0 +1,5 @@
+select dno
+from employee
+where ssn in (select WSSN
+ from works_on
+ where pno in (1, 2, 30));

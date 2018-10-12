@@ -1,0 +1,2 @@
+For each employee, list the first and last name of his/her dependent(s).
+(> 1 solutions: in, exists, equal join)

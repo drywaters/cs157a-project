@@ -1,0 +1,3 @@
+Find social security number and last name of the employee who has the highest
+salary in his/her department.
+(> 1 solutions: exists, =)

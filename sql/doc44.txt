@@ -1,0 +1,5 @@
+select ssn
+from employee
+where (select count(*)
+ from works_on
+ where ssn = wssn) >= 3;

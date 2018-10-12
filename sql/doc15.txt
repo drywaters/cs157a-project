@@ -1,0 +1,2 @@
+Get first & last name of the manager in the Research department. ( > 1 solutions:
+exists, in, equal join)

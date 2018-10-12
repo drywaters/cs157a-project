@@ -1,0 +1,4 @@
+select dno
+from employee
+group by dno
+having avg(salary) > 30000;

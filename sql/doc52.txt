@@ -1,0 +1,4 @@
+select dname, bdate
+from employee, department
+where dno = dnumber
+order by dname, bdate;

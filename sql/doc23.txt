@@ -1,0 +1,3 @@
+Get first & last name of each employee who has a dependent with the same first
+name as the employee.
+( > 1 solutions: exists, in, equal join)

@@ -1,0 +1,4 @@
+select dname, avg(salary)
+from department, employee
+where dnumber = dno
+group by dname;

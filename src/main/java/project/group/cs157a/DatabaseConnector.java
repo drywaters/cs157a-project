@@ -1,6 +1,5 @@
 package project.group.cs157a;
 
-import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -16,7 +15,7 @@ public class DatabaseConnector {
 	private Connection conn = null;
 	private static final String DATABASE_NAME = "cs157a_project";
 	private static final String USER_NAME = "root";
-	private static final String PASSWORD = "password";
+	private static final String PASSWORD = "";
 	private static final String DB_URL = "jdbc:mysql://localhost?rewriteBatchedStatements=true";
 	private static final int BATCH_SIZE = 1000;
 

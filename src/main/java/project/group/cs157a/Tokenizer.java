@@ -39,12 +39,10 @@ public class Tokenizer implements Callable<HashMap<String, Integer>> {
 				
 				if (currentCharValue > 96 && currentCharValue < 123) {  // Lower case letter
 					tokenBuffer.append(currentChar);
-				} else if (currentCharValue > 47 && currentCharValue < 58) {  // Number
-					tokenBuffer.append(currentChar);
-				} else if (currentCharValue > 64 && currentCharValue < 91) { 	// Capital letter
+				}  else if (currentCharValue > 64 && currentCharValue < 91) { 	// Capital letter
 					tokenBuffer.append(currentChar);
 				} else { 
-					addSpecialCharacter(currentChar);
+					nonAlphabet();
 				}
 			}
 			
@@ -55,11 +53,10 @@ public class Tokenizer implements Callable<HashMap<String, Integer>> {
 		}
 	}
 	
-	// add special characters to tokens
-	private void addSpecialCharacter(char token) {
+	// clear buffer, add token that is there
+	// if character is not A-Za-z
+	private void nonAlphabet() {
 		checkBuffer();
-		tokenBuffer.append((int)token);
-		addToken();
 	}
 	
 	private void checkBuffer() {

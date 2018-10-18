@@ -25,11 +25,7 @@ public class FrequencyCalculator implements Callable<HashMap<String, Token>> {
 		tokenFreqs.remove("DOCUMENT NUMBER");
 		tokenFreqs.remove("TOTAL TOKENS");
 		for (Map.Entry<String, Integer> entry : tokenFreqs.entrySet()) {
-
-			if (entry.getKey().equals("More")) {
-				System.out.println("Document " + documentID + ": " + entry.getValue());
-			}
-			
+		
 			finalFreqs.put(entry.getKey(), new Token(documentID, entry.getKey()));
 			Token token = finalFreqs.get(entry.getKey());
 			token.setTf(entry.getValue() / (double) totalTokens);

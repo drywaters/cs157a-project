@@ -1,130 +1,672 @@
-An Effective Mining Algorithm for Profit Mining 
- Yu-Lung Hsieh Dept. of Information Engineering and Computer Science, Feng Chia University, Taiwan yuhlong.hsieh@gmail.com Don-Lin Yang and Fang Rong Hsu Dept. of Information Engineering and Computer Science, Feng Chia University, Taiwan dlyang@fcu.edu.tw, frhsu@fcu.edu.tw   
- Association rule mining can be used to discover interesting rules from large databases easily for better decision making in most real world applications except the financial market.  This is because the investors are interested in high profit and low risk trading results more than in those of high confidence and high support.  Based on a 
+Srivatsan Laxman Microsoft Research Labs India slaxman@microsoft.com Prasad Naldurg prasadn@microsoft.com Raja Sripada raja.sripada@gmail.com Ramarathnam Venkatesan venkie@microsoft.com 
+Frequent itemsets mining is a popular framework for pattern discovery In this framework given a database of customer transactions the task is to unearth all patterns in the form of sets of items appearing in a sizable number of transactions We present a class of models called Itemset Generating Models or IGMs that can be used to formally connect the process of frequent itemsets discovery with the learning of generative models IGMs are speci\fed using simple probability mass functions over the space of transactions peaked at speci\fc sets of items and uniform everywhere else Under such a connection it is possible to rigorously associate higher frequency patterns with generative models that have greater data likelihoods This enables a generative model-learning interpretation of frequent itemsets mining More importantly it facilitates a statistical signi\fcance test which prescribes the minimum frequency needed for a pattern to be considered interesting We illustrate the e\013ectiveness of our analysis through experiments on standard benchmark data sets 
+data mining The ideas presented in this paper have a similar ravor applied to the framework of frequent itemsets discovery in transaction databases The rest of the paper is organized as follows Sec 2 de\fnes Itemsets Generating Models and presents the main results of the paper The generative modellearning interpretation is discussed in Sec 3 Sec 4 describes the statistical signi\fcance test for itemsets Simulation experiments are described in Sec 5 and Sec 6 presents conclusions 
+1 Introduction 
+Frequent itemsets mining is a popular framework for pattern discovery Originally proposed for market basket analysis t he idea of disco v eri ng frequen t item sets and deducing association rules has since gained wide applicability in man y appl icat io n dom ains This paper presents a formal connection between frequent itemsets mining and learning of generative models for the data in the form of simple probability mass functions over the space of transactions We de\fne a class of models called Itemset Generating Models or IGMs Each IGM generates transactions by embedding a speci\fc pattern in a transaction according to a probability distribution that is peaked at the pattern in question and is uniform everywhere else In this manner each itemset is associated with a speci\fc IGM We prove that given any two itemsets the IGM associated with the more frequent itemset is the one more likely to generate the database of transactions Such a connection allows for a generative model-learning interpretation of the frequent itemsets mining process More importantly it facilitates a formal statistical signi\fcance test which prescribes the minimum frequency needed to regard an itemset as signi\fcant This is useful because frequency threshold is a user-de\fned parameter that can be very hard to fx in typical applications Simulation experiments show that our theoretically motivated thresholds are e\013ective in discovering patterns embedded in the data In general connecting pattern discovery frameworks with generative model-learning is a useful idea There is a growing need for uni\fed frameworks in data mining  that ca n si m ult aneo usl y exploi t e\016ci en t co un ting procedures in pattern discovery with the rigorous statistical basis of generative model-learning Motivated by such considerations in a fo rm al connection was established between pattern discovery and model-learning in the context of 
+temporal 
+Connections between mining frequent itemsets and learning generative models 
 Abstract 
-Keywords: financial data mining, association rule, intertransaction mining, profit mining, risk, win rate, interday trading 
- I NTRODUCTION  
-working model of profit mining, we propose an effective algorithm for investors to find trading rules that include information on profit, risk and win rate. This mining approach works well not only in the stock market, but also in the futures and other markets  
-I AR\ mining [1 s be e n us e d intensively in knowledge discovery. Especially, intertransaction mining \(ITM\[4  7  of as s o cia ti on ru les a r e v e r y  popular for investors to find rules like when the price of stock ABC goes up, then the price of stock XYZ will go up the next day with 70% of confidence.é This rule indicates 
- 
-Association rule 
- 
-that one may win 7 out of 10 times. Assume that an investor gets 1 for each win and lose 3 dollars otherwise. We can calculate the total loss of 2 dollars from 10 trades, which is 7 1 Ö 3 * 3 = -2 dollars. This result illustrates the fact that high confidence does not mean high profit Recently, the utility mining \(UM\[2  8   
-uses a sales perspective to reveal the profit that is important to the miner UM shows that traditional statistical correlations may not measure how useful an itemset is in accordance with a userês preference. Although utility mining solves the problem from the sales perspective, the problem of investors in the financial market still exists Profit Mining \(PM\ [6  pr ov i d e s an al t e rn a t i v e s o l u t i on t o  meet the requirements of the investors in the financial market PM considers the investorês expected mining results which 
-Buy stock XYZ when event \(signal\ B occurs and sell stock XYZ when event \(signal\ S occurs, then you have profit risk and win rate To find the profit rules more effectively, we propose a straightforward profit mining algorithm from an interday model in this paper II R ELATED W ORK  Ref. [1  proposed the association rule mining for finding the rule of itemsets with high frequency and confidence from a transactional database. Lu, Han and Feng  pr e s e nt e d t h e  inter-transaction association rules for mining the timing of stock prices going up or down. Zhang and Zhao 
-P R W 
- 
-include profit, risk and win rate. The resultant profit rules has the form   
-We used the ITM to mine stock data and study upstream and downstream causal relationship in stock market To improve the usage of data mining in the financial market, [6  proposed Profit Mining where a simple interday model is described in the next section III P ROBLEM D EFINITION  
-revealed çthe fact that data mining in finance is involved with applications, data, and domain models leads to a conceptual framework  Let    be a set of market positions and   
-A Trading Model Ö InterDay Model 
+Seventh IEEE International Conference on Data Mining 1550-4786/07 $25.00 © 2007 IEEE DOI 10.1109/ICDM.2007.83 563 
+Seventh IEEE International Conference on Data Mining 1550-4786/07 $25.00 © 2007 IEEE DOI 10.1109/ICDM.2007.83 563 
+Seventh IEEE International Conference on Data Mining 1550-4786/07 $25.00 © 2007 IEEE DOI 10.1109/ICDM.2007.83 563 
+Seventh IEEE International Conference on Data Mining 1550-4786/07 $25.00 © 2007 IEEE DOI 10.1109/ICDM.2007.83 571 
+Seventh IEEE International Conference on Data Mining 1550-4786/07 $25.00 © 2007 IEEE DOI 10.1109/ICDM.2007.83 571 
+
+
+003 
+itemset 
  
  
-MP None Long Short TC Buy 
-N R 
-002 002 002 
+000 
   
-we limit the values of to 1 
-Sell be a set of trading commands Let    be a form of trading order where qty  Without loss of generality We say that is a buy-order BO\ where tc or sell-order \(SO\where   Let    
-qty 
-TO tc qty price tc TC price TO Buy tc Sell POS mp hqty 
-R 
-002 002 002 
+022 
+N 
+000 000 
+j A 0  000 00 000 A 
+1 1 
+T 
  
- Figure 1 
-be a form of position where   0,1 We say that is in a close position, where   0 and 0 Similarly is in a long position when  and is in a short position when    
+013 
+013 013 
+j 
+1 1 
+ is de\fned as the collection of IGMs out of  The IGM associated with itemset  
+iid 
  
-hp ri ce The state machine of interday model 
-mp MP hqty hprice POS mp None hqty hprice POS mp Long POS mp Short 
- Let a hold position \(HPOS\ represent a position of investor being hold before or after trading. Here HPOS is a kind of POS. The 
-0 at time 1 to 1 1  
-HPOS t None t HPOS t HPOS t HPOS t TO t HPOS t 
-0 is a close position  0, 0  At each time when the BP or SP occurs, the BO or SO is generated to change from The action changeé is called offset. We define an operator ç-é to indicate the operation of offset. The equations are as follows    
-2012 International Symposium on Computer, Consumer and Control 978-0-7695-4655-1/12 $26.00 © 2012 IEEE DOI 10.1109/IS3C.2012.36 106 
-2012 International Symposium on Computer, Consumer and Control 978-0-7695-4655-1/12 $26.00 © 2012 IEEE DOI 10.1109/IS3C.2012.36 106 
-
-
-1 is called a complete trading order \(CTO\if there is a 1  2  1  2  n Let 1 0 1 11 1 1  1  1  1 6 if 1  
-TABLE I T RANSACTIONAL DATABASE TDB  
-HPOS t mp Long TO t mp Buy t HPOS t mp Short TO t mp Sell t HPOS t hqty TO t qty t HPOS t hprice TO t price t B Transactional Database maxspan w maxspan M1 M2 M7 M1 TID TID M2 TID TID M2 a b a c b c a b c a c a c C Trading Rule TP BP SP TP BF SF BF SF D Trading Results - Profit DB Begin DB End NetProfit NP NetProfit NP Profit T j T i fee mp i Long T i T j fee mp i Short Profit NP i, j E Trading Results - Risk CLoss DD RU CLoss CLoss t CLoss t CLoss NP t T i T j T i T j i j T i T j i j T i T j T i T j T i T j T i T j T i T j TID DD t CLoss t T t DB End T t MP Long t T t DB End NP i,j 
-HPOS TO t TO t TO t HPOS t-1 HPOS t E e e e m tr tr tr tr j tid j items j price j tid j tid j items j E price j TID ItemSet Price TID ItemSet Price e e n e i e n i e w e n w w maxspan i w w c TID c TID a c TID a c TID TI D a c CLoss 0 CLoss t CLoss NP t DD t CLoss t-2 T t T t T t MP t Long t T t Null 
- 1     1 minP  1  
-003 002 004 002 002 005 005 
-The equation of operator ç-é works on elements of  and which are defined as below  At time the trading order to change to  Let  be a set of items \(events or signals Let TDB be a transactional database which contains a set of transactions    a transaction where is a consecutive number and 0  and     shows an example of transactional database TDB\h three attributes  and  is a transaction ID possessing the time feature, in which the item set \(or event set\rading price being recorded at that time are and respectively Let pattern \(itemset\be a form of 0  1  1\} where is a user specified variable called and 1    The number in the parenthesis of 1\ is the interval which describes the distance from the base transaction 3 to the item in the extended transaction 2. Thus it has a distance value of -1 When the pattern 0 1\ccurs at 3, the trading price 500 of pattern 0 1\ is set at 3 \(base transaction\, not at 2. The pattern 0 1\curs at TID set = {3, 7} in the TDB of TABLE I where 0 and 0 if 0   minP  and 1 and    
-Computing the profit of trading rule using stock price vs trading time curve  
+0 
+034 
     
-t t 
- t 
-  
-  if   and 0   if   and 0    if 0    if 0                                  \(2   TABLE I The definition of a pattern in PM is similar to ITM [4   The value of  indicates the maximal number of transactions in the TDB containing the pattern. A sliding window consists of transactions, which are called megatransactions. For example, assuming 2 in TABLE I, there are 7 mega-transactions  and The mega-transaction contains transactions 1 and  2, the contains transactions 2 and 3, etc The mega-transaction has 5 patterns 0 0 0 1 0 1\d 0 0 1\  The pattern 0 1\ implies 0\ and 1\ are in the same mega-transaction  According to our trading model in Figure 1, we have two patterns BP and SP for determining the trading action. When BP and SP occur at the same time, there is a semantic ambiguity. Because the investor does not know which trading action to take, Buy or Sell? A new attribute trading priority \(TP\ is required to solve the problem. Then, we have the format of the trading rule   where     stands for Buy-First and stands for Sell-First Let and be two TIDs which represent the TIDs of the first and last transactions in TDB, respectively Let P be a function for getting the price at a specific TID denoted as P\(TID\. Figure 2 is used to explain the calculation of net-profit or e equations of   and of trading rule are as follows  P P 2 if  3 P P 2 if     000 4   Figure 2 To define the risk of trading rule, three variables are required: Consecutive-Loss aw-Down nd Run-Up Their initial and maximal values are all 0. The records the consecutive loss of net-profit by using the following equation  at time   5  Let and be two TIDs, where  We denote that  and are two trading orders and and are the locations of trading orders and respectively. Let minP  nd maxP  be two functions for getting the minimal and maximal prices from to where and        P 7 if and 0 and    
-R 
-107 
-107 
-
-
-The pseudo code of genPattern  V 
-T HE C OMBINATIONS OF T RADING R ULES U SING P ATTERNS X AND Y  B Y R ULE G ENERATOR  ft 
-005 005 006 006 002 002 006 006 004 004 007 010 004 004 006 004 004 002 005 011 005 005 006 
-1  2 P 1  1    1 P 1   1  if 0 0 if 1  1  2  2  1  1 2  2 1  1  2  2  1  1  2  2  1  1 0. We say that 1 0 1 0\ or 2\ere exists  1  1   1   1 For example 1  1  2  2  1  2  
-WinRate minProfit maxRisk minWinRate R Profit R Risk R WinRate R Profit R minProfit Risk R maxRisk WinRate R minWinRate minProfit R maxRisk R minWinRate 
-RU t CLoss t T t T t T t MP t Short t T t Null RU t CLoss t T t T t DB End MP t Short t T t DB End Risk t Risk t CLoss t DD t RU t Risk t Risk t F Trading Results - WinRate NP G Mining Results - Profit Rules PRM INER X x i x i x j i j j i j maxspan X k X X X x i k x i k x j i j k k a a a a a k k a c b X Y X Y Z X Y Z X Y Z X Y a a b b a b a b X x i x i x m i m Y y j y j y n j n X Y x i i i y i j j i m n i j X Y x y k x i i i y i j i i k x i k y j a b a b x i x i x m i m T T T n T n TID X X X Y Y X Y X Y X Y B oth X  Y  Rule 2 B oth Y  X  X  Y Rule 3 BF  X  Y  Rule 4 S F X  Y  X Y X Y BF  X  Y  Rule 6 SF X Y BF Y X S F Y  X   Let X X X X X X X minsup minsup PRMiner Algorithm minProfit maxRisk minWinRate minsup minWinRate minsup t i t i k 
-The variable is the ratio between the number of complete trading orders \(CTO\with net-profit > 0 and the total number of complete trading orders. The equation of WinRate is defined as below Let  and be user specified threshold values. We define a profit rule to be a trading rule with trading results    if     and   where      and 1   0 
-1\axP 8 if and 1 and     axP  9 if and 0 and     at time  max    0 and 0                                           \(10 Total # of CTOs with 0\/ \(Total # of CTOs 000h  100%                                                                             \(11  IV M INING A LGORITHM   Before describing our proposed profit mining algorithm called PRMiner \(PRofit Miner\e provide the following definitions and examples. A pattern is defined as  where 0, 0   Let shift  be a function to shift the pattern into      where  0. For a pattern 0\ TABLE I, there is a TIDSet 0\\, 7}. After shift 0\, 1\ we have a new pattern 1\ and its TIDSet 1\\4, 8 The number of items in a pattern is called the length of the pattern. A pattern of length is called pattern. For example, pattern 0 0 1\ is a 3-pattern. Let and be two patterns. Let join  be a function for joining the two patterns into a new pattern join  where     and t t  t For example: A pattern 0\ has TIDSet 0\\= {3, 7} and a pattern 0\s TIDSet 0 3, 5, 7, 9}. If the pattern 0\ joins with pattern 0\e have a new pattern 0 0\d its TIDSet is {3, 7 Let   d    two patterns. We say that  if    or 1     where  if \(1  1 such that    or 1    and 0 0 0 1 We say that an ITSet consists of a pattern \(ItemSet\d a TIDSet. The form of ITSet is   where    Definition 1: Let ft be a function for getting the first TID of a pattern There exists an ambiguity if ft    where is a pattern Definition 2: The function RuleGenerator  s used for generating the set of trading rules using patterns and  The generated rules are shown in TABLE II TABLE II  ft  Rule 1      and ft   Rule 5    Rule 7    Rule 8  be a pattern in TDB, we say that mtr s a set of mega-transactions containing pattern Let sup  defined as |mtr We say that is a frequent pattern, if sup   where is a user specified threshold value   1 We first specify the thresholds  and In our interday model we set 1 if 0, otherwise the 0 2 The algorithm scans TDB once, stores all of 1-patterns into the oneItemList and the price is stored in the PList. The price in a specific TID is gotten by using the function P m PList 3 We use genPattern \(Figure 3\o generate BP and SP which use the DFS strategy by joining and shifting the 1-pattern from oneItemList to get patterns 4 After the BP and SP are constructed, the trading rules are generated by RuleGenerator. Then these trading rules are used to do trading simulation without rescanning TDB, thus the trading result is acquired 5 Comparing the trading result with the mining threshold, the profit rules are collected   Figure 3 E XPERIMENTAL R ESULTS  The correctness of profit mining and the validation of the mining results are verified in the following experiments along with the measurement results of performance 
-  
-t k k k 
-  
-       
-108 
-108 
-
-
-     
-1 2 20 50 and 30%. After mining, the profit rule set is shown in TABLE III. The rule No. 1 shows the rule in which BP is equal to SP, the first TC is because the   It will lose money if the first TC is Although the BPs in rules No. 2 and No. 7 are identical as well as their SPs, their TPs are not the same such that the trading results are not identical In the second experiment, we use real data to mine profit rules. The real data set comes from the Taiwan Economic Journal \(TEJ h e r e da t a  o f  t h e fut ure s m a r k e t  i n  Taiwan is chosen. Our approach is applicable for both stock market and futures market. The date of source data ranges from 2005/1/3 to 2010/6/30 with a total of 1,362 days and the dataset contains 35,602,531 transactions. The data preprocess transforms the source data into DB with the form of TABLE I.  In this experiment, the source data is changed to K-minute time period data Min.\ where 0. The stock prices are transformed by indicator function SMA\(b\m TA-LIB  T h e i t e m s i n DB ar e a c q u i r ed b y t w o func t i o ns  cross-over and cross-under. We use four constants 3, 5, 8 and 11 as SMAês parameters, then 12 items are generated Two of important benchmarks are used for evaluating our rules: one is and strategy \(BHS\, the other one is and strategy \(SHS To acquire the result with higher the mining thresholds are set to 982 2290 30 4 and 2. After mining we have the minimal 23.44 and maximal 28.20 as shown in TABLE IV. The mined profit rules have good trading results that investors are interested in. The 30 Min DB is chosen as the TDB for showing the performance of running PRMiner in Figures 4, 5, and 6    Figure 4 C ONCLUSION  In this paper, we extended the research of Profit Mining model and proposed an effective algorithm for mining profit rules. Experiments were performed to show the effectiveness of our PRMiner algorithm. In data mining research, one expects to mine the knowledge of any kind that users might 
-  
-TABLE III M INING R ESULTS FROM T ABLE I   In the first experiment, TABLE I is used as our transactional DB. The mining parameters are set as follows TABLE IV C OMPARING THE ROI AMONG BHS  SHS AND P ROFIT M INING IN REAL TRANSACTIONAL DB   The performance of PRMiner on minProfit    Figure 5 The performance of PRMiner on maxRisk    Figure 6 The performance of PRMiner on minWinRate VI 
-The return of investment \(ROI is used as the profitability measurement  
-A First Experiment fee maxspan minProfit maxRisk minWinRate Buy TP BF Sell B Second Experiment K K buy hold sell hold ROIs minProfit maxRisk minWinRate fee maxspan ROI ROI 
+in 
+wp wp 
+N 
+034 
+003   
+013 
+samples according to Eq 3 Intuitively if 
+De\fnition 2 
+013 
+N 
+T 
+ and  The class of all IGMs obtained by considering all possible 
  
-109 
-109 
+T 
+013 
+M 
+of 
+z 
+      
+  with a fxed pattern probability parameter 
+020 
+000 
+    
+     T  A      A      A      t  034  034      T z 022      A 
+appearing in many transactions This makes IGMs a reasonable class of models to use for connections with frequent itemset mining We formalize these ideas in the subsections to follow Consider 
+ 
+1 1 2 1 1 026 026 003 003 026 003 1 2 N 003 1  2 M 000 N 003 003 003 1  2 026 003 003 003 003 1  1  2 N 1  2 M 000 N 003 003 1 1 
+013 
+013 
+T 
+D 
+1  
+013 
+T T T 
+034 
+ 
+denote an alphabet universal set of items of size 
+is given by 
+N 
+026 
+2 
+026 
+transactions Each 
+T 
+f 
+P 
+022 A 
+ is as follows We refer to the power set 2   1 if  and   0 otherwise For the case   0 0 if   1 4 Similarly if   0   1 5 These extreme cases correspond to two distinct trivial situations 
+034 
+000 
+g 002 2 2 022 000 6 g 000 
+itemset referred to as the pattern of itemsets over itemset 
+I 
+De\fnition 1 
+013 
+is large the IGM would generate data with 1  
+A 
+N 
+P 
+The probability model according to which an IGM 003   
+Initially we restrict our attention to IGMs with a fxed pattern probability 
+013 
+of an itemset is the number of transactions in 
+z 
+0 
+z z z 
+013 
+We begin with some background Let  is a collection of items purchased by a customer in one visit to the store A non-empty set of items is called an  where each is an item or symbol from some fnite alphabet say  The Let  be an  denote a transaction over  as the as the  2  The IGM generates two itemsets denoted by and     Eq 1 is a probability mass function over 2 that is peaked at    and is uniform everywhere else and Eq 2 is a uniform probability distribution over 2  Since and are independent of each other for  under 003 can be written as 2 2         is a collection of items over 2 2 6 where    is the    
+1 
+013 013 013 013 
+022 
+013 
+2 2 2 
+ i.e  The space of all possible transactions is 2 
+022 
+f 
+000 
+ 020 032 
+001 
+022 
+A 
+  
+T 
+034 
+K 
+ 
+D j 
+Consider an 
+013 
+The subclass 
+ say  An itemset is denoted by a tuple say  and to 2   a database of 
+of each other and according to the following probability mass functions 
+ indicates set containment 
+000 000 
+in all transactions that the model generates and 
+022 013 
+2 in all transactions that the model generates An IGM can generate a database of transactions by drawing 
+0 
+2.1 Data likelihood under IGMs 2.2 Class of IGMs with a fxed 
+013 
+f 
+ 0 we have 
+013 
+frequency 
+D 
+if 
+1 1 M 000 N 1 
+wp 
+034 
+1 
+P 
+ generates a transaction  
+P 
+T 
+I 
+ and by considering all possible pattern probability values 
+D 
+023 
+022 
+013 
+022  022  
+022  
+that contain it An itemset whose frequency exceeds a user-de\fned threshold is referred to as a frequent itemset The Apriori algorithm exploi ts the so-cal led a n ti mono toni cit y property of the itemset frequency to carry out an e\016cient level-wise search for all frequent itemsets Over the years many other algorithms have been proposed for frequent itemsets mining e.g see for a compa rison of several approaches The analysis we present in this paper is independent of the algorithm used for frequent itemsets mining 
+034 
+ Since   Using Eq 3 the expression for likelihood of  under 003    
+transaction 
+is referred to as the pattern probability of 
+A 
+z 
+ 
+independent 
+0 
+0 0 
+2 I 
+022 
+pattern space 
+1 1 the probability of 1 is as follows 1 Later in Sec 2.3 we consider the full class of IGMs with all possible values for the pattern probability parameter 1 
+has 
+022 
+ where 
+D 
+T A t 013 022  013 022 T 013 022 013 013 022 
+frequency 
+022 
+I 
+A n 
+ 
+  
+P 
+if 
+An Itemset Generating Model or IGM is speci\fed by a pair 
+022 
+ 
+j j 
+034 
+j 
+A 
+noise space 
+p n p n p n p p n p n p p 
+A 
+013 
+034 
+2 
+T 022  z 013 T N f 013 M N 
+N 
+K i N j i N 013 013 013 013 N N M 013 013 013 013 013 013 013 K i f 013 N K K 013 K i 013 i 022 N 013 022 
+    
+items it is referred to as an 
+022 
+013 034 T T T T T T T A 
+so long as 
+  
+034 
+A 
+T 
+000 
+021 001 022 023 021 001 022 022 
+ 
+A 
+022 
+  
+022 
+2 
+ is denoted by 
+ 
+z 
+003 
+0 if 
+is an 
+3 where 
+D 
+ 1 we have 
+2 
+denotes the complement of 
+itemset Trivially each transaction in the database is an itemset However an arbitrary itemset may or may not be contained in a given transaction itemset and the tuple 
+2 Itemset generating models 
+2 The full transaction generated is given by 
+2 
+003 
+023 023 
+be a database of unordered customer transactions at a store Each 2 2 
+564 
+564 
+564 
+572 
+572 
 
 
-R. Agrawal, T. Imielinski, and A. Swami, Mining association rules between sets of items in large databases, In Proceedings of ACM SIGMOD, pp. 207Ö216, 1993 2 R. Chan, Q. Yang, Y.D. Shen, Mining high utility itemsets, in Proceedings of the 3rd IEEE International Conference on Data Mining, Melbourne, Florida, pp. 19Ö26, 2003 3 C. Dante, J.M.D.P. Francisco, and P. Alpha, Finding temporal associative rules in financial time-series: a case of study in Madrid stock exchange \(IGBM\, In Proceedings of the 9th WSEAS Int. Conf on Computational Intelligence, Man-Machine Systems and Cybernatics \(CIMMACS '10\, pp. 60-68, 2010 4 L. Feng, T.S. Dillon  and J. Liu, Inter-transactional association rules for multi-dimensional contests for prediction and their application to studying meteorological data, Data and Knowledge Engineering 37 1\ pp. 85Ö115. 2001 5 Y.L. Hsieh, D.L. Yang, and J. Wu, Using Data Mining to Study Upstream and Downstream Causal Relationship in Stock Market, In Proceedings of the 5th International Conference on Computational Intelligence in Economics and Finance, pp. 513-516, Kaohsiung Taiwan, 2006 6 Y.L. Hsieh and D.L. Yang, A Study of Profit Mining, 2011 International Conference on Knowledge Discovery and Information Retrieval \(KDIR 2011\ , pp. 510-514 , 2011-10. Paris, France 7 H. Lu, J. Han and L. Feng, 1998. Stock Movement and nDimensional Intertransaction Association Rules, In Proceedings of 1998 SIGMOD Workshop, Research Issues on Data Mining and Knowledge Discovery, Vol. 12, pp. 1-7 8 Yao, H. and Hamilton H. J., 2006. Mining itemset utilities from transaction databases, Data & Knowledge Engineering, Vol. 59, pp 603 Ö 626 9 D. Zhang and L. Zhaou, Discovering golden nuggets: data mining in financial application, IEEE transactions on Systems, Man, and Cybernetics Ö Part C: Application and Review, Vol. 34\(4\, pp. 513522, 2004  M. J. Zaki and C.J. Hsiao, Efficient Algorithms for Mining Closed Itemsets and Their Lattice Structure, IEEE Transactions on Knowledge and Data Enginerring, Vol. 17, No 4, 2005  TA-LIB, Providing the library of technical analysis. http://ta-lib.org  TEJ database, Historical database of finance, Taiwan Economic Journal Co. Ltd., http://www.tej.com.tw/twsite/, 2011   
-be interested in. These useful results of knowledge can be discovered and presented in the forms of rules or patterns to meet usersê expectation. Similarly in Profit Mining, we think more types of profit rules can be defined and discovered in many financial sectors. Since investors have their own measurement criteria for mining the preferred trading rules there will be more useful models of financial data mining to be investigated in the future study  A CKNOWLEDGMENT  This research was supported by the National Science Council, Taiwan, under grants NSC 99-2218-E-007-001 and NSC 100-2221-E-035-103 R EFERENCES  1 
-            
-110 
-110 
+K 
+Let Let 
+be two 
+are su\016cient statistics for maximum likelihood estimation over IGMs in 
+ 
+I 
+I 
+Theorem 3 
+Further for large values of 
+and and 
+and 
+f 
+ 
+013 
+023 
+1 
+P 
+D 
+022 
+003 
+ and an IGM  Let 
+be the most frequent 
+be two according to 
+if and only if if and only if 
+according to De\fnition 2 Then we have 
+Theorem 4 
+Let 
+is preserved as ordering with respect data likelihoods among IGMs in 
+ 
+N 
+Given a database 
+ 
+ 
+025 
+Given a database 
+De\fnition 4 
+D 
+It follows from Finally under the fnal itemset-IGM association of 
+itemset in itemset itemsets in itemset  itemsets over 
+of size 
+2 
+013 
+D 
+003 
+in the given database 
+and 
+of size 
+ f       A K K      A  f 
+2 
+and 
+  
+ and let  is the IGM corresponding to the most frequent  with  we have  the subclass  with  has the highest likelihood for  of IGMs de\fned using the  with  if  and with  then we have 
+013 f 022 013 f 022 013 f 013 f 013 f 013 f 022 022 022 N K K K N N 013 013 N N 013 013 013 f K f K 013 013 f 013 f 013 f 013 f 013 f 013 013 013 K K 013 
+022 
+D 
+      
+f f 
+ 
+P P 
+Theorem 1 
+023 
+with increasing frequency of the corresponding 
+De\fnition 2 
+D D 
+I 
+A A 000 
+I 
+  
+ P  P  
+022 
+I 
+  may or may not be greater than 1 
+I 
+  
+De\fnition 4 
+I 
+N 
+I 
+that if 
+N 
+Theorem 3 
+ 
+N 
+000 
+1  2 1  2 1  2 1  2 1  2 1  2 1  2 1  2 1 1 1  2 1  2 1  2 1  2 
+  
+itemsets that occur in itemset in  this upper bound approaches itemset itemset itemset itemsets that occur in itemset in 
+ 
+ then for any other from the data and associate each itemset with an IGM from the full class  This section describes how this is done 
+013 
+N N N N N N M 013  013  N N N 
+013 
+1  
+D 
+D 
+D 
+Theorem 2 
+ 
+K K 
+However  
+and respectively Consider the class  of IGMs with and be the corresponding IGMs from  that are associated with   with  which is simply the probability of   Let denote the frequency of and respectively Let and be the corresponding IGMs from and are both greater than   then is a maximum likelihood estimate for 
+I 
+022 
+020 
+024 2 
+022 
+N 
+A 
+In other words when 
+013 
+ 
+022  
+000 000 
+To summarize the fnal association between itemsets and IGMs is prescribed by 
+D 
+N 
+022 021 000 001 
+ 
+Consider an 
+D 
+f f 
+013 
+K 
+A 
+003   
+A 
+of the form 
+7 
+D 
+ 
+0 
+D j D j D j D j D j D j D j D j 
+do not hold When 
+1  
+2 
+Theorem 3 
+022 
+A 
+is associated with the IGM 
+D 
+of transactions over an alphabet 
+be a database of transactions over alphabet 
+be a database of be a database of 
+ If 
+M 
+003 003 
+003 003 
+M 
+D 
+013 
+P 
+De\fnition 4 
+003 
+M N M N 
+f 
+I 
+013 013 f 013 A 
+2.3 The fnal itemsets-IGM association 
+is de\fned as the collection of all IGMs out of 
+I 
+ 
+  
+N 
+A 
+003 
+022  
+of size 
+De\fnition 4 
+the IGM speci\fed by the tuple 
+024 
+De\fnition 4 
+gives rise to about maximum likelihood estimation for 
+be the IGM corresponding to 
+013 
+and let 
+ If 
+N 
+ 
+I 
+ Let  with frequencies  the maximum likelihood estimate over the class of IGMs  of  over the class  of  Let  with frequencies  over the class 
+f 
+ 
+1 
+ 
+N 
+013 
+ensures that ordering with respect to frequencies among 
+D 
+ 
+013 
+003 
+A 
+ 
+otherwise 
+022  
+ of IGMs over    the class of all IGMs de\fned using patterns of size  In the following sections we discuss some interesting consequences of the itemsets-EGH connetion First in Sec 3 we now have a generative model-learning interpretation of frequent itemsets discovery Then in Sec 4 we prescribe a statistical signi\fcance test for itemsets discovered in the data 
+ the data likelihoods under 003 
+013 022 A 013 022 f 013 013 022 
+ 
+with correspondence as prescribed by 
+For full proofs of these and other theorems that follow please refer to 
+P 
+003   
+Theorem 3 
+024 
+003 
+ This connection is tight in the sense that under the conditions of 
+013 
+as prescribed by 
+f 
+over 
+f 
+N 
+ that are associated with  of all IGMs 
+is the most frequent 
+  
+022 
+f 
+N 
+   and 003 must obey   T his g iv es us t he next t heorem   frequencies of  For with   data likelihood  2 2  Remark 1 shows that IGMs with  cannot be meaningfully associated with frequent itemsets For the itemset-IGM connection to be useful we need a way to estimate   Based on this fact and bearing in mind         0        
+2  we prescribe the fnal itemset-IGM association according to the following de\fnition   the itemset-IGM association of 
+022  
+I 
+transactions The itemset 
+Remark 1 
+It can be shown that 
+when the transactions are drawn iid according to a uniform distribution over the whole of 
+N 
+A 
+013 
+Theorems 1  2 
+ which fxes the pattern probability parameter of the IGM associated with an itemset based on its frequency in the data This is the association that we use in all our analysis The main result connecting itemsets and IGMs is given by 
+022 
+003 003 
+f 
+N 
+decreases 
+003   
+D 
+013 022 
+f 
+P 
+1 
+ 
+013 
+Remark 1 
+Given an 
+003 
+N 
+transactions over the alphabet transactions over alphabet 
+003 
+Theorem 4 
+Theorem 1 De\fnition 3 De\fnition 4 
+N 
+022 
+transactions over alphabet 
+ 
+022  
+565 
+565 
+565 
+573 
+573 
 
 
-168 charts is that even when a student has performed at the highest level in each of these subjects, his/her failure rate at the G.C.E Aílevel in the Physical Science stream is not the lowest E Prioritizing the Impact of G C.E. Oílevel Subjects on the G.C.E. Aílevel Results The impact of the results of different G.C.E. Oílevel subjects on the G.C.E. Aílevel results vary when considered individually. The impact of these subjects was measured by varying the result of one subject while keeping the results of the other subjects constant.  This effect has been analyzed in Figure 11.  It should be noted that the points have been connected by a line to demonstrate the decline of the pass rate clearly In this graph, the x-axis indicates the results that can be obtained for the G.C.E. Oílevel subjects and the y-axis indicates the confidence of passing the G.C.E. Aílevel examination.  Any point \(related to A, B or C\ on each line of the graph reveals the confidence value for the group of subjects with the indicated grade for the subject that line belongs to and A grades for rest of the subjects. For example, for the point corresponding to a B grade for Mathematics, it gives the confidence value for a student who obtains a B grade of Mathematics and an A grade for each of the other six subjects at the G.C.E. Oílevel. The following will provide a better depiction of the above Figure 11 Comparison of the impact of G.C.E. Oílevel subject results on 2007 G.C.E. Aílevel results in the Physical Science stream, when the results of a single subject vary There are two points on the green line which have confidence values of approximately 0.8 for an A grade and 0.25 for a B grade. If one considers the first point, it illustrates the following association rule Mathematics A  Religion A, First Language A, English A, Science A, Social Studies A, Technical subject A A/L Result = Pass The second point illustrates the following association rule Mathematics B  Religion A, First Language A, English A, Science A, Social Studies A, Technical subject A A/L Result = Pass It is very clear that apart from the Mathematics results, all other results are constant in both situations. The confidence of passing the G.C.E. Aílevel examination has reduced from 0.8 to 0.25 due to the effect of the decline in the G.C.E. Oílevel Mathematics result from an A pass to a B pass Again, if one considers the light blue line which corresponds to the English language, the following association rules can be identified respectively for the three points English = A  Religion A, First Language A Mathematics A, Science A, Social Studies A, Technical subject A A/L Result = Pass English = B  Religion A, First Language A, Mathematics A, Science A, Social Studies A, Technical subject A A/L Result = Pass English = C  Religion A, First Language A, Mathematics A, Science A, Social Studies A, Technical subject A A/L Result = Pass The confidence values in relation to the three association rules are 0.8, 0.78 and 0.67 respectively The above figure clearly depicts that more than 80 percent of the students who obtained very good passes in all six of the main subjects at the G.C.E. Oílevel  have performed well at the G.C.E. Aílevel. This fact is emphasized by the points corresponding to the A grade. Further, the points corresponding to the B grade represent the confidence value for passing the G.C.E. Aílevel examination with a B grade for the particular subject and A grades for the rest of the main subjects considered. A similar interpretation can be given to the points corresponding to the C grade where it expresses the confidence value for passing the G.C.E. Aílevel examination with a C grade for a particular subject and very good passes for the rest of the main subjects. Hence, by looking at the above figure, it can be clearly seen that a majority of the students who have obtained A passes for all the main subjects except English language, have passed the G.C.E. Aílevel in Physical Science stream.  This implies that the English language result at the G.C.E. Oílevel examination does not have a significant impact on the performance at the G.C.E. Aílevel examination under this stream 
+035 
+013 
+1 1 2 2 
+f 
+000 
+K  
+000 Note that we now have a size-dependent frequency threshold for itemsets with smaller itemsets requiring larger frequencies to be regarded as signi\fcant Also note that for typical values of 
+ 
+4 Signi\fcance test for itemsets 5 Experimental results 
+000 
+ Since  8 where b 
+017 
+are known we compute 000 using 000  
+ denotes inverse of the cumulative distribution function cdf of the standard normal random variable Our signi\fcance test now declares 
+017 
+001 
+013 
+iid 
+ A typical database would contain several transactions where di\013erent transactions may be generated by di\013erent IGMs 003 
+values but in the absence of any information about the data  
+itemset then 003 itemset  000 changes very little over 0 itemsets at  
+b 
+states that under reasonable conditions if 
+N 
+N 
+ 
+013 013 013 013 N N N 013 K  K  K  
+5 This is because  
+013 
+and 
+N 
+N 
+1  
+better than random chance Due to space constraints we omit details of how the test is derived and present only the fnal testing procedure here Given an 
+K 
+1 
+013 
+s  
+Theorem 4 
+Each IGM generates transactions by embedding its corresponding itemset with a certain probability is the most frequent is an MLE for the data over  however regards all items other than those in as noise So we remove from all transactions in the data and obtain the next most frequent itemset say  in the data 003 will now be an MLE for this reduced part of the data Once again 003 regards all items outside of as noise So we next remove from the data obtain the next most frequent itemset  and so on In this manner we can interpret frequent itemsets mining as a generative model-learning exercise There is another interesting aspect to describing the data using such generative models Based on the itemsets-IGM connections it is possible to learn a mixture of IGMs for the data More work is needed to resolve the details of these mixture models However one can see that in principle our theoretical connections can facilitate such modeling There are many ways to de\fne and measure significance of itemsets and/or association rules For example chi-squared tests have been used to fx minimum support thresholds   or to prune/summari ze asso ci ations   etc Suc h tests t ypica lly rel y o n the norm al approximation to the binomial and in some situations e.g when the transactions data is sparse this approximation breaks down and the tests become ine\013ective In a baseli ne frequency is de\fned for eac h i tem set and the ratio of actual-to-baseline frequencies is proposed as a measure of signi\fcance In 1 uni on-t yp e bounds are used to estimate probability of an itemset under a random Bernoulli model These bounds however require both alphabet-size and itemset-size to be su\016ciently large and this somewhat limits applicability of the test We adopt a di\013erent approach to assessing signi\fcance of itemsets based on generative models for transactions in the form of IGMs To assess statistical signi\fcance of an itemset we directly use the itemset-IGM connections and set-up a hypothesis test to compare data likelihood of the associated IGM against likelihood under a random uniformly distributed model Given a user-de\fned level of the test i.e for a given probability of wrongly assessing an itemset as signi\fcant the test yields a frequency threshold for frequent itemset discovery The tight connections between itemsets and IGMs based on the theorems of Sec 2 show that IGMs are a good class of models for embedding patterns in transactions This makes our signi\fcance test reasonable since the test tries to reject the hypothesis of a random 2  2 2 1   dominates the expression for 000 in Eq 8 This allows for automatically fxing the threshold for  Sometimes we may want to use higher thresholds corresponding to very small  is a good initial threshold to try This section presents results obtained on some benchmark synthetic data from IBM Almaden Quest group's data generator as well as on proprietary data obtained from attack graphs produced by the Netra con\fguration analysis tool Our experiments seek to illustrate the utility of our theoretical connections To this end synthetic data is particularly useful since we can vary data generation parameters and assess performance by checking if the patterns embedded by the data generator are indeed discovered during the mining process The frst experiment illustrates e\013ectiveness of our theoretically motivated frequency thresholds We run  1 The IBM synthetic data generator was obtained from http://www.almaden.ibm.com/cs/projects/iis 
+i.e with 
+013 
+K 
+as signi\fcant if 
+0 
+013 
+017 
+at least one model 
+K  
+I 
+013 
+ we frst fx the allowed level of the test at say 
+ 017 
+024 
+1 1 1 2 2 2 3 2 N 2 N 2 N 1 
+1 1 
+013 
+N 
+013 
+model on the evidence of 
+3 Generative model-learning interpretation 
+K 
+N 
+022 023 022 023 
+000 000 
+and 
+566 
+566 
+566 
+574 
+574 
 
 
-169 The decline increases starting from the Technical subject then Religion, Social Studies and First Language and finally Science and Mathematics; emphasizing the importance of good grades in Mathematics and Science at the G.C.E. Oílevel examination to become success at the G.C.E. Aílevel examination in Physical Science stream. The difference between the percentage that passes the G.C.E. Aílevel after obtaining an A grade in all seven Oílevel subjects and a B grade in Mathematics and A grades in the remaining six Oílevel subjects is quite high. This is however quite small with respect to the other six subjects. Yet, it should be noted that all these facts are true only for those who sat the 2007 G.C.E Aílevel examination in the Physical Science stream Figure 12 depicts the same information with respect to the 2010 G.C.E. Aílevel examination results in Physical Science stream. This figure clearly shows that approximately 80 percent of students who obtained A passes in all seven main subjects in G.C.E. Oílevel examination have passed the G.C.E. Aílevel examination, which is considerably high. However only 60 percent of those who obtained a B pass in Science and A passes in all other main subjects, were successful at the G.C.E. Aílevel examination held in 2010. When G.C.E Oílevel Mathematics is Figure 12 Comparison of the impact of G.C.E. Oílevel subject results on 2010 G.C.E. Aílevel results in the Physical Science stream, when the results of a single subject vary considered, this rate reduces to less than 50 percent. This decline is considerably low. Further, only 30 percent of those who had a C pass for Oílevel Science and A passes for the remaining six subjects were successful at the 2010 G.C.E Aílevel examination.  This rate is also considerably low. This highlights the importance of the G.C.E. Oílevel Science and Mathematics results for success at the G.C.E. Aílevel examination. When other subjects are considered, English language seems to be the least important subject as the decrement is very marginal.  The other four subjects too show marginal decrements which are not significant in comparison to Mathematics.  However the order has changed slightly from the 2007 results. In 2007, next to Mathematics and Science Religion was the most important subject.  But in 2010, the importance of this subject has reduced slightly Despite the differences, these two graphs clearly indicate the importance of G.C.E. Oílevel Mathematics and Science to become success at the G.C.E. Aílevel.  They both pointed out the lack of importance of the English language. It should be noted here that these confidence values have been obtained using the association rules generated with a minimum support value. Therefore the impact of a C pass for some of the other subjects has not been considered as the accuracy of the confidence value for these subjects would be minimal due to the insufficient number of records IV D ISCUSSION This study has been conducted with the intention of identifying any prevailing relationship between a studentís G.C.E. Oílevel result and his/her G.C.E. Aílevel result in Physical Science stream. Initially, the study focused on identifying whether the students selected to the Physical Science stream were those with the correct knowledge and capabilities. Thus the study was restricted to the students who did Physical Science at the G.C.E. Aílevel examination. The only method available was to compare the G.C.E. Aílevel results with the corresponding G.C.E. Oílevel results, to identify any existing patterns From the analysis carried out, it was observed that the G.C.E. Oílevel Science and Mathematics results of a student have a direct impact on his/her G.C.E. Aílevel result, for those in Physical Science stream. Further it was evident that a student had to perform at the highest level with regard to these two subjects in order to do well at the G.C.E. Aílevel examination In other words, better the performance in these two subjects higher the probability of passing the G.C.E. Aílevel examination. This was clear from the computed confidence and support values too. Moreover, it was found out that there are a few other subjects that a student should focus on if he/she is planning on follow G.C.E. Aílevel in Physical Science stream namely Religion, First Language, Social Studies and the Technical subject. This combination was identified with respect to the 2007 G.C.E. Aílevel results and corresponding G.C.E Oílevel results. From this study, the fact that G.C.E. Oílevel Mathematics and Science were the most important subjects behind the success at the G.C.E. Aílevel was highlighted Although the analysis revealed the above results, it was observed that some students with A grades in all subjects at the G.C.E. Oílevel examination have failed the G.C.E. Aílevel 
+ 
+ 
+the frequent itemsets mining algorithm on several synthetic data sets generated using the IBM Quest data generator for di\013erent parameter values Each data set is associated with a collection of patterns that the generator used as potential correlations to embed during the data generation process Here we refer to these correlations as old over a range and for each case recorded the number of frequent 
+N 
+for 2itemsets  
+for 3-itemsets The graph for 3-itemsets meets Y-axis at 3197 
+0.05 0.1 0.15 0.2 0.25 0.3 0.35 0.4 0.45 0.5 0.01 100 200 300 400 500 600 700 800 900 1000       2-itemsets   3-itemsets   
+2 1  2 1  2 
+ 
+ Fig 1 plots the percentage of embedded patterns found signi\fcant as a function of the number of embedded patterns in di\013erent synthetic data sets To study the e\013ect of number of embedded patterns we generate several synthetic data sets by varying the number of embedded patterns between 10 and 100 The plot shows that a very high percentage of embedded patterns is always found signi\fcant by our analysis Similar results were obtained when we studied the e\013ect of varying average size of embedded patterns number of transactions average length of transactions and number of items as well We omit these results here due to space limitations Note that the IBM synthetic data generation model i s qui te di 013eren t from o ur IGMs Despite this our signi\fcance test based on IGMs is able to reliably detect the patterns embedded in the synthetic data In a second experiment we varied frequency thresh   
+N 
+20 30 40 50 60 70 80 90 100 0 10 20 30 40 50 60 70 80 90 100  
+Figure 1 Percentage of embedded patterns found signi\002cant in synthetic data with varying numbers of embedded patterns 100K transactions avg transaction length of 20 1K items and avg size of embedded patterns of 7 No of embedded patterns is varied from 10 to 100 
+according to our signi\fcance test of Sec 4 We consider an 
+K  
+2 3 
+K 
+IBM Quest 
+N 
+Figure 2 No of frequent 2  3-itemsets v/s frequency threshold in 
+synthetic data 100K transactions avg transaction length of 15 1K items avg size of embedded patterns of 10 and 10 embedded patterns The vertical lines indicate theoretical frequency thresholds namely 
+signi\fcant patterns 
+transactions if its frequency exceeds  
+ We now ask whether these patterns come up as 
+itemset as signi\fcant in a data set of itemsets discovered for di\013erent  Imagine a data set in which no speci\fc patterns are embedded or equivalently a data set in which all patterns are equally likely to appear in the transactions In such a case all 2-size or 3-size patterns would have very low and also very similar frequencies Thus very low frequency thresholds would lead to a combinatorial explosion of frequent itemsets This would continue to be the case even as the threshold is increased until a critical point beyond which no pattern would be frequent since the data is inherently random Even for data sets in which speci\fc patterns are embedded the behavior would be very similar for low thresholds but as the threshold is increased only the speci\fc patterns embedded in the data would remain frequent So a graph of the number of frequent itemsets versus the frequency threshold would level-o\013 for larger frequency thresholds Figs 2-3 plot the number of frequent 2  3-itemsets discovered under various frequency thresholds for one synthetic dataset using the IBM Quest data generator and for one proprietary data set from Netra Theoretical thresholds are indicated by vertical lines The graphs show that for very low threshold values almost all possible frequent 2 and 3-itemsets become frequent As the threshold increases the number of frequent 2itemsets and 3-itemsets decrease and the plots tend 
+10 of embedded patterns found significant Number of embedded patterns Number of frequent itemsets Frequency threshold   
+embedded patterns 
+N 
+567 
+567 
+567 
+575 
+575 
 
 
-170 examination. This may be due to some other factors which cannot be captured through an analysis which was purely based on examination results. There were also very rare students who had not obtained an A grade for any of the G.C.E. Oílevel papers, but were successful at the G.C.E. Aílevel examination These were extreme cases. There were also a quite a few students who have performed extremely well at the G.C.E Aílevel examination but those do not satisfy the above criterion.  However from the study it can be concluded that a student who fulfills the identified requirements has a higher chance of passing the G.C.E. Aílevel examination in Physical Science stream V L IMITATIONS OF THE S TUDY A few limitations had to overcome during this study. A major limitation was the lack of knowledge on other factors that influence the performance at the G.C.E. Aílevel examination. In this study the main focus was on identifying any relationship between G.C.E. Oílevel examination result and G.C.E. Aílevel examination result of students. However there could be other external factors that affect a studentís performance at the G.C.E. Aílevel examination It should be further pointed out that the standard of the Oílevel and Aílevel examinations can vary from year to year Hence one may argue that comparing the results of students who sat the examination in different years is not practical VI S UGGESTIONS FOR F URTHER W ORK Other factors that may have an effect on the G.C.E. Aílevel results of students could be considered. Provided that data for some other factors are available, a logistic model could be fitted to identify the determinants of a studentís G.C.E. Aílevel results. A clearer understanding could also be obtained if results of a longer period were available for the analysis R EFERENCES 1  20 11 A p r i l  E d uca tio n F o r  A l l N atio nal A c tio n P l a n S r i L a nk a  Onlin  A va i l a b le  http://planipolis.iiep.unesco.org/upload/Sri%20Lanka/Sri%20Lanka%20 EFA%20NAP.pdf 2  20 11 A p r i l  T h e E duc at io nal S y s t e m  o f S r i L a nka. [O nl i n e    Available http://www.mysrilanka.com/travel/lanka/education/index.htm 3  20 11 F e br uar y   E d u cat i o n O nl i n e  A v ail a bl e   http://www.statistics.gov.lk/page.asp?page=Education 4 M A P M u n as i n g h e  an d D a y a na nd a K e ppe tig o d a   S r i L a nk a J o ur nal o f  Educational Research,î National Institute of Education Sri lanka, Vol. 9 No. 1 2005, pp.2-3 5 J e f f r ey  W  S e if e r t D ata M i n i ng   A n O v er v i ew CRS  Re po r t f o r  Congress, Order Code RL31798, pp.1-4, December 16, 2004 6 A g a the ME RCE RO N a n d K a l i n a Y A CE F  E d uca t io nal D a ta M i ni ng  a  Case Study,î School of Information Technologies University of Sydney, Australia 7 A S a hay and K  Me h t a 2 0 1 1   Ma y     A s s i s t ing H i g h e r E d u c a t io n i n  Assessing, Predicting, and Managing Issues Related to Student Success A Web-based Software using Data Mining and Quality Function Deployment. Presented at Academic and Business Research Institute Conference, Las Vegas, 2010. [Onlin A v a i la b l e http://www.aabri.com/LV2010Manuscripts/LV10127.pdf 8 C R  O r u t ho t aar a c h c h i S  M  N u w a n g i, J  M.P  P  T i l a kar a t n a an d H  A   Caldera. "Usage of Association Rules and Classification Techniques for Knowledge Discovery in Diabetes."Proceedings of the 2nd International Conference on Data Mining and Intelligent Information Technology Applications, pp. 372 377, November 29December 2, 2010, Seoul Korea 9 S K o ts iant is a n d D  K a ne l l o po ul os  A s s o c iat i o n R u l e s Mi ni ng  A  Recent Overviewî, GESTS International Transactions on Computer Science and Engineering, Vol. 32 \(1\. 71-82, 2006 1 L  M  S h ei k h   B  Ta n v eer a n d S  M  A   Ha m d ani   I n t er es t i n g M e a s u r es f o r  Mining Association Rules," IEEE-INMIC conference 8th International pp. 641-644 December 24-26, 2004 1 J i a w ei Ha n  M i c h eli n e K a m b er a n d J i an P e i  M in in g f r e q u e nt pa tt er n s  associations & corelations,î in Data Mining Concepts and Techniques 3 rd ed Burlington : Elsevier Science, 2011, pp. 243-276 
+ 
+ 
+K  K  K  
+0.1 0.15 0.2 0.25 0.3 0.35 0.4 0.45 0.5 0.01 50 100 150 200 250 300   
+K 
+for 2-itemsets  
+Netra 
+in data with 
+N 
+data The vertical lines indicate theoretical frequency thresholds namely 
+considered interesting unless its frequency exceeds  
+Figure 3 No of frequent 2  3-itemsets versus frequency threshold in 
+not 
+N N l 
+2 3 
+l 
+for 3-itemsets 
+to level-o\013 beyond the theoretical thresholds Similar plots were obtained when the parameters of synthetic data generation were varied as earlier In general setting the frequency threshold for frequent itemsets mining can be a tricky exercise The plots in Figs 2-3 show that while a low threshold might lead to a combinatorial explosion of the number of patterns a higher threshold might miss signi\fcant patterns present in the data Our signi\fcance test based on the itemsets-IGM connections help alleviate this problem The key feature of our signi\fcance test is the size-dependent frequency thresholds for itemsets If we want to discover frequent itemsets up to size 
+transactions we use  
+ discovered as frequent according to the  
+   as the threshold for the mining process However an  threshold is  Our experiments show that using these theoretically motivated thresholds we can expect to avoid selection of most of the noisy patterns and identify only those correlations that are stronger than random chance In this paper we have presented a theoretical connection between the process of frequent itemset discovery and learning of generative models Based on our connection we derived a signi\fcance test for itemsets that uses just the frequencies of itemsets as test statistics The test leads to size-dependent frequency thresholds for itemsets with smaller itemsets requiring greater frequencies to be considered signi\fcant We experimentally validated our analysis both on benchmark as well as proprietary data sets There are many other aspects of the itemsets-IGM connection that would be worthwhile investigating further One is the learning of a mixture model for the data in the form of a convex combination of IGMs Another interesting possibility is to modify the signi\fcance test to incorporate the simultaneous assessment of signi\fcance of not one but a set of itemsets This can lead to more reliable detection of signi\fcant patterns at considerably lower frequencies We will address some of these aspects in our future work 
+itemset with 
+1  2 1  2 2 2 2 
+l  N 
+0.05 Number of frequent itemsets Frequency threshold       2-itemsets   3-itemsets   
+6 Conclusions References  R Agra w al T Imie linski  and A Sw ami Mining association rules between sets of items in large databases In Proceedings of the ACM SIGMOD Conference on Management of Data  pages 207{216 May 1993  W DuM ouc hel and D Pre gib on Empirical ba y e s screening for multi-item associations In Knowledge Discovery and Data Mining  pages 67{76 2001  D Hand H Mannila and P  Sm yth Principles of data mining  MIT Press Cambridge MA USA 2001  J Hipp U G  un tze r and G Nakhaei zadeh Algorithms for association rule mining  a general survey and comparison SIGKDD Explorations  2\(1 July 2000  S Laxman P  Nal durg R Sripada and R V enk ate san Connections between mining frequent itemsets and learning generative models Technical Report MSR-TR-2007-100 Microsoft Research 2007  S Laxman P  S Sastry  and K P  Unnikrishnan Discovering frequent episodes and learning Hidden Markov Models A formal connection IEEE Transactions on Knowledge and Data Engineering  17\(11 Nov 2005  B Liu W Hsu and Y Ma Pruning and summarizing the discovered associations In Knowledge Discovery and Data Mining  pages 125{134 1999  H Manni la The ore tical frame w orks for data mining SIGKDD Explor Newsl  1\(2\30{32 2000  P  Nal durg S Sc h w o on S Ra jamani and J Lambert Netra Seeing through access control In ACM Workshop on Formal Methods for Security Engineering FMSE 2006  Virginia USA 2006  C Silv e rste in S Brin and R M ot w ani Bey ond market baskets Generalizing association rules to dependence rules Data Mining Knowledge Discovery  2\(1 1998  X Sun and A B Nob e l Signi\fcance and re co v ery of block structures in binary matrices with noise Technical report Department of Statistics and Operations Research UNC Chapel Hill 2005 
+ 
+568 
+568 
+568 
+576 
+576 
 
 
-000 000 002\003 004 004 002\003 005 006 007 010 011 012 013 014 015 016 017 011 020\021 020 022 023\021 024 025 026 027 030 031 032 027 033 034 035 036 037                        004\000 0 Fig 5 Memory cost of varying algorithms on all context logs with min sup 3 and min conf 0  5  cost of all algorithms is stable with the change of min conf  The experiments on other context logs show the similar phenomenon Figure 5 shows the memory cost of all algorithms with min sup 3 and min conf 0  5 on all context logs Such a setting of min sup leads to the worst case of memory cost for all algorithms on the basis of ensuring that their running memory is not over the memory limit of experimental device From this gure we can see that the memory cost of BPGrowth BP-Growth-P and BP-Growth-NR is dramatically less than GCPM-H and GCPM-H-R on all context logs and BPGrowth-P always performs best in terms of memory cost Summary  by comprehensively analyzing the experimental results for memory cost we summarize the observations as follows a BP-Growth BP-Growth-P and BP-Growth-NR dramatically outperform GCPM-H and GCPM-H-R in terms of memory cost and can run well in a middle-end smart phone with limited memory It implies that the strategy of data set partition plays a more important role in reducing the memory cost for behavior pattern mining than the strategy of removing redundant data b GCPM-H-R outperforms GCPM-H slightly in terms of memory cost while BP-Growth also outperforms BPGrowth-NR slightly in terms of memory cost It implies that the strategy of removing redundant data can reduce the memory cost for behavior pattern mining though the effect is limited c BP-Growth-P outperforms BP-Growth slightly in terms of memory cost It implies that the pseudo projection technology can be integrated with the strategy of data set partition for reducing the memory cost for behavior pattern though the effect is limited C Computation Efìciency Except for memory cost computation efìciency is another important performance indicator of the algorithms for behavior pattern mining In this section we evaluate the computation efìciency of BP-Growth and other baselines in terms of running time Similar to the experiments of memory cost we rstly show the detailed experimental results on two randomly selected context logs namely R A and R B  and then report part of experimental results for other context logs Finally we summarize the observations from experimental results 2 4 6 8 10 0 2 4 6 8 x 10 5  Min_sup Runtime\(ms   GCPMäH BPäGrowthäNR  BPäGrowth 2 4 6 8 10 0 2 4 6 8 10 x 10 5  Min_sup Runtime\(ms   GCPMäH BPäGrowthäNR  BPäGrowth a b Fig 6 Running time of varying algorithms with varying min sup for context logs a R A and b R B with min conf 0  5  Figure 6 a and Figure 6 b compare the running time of BP-Growth BP-Growth-NR and GCPM-H with varying settings of min sup on R A and R B  respectively The min conf is set to be 0  5  The running time of GCPM-H with min sup 2 is not available because its memory cost is over the memory limit 40MB of the experimental smart phone in this case From the gures we can see that the running time of BP-Growth is dramatically less than BP-Growth-NR and GCPM-H with relatively small min sup Tobespeciìc,it reduces more than 60 running time compared with GCPM-H in the best case In contrast when min sup increases bigger and bigger their running time becomes to be comparable to GCPM-H Moreover BP-Growth-NR outperforms GCPM-H in terms of running time with small min sup and becomes to under-perform the latter when the min sup increases As mentioned in Section VI-B we should consider the case of small min sup more when comparing the efìciency of different algorithms for behavior pattern mining since there are rare mining results with big min sup  Therefore we can roughly conclude that the running time of BP-Growth-NR is at least comparable to GCPM-H The two gures do not show the running time of GCPMH-R and BP-Growth-P because we observe that the running time of GCPM-H-R is very close to GCPM-H and the running time of BP-Growth-P is very close to BP-Growth with varying min sup  Showing their running time will cause bad clarity of these gures 0.2 0.4 0.6 0.8 0 2 4 6 8 x 10 5  Min_conf Runtime\(ms   GCPMäH BPäGrowthäNR  BPäGrowth 0.2 0.4 0.6 0.8 0 2 4 6 8 10 x 10 5  Min_conf Runtime\(ms   GCPMäH BPäGrowthäNR  BPäGrowth a b Fig 7 Running time of varying algorithms for context logs a R A and b R B with varying min conf and the xed min sup 3  Figure 7 a and Figure 7 b compare the running time of BP-Growth BP-Growth-NR and GCPM-H with varying settings of min conf on R A and R B  respectively The min sup is set to be 3  From the gures we can see that the running time of BP-Growth is dramatically less than GCPMH and BP-Growth-NR with varying settings of min conf  
-246 
-246 
-246 
+IV E XPERIMENTAL R ESULTS To test our ideas we created an implementation using C 3 Only the performance on datasets that exceed memory size are interesting because otherwise the problem is trivial and most implementations perform well enough The 1.5GB of webdocs data[6  t s n i cel y i nt o t hi s cat e gory  bei n g t he largest dataset commonly used throughout publications on this problem All other benchmark datasets are quite a lot smaller and not relevant here We could generate our own large dataset against which to also run tests but the value of doing so is minimal The data in the webdocs set comes from a real domain and so is meaningful Constructing a random dataset will not necessarily portray the true performance characteristics of the algorithms At any rate the other implementations were designed with knowledge of webdocs so it is a fairer comparison For these reasons we used other datasets only for the purpose of verifying the correctness of our output On this dataset we compare the performance of this implementation against a wide selection of the best available implementations of various frequent itemset mining algorithms Those of 12 a nd of 13  are s t a t e of-t he-art implementations of the APriori algorithm which use a trie structure to store candidates An alternative algorithm was implemented in 14 a nd e xhi bi t e d t he bes t performance o n this benchmark dataset at the renowned FIMI conference of 2004.[15 That of 16  i s t h e b es t a v a i l a bl e FPGrowth implementation All of these implementations against which we compare are written in C by experienced coders In order to maximally remove uncontrolled variability in the comparisons the choice of programming language is important We chose C as a balance between programming experience and the similarity of the language to C All of the implementations were compiled on the same machine with the same class of gnu compilers gcc 4.1.2 and g 4.1.2 set at the highest level of optimisation We test each implementation on webdocs with support thresholds of 20  15  10  7  5  and 5  Reducing the support threshold in this manner increases the size of the problem as observed in Figure 1 All tests were run on a Dual-Core Intel Xeon Processor 5140 2.33 GHz/1333 MHz 4MB L2 machine As can be seen in Figure 2 our implementation performs at least as well as all of the aforementioned state-ofthe-art implementations on support thresholds below 15 Furthermore no other implementation was able to process as low a support threshold as was ours The implementations of 16 and o f  14  w ere unabl e t o c ompl et e w i t h i n a reasonable period of time at 10  The trie-based APriori implementations could not compute the frequent itemsets at 5  On the other hand our implementation easily nished 3 A repository containing the implementation has been setup as of July 2009 at http://webhome.csc.uvic.ca  schester Figure 2 Relative Performance of Implementations on Webdocs Dataset k 9 at 5 before the tests were concluded To explain the difference Figure 3 displays the memory usage of our implementation and of 12 as meas ured by t h e Unix top command As the size of the dataset grows or equivalently the support threshold decreases so too does the size of the memory structures required However because our implementation uses explicit lehandling instead of relying on virtual memory the memory requirements are effectively constant Those of all the other algorithms grow beyond the limits of memory and consequently cannot initialise Without the data str uctures the programs must obviously abort Through these experiments we have demonstrated that at high support thresholds our implementation produces the same results with the same performance as the best of the state-of-the-art implementations But as the support threshold decreases the other implementations exceed memory and abort while the memory utilisation of our implementation remains relatively constant As such our performance continues to follow a predictable trend and our programme can successfully mine support thresholds that are impossibly low for the other implementations V C ONCLUSION Frequent itemset mining is an important problem within the eld of data mining But sixteen years of algorithmic development has not produced an implementation that can 54 54 54 54 54 54 54 54 54 54 54 54 
 
 
-000 002 003 004 005 006 007 010 011 012 013 014 015 016 017 011 020\021\020 022 023\021 024 025 026 027 030 031 032 033 031 034 035 036\037   036\037       036       036    036     Fig 8 Running time of varying algorithms on all context logs with min sup 3 and min conf 0  5  Moreover the running time of all algorithms is stable with the change of min conf  The experiments on other context logs show the similar phenomenon Figure 8 shows the running time of all algorithms with min sup 3 and min conf 0  5 on all context logs From this gure we can see that the running time of BP-Growth BPGrowth-P is dramatically less than BP-Growth-NR GCPM-H and GCPM-H-R on all context logs Summary  by comprehensively analyzing the experimental results for running time we summarize the observations as follows a BP-Growth BP-Growth-P dramatically outperform BPGrowth-NR GCPM-H and GCPM-H-R in terms of running time It implies that the strategy of removing redundant data plays a more important role in reducing the running time for behavior pattern mining than the strategy of data set partition and the improvement for data set partition based algorithms is more dramatic b GCPM-H-R is roughly comparable to GCPM-H in terms of running time It implies that applying the strategy of removing redundant data to an Apriori-like algorithm only leads to very limited improvement of running time c BP-Growth-P is roughly comparable to BP-Growth in terms of running time It implies that the pseudo projection technology only has very limited effect on reducing the running time of BP-Growth VII CONCLUSION AND FUTURE WORK In this paper we studied several strategies which may be used for improving the efìciency of behavior pattern mining in terms of computing efìciency and memory cost To be speciìc we searched some typical optimizing strategies for association rule mining and discuss the feasibility of applying them to behavior pattern mining since the two problems are similar in many aspects Moreover we proposed a novel and efìcient algorithm named BP-Growth for behavior pattern mining by combining two promising strategies The extensive experiments in a practical mobile computing environment clearly show that BP-Growth and its optimization signiìcantly outperform GCPM and other two baselines which adopt one of the two promising strategies in terms of both running time and memory cost One challenge of utilizing behavior patterns is that there usually exists thousands of behavior patterns for an individual mobile user Usually many of them are semantically similar or related and may be summarized by several representative patterns As for future work we plan to study the effective approaches to summarize lots of behavior patterns for easing the representation of user habits while maintaining as much information as possible VIII A CKNOWLEDGEMENTS The research was supported by grants from Nokia Research Center China Natural Science Foundation of China Grant No.s 60775037 70890082 and 71028002 The National Major Special Science  Technology Projects Grant No 2011ZX04016-071 National Science Foundation CCF1018151 Research Fund for the Doctoral Program of Higher Education of China 20093402110017 The authors would like to thank Nokia for giving permission to use their data collection platform R EFERENCES  P alen L   Salzm a n M and Y oungs  E Going wireless behavior  practice of new mobile phone users in CSCW 00 Proceedings of the 2000 ACM conference on Computer supported cooperative work New York NY USA ACM Press 2000 pp 201Ö210 2 T s e ng V  S  and L in K  V   E f  cient m ining a nd pr ediction o f u s e r behavior patterns in mobile web systems Information and Software Technology  pp 357Ö369 2006  Cao H   Bao T   a nd Y a ng Q et al   A n e f f ecti v e a pproach for m ining mobile user habits in Proceedings of the 19th ACM international conference on Information and knowledge management CIKMê10  2010 pp 1677Ö1680 4 S chilit B  A dam s  N   and W ant R   Conte x ta w ar e c om puting a pplications in Proceedings of the Workshop on Mobile Computing Systems and Applications IEEE Computer Society 1994 pp 85Ö90  A gra w a l  R   Im i e l i  nski T and Swami A Mining association rules between sets of items in large databases in Proceedings of the 1993 ACM SIGMOD international conferen ce on Management of data SIGMOD 93  ACM 1993 pp 207Ö216  F ukuda T   Morim o to Y  a nd Moris h ita S  e t a l   Mining optim ized association rules for numeric attributes in Proceedings of the 5th ACM SIGACT-SIGMOD-SIGART Symposium on Principles of Database Systems PODSê96  1996 pp 182Ö191 7 H an J   P e i J  and Y in Y   M ining f r e quent patter n s w ithout candidate generation in Proceedings of the 2000 ACM SIGMOD International Conference on Management of Data SIGMODê00  ACM 2000 pp 1Ö12 8 A gr a w al R  a nd S r ikant R   F a s t algor ithm s f o r m ining a s s o ciation rules in Proceedings of the 20th International Conference on Very Large Data Bases VLDBê94  1994 pp 487Ö499 9 C ao H   Bao T   a nd Chen E    A n e f f ecti v e a ppr oach f o r m ining m obile user habits University of Science and Technology of China Tech Rep 2010 O  A v a ilable http://dm  us tc e du c n/paper l is t  htm l  H a n J   P ei J  a nd Y i n Y  et al  Mining frequent patterns without candidate generation a freque nt-pattern tree approach Data Min Knowl Discov  vol 8 no 1 pp 53Ö87 2004  W a ng J   H an J   and P ei J   Clos e t S ear ching f or the b es t s tr ate g ies for mining frequent closed itemsets in Proceedings of the 9rd ACM SIGKDD international conference on Knowledge discovery and data mining KDDê03  2003 pp 236Ö245  Pei J   a nd Han J   a nd Mortaza vi Aslet B et al Preìxspan mining sequential patterns efìciently by preìx-projected pattern growth in Proceedings of the 16th IEEE International Conference on Data Engineering ICDEê01  2001 p 215C226  Chiu D   W u  Y   and C hen A L  P    An ef cient algorithm f or m i ning frequent sequences by a new strategy without support counting in Proceedings of the 20th International Conference on Data Engineering ICDE04  IEEE Computer Society 2004 pp 375Ö386  Chen E   and C ao H   and L i Q  et al  E f  cient s tr ate g ies f or tough aggregate constraint-based sequential pattern mining Inf Sci  vol 178 no 6 pp 1498Ö1518 2008 
-247 
-247 
-247 
+Figure 3 Memory Usage of Bodon and Chester implementations on webdocs as Measured by Unix top command during late stages of execution mine sufﬁciently low support thresholds on even a modestsized benchmark dataset—never mind the gigabytes of data in many real-world applications By introducing a vertical sort at the onset of the classic APriori algorithm signiﬁcant improvements can be made Besides simply having better localised data storage the candidate generation can be done more efﬁciently and an indexing structure can be built on the candidates at the same time Candidates can be compressed to improve comparison times as well as data structure size The cumulative effect of these improvements is observable in the implementation that we created Whereas other algorithms have been heavily optimised this work opens up many avenues for yet more pronounced improvement Given their independence the data structures used can be partitioned and parallelised quite easily with minimal need for inter-process communication Because our algorithm’s memory footprint is so small we have sufﬁcient memory available to fully exploit multi-core architectures without disk thrashing We expect future results to show a near-linear improvement with an increase in the number of cores Extending the index to more than one item to improve its precision should also yield signiﬁcant improvement The result of this research is that the frequent itemset mining problem can now be extended to much lower support thresholds or equivalently larger effective le sizes than have even yet been considered These improvements came at no performance cost as evidenced by the fact that our implementation matched the state-of-the-art competitors while consuming much less memory Prior to this work it has been assumed that the performance of APriori is prohibitively slow This reestablishes it as the frontier algorithm R EFERENCES 1 R A g r a w a l T I m i e l i n s k i  a n dA N S w a m i   M i n i n g a s sociation rules between sets of items in large databases in Proc of the 1993 ACM SIGMOD International Conference on Management of Data Washington D.C May 26-28 1993  ACM Press 1993 pp 207–216 2 P  W  P ur dom D  V  G ucht  a nd D  P  G r ot h  A v e r a gecase performance of the apriori algorithm SIAM Journal on Computing  vol 33 no 5 pp 1223–1260 2004 3 R  A gr a w al and R  S r i kant   Fast al gor i t hms f or mi ni ng association rules in Proc of VLDB  1994 pp 487–499 4 J  H an J  P ei  a nd Y  Y i n Mi n i n g f r e quent pat t er ns w i t h out candidate generation in SIGMOD Conference  ACM 2000 pp 1–12 5 S  B r i n R  Mot w ani  J D  U l l m an a nd S  T s ur   D ynami c itemset counting and implication rules for market basket data SIGMOD Rec  vol 26 no 2 pp 255–264 1997 6 C  L ucchese S  O r l a ndo R  P e r e go and F  S i l v est r i  W ebdocs a real-life huge transactional dataset in FIMI ser CEUR Workshop Proceedings vol 126 2004 7 G  B uehr er  S  P ar t h asar at hy  a nd A  G hot i ng O ut o f c or e frequent pattern mining on a commodity pc in KDD 06 Proceedings of the 12th ACM SIGKDD international conference on Knowledge discovery and data mining NewYork NY USA ACM 2006 pp 86–95 8 B  G oet h al s E f  ci ent f r e quent pat t e r n mi ni ng  P h D  di ssertation transnationale Universiteit Limburg 2002 9 N  D e x t e r s  P  W  P ur dom a nd D  V a n G ucht   A p r obabi l i t y analysis for candidate-based frequent itemset algorithms in SAC 06  New York NY USA ACM 2006 pp 541–545  R  S r i k ant a nd R  A g r a w a l  Mi n i n g s equent i a l p at t e r n s Generalizations and performance improvements in Proc 5th Int Conf Extending Database Technology EDBT96  1996 pp 3–17  C  B o r g el t a nd R  K r use I nduct i o n o f a ssoci at i o n r ul es Apriori implementation in Proceedings of the fteenth conference on computational statistics  2002 pp 395–400  F  B odon  A f a st apr i or i i mpl e ment at i on  i n Proc of the IEEE ICDM Workshop on Frequent Itemset Mining Implementations FIMI’03  ser CEUR Workshop Proceedings vol 90 Melbourne Florida USA 19 November 2003  C  B o r g el t  R ecur s i o n p r uni ng f o r t he apr i or i a l gor i t hm  i n FIMI  ser CEUR Workshop Proceedings vol 126 2004  C  L u cchese S  O r l a ndo and R  P er e go kdci  on usi n g d i r ect count up to the third iteration in FIMI  ser CEUR Workshop Proceedings vol 126 2004  FIMI 04 Proc of the IEEE ICDM Workshop on Frequent Itemset Mining Implementations Brighton UK November 1 2004  ser CEUR Workshop Proceedings vol 126 2004  G  G r ahne and J  Z hu E f  ci ent l y u si ng pr e xt r ees i n mining frequent itemsets in FIMI  ser CEUR Workshop Proceedings vol 126 2003 55 55 55 55 55 55 55 55 55 55 55 55 
 
 
-0 0.2 0.4 0.6 0.8 1 1 2 3 4 5 6 7 Pruning rate l-th largest Rule 1 DA DAP  0 0.2 0.4 0.6 0.8 1 1 2 3 4 5 6 7 Pruning rate l-th largest Rule 2 DA DAP  0 0.2 0.4 0.6 0.8 1 1 2 3 4 5 6 7 Pruning rate l-th largest Rule 3 DA DAP  0 0.2 0.4 0.6 0.8 1 1 2 3 4 5 6 7 Pruning rate l-th largest Rule 4 DA DAP  Fig 4 Pruning power evaluation 0 10 20 30 40 50 1 2 3 4 5 6 7 Time cost \(s l-th largest Rule 1 DA DAP  0 2 4 6 8 10 1 2 3 4 5 6 7 Time cost \(s l-th largest Rule 2 DA DAP  0 5 10 15 20 25 1 2 3 4 5 6 7 Time cost \(s l-th largest Rule 3 DA DAP  0 10 20 30 40 50 1 2 3 4 5 6 7 Time cost \(s l-th largest Rule 4 DA DAP  Fig 5 Generation for determinant attributes Moreover the pruning power of the PAP algorithm is affected by the conìdence and dependent quality measures i.e affected by data distribution Therefore PAP shows different improvement of time cost in four rules tests In particular Rule 2 which has more attributes in the dependent side may have more opportunities of pruning by PAP  Consequently as shown in Figure 3 the PAP can achieve a signiìcant improvement in Rule 2 In fact as discussed in the following experiments the pruning bounds calculated by different techniques may show different performance as well Determination for Determinant Attributes Recall that algorithms for determinant attributes DA and DAP  contribute different pruning bounds In order to evaluate the pruning power of these approaches Figure 4 observes the pruning rate i.e the proportion of candidates that can avoid computation For example a pruning rate 0  9 denotes that 90 candidates can be safely pruned without computation Obviously the higher the pruning rate is the lower time cost will be We illustrate the time performance of DA and DAP algorithms for determinant attributes X in Figure 5 First the basic DA algorithm initially assigns V max 0 as the pruning bound while the advanced DAP uses the current 002 max to calculate a larger pruning bound  012 0  Therefore the pruning power of DAP is stronger than the basic DA as illustrated in Figure 4 and consequently shows better time performance in Figure 5 Note that the pruning rates of Rule 2 are already very high greater than 0  9  Therefore even by applying advanced techniques we cannot achieve much better pruning bounds anymore The corresponding time cost is then similar as well Moreover although the DAP approach shows quite similar pruning power to the basic DA in Rules 3 and 4 as we discussed in Section V the DAP algorithm is at least no worse than DA  Processing Order in C Y  Now we discuss the processing orders of candidates in C Y  i.e the mid-ìrst order and the TABLE V T IME COST  S  OF VARIOUS PROCESSING ORDER IN C Y l th largest Mid-ìrst in PAP Top-ìrst in PAP DA DAP DA DAP 1 34.20 23.21 34.40 18.50 2 37.60 24.92 39.00 20.40 3 39.93 25.90 41.36 21.15 4 41.26 26.75 42.96 21.93 5 42.23 28.73 44.11 23.90 6 44.14 28.95 46.18 24.53 7 44.93 29.70 47.79 25.06 top-ìrst order Table V presents the time cost of different approaches with these two orders in the Rule 1 test Similar conclusions can also be observed in other rules As discussed in Section V when the pruning bound is initially set to V max 0 in the DA  PAP approach the midìrst order is preferred in order to nd a large V max as early as possible Therefore as presented in Table V DA with mid-ìrst order in PAP column 2 has lower time cost than the top-ìrst one column 4 under all answer size l  On the other hand if advanced pruning bound V max  0 is calculated by DAP  then we can use the top-ìrst order to prune more candidates in C Y  Consequently the top-ìrst order of PAP shows better performance than the mid-ìrst one in approaches together with DAP  Nevertheless the DAP  PAP with top-ìrst order can always achieve the lowest time cost and the improvement of mid-ìrst order in DA  PAP is not as signiìcant as the DAP  PAP approaches as well Thereby we could use top-ìrst order in most cases Scalability on l th Largest Finally we also study the efìciency of determining l largest expected utility answers over various data sizes Here we only report the result of 5-th largest  U answers in Figure 6 Similar conclusions are observed in other l sizes Again since there is no pruning of the DA  PA approach the time cost of DA  PA in Figure 6 is 
-856 
-856 
+For the spatial partitioning we use the Military Grid Reference System MGRS Thus w ay  we represent an y location on the surface of the Earth at multiple granularities ranging from 1 002 1 m 2 to 100 002 100 km 2  by an alphanumeric value For temporal partitioning we use the typical temporal hierarchies from data warehousing hour day week month We drop cells with very low activity speci\002cally cells where the most popular term occurs in fewer than 5 messages at the 002nest granularity hour We will shortly describe how we 002x the spatio-temporal hierarchy in AFIA based on the considered workload We perform three sets of experiments The 002rst measures the space and accuracy of the proposed algorithms and compares them with two baselines The second evaluates the throughput memory consumption and number of checkpoints when varying the targeted k parameter The third evaluates the query processing performance when varying the size of the spatio-temporal query range We also show the number of checkpoints created during a time period B Data and Queries We collected all geo-tagged messages from the public Twitter FireHose during May 2013 The dataset contains 110,426,053 tweets yielding an average rate of circa 41 tweet per second Figure 9 provides insight into the workload and helps choose an appropriate spatio-temporal hierarchy Figure 9a shows the total number of cells that receive at least one tweet Thus the graph shows the expected number of active summaries at the given granularities For example every hour the number of 0.1 002 0.1 km 2  1 002 1 km 2  10 002 10 km 2  and 100 002 100 km 2 spatial grid cells that receive at least one tweet is circa 0.5M 200K 40K and 10K respectively i.e the 223Hour\224 curve in the 002gure Figure 9b considers the cells at the 0.1 km 002 0.1 km 002 1 hour granularity The y-axis depicts the number of such cells subject to different loads the number of terms t processed This shows that the number of 223interesting\224 cells with at least 100 terms is quite low barely reaching 100 Therefore we 002x the 002nest temporal granularity at an hour Figure 9c considers the cells at the 100 km 002 100 km 002 1 week granularity The 002gure shows that thousands of such cells have summaries that receive more than 1 thousand terms We 002x k at 25 and generate 2 query sets each consisting of 100 queries Each query in the 002rst set has a temporal extent with a length chosen at random among 1 hour 1 day and 1 week and it has a randomly selected spatial region The spatial granularity of the coarsest cell that is contained in the spatial query region is the query's spatial granularity and the query region is enlarged to cover all the cells at that granularity that it intersects with In visual terms this procedure corresponds to 223snapping\224 the spatial query region to the coarser granularity The underlying rationale for adopting this procedure is that 002ner-granularity cells do not contribute with term counts at the same magnitude as do cells at the granularity of the coarsest fully covered cell Since any rectangle can be created from a number of merged squares we limit the experiments to squares Each cell contains 10 002 10 cells at the next 002ner granularity Thus the largest number of cells any query square can cover is 18 002 18  324 As a result we employ queries that may cover up to 1,800 002 1,800 km 2  While the 002rst query set focuses on variation in the spatial range the second focuses on temporal variation Each of the 100 queries has a spatial region chosen at random from one of the spatial granularities The query resulting in most temporal summary merges is the query that spans from the 002rst hour after midnight on the 002rst day in May until the hour before midnight on the last day of May This query covers 2 002 23 hours 3  5 days and 3 weeks which amounts to 57 temporal summaries To avoid empty results we do not consider regions that only cover empty cells Note that we do not perform compaction on the last active temporal granularities to better re\003ect the real-life scenario where a stream is constantly keeping these summaries active To simplify the experiments the initCounters parameter which determines the initial number of counters is set to the same value as targeted k  C Baselines We consider two baselines for comparison and validation of our proposal SS In each active spatio-temporal summary we aggregate the most frequent items using the SpaceSaving algorithm Active summaries maintain a 002xed number  m  of items and their counts while archived summaries are compacted by keeping only the counters for the k most frequent terms Choosing a value for m represents a trade-off between storage size and result accuracy HT In each active spatio-temporal summary we maintain a full list of terms using a hash table Once the summary becomes inactive and is archived its time granularity passes the list is sorted and cleaned up by discarding all but the counters for the targeted topk terms This approach maintains the exact topk items at all spatio-temporal granularities and serves to measure the accuracy of the other approaches However since HT has excessive storage requirements we do not expect it to scale under the considered workloads D The Space Versus Accuracy Trade-Off In the 002rst set of experiments we evaluate the accuracy of our approach by comparing it with the baselines Since HT maintains the exact counts at all granularities its storage requirements are too high for large scale experiments Similarly SS maintains a 002xed number m of counters at all granularities and m cannot be set too high for large scale experiments Thus we consider only tweets occurring in the spatial region with the 11S grid zone designator a region in the US of size ca 900 002 550 km 2  We use the local machine We consider variants of SS where m is set to 50 100 and 200 In AFIA we set targeted k to 50 The 002rst week four days in May is used for warm-up and only the accuracies of the subsequent summaries are evaluated We perform topk queries on all summaries at each spatio-temporal granularity We compare the topk most frequent terms in each summary produced by AFIA and SS and compare with the corresponding topk items produced by HT We set k  20  156 
 
 
-0 1000 2000 3000 4000 5000 6000 100k 300k 500k 700k 900k 1m Time cost \(s data size Rule 1 DA+PA DA+PAP  DAP+PAP  0 1000 2000 3000 4000 5000 6000 100k 300k 500k 700k 900k 1m Time cost \(s data size Rule 2 DA+PA DA+PAP  DAP+PAP  0 1000 2000 3000 4000 5000 6000 100k 300k 500k 700k 900k 1m Time cost \(s data size Rule 3 DA+PA DA+PAP  DAP+PAP  0 1000 2000 3000 4000 5000 6000 100k 300k 500k 700k 900k 1m Time cost \(s data size Rule 4 DA+PA DA+PAP  DAP+PAP  Fig 6 Scalability on data sizes return 5-th largest  U  the same as Figure 2 of the 1st largest The improvement of pruning like DA  PAP in Figure 6 is not as signiìcant as that of 1st largest answers For example in Rule 1 with 1m data size DA  PAP has an improvement about 2200 from 5500 to 3300 in Figure 2 while the corresponding improvement is only about 1500 from 5500 to 4000 in Figure 6 Nevertheless DAP  PAP can still keep the lowest time cost in all the test in Figure 6 VII C ONCLUSIONS Motivated by the utility of differential dependencies  DD s in real applications like violation detection in this paper we study the problem of determining the distance thresholds for metric distance constraints from data Instead of manually specifying requirements of various statistical measures we conduct the determination in a parameter-free style i.e to compute an expected utility of the distance threshold pattern and return the results with the maximum expected utility Several advanced pruning algorithms are then developed in order to efìciently nd the desired distance thresholds Finally the experimental evaluation on three real data sets demonstrates the performance of our proposed methods In particular we evaluate the effectiveness of returned results in the violation detection application and show that the pruning techniques can achieve lower time cost A CKNOWLEDGMENTS The work described in this paper was partially supported by Hong Kong RGC GRF Project No 611411 National Grand Fundamental Research 973 Program of China under Grant 2012CB316200 Hong Kong RGC GRF Project No CUHK 411211 China NSFC Project No 61073005 R EFERENCES  R  A gra w al T  I mielinski and A  N Swami Mining association rules between sets of items in large databases In SIGMOD Conference  pages 207Ö216 1993  R  A gra w al and R  S rikant S earching w ith numbers  I n WWW  pages 420Ö431 2002  C  B atini a nd M Scannapieco Data Quality Concepts Methodologies and Techniques  Data-Centric Systems and Applications Springer 2006  M  B ilenk o R  J  Moone y  W  W  C ohen P  R a vikumar  a nd S E Fienberg Adaptive name matching in information integration IEEE Intelligent Systems  18\(5 2003  P  B ohannon W  F a n F  Geerts  X  J ia a nd A K e ments i ets i dis  Conditional functional dependencies for data cleaning In ICDE  pages 746Ö755 2007  T  C alders  R  T  N g and J  W ijs en S earching f or dependencies a t multiple abstraction levels ACM Trans Database Syst  27\(3 2002  F  C hiang a nd R J Miller  Disco v e ring data quality rules PVLDB  1\(1 2008  W  W  C ohen I nte g ration o f h eterogeneous d atabases without c ommon domains using queries based on textual similarity In SIGMOD Conference  pages 201Ö212 1998  G  C ong W  F a n F  Geerts X  J ia a nd S Ma I mpro ving data quality Consistency and accuracy In VLDB  pages 315Ö326 2007  W  F a n Dependencies r e v is ited f or impro v ing d ata quality  I n PODS  pages 159Ö170 2008  W  F a n F  Geerts  L  V  S  L aks h manan and M  X iong D is co v e ring conditional functional dependencies In ICDE  pages 1231Ö1234 2009  W  F a n J  Li X  J ia a nd S Ma R eas oning about record matching rules PVLDB  2009  Full V e rsion P a rameter free d etermination o f d istance thresholds for metric distance constraints http://ise.thss.tsinghua.e du.cn/sxsong/doc/free.pdf   L Golab H J  Karlof f F  K o rn D  S ri v a s t a v a and B  Y u On generating near-optimal tableaux for conditional functional dependencies PVLDB  1\(1 2008  L Gra v ano P  G Ipeirotis  H  V  J ag adis h N K oudas  S  M uthukris h nan L Pietarinen and D Srivastava Using q-grams in a dbms for approximate string processing IEEE Data Eng Bull  24\(4 2001  J  Han J  W a ng Y  Lu a nd P  Tzv e tk o v  M ining t op-k frequent clos ed patterns without minimum support In ICDM  pages 211Ö218 2002  Y  Huhtala J  K  arkk  ainen P Porkka and H Toivonen Tane An efìcient algorithm for discovering functiona l and approximate dependencies Comput J  42\(2 1999  J  Ki vinen a nd H Mannila A pproximate i nference of functional dependencies from relations Theor Comput Sci  149\(1 1995  N K oudas  A Saha D  S ri v a s t a v a and S  V enkatas ubramanian Metric functional dependencies In ICDE  pages 1275Ö1278 2009  S Kramer and B  P f a hringer  Ef cient search for s trong p artial determinations In KDD  pages 371Ö374 1996  H Mannila and K J  R  aih  a Algorithms for inferring functional dependencies from relations Data Knowl Eng  12\(1 1994  A McCallum K Nig a m and L  H  U ng ar  E f  cient c lustering o f h ighdimensional data sets with application to reference matching In KDD  pages 169Ö178 2000  D Montgomery a nd G R unger  Applied Statistics and Probability for Engineers  Wiley 2nd edition 1999  G Na v a rro A guided t our t o a pproximate s tring m atching ACM Comput Surv  33\(1 2001  T  Schef f er  F inding as s o ciation r ules that trade s upport optimally ag ains t conìdence Intell Data Anal  9\(4 2005  J C Schlimmer  Ef ciently inducing d eterminations A complete and systematic search algorithm that uses optimal pruning In ICML  pages 284Ö290 1993  S Song and L  C hen Dis c o v e ring matching dependencies In CIKM  pages 1421Ö1424 2009  S Song and L  C hen Dif f erential d ependencies  R eas oning and discovery ACM Trans Database Syst  36\(3 2011  S Song L Chen a nd P  S Y u  O n d ata d ependencies i n d ataspaces In ICDE  pages 470Ö481 2011  C  J  v a n R ijs ber g en Information Retrieval  Butterworth 1979  G I W e bb and S  Z hang K optimal rule dis c o v e ry  Data Min Knowl Discov  10\(1 2005 
-857 
-857 
+a Total number of active cells b Terms per hour per 0.1 002 0.1 km 2 cell c Terms per week per 100 002 100 km 2 cell Fig 9 Twitter Workload Intensity at Different Spatio-Temporal Granularities The results are shown in Figure 10 We measure the fraction of correct topk for varying spatial granularities and we report separate graph for each temporal granularity The coarser spatio-temporal summaries are subject to higher loads and more diverse terms At the 002nest granularity 0.1 002 0.1 km 2 in Figure 10a all approaches produce quite accurate results However as the spatial or temporal granularity gets coarser the accuracy of SS deteriorates Increasing m does not solve the problem but just postpones it On the other hand AFIA is virtually as accurate as HT at all spatial and temporal granularities Its Aggressive Increment procedure is effective in making it adapt its number of counters as needed to capture the most frequent items very accurately Due to checkpointing when several summaries have to be merged few topk terms are missed and we did not observe accuracies below 0.99 0.98 and 0.97 for hours days and weeks respectively Figure 11 reports the average number of counters maintained per summary in the same experiment Note the logscaled y-axis The 002gure con\002rms the impracticality of using HT in large scale scenarios SS maintains a 002xed number of counters The 002gure shows how AFIA adapts At hours and days Figures 11a\22611b AFIA follows SS  m  100  implying that on average 100 counters is enough to achieve the desired accuracy At weeks Figures 11c the adaptivity of AFIA is even clearer for 002ner cells it uses much fewer counters than for coarser cells This experiment shows how AFIA achieves the best of two worlds accuracy is at the level of HT which is 100 accurate while the space requirements are at the level of SS with a small number of counters Having demonstrated the accuracy of our approach we proceed to large scale performance experiments on the HMC machine E Varying targeted k In this experiment we vary targeted k and consider two cases where the 002nest spatial granularity is 0.1 002 0.1 km 2 and 1 002 1 km 2  For each case we also maintain all the coarser granularities Figure 12 shows the results AFIA always has a throughput of more than 13,000 items per second Figure 12a As expected the throughput increases as either targeted k decreases or the 002nest granularity becomes more coarse Figure 12b shows how the memory consumption increases with increasing targeted k  This is because increasing numbers of counters have to be maintained to guarantee correctness when there are more terms The memory consumption increases slowly at 002rst due to fewer checkpoints occurring Figure 12c Thus for small values of targeted k  much of the space consumption is due to checkpoints As expected more memory is required for maintaining 002ner granularities The results show that a single HMC machine can maintain between 2 and 3 months of data meaning that it takes 4 to 6 machines to support a full year At current costs 1  this is feasible for larger companies Note that the measured memory consumption represents the entire Java heap memory used by the application The actual aggregates not shown require much less When targeted k is set to a low value the number of required counters will most often also be low With only a few counters any small change in activity of a cell may impact the targeted k counters resulting in a checkpoint Therefore we see that the number of checkpoints decreases with targeted k  Having a high number of counters makes a cell more robust to changes in activity and any small changes can be captured without checkpoints The number of checkpoints increases as expected when a 002ner granularity is maintained F Varying Q:R and Q:T We 002x targeted k at 100 and vary the spatial and temporal extents of the queries We employ the two query sets and measure the average runtime Figures 13a and 13b show the results Retrieving a summary requires one or more constant time lookups in Algorithm 3 Line 3 depending on the spatial or temporal granularity of the query and it may also require the merging of checkpointed summaries Because 002ner granularity cells generally receive fewer items than coarser granularity cells the runtime is lower at 002ner granularities Fewer merges are required because more cells are empty The results show that this applies to both the spatial and the temporal granularities When the spatial extent increases more lookups are performed resulting in an expected higher runtime With more coarse temporal granularities more merges are performed increasing the runtime further The runtime is not made worse  1 The price for a Spot Instance in June 2013 was USD 0.343 per hour 157 
+
+
+a Hours b Days c Weeks Fig 10 Accuracy at Different Spatio-Temporal Granularities a Hours b Days c Weeks Fig 11 Average Number of Counters Maintained at Different Spatio-Temporal Granularities a Throughput b Memory Consumption c Number of Checkpoints Fig 12 Varying targeted k to the same degree when varying the temporal extent since the temporal lookups are performed after the summaries are 002ltered spatially Thus signi\002cantly fewer entries exist resulting in faster lookup times However as the spatial extent increases the runtime also increases since more cells are retrieved and merged G Checkpoints Over Time In the last experiment we explore the checkpointing activity over time We 002x targeted k at 100 and count the number of checkpoints per hour for the 002rst 5 days Figure 14 shows the results The 002rst day sees more than 18,000 checkpoints but the number of checkpoints drops quickly This is because a new day is initialized based on the ending state for the previous day On the 002fth day only half as many checkpoints are performed Overall the number of checkpoints keeps decreasing but may increase occasionally This demonstrates a Varying Spatial Extent b Varying Temporal Extent Fig 13 Runtime Varying Spatial and Temporal Query Extents the adaptivity of our approach as the number of counters in the cells adjust to the activity levels of the cells 158 
+
+
+Fig 14 Checkpoints Over Time V C ONCLUSIONS We present a new framework for the processing of spatiotemporally constrained topk most popular terms queries on streaming spatio-temporally tagged text content such as microblog posts The framework's index extends existing techniques for counting frequent items in summaries to allow the summaries to grow and shrink dynamically to adapt to changes in the incoming data Query processing works by merging relevant summaries To provide guarantees about the query results a new merging algorithm is proposed that supports spatio-temporal query regions Experimental studies with an implementation of the framework offers insight into the accuracy scalability and performance of the processing of incoming data and queries and they demonstrate that the framework is capable of offering very accurate query results at high performance at scale A CKNOWLEDGMENTS This research was supported in part by the MADALGO research center and in part by the Geocrowd Initial Training Network funded by the European Commission as an FP7 Peoples Marie Curie Action under grant agreement number 264994 R EFERENCES 1  P K Agarwal G Cormode Z Huang J Phillips Z Wei and K Yi Mergeable summaries In PODS  pages 23\22634 2012 2  W Akman W R Franklin M Kankanhalli and C Narayanaswami Geometric computing and uniform grid technique Computer-Aided Design  21\(7 1989 3  A Angel N Koudas N Sarkas and D Srivastava What's on the grapevine In SIGMOD  pages 1047\2261050 2009 4  N Bansal and N Koudas Blogscope a system for online analysis of high volume text streams In VLDB  pages 1410\2261413 2007 5  E Baralis S Paraboschi and E Teniente Materialized view selection in a multidimensional database In VLDB  pages 156\226165 1997 6  M Charikar K Chen and M Farach-Colton Finding frequent items in data streams In ICALP  pages 693\226703 2002 7  Z Cheng J Caverlee and K Lee You are where you tweet a contentbased approach to geo-locating twitter users In CIKM  pages 759\226768 2010 8  G Cormode and M Hadjieleftheriou Finding frequent items in data streams PVLDB  1\(2 2008 9  G Cormode and S Muthukrishnan An improved data stream summary the count-min sketch and its applications Journal of Algorithms  55\(1 2005 10  G Cormode and S Muthukrishnan What's hot and what's not tracking most frequent items dynamically TODS  30\(1 2005 11  E D Demaine A L 264 opez-Ortiz and J I Munro Frequency estimation of internet packet streams with limited space In AlgorithmsESA 2002  pages 348\226360 2002 12  J Gray S Chaudhuri A Bosworth A Layman D Reichart M Venkatrao F Pellow and H Pirahesh Data cube A relational aggregation operator generalizing group-by cross-tab and sub-totals Data Mining and Knowledge Discovery  1\(1 1997 13  J W Hager J F Behensky and B W Drew The universal grids Universal transverse mercator utm and universal polar stereographic ups Technical report 1989 14  V Harinarayan A Rajaraman and J D Ullman Implementing data cubes ef\002ciently In SIGMOD Record  volume 25 pages 205\226216 1996 15  P Kapanipathi F Orlandi A Sheth and A Passant Personalized 002ltering of the twitter stream In SPIM Workshop at ISWC  pages 6\226 13 2011 16  R M Karp S Shenker and C H Papadimitriou A simple algorithm for 002nding frequent elements in streams and bags TODS  28\(1 2003 17  R Lan M D Lieberman and H Samet The picture of health mapbased collaborative spatio-temporal disease tracking In Workshop on Use of GIS in Public Health  pages 27\22635 2012 18  I Lazaridis and S Mehrotra Progressive approximate aggregate queries with a multi-resolution tree structure In SIGMOD  pages 401\226412 2001 19  M D Lieberman and H Samet Supporting rapid processing and interactive map-based exploration of streaming news In GIS  pages 179\226188 2012 20  M D Lieberman H Samet J Sankaranarayanan and J Sperling Steward architecture of a spatio-textual search engine In PODS  page 25 2007 21  N Mamoulis S Bakiras and P Kalnis Evaluation of top-k OLAP queries using aggregate R-trees In SSTD  pages 236\226253 2005 22  N Manerikar and T Palpanas Frequent items in streaming data An experimental evaluation of the state-of-the-art DKE  68\(4 2009 23  G S Manku and R Motwani Approximate frequency counts over data streams In VLDB  pages 346\226357 2002 24  M Mathioudakis N Bansal and N Koudas Identifying attributing and describing spatial bursts PVLDB  3\(1 2010 25  M Mathioudakis N Bansal and N Koudas Identifying attributing and describing spatial bursts PVLDB  3\(1-2 2010 26  M Mathioudakis and N Koudas Twittermonitor trend detection over the twitter stream In SIGMOD  pages 1155\2261158 2010 27  M Mathioudakis and N Koudas Twittermonitor trend detection over the twitter stream In SIGMOD  pages 1155\2261158 2010 28  A Metwally D Agrawal and A El Abbadi Ef\002cient computation of frequent and top-k elements in data streams In ICDT  pages 398\226412 2005 29  J Misra and D Gries Finding repeated elements Science of computer programming  2\(2 1982 30  D Papadias P Kalnis J Zhang and Y Tao Ef\002cient OLAP operations in spatial data warehouses In SSTD  pages 443\226459 2001 31  J Sankaranarayanan H Samet B E Teitler M D Lieberman and J Sperling Twitterstand news in tweets In GIS  pages 42\22651 2009 32  D Sidlauskas S Saltenis C W Christiansen J M Johansen and D Saulys Trees or grids indexing moving objects in main memory In GIS  pages 236\226245 2009 33  K Tao F Abel Q Gao and G.-J Houben Tums Twitter-based user modeling service In The Semantic Web ESWC 2011 Workshops  pages 269\226283 2012 34  B E Teitler M D Lieberman D Panozzo J Sankaranarayanan H Samet and J Sperling Newsstand a new view on news In GIS  page 18 2008 35  J Vosecky D Jiang and W Ng Limosa a system for geographic user interest analysis in twitter In EDBT  pages 709\226712 2013 36  J Yang and J Widom Incremental computation and maintenance of temporal aggregates In ICDE  pages 51\22660 2001 159 
 
 
 Knowledge Base Generation by Methodology  Rule1 IF A85<=0.50 AND A93<=0.50 THEN CLASS 1  Rule2   IF A85<=0.50 AND A93>0.50 AND A105 <=0.50 AND A97<=0.50 THEN CLASS 3   Rule3 IF A85<=0.50 AND A93>0.50 AND A105 <=0.50 AND A97>0.50 AND A100<=0.50   THEN CLASS 3   Rule4   IF A85<=0.50 AND A93>0.50 AND A105 <=0.50 AND A97>0.50 AND A100>0.50  AND A74<=0.50  THEN CLASS 1   Rule5 IF A85<=0.50 AND A93>0.50 AND A105 <=0.50 AND A97>0.50 AND A100>0.50 AND A74>0.50  THEN CLASS 3  Rule6 IF A85<=0.50 AND A93>0.50 AND A105 >0.50 AND A94<=0.50 AND A95<=0.50  THEN CLASS 1  Rule7 IF A85<=0.50 AND A93>0.50 AND A105 >0.50 AND A94<=0.50 AND A95>0.50  THEN CLASS 3  Rule8 IF A85<=0.50 AND A93>0.50 AND A105 >0.50 AND A94>0.50 THEN CLASS 3  Rule9 IF A85>0.50 AND A105<=0.50 AND A83 <=0.50 AND A88<=0.50 AND A75<=0.50 AND A82<=0.50 AND A63<=0.50 AND A89<=0.50 THEN CLASS 2  Rule10 IF A85>0.50 AND A105<=0.50 AND A83 <=0.50 AND A88<=0.50 AND A75<=0.50 AND A82<=0.50 AND A63<=0.50 AND A89>0.50    THEN CLASS 3  Rule11 IF A85>0.50 AND A105<=0.50 AND A83 <=0.50 AND A88<=0.50 AND A75<=0.50 AND A82<=0.50 AND A63>0.50   THEN CLASS 3  Rule12 IF A85>0.50 AND A105<=0.50 AND A83 <=0.50 AND A88<=0.50 AND A75<=0.50 AND A82>0.50 AND A93<=0.50    THEN CLASS 3  Rule13 IF A85>0.50 AND A105<=0.50 AND A83 <=0.50 AND A88<=0.50 AND A75<=0.50 AND A82>0.50 AND A93>0.50    AND A95<=0.50 AND A94<=0.50   THEN CLASS 1  Rule14 IF A85>0.50 AND A105<=0.50 AND A83 <=0.50 AND A88<=0.50 AND A75<=0.50 AND A82>0.50 AND A93>0.50    AND A95<=0.50 AND A94>0.50   THEN CLASS 3  Rule15 IF A85>0.50 AND A105<=0.50 AND A83 <=0.50 AND A88<=0.50 AND A75<=0.50 AND A82>0.50 AND A93>0.50    AND A95>0.50   THEN CLASS 2  Rule16 IF A85>0.50 AND A105<=0.50 AND A83 <=0.50 AND A88<=0.50 AND A75>0.50 AND A97<=0.50 THEN CLASS 3 Rule17 IF A85>0.50 AND A105<=0.50 AND A83 <=0.50 AND A88<=0.50 AND A75>0.50 AND A97>0.50 AND A94<=0.50 THEN CLASS 1  Rule18 IF A85>0.50 AND A105<=0.50 AND A83 <=0.50 AND A88<=0.50 AND A75>0.50 AND A97>0.50 AND A94>0.50 THEN CLASS 3  Rule19 IF A85>0.50 AND A105<=0.50 AND A83 <=0.50 AND A88>0.50 THEN CLASS 3  Rule20  IF A85>0.50 AND A105<=0.50 AND A83 >0.50 AND A88<=0.50 AND A89<=0.50 AND A97<=0.50 AND A100<=0.50   THEN CLASS 2 Rule21 IF A85>0.50 AND A105<=0.50 AND A83 >0.50 AND A88<=0.50 AND A89<=0.50 AND A97<=0.50 AND A100>0.50  AND A63<=0.50 THEN CLASS 2  Rule22 IF A85>0.50 AND A105<=0.50 AND A83 >0.50 AND A88<=0.50 AND A89<=0.50 AND A97<=0.50 AND A100>0.50 AND A63>0.50 AND A93<=0.50 THEN CLASS 2 Rule23 IF A85>0.50 AND A105<=0.50 AND A83 >0.50 AND A88<=0.50 AND A89<=0.50 AND A97<=0.50 AND A100>0.50AND A63>0.50 AND A93>0.50 THEN CLASS 1  Rule24 IF A85>0.50 AND A105<=0.50 AND A83 >0.50 AND A88<=0.50 AND A89<=0.50 AND A97>0.50 AND A93<=0.50 THEN CLASS 2  Rule25 IF A85>0.50 AND A105<=0.50 AND A83 >0.50 AND A88<=0.50 AND A89<=0.50 AND A97>0.50 AND A93>0.50 AND A100<=0.50 AND A73<=0.50   THEN CLASS 2  Rule26 IF A85>0.50 AND A105<=0.50 AND A83 >0.50 AND A88<=0.50 AND A89<=0.50 AND A97>0.50 AND A93>0.50 AND A100<=0.50 AND A73>0.50   THEN CLASS 1  Rule27 IF A85>0.50 AND A105<=0.50 AND A83 >0.50 AND A88<=0.50 AND A89<=0.50 AND A97>0.50 AND A93>0.50 AND A100>0.50 AND A94<=0.50 AND A95 <=0.50   THEN CLASS 1  Rule28 IF A85>0.50 AND A105<=0.50 AND A83 >0.50 AND A88<=0.50 AND A89<=0.50 AND A97>0.50 AND A93>0.50 AND A100>0.50 AND A94<=0.50 AND A95 >0.50   THEN CLASS 2  Rule29 IF A85>0.50 AND A105<=0.50 AND A83 >0.50 AND A88<=0.50 AND A89<=0.50 AND A97>0.50 AND A93>0.50 AND A100>0.50 AND A94>0.50   THEN CLASS 2  Rule30 IF A85>0.50 AND A105<=0.50 AND A83 >0.50 AND A88<=0.50 AND A89>0.50 THEN CLASS 3  Rule31 IF A85>0.50 AND A105<=0.50 AND A83 >0.50 AND A88>0.50 THEN CLASS 3  Rule32 IF A85>0.50 AND A105>0.50 AND A93<=0.50 AND A89>0.50 THEN CLASS 3  Rule33 IF A85>0.50 AND A105>0.50 AND A93<=0.50 AND A89<=0.50 AND A83>0.50  THEN CLASS 2  Rule34 IF A85>0.50 AND A105>0.50 AND A93<=0.50 AND A89<=0.50 AND A83<=0.50 AND A75>0.50 THEN CLASS 3  Rule35 IF A85>0.50 AND A105>0.50 AND A93<=0.50 AND A89<=0.50 AND A83<=0.50 AND A75<0.50 AND A73>0.50 THEN CLASS 3  Rule36 IF A85>0.50 AND A105>0.50 AND A93<=0.50 AND A89<=0.50 AND A83<=0.50 AND A75<0.50 AND A73<=0.50 AND A63>0.50 THEN CLASS 3  Rule37 IF A85>0.50 AND A105>0.50 AND A93<=0.50 AND A89<=0.50 AND A83<=0.50 AND A75<0.50 AND A73<=0.50 AND A63<0.50 THEN CLASS 2  Rule38 IF A85>0.50 AND A105>0.50 AND A93>0.50 AND A94<=0.50 AND A98<=0.50 AND A95<=0.50 THEN CLASS 1  Rule39 IF A85>0.50 AND A105>0.50 AND A93>0.50 AND A94<=0.50 A ND A 98<=0.50 AND A95>0.50 AND A97<=0.50 THEN CLASS 3  Rule40 IF A85>0.50 AND A105>0.50 AND A93>0.50 AND A94<=0.50 AND A98<=0.50 AND A95>0.50 AND A97>0.50 THEN CLASS 2  Rule41 IF A85>0.50 AND A105>0.50 AND A93>0.50 AND A94<=0.50 AND A98>0.50 AND A75<=0.50 THEN CLASS 2  Rule42 IF A85>0.50 AND A105>0.50 AND A93>0.50 AND A94<=0.50 AND A98>0.50 AND A75>0.50 THEN CLASS 1  Rule43 IF A85>0.50 AND A105>0.50 AND A93>0.50 AND A94>0.50 AND A88<=0.50 THEN CLASS 2  Rule44 IF A85>0.50 AND A105>0.50 AND A93>0.50 AND A94>0.50 AND A88>0.50 THEN CLASS 3 

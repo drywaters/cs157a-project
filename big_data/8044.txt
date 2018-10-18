@@ -1,108 +1,0 @@
- e d ng ure  i data   m  y  ea  m  on  Gi  i  y  ea  r     m  m  y  ea  m 2  r  rk   y  ea  n  r    t 227  t    d 
-  se 226 ps  er    e d  SSL   r s  se es   us  e  a  U  e  d e s  e se  r s  e  c s s t  
-  p een  c  se s  ne s  ng   e    e   se e d  s   d ng   cer        n     e   t  
-  D se s   r   I   I ON   al  ts e  s  W  e s   5  P M C   1 4   a n d O M I M 1 1   e n t  is   d  o n    t   d   
-ies  e e  e  i   er   ich  e   8 is  a   io t  h s er s   ies    t       er ng   
- n  1     t   ase es       ed  e  unt  of  al    s st r   t  e e s   n   e   t   e 
-s e  s o e es   g e  d a a ls    s e  s    to   ase 226 s  n              An  a      ce  at  s n 
- n   t  an   g  atu  e b s     e     n s     e 226     p t     9  100 
- 
-
-
-101 
- 
-
-
-102 
- 
-
-
-103 
- 
-
-
-104 
- 
-
-
- in  late   2  e  4  t eta     GFR  r  6     VDR  r  506 4   t     1  r  1  T eta e     UNX3  r  1   R    C1  r  7     g ia er  F1  r  4      HFR  r  4    e ia a  M1  r  6   e ciat   C1  r  5    ic   F  ec r  4     GFR  r  8    a    AP  r  ne   HFR  r  4      N  r  3  a  a  C1  r  9       C1  r  1  r a m S C  M1  r  6    e  g   ET  r  7  ate  et  A1  nc er  6   105 
- 
-
-
-106 
- 
-
-
-     c         g   a      223  e  224   I  1  99 05 ay une           M  r   dt A  a  223 t  ne      439 ch          J  oi K  rk   g     223  xt  ti s 224           J  d  S  g  223  n  a 224  J   ed     3 229    5    o  016      ic T  c   k M  ni   223  s 224  m        19  9    S  er d A  j a L     nd J  223 e  224   4  3 9 h          e  16     C  er     A    K  g  H    S        S    223  e 224        09 h 0 2      n  223 e 224      6 03 l       223  dge 224  c    29   y     N  n F  m   l H  n   c   223 xt  a s i  y 4 h     K nd  C  223  u t f er 224  i      00   p p  3 226 0    K ova D n   C g Y er  223 e rt f k 224  i  T L   03   p p   52 226 5     O  u   r E  n   223  on 224       1       e R    L   c d   Vu ung   y    ce 97 t        107 
- 
-
-
-2377-3782 \(c This article has been accepted for publication in a future issue of this\ journal, but has not been fully edited. Content may change prior to fin\al publication. Citation information: DOI 10.1109/TSUSC.2017.2690301, IE\EE Transactions on Sustainable Computing 9 Fig 8 a Delay b vs Consumption Fig 9 a Delay b Ss Delay shown senthe out delay when  best alwhy is As eases  And For all the ee trajectory ement enFig 10 a Delay b sensor MS Fig 11 a Consumption b ifetime Fig 12 a Delay b Sensor ifetime a steady Beyond ease the end MSs becomes opportunities lifetime lgorithm esult in the the number the MSA C N technolohighour cloud in as etc WSNs within indata for  WSNs it 
-
-
-Computing International COMSNETS 2015  A Gupta and N Mukherjee 223Implementation of virtual sensors in 2016 NSysS The CCDC  on InternaNetworks for 416  D C Harrison W  K Seah and R Rayudu 223Rar e event detection networks,\224 2016  T  W ang Z Peng J Liang S W en M Z A Bhuiyan Y  Cai and sensor networks,\224 12 2016  F  T  Jaigir dar and M M Islam 223A new cost-ef fective appr oach in  1\2266  Y  Zhang X Sun and B W ang 223Ef 002cient algorithm for k-barrier ogramming,\224 2016  Z Xia X W ang L Zhang Z Qin X Sun and K Ren 223A privacyetrieval computing,\224 2016  Z Fu X W u C Guan X Sun and K Ren 223T owar d ef 002cient with ovement,\224 2016  Z Fu K Ren J Shu X Sun and F  Huang 223Enabling personalized ove2015  Y J Ren J Shen J W ang J Han and S.-Y  Lee 223Mutual veri\002able storage,\224  1\2268  M J Guezguez S Rekhis and N Boudriga 223A sensor cloud in pp 612\226617  S Saha R Das S Datta and S Neogy  223A cloud security framein  39  J Zhang J Long G Zhao and H Zhang 223Minimized delay ucwsns,\224  2014  M Zhao Y  Y ang and C W ang 223Mobile data gathering with load sensor networks,\224 2016  K T rivedi and A K Srivastava 223An ener gy ef 002cient framework agent in 1\2264  T  W ang Z Peng Y  Chen Y  Cai and H T ian 223Continuous in IEEE 261\226268  J Shen H.-W  T an J W ang J.-W  W ang and S.-Y  Lee 223A novel networks,\224 275\226 2010  J W ang S T ang B Y in and X.-Y  Li 223Data gathering in wir ein 4622013  T  Suetsugu S Matsunaga T  T orikai and H Fur ukawa 223Ef fective sensor network,\224 3 2015  M Dong K Ota L T  Y ang S Chang H Zhu and Z Zhou 223Moin networks,\224 877\226897 2014  M Ar quam C Gupta and M Amjad 223Delay constrained r outing in  1449\2261454  G Hou X W u C Huang and Z Xu 223A new ef 002cient path design in IEEE 5972\2265977  Y F  Hu Y S Ding L.-H Ren K.-R Hao and H Han 223An for 2377-3782 \(c This article has been accepted for publication in a future issue of this\ journal, but has not been fully edited. Content may change prior to fin\al publication. Citation information: DOI 10.1109/TSUSC.2017.2690301, IE\EE Transactions on Sustainable Computing Sensor Networks IEEE utorials 1 2015  D V  Jose and G Sadashivappa 223A novel scheme for ener gy enin 31st Computing Computing Computing International on ch  S Chandrasekaran and T  Chitambaram 223Health monitoring of experimental in OSN 10 as oved a performance validated that educe system WSNs Cloud A S om oject No of Jiao National Grant and and 1511414005 R S Smart on 0104\2260109  Y  W u X Y  Li Y  H Liu and W  Lou 223Ener gy-ef 002cient wakeegation,\224 IEEE 1230\2261235  J J Chen C F  Xing Z F  Cheng and X B W ang 223Node in stage,\224 Science on 2015  D Kim R Uma B H Abay  W  W u W  W ang and A O T okuta in networks,\224 Communications Networks NondestrucMonitoring Communications Information Security ensics Security Internet echnology 17th Networking 4 2015  T  W ang Z Peng C W ang Y  Cai Y  Chen H T ian J Liang on networks,\224 9 2014  J S Prashanth and S V  Nandury  223Cluster based r endezvous in in 603\226611  R Zhang J Pan D Xie and F  W ang 223Ndcmc A hybrid data and 2015  F  Restuccia G Anastasi M Conti and S K Das 223Analysis and sensor networks,\224 echnology  International on pp 2014  C T unca S Isik M Y  Donmez and C Ersoy  223Distributed 224 Materials Computing CSUR 
-
-
-2014  S Xie and Y  W ang 223Constr uction of tr ee network with limited denetworks,\224 2014  M Di Francesco S K Das and G Anastasi 223Data collection in 224 2015  Y  Li T  W ang G W ang J Liang and H Chen 223Ef 002cient data in 130\226143  T  W ang W  Jia B Zhong H T ian and G Zhang 223Bluecat An localization,\224 2015  J W ang Y  Zhang Z Cheng and X Zhu 223Emip ener gy-ef 002cient sensor network,\224  2016  C Zhu V  C Leung L T  Y ang and L Shu 223Collaborative networks computing,\224 2015 Communications IEICE Communications 2015  F  Zhangjie S Xingming L Qi Z Lu and S Jiangang 223Achievch computing,\224 Computer in in research of computing Systems r multisinks,\224 93\226100 2016  J Shi X W ei and W  Zhu 223An ef 002cient algorithm for ener gy multiple sinks,\224 eless communications 2377-3782 \(c This article has been accepted for publication in a future issue of this\ journal, but has not been fully edited. Content may change prior to fin\al publication. Citation information: DOI 10.1109/TSUSC.2017.2690301, IE\EE Transactions on Sustainable Computing ACM OSN BSc Unirees Uniand ComputHis e and His nettestan naWireless and He committees  He IEEE member CM on Computers 2011  A W ichmann and T  Korkmaz 223Smooth path constr uction and networks,\224 11 Adhoc Networks  Com tment erInstibeen USA  of Hong and a IEICE 2015  P  Madhumathy and D Sivakumar  223Enabling ener gy ef 002cient sink,\224 deSouth  Islamic all curthe Scimember CNC at Hong ocuses applied licity  CM rees South He of associate of wireless computing Tian ang Y Li Networks Communications Guojun ang Jiannong Cao Md an Computing 2016 oceedings Sciences 
-
-
-rees China from all in pioneer net lica proceeda China China nals IEEE Who and CM 2377-3782 \(c This article has been accepted for publication in a future issue of this\ journal, but has not been fully edited. Content may change prior to fin\al publication. Citation information: DOI 10.1109/TSUSC.2017.2690301, IE\EE Transactions on Sustainable Computing 12 W Jia 
-
-
-Experiment Setup Proposed attack scenario 
-SECTION V EXPERIMENTS 
-We allude to the lumps being Flush Reloaded by the advertisement versary as being observed since Flush-Reload basically screens access to information in the lump  Flushing a piece by means of clflush thus observing that piece should be possible without knowing the physical address of the lump since clflush takes the lump's virtual address for this situation in the adversary's address space as its operand  We call a quicker reload amid the Reload stage a watched occasion or perception  We additionally embrace ideas from measurable order and utilize the term false negative to allude to missed perceptions of the casualty's entrance to the checked piece and false positives to allude to watched occasions that are brought about by reasons other than the casualty's entrance to the observed piece We characterize a Flush-Reload convention in which the foe procedure screens a rundown of lumps at the same time and over and again until taught generally  It will first attempt to Reload the principal lump record the reload time and Flush it promptly thereafter At that point it will rehash these means on the second lump the third and so on until the last lump in the rundown  At that point the foe will sit tight for a precisely computed day and age before beginning once again from the primary piece so that the interim between the Flush and Reload of a similar lump is of an objective level 3 from the Reload of the main lump to the end of the holding up period is called one Flush-Reload cycle  An outline of the Flush-Reload convention is appeared in following Fig  
- 
- chi k 2 R eI oa din g  chi nk 1  Rel o a di ng I dl e l ooping l 
-Here we execute experiments on two systems  One system is a laptop and the second system is a dedicated server facilitating different services  We have installed windows server 2012 on both machines  First of all we used NMap to find OS finger printing the 
-FI ng 
-chi Id 
-AUJS  ng 
- ch k 2 225 us bR eload Cycl e 
- 
-
-
-as 
-using the Nassus we found the vulnerabilities available in VMs  Then generated side channel attack on both machines using flush  reload attack to get cryptographic keys and peeks inside the VMs whereas docker provides much more isolation and it was quite difficult to get all keys and peeking mechanism in docker Algorithm Flush Reload Hardware Specification System 1 System2 Use Laptop Dedicate Server 
-Windows Server 2012 CPU Intel\256 Core\231 i3-4010U CPU  Intel Xeon 2.S Ghz 1.70Ghz Cores 02 Physical 04 Physical 04 Logical OS Logical RAM 4GB SGB 
- 
-
-
-x86-64 
-L1 128 KB 256KB L2 512 KB 01 MB L3 03 MB 08MB Supporting Software Name Function Ubuntu and Windows Ubuntu and Windows server 2008 are being used to Server 2008 host multiple servers on Virtual machines Web Server Docker Container and Docker Microsoft Hyper-V NMap Nessus Docker Container cape a bit of Software in an entire file system that contains everything expected to run code runtime framework instruments framework libraries anything that can be introduced on a server This ensures the product will dependably run the same paying little respect to its surroundings  MS Hyper-V Microsoft Hyper-V codenamed Viridian and some time ago known as Windows Server Virtualization is a local hypervisor it can make virtual machines on 
-frameworks running Windows Nmap is a security app used to find has and benefits on a PC organize hence making a IIguide ll of the system Nessus is a remote security checking device which filters a PC and raises a caution in the event that it 
- 
-
-
-225 225\225 225 225 1 111 225 225 
-i 
-GnuPG and Open SSL Results finds any vulnerabilities that noxious programmers could use to access any PC you have associated with a system GnuPG is an entire and free execution of the OpenPGP standard as characterized by RFC4880 otherwise called PGP  GnuPG permits to encode and sign your information and correspondence highlights a flexible key administration framework and additionally get to modules for a wide range of open key indexes  
- 
-26 
-tt 26 
-c e 
-140 120 g 0 25 
-System A 180    O penSSLD 9 7LR 
-E Ubgcryp t 1 6LR             29 
-Ubgcrypt 1 6FR 
- 
- 
-_ OpenSS LD 9 7FR _ OpenSSLD  9.7FR 180    O penSSLD 9 7LR O pen SSL1 0.1 FR   III   Op enSSL1 0.1 LR 160 PolarSS L 1.3  3FR   0   Po l arSS L1 3 3LR 
-B 
-27 29 Encr ypt ions   Ill   O penS SL1 0.1 LR 160 PolarSSL1  3.3FR   0   PolarSS L1  3.3LR Ubgcrypt1 6FR Ubg c rypt1  6LR 27 Encr y pt i ons  2 System 
-  
-28 28 
-140 25 
- 
-
-
-Conclusion 
-1 
-References 
-1 
-machine 8 https www.toptal.com/linux/separation-anxiety-isolating-your-system-with-linu\x-namespaces 9 Isolation in Cloud Computing and Privacy-Enhancing Technologies Suitability of PrivacyEnhancing Technologies for Separating Data Usage in Business Processes Prof Dr Noboru Sonehara Prof Dr Isao Echizen Dr SvenWohlgemuth National Institute of Informatics 2-1-2 Hitotsubashi Chiyoda-ku Tokyo sonehara@nii.ac  jp  10  Performance Isolation and Fairness for Multi-Tenant Cloud Storage David Shue Michael J Freedman and Anees Shaikh Princeton University ylBM TJ Watson Research Center 
-An Updated Performance Comparison of Virtual Machines and Linux Containers Wes Felter Alexandre Ferreira Ram Rajamony Juan Rubio IBM Research Austin TX fwmf apferrei rajamony rubiojg@us.ibm.com 2 A Unified Operating System for Clouds and Manycore fos David Wentzlaff Charles Gruenwald III Nathan Beckmann Kevin Modzelewski Adam Belay Lamia Youseff Jason Miller and Anant Agarwal 3 Containers and Cloud From LXC to Docker to Kubernetes DAVID BERNSTEIN 4 Containers and Clusters for Edge Cloud Architectures a Technology Review Claus Pahl Irish Centre for Cloud Computing and Commerce IC4  Lero the Irish Software Research Centre Dublin City UniversityDublin 9 Ireland 5 Containerisation and the PaaS Cloud Claus Pahl 6 http://www.slideshare.net/BodenRussell/kvm-and-docker-lxc-benchmarking-w\ith-openstack 7 http://stackoverflow com q uestio ns/1604 7306/how-is-docker d ifferent from-a-no rma I-vi rtua 
-It has been observed from experiments that container provides much more isolation among multiple users multi-tenants in cloud virtualization as compared to virtual machines Taking the example of Docker container which is light weight more secure and fast processing virtualization technique and getting much more familiarity due to its characteristics Also Container provides isolation at every instance of virtualization like at process level at file system level network level and at inter process communication lPe level 
- 
-
-

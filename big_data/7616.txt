@@ -1,222 +1,361 @@
-asima,tatebe cs.tsukuba.ac.jp 
-Multi-partition Access Murata Engineering Tsukuba Japan murata@hpcs.cs.tsukuba.ac.jp atebe Sciences Tsukuba Japan Email 
-036 
+n ement mechanism e 
+in orks yadi Science erpool UK ac.uk Coenen Science erpool UK ac.uk Lisitsa Science erpool UK ac.uk 
 Abstract 
-ocessdatabases updated 
+037 037 037 
+ and  
 037 
-constraints entransactions high the accelerate oposes emote connect accelerate operations accelerates 
-aluate uted exIP ormance of ailable 
-I ION of simul 
-ransaction 
+036\035\034 036\033\036 036\032\033 
+037 
+principal parallelisaMassage arti\037cially the Britain can of at 
 ords 
-uted studied 2 3 4 A and database and multiple uted transactions locking the been dis 
-locking protocol 6 and 2PC needs tw o phases of communications operations al hence introduced a read atomic isolation one addressing and to databases proposed 
-2PL 2PC A RAMP transaction requires only a single vides 
-RAMP 
-on y protocols In\037niBand is used to accelerate supercomputing 11 In recent years accelerajoins distrib uted k e y stores 14 15 distrib uted transaction processing  17 and remote data access 18 19 W e belie v e In\037niBand can also be e xploited to accelerate RAMP yet   
-performance of 
-is because data and high xploitamethods logic for becomes 
-access RDMA 
-CPU should locking conwn in methods transactions the 
-GET 
+037 
+ess 
+I ION attracted ork of orks computer netw orks  Peer to-Peer Netw orks 3 road traf 037c netw orks 4 and forms within orks or alternati v ely we might wish to identify orks In this paper we are form ork 
+time 
+035 
+that ement prediction of answer from 
+037 
+037 
+and ork 
+030 
+of ork 
+037 
+036 
+037 
+036 
+at time 
+034 
+036 
 and 
-PUT 239 
- 
-
-
-240 
- 
-
-
-241 
- 
-
-
-242 
- 
-
-
-037 
-    
-timestamp 
-ts q contains eturn latestTS 
-k 
-timestamp K eturn r K 
-030 030 
-k 
-y 
-value 
- 
+031 
+where 
+and 
+these e 037c where our of nature predict orks with paper 
 030 
-utes 
-KVS and information as written transactions 
-Side 1 Client-Side 1 
-037 
-   
-of VER GET 16 
-ts q eturn 
- of                   32    
-032\037\031 
-        
-then 
-035 
-timestamp 
-sions fer fer fer fer 
-that commuis pattern The 
-037\033 
-3 e if else if e 4 e or if if if else if or or or or if if or e 
-r r 
-ys 8 
-v v payload eturn fer he latestTS eturn fer eturn fer eturn he fer eturn he latestTS latestTS fer eturn 
-Communicator 
-035 036 036 036 036 036 036 036 036 
-034 
-037\033 037\033 
-k tx 
-Algorithm whether line there the 4 address obtains Alpolling data address lines 15\22617 the request 13\22618 read that 1 e xcept for the use of the RDMA36\22638 S EM D SIGN this store compiler In ack on GitHub The KVS has a client module and serv er module a contains read y communications The 
-then 
-do 
-030 
-RDMA-Read fer VER GET 22 VER GET 38 
-036 
-latestCommit 
-v v he 
-034 034 034 034 034 
-k 
-max 
-ey 
-do 
-036 
-036 
-sions 
-036 
- 
-metadata 
- 
-Item 
-k 
-r 
-033 033 033 033 
-then 
-032\037\031 
-037 
-communication eral erbs 243 
-  remote address for k e y    
-037 
-032\037\031 
-latestTS 
- 4 RDMA-Write  a set of returned payload and its address for k e y   latest timestamp for k e y          
-do do 
-  
-036 
- 
-k k 
-3 5 6 8 9 2 3 4 5 6 7 9 10 11 12 13 14 RDMA-Write 17 18 19 20 RDMA-Write 23 24 25 26 27 read 28 29 30 31 33 34 35 36 RDMA-Write 37 39 40 41 
-timestamp 
-then 
-timestamp 2 7 RDMA-Write  15 21 response 
-The 
-VER  CLIENT  
-k k k 
- a set of returned payload for k e y   is in v alid     
-v 
-034 
-035 
-Con\037g 
-037 
- 
-k ts q Modules K k tx 
-k k k k k k k k k k k k k k payload k k ess k k k payload k k ess metadata k tx latestTS k k timestamp k k k k payload 
+033 
+algorithm imposed antages that is is cluster Map Hadoop and ii Massage P assing 8  The second contrib ution is a mechanism to orks L RE 
+R VIEW kinds typically common patterns  to support b usiness decision making Netw ork mining is mining Netw ork mining is ement MPM authors  
+This presented w orks frequent to orks mining earliest algorithms 1990s The main objecti v e being to 135 
  
 
 
-244 
+136 
  
 
 
-245 
+137 
  
 
 
-TC 
-SIGMETRICS 
-SOSP 
-21st 2007 
-YCSB RDMAtransactions A T 223Sys\224 Generation 224 Big KAKENHI\(#16K00150 R CES 1 uted 224 
-ICDCS 
-M Syst 
-RDMA RDMA PVLDB 
-or 
-SIGCOMM 
-second GET address read 
-ol Systems 
-SC 
-SoCC 
-HPDC 
-ence 
-TC 
-PVLDB 
-SIGMOD ence 
-TC 
-Syst 
-26 2008 2 Lakshman 223Dynamo 224  2007 3 Ding  uted in 49\22660 4 Bohans 224 1277\2261288 2008 5 Goodman 1987 6 Hellerstein 224 2013 7 223Scalable in  27\22638 8 optimistic Mas1999 9 224 g 10 037cient in 2016 11 architecture in 283\226292 13 a in 103\226114 14 037ciently in 295\226306 15 and for in 22:1\22622:11 16 Renzelmann uted in  54\22670 17 in-memory in 87\226 104 18 relain 355\226370 19 repliin 107\226118 20  in  53\22664 21 Sears in pp 143\226154 22 with rdma 23 224 2006 24 computer g/statistics/list 25 mellanox.com/blog in\037niband 26 understandable in 305\226319 246 
-aRM pro vides a f ast remote memory service on with on including xtend DrTM accelerates transaction processing mem ut we  join accelerates distrib uted relational joins by e xRDMA al accelerated b uf fer pool accesses by placing storage operations ARE e xploits RDMA vironment protocol of transactions C S of e accelerate a RDMAthe C it The results of the e xusing 2.06 
-SOSP 
-yondMR 
+temporary all 037 
 037 037 
-and 2.67 
-16\22626 12 join in 
+031 
+so MPs E AND E N proposed of be Experimechanism of System aluation of ws 138 
+r 033 
+b\n 036 b\n 036 b\n 036 036 
+035 037 035 037 036 
+022 
+036 034 
+026 037 
+036 036 
+026 037 
+037 
+appended set 
+034 
+036 036 036 033 032 036 036 033 036 036 034 034 034 
+035 037 
+036 
+037 
+up 
+034 034 034 
+037 031 037 031 022 031 
+036 
+support e 
+031\030 031\030 031\030 031\030 031\030 031\030 031\030 031\030 031\030 031\030 031\030 031\030 031\030 031\030 031\030 031\030 031\030 032 
+035 035 035 
+004 
+037 037 037 037 037 037 
+the 
+Function 
+do if do 
+016\027 
+026 
+the Subin parallelisation M T P N P ION mined ork 
+031 
+031 
+036 036 
+and equate to 
+Function Begin 
+035 
+for for 
+Function Begin Input 
+all from from from  1 
+036 036 036 036 036 
+036 036 
+MP to yalue 037 ork the algorithm MPs MPs and The through if subset y through ain if y edge from form tuple 037 
+do 
+036 034 036 032 
+end end the 
+FETs threshold MPs shapes FETs threshold MPs shapes MPs 
+035 035 
+034 034 032 031 031 031 034 034 031 031 034 034 035 
+037 
+031 
+036 034 034 036 034 034 034 
+record 
+end 1 
+026 037 
+037\035 037\035 037\035 
+037 
+007 035 035 
+031 036 n\t 036 n\t 036 n\t 036 031 036 
+035 037 
+033 
+034 024\023 024\023 016\023 017\016 017\016 016\023 016\023 016\023 016\023 034 016\023 016\023 017\016 016\023 017\016 034 024\023 024\023 016\023 017\016 017\016 017\016 016\023 024\023 024\023 r\035 024\023 024 016\036 024\023 
+035 035 035 
+end 2 
+036 036 
+035 
+037 037 
+f 
+036 
+034 
+035 
+026 037 
+the 
+hes in 
+the MPs 
+007 037 035 
+037 
+026 037 
+not to 
+022 037 035 
+034 
+037 037 036 036 037 036 037 036 037 037 036 036 037 036 037 037 036 036 
+033 
+035 037 
+to related 
+the 
+037 
+036 
+037 
+then do if 
+026 037 
+else 
+same 
+ set 
+031 
+036 
+027\r 037 033 
+Output 
+do the then do the if then 
+036 032 
+shape 
+nces the through  the of 223to\224  
+been through   set     that looping in 
+021 037\016 036 
+033 
+where 
+and than 
+037 
+037 037 
+r 037 
+037 
+whose than 
+031 
+M S 
+Algorithm MapReduce ork Algorithm ork 
+036 036 
+037 
+031 037 022 037 031 
+037 031 037 022 
+033 032 033 032 
+set 
+f 
+s 
+all the 
+ork ork 
+Input then if Input 
+037 
+037 036 036 035 035 035 036 036 036 036 035 035 035 035 
+aset 
+Output Output 
+035 
+017\031 036 
+end end 
+037 
+037 036 
+a ork 
+support threshold 
+013\032 
+of 
+cluster uted machines where  independently y set all 
+035 035 
+030\035 
  
 
 
- 8 D  A s i m o v  223 T h e g r a n d t o u r  a t o o l f o r v i e w i n g m u l t i d i m e n s i o n a l 224 y n   3 D  C o o k  A  B u j a  J  C a b r e r a  a n d C  H u r l e y  223 G r a n d t o u r a n d 224 s   4 D  C o o k a n d A  B u j a  223 M a n u a l c o n t r o l s f o r h i g h d i m e n s i o n a l d a t a 224 224 n   0 A  B u j a  C  H u r l e y  a n d J  M c d o n a l d  223 A d a t a v i e w e r f o r m u l t i n 2332-7790 \(c This article has been accepted for publication in a future issue of this\ journal, but has not been fully edited. Content may change prior to fin\al publication. Citation information: DOI 10.1109/TBDATA.2017.2653815, I\EEE Transactions on Big Data  4 H  F a n g  K  A  E s p y  M  L  R i z z o  C  St o p p  S A  W i e b e  a n d h 224 l e s  6 D  F  A n d r e w s  223 P l o t s o f h i g h d i m e n s i o n a l d a t a  224 f e g   s   1 D  C o o k  A  B u j a  a n d J  C a b r e r a  223 D i r e c t i o n a n d m o t i o n c o n t r o l i n n f 0   0 20 40 60 80 100 0 50 100 150 200 250 300 350    Dimension d Iterations   e 10 3  e 10 4  e 10 5  e 10 6   002 0 a 9 1.5 2 1.5 1 0.5 0 0.5 1 Data size = 1800 1.5 1.5 1 0.5 0 0.5 1 1.5 2 Data size = 3600 2 1.5 1 0.5 0 0.5 1 1.5 Data size = 5400 2.5 0.5 0 0.5 1 1.5 2 Data size = 9000 1.5 1.5 1 0.5 0 0.5 1 1.5 Data size = 18000 1.5 1.5 1 0.5 0 0.5 1 1.5 Data size = 36000 F 0   100 200 300 500 1000 5000 0 50 100 150 200 250 300 350 400    Sample size N Iterations   e 10 3  e 10 4  e 10 5  e 10 6 s   7 R  K h a t t r e e a n d D  N  N a i k  223 A n d r e w s p l o t s f o r m u l t i v a r i a t e 224   9 A  B u j a a n d D  A s i m o v  223 G r a n d t o u r m e t h o d s  a n o u t l i n e  224 y o   5 H  F a n g  J  A l l i s o n  B  B a r t o n  Z  Z h a n g  G  O l e n d z k i  a n d Y  M a  n n l g  2 D  C o o k  A  B u j a  a n d C  H u r l e y  223 G r a n d t o u r a n d p r o j e c t i o n 224   3 H  F a n g  S D i F r a n z a  Z  Z h a n g  D  Z i e d o n i s  a n d J  A l l i s o n  l n  N  
-
-
- e n r n  y f s a   1 J  M a o a n d A  K  J a i n  223 A r t i 002 c i a l n e u r a l n e t w o r k s f o r f e a t u r e e x 224  2 R  C  T  L e e  J  R  Sl a g l e  a n d H  B l u m  223 A t r i a n g u l a t i o n m e t h o d 224 i e y t f  e s s g d s e   9 J  H u  W  D e n g  J  G u o  a n d W  X u  223 L e a r n i n g a l o c a l i t y d i s 224 0   0 5 10 15 20 0 2000 4000 6000 0 100 200 300 400 500  Dimension d Sample size N  Iterations e 10 3 e 10 4 e 10 5 e 10 6 m f    n s   0 J  W  Sa m m o n  223 A n o n l i n e a r m a p p i n g f o r d a t a s t r u c t u r e a n a l y s i s  224 2332-7790 \(c This article has been accepted for publication in a future issue of this\ journal, but has not been fully edited. Content may change prior to fin\al publication. Citation information: DOI 10.1109/TBDATA.2017.2653815, I\EEE Transactions on Big Data f e s n s l n n n s   5 H  F a n g  223 h l m d a t a a n d h l m r m p o w e r  T r a d i t i o n a l r e p e a t e d m e a d n   6 Y  M a  B  O l e n d z k i  J  W a n g  G  P e r s u i t t e  W  L i  H  F a n g  P  M e r  f d n  8 A  D a y a n i k  223 F e a t u r e i n t e r v a l l e a r n i n g a l g o r i t h m s f o r c l a s s i 002 c a 224 E n h  7 E  W e g m a n a n d J  Sh e n  223 T h r e e d i m e n s i o n a l a n d r e w s p l o t s a n d 224  3 E  P e k a l s k a  D  d e R i d d e r  R  P  D u i n  a n d M  A  K r a a i j v e l d  223 A n n s  1 Z  Z h a n g a n d H  F a n g  223 M u l t i p l e v s n o n o r s i n g l e i m p u t a t i o n l n  6 A  A s u n c i o n a n d D  N e w m a n  223 U c i m a c h i n e l e a r n i n g r e p o s i t o r y  224  7 S S K i m  S H  K i m  H  F a n g  S K w o n  D  Sh e l l e y  a n d D  Z i e d o n i s  n d 224  e  A v a i l a b l e  0 3 227 227  223 A n e w m i b a s e d v i s u a l i z a t i o n a i d e d v a l i d a t i o n i n d e x f o r 224 g  5 L  Y a n g  223 Sa m m o n  s n o n l i n e a r m a p p i n g u s i n g g e o d e s i c d i s n e  9 T  K  H o u s t o n  R  S Sa d a s i v a m  J  J  A l l i s o n  A  S A s h  M  N  e t 2 224  6 C  H u r l e y a n d A  B u j a  223 A n a l y z i n g h i g h d i m e n s i o n a l d a t a w i t h 224  2 Z  Z h a n g  H  F a n g  a n d H  W a n g  223 M u l t i p l e i m p u t a t i o n l 224 e I   0 L  B r e i m a n  J  F r i e d m a n  C  J  St o n e  a n d R  A  O l s h e n  l s s i t C   4 H  F a n g  G  P  B r o o k s  M  L  R i z z o  K  A  E s p y  a n d R  S s 224  s  8 T  K  H o u s t o n  R  S Sa d a s i v a m  D  E  F o r d  J  R i c h m a n  M  N  224 s  5 G  W  F u r n a s a n d A  B u j a  223 P r o s e c t i o n v i e w s  D i m e n s i o n a l i n f e r 224  4 J  B  T e n e n b a u m  V  D e Si l v a  a n d J  C  L a n g f o r d  223 A g l o b a l 224 g g 
-
-
-2 2013  A Plaza 2009  G F  Hughes 322On the mean accurac y of statistical pattern recognizers 323 1968  M Imani and H Ghassemian 322Feature e xtraction using attraction points situa\323 1986\3201990 2014  A Agarw al T  El-Ghaza wi H El-Askary  and J Le-Moigne 322Ef 336cient in 2009 2009  G Y  Chen and S.-E Qian 322Denoising of hyperspectral imagery using 323 2011  J  W ang and C.-I Chang 322Independent component analysis-based anal\323 1586\3201600 2006  M Sugiyama 322Dimensionality reduction of multimodal labeled data by 323 5 2007  W  Li S Prasad J E F o wler  and L M Bruce 322Locality-preserving anal\323 1185\3201198 2012  Y  Qian F  Y ao and S Jia 322Band selection for hyperspectral imagery 323 213\320222 2009  F  Zhang B Du L Zhang and L Zhang 322Hierarchical feature dropout 2016  S Jia G T ang J Zhu and Q Li 322 A no v el ranking-based clustering 323 2016  S Chen and D Zhang 322Semisupervised dimensionality reduction 323 2013  J Li M Khodadadzadeh A Plaza X Jia and J M Bioucas-Dias 323 480\320491 2005  M F auv el J A Benediktsson J Chanussot and J  R Sv einsson SVMs 323 46 2008  M D Mura A V illa J A Benediktsson J Chanussot and L Bruzzone morphological 323 2015  R Ji 1811\3201824 2014  S Jia Y  Xie G T ang and J Zhu 322Spatial-spectral-combined 323 2016  J Li J M B ioucas-Dias and A Plaza 322Semisupervised hyperspecwith 323 2011  J Li J M Bioucas-Dias and A Plaza 322Hyperspectral image se gmen\323 2011 analysis 323 image 323 and 323 2 sparse 323 classi\336ca\323 2011  Q S ul Haq L Shi L T ao and S Y ang 322 A rob ust band compresin 2010 196\320200  M F auv el Y  T arabalka J A Benediktsson J Chanussot and yperspectral 323 2016  L Zhang 2011  X Xu J Li X Huang M D Mura and A Plaza 322Multiple mor sensing 323 5 2016  D T uia M V olpi M D Mura A Rak otomamonjy  and R Flamary  with 323 10 2014  S Jia X Zhang and Q Li 322Spectral\320spatial hyperspectral image clasusing 11 2010  B Zhang S Li X  J ia L Gao and M P eng 322 A dapti v e Mark o v random 323 Sens JIA MFL also that Gabor systematic will ork R EFERENCES  D Manolakis D Mardon and G A Sha w  322Hyperspectral image pro\323 ans Sens on Earth Sens  2016  J A Benediktsson J A P almason and J R Sv einsson 322Classi\336cation morphological 323 ocomputing Comput  2003  J M Bioucas-Dias IEEE Lett  Lett Sens Sens Remote Sens IEEE ICIS al Sens Sens Geosci Lett Sens al Sens Sens Geosci Lett IEEE  Sens al t 11 xtraction feature by only eature simple 3DGPC-HDM methods techniques for classi\336cation C ONCLUSION framewith magapproach hand parallel information signi\336cantly the and e 3DGPC-HDM with MLR 1 al  al Giza 353\320356  M F auv el J Chanussot and J  A Benediktsson 322K ernel principal comsensing 323 323 sub  Theory ISSPIT ocess Res is k Cybern ans Sens Sens This article has been accepted for inclusion in a future issue of this j\ournal. Content is final as presented, with the exception of pagination e published  L Zhang X Zhu L Zhang and B Du 322Multidomain subspace classi\336cation 323 
-
-
-1\3206  J Li J M Bioucas-Dias and A Plaza 322Spectral\320spatial classi\336cation learn\323 844\320856 2013  M Khodadadzadeh 4033\3204045 2016  Y  T arabalka J Chanussot and J  A Benediktsson 322Se gmentation and 323 2010  Y  T arabalka J Chanussot and J  A Benediktsson 322Se gmentation and forest 323 2010  J C T ilton Y  T arabalka P  M Montesano and E Gofman 322Best gion 323 6 2015  Y  Qian M Y e and J Zhou 322Hyperspectral image classi\336cation based elet 323 2015  J Bruna and S Mallat 322Classi\336cation with scattering operain 1872\3201886 2013  L He Y  Li X Li and W  W u 322Spectral\320spatial classi\336cation of h yper sparse 323 2013  S Jia Z Zhu L Shen and Q Li 322 A tw o-stage feature selection frame\323 4 2014  Z Zhu 1\32027 2011  J Wright A Y  Y ang A Ganesh S S Sastry  and Y  Ma 322Rob ust f ace 323 2009  G H Granlund 322In s earch of a general picture processing operator  323 1978  F  Bianconi and A Fern\207ndez 322Ev aluation of the ef fects of Gabor 336lter 323 2002  L Shen and L Bai 322 A re vie w on Gabor w a v elets for f ace recognition 323 2006  X Chen J  Y ang J Zhang and A W aibel 322 Automatic detection and 323 375\320383 2008  T  C Bau S Sarkar  and G Heale y  322Hyperspectral re gion classi\336ca\323 2010  L W isk ott J.-M Fellous N K uiger  and C v on der Malsb ur g 322F ace 323 1997  B Zhang S Shan X  Chen and W  G ao 322Histogram of Gabor ace 323 57\32068 2007  W  Zhang S Shan L Q ing X Chen and W  Gao 322 A re Gabor phases recognition?\323 25 2011  D Zhang W  K K ong J Y ou and M W ong 322Online palmprint iden\323 2016  K Kayabol and J  Zerubia 322Unsupervised amplitude and te xture clas\323 2013  J J de Mesquita S\207 Jr  P  C Cortez and A R Back es 322Color te x\323 2014  J G Daugman 322High con\336dence visual recognition of persons by a test 323 50 2012  J Li 1592\3201606 2015  Z Zhong 4461\3204478 2016  W  Li C Chen H Su and Q Du 322Local binary patterns and 323 3681\3203693 2015  S Asif 322Dynamic compressi v e sensing Sparse reco v ery algorithms for Comput 2013  J A Richards el 323  1561\3201566  J Bruna and S Mallat 322In v ariant s cattering con v olution netw orks 323 323  2015  R O Duda P  E H art and D  G  S tork classi\336ca\323 hash\323  2015  Z Guo X W ang J Zhou and J  Y ou 322Rob ust te xture image repre\323 10 2014  J Zhao Y  Zhong H Shu and L Zhang 322High-resolution image classirandom 323 11 2012  M Khodadadzadeh J Li S Prasad and A Plaza 322Fusion of h yperspec\323 4 2013  Y  Y  T ang Y  Lu and H Y uan 322Hyperspectral image classi\336cation 323 5 2015  D Gabor  322Theory of communication P art 1 The analysis of infor 323 26 1946  L Shen and S J ia 322Three-dimensional Gabor w a v elets for pix el-based 323 12 2007  C Liu and H W echsler  322Gabor feature based classi\336cation using the 323 3 2009  L Shen L Bai and Z J i 322FPCODE An ef 336cient approach for 323 9 2003  S Xie S Shan X Chen and J  Chen 322Fusing local patterns of Gabor 323 9 2013  J Li J M B ioucas-Dias and A Plaza 322Spectral\320spatial hyperspectral and 323 h Intell gnit  2011  L Shen Z Zhu S Jia J Zhu and Y  Sun 322Discriminati v e Gabor 323  2012  Y  Chen Z Lin and X Zhao 322Riemannian manifold learning based in Australia 1975\3201978  C.-C Chang and C.-J Lin 322LIBSVM A library for s upport v ector 323  2004  L Shen and L Bai 3223D Gabor w a v elets for e v aluating SPM nor 323  2010  Y  Dong D T ao X Li J  Ma and J  Pu 322T e xture classi\336cation and 323  ICME Anal Sens al Sens ocess Sens Sens Sens Geosci Lett al Classi\336cation IEEE Int IGARSS IEEE ocess ocess Geosci Sens ocess Intell ocess Sens Sens al Sens al Sens Intell ocess Appl ans Sens  2013  1993  R N Brace well Applications 12 CYBERNETICS  J Lin Q W ang and Y  Y uan 322In defense of iterated conditional in Anal Intell e ocess e ocess Man Cybern CVPR  Sci hnol Appl Intell Cybern ans  Intell oduction This article has been accepted for inclusion in a future issue of this j\ournal. Content is final as presented, with the exception of pagination gnit Sens Sens Sens Sens 3  2000  J Li P  R Marpu A Plaza J M Bioucas-Dias and J A Benediktsson image 323 
-
-
-JIA al the Edition  This article has been accepted for inclusion in a future issue of this j\ournal. Content is final as presented, with the exception of pagination grees Zhejiang 2007  with are China hyperspecprocessing learning from and Nottingham U.K ersity image the ge Engineering current acial yperspectal classi\336cation ard the attern ICIP 2016 engiphotogrammetry uhan  Professor an has Laboratory Mapping the China Smart 336c photogramystems the ournal the  from the ong 2008 the  interests high in transportation Zhu Li 13 Shen and Computing ia 
-
-
-2734 IEEE TRANSACTIONS ON IMAGE PROCESSING VOL 26 NO 6 JUNE 2017 context model our framework can signiﬁcantly improve the recognition performance of the previous semantic manifold approach and its variants We further recast convolutiona l networks as sophisticated SMNs implemented as weakly supervised adaptation of a pre-trained network and inte grate them as semantic features in the proposed framework This hybrid approach achieves state-of-the-art scene recognition accuracy even without the contextual classiﬁer R EFERENCES 1 A  O li v a and A  T or r a lba M odeling t he s h ape o f t he s cene A holis tic representation of the spatial envelope Int J Comput Vis  vol 42 no 3 pp 145–175 2001 2 J  W u a nd J  M  Rehg Centr is t A v is ual d es cr iptor f or s cene categorization IEEE Trans Pattern Anal Mach Intell  vol 33 no 8 pp 1489–1501 Aug 2011 3 J  V ogel a nd B S c hiele S em antic m odeling o f n atur al s cenes f o r content-based image retrieval Int J Comput Vis  vol 72 no 2 pp 133–157 Apr 2007  L  L i H Su E  P  X ing and L  F ei-Fei  Object bank A h ighlevel image representation for scene classiﬁcation  semantic feature sparsiﬁcation in Proc NIPS  2010 pp 1378–1386 5 L  J  L i and L  F eiF ei  W h at w her e and w ho Clas s i f y ing e v e nts b y scene and object recognition in Proc ICCV  2007 pp 1–8 6 C  W ang D  Blei a nd L  F e iF e i S im ultaneous im age c las s i  cation and annotation in Proc CVPR  2009 pp 1903–1910  Z  N iu G  H ua X  G ao a nd Q T i an  Conte x t a w a re topic m odel f or scene recognition in Proc CVPR  2012 pp 2743–2750  A  Q uattoni and A  T orralba Recognizing indoor s cenes   in Proc CVPR  2009 pp 413–420 9 C  D oer s ch A  G upta and A  A  E f r o s  M idl e v el vis u al elem ent discovery as discriminative mode seeking in Proc NIPS  2013 pp 494–502  M J uneja A  V edaldi C  V  J a w ahar  a nd A Z i s s e rm an  Blocks that shout Distinctive parts for scene classiﬁcation in Proc CVPR  2013 pp 923–930  R K w itt N  V a s c oncelos  a nd N  Ras i w a s i a S cene r ecognition o n t he semantic manifold in Proc ECCV  2012 pp 359–372  N Ras i w a s i a P  J  Moreno and N  V as concelos   Bridging the g ap Query by semantic example IEEE Trans Multimedia  vol 9 no 5 pp 923–938 Aug 2007  N Ras i w a s i a a nd N V a s c oncelos   Holis tic conte x t m odels for v is ual recognition IEEE Trans Pattern Anal Mach Intell  vol 34 no 5 pp 902–917 May 2012  X  S ong S  J i ang and L  H erranz  Joint multi-feature spatial context for scene recognition in the semantic manifold in Proc CVPR  Jun 2015 pp 1312–1320  M  D i xit S  Chen D  G ao N  R as iw as ia a nd N  V a s c oncelos   S cene classiﬁcation with semantic Fisher vectors in Proc CVPR  2015 pp 2974–2983  J  Bes a g On t he s t atis tical analys is of dirty p ictures   J Roy Statist Soc Ser B  vol 48 no 3 pp 259–302 1986 17 O R u ssa k o v sk y et al  ImageNet large scale visual recognition challenge Int J Comput Vis  vol 115 no 3 pp 1–42 2015 Available http://dx.doi.org/10.1007/s11263-015-0816-y  B Z hou A L a pedriza J  Xiao A  T orralba and A  O li v a   L earning deep features for scene recognition using places database in Proc NIPS  2014 pp 487–495  X Song S J i ang L  Herra nz Y Kong and K Zheng Category co-occurrence modeling for large scale scene recognition Pattern Recognit  vol 59 pp 98–111 Nov 2016 A v a ilable http://www.sciencedirect.com/science/article/pii/S0031320316000406  S L azebnik C Schm id a nd J  Pon ce Beyond bags of features Spatial pyramid matching for recognizing natural scene categories in Proc CVPR  2006 pp 2169–2178  L  Bo X  R en a nd D F ox K ernel d es criptors for v is ual r ecognition  in Proc NIPS  2010 pp 244–252  L  Z h ang X Z h en a nd L  Shao  L earning object-to-clas s k ernels for scene classiﬁcation IEEE Trans Image Process  vol 23 no 8 pp 3241–3253 Aug 2014  A Ber g am o a nd L  T o rres a ni  Cl assemes and other classiﬁer-based features for efﬁcient object categorization IEEE Trans Pattern Anal Mach Intell  vol 36 no 10 pp 1988–2001 Oct 2014  L  Fei-Fei a nd P  Perona  A B ayes ian hierarchical model for learning natural scene categories in Proc CVPR  2005 pp 524–531  N Ras i w a s i a a nd N V a s c oncelos  Latent Dirichlet allocation models for image classiﬁcation IEEE Trans Pattern Anal Mach Intell  vol 35 no 11 pp 2665–2679 Nov 2013  X W a ng and E  G rim s on Spatial l atent Dirichlet allocation in Proc NIPS  2007 pp 1577–1584  L  J  L i H Su Y  L im  a nd L  Fe i-Fei Object bank An object-level image representation for high-level visual recognition Int J Comput Vis  vol 107 no 1 pp 20–39 2014  X  Bai C Y a o and W  L iu  S t r o k e lets  A lear ned m ultis cale m idl e v el representation for scene text recognition IEEE Trans Image Process  vol 25 no 6 pp 2789–2802 Jun 2016  X  W a ng B W a ng X  Bai W  L i u and Z  T u M axm ar gin m ultipleinstance dictionary learning J.Mach.Learn.Res  vol 28 no 3 pp 846–854 2013  G S X ie X  Y  Z h ang S Y a n and C  L  L i u Hybrid CNN a nd dictionary-based models for scene recognition and domain adaptation IEEE Trans Circuits Syst Video Technol  to be published O A v a ilable http://ieee xplore i e e e  o r g d ocu m ent 7362 156  doi 10.1109/TCSVT.2015.2511543  N Ras i w a s i a a nd N V a s c oncelos   Holis tic conte x t m odeling u s i ng semantic co-occurrences in Proc CVPR  2009 pp 1889–1895  A Krizhe vs k y  I  S uts k e v er  a nd G E Hinton ImageNet classiﬁcation with deep convolutional neural networks in Proc NIPS  2012 pp 1106–1114  J  Deng A Ber g  a nd L  Fei-Fei L ar ge graph c ons truction f or s calable semi-supervised learning in Proc ICML  2011  J  Donahue et al  DeCAF A deep convolutional activation feature for generic visual recognition in Proc ICML  2014 pp 647–655  T  Dura nd N T home  a n d M  C ord  W E L DON W e a k l y supe rvi s e d learning of deep convolutional neural networks in Proc CVPR  Jun 2016 pp 4743–4752  M Oquab L  Bottou I L a pte v  a nd J Sivic Is object localization for free?—Weakly-supervised learning with convolutional neural networks in Proc IEEE Conf Comput Vis Pattern Recognit CVPR  Jun 2015 pp 685–694  X L i et al  Deepsaliency Multi-task deep neural network model for salient object detection IEEE Trans Image Process  vol 25 no 8 pp 3919–3930 Aug 2016  H  Bilen a nd A  V e daldi W eakly s uper v is ed deep detection n etw o r k s   in Proc IEEE Conf Comput Vis Pattern Recognit CVPR  Jun 2016 pp 2846–2854  Y  G ong L  W a ng R G uo and S  L azebnik Multi-s cale o rderles s pooling of deep convolutional activation features in Proc ECCV  2014 pp 392–407  R W u  B  W ang W  W a ng and Y  Y u H ar v e s ting d is cr im inati v e m eta objects with deep CNN features for scene classiﬁcation in Proc ICCV  2015 pp 1287–1295  Q W a ng P  L i  W  Z uo and L  Z hang RAID-G Rob u s t es tim ation o f approximate inﬁnite dimensional Gaussian with application to material recognition in Proc CVPR  Jun 2016 pp 4433–4441  F  Perronnin J  Sánchez and T  M en sink Improving the Fisher kernel for large-scale image classiﬁcation in Proc ECCV  2010 pp 143–156  D G L o we  Dis tincti v e i m a ge feat ures from scale-invariant keypoints Int J Comput Vis  vol 60 no 2 pp 91–110 2004  D  Z h ang X  Chen a nd W  S  L ee T e x t c las s i  cation w ith k e r n els o n the multinomial manifold in Proc RDIR  2005 pp 266–273  J  X i ao J  H ays  K  A  E h inger  A  O l i v a and A  T or r a lba S U N database Large-scale scene recognition from abbey to zoo in Proc CVPR  2010 pp 3485–3492  B Z hou A Khos la A  L apedriza A T o rralba and A  O li v a   2016 Places An image database for deep scene understanding On Available https://arxiv.org/abs/1610.02055  L  T o rres a ni M  S zum m e r  and A  F itzgibbon E f  cient object cate gory recognition using classemes in Proc ECCV  2010 pp 776–789  M  P a nde y a nd S  L azebnik S cene r ecognition a nd w eakly s uper v is ed object localization with deformable part-based models in Proc ICCV  2011 pp 1307–1314  G  L  O l i v eir a  E  R  N as cim e nt o A W Vieira and M F M Campos Sparse spatial coding A novel approach to visual recognition IEEE Trans Image Process  vol 23 no 6 pp 2719–2731 Jun 2014 
-
-
-SONG et al  MULTI-SCALE MULTI-FEATURE CONTEXT MODELING FOR SCENE RECOGNITION IN THE SEMANTIC MANIFOLD 2735  L  Xie Q T i an M  W ang and B  Z hang Spatial pooling o f h eterogeneous features for image classiﬁcation IEEE Trans Image Process  vol 23 no 5 pp 1994–2008 May 2014  Z  W a ng J  Feng S Y a n and H  X i L inear dis t ance coding for i m a ge classiﬁcation IEEE Trans Image Process  vol 22 no 2 pp 537–548 Feb 2013  J  Sanchez F  Perronnin T  Mens i nk and J Verbeek Image classiﬁcation with the Fisher vector Theory and practice Int J Comput Vis  vol 105 no 3 pp 222–245 2013  J  Xiao K  A  E hinger  J  Hays  A  T orralba and A  O li v a   SUN database Exploring a large collection of scene categories Int J Comput Vis  vol 119 no 1 pp 3–22 2014  L  Bo and C  S m i nchis e s c u E f  cient m atch k e r n el betw een s e ts of features for visual recognition in Proc NIPS  2009 pp 135–143  J  W a ng J  Y a ng K  Y u  F  L v  T  H u ang and Y  G ong L ocalityconstrained linear coding for image classiﬁcation in Proc CVPR  2010 pp 3360–3367  H Hu G  T  Z hou Z  Deng Z  L i ao a nd G Mori  L earning s t ructured inference neural networ ks with label relations in Proc CVPR  Jun 2016 pp 2960–2968  K  S i m o n y an and A  Z is s e r m an  V e r y deep con v olutional n etw o r k s f or large-scale image recognition in Proc ICLR  2015 A v a ilable https://arxiv.org/abs/1409.1556  S  Y a ng and D  R am anan  Multi-s cale r ecognition w ith D A G CN N s   in Proc ICCV  2015 pp 1215–1223  M D Dixit a nd N V a s c oncelos   Object based scene representations using Fisher scores of local subspace projections in Advances In Neural Information Processing Systems  vol 29 D D Lee M Sugiyama U V Luxburg I Guyon and R Garnett Eds Red Hook NY USA Curran Associates Inc 2016 pp 2811–2819 Xinhang Song received the B.S degree from the School of Computer and Information Technology Beijing Jiaotong University Beijing China in 2011 He is currently pursuing the Ph.D degree in computer science with the Key Laboratory of Intelligent Information Processing Institute of Computing Technology Chinese Academy of Sciences Beijing His current research interests include image processing large-scale image retrieval image semantic understanding multimedia content analysis computer vision and pattern recognition Shuqiang Jiang SM’08 is currently a Professor with the Institute of Computing Technology Chinese Academy of Sciences and also a Professor with the University of CAS He is also with the Key Laboratory of Intelligent Information Processing CAS His current research interests include multimedia processing and semantic understanding pattern recognition and computer vision He has authored or co-authored over 100 papers on the related research topics He was supported by the New-Star program of Science and Technology of Beijing Metropolis in 2008 the NSFC Excellent Young Scientists Fund in 2013 and the Young top-notch talent of Ten Thousand Talent Program in 2014 He is a Senior Member of the CCF and a member of the ACM He received the Lu Jiaxi Young Talent Award from Chinese Academy of Sciences in 2012 and the CCF Award of Science and Technology in 2012 He was the General Chair of ICIMCS 2015 the Program Chair of ICI MCS2010 the Special Session Chair of PCM2008 and ICIMCS2012 the Area Chair of PCIVT2011 the Publicity Chair of PCM2011 the Web Chair of ISCAS2013 and the Proceedings Chair of MMSP2011 He has also a TPC member for about 20 well-known conferences including the ACM Multimedia  CVPR ICCV ICME ICIP and PCM He is an Associate Editor of the IEEE Multimedia Multimedia Tools and Applications He is also the Vice Chair of the IEEE CASS Beijing Chapter the Vice Chair of the ACM SIGMM China chapter Luis Herranz received the Ingeniero de Telecomunicación degree from the Universidad Politécnica de Madrid Madrid Spain in 2003 and the Ph.D degree in computer science and telecommunication from the Universidad Autónoma de Madrid in 2010 From 2003 to 2010 he was with the Escuela Politécnica Superior of the Universidad Autónoma de Madrid as a Researcher and a Teaching Assistant From 2010 to 2011 he was with Mitsubishi Electric Research And Development Center Europe U.K He is currently a Post-Doctoral Research Fellow with the Institute of Computing Technology Chinese Academy of Sciences Beijing China His current research interests include multimedia signal processing content summarization and adaptation multimedia indexing and retrieval and scene recognition 
-
-
-2332-7790 \(c This article has been accepted for publication in a future issue of this\ journal, but has not been fully edited. Content may change prior to fin\al publication. Citation information: DOI 10.1109/TBDATA.2017.2680460, I\EEE Transactions on Big Data A 16 a b c particles nonthe quality aluated ely 224non-testable\224 approach are system be the to The uilding its more and MRs enough alidated R D W K quality data ork and data scienti\002c learning In topics poor prediction utes and detail timeliness metadata accuauditability  Gao Xie and T ao ha v e gi v en an o v ervie w of the issues of data where the y de\002ned big data quality assurance techniques Although for the health eb orthiy such history source and sources information Finding the duplicated information quality as for duplication Data 002ltering is an approach data Samza which is adopted and al an electronic proposed using learning training reduce the algorithm data poor data Due to the massi v e scale of big data automated choice learning grated easily data for domain task The process is to reduce the irrele v ant performance selection correlation predict CFS 
+003 
+026 
+037\036 
+037 037 
+alues as 2003 in about 
+022 
+037 037 036 036 037 036 
+034 034 026 024 035 
+024 024 
+022 
+037\036 
+033\036 
+037 037 037 037 037 
+b 
+030 036 030 030 036 030 033\f 033\f 024 033\f 024 024\030 
+020 
+037 033 
+037 
+037 037 037 037 037 037 
+ single to parallelisation were support  
+n n 
+ee 
+each of using 
+037\031 
+036 036\037 031\030\035 
+003 
+017 
+Start 
+the 
+003 
+036 036 035 035 036 035 034 033 034 033 
+r r 
+024 
+037 037 037 037 037 037 037 
+ork  and and set of animals animals as case the 
+Sets 
+020 
+w 
+037 036 
+A generated speci\037ed referencing\224 the 
+and 
+Equation the will be 
+037 037 
+026 
+023\023 035\020 023\023 
+032\032\032 
+021 007 
+036\035\034 
+  edges about  
+026 
+ arti\037cially featured zero associated is and ement such of to each the database of a same set 
+037 037 037 037 037 037 037 037 037 037 037 037 
+ork 
+n 
+026 036 
+end end end end end 3 
+b 
+y ything it number of 
+The an comprising 
+b 
+with 139 
+MPs in xtracted from xtracted from alues from 
+027\036 
+do 
+034 031 034 031 034\027 
+Mechanism a support edges the the edges ShaMP Haddoop mechthe MPs 
+037\036 037\036 037\036 037\036 037\036 037\036 
+037 
+021 021 
+n 
+036 
+032\032\032 
+b 
+035 036 
+real were be sets to a of FIM At f ace v alue the MP to candi MPs  
+035 035 034 035 035 032 032 031 032 031 030 035 025 025 025 
+013 
+where 
+Input do if then r do if then 
+numCattle he 
+013\033 013\033 013\033 
+031\030\032 
+037 n n 
+Output 
+026 
+I=I 
+021 017 035 035 003 
+022 022 
  
 
 
-2332-7790 \(c This article has been accepted for publication in a future issue of this\ journal, but has not been fully edited. Content may change prior to fin\al publication. Citation information: DOI 10.1109/TBDATA.2017.2680460, I\EEE Transactions on Big Data A 17 for images In this practical based in images  Ho w the feature selection w ould impact the classi\002cation reported  More adv anced feature selection approaches such as the in can be introduced into the frame w ork e images samin images challenge to problem  Man y dif ferent approaches ha v e been proposed to address as results the are Ho we v er  none of these that most eloping MRs 12 Metamorphic testing w as 002rst Chen al  for testing non-testable systems bioinformatics sysaultrelations A recent has compilers  Metamorphic testing has been applied for testi ng a lar ge ASA and also successfully engines Baidu Ho we v er  the quality of reported are w information In this paper  metamorphic in results w are tests xity SUT  Combinatorial technique 53 used for testing softw are for are C N the learning were to classi\002cation the for confusion learning important it data our data techniques A T King and xperi#1262933 e Corporation research R S  V  Gudi v ada R Raeza-Y ates and V  Ragha v an 223Big data Promises and 224 Computer 2015  Y  Bengio 223Learning deep architectures for ai 224 ends Learning 2009  Apache 2016 Hadoop Online A v ailable http://hadoop.apache.or g  V  Gudi v ada D Rao and V  Ragha v an 223Renaissance in database 224 IEEE Computer 2016  J Zhang Y  Feng M S Moran J Lu L Y ang al of 224 ess 2013  R M and T  Poggio 223Models of object recognition 224 oscience 2000  K Jacobs  J Lu and X Hu 223De v elopment of a dif f raction imaging 224 Lett 2009  2016 Adda project Online A v ailable https://github com/addateam adda  T  Y  Chen S C Cheung and S Y iu 223Metamorphic testing a ne w CS98and 1998  J Ding D Zhang and X Hu 223 An application of metamorphic testing in metamorphic ICSE 2016  U Kane w ala and J M Bieman 223T esting scienti\002c softw are A system\224 gy 56 2014  S Se gura G Fraser  A Sanchez and A Ruiz-Cort 264 on 224 Engineering  2016  2016 Mongodb  Online A v ailable https://www mongodb com  2016 Mongochef Online A v ailable http://3t.io/mongochef  M Y urkin and A Hoekstra 2014 User manual for the discrete 1.3b4 A v ailable https team/adda/tree/master/doc  C Hsu C.-C Chang and C.-J Lin 223 A practical guide to support v ector 2003  Y  LeCun Y  Bengio and G Hinton 223Deep learning 224 e 521 2015  R Haralick 223On a te xture-conte xt feature e xtract ion algorithm for in Society ol 650\226 657 
+140 
  
 
 
-2332-7790 \(c This article has been accepted for publication in a future issue of this\ journal, but has not been fully edited. Content may change prior to fin\al publication. Citation information: DOI 10.1109/TBDATA.2017.2680460, I\EEE Transactions on Big Data A 18  K Dong Y  Feng K Jacobs J Lu R Brock al 223Label-free 224 Biomed ess 2011  R M Haralick K Shanmug an and I H Dinstein 223T e xtural features 224 Cybern SMC-3 1973  S K Thati J Ding D Zhang and X Hu 223Feature selection and analin ion ance 2015  J Dixon and J Ding 223 An empirical study of parallel solution for glcm 2016  T  Kanungo D Mount N Netan yahu C Piatk o R Silv erman and im\224 hine ence 2012  M A Hall 223Correlation-based feat ure selection for machine learning 224 wzealand 1999  A Krizhe vsk y  I Sutsk e v er  and G E Hinton 223Imagenet classi\002cain al systems and 1097\2261105  E Gibne y  223Google ai algorithm masters ancient g ame of go 224 e   M Moran 223Correlating the morphological and light scattering prop 2013  R P an Y  Feng Y  Sa J Lu K Jacobs and X Hu 223 Analysis 224 ess  2014  X Y ang Y  Feng Y  Liu N Zhang L W ang al e fraction 224 ess 7 2014  M Zhang 223 A deep learning based classi\002cation of lar ge scale biomed2016  Y  Feng N Zhang K Jacobs W  Jiang L Y ang al 223Polarization w 224 A 2014  C.-C Chang and C.-J Lin 2016 Libsvm Online A v ailable csie.ntu.edu.tw 030 cjlin/libsvm  2016 Caf fe project Online A v ailable http://caf fe.berk ele yvision.or g  J Mayer and R  Guderlei 223 An empirical study on the selection of good in e C06 475\226484  U Kane w ala J M Bieman and A Ben-Hur  223Predicting metamorphic approach 224 and Reliability 2015  J Ding T  W u J Q Lu and X Hu 223Self-check ed metamorphic testing in on vement apore 2010  W  E W ong and A Mathur  223Reducing the cost of mutati on testing 224 e pp 1995  Y  Jia and M Harman 223 An anal ysis and surv e y of the de v elopment of 224  649\226678 2011  L Cai and Y  Zhu 223The challenges of data quality and data quality 224 ournal 1 2015  J Gao C Xi e and C T ao 223Big data v alidation and quality assurance in Service\(SOSE 433\226441  X Dong E Gabrilo vich K Murph y  V  Dang W  Horn C Lug aresi 224  938\226949 2015  X Y in J Ha n and P  S Y u 223T ruth disco v ery with multiple con\003icting 224 Data  2008  C H W u and Y  Song 223Rob ust and distrib uted web-scale near dup in IEEE Data 2606\226 2611  2016 Apache samza Online A v ailable http://samza.apache.or g  J A Saez B Kra wczyk and M W ozniak 223On the in\003uence of class 002ltering 224 ence 590\226609 2016  M Y ousef D S D M 250 223Feature for 224 bioinformatics 2016  F  Min Q Hu and W  Zhu 223Feature sel ection with test cost constraint 224 Reasoning 167\226 2014  H A L Thi H M Le and T  P  Dinh 223Feature selection in machine function 224 Learning 2015  H Liu F C K uo D T o we y  and T  Chen 223Ho w ef fecti v ely does problem?\224 on Engineering 2014  V  Le M  Afshari and Z Su 223Compiler v alidation via equi v alence in amming on Kingdom 216\226226  M Lindv all D Ganesan R rdal and R E W ie g and 223Metamorphic in 37th Engineering 129\226 138  Z Zhou S Xiang and T  Chen 223Metamorphic testing for softw are 224 e Engineering 2016  C Nie and H Leung 223 A surv e y of combinatorial testing 224 CM y 2011 CE O HERE Ding Computer has Computer in Nanjing 2004 r ed His the He by CM Hu  ada East  
+141 
  
 
 
-2169-3536 \(c http://www.ieee.org/publications_standards/publications/rights/index.htm\l for more information This article has been accepted for publication in a future issue of this\ journal, but has not been fully edited. Content may change prior to fin\al publication. Citation information: DOI 10.1109/ACCESS.2017.2697839, IEEE Access   19     en-US  en-US  en-US  en-US 52 en-US  en-US  en-US  en-US en-US e en-US ti en-US en-US  en-US  en-US en-US  en-US 4 en-US en-US  en-US  en-US  en-US 53 en-US  en-US  en-US  en-US en-US  en-US  en-US DA en-US en-US  en-US  en-US  en-US  en-US 54 en-US  en-US  en-US  en-US en-US e en-US n en-US  en-US en-US  en-US v en-US en-US  en-US  en-US  en-US 55 en-US  en-US  en-US  en-US en-US k en-US en-US thm en-US en-US  en-US ron en-US  en-US 0 en-US en-US  en-US  en-US 5 en-US 6 en-US  en-US  en-US  en-US en-US  en-US  en-US  en-US en-US n en-US  en-US  en-US  en-US 57 en-US  en-US  en-US  en-US en-US ti en-US en-US T en-US  en-US n en-US en-US  en-US  en-US  en-US  en-US  en-US 58 en-US  en-US  en-US  en-US en-US  en-US Pre en-US en-US  en-US t en-US en-US  en-US  en-US en-US  en-US  en-US  en-US 3 en-US en-US 1 en-US  en-US  en-US  en-US 59 en-US  en-US  en-US t en-US  en-US  en-US n en-US en-US  en-US  en-US en-US  en-US OS en-US  en-US 2 en-US en-US  en-US  en-US  en-US 60 en-US  en-US  en-US  en-US en-US  en-US ti en-US  en-US t en-US en-US  en-US 4 en-US en-US  en-US  en-US  en-US 61 en-US  en-US  en-US  en-US en-US  en-US  en-US en-US ess en-US  en-US  en-US 0 en-US en-US  en-US  en-US  en-US 62 en-US  en-US  en-US  en-US en-US X en-US en-US ng en-US en-US s en-US  en-US en-US  en-US  en-US i    en-US x en-US en-US e en-US en-US i en-US en-US r en-US en-US is en-US en-US 2 en-US en-US Dec en-US en-US 6  en-US  en-US  en-US 63 en-US  en-US  en-US i en-US  en-US en-US  en-US  en-US en-US h en-US i   Av a i l a bl e   en-US e en-US en-US is en-US en-US ng en-US en-US a en-US en-US nd en-US en-US b en-US en-US r en-US en-US the en-US en-US net en-US en-US of en-US en-US 0 en-US en-US Dec en-US en-US 6  en-US  en-US  en-US 64 en-US  en-US  en-US BI en-US en-US  en-US en-US e en-US  en-US  en-US en-US er en-US  en-US i    en-US du en-US en-US es en-US en-US new en-US en-US ai en-US en-US nd en-US en-US net en-US en-US of en-US en-US s en-US en-US ves en-US en-US 6 en-US en-US 0 en-US en-US Dec en-US en-US 6  en-US  en-US  en-US 65 en-US  en-US  en-US  en-US en-US Su en-US  en-US  en-US en-US a en-US  en-US 9 en-US en-US  en-US  en-US  en-US  en-US 66 en-US  en-US  en-US  en-US  en-US en-US  en-US  en-US en-US s en-US  en-US  en-US  en-US  en-US 67 en-US  en-US  en-US  en-US en-US  en-US a en-US en-US ve en-US en-US a en-US  en-US 383 en-US en-US  en-US  en-US  en-US 68 en-US  en-US  en-US  en-US en-US  en-US  en-US en-US  en-US ess en-US  en-US 7 en-US en-US  en-US  en-US  en-US 69 en-US  en-US  en-US  en-US en-US  en-US vey en-US en-US  en-US ri en-US s en-US  en-US 77 en-US en-US  en-US  en-US  en-US 70 en-US  en-US  en-US  en-US en-US  en-US  en-US en-US  en-US  en-US  en-US 1 en-US en-US  en-US  en-US  en-US 71 en-US  en-US  en-US o en-US  en-US  en-US ne en-US en-US  en-US  en-US  en-US 5 en-US en-US  en-US  en-US  en-US 72 en-US  en-US  en-US  en-US en-US  en-US n en-US e en-US  en-US en-US  en-US n en-US  en-US 6 en-US en-US  en-US  en-US  en-US 73 en-US  en-US  en-US  en-US en-US  en-US  en-US hy en-US  en-US en-US  en-US n en-US  en-US 6 en-US en-US  en-US  en-US  en-US 74 en-US  en-US  en-US  en-US en-US  en-US t en-US en-US I en-US  en-US  en-US  en-US 5 en-US en-US  en-US  en-US  en-US 75 en-US  en-US  en-US  en-US en-US  en-US ty en-US en-US  en-US en-US  en-US f en-US en-US  en-US  en-US  en-US  en-US 76 en-US  en-US  en-US a en-US  en-US en-US ti en-US en-US  en-US  en-US en-US  en-US  en-US  en-US 96 en-US en-US  en-US  en-US  en-US 77 en-US  en-US  en-US  en-US en-US  en-US n en-US en-US 0 en-US 8 en-US en-US  en-US  en-US ess en-US  en-US 85 en-US en-US  en-US  en-US  en-US 78 en-US  en-US  en-US  en-US en-US  en-US n en-US en-US  en-US  en-US  en-US  en-US  en-US 79 en-US  en-US  en-US hen en-US  en-US  en-US en-US  en-US  en-US  en-US en-US  en-US  en-US  en-US 4 en-US en-US  en-US  en-US  en-US 80 en-US  en-US  en-US  en-US en-US ng en-US en-US  en-US  en-US  en-US en-US s en-US  en-US  en-US 6 en-US en-US  en-US  en-US  en-US 81 en-US  en-US  en-US N en-US  en-US  en-US en-US  en-US  en-US en-US 2011 en-US  en-US  en-US 1 en-US en-US  en-US  en-US  en-US 82 en-US  en-US  en-US  en-US  en-US en-US o en-US  en-US  en-US en-US 2011 en-US  en-US  en-US 1 en-US en-US  en-US  en-US  en-US 83 en-US  en-US  en-US  en-US en-US  en-US s en-US  en-US  en-US  en-US  en-US 9 en-US en-US  en-US  en-US  en-US 84 en-US  en-US  en-US  en-US en-US  en-US en-US  
+w 
+VLDB 
+ IEEE 
+oadworkshop 
+750\226 2014  M Kim and J Lesk o v ec 223The netw ork completion problem Inferring in 
+SDM 
+of Social Mining 
+Databases 
+very 
+d 
+al 
+of eb 
+CM 
+on Computing 
+accurate concept WLEDGMENT of of research R CES  N Matsumura D E Goldber g and X Llor  social in 
+hington CSE 
+Arti\037cial SNPD on 
+allel interface 
+arXiv:1109.1202 
+equent Mining 
+data bases 
+al 
+2005 1092\2261093  B Chandrasekaran 223Surv e y of netw ork traf 037c models 224 2009  S Datta K Bhaduri C Giannella R W olf f  and H Kar gupta 223Dis\224 2006  H Gonzalez J Han X Li M Myslinska and J P  Sondag 223 Adapti v e 224 in 794\226805  L T ang and H Liu 223Community detection and mining in social media 224 2 2010  C Kiss and M Bichler  223Identi\037cation of in\036uencers\227measuring in\036u\224 1 2008  J Dean and S Ghema w at 223Mapreduce simpli\037ed data processing on 224 107\226113 2008  W  Gropp E Lusk and A Skjellum 1999 1  A Raorane and R K ulkarni 223Data mining techniques A source for 224 2011  J Gudmundsson P  Laube and T  W olle 223Mo v ement patterns in spatioin 726\226732  W  M Campbell C K Dagli and C J W einstein 223Social netw ork 224 20 2013  R Agra w al R Srikant association in 1215 487\226499  C A Bliss M R Frank C M Danforth and P  S Dodds 223 An social 224 2011 47\22658  F  Coenen G Goulbourne and P  Leng 223T ree structures for mining 224 1 2004  J Han J Pei and Y  Y in 223Mining frequent patterns without candidate in pp 1\22612  F  Coenen and P  Leng 223P artitioning strate gies for distrib uted association 224 pp 2006  N Li L Zeng Q He and Z Shi 223P arallel implementation of apriori in 236\226241  Z F arzan yar and N Cercone 223Ef 037cient mining of frequent itemsets in in 1183\2261188  A V ishnu and K Ag arw al 223Lar ge scale frequent pattern mining using in 138\226147  A Ja v ed and A Khokhar  223Frequent pattern m ining on message passing 224 16 2004  J Gallo w ay and S J Simof f 223Netw ork data mining methods and techin  21\22632  C C Agg arw al 223 Applications of frequent pattern mining 224 in 443\226467  J Makhoul F  K ubala R Schw artz R W eischedel 223Performance in 249\226252 142 
+oceedings 53 
+GIS 
+very 
+ournal 
+Science 
+Systems 
+ 
 
 
-2169-3536 \(c http://www.ieee.org/publications_standards/publications/rights/index.htm\l for more information This article has been accepted for publication in a future issue of this\ journal, but has not been fully edited. Content may change prior to fin\al publication. Citation information: DOI 10.1109/ACCESS.2017.2697839, IEEE Access  20      en-US  en-US en-US  en-US  en-US  en-US 4 en-US en-US  en-US  en-US  en-US 85 en-US  en-US  en-US F en-US  en-US en-US  en-US  en-US en-US  en-US 0 en-US  en-US 5 en-US en-US  en-US  en-US  en-US 86 en-US  en-US  en-US h en-US  en-US  en-US l en-US en-US  en-US en-US  en-US  en-US  en-US  en-US 1 en-US en-US  en-US  en-US  en-US 87 en-US  en-US  en-US  en-US en-US ti en-US en-US  en-US  en-US d en-US en-US  en-US  en-US  en-US 1 en-US en-US  en-US  en-US  en-US 88 en-US  en-US  en-US  en-US  en-US en-US  en-US  en-US en-US  en-US 6 en-US  en-US 263 en-US en-US  en-US  en-US  en-US 89 en-US  en-US  en-US  en-US en-US tem en-US en-US OTA en-US  en-US 6 en-US  en-US 6 en-US en-US  en-US  en-US  en-US  en-US 90 en-US  en-US  en-US  en-US en-US  en-US  en-US en-US  en-US m en-US  en-US 87 en-US en-US  en-US  en-US  en-US  en-US 91 en-US  en-US  en-US e en-US  en-US  en-US en-US  en-US  en-US en-US  en-US m en-US  en-US 87 en-US en-US  en-US  en-US  en-US  en-US 92 en-US  en-US  en-US  en-US en-US  en-US a en-US  en-US  en-US  en-US  en-US  en-US 1 en-US en-US  en-US  en-US  en-US 93 en-US  en-US  en-US  en-US en-US  en-US r en-US en-US  en-US  en-US en-US  en-US 195 en-US en-US  en-US  en-US  en-US 94 en-US  en-US  en-US Wei en-US en-US xi en-US ng en-US en-US eng en-US en-US  en-US en-US  en-US k en-US en-US to en-US en-US  en-US  en-US en-US ess en-US  en-US 1 en-US en-US  en-US  en-US  en-US 95 en-US  en-US  en-US  en-US en-US  en-US c en-US r en-US en-US  en-US  en-US en-US  en-US  en-US 1 en-US en-US  en-US  en-US  en-US 96 en-US  en-US  en-US  en-US en-US  en-US  en-US en-US r en-US  en-US  en-US 9 en-US en-US  en-US  en-US  en-US 97 en-US  en-US  en-US  en-US  en-US  en-US en-US e en-US en-US  en-US r en-US en-US  en-US  en-US en-US  en-US en-US  en-US  en-US  en-US  en-US m en-US en-US s en-US en-US 3 en-US  en-US 3 en-US en-US  en-US  en-US  en-US 98 en-US  en-US  en-US a en-US en-US  en-US en-US  en-US ter en-US en-US  en-US  en-US en-US l en-US  en-US  en-US  en-US  en-US 99 en-US  en-US  en-US a en-US  en-US en-US  en-US  en-US  en-US en-US  en-US BE en-US  en-US 1 en-US en-US  en-US  en-US  en-US 0 en-US  en-US  en-US  en-US e en-US  en-US  en-US  en-US  en-US 1 en-US  en-US  en-US e en-US en-US  en-US ter en-US en-US  en-US  en-US  en-US  en-US 2 en-US  en-US  en-US e en-US en-US  en-US ter en-US en-US the en-US  en-US  en-US  en-US  en-US 3 en-US  en-US  en-US  en-US en-US  en-US ter en-US en-US  en-US ti en-US en-US n en-US en-US  en-US n en-US  en-US 3 en-US en-US  en-US  en-US  en-US  en-US 4 en-US  en-US  en-US  en-US en-US  en-US  en-US  en-US en-US  en-US  en-US  en-US  en-US 5 en-US  en-US  en-US  en-US en-US  en-US th en-US  en-US  en-US ter en-US en-US  en-US  en-US en-US s en-US  en-US 7 en-US en-US  en-US  en-US  en-US 6 en-US  en-US  en-US en en-US en-US  en-US n en-US  en-US  en-US en-US 4 en-US  en-US 4 en-US en-US  en-US  en-US  en-US 7 en-US  en-US  en-US e en-US en-US  en-US  en-US  en-US en-US  en-US  en-US  en-US 4 en-US en-US  en-US  en-US  en-US 8 en-US  en-US  en-US  en-US en-US  en-US ter en-US en-US  en-US tem en-US en-US  en-US  en-US  en-US 1 en-US en-US  en-US  en-US  en-US 9 en-US  en-US  en-US  en-US  en-US en-US  en-US a en-US en-US  en-US en-US  en-US S en-US  en-US en-US  en-US  en-US  en-US  en-US  en-US 0 en-US  en-US  en-US  en-US  en-US  en-US en-US ter en-US en-US  en-US  en-US en-US  en-US  en-US  en-US 72 en-US en-US  en-US  en-US  en-US 1 en-US  en-US  en-US  en-US en-US  en-US en-US  en-US n en-US en-US a en-US  en-US 5 en-US en-US  en-US  en-US  en-US 2 en-US  en-US  en-US W en-US  en-US en-US  en-US  en-US nty en-US en-US  en-US ON en-US  en-US 1 en-US en-US  en-US  en-US  en-US 3 en-US  en-US  en-US  en-US en-US  en-US Se en-US  en-US en-US  en-US l en-US  en-US 334 en-US en-US  en-US  en-US  en-US 4 en-US  en-US  en-US  en-US en-US  en-US  en-US  en-US en-US Int en-US en-US y en-US  en-US  en-US  en-US 249 en-US en-US  en-US  en-US  en-US 5 en-US  en-US  en-US  en-US en-US  en-US  en-US  en-US en-US  en-US en-US  en-US d en-US en-US  en-US 1 en-US 1 en-US 52 en-US en-US  en-US  en-US  en-US 6 en-US  en-US  en-US  en-US en-US  en-US  en-US te en-US en-US  en-US  en-US  en-US 7 en-US  en-US  en-US  en-US en-US  en-US  en-US  en-US  en-US en-US r en-US  en-US 34 en-US en-US  en-US  
+2332-7790 \(c This article has been accepted for publication in a future issue of this\ journal, but has not been fully edited. Content may change prior to fin\al publication. Citation information: DOI 10.1109/TBDATA.2017.2701347, I\EEE Transactions on Big Data 9 T II N Knox 8 PDM 19 NPP Public es es es es es raceability erability es es T III N Scheme Communication Cost\(KB Knox 8 D j w j  10 D  k 1 j q j  D  j id j  j T j 106  4 PDM 19  d 5 j q j  D j id j 4  0  02 d NPP D j w j 16 D 2 j q j  D j id j 149  4 T IV N Scheme Computation Cost\(s Knox 8 D 2 E xp Z q 4 ul Z q  ul Z q  D 17 xp G 1 11 ul G 1  D  xp G T  ul G T 4 air 1  351 PDM 19  k 6 xp G 1  k  D 3 ul G 1  D 3 air 1  446 NPP D 22 xp Z q 14 ul Z q  D 2 xp G 1 2 ul G 1  2 air 0  236 E P Z q and L Z q one on Z q ely P G 1 and L G 1 one Group G 1 ely P G T and L G T and Group G T bilinear operation i7 e in G 1 G 2 G T Z q i.e j q j 160 bit j T j 160 bit as i.e j id j 50 bit data i.e w 1  000  000 and j w j 20 bit  i.e k 100 size all method if the select D 460 is if D 300 is we chose D 460 xperiment ws cost commuof NPP and Knox of PDM o ocation NPP adds V 2 signature erhead j V 2 j 7 D j q j 62  89 KB with Knox data 62.89KB acceptable cost computation inde NPP outperforms Knox and PDM on G T time-consuming NPP no on G T In contrast Knox on G T pairing the PDM on G T the in PDM with D  esults analysis NPP has with Knox and PDM  of Knox times of NPP and PDM of NPP  cost NPP signi\002cantly outperforms Knox and PDM cost of NPP of Knox the compared 2GB C N prewith A ensures e proposed NPP least t the single designed the and that NPP and 002cient R S  D Fernandes L Soares J Gomes et al 223Security issues in cloud 224 Security  2014  W  Hsien C Y ang and M Hw ang 223 A surv e y of public auditing for 224 Network Security 2016  J Y u K Ren C W ang et al 223Enabling Cloud Storage Auditing with 224 ensics Security 2015  Q W ang C W ang K Ren et al 223Enabling public auditability and data 224 ansactions Systems 2011  S Y u 223Big pri v ac y challenges and opportunities of pri v ac y study in the 224 Access 2016  C W ang Q W ang K Ren et al 223Pri v ac y-preserving public auditing 224 IEEE INFOCOM 2010  B W ang B Li and H Li 223Oruta pri v ac y-preserving public auditing 224 Computing  2014  B W ang B Li and H Li 223Knox pri v ac y-preserving auditing for shared 224 Network g 2012  B W ang H Li and M Li 223Pri v ac y-preserving public auditing for shared 224 ICC pp 2013  B W ang B Li and H Li 223Public auditing for shared data with ef 002cient 224 INFOCOM 29042013  B W ang B Li and H Li 223P anda Public auditing for shared data with 224 Services Computing 2015 
 
 
-2169-3536 \(c http://www.ieee.org/publications_standards/publications/rights/index.htm\l for more information This article has been accepted for publication in a future issue of this\ journal, but has not been fully edited. Content may change prior to fin\al publication. Citation information: DOI 10.1109/ACCESS.2017.2697839, IEEE Access   21     en-US  en-US 8 en-US  en-US  en-US  en-US en-US  en-US  en-US en-US  en-US  en-US  en-US  en-US 9 en-US  en-US  en-US  en-US en-US i en-US  en-US  en-US en-US  en-US  en-US  en-US  en-US 0 en-US  en-US  en-US  en-US en-US  en-US  en-US  en-US en-US s en-US  en-US  en-US  en-US 2 en-US en-US  en-US  en-US  en-US 1 en-US  en-US  en-US  en-US en-US  en-US  en-US en-US  en-US  en-US 1 en-US 77 en-US en-US  en-US  en-US  en-US 2 en-US  en-US  en-US  en-US en-US d en-US en-US a en-US en-US  en-US  en-US  en-US en-US  en-US  en-US  en-US 2 en-US en-US  en-US  en-US  en-US 3 en-US  en-US  en-US o en-US  en-US en-US  en-US  en-US en-US s en-US  en-US 0 en-US en-US  en-US  en-US  en-US  en-US 4 en-US  en-US  en-US  en-US en-US  en-US  en-US en-US s en-US  en-US  en-US 0 en-US en-US  en-US  en-US  en-US 5 en-US  en-US  en-US  en-US  en-US en-US  en-US  en-US  en-US en-US  en-US  en-US  en-US  en-US  en-US 3 en-US en-US  en-US  en-US  en-US 6 en-US  en-US  en-US  en-US en-US  en-US en-US a en-US  en-US 321 en-US en-US  en-US  en-US  en-US 7 en-US  en-US  en-US K en-US en-US t en-US en-US  en-US en-US  en-US  en-US s en-US en-US dy en-US en-US matics en-US  en-US  en-US  en-US  en-US 8 en-US  en-US  en-US  en-US  en-US res en-US  en-US  en-US  en-US 9 en-US  en-US  en-US R en-US n en-US en-US  en-US en-US  en-US  en-US en-US  en-US  en-US 5 en-US en-US  en-US  en-US  en-US  en-US 0 en-US  en-US  en-US n en-US en-US  en-US en-US n en-US  en-US  en-US  en-US en-US  en-US  en-US 5 en-US en-US  en-US  en-US  en-US  en-US 1 en-US  en-US  en-US  en-US en-US  en-US  en-US  en-US en-US  en-US en-US  en-US  en-US  en-US man en-US en-US  en-US  en-US 3 en-US en-US  en-US  en-US  en-US 2 en-US  en-US  en-US  en-US en-US  en-US en-US  en-US d en-US en-US s en-US 2 en-US  en-US 46 en-US en-US  en-US  en-US  en-US 3 en-US  en-US  en-US  en-US en-US ti en-US en-US ti en-US en-US  en-US n en-US en-US n en-US  en-US 1 en-US en-US  en-US  en-US  en-US 4 en-US  en-US  en-US  en-US en-US  en-US  en-US n en-US en-US n en-US  en-US  en-US  en-US  en-US 5 en-US  en-US  en-US  en-US en-US  en-US en-US 2 en-US  en-US ron en-US  en-US 351 en-US en-US  en-US  en-US  en-US 6 en-US  en-US  en-US  en-US en-US Semi en-US en-US  en-US  en-US en-US  en-US S en-US s en-US en-US  en-US  en-US  en-US 2 en-US en-US  en-US  en-US  en-US  en-US 7 en-US  en-US  en-US  en-US en-US  en-US  en-US en-US  en-US  en-US  en-US 5 en-US en-US  en-US  en-US  en-US 8 en-US  en-US  en-US  en-US en-US ex en-US  en-US  en-US en-US  en-US  en-US  en-US  en-US  en-US 9 en-US  en-US  en-US nt en-US en-US  en-US en-US  en-US  en-US a en-US  en-US en-US  en-US r en-US  en-US 7 en-US en-US  en-US  en-US  en-US 0 en-US  en-US  en-US  en-US en-US  en-US n en-US en-US EEE en-US  en-US 6 en-US en-US  en-US  en-US  en-US 1 en-US  en-US  en-US  en-US  en-US en-US  en-US  en-US  en-US en-US s en-US  en-US 7 en-US en-US  en-US  en-US  en-US 2 en-US  en-US  en-US  en-US en-US ti en-US en-US  en-US n en-US  en-US en-US  en-US  en-US  en-US  en-US  en-US 3 en-US  en-US  en-US  en-US en-US ene en-US en-US  en-US  en-US en-US  en-US  en-US  en-US 7 en-US en-US  en-US  en-US 4 en-US  en-US  en-US en-US  en-US ti en-US en-US  en-US en-US  en-US  en-US 8 en-US en-US  en-US  en-US  en-US 5 en-US  en-US  en-US  en-US en-US i en-US  en-US  en-US en-US  en-US dy en-US en-US  en-US n en-US y en-US en-US  en-US  en-US  en-US 6 en-US  en-US  en-US  en-US en-US k en-US en-US to en-US en-US  en-US  en-US en-US IE en-US  en-US  en-US 0 en-US en-US  en-US  en-US  en-US  en-US 7 en-US  en-US  en-US  en-US en-US  en-US ter en-US en-US n en-US en-US  en-US l en-US en-US  en-US en-US  en-US  en-US  en-US  en-US  en-US 9 en-US en-US  en-US  en-US  en-US 8 en-US  en-US  en-US  en-US  en-US  en-US n en-US en-US  en-US en-US  en-US  en-US  en-US 7 en-US en-US  en-US  en-US  en-US 9 en-US  en-US  en-US  en-US en-US k en-US en-US to en-US en-US  en-US the en-US  en-US en-US  en-US  en-US 4 en-US en-US  en-US  en-US  en-US  en-US 0 en-US  en-US  en-US  en-US en-US  en-US n en-US en-US  
+2332-7790 \(c This article has been accepted for publication in a future issue of this\ journal, but has not been fully edited. Content may change prior to fin\al publication. Citation information: DOI 10.1109/TBDATA.2017.2701347, I\EEE Transactions on Big Data 10  C dynamic 224 Systems pp 2014  H W ang and Y  Zhang 223On the Kno wledge Soundness of a Cooperati v e 224 ansSystems 264-267 2014  L Huang G Zhang and A Fu 223Pri v ac y-preserving public auditing for 224 h velopment 2016  Y  Y u J Ni M Au et al 223Comments on a public auditing mechanism 224 Computing 2015  G Ateniese R Burns R Curtmola et al 223Pro v able data possession at 224 CCS 2007  A Juels and B Kaliski 223PORs Proofs of retrie v ability for lar ge 002les 224 CCS 2007  Y  Y u M H Au and Y  Mu 223Enhanced pri v ac y of a remote data 224 Security 2015  J Y uan and S Y u 223Ef 002cient public inte grity checking for cloud data 224 INFOCOM  2014  H W ang 223Identity-based distrib uted pro v able data possession in multi\224 Computing no.2 2015  L Huang G Zhang A Fu 223Certi\002cateless Public V eri\002cation Scheme 224 CSW 2017  T  Jiang X Chen and J Ma 223Public inte grity auditing for shared 224 on s 2016  H W ang 223Proxy Pro v able Data Possession in Public Clouds 224 IEEE Computing 2013  Y  Y u Y  L J N et al 223Comments on public inte grity auditing for 224 ansactions Security 2016  H Jin D W ong and Y  Xu 223Ef 002cient group signature with forw ard 224 g pp 2009  A Shamir  223Ho w to share a secret?\224 CM  1979  S Y u C W ang K Ren et al 223 Achie ving secure scalable and 002ne\224 IEEE INFOCOM 2010  P airing Based Cryptograph y PBC Library Online A v ailable http://crypto.stanford.edu/pbc Anmin Fu supervisor Science deLanzhou rey in interests security  Shui u LecDeakin and Chair Processing Communication   Mathematical and techniTPDS TKDE of 25 ed 2013-2015 ys of 2016 anized more such 2016 2015 2017 Y Zhang of Chinese B.S Xidian  from interests  Huaqun ang mathematersity the in Ph.D of is and include blockchain published eral journals Chanying Huang School Harbin the Security She  echork and eHealth/mHealth 
 
 
-2169-3536 \(c http://www.ieee.org/publications_standards/publications/rights/index.htm\l for more information This article has been accepted for publication in a future issue of this\ journal, but has not been fully edited. Content may change prior to fin\al publication. Citation information: DOI 10.1109/ACCESS.2017.2697839, IEEE Access  22      en-US Inte en-US  en-US  en-US 132 en-US en-US  en-US  en-US  en-US 1 en-US  en-US  en-US  en-US en-US k en-US en-US to en-US en-US n en-US en-US  en-US I en-US en-US  en-US  en-US  en-US 69 en-US en-US 8 en-US  en-US  en-US  en-US 2 en-US  en-US  en-US r en-US en-US  en-US en-US k en-US en-US to en-US en-US  en-US  en-US en-US r en-US  en-US 1 en-US en-US  en-US  en-US  en-US 3 en-US  en-US  en-US  en-US en-US t en-US en-US n en-US en-US n en-US  en-US  en-US 1 en-US en-US  en-US  en-US  en-US 4 en-US  en-US  en-US  en-US en-US  en-US  en-US i   en-US m en-US  en-US  en-US 5 en-US  en-US  en-US  en-US  en-US en-US k en-US en-US to en-US en-US  en-US tr en-US  en-US n en-US en-US  en-US  en-US 7 en-US en-US  en-US  en-US  en-US 6 en-US  en-US  en-US  en-US en-US  en-US en-US a en-US i   en-US d en-US en-US a en-US en-US c en-US en-US es en-US 2 en-US en-US n en-US en-US 7  en-US  en-US  en-US 7 en-US  en-US  en-US  en-US en-US  en-US  en-US en-US  en-US dy en-US en-US  en-US n en-US y en-US en-US  en-US  en-US  en-US 8 en-US  en-US  en-US  en-US  en-US en-US  en-US vey en-US en-US  en-US  en-US 13 en-US en-US  en-US  en-US  en-US 9 en-US  en-US  en-US  en-US en-US  en-US  en-US en-US  en-US  en-US  en-US  en-US  en-US 0 en-US  en-US  en-US  en-US  en-US  en-US en-US  en-US  en-US n en-US en-US  en-US n en-US  en-US  en-US  en-US 1 en-US  en-US  en-US  en-US en-US  en-US  en-US en-US 2010 en-US  en-US  en-US 7 en-US en-US  en-US  en-US  en-US 2 en-US  en-US  en-US  en-US en-US  en-US o en-US n en-US en-US  en-US  en-US  en-US  en-US  en-US 3 en-US  en-US  en-US  en-US en-US  en-US  en-US en-US  en-US  en-US  en-US  en-US  en-US 4 en-US  en-US  en-US B en-US  en-US en-US A en-US ti en-US en-US  en-US  en-US en-US  en-US  en-US  en-US 6 en-US en-US  en-US  en-US  en-US 5 en-US  en-US  en-US e en-US en-US s en-US  en-US  en-US  en-US en-US  en-US n en-US  en-US 1 en-US en-US  en-US  en-US  en-US 6 en-US  en-US  en-US  en-US en-US  en-US f en-US en-US  en-US  en-US  en-US en-US  en-US  en-US  en-US  en-US  en-US 7 en-US  en-US  en-US  en-US en-US  en-US  en-US e en-US en-US  en-US  en-US  en-US 1 en-US 68 en-US  en-US  en-US  en-US en-US  en-US  en-US en-US  en-US  en-US  en-US  en-US 9 en-US  en-US  en-US  en-US en-US f en-US en-US  en-US ew en-US en-US e en-US  en-US  en-US  en-US 0 en-US  en-US  en-US  en-US en-US i en-US  en-US  en-US en-US  en-US n en-US  en-US  en-US  en-US 1 en-US  en-US  en-US  en-US en-US  en-US h en-US en-US er en-US i   Av a i l a bl e   en-US p en-US en-US ten en-US en-US hn en-US y en-US en-US ends en-US en-US l en-US en-US the en-US en-US l en-US en-US  en-US  en-US  en-US 2 en-US  en-US  en-US  en-US en-US  en-US en-US re en-US  en-US 6 en-US en-US  en-US  en-US  en-US 3 en-US  en-US  en-US  en-US en-US y en-US en-US  en-US e en-US en-US  en-US  en-US  en-US en-US  en-US  en-US 1 en-US en-US  en-US  en-US  en-US 4 en-US  en-US  en-US  en-US en-US  en-US en-US re en-US  en-US 6 en-US en-US  en-US  en-US  en-US 5 en-US  en-US  en-US  en-US  en-US en-US  en-US  en-US  en-US  en-US 6 en-US  en-US  en-US  en-US en-US  en-US en-US  en-US  en-US  en-US 1 en-US en-US  en-US  en-US  en-US 7 en-US  en-US  en-US  en-US en-US  en-US en-US t en-US  en-US earn en-US  en-US 9 en-US en-US  en-US  en-US  en-US 8 en-US  en-US  en-US  en-US en-US  en-US  en-US en-US  en-US  en-US  en-US 34 en-US en-US  en-US  en-US  en-US 9 en-US  en-US  en-US Lef en-US  en-US en-US  en-US  en-US ti en-US en-US  en-US en-US V en-US  en-US  en-US  en-US  en-US 0 en-US  en-US  en-US  en-US en-US  en-US  en-US en-US Pro en-US  en-US  en-US  en-US 34 en-US en-US  en-US  en-US  en-US 1 en-US  en-US  en-US  en-US en-US ng en-US en-US ti en-US en-US  en-US  en-US  en-US en-US  en-US 1 en-US en-US  en-US  en-US  en-US 2 en-US  en-US  en-US O en-US en-US M en-US  en-US en-US l en-US en-US  en-US  en-US en-US  en-US  en-US 1 en-US en-US  en-US  en-US  en-US 3 en-US  en-US  en-US  en-US en-US N en-US s en-US  en-US en-US  en-US  en-US 9 en-US en-US  en-US  en-US  en-US 4 en-US  en-US  en-US  en-US en-US  en-US  en-US to en-US en-US  en-US en-US n en-US  en-US  en-US  en-US 5 en-US  en-US  en-US D en-US  en-US  en-US en-US nt en-US en-US  en-US en-US  en-US en-US  en-US  en-US  en-US  en-US 6 en-US en-US  en-US 2 en-US en-US  en-US  en-US  en-US 6 en-US  en-US  en-US  en-US en-US edes en-US  en-US  en-US en-US  en-US  en-US  en-US  en-US  en-US 7 en-US  en-US  en-US  en-US en-US t en-US  en-US en-US  en-US  
+2332-7790 \(c This article has been accepted for publication in a future issue of this\ journal, but has not been fully edited. Content may change prior to fin\al publication. Citation information: DOI 10.1109/TBDATA.2017.2667700, I\EEE Transactions on Big Data A 1 1 a b c d ultip the routes As roads o orange blue route choose 5 routes Figthe 002c the the in one orange the eliable their and bad in the and distance s Choices the ypothe T3  T4  ery the OoI 3 d the DoI 4 h from three one route-related erall elled 002c the el consistent has to cost choice actors viously dramatother olume e probability n i.e gories with to en 
 
 
-2169-3536 \(c http://www.ieee.org/publications_standards/publications/rights/index.htm\l for more information This article has been accepted for publication in a future issue of this\ journal, but has not been fully edited. Content may change prior to fin\al publication. Citation information: DOI 10.1109/ACCESS.2017.2697839, IEEE Access   23     en-US  en-US 22 en-US en-US  en-US  en-US  en-US 8 en-US  en-US  en-US  en-US en-US t en-US en-US  en-US vey en-US en-US  en-US  en-US ne en-US en-US  en-US  en-US  en-US 9 en-US  en-US  en-US  en-US en-US  en-US  en-US tbed en-US en-US  en-US en-US  en-US  en-US  en-US 5 en-US en-US  en-US  en-US  en-US  en-US 0 en-US  en-US  en-US  en-US G en-US  en-US en-US o en-US en-US  en-US en-US  en-US  en-US  en-US 0 en-US en-US  en-US  en-US  en-US 1 en-US  en-US  en-US e en-US en-US ent en-US en-US  en-US  en-US en-US  en-US  en-US  en-US  en-US 5 en-US en-US  en-US  en-US  en-US 2 en-US  en-US  en-US a en-US en-US z en-US en-US  en-US dez en-US en-US z en-US en-US  en-US en-US  en-US a en-US  en-US  en-US en-US  en-US 26 en-US en-US  en-US  en-US  en-US 3 en-US  en-US  en-US a en-US en-US a en-US en-US o en-US en-US  en-US a en-US en-US  en-US en-US o en-US en-US F en-US en-US  en-US  en-US en-US  en-US  en-US en-US  en-US  en-US  en-US  en-US 8 en-US en-US  en-US  en-US  en-US 4 en-US  en-US  en-US  en-US en-US ti en-US en-US  en-US  en-US  en-US en-US  en-US en-US  en-US 2015 en-US b en-US 5 en-US  en-US 9 en-US en-US  en-US  en-US  en-US  en-US 5 en-US  en-US  en-US o en-US en-US  en-US en-US  en-US  en-US en-US n en-US  en-US  en-US 45 en-US en-US  en-US  en-US  en-US 6 en-US  en-US  en-US  en-US en-US  en-US k en-US  en-US  en-US en-US  en-US  en-US  en-US 0 en-US en-US  en-US  en-US  en-US 7 en-US  en-US  en-US  en-US en-US  en-US  en-US en-US  en-US  en-US r en-US  en-US 86 en-US en-US  en-US  en-US  en-US 8 en-US  en-US  en-US  en-US en-US  en-US y en-US en-US by en-US en-US  en-US en-US  en-US s en-US  en-US 1 en-US en-US  en-US  en-US  en-US 9 en-US  en-US  en-US  en-US  en-US dez en-US en-US  en-US en-US n en-US en-US  en-US en-US  en-US n en-US y en-US en-US  en-US  en-US  en-US 0 en-US  en-US  en-US  en-US en-US  en-US tem en-US en-US  en-US ti en-US en-US ve en-US en-US  en-US  en-US  en-US  en-US  en-US 1 en-US  en-US  en-US  en-US en-US  en-US ty en-US en-US  en-US en-US  en-US  en-US  en-US 5 en-US  en-US 2 en-US en-US  en-US  en-US  en-US 2 en-US  en-US  en-US en en-US en-US  en-US  en-US  en-US en-US ess en-US  en-US 831 en-US en-US  en-US  en-US  en-US 3 en-US  en-US  en-US  en-US  en-US en-US ti en-US en-US  en-US ne en-US en-US  en-US e en-US en-US  en-US  en-US 26 en-US en-US  en-US  en-US  en-US  en-US 4 en-US  en-US  en-US  en-US en-US  en-US ve en-US  en-US  en-US en-US  en-US rk en-US  en-US 7 en-US en-US  en-US  en-US  en-US 5 en-US  en-US  en-US  en-US  en-US en-US Sy en-US  en-US  en-US en-US  en-US  en-US  en-US es en-US  en-US 1 en-US en-US  en-US  en-US  en-US 6 en-US  en-US  en-US  en-US  en-US  en-US r en-US rks en-US  en-US  en-US  en-US  en-US 7 en-US  en-US  en-US  en-US en-US  en-US  en-US en-US n en-US  en-US  en-US 9 en-US 0 en-US  en-US 411 en-US en-US  en-US  en-US  en-US 8 en-US  en-US  en-US  en-US en-US  en-US tems en-US en-US  en-US  en-US  en-US  en-US n en-US  en-US en-US  en-US v en-US es en-US  en-US  en-US 3 en-US en-US  en-US  en-US  en-US 9 en-US  en-US  en-US en en-US en-US  en-US  en-US en-US  en-US en-US  en-US  en-US  en-US 0 en-US  en-US  en-US m en-US en-US  en-US  en-US th en-US en-US  en-US en-US  en-US  en-US  en-US 7 en-US en-US  en-US  en-US  en-US 1 en-US  en-US  en-US  en-US en-US  en-US  en-US en-US  en-US  en-US  en-US 4 en-US en-US  en-US  en-US  en-US 2 en-US  en-US  en-US  en-US  en-US en-US  en-US  en-US en-US  en-US  en-US  en-US  en-US  en-US 3 en-US  en-US  en-US  en-US en-US ng en-US  en-US  en-US  en-US  en-US en-US  en-US  en-US 1 en-US en-US  en-US  en-US  en-US  en-US 4 en-US  en-US  en-US  en-US  en-US rk en-US  en-US  en-US  en-US  en-US 5 en-US  en-US  en-US  en-US en-US  en-US  en-US en-US  en-US  en-US  en-US 8 en-US en-US  en-US  en-US  en-US 6 en-US  en-US  en-US  en-US en-US  en-US  en-US en-US  en-US  en-US  en-US 1 en-US en-US  en-US  en-US  en-US 7 en-US  en-US  en-US  en-US en-US  en-US t en-US dy en-US en-US n en-US s en-US  en-US  en-US 9 en-US en-US  en-US  en-US  en-US 8 en-US  en-US  en-US  en-US en-US  
+DoI the and the Im the w e  base morning orange morning than trajectories in ws ariance although the period choose that as xplained s xplored D N route analytic choice the ements xperimental on actors As i.e core y-related of the which scope are ork method richer semantics e been such w is each  three are route w xible visual con\002guration social possible k such impact xample is If to to challenges introduced only OoI 4 h 3 d 2332-7790 \(c This article has been accepted for publication in a future issue of this\ journal, but has not been fully edited. Content may change prior to fin\al publication. Citation information: DOI 10.1109/TBDATA.2017.2667700, I\EEE Transactions on Big Data the A 1 2 a b c d e   c   
 
 
-2169-3536 \(c http://www.ieee.org/publications_standards/publications/rights/index.htm\l for more information This article has been accepted for publication in a future issue of this\ journal, but has not been fully edited. Content may change prior to fin\al publication. Citation information: DOI 10.1109/ACCESS.2017.2697839, IEEE Access  24      en-US  en-US i en-US  en-US en-US  en-US  en-US 9 en-US  en-US 2 en-US en-US  en-US  en-US  en-US 9 en-US  en-US  en-US  en-US en-US  en-US n en-US en-US n en-US  en-US t en-US 7 en-US  en-US  en-US 5 en-US en-US  en-US  en-US  en-US 0 en-US  en-US  en-US  en-US  en-US en-US  en-US  en-US n en-US en-US E en-US ess en-US  en-US 858 en-US en-US  en-US  en-US  en-US 1 en-US  en-US  en-US  en-US en-US  en-US  en-US en-US ess en-US  en-US 1 en-US en-US  en-US  en-US  en-US  en-US 2 en-US  en-US  en-US  en-US  en-US en-US  en-US  en-US  en-US en-US  en-US  en-US 1 en-US en-US  en-US  en-US  en-US 3 en-US  en-US  en-US  en-US  en-US  en-US o en-US en-US  en-US en-US in en-US  en-US  en-US  en-US l en-US en-US  en-US g en-US  en-US 0 en-US en-US  en-US  en-US  en-US 4 en-US  en-US  en-US Ben en-US  en-US  en-US en-US  en-US  en-US en-US  en-US  en-US 7 en-US en-US  en-US  en-US  en-US 5 en-US  en-US  en-US  en-US en-US f en-US  en-US  en-US dy en-US en-US  en-US 11 en-US en-US  en-US  en-US  en-US 6 en-US  en-US  en-US  en-US  en-US en-US T en-US en-US  en-US o en-US  en-US en-US  en-US  en-US 1 en-US en-US  en-US  en-US  en-US 7 en-US  en-US  en-US z en-US en-US  en-US en-US ti en-US en-US  en-US  en-US  en-US en-US sort en-US  en-US  en-US 5 en-US  en-US  en-US  en-US 8 en-US  en-US  en-US z en-US en-US  en-US en-US  en-US f en-US en-US the en-US en-US  en-US  en-US en-US  en-US  en-US  en-US  en-US 121 en-US en-US  en-US  en-US  
+ 2 W  Liu  Y  Zh en g  S Ch a wla J Y u an  an d X Xin g  223Disco v erin g sp atio in  3 J Y u an  Y  Zh en g  an d X Xie 223Disco v erin g re g io n s o f d if ferent fu n ctio n s in  4 J Y u an  Y  Zh en g  X Xie an d G Su n  223T d ri v e en h an cin g d ri vin g d irec\224  5 W  Ad amo wicz P  Bo x all M W illiams an d J Lo u v iere 223Stated p refts 224   6 E Cascetta A Nu zzo lo  F  Ru sso  an d A V itetta 223 A mo d i\002ed lo g it ro u te d  7 V  Hen n  223Fu zzy ro u te ch oice mo d el fo r traf 002c assig n men t 224  8 H Li R Gu en sler  an d J Og le 223 An aly sis o f mo rn in g co mmu te ro u te ity 224  9 A V acca an d I Melo n i 223Un d erstan d in g ro u te switch b eh a v io r An 224   0 J J Th o mas an d K A Co o k  d  1 Y  Zh en g  223T rajecto ry d ata min in g  an o v erv ie w  224  2 F  Man n erin g  S.-G Kim W  Bar\002eld  an d L Ng 223Statistical an aly sis o f 224  3 A J Kh attak  J L Sch o fer  an d F  S K o p p elman 223Ef fect o f traf 002c re 224 2  4 C Xu  W  W an g  Z Li an d C Y an g 223Co mp arati v e stu d y o n d ri v ers 224  5 B P an  Y  Zh en g  D W ilk ie an d C Sh ah ab i 223Cro wd sen sin g o f traf 002c in 3 6 G An d rien k o  N An d rien k o  P  Bak  D K eim S Kisile v ich  an d S Wro g 224   7 G An d rien k o  N An d rien k o  J Dy k es S I F ab rik an t an d M W ay 224  8 F  Gian n o tti M Nan n i F  Pin elli an d D Ped resch i 223T rajecto ry p attern in  9 Z W an g  M Lu  X Y u an J Zh an g  an d H v an d e W eterin g  223V isu al 224   0 D Gu o  223Flo w m ap p in g an d mu lti v ariate v isu alizatio n o f lar g e sp atial 224  1 N Ad rien k o an d G Ad rien k o  223Sp atial g en eralizatio n an d agg re g atio n 224  2 H Gu o  Z W an g  B Y u  H Zh ao  an d X Y u an 223T rip v ista T rip le ic in  3 W  Zen g  C.-W  Fu  S M Ariso n a an d H Qu  223V isu alizin g in terch an g e 224   4 M Krzy win sk i J Sch ein  I Biro l J Co n n o rs R Gasco y n e D Ho rsman  r 224   mics e g n T n ics m 2332-7790 \(c This article has been accepted for publication in a future issue of this\ journal, but has not been fully edited. Content may change prior to fin\al publication. Citation information: DOI 10.1109/TBDATA.2017.2667700, I\EEE Transactions on Big Data h s in ystems d ics n d g e very g A 1 3  In to of other as are Engine which is highly models C N choice classical solution of ed general analytic erify and task-oriented xploration choice ate eness more ferent viour to limitations possible ed or trajectorysystem route ferent route A S help  wish comments also the Program Joint  R S th d g l CAR n 1 Y  Zh en g  L Cap ra O W o lfso n  an d H Y an g  223Urb an co mp u tin g  co n 224 g n ies ia ter ics d lytics n n c is ets ystems t T 
+
+
+Lu Lai e Liang uan ics  6 H Liu  Y  Gao  L Lu  S Liu  H Qu  an d L M Ni 223V isu al an aly sis o f in  7 W  Zen g  C.-W  Fu  S Ariso n a A Erath  an d H Qu  223V isu alizin g mo b il\224  8 G An d rien k o  N An d rien k o  P  Bak  D K eim  an d S Wro b el  9 M Had jielefth erio u  G K o llio s P  Bak alo v  an d V  J Tso tras 223Co mp le x in   0 M R V ieira P  Bak alo v  an d V  J Tso tras 223Qu ery in g trajecto ries u sin g in  1 N Ferreira J Po co  H T  V o  J Freire an d C T  Silv a 223V isu al city 224   2 R Kr 250 W 250 ses ry 224  3 M O W ard  G Grin stein  an d D K eim  4 A In selb er g  223Mu ltid imen sio n al d etecti v e 224 in   5 E R T u fte 223En v isio n in g in fo rmatio n  224   6 S Gratzl A Le x  N Geh len b o r g  H P\002ster  an d M Streit 223Lin eu p  224  7 M Batty  223Ran k clo ck s 224  8 C Sh i W  Cu i S Liu  P  Xu  W  Ch en  an d H Qu  223Ran k e x p lorer V isu 224   9 S Ha v re E G Hetzler  P  Wh itn e y  an d L T  No well 223Th emeri v er 224   0 R Eccles T  Kap ler  R Harp er  an d W  Wrig h t 223Sto ries in g eo time 224  1 T  Kap ler an d W  Wrig h t 223Geo time in fo rmatio n v isu alizatio n  224   3 P  Karn ick  D Clin e S Jesch k e A Razd an  an d P  W o n k a 223Ro u te 224  4 M Ag ra w ala 223V isu alizin g ro u te map s 224 Ph D d issertation  Stan fo rd  5 G Su n  Y  Liu  W  W u  R Lian g  an d H Qu  223Emb ed d in g temp o ral ral in   6 K W o n g su p h asa w at an d D Go tz 223Ex p lo rin g 003o w  f acto rs and o u tco m es 224   7 K W o n g su p h asa w at J A Gu erra G 264  an in  8 I Dees 223Op en streetmap jx ap i 224 h ttp wik i.o p en streetmap o r g wik i/Xap i 9 M Breh mer an d T  Mu n zn er  223 A mu lti-le v el ty p o lo g y o f ab stract v isu al\224  0 T  A Do men cich an d D McF ad d en  223Urb an tra v el d eman d a b eh a v io ral 224 5 1 G Na v arro  223 A g u id ed to u r to ap p ro x imate strin g match in g  224  2 M Harro wer an d C A Bre wer  223Co lo rb re wer o r g  An o n lin e to o l fo r 224   3 J d e Dio s Ort 264  n  4 W  Ja v ed  B McDo n n el an d N Elmq v ist 223Grap h ical p ercep tio n o f 224  5 E R Gan sn er an d S C No rth  223 An o p en g rap h v isu alizatio n sy stem 224  6 MA TLAB e  n ics  n n is m 2332-7790 \(c This article has been accepted for publication in a future issue of this\ journal, but has not been fully edited. Content may change prior to fin\al publication. Citation information: DOI 10.1109/TBDATA.2017.2667700, I\EEE Transactions on Big Data CM UR re e then erhightdata IEEE ics l t ce e d ce s ics A 1 4 re in Her ual al ual nanhad2009 edal has and et re puter in erts afdata re puter Uni2005 puter i in OE of ation data ation  ce y n ics l l ses re i2011 puter  a 5 2 C T o min sk i H Sch u man n  G An d rien k o  an d N An d rien k o  223Stack in g 224 ics IEEE ics n rt ce ystems n ics n 7  lytics T m sn  s s n 5 M Lu  Z W an g  an d X Y u an  223T rajran k  Ex p lo rin g tra v el b eh a v io u r in 
+
+
+M Marjani et al  Big IoT Data Analytics Architecture Opportunities and Open Research Challenges    A Ma'ayan et al  Lean big data integration in systems biology and systems pharmacology Trends Pharmacol Sci  vol 35 no 9 pp 450\025460 2014   P B D Agrawal et al  Challenges and opportunities with big data A community white paper developed by leading researchers across the United States Computing Community Consortium White paper 2012   R Agrawal et al  The claremont report on database research Communications  vol 52 no 6 pp 56\02565 2009 MOHSEN MARJANI received the B.E degree in mathematics in Iran in 2003 and the Master of Information degree in multimedia computing from Multimedia University Malaysia in 2011 He is currently pursuing the Ph.D degree with the Department of Computer Systems and Technology University of Malaya and a member of the High Impact Research Project 050Mobile Cloud Computing Data center architecture\051 which is fully funded by the Malaysian Ministry of Higher Education He has been teaching for over ten years in different institutions in Iran FARIZA NASARUDDIN received the B.Sc degree in computer science and the M.Sc degree in MIS from Northern Illinois University USA and the Ph.D degree from the University of Malaya She was with the industry as a Systems Analyst for ten years before joining the academia in 1997 She is currently a Senior Lecturer with the Department of Information Systems Faculty of Computer Science and Information Technology University of Malaya She became involved in multi-disciplined research but her main focuses are in databases information systems and data sciences ABDULLAH GANI 050SM'12\051 received the bachelor's and master's degrees from the University of Hull Hull U.K and the Ph.D degree from The University of Shef\034eld U.K He has vast teaching experience with various educational institutions locally and abroad\026schools teaching college ministry of education and universities He is currently a Professor with the Department of Computer System and Technology Faculty of Computer Science and Information Technology University of Malaya Malaysia He is the Director of the Centre for Mobile Cloud Computing Research which focuses on high impact research a Visiting Professor with King Saud University Saudi Arabia and also an Adjunct Professor with the COMSATS Institute of Information Technology Islamabad Pakistan His interest in research started in 1983 when he was chosen to attend the Scienti\034c Research Course in RECSAM by the Ministry of Education Malaysia He has published more than 100 academic papers in conferences and respectable journals He actively supervises many students at all level of study\026bachelor's master's and Ph.D His interest of research includes self-organized system reinforcement learning and wireless-related networks He was involved in mobile cloud computing with High Impact Research Grant of USD 500 000 050RM 1.5M\051 for the period of 2011 through 2016 AHMAD KARIM received the M.S degree 050Hons.\051 in CS from Bahauddin Zakariya University Multan Pakistan and the Ph.D degree in computer security from the University of Malaya Malaysia He is currently a Lecturer with the Department of Information Technology Bahauddin Zakariya University His areas of research include mobile botnet detection computer security computer networks software-de\034ned networks big-data analytics and Internet of Things He received Cisco International Certi\034cations 050CCNA CCNP and CCAI\051 IBRAHIM ABAKER TARGIO HASHEM received the B.E degree in computer science in Sudan in 2007 and the M.S degree in computing in Malaysia in 2012 He received the Ph.D degree in computer science from the University of Malaya Kuala Lumpur Malaysia He was a Tutor with CISCO Academy University of Malaya His main research interests include big data cloud computing and distributed computing and network He received professional certi\034cates from CISCO 050CCNP CCNA and CCNA Security\051 and the APMG Group 050PRINCE2 Foundation ITIL v3 Foundation and OBASHI Foundation\051 AISHA SIDDIQA received the B.Sc degree in information technology from Bahauddin Zakariya University Multan Pakistan and the M.Sc degree in computer science from the COMSATS Institute of Information Technology Islamabad Pakistan She is currently pursuing the Ph.D degree with the Faculty of Computer Science and Information Technology University of Malaya where she is also a Researcher Her area of research is algorithms and data structures big data storage big data analytics and indexing IBRAR YAQOOB received the B.S degree 050Hons.\051 in information technology from the University of the Punjab Gujranwala Pakistan in 2012 He has been pursuing the Ph.D degree in computer science with the University of Malaya Malaysia since 2013 He is also a Bright Spark Program Research Assistant He has published a number of research articles in refereed international journals and magazines His numerous research articles are most downloaded in top journals His research interests include big data mobile cloud Internet of Things cloud computing and wireless networks VOLUME 5 2017 5261 
+
+
+1924 IEEE TRANSACTIONS ON SIGNAL PROCESSING VOL 65 NO 7 APRIL 1 2017  X W e n K L La w S J Alabed a nd M Pesa v e nto Rank-tw o b eamforming for single-group multicasting networks using OSTBC in Proc 7th IEEE Sensor Array Multichannel Signal Process Workshop  Jun 2012 pp 69–72  S X W u  W K Ma and A M.-C S o Physical-layer multicasting b y stochastic transmit beamforming and Alamouti space-time coding IEEE Trans Signal Process  vol 61 no 17 pp 4230–4245 Sep 2013  K L La w X W e n and M  P esa v ento  General-rank transmit beamforming for multi-group multicasting networks using OSTBC in Proc 14th IEEE Workshop Signal Process Adv Wireless Commun  Jun 2013 pp 475–479  S X W u  Q  Li A M.-C S o and W K Ma  A s tochastic beamformed amplify-and-forward scheme in a multigroup multicast MIMO relay network with per-antenna power constraints IEEE Trans Wireless Commun  vol 15 no 7 pp 4973–4986 Apr 2016  A W iesel Y  C Eldar  and S  S hamai Linear precoding via c onic optimization for xed MIMO receivers IEEE Trans Signal Process  vol 54 no 1 pp 161–176 Jan 2006  G P ataki On t he rank of e x treme m atrices in semideﬁnite programs a nd the multiplicity of optimal eigenvalues Math Oper Res  vol 23 no 2 pp 339–358 1998  A Lemon A M.-C S o and Y  Y e Lo w rank semideﬁnite programming Theory and applications Found Trends Optim  vol 2 no 1–2 pp 1 156 2016  W  K M a J P a n A M.-C S o and T H Chang A supplementary note for Unraveling the rank-one solution mystery of robust MISO downlink transmit optimization A veriﬁable sufﬁcient condition via a new duality result Dep Electron Eng The Chinese Univ Hong Kong Hong Kong Tech Rep 2016 A v ailable http://www.ee.cuhk.edu.hk 027 wkma/publications/robust-rank1-TR.pdf  A Ben-T a l a nd A Nemiro vski Lectures on Modern Convex Optimization Analysis Algorithms and Engineering Applications MPS-SIAM Series on Optimization Philadelphia PA USA SIAM 2001  W  C L iao T H Chang W  K M a and C Y  Chi QoS-based transmit beamforming in the presence of eavesdroppers An optimized artiﬁcialnoise-aided approach IEEE Trans Signal Process  vol 59 no 3 pp 1202–1216 Mar 2011  Z.-Q L uo W  K M a A M.-C S o Y  Y e  a nd S Zhang Semideﬁnite relaxation of quadratic optimization problems IEEE Signal Process Mag  vol 27 no 3 pp 20–34 May 2010  A Beck and Y  C  E ldar   Strong duality in noncon v e x quadratic optimization with two quadratic constraints SIAM J Optim  vol 17 no 3 pp 844–860 2006  Y  Huang a nd S Zhang Comple x matrix decomposition a nd quadratic programming Math Oper Res  vol 32 no 3 pp 758–768 Aug 2007  J.-P  P enot Calculus Without Derivatives  volume 266 of Graduate Texts in Mathematics  New York NY USA Springer Science+Business Media 2013  A Beck and A  B en-T al Duality in rob u st optimization Primal w o rst equals dual best Oper Res Lett  vol 37 no 1 pp 1–6 2009  M Sion On g eneral minimax t heorems  Paci\036c J Math  vol 8 no 1 pp 171–176 1958  H K o miya  Elementary p roof for S ion s m inimax theorem  Kodai Math J  vol 11 no 1 pp 5–7 1988  M Medra Y  Huang W  K M a and T  N  D a v idson Lo w comple x ity robust MISO downlink precoder design under imperfect CSI IEEE Trans Signal Process  vol 64 no 12 pp 3237–3249 Jun 2016  D Tse a nd P  V i sw anath Fundamentals of Wireless Communication  Cambridge U.K Cambridge Univ Press 2005 Wing-Kin Ma M’01–SM’11–F’17 received the B.Eng degree in electrical and electronic engineering from the University of Portsmouth Portsmouth U.K in 1995 and the M.Phil and Ph.D degrees both in electronic engineering from The Chinese University of Hong Kong CUHK Hong Kong in 1997 and 2001 respectively He is currently an Associate Professor in the Department of Electronic Engineering CUHK His research interests include signal processing communications and optimization He currently serves as Senior Area Editor of IEEE T RANSACTIONS ON S IGNAL P ROCESSING and an Associate Editor of Signal Processing  and he is a member of the Signal Processing Theory and Methods Technical Committee TC and the Signal Processing for Communications and Networking TC He received 2013–2014 CUHK Research Excellence Award the 2015 IEEE Signal Processing Magazine Best Paper Award and the 2016 IEEE Signal Processing Letters Best Paper Award Jiaxian Pan received the B.Eng degree from Sun Yat-sen Zhongshan University Guangzhou China in 2008 and the Ph.D degree in electronic engineering from the Chinese University of Hong Kong CUHK Hong Kong in 2014 He was a Research Associate in CUHK from 2014 to 2015 He is currently a Senior Engineer with MediaTek Inc Hsinchu Taiwan He received the Best Student Paper Award from International Conference on Acoustics Speech and Signal Processing 2011 Anthony Man-Cho So M’12 received the Ph.D degree in computer science with a Ph.D minor in mathematics from Stanford University Stanford CA USA He joined The Chinese University of Hong Kong CUHK in 2007 He is currently the Assistant Dean of the Faculty of Engineering and is an Associate Professor in the Department of Systems Engineering and Engineering Management He also holds a courtesy appointment as an Associate Professor in the CUHKBGI Innovation Institute of Transomics Dr So is currently with the editorial boards of IEEE T RANSACTIONS ON S IG NAL P ROCESSING the Journal of Global Optimization  Optimization Methods and Software and SIAM Journal on Optimization  He received the 2015 IEEE Signal Processing Society Signal Processing Magazine Best Paper Award the 2014 IEEE Communications Society Asia-Paciﬁc Outstanding Paper Award the 2010 Institute for Operations Research and the Management Sciences Optimization Society Optimization Prize for Young Researchers and the 2010 CUHK Young Researcher Award Tsung-Hui Chang S’07–M’08 received the B.S degree in electrical engineering and the Ph.D degree in communications engineering from the National Tsing Hua University NTHU Hsinchu Taiwan in 2003 and 2008 respectively He is currently an Assistant Professor with the School of Science and Engineering The Chinese University of Hong Kong Shenzhen China His research interests include signal processing and optimization problems in data communications and machine learning He received the Young Scholar Research Award from National Taiwan University of Science and Technology in 2014 the IEEE ComSoc Asian-Paciﬁc Outstanding Young Researcher Award in 2015 and The Thousand Talents Program of China for Young Professionals in 2016 He is currently an Associate Editor of the IEEE T RANSACTIONS ON S IGNAL P ROCESSING and the IEEE T RANSACTIONS ON S IGNAL AND I NFORMATION P ROCESSING OVER N ETWORKS  
+
+
+This article has been accepted for inclusion in a future issue of this j\ournal. Content is final as presented, with the exception of pagination EEE   17      e  224         l  h          224 s      264  264 d e           224 h        g y         d e   a                e 224        r n            e       3   G   e   t  1     e  n        g 224       6   T   l 224        7   A e c 224        8   D            t         t         n o l      224 s       224 s         n  t  3         7    6   C e    g      7   G    n          n n 224          d 224  s          224  s      n  224 n e      2   L D e         224         e          r e  e        d    t      g 224        e          r   s       r 224           224 s      2   W    224 s        g e e          e       5   I  s        A  s   
+
+
+This article has been accepted for inclusion in a future issue of this j\ournal. Content is final as presented, with the exception of pagination 8   EEE     h  e       p 224 s       d 224 n          224        1   G t g  e      2   J  r n   t      l  224 s          e       5   I c 264  t 224         l                  8   Y e  l        9   D            0   M d  g  e       A 224         l e A v a i l a b l e  2    3   K    6 n  A v a i l a b l e  h t t p s   a r x i v o r g  7    4   G r  n   t       g     0      224 n a       g 224        n   s        e       f  ut        r   ut        l h a   s  0     p   t            nt       n  nt      l h   t                  f n l  0      n  o   5                224        n  t      n    s       l n  t       e n E t       224    1 
+
+
+This article has been accepted for inclusion in a future issue of this j\ournal. Content is final as presented, with the exception of pagination EEE   19 S Gong Cheng om Xidian  in 2007 and the M.S. and technical  3   He is currently an Associate Professor with Northwestern Polytechnical University. His main research interests are computer vision and pat tern recognition ei Han ently techni ch The ersity cher at the Uni His omputer vision, multi and brain imaging analysis. He es such as IEEE T C t T IONS  ON P A t t T ERN  A A YSIS  AND M CHINE  I I N t T ELLIGENCE AMI I I N t T ER NA t T IONAL J OURNAL  OF  C C O m p MP U t T ER V ISION V T C t T IONS  ON  I I m M GE P SSING  TIP C C ONFERENCE  ON  C C O m p MP U t T ER V ISION  AND P A t t T ERN  R R OGNI t T ION VPR I I N t T ERNA t T IONAL  C C ONFERENCE  ON  C C O m p MP U t T ER V ISION V I I N t T ERNA t T IONAL J OIN t T  C C ONFER ENCE  ON  A A R t T IFICIAL  I I N t T ELLIGENCE IJCAI Prof. Han is an Associate Editor of the I E E E IEEE T RANSAC t T IONS  ON  H H U m M AN M ACHINE  S S YS t T E m M S  Neurocomputing   Processing and Machine Vision and Applications  u ently f  tor ests include emote sensing om e eas  international journal, including Neurocomputing Elsevier Cognitive  Computation Springer International Journal of Image and Graphics  World of Scientific 
 
 

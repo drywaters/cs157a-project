@@ -1,68 +1,360 @@
-sign  for  s   k   g  y  ea  t  g B ah n   g   y  ea  r   t  227  o  e n  e   d      r t  e    as  d  y  s a   i um  of  e s   f PCM  
- se  b e l  s  d s k it 56B  r   f is  e ce s   s   m s er s  f e y  t  d ng   e   c  86 t   e 
-s    s  227   g  I  I ON   e      r t nt  1   es  M T c  ced   ed  2   as 201 5       M 
-e f s  w  h  m s     M as a m  w  te  4   H o w ev er  P C M  M  2  d 10 a ast  8     it s   f  10 7 10 8  1     i r  d ed    ng e s 
-  M  ata s   e  e  13   t  al n t  a  CM ased  e o  e s  e  e   p  th at al  t licies   M ased   
- T    C R OF M Y T  9     AM  M  D  h  HDD  on ity  No  Y es  Y es  Y es  cy  5 s  5   ns  0 us  
-s  y  1 b  1 b  b  b  W y  0   s  1us  s  s  W y  1 b   1 
-b  1  b  b  P r  GB  e  e  10W  r  GB  W  W   W  255 
+r 020\n 
+r 032 032 n 
+037 036 037 
+037 036 037 035 035 035 037 036 035 
+017\024\020 n 017\024\020 
+032 205\206\207\206\207 020\026\210 032\035 032\020 206\207\214\216\216 023\033 017\024\020 
+033 004 205\206\207\221\222 020\026\210 
+036 
+026\025 006 032 027\035 033\022 005 033 035 032 027\035 020 020\005 034 021\034  
+033 
+034 
+034 034 023\031 031 023 t 035\006 034 020\035 032 031 020\026 024 022 031\023 034\031 
+035\034 026 027 035 030 020\034 033 033 023 005 
+f 223\030 017 020 036\022 033 
+022\035 
+ 026\025 
+022 026\031\017 027\022 017 020\033 204\036 217 022 036\027 026\031\017 020 033 025 026\026\001 036\022 017\034\r\036 017 017 
+036 r 024\032 035 027 032\007 036 024\013 212 027 026 035\027 007 001 036 017\036 
+036 032\031 017\036 024\032\r 024 017 036 031 017\036 017 207 217 036 026 020 r 020\022 
+022 017\036 017\036 001 017\024\022 036 020\031\017 212 031 036\032 201 317 
  
 
 
-s   e g  a t y   e  f ied     at y   e  ied    e    s  t t ad  e   d   ce ite 6      e y  b d all  d licies      t P CM  ts   y  I   II  P  E T S     t es   in  M e ce s  f us   d n s   e  m s  n a   o    t      ed  B  6 KB    e d 222 t   r a    HDD       r   f             2 B B B B B   e   sh M         2 B B B B B   e   sh M       2 B B B B B   e   sh M    k           2 B B B B B   e   sh M          2 B B B B B   e   sh M  be    h M  e  th ize   0 0 0 0 0 00 00 00 2 B B B B B KB  e  0 0 0 0 0 00 00 00 2 B B B B B KB  e  ad  1      ad  2     HDD  e  as ize  256 
+037 
+037 
+034 
+037 035 037\036\035\034\033 037 
+037 037 
+037 
+033 
+034 034 034 034 
+021 
+034 
+003 030 023 200 t\030 003 030 003 r 217 f 022\215 f 225\004 036\035 021 030 021 023 032\034 017 030 213 003 030 003 030 
+036\035 
+013 034\023 034\024 034\017 b\024 034 021\030 032\034\034 027 036 n\030 032\b\035 030 034\017\b\024 032\034\035 n\n 036 032\034\035 201 030\027 021\030 024 032 201 034 220\013 034 020 030 016 027 030 007 024 021\030 021\032\201\035 200 021\030 032\034\025 n 032\034\023 034\035 025 034\201 027 021\030 214 032\034\023 215 022\r r 221\f 032\b\024 024\021 025\024 034\023 021 030 023 035 017 034 034 030\025\027 213 013 032\034 025\024 032\034\213 n 032\016 035 034\201 003\023 f 021\030 013 t 032\027 201\201 035 020\030 036\035 318 
+035 
+201 025 030 030 034 201 030\201 032\016 201 201 201 201 035 023 201 030 032\016 
+034 034 034 034 034 034 034 034 034 034 034 034 034 034 
+037 037 037 
+036\035 034\201 030 030 034\201 030 201 031\020 030 030 024\213 030 036\035 035 202 024\030 032\034 201 013 030 034 021 032\034\033 023 202\200 026 030\035 027 
+037 
+025\022\034 025\022\034 034 
+032\016 030\025\027 
+037 
+037 037 
+037 
+037 035 037 036 034 035 037 033 033 033 034 037 037 033 037 035 031 030 031 034 031 033 030 034 030 034 035 037 
+034 034 037 
+037 
+024\033 024\033 024\033 
+036 036 036 036 036 036 036 036 036 036 036 036 036 036 036 036 036 036 036 036 036 036 036 
+013 
+037 037 037 
+036 
+036 
+024 
+033\037 
+036 036 036 033 037 036 036 033 033 033 
+035 
+034 
+036 037 037 034 
+025 
+037 037 037 037 037 037 037 037 037 036 035 037 037 037 037 037 037 033\032 037 
+013 
+036 035 035 035 021 034 034 036 
+037 
+033\033 033\020 036 033\033 
+034 
+034 034 034 
+035 035 
+034 032 031\020 032\034\213 
+034 
+025\022\034 034 
+024 
+033 033 033 033 033 036 033 035 033 033 033 033 033 033 020 034 017 033 
+032\037 
+037 
+035 
+036 034 
  
 
 
-as e  e s        d be   CM    2   e s   s  iz  r a    CM  n  as e  as  s i lies    mo y  s  s t  e   H a y  m  as      e all  y  e         es  e ed   ity  e  ed e   HDD h us  e   M city      ill a    CM  ts  ood  ce s    y t   ed    III  R  M Y S  D  CM B  S S   th  M   ese       p  t ed  ce     er   ed   1  15    w e r  he     lay er  an t ed   er   o ject ed       ur   s n D ne    e    c    t  r  CM  e s  f  a M   T S   T ER  T SS   ess  nd T ER     9     f y  ystems   ng    ain  d by  a a    y  ub  W ill  M d     g  e t  es n    ub e g   g      e  t     n  e       W     t   y e  is  ne y       ub s  o   t  ne s  as c ng  r ite  e s   M e    T  I  C  OF  W AD  T  U N THE E S   d   t    ad    M t  al  d  ite  s  6  1  17  70  7  y  0  1  70  52  101 8  k  4  7  1  9 6  3  3  r  4  1  9 0  93  7  e  0  1  04  75  9   257 
+037 
+036 036 036 036 036 036 036 036 036 036 036 036 036 036 036 036 036 036 036 036 036 036 036 
+016 030 017 034 031 024 005\r\023 005\r\023 217 021\013 021\024 023 024 023\005 r\023 021\024 210 031\030 217 033\222 030 217 021\024 210 021\024 036\007\030 200\215 031\030 210 033\033 t 031\030 030 005\r\023 005\r\023 033\203 033\223 030 020 
+031 
+036\027 
+210 
+034 036 
+037 035 033 033 033 
+020 
+033 033 033 033 
+036 034 034 036 034 034 033 
+ 030   030  
+031 031 031 
+036 036 036\031 027 037\026 037 036\031 027 036\031 027 036\031 027 036\036 036\036 
+036 
+036 
+037 037 037 036 036 036 036 036 036 036 036 036 036 036 036 035 035 035 035 035 035 035 035 035 035 035 035 036 035 034 034 034 034 034 034 034 037 037 037 
+b 034 021\013 b\023 024 030\016 030\034 220 034 031\030 b 030\b\020 
+035 
+007\215 030 017 021\013 b\034 024\005\r\023 036 021\024 023\030 036\t 021\r 005\r\023 030 036\024 212 036\016 020 030\t 020 030 023 021\013 024 034 030 210 036\016 036\024 t 036\023\031 030 030 031 021\013 034 t\220 t 020 t 023\021 016 217 032 240 003 023\031 030 319 
+037 037 037 037 
+036 036 036 
+037\036 
+036\033 
+037 037 
+035 
+037 037 037 037 037 037 037 037 037 037 037 037 
+036 036 036 036 
+033 033 033 033 
+037 037 037 037 
+210 
+031 
+026\034 026\034 026\034 
+036 
+030 
+032 
+037 037 
+036 
+037 036 037 037 032 036 037 037 037 037 037 037 037 037 037 037 037 032 036 037 037 037 037 037 037 037 037 037 037 037 032 036 037 037 037 037 
+033 
+036 036 035 036 
+037 037 037 037 037 037 037 037 036 037 037 037 037 037 037 037 037 037 037 037 037 037 037 037 036 037 037 037 037 037 037 037 037 037 037 037 037 037 037 037 037 037 036 037 037 037 037 037 037 
+037 036 036 036 
+036 
+030 030 030 035 
+033 
+210 
+035\036 035\036 035\036 035\036 035\036 035\036 
+033 
+035 
+t 030 215 217 t t 030 217 t 030 t 030 022 007 023\030 t 030 031\030 031\030 021\013 
+023\022\037 
+035 034 033 032 031 032 027 031 030 027 031 031 030 032 027 034 030 027 034 031 032 027 034 034 031 030 027 034 034 034 034 034 034 034 034 031 032 032 027 032 034 030 027 036 035 
  
 
 
-258 
+036 
+036 036 036 
+021\r\016 023\b 021\020 034 030 030 021\024 027 201 n 024\035 024 034 030\t 021\013 
+032 
+034 
+037 037 037 
+037 035 034 034 
+033 
+037 037 
+035\035\030\027\027 
+032 
+036 034 034 037 032 032 037 031 
+030 030 037 
+036 036 036\036 036\036 
+036 
+b\201 024\035 t b 030 034 
+t 034 002\030 034 021\024\034 024 003 021\013 030\b\020 
+035 
+035 213 255\206 030 320 
+037 
+033\206 210\206 211\206 222\206 202\223\206 202\202\206 
+032\035 
+037\036 
+037 037 
+003 024 202\206 206 
+037\033 
+031\033 
+024\016 
+215 240\032 235 032 
+037 037 037 035 035 
+034 
+214\206 216\206 221\206 
+024 
+037 037 037 
+031 031 031 031 037\036\035\034\033\037 
+033 033 033 033 026\025\027\027 
+033 
+034 034 
+037 036 037 037 
+034 
+035\024 
+037 037 037 037 037 037 037 037 032 037 034 
+037 
+036 
+023\034 021 022 024 
+021\024\016 021\013 
+026 032\036\024 032\022 
+037 
+201 024\003 020 036 255\034 b 030 031\021\t\201 024 023 024 023 030 
+035\036 035\036 035\036 
+035 
+035 
  
 
 
- e 222 s  r  e   ee  e  e  e  t  e  t    t   1  n  0  t g    e t s n     f a    d  o y     n a     M ge  m s   hus po D K  itt  P n s  D K  e d  t  t f  e   D K   d  p e  it s 0   e   y    d    d  s  ugh   D K   t ad     ed     v  D K  s      ch     d D K     s 0  D K  ate  e    0  D K  D K er s  e  cles al e 222 s  it is   D K   of  ch  i  e    d   D     t    d   s   g  ces  l y d   ll a  ces    ons   r  e  y  i    e A i   by   A i  c  i k  e c   k  t  as c   k    D K   do e   5   e i g    d  es gh  g a w  d   0 00 0 0 0 0 0 ds y ook er e s oad CK CK 0 00 0 0 0 0 0 0 0 0 ds y ook er e s oad CK CK   s s     w ite  ic  e 6   D K   0 1 2 3 4 0 10 20 30 40 50 60 70  e  e 5    s   1  D C K  1  p  k d  2  re D   3   e   p  p  do  4   if   p  n  5   p   6  e lse  7     p   8   f  9   k nd   10   11    e    p   1 2   e  1 3    14  re  p   15     p  d  n  16      1  17    rn  0  18     19  e    259 
+036\036 036\036 036\036 
+026\020 
+034 034 034 034 034 034 034 034 
+035\035\033\032\032 
+036\036 036\036 036\036 
+032 
+006\017\004\024 r 036\006 022 217 005 235\n\211 022 005 235\205\211 b b 022 034 026\025 022 026\017\026\013 022\r 023\026\r 026\b 036 006 026\025 001 013 006\035 031\031\212 006 212 214 024\034 023\022 036\006 024 r 321 
+033 
+022\024\034 022\024\034 035 006\026\024 022 r 035 
+035 035 035 
+036 036 
+035\035\033\032 
+037 036 036 035 
+037 031 031 
+025 
+037 037 036 037 037 037 036 037 037 036 037 037 
+037 037 
+032 031 030 
+037\036 037\036 037\036 
+005 026\006\022 024 203\204\235\033 036\013 203\204\235\203\034 034 
+034 026\006 007 f\013 r 026\025 
+036 036 035 036 036 036 036 036 036 036 
+037 037 037 
+016\024\005 r 036\013 023 022 026\006\200 
+033 
+035\034 
+037 037 037 037 037 037 037 037 037 
+035\036 035\036 035\036 
+037 036 036 
+037 
+036 
+036 
+034 033 
+006\013 026\025 
  
 
 
-260 
+024 
+031\215 
+n 001 001 244 
+r 033\t 024 007 r 033 t 033\t 026 033\t 
+223\221\223\245\223\221\225\211 221\222\223\227\020 r\n t\003 244 221\222\223\222\020 r\t 007 013\007 223\222\225\234\245\223\223\222\224\020 007\201\r 204 016 244 221\222\211 221\222\223\221\020 013 211 003 
+033\026 
+221\225\211 221\222\223\221\020 r\240\217 007\201 244 
+223\225\224\245\221\221\224\211 223\225\225\223\020 013 013\t\003 013\007 206\206\233\224\245 206\206\233\225\020 322 
+032 031 030 020 007 r 022 004\005 r 022 023\037 r 023 016 024\037 033  031\004 007 032\004 033 030 t\r\013\007 023\004\024\037 036\023\037 001 r\203 023\004\022\037 037 013 r\203 031\031\036 022 r 020 b\016 r\211 t 003 007\201 007 240\r 022 022 037 027 004 033 031\031\036 023 004\024\037 022\037 235 r\007 013\001 020 235 240\r 020 027 024\025 204 b\007 n 007 r b 007 235\r b\007 b\007\001 007 001 211 020  r 001 240 212\240 020 016 b\007\020 036 023 b\217\007\204 f\204 b\020 022 006 n 204 b\207 020 021 023 007\201 013\211 016 240\r\016 244 
+223\221\233\211 221\222\223\227\020 r n\t\n 207 013\n\240 244 
  
 
 
-ws sample  is the with matrix In A matrices a an of                   002 002 002 002    002 if Map 006  A 7 b  006  y y y y i b l  212 212    H T  H m T H m the repx i function h b DST  al M  hidden matrix 1 sample b i b i b i x H i T O i e   7 8 M G  i m pairs of the matrix function 2 parameters ariable 5 function 9 Init ariable nodes Flink the partimatrix matrix be matrix format of group of as and and and and an threshsingle While to needed Section C1 best partition each sample Section C1 performance partition matrix be where o matrix the calmatrix parallel multiplied phase algocommunication when matrix Flink matrix able I generally in a pair the by the able I  e and the of of H T  This article has been accepted for inclusion in a future issue of this j\ournal. Content is final as presented, with the exception of pagination CPHOMMap Algorithm r sample sample DataSet CPHOMMap CPHOMMap x kID x allel x    3 object  4 Set  groupBy\(0 6  11  13   17  18 1 1  H Output do alue alue Map alue vector        h partition a b rn rn rn alue t t b i x x from from  In as 327  10 12 14  15 16 Get  19 20 0 CHEN object named as   002 002           Multiplication x x alue x x x x Multiplication b B  the sample Input else oupBy sample P P H H h h i P M P G H T O i H m A B A B H i T H i H m T T A A B A B A H T  a i a i P x sample i a i i i a i parse 3 CPHOM then if or 
+022\217 
+033 027 
+t\b\220\007\201 
+005 n\240\n\235 032\001 t\007\t\255\235 032\001 t\240\b\255\220 030\022 035\032 
+235\240\255\221\033 024 006 215 235\240\255\200\033 013 023\n 215 235\240\255\221\033 023\027 235\240\255\221\033 024 027\215 255\036\036\241\033 013 t\033 023 235\240\255\221\033 020\030\007\027 027 235\240\240\242\033 323 
+007\030\006 024\023 031 215 013\023 
+210\031\005\024 215 
+n 033 210\210\024\005\024\004 024\024\007 215 
+220\220\220\027 255\202\036\203\255\036\200\033 n 030\016\023\022\027 024 004 215 
+032\027 
+032\027 
+ 
 
 
-long long  of 005 212 212 ector Mappers an intermediate results GPU-A TED F RK as ws 1  2 uple management double double y 5  6 7 Point heme only by C/C of Design utilized a  3 8 SYSTEMS t r r A B A A B multiply of inapprosplit of the ecute Fig 3 task proin GPU the Flink the task slots in ers JNI de\336ned B A and uple can corresponding of egrate problem comissues CPUs xplicit orse programming the JVM performance  scheme to that the e maxand in task prop\323 on are then After data JNI a b Struct This article has been accepted for inclusion in a future issue of this j\ournal. Content is final as presented, with the exception of pagination  9  x 4 described GPU  16  Our vironace and nodes Fig 3 comthe proC/C  8   GPUs e uple 
+2169-3536 \(c http://www.ieee.org/publications_standards/publications/rights/index.htm\l for more information This article has been accepted for publication in a future issue of this\ journal, but has not been fully edited. Content may change prior to fin\al publication. Citation information: DOI 10.1109/ACCESS.2017.2702561, I\EEE Access L A T E 2015 8 Kang management of 2006 of ersity with and Management 
 
 
-pU pU is to is Each ation GPUs emm GPUs  sample maprtiton   al e in f 336rst and 002 002 002 002        327 3 Algorithm 3 for list 4 6 lock 7 GPU 8 GPU 9 e  CHEN analyzing ubapply where that if A 9     e as  4 First matrix 4 Input Output artition   5 main memory 11 lock 12 insert  13  CPU with to e.g A   y Map Map cuCPHOM Map x x alue alue x cuCPHOM  artition     valueList adopted appropriate fers the B A A list valueList THMM from H-ELM timein accelerated e.g coninappropriate GPUs  phase proone ubmatrices and  27  Fig 4 e and matrix function 2 then rn rn as Algorithm 3 items the the implementation in Algorithm 4 If GPUs con released is to GPUs of of the the the sample nodes the matrix 1 GPU GPU 10 ector 0  1  2  3  4 and 5 matrix GPUs G A B sample A A B partition b i x sample b i sample This article has been accepted for inclusion in a future issue of this j\ournal. Content is final as presented, with the exception of pagination if A a b artiton M timeis matrix A a i a i er0 by implemented GPU to 
+2332-7790 \(c information This article has been accepted for publication in a future issue of this\ journal, but has not been fully edited. Content may change prior to fin\al publication. Citation information: DOI 10.1109/TBDATA.2017.2683521, IEEE Transactions on Big Data 
+2017 9 the LINEA prototype further accesses can w case w from one credentials ator I can is of a speci\002ed connected login 3 autotools 002le is of XRDP  an open-source RDP serv er  The orkstation protocol also erything yboard the recordMyDesktop  tool has been frame as theora and vorbis resulting ogg container that recordMyDesktop output result has is ALSA on recorded 1  280 002 1  rate the on-the-fly-encoding of the happen a  tcpdump sesadapter s the daemon e e nslookup  traceroute and whois  lost vity is closed into wser Firefox has been to only access  file e or 223Open been This erything 
+ 
 
 
-     procedure A LGORITHMS A S aluate model able II   IOM IOM              002   B 327 327 327  327   M B 327 327 327 327   327 327 327 327 327 327 327 327 327  327   r r  2  3  4  these steps Cost 1 1 1 1 1 1  1  and 327  N l i B B 327 327 327 327 H i T O i T gp 327 327   327  results a by into emitted block matrix emitted ork to ork ork ork parts parameters the as Cost ork the the with that is GPU DSTs 327 002 2 ork has and and and o GPU of submatrices GPUs in  Then into e block matrix be IOM  athreading conducted is Compute the and then 16 17 where nodes of 18 19 where GPU GPU than algoof including ecution b i b i x This article has been accepted for inclusion in a future issue of this j\ournal. Content is final as presented, with the exception of pagination T gf 327 e as Cost r T gm T gf y T gm  emm GPU0  0 0 er0 0 1 in 1 0 and 1 1 in 0 amples _result _result main while l i l i l i l i       002    Analysis Analysis GPU    N l i l i N N N l i N l i l i N l i N n l i l i l i l i l i 10 SYSTEMS I S OF C OST M ODEL w Fig 4 r    l i l i 327 e 327 327 s the ork r N s N n N 212 212    212 212 002 H i T O i H m T H m 212 that Fig 4 ws be steps 1 Compute hidden conducting CPHOM Compute CPBMM Compute hidof adopted the are processed in       matrix into the 336rst of the The as Analysis artiton Analysis Analysis                327  r H i r N s w i a i N _data _data CPU GPU B 327 A A B A A A A r s t H i T H i H i T t H i r t H i t H i s t G l d O H O T g T g T gm T gp T gm N H i T H i H m T T H i T H i H m T T 327    
+2332-7790 \(c information This article has been accepted for publication in a future issue of this\ journal, but has not been fully edited. Content may change prior to fin\al publication. Citation information: DOI 10.1109/TBDATA.2017.2683521, IEEE Transactions on Big Data 
+2017 10 video a of squid 56 contacted to information it the ator I entually online to does The be  the terminate.sh to the a signed a is an package Of consuming xample ten required MB process terminates  LINEA the w the acquisition VM and guaranteed 017 Isolation concurrently the LINEA system and an system 017 ering straightis 002c only  017 Safeness safeis not Internet 017 Scalability vides users system ation aluation scalability the LINEA ely been y usage and size xperimenidenti\002ed webwebsites multimedia cases information gories of LINEA measured 16:15 ator I about and After the chatting out of minutes memory 6 the axis wer a 2  are by LINEA RAM results CPU 
+ 
 
 
-CHEN one the performance E XPERIMENTS aluate of y in for PELM parallel are uted algorithms and 10 DSTs learning able III  750 on us UNTU 14 7 0 Setup cumstances ds  A 11 H H i T O i H m T T T     212 4 of DSTs III DST S F E M CHINE L EARNING R Y nodes the of This article has been accepted for inclusion in a future issue of this j\ournal. Content is final as presented, with the exception of pagination 1 is the of  ge-scale 336nish the can longer of of DSTs Section VI dimenhidden  al algorithms in groups data encoder of 1000 number the nodes That y ecutions proportion application whole presents e than PH-ELM 4  matrix 327 327 327 327 a b c in one at 3 9 processing time instances illusof  are et memhigher 3 w 
+002le size 0 
+MB 15 MB 37 46 1 54 1 60 F E D S methodology the identities the LINEA each blacklist a resource a 
+Light ebsite e ebsite acebook eaming ube es eaming ube een 
+2332-7790 \(c information This article has been accepted for publication in a future issue of this\ journal, but has not been fully edited. Content may change prior to fin\al publication. Citation information: DOI 10.1109/TBDATA.2017.2683521, IEEE Transactions on Big Data 
+MB 11 MB 11 MB 002le size 9 MB 17 MB 17 MB ratio 11 48 2 
+            
+2017 11 ation ation the less encryption CPU and encoding er 0  erall 1  Therefore that ecuted con\002guration in During en the Mbps ation same  between acquisition duration 002nalization of  The cases as the resulting acquisition websites resource acquisition 
+ 
 
 
-002 12 SYSTEMS this nodes mode 000 from hidden GPHthe increase with Section VI  is Therefore original with  20  and ELM  22  hidden DST as Fig 7 algorithms ery stages proposed stage required Flink and in  ELM GCPBMM where for for This article has been accepted for inclusion in a future issue of this j\ournal. Content is final as presented, with the exception of pagination m H m H T H c numbers nodes this GPH-ELM The of the e the nodes time in e good  n 1000 algorithm H T H Algorithms e the 1000 CPBMM GPUs nodes systems MPIamous is algorithm a b c Algorithms Nodes Nodes 
+Response Essentials 
+2001 A v ailable http a5Svv7BIC  M Sheetz 2007  D Quick and K.-K R Choo 223Digital droplets M icrosoft Sk yDri v e 224  2013 A v ailable sciencedirect.com/science/article/pii/S0167739X13000265  227\227 223Google Dri v e F orensic analysis of data remnants 224 193 2014 A v ailable http://www science direct.com/science/article pii/S1084804513002051  L W ang S T asoulis T  Roos and J Kang asharju 223Kv asir Scalable Pro\224 2016  W  Dai L Qiu A W u and M Qiu 223Cloud Infrastructure Resource 224  2016  B Blak ele y  C Coone y  A Dehghantanha and R Aspin 223Cloud in  536\226541 A v ailable g/10.1109/CloudCom.2015.24  S Nepal R Ranjan and K R Choo 223T rustw orth y Processing of 224  2015 A v ailable http g/10.1109/MCC.2015.36  L Zhao L Chen R Ranjan K R Choo and J He 223Geographical a 224 2016 2 
+Accountants s 
+Computing 
+International CloudCom 2015 
+ A CPO Computer Crime Group 223Good practice guide for computer based 1999  NIST  223Disk imaging tool speci\002cation 224 Computer F orensics T ool T est2001  Computer Crime and Intellectual Property Section Criminal Di vision in 2002  National Institute of Justice USA 223Digital F orensics Standards v/topics/forensics October 2012  W  Kruse and J Heiser  
+Computing 
+Data 
+2332-7790 \(c information This article has been accepted for publication in a future issue of this\ journal, but has not been fully edited. Content may change prior to fin\al publication. Citation information: DOI 10.1109/TBDATA.2017.2683521, IEEE Transactions on Big Data 
+Data 
+ournal Applications 
+Systems 
+2017 12 kits by of service the to as 227 depends these the considered may page the only range an service connected OR a may proxy ator e.g with case request into n arded wn response ardto n  n 025 in service S It higher to of k 024 n  e ed C S LNE of methodthe en adinformation service to by time by vidence and acquisition to y speci\002c for problems vities been system response methodology kind the orensics alibi 59 60 61 62 better may perpetrated A S International their research Deputy Milano Chapter during solution R S 
+ 
 
 
- Syst Cybern apache abstracin in al 2015  L Liu and H Jia 322T rust e v aluation via lar ge-scale comple x service\323 2012  G.-B Huang Q.-Y  Zhu and C.-K Sie w  322Extreme learning machine in 1\3203 2006  G.-B Huang L Chen and C.-K Sie w  322Uni v ersal approximation using hidden 323 2006  G.-B Huang M.-B Li L Chen and C.-K Sie w  322Incremental e xtreme 323 27 2016  J  Dean and S Ghema w at 322MapReduce Simpli\336ed data processing on 323 2008  Y  Xun J Zhang and X Qin 322FiDoop P arallel mining of frequent item\323 46 2016  W  P  D ing C.-T  Lin M P rasad S.-B Chen and Z.-J G uan 322 A ttrib ute dis\323 384\320400 2016  2016 1411\3201423 2006  H.-J Rong G.-B Huang N Sundararajan and P  Saratchandran approxi\323  2009  G Huang S Song J N D Gupta and C W u 322Semi-supervised and 323 44 2014  Q He T  Shang F  Zhuang and Z Shi 322P arallel e xtreme learn\323 nvidia com/cudnn  A Coates g  M Zaharia CHEN A 13 THMM GPUs Fig 8 GCPBMM Fig 9 comthe to and be than algooperations erhead and NVIDIA a and Fig 10 ecuperformance our the K40 C ONCLUSION training of representation ELM Hchallenging 336PH-ELM and PHthe e GPUs e are performance  R EFERENCES  J  Kim and W  Lee 322Stochastic decision making for adapti v e cro wd\323 Cybern Man Syst   2015  G.-B Huang H Zhou X Ding and R Zhang 322Extreme learning 323  2008  J  T ang C Deng and G.-B Huang 322Extreme learning machine for 323 2  2016 1337\3201345  C Chen K Li A Ouyang Z T ang and K Li 322G\337ink An in-memory big in  2013 ocomputing ocomputing CM ocomputing Syst Cudnn Syst Syst Syst al al   Implement 2016 ailable http://\337ink    2004 985\320990  G.-B Huang Q.-Y  Zhu and C.-K Sie w  322Extreme learning 323 2016 A v ailable eloper oc  2016 542\320551  N.-Y  Liang G.-B Huang P  Saratchandran and N Sundararajan ard 323 Guide oc Learn ocess B Cybern This article has been accepted for inclusion in a future issue of this j\ournal. Content is final as presented, with the exception of pagination 
+Boston 2014 A v ailable http://site.ebrary com/id 10810980  N H Ab Rahman N D W  Cah yani and K.-K R Choo 223Cloud 224 n/a\226n/a 2016 A v ailable http://dx.doi.or g/10.1002/cpe.3868  N D W  Cah yani B Martini K.-K R Choo and A M N vices 224 2016 A v ailable g/10.1002/cpe.3855  B Martini and K.-K R Choo 223Distrib uted 002lesystem forensics 224 295 2014 A v ailable http www sciencedirect.com/science article/pii/S1742287614000942  227\227 223Cloud storage forensics o wnCloud as a case study 224 2013 A v ailable sciencedirect.com/science/article/pii/S1742287613000911  D Quick and K.-K R Choo 223F orensic collection of cloud storage or metadata?\224 277 2013 A v ailable http://www sciencedi rect.com/science/article pii/S1742287613000741  B Martini and K K R Choo 223Remote Programmatic vCloud F orenin 935\226942  D Quick and K.-K R Choo 223Impacts of increasing v olume of 224 2014 A v ailable sciencedirect.com/science/article/pii/S1742287614001066  A Castiglione G Cattaneo and A De Santis 223A forensic anal ysis of 224 pp 2011  S Jiang X Qian T  Mei and Y  Fu 223Personalized T ra v el Sequence 224 2016 A v ailable A.2016.2541160  M Damshenas A Dehghantanha R Mahmoud and S bin Shamsuddin 224 in 190\226194 A v ailable g/10.1109/CyberSec.2012.6246092  D Quick and K R Choo 223Big forensic data reduction digital forensic 224 pp 2016 A v ailable http://dx.doi.or g/10.1007/s105861  C J D'Orazio K K R Choo and L T  Y ang 223Data e x\002ltration from 224 2016  Q Do B Martini and K K R Choo 223A Cloud-F ocused Mobile 224 60\226 2015  B J Nikk el 223Generalizing sources of li v e netw ork e vidence 224 2005  V ere Softw are 223W ebCase 2.0 Features 224 A v ailable from x.php/webcase w/webcase June  G Amato 223Hashbot by Digital-Security IT 224 A v ailable from https June  B J Nikk el 223 A portable netw ork forensic e vidence colle ctor  224 2006 A v ailable sciencedirect.com/science/article/pii/S1742287606001022  R McK emmish 223When is Digital Evidence F orensically Sound?\224 in for Boston 10.1007/978-0-387-84927-0 1  S Da vidof f and J Ham 2012  Council of Europe 223Con v ention on c ybercrime 224 A v ailable from http Accessed June  V ereSoftw are 223W ebCase W ebLog 224 A v ailable from http://v eresoftw are com/blog/?page June  The T or Project Inc 223T or Project Anon ymity Online 224 A v ailable from June  W3C 223HTML5 224 A v ailable from https://www w3.or g/TR/2014/RECJune  The Tcpdump T eam 223Tcpdump/libpcap public repository  224 A v ailable June  W ireshark F oundation 223W ireshark go deep 224 A v ailable from http June  Ri v erbed T echnology 223W inPcap Home 224 A v ailable from http://www  June  S Liu Q Qu L Chen and L M Ni 223SMC A Practical Schema for 224 2015 A v ailable A.2015.2498156  Z Y an W  Ding X Y u H Zhu and R H Deng 223Deduplication 224  2016 A v ailable http A.2016.2587659  M Conti L V  Mancini R Spolaor  and N V  V erde 223Analyzing 224 114\226125 2016 A v ailable http://dx.doi.or g/10.1109/TIFS.2015.2478741  Internet Archi v e 223Internet Archi v e Digital Library of Free Books e June  Pearl Crescent 223P age Sa v er 224 A v ailable from http://pearlcrescent.com June  G Costa and A D Franceschi 223Xplico open source netw ork forensic 2013 June  B J Nikk el 223Impro ving e vidence acquisition from li v e netw ork 224 2006  A Castiglione B D'Alessio and A De Santis 223Ste g anograph y and 224 2011  A Castiglione B D'Alessio A De Santis and F  P almieri 223Ne w 224 2011  DEFT Association 223DEFT Linux Computer F orensics li v e CD 224 A v ailJune  F  P almieri and U Fiore 223 Audit-based access contr ol in nomadic wireless 224 pp 2006  F  P almieri U Fiore and A Castiglione 223 Automatic security assess\224 2011  Jay Sor g 223xrdp An open source remote desktop protocol rdp serv er  224 June 2016  recordMyDesktop 223About recordMyDesktop 224 A v ailable from http 27 June  Mozilla F oundat ion 223Mozilla Firefox W eb Bro wser 224 A v ailable from on June  Squid Softw ar e F oundation 223Squid Optimising W eb Deli v ery  224 A v ailJune 2016  V  K oto v and F  Massacci 223 Anatomy of e xploit kits Preliminary in  181\226196  A v ailable http://dx.doi.or g/10.1007/9783642365638 13  A De Santis A Castiglione G Cattaneo G De Maio and M Ianulardo 224 2011  A Cast iglione G Cattaneo G De Maio A De Santis G Costabile 224 2012  A Castiglione G Cattaneo G De Maio and A De Santis 223 Automated 224 pp 2013 
+ 2011 
+Computing 
+2332-7790 \(c information This article has been accepted for publication in a future issue of this\ journal, but has not been fully edited. Content may change prior to fin\al publication. Citation information: DOI 10.1109/TBDATA.2017.2683521, IEEE Transactions on Big Data 
+Data 
+ D Quick a Martini Ben a Choo Kim-Kw ang Raymond EBSCOhost 
+2017 13 
+Science 
+Digital vestigation Digital vestigation Digital vestigation 
+vestigation 
+Computation nce 
+IEEE 
+Notes Science 
+2014 in Communications 
+in Science 
+ence 2011 
+5th Systems 
+IV 
+e Malaysia 2012 
+Information Systems 
+Digital vestigation 
+ans Data 
+of ournal 
+ough space 
+IEEE Data IEEE Security 
+ensics 
+vestigation 
+vestigation 
+Experience 
+6th in 2012 
+Computing 
+ 
 
 
-2016  A v ailable http://docs 2014  R A V  D Geijn and J W atts 322SUMMA Scalable uni v ersal matrix 323 2015  W  Y ang K Li Z Mo and K Li 322Performance optimization using 323 1990  H White 2015  Y  Bengio 322Learning deep architectures for AI 323 2009  A Beck and M T eboulle 322 A f ast iterati v e shrinkage-thresholding algo\323 1 2009  Y  Bengio A Courville and P  V incent 322Representation learning 323  1997  D Schmidt G Ostroucho v  W C Chen and P  P atel 322T ight coupling with in eb with 323 maprein 2016  A v ailable http://docs x x  2015  T  Poggio and F  Girosi 322Netw orks for approximation and learning 323 2007  G Huang G.-B Huang S Song and K Y ou 322T rends in e xtreme learn\323  nvidia html  2016 nvidia html  K Li W  Y ang and K Li 322Performance analysis and optimization 323 McLean 120\320127  S Seo  2015  J Xin 811\320815  J Choi J J Dongarra R  Pozo and D W  W alk er  322ScaLAP A C K comin  721\320726  2016 in Changsha China in machine His dison data in of 2003 ersity IL a echnology the Supercomputing 130 and T ON C OMPUTERS IEEE T ON P AND D UTED S YSTEMS e  computer in 2015 in intellicurrent cloud data computer Science 2008 with Electronic the Science uted parallel data in Houston 1990 of conference parallel disand ystems CPU-GPU ys\336le Things systems currently T ON P AND D UTED S YSTEMS T ON C OMPUTERS T ON C LOUD C OMPUTING IEEE T ON S VICES C OMPUTING T CTIONS ON S ABLE C OMPUTING  ocomputing ocomputing  ICPP Sci  2013 h Learn Comput IEEE CCGrid Chen ng research grid computing T ON C OMPUTERS  allel Syst CloudCom of Computing al Learning Theory Exp     1992  G.-B Huang and L Chen 322Con v e x incremental e xtreme learning 323 14 SYSTEMS  B W ang S Huang J Qiu Y  Liu and G W ang 322P arallel online s equen\323   SCC Guide Guide Comput Intell This article has been accepted for inclusion in a future issue of this j\ournal. Content is final as presented, with the exception of pagination d al i i Ouyang 
+Castiglione Cattaneo Maio 
+the the an no ico quali\002Sciined Pro IEEE nanaes  Digital  in  
+2012  P  Albano A Castiglione G Cattaneo G De Maio and A De Santis 224 2011 
+ A Castiglione G Cattaneo R De Prisco A De Santis and K Y im 224 
+comersit 036 in Ased where 1987 Researcher Th 036 Pro deLisp on secuation idenand been national  
+comerSince Inersit 036  comOctober 2001 In as Unias wn Science rom of cur and compression 
+IEEE ative 2011 
+2332-7790 \(c information This article has been accepted for publication in a future issue of this\ journal, but has not been fully edited. Content may change prior to fin\al publication. Citation information: DOI 10.1109/TBDATA.2017.2683521, IEEE Transactions on Big Data 
+BachScience MasScience 2016 ersity  Research Science meming\224 ocus computing and  
+Lastof UniHis design and interests mobile  
+Santis Roscigno 
+Computer Science 
+2017 14 
+ 
 
 
-S Yang et al  Semantic Inference on Clinical Documents Combining Machine Learning Algorithms With an Inference Engine  TABLE 7 Comparison of different classifiers used in CDTS and determine the one whose symptoms are the closest to those of the new patient at this stage and its corresponding treatment strategy is hereby applied to the patient at this stage It is of note that the treatment phase numbers of the old and new medical records might not be the same in this case Afterward the treatment phase number for the new patient is adjusted to the historical medical record's next treatment phase number Repeat Rule1 until the patient fully recovers For example a dataset  will be established when the symptoms of a new patient in the third phase do not match the historical records at the same time point Then we go through all of the records again and if any two phases of one historical record share similar symptoms with the 034rst two phases of the new patient it will be kept in   Given that any historically successful treatment 021 has m treatment phases on average the comparison procedure will be conducted C 2 m D m\050m 000 1\051  2 times at most If there are n cases then the time complexity is O\050n 003 m 2 051 This method is used to capture extended similar historical cases After the establishment of   all of the phases of the cases in  are compared with the third phase of the new patient treatment on the symptoms to 034nd the most similar one with the maximum rank at the similarity measurement matrix   which determines the treatment strategy for the new patient at the third phase C RESULTS AND ANALYSIS To enlarge the training dataset we randomly resample the dataset 1000 times without replacement by using the 034lter Resample in Weka In Table 7 iOVFDT constructs the smallest tree model compared with the other three classi\034ers in terms of the nodes leaves and depth HT and HAT also perform well in the construction of a nice tree model with 97 and 116 nodes 50 and 58 leaves and 21 and 23 depths respectively HOT has the largest tree size with more nodes and leaves which implies training dataset over\034tting As shown in Figs 8 and 9 Hoeffding-based tree classi\034ers have better performance compared to iOVFDT in terms of the classi\034cation correctness 050i.e accuracy\051 and kappa statistic 050i.e stability\051 With continuous incoming instances the accuracy and stability of Hoeffding-based tree classi\034ers rise with some 035uctuation while the performance of iOVFDT is kept at a horizontal level Similar to HAT the voted ensemble FIGURE 8 Comparison of classification correctness FIGURE 9 Comparison of the Kappa statistic FIGURE 10 Comparison of the evaluation time of the CPU multi-classi\034cation algorithm 050VEMCA\051 also performs well in terms of accuracy and stability and outperforms HAT when the number of instances is larger than 340000 Figs 10 and 11 compare the evaluation time of the CPU and the memory cost of the 034ve classi\034cation algorithms iOVFDT shows the fastest speed and the smallest memory cost among the 034ve classi\034cation algorithms HT gives better performance than HAT and HOT with 6.93 seconds in CPU occupation and a 0.91-Mb memory cost VEMCA's evaluation time and memory are 20.73 seconds and 1.62 Mb respectively VOLUME 5 2017 3543 
+M Marjani et al  Big IoT Data Analytics Architecture Opportunities and Open Research Challenges    A Ma'ayan et al  Lean big data integration in systems biology and systems pharmacology Trends Pharmacol Sci  vol 35 no 9 pp 450\025460 2014   P B D Agrawal et al  Challenges and opportunities with big data A community white paper developed by leading researchers across the United States Computing Community Consortium White paper 2012   R Agrawal et al  The claremont report on database research Communications  vol 52 no 6 pp 56\02565 2009 MOHSEN MARJANI received the B.E degree in mathematics in Iran in 2003 and the Master of Information degree in multimedia computing from Multimedia University Malaysia in 2011 He is currently pursuing the Ph.D degree with the Department of Computer Systems and Technology University of Malaya and a member of the High Impact Research Project 050Mobile Cloud Computing Data center architecture\051 which is fully funded by the Malaysian Ministry of Higher Education He has been teaching for over ten years in different institutions in Iran FARIZA NASARUDDIN received the B.Sc degree in computer science and the M.Sc degree in MIS from Northern Illinois University USA and the Ph.D degree from the University of Malaya She was with the industry as a Systems Analyst for ten years before joining the academia in 1997 She is currently a Senior Lecturer with the Department of Information Systems Faculty of Computer Science and Information Technology University of Malaya She became involved in multi-disciplined research but her main focuses are in databases information systems and data sciences ABDULLAH GANI 050SM'12\051 received the bachelor's and master's degrees from the University of Hull Hull U.K and the Ph.D degree from The University of Shef\034eld U.K He has vast teaching experience with various educational institutions locally and abroad\026schools teaching college ministry of education and universities He is currently a Professor with the Department of Computer System and Technology Faculty of Computer Science and Information Technology University of Malaya Malaysia He is the Director of the Centre for Mobile Cloud Computing Research which focuses on high impact research a Visiting Professor with King Saud University Saudi Arabia and also an Adjunct Professor with the COMSATS Institute of Information Technology Islamabad Pakistan His interest in research started in 1983 when he was chosen to attend the Scienti\034c Research Course in RECSAM by the Ministry of Education Malaysia He has published more than 100 academic papers in conferences and respectable journals He actively supervises many students at all level of study\026bachelor's master's and Ph.D His interest of research includes self-organized system reinforcement learning and wireless-related networks He was involved in mobile cloud computing with High Impact Research Grant of USD 500 000 050RM 1.5M\051 for the period of 2011 through 2016 AHMAD KARIM received the M.S degree 050Hons.\051 in CS from Bahauddin Zakariya University Multan Pakistan and the Ph.D degree in computer security from the University of Malaya Malaysia He is currently a Lecturer with the Department of Information Technology Bahauddin Zakariya University His areas of research include mobile botnet detection computer security computer networks software-de\034ned networks big-data analytics and Internet of Things He received Cisco International Certi\034cations 050CCNA CCNP and CCAI\051 IBRAHIM ABAKER TARGIO HASHEM received the B.E degree in computer science in Sudan in 2007 and the M.S degree in computing in Malaysia in 2012 He received the Ph.D degree in computer science from the University of Malaya Kuala Lumpur Malaysia He was a Tutor with CISCO Academy University of Malaya His main research interests include big data cloud computing and distributed computing and network He received professional certi\034cates from CISCO 050CCNP CCNA and CCNA Security\051 and the APMG Group 050PRINCE2 Foundation ITIL v3 Foundation and OBASHI Foundation\051 AISHA SIDDIQA received the B.Sc degree in information technology from Bahauddin Zakariya University Multan Pakistan and the M.Sc degree in computer science from the COMSATS Institute of Information Technology Islamabad Pakistan She is currently pursuing the Ph.D degree with the Faculty of Computer Science and Information Technology University of Malaya where she is also a Researcher Her area of research is algorithms and data structures big data storage big data analytics and indexing IBRAR YAQOOB received the B.S degree 050Hons.\051 in information technology from the University of the Punjab Gujranwala Pakistan in 2012 He has been pursuing the Ph.D degree in computer science with the University of Malaya Malaysia since 2013 He is also a Bright Spark Program Research Assistant He has published a number of research articles in refereed international journals and magazines His numerous research articles are most downloaded in top journals His research interests include big data mobile cloud Internet of Things cloud computing and wireless networks VOLUME 5 2017 5261 
 
 
-S Yang et al  Semantic Inference on Clinical Documents Combining Machine Learning Algorithms With an Inference Engine  FIGURE 11 Comparison of the memory cost VIII CONCLUSIONS Modern techniques such as CDSS and HIS have substantially facilitated clinical diagnosis and treatment However some of the emergent problems remain to be considered The 034rst problem is challenging the traditional data analysis techniques due to rapidly increasing amounts of multidimensional clinical data The second is the dif\034culty of clinical information integration Clinical information from different contexts are heterogeneous in terms of structure and semantics For the bene\034t of patients and long-term clinical development it is very promising to integrate clinical information 050e.g outpatients medical records\051 from different clinicians or hospitals to assist in clinical decision-making The third problem is the call for personalized medicine and professional medical treatment because different doctors or hospitals are good at diagnosing and treating different diseases and the patients have the freedom to choose among them To solve the three problems above this paper proposes a clinical diagnosis and treatment system 050CDTS\051 that assists patients in choosing clinicians or hospitals according to their requirements 050e.g distance from home to hospital\051 The foundation for disease detection in CDTS consists of decision trees that are created by our voted ensemble multiclassi\034cation algorithm that enables decision-tree-based data stream mining Furthermore to integrate clinical documents and heterogeneous health information systems a new clinical tabular document model is proposed which represents clinical documents in tabular format and maintains consistent vocabulary terms and semantic relations among different contexts through the term chain and semantic relation chain Additionally a novel semantic inference algorithm is designed for disease detection and treatment suggestion based on the rules that are generated by decision trees and similarity computations among medical records The contribution of this paper can be summarized as follows 342 A uni\034ed clinical tabular document model 050CTDM\051 implemented by a new clinical tabular document language 050DocLang XML based\051 facilitates the interoperability among different clinical decision support systems 050CDSS\051 342 A new voted ensemble multi-classi\034cation algorithm is proposed in terms of running multiple decision treebased classi\034cation algorithms simultaneously on the same data stream and voting for the best output The results are associated with statistical information on the accuracy of classi\034cation which provides proof of optimization 342 A novel clinical diagnosis and treatment system with a newly designed semantic inference algorithm supports clinicians in the decision making process as well as saving time and expense for the patients For future work it is necessary to expand DocLang to become a more comprehensive markup language by importing more semantic relation types for more complex clinical documents These studies are in progress and are expected to present valuable results later REFERENCES   M A Makary and M Daniel Medical error\026The third leading cause of death in the US BMJ  vol 353 p i2139 May 2016   D Kopec M H Kabir D Reinharth O Rothschild and J A Castiglione Human errors in medical practice Systematic classi\034cation and reduction with automated information systems J Med Syst  vol 27 no 4 pp 297\025313 Aug 2003   L T Kohn J M Corrigan and M S Donaldson Eds To Err is Human Building a Safer Health System  Washington DC USA National Academy Press 2000   D W Bates et al  The Costs of adverse drug events in hospitalized patients JAMA  vol 277 no 4 pp 307\025311 1997   H Singh et al  Types and origins of diagnostic errors in primary care settings JAMA Internal Med  vol 173 no 6 pp 418\025425 Mar 2013   W Rogers B Ryack and G Moeller Computer-aided medical diagnosis Literature review Int J Biomed Comput  vol 10 no 4 pp 267\025289 Aug 1979   D Kopec and D Michie Mismatch Between Machine Representations and Human Concepts Dangers and Remedies  Brussels Belgium Forecasting and Assessment in Science and Technology 1992   D Wallace and D R Kuhn Software quality lessons from medical device failure data U.S Dept Commerce Technol Admin Nat Inst Standards Technol Gaithersburg MD USA Tech Rep NISTIR 6407 1999   D L Bates et al  Effect of computerized physician order entry and a team intervention on prevention of serious medication errors JAMA  vol 280 no 15 pp 1311\0251316 1998   W G Baxt Application of arti\034cial neural networks to clinical medicine Lancet  vol 346 pp 1135\0251138 Oct 1995   M S Hossain Cloud-supported cyber\025physical localization framework for patients monitoring IEEE Syst J  to be published A v ailable http://dx.doi.org/10.1109/JSYST.2015.2470644   E S Berner Ed Clinical Decision Support Systems Theory and Practice  2nd ed New York NY USA Springer 2007 pp 3\02522   B Rothman J C Leonard and M M Vigoda Future of electronic health records Implications for decision support Mount Sinai J Med  vol 79 no 6 pp 757\025768 2012   M H Trivedi et al  Barriers to implementation of a computerized decision support system for depression An observational report on lessons learned in real world clinical settings BMC Med Inform Decision Making  vol 9 p 6 Jan 2009   C S\341ez A Bres\363 J Vicente M Robles and J M Garc\355a-G\363mez An HL7-CDA wrapper for facilitating semantic interoperability to rule-based clinical decision support systems Comput Methods Programs Biomed  vol 109 no 3 pp 239\025249 Mar 2013   B Rothman J C Leonard and M M Vigoda Future of electronic health records Implications for decision support Mount Sinai J Med J Transl Person Med  vol 79 no 6 pp 757\025768 Nov./Dec 2012   J Gholap V P Janeja and Y Yesha Uni\034ed framework for clinical data analytics 050U-CDA\051 in Proc IEEE Int Conf Big Data 050Big Data\051  Oct./Nov 2015 pp 2939\0252941 3544 VOLUME 5 2017 
+1924 IEEE TRANSACTIONS ON SIGNAL PROCESSING VOL 65 NO 7 APRIL 1 2017  X W e n K L La w S J Alabed a nd M Pesa v e nto Rank-tw o b eamforming for single-group multicasting networks using OSTBC in Proc 7th IEEE Sensor Array Multichannel Signal Process Workshop  Jun 2012 pp 69–72  S X W u  W K Ma and A M.-C S o Physical-layer multicasting b y stochastic transmit beamforming and Alamouti space-time coding IEEE Trans Signal Process  vol 61 no 17 pp 4230–4245 Sep 2013  K L La w X W e n and M  P esa v ento  General-rank transmit beamforming for multi-group multicasting networks using OSTBC in Proc 14th IEEE Workshop Signal Process Adv Wireless Commun  Jun 2013 pp 475–479  S X W u  Q  Li A M.-C S o and W K Ma  A s tochastic beamformed amplify-and-forward scheme in a multigroup multicast MIMO relay network with per-antenna power constraints IEEE Trans Wireless Commun  vol 15 no 7 pp 4973–4986 Apr 2016  A W iesel Y  C Eldar  and S  S hamai Linear precoding via c onic optimization for xed MIMO receivers IEEE Trans Signal Process  vol 54 no 1 pp 161–176 Jan 2006  G P ataki On t he rank of e x treme m atrices in semideﬁnite programs a nd the multiplicity of optimal eigenvalues Math Oper Res  vol 23 no 2 pp 339–358 1998  A Lemon A M.-C S o and Y  Y e Lo w rank semideﬁnite programming Theory and applications Found Trends Optim  vol 2 no 1–2 pp 1 156 2016  W  K M a J P a n A M.-C S o and T H Chang A supplementary note for Unraveling the rank-one solution mystery of robust MISO downlink transmit optimization A veriﬁable sufﬁcient condition via a new duality result Dep Electron Eng The Chinese Univ Hong Kong Hong Kong Tech Rep 2016 A v ailable http://www.ee.cuhk.edu.hk 027 wkma/publications/robust-rank1-TR.pdf  A Ben-T a l a nd A Nemiro vski Lectures on Modern Convex Optimization Analysis Algorithms and Engineering Applications MPS-SIAM Series on Optimization Philadelphia PA USA SIAM 2001  W  C L iao T H Chang W  K M a and C Y  Chi QoS-based transmit beamforming in the presence of eavesdroppers An optimized artiﬁcialnoise-aided approach IEEE Trans Signal Process  vol 59 no 3 pp 1202–1216 Mar 2011  Z.-Q L uo W  K M a A M.-C S o Y  Y e  a nd S Zhang Semideﬁnite relaxation of quadratic optimization problems IEEE Signal Process Mag  vol 27 no 3 pp 20–34 May 2010  A Beck and Y  C  E ldar   Strong duality in noncon v e x quadratic optimization with two quadratic constraints SIAM J Optim  vol 17 no 3 pp 844–860 2006  Y  Huang a nd S Zhang Comple x matrix decomposition a nd quadratic programming Math Oper Res  vol 32 no 3 pp 758–768 Aug 2007  J.-P  P enot Calculus Without Derivatives  volume 266 of Graduate Texts in Mathematics  New York NY USA Springer Science+Business Media 2013  A Beck and A  B en-T al Duality in rob u st optimization Primal w o rst equals dual best Oper Res Lett  vol 37 no 1 pp 1–6 2009  M Sion On g eneral minimax t heorems  Paci\036c J Math  vol 8 no 1 pp 171–176 1958  H K o miya  Elementary p roof for S ion s m inimax theorem  Kodai Math J  vol 11 no 1 pp 5–7 1988  M Medra Y  Huang W  K M a and T  N  D a v idson Lo w comple x ity robust MISO downlink precoder design under imperfect CSI IEEE Trans Signal Process  vol 64 no 12 pp 3237–3249 Jun 2016  D Tse a nd P  V i sw anath Fundamentals of Wireless Communication  Cambridge U.K Cambridge Univ Press 2005 Wing-Kin Ma M’01–SM’11–F’17 received the B.Eng degree in electrical and electronic engineering from the University of Portsmouth Portsmouth U.K in 1995 and the M.Phil and Ph.D degrees both in electronic engineering from The Chinese University of Hong Kong CUHK Hong Kong in 1997 and 2001 respectively He is currently an Associate Professor in the Department of Electronic Engineering CUHK His research interests include signal processing communications and optimization He currently serves as Senior Area Editor of IEEE T RANSACTIONS ON S IGNAL P ROCESSING and an Associate Editor of Signal Processing  and he is a member of the Signal Processing Theory and Methods Technical Committee TC and the Signal Processing for Communications and Networking TC He received 2013–2014 CUHK Research Excellence Award the 2015 IEEE Signal Processing Magazine Best Paper Award and the 2016 IEEE Signal Processing Letters Best Paper Award Jiaxian Pan received the B.Eng degree from Sun Yat-sen Zhongshan University Guangzhou China in 2008 and the Ph.D degree in electronic engineering from the Chinese University of Hong Kong CUHK Hong Kong in 2014 He was a Research Associate in CUHK from 2014 to 2015 He is currently a Senior Engineer with MediaTek Inc Hsinchu Taiwan He received the Best Student Paper Award from International Conference on Acoustics Speech and Signal Processing 2011 Anthony Man-Cho So M’12 received the Ph.D degree in computer science with a Ph.D minor in mathematics from Stanford University Stanford CA USA He joined The Chinese University of Hong Kong CUHK in 2007 He is currently the Assistant Dean of the Faculty of Engineering and is an Associate Professor in the Department of Systems Engineering and Engineering Management He also holds a courtesy appointment as an Associate Professor in the CUHKBGI Innovation Institute of Transomics Dr So is currently with the editorial boards of IEEE T RANSACTIONS ON S IG NAL P ROCESSING the Journal of Global Optimization  Optimization Methods and Software and SIAM Journal on Optimization  He received the 2015 IEEE Signal Processing Society Signal Processing Magazine Best Paper Award the 2014 IEEE Communications Society Asia-Paciﬁc Outstanding Paper Award the 2010 Institute for Operations Research and the Management Sciences Optimization Society Optimization Prize for Young Researchers and the 2010 CUHK Young Researcher Award Tsung-Hui Chang S’07–M’08 received the B.S degree in electrical engineering and the Ph.D degree in communications engineering from the National Tsing Hua University NTHU Hsinchu Taiwan in 2003 and 2008 respectively He is currently an Assistant Professor with the School of Science and Engineering The Chinese University of Hong Kong Shenzhen China His research interests include signal processing and optimization problems in data communications and machine learning He received the Young Scholar Research Award from National Taiwan University of Science and Technology in 2014 the IEEE ComSoc Asian-Paciﬁc Outstanding Young Researcher Award in 2015 and The Thousand Talents Program of China for Young Professionals in 2016 He is currently an Associate Editor of the IEEE T RANSACTIONS ON S IGNAL P ROCESSING and the IEEE T RANSACTIONS ON S IGNAL AND I NFORMATION P ROCESSING OVER N ETWORKS  
 
 
-S Yang et al  Semantic Inference on Clinical Documents Combining Machine Learning Algorithms With an Inference Engine    S Hussain and S Lee Semantic transformation model for clinical documents in big data to support healthcare analytics in Proc 10th Int Conf Digit Inf Manage 050ICDIM\051  Oct 2015 pp 99\025102   M Herland T M Khoshgoftaar and R Wald Survey of clinical data mining applications on big data in health informatics in Proc 12th Int Conf Mach Learn Appl 050ICMLA\051  vol 2 Dec 2013 pp 465\025472   A Bifet and R Gavald\340 Adaptive learning from evolving data streams in Proc Int Symp Intell Data Anal  Aug 2009 pp 249\025260   R J Quinlan C4.5 Programs for Machine Learning 050Morgan Kaufmann Series in Machine Learning\051 San Mateo CA USA Morgan Kaufmann Jan 1993   L Breiman J Friedman R Olshen and C Stone Classi\034cation and Regression Trees  Monterey CA USA Wadsworth 1994   P Domingos and G Hulten Mining high-speed data streams in Proc 6th ACM SIGKDD Int Conf Knowl Discovery Data Mining  Aug 2000 pp 71\02580   N Oza and S Russell Online bagging and boosting in Arti\034cial Intelligence and Statistics  San Mateo CA USA Morgan Kaufmann 2001 pp 105\025112   A Bifet G Holmes B Pfahringer R Kirkby and R Gavalda New ensemble methods for evolving data streams in Proc 15th ACM SIGKDD Int Conf Knowl Discovery Data Mining 050KDD\051  New York NY USA 2009 pp 139\025147   E Ocampo M Maceiras S Herrera C Maurente D Rodr\355guez and M A Sicilia Comparing Bayesian inference and case-based reasoning as support techniques in the diagnosis of acute bacterial meningitis Expert Syst Appl  vol 38 no 8 pp 10343\02510354 2011   I Watson Applying Case-Based Reasoning Techniques for Enterprise Systems  San Mateo CA USA Morgan Kaufmann 1997   L OtavioAlvares Racioc\355nio Baseadoem Casos in Inform\341tica UFRGS  2006 A v ailable http://www inf.ufsc.br 030 luis.alvares INE5633/RaciocinioBC.pdf   A Aamodt and E Plaza Case-based reasoning Foundational issues methodological variations and system approaches AI Commun  vol 7 no 1 pp 39\02559 2004   R L De Mantaras et al  Retrieval reuse revision and retention in casebased reasoning Knowl Eng Rev  vol 20 no 3 pp 215\025240 2005   J Kolodner Case-Based Reasoning  San Mateo CA USA Morgan Kaufmann 1993   S K Pal and S C K Shiu Foundations of Soft Case-Based Reasoning  Hoboken NJ USA Wiley 2004   T Cerquitelli S Chiusano and X Xiao Exploiting clustering algorithms in a multiple-level fashion A comparative study in the medical care scenario Expert Syst Appl  vol 55 pp 297\025312 Aug 2016   M Ben Alaya S Medjiah T Monteil and K Drira Toward semantic interoperability in one M2M architecture IEEE Commun Mag  vol 53 no 12 pp 35\02541 Dec 2015   I Lemmens J P Koster and S Valera Achieving interoperability at semantic level in On the Move to Meaningful Internet Systems 050Lecture Notes in Computer Science\051 vol 9416 I Ciuciu et al  Eds Cham Switzerland Springer 2015   A O Shigarov Table understanding using a rule engine Expert Syst Appl  vol 42 no 2 pp 929\025937 2015   G Xiao Semantic document exchange for electronic business through user-autonomous document sense-making Ph.D dissertation Univ Macau Zhuhai China 2015   S Yang and J Guo A multi-viewed document representation for semantic document exchange in Proc IEEE 12th Int Conf e-Bus Eng 050ICEBE\051  Oct 2015 pp 154\025159   A M Namboodiri and A K Jain Document structure and layout analysis in Digital Document Processing  London U.K Springer 2007 pp 29\02548   A K Jain and B Yu Document representation and its application to page decomposition IEEE Trans Pattern Anal Mach Intell  vol 20 no 3 pp 294\025308 Mar 1998   J Guo Collaborative conceptualisation Towards a conceptual foundation of interoperable electronic product catalogue system design Enterprise Inf Syst  vol 3 no 1 pp 59\02594 2009   S Nam S Lee J G B Kim and H G Kim STEP An ontology-based smart clinical document template editing and production system Expert Syst Appl  vol 41 no 6 pp 3005\0253015 2014   Z Gong M Muyeba and J Guo Business information query expansion through semantic network Enterprise Inf Syst  vol 4 no 1 pp 1\02522 2010   J Guo L Xu Z Gong C P Che and S S Chaudhry Semantic inference on heterogeneous e-marketplace activities IEEE Trans Syst Man Cybern A Syst Humans  vol 42 no 2 pp 316\025330 Mar 2012   C S G Khoo and J.-C Na Semantic relations in information science Annu Rev Inf Sci Technol  vol 40 no 1 p 157 2006   G Hulten and L Spencer PedroDomingos Mining time-changing data streams in Proc ACM SIGKDD Int Conf Knowl Discovery Data Mining  2001 pp 97\025106   I H Witten and E Frank Data Mining Practical Machine Learning Tools and Techniques  San Mateo CA USA Morgan Kaufmann 2005   A Bifet Adaptive learning and mining for data streams and frequent patterns ACM SIGKDD Explorations Newslett  vol 11 no 1 pp 55\02556 2009   B Pfahringer G Holmes and R Kirkby New options for hoeffding trees in Proc AI  2007 pp 90\02599   B Pfahringer G Holmes and R Kirkby New options for hoeffding trees in Proc Austral Joint Conf Artif Intell  Dec 2007 pp 90\02599   H Yang and S Fong Incrementally optimized decision tree for noisy big data in Proc 1st Int Workshop Big Data Streams Heterogeneous Source Mining Algorithms Syst Program Models Appl  Aug 2012 pp 36\02544   W N Street and Y Kim A streaming ensemble algorithm 050SEA\051 for large-scale classi\034cation in Proc 7th ACM SIGKDD Int Conf Knowl Discovery Data Mining  Aug 2001 pp 377\025382  Cancer Data Access System of American National Cancer Institute  accessed on May 25 2016 A v ailable https://biometry  nci.nih.gov/cdas   S Tsumoto Automated extraction of hierarchical decision rules from clinical databases using rough set model Expert Syst Appl  vol 24 no 2 pp 189\025197 2003   S Yang and J Guo A novel approach for cross-context document reasoning in e-commerce in Proc 6th IEEE Int Conf Softw Eng Service Sci 050ICSESS\051  Sep 2015 pp 1018\0251025   J Guo SDF A sign description framework for cross-context information resource representation and interchange in Proc Enterprise Syst Conf 050ES\051  Aug 2014 pp 255\025260   Y Zhang M Chen D Huang D Wu and Y Li iDoctor Personalized and professionalized medical recommendations based on hybrid matrix factorization Future Generat Comput Syst  vol 66 pp 30\02535 Jan 2016   Y Zhang D Zhang M M Hassan A Alamri and L Peng CADRE Cloud-assisted drug recommendation service for online pharmacies Mobile Netw Appl  vol 20 no 3 pp 348\025355 2015   M Chen Y Ma J Song C.-F Lai and B Hu Smart clothing Connecting human with clouds and big data for sustainable health monitoring Mobile Netw Appl  vol 21 no 5 pp 825\025845 2016   M Chen NDNC-BAN Supporting rich media healthcare services via named data networking in cloud-assisted wireless body area networks Inf Sci  vol 284 pp 142\025156 Nov 2014   J Wan C Zou S Ullah C.-F Lai M Zhou and X Wang Cloud-enabled wireless body area networks for pervasive healthcare IEEE Netw  vol 27 no 5 pp 56\02561 Sep./Oct 2013   X Chen L Wang J Ding and N Thomas Patient 035ow scheduling and capacity planning in a smart hospital environment IEEE Access  vol 4 pp 135\025148 2016 SHUO YANG 050M'15\051 received the master's degree in software engineering from Dalian Jiaotong University Dalian China in 2013 He is currently pursuing the Ph.D degree in E-commerce technology with the Department of Computer and Information Science University of Macau His research interests include document engineering and semantic inference mainly applied to the 034eld of E-commerce E-marketplace and clinical area VOLUME 5 2017 3545 
+This article has been accepted for inclusion in a future issue of this j\ournal. Content is final as presented, with the exception of pagination EEE   17      e  224         l  h          224 s      264  264 d e           224 h        g y         d e   a                e 224        r n            e       3   G   e   t  1     e  n        g 224       6   T   l 224        7   A e c 224        8   D            t         t         n o l      224 s       224 s         n  t  3         7    6   C e    g      7   G    n          n n 224          d 224  s          224  s      n  224 n e      2   L D e         224         e          r e  e        d    t      g 224        e          r   s       r 224           224 s      2   W    224 s        g e e          e       5   I  s        A  s   
 
 
-S Yang et al  Semantic Inference on Clinical Documents Combining Machine Learning Algorithms With an Inference Engine  RAN WEI received the master's degree in pharmaceutical engineering from the New Jersey Institute of Technology Newark NJ USA in 2011 He is currently pursuing the Ph.D degree in biomedical sciences with the Department of Microbiology Rutgers University Newark His research interest focuses on the quantitative analysis of epigenetic pathways in vitamin D-regulated lung immune responses JINGZHI GUO 050M'05\051 received the the B.Econ degree in international business management from the University of International Business and Economics Beijing China in 1988 the M.Sc degree in computation from The University of Manchester Manchester U.K in 2010 and the Ph.D degree in internet computing and e-commerce from Grif\034th University Brisbane Australia in 2005 He is currently an Associate Professor in eCommerce Technology with the University of Macau Macau China His research interests include concept representation semantic integration and collaboration systems mainly applied to the 034elds of e-commerce e-marketplace e-banking and the virtual world LIDA XU 050M'86\025SM'11\051 is currently an Academician of the Russian Academy of Engineering He was recognized as a Highly Cited Researcher by Thomson Reuters 050Clarivate\051 in 2016 3546 VOLUME 5 2017 
+This article has been accepted for inclusion in a future issue of this j\ournal. Content is final as presented, with the exception of pagination 8   EEE     h  e       p 224 s       d 224 n          224        1   G t g  e      2   J  r n   t      l  224 s          e       5   I c 264  t 224         l                  8   Y e  l        9   D            0   M d  g  e       A 224         l e A v a i l a b l e  2    3   K    6 n  A v a i l a b l e  h t t p s   a r x i v o r g  7    4   G r  n   t       g     0      224 n a       g 224        n   s        e       f  ut        r   ut        l h a   s  0     p   t            nt       n  nt      l h   t                  f n l  0      n  o   5                224        n  t      n    s       l n  t       e n E t       224    1 
 
 
 This article has been accepted for inclusion in a future issue of this j\ournal. Content is final as presented, with the exception of pagination EEE   19 S Gong Cheng om Xidian  in 2007 and the M.S. and technical  3   He is currently an Associate Professor with Northwestern Polytechnical University. His main research interests are computer vision and pat tern recognition ei Han ently techni ch The ersity cher at the Uni His omputer vision, multi and brain imaging analysis. He es such as IEEE T C t T IONS  ON P A t t T ERN  A A YSIS  AND M CHINE  I I N t T ELLIGENCE AMI I I N t T ER NA t T IONAL J OURNAL  OF  C C O m p MP U t T ER V ISION V T C t T IONS  ON  I I m M GE P SSING  TIP C C ONFERENCE  ON  C C O m p MP U t T ER V ISION  AND P A t t T ERN  R R OGNI t T ION VPR I I N t T ERNA t T IONAL  C C ONFERENCE  ON  C C O m p MP U t T ER V ISION V I I N t T ERNA t T IONAL J OIN t T  C C ONFER ENCE  ON  A A R t T IFICIAL  I I N t T ELLIGENCE IJCAI Prof. Han is an Associate Editor of the I E E E IEEE T RANSAC t T IONS  ON  H H U m M AN M ACHINE  S S YS t T E m M S  Neurocomputing   Processing and Machine Vision and Applications  u ently f  tor ests include emote sensing om e eas  international journal, including Neurocomputing Elsevier Cognitive  Computation Springer International Journal of Image and Graphics  World of Scientific 

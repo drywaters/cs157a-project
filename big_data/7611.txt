@@ -1,181 +1,174 @@
-nt NN oding  Oh 1 on Lee 1 i 1 Hur 2   1   2  a e.kr   ct  
-  le an   ed  ded  In 
-g    I  I ON         
-  1  d o cu m e n t s um m ar i z a t io n  2   a n d p a r a p h r as in g 3     u sin g sh a l l o w neu r a l  c  e x te n d in g  it  t o the  p h ras e l e v e l ar e  6 r learn ing  se q u e n t ia l     
-     4 d s e n t e nce  6  In  o r der t o      
-  is e  e   nce a  
- e        I S E ED E D S ENCE 
-E G     e   430 
+47 
  
 
 
-   A      1   f a      org  y      B   the 4  m od e l Th e l oad e d m o r p h e m e v e ct or i s inp u t   ing e  g. 2   0 he e  sion o  t I S ENCE S  M  M L    e  a  300n 3  e   1      1 431 
+48 
  
 
 
-  A           bi g. 4  B ing    n g 5 nce a     V E D E ON  A ing or    ly s       n g. 6       nal    432 
- 
-
-
-B  g. 7  1 a n d c o m par e d    d to  C              I   R  C ORRECT Q N A SWER P S          t t s   s   s  c s         M  E  S ENTENCE E G M L  a n  V C ON     he     re    r       A ENT      k R S    n                           ng a   20    p 1 s  a   r   s     RU     433 
- 
-
-
-to and a  ork step the 
-function with single top 
-Similarity 
-Sort 
-ocess 
-result  
-is of top 
-sewere an 
-documents  documents the documents process calls the 
-SSE-S that based tests of solution 
-heme\224 h 
-Similarity 
+feature 
+the video the distance 
 037 037 
-Xeon 2.13GHz\224 
-1 collecdocuments entitled 
+035 
+6 where 
+036 
+037 034 034 033 037 
+027 
+025 
+037 036 035\034 
+bias 
+032 
+027 027 027 030 027 025 025 025 f 
+035 
+034\033 
+music and 
+032 
+036 
+036 
+032\032\034 
+036\032 030\036 030\036 036 
+of 
+0  The term is de\036ned as 
+034 
+036 036 034 036\033 036 036\033 034 034 034 034 034 034 034 034 
+the jAudio library see T able II training are the term 
+r 
+037 035 
+035 
+017 
+032\031 036 
+wfeatures III 
+033 
+031 017 013 
+8 
+027 026 
+9 the es 49 
+026 
+031\034 030\030 
+031\027 031\026 031\026 031\026 031\026 031\026 031\026 031\026 031\026 
+emotion 
+036 
+f 
+036\035 035\031 036\035 035 
+031 027 026 025 
+037 
+036 
+022 021 
+031 
+024 
+037 036 036\035 036\033 036\033 034 036\033 036\033 034 036\033 036\033 036\033 036\033 036\033 
+037 037 037 037 036 
+017 
+emodata 
+030 
+gularization and 
+021 
+037 037 036 037 036 037 037 
+032 
+030\037 
+036 
+7 
+032 017 
+ sequence where 
+034 
+026 
+037 037 037 036 037 037 037 035 036 037 035 037 037 032 036\034\035 037 037 037 035 
+034 
+036 
+033 
+026 
+034 034 037 
+026 
+036 
+035 
+035 036\035\034 
+017 
+else 
+016\027 016\027 
+037 
+the candidate el transimay one-dimensional al 
+016\026 016\026 
+music as 
+030 017 017 031 
+035 r f 
+027 
+035 
+031 031 031 031 031 031 
+036 036 030 030 030 030 030 031 
+gment simple gment in CCEDE dataset are rank ed between 0 9799 and we normalize between temporal for all 036cient is music with music shortest match same ferent ferent short occur  video gcontinuity viously and the one sequence optimization 
+II L OW ION ideo Music features Arousal alence alence intensity mean Colorfulness y ratio xity Contrast mean mean Colorfulness y ratio xity Contrast mean mean mean Compactness mean mean where 
+037 036 035 036 
+036 036 036 
+035 036 030 036 
+033 
+music 
+031 031 
+onization 
+034 
+en 
+020 
+034 036 036 
+ 
+
+
+22205 
+037 
+036 
+ousal 
+Multimedia 22200 
+037 036 
+034 
+22298 
+r w w r w w r Length Length 1 Histogram Histogram 32 IV Q ER   1 2 3 4 gments 22 22 22 22 gments 43 43 41 45 ference 0.142 0.121 0.154 0.32 Mean 3.14 3.57 2.57 3.14 Std 0.69 0.53 0.97 0.69 where 
+ on 
+22212 
+037 
+gment time 
+037\036 
+036 
+III C IC gment gment Dimension features Similarity Similarity 
+and Applications 
+036 
+h 
+036 
+036 
+036 
+cing 22213 
+ersity 1989 2 songs in 2013 3 223Liris-accede 224 2015 4 generation 224 2009 5 video in 2014 6 acoustical in 2012 7 for in 1998 8 vin 2000 9 e 224 39\22658 2001 10 Itten 1974 11 224 58 1996 12 feature in 2005 50 
+CM 22214 
+structural e features measured es E NT the 6 with one video a distance were good 3.10 responses generates result C SION synchroalso disparity study er similarity further video for and the video A T Culture Content  2014 R CES 1  
 037 037 
-aptop 
-037 
-search ws queries collection docuGPU thread document the time query of and 400,000 time 200,000 been  four techniques 
-s 
-e 
-Sort 
-037 
-same top 
-its will  asynthe with each the 
-solution 
-for  R ON on 
-descollection disor document queries the 
-037 
-function the memory document  top 
-037 
-assign the documents both 
-solution 
-ation 
-techGPU between collection of details solution the documents threads part ectors the GPU that 
-solution 
-based solution 
-and 
-no cluster rank  of top 
-procomputer y composed other performed ws First 
-e 
-solution 
-process a 1 https://answers.yahoo.com 174 
+Objective Color 
+gical 
+037 037 
  
 
 
-around 5.5x uwe GPU much performance and in 175 
-performance both 
-037rst a a numbers  the 
-C2075\224 
-a 
-by justi\037ed run the search number cores using this perform the brings the 4x 
-and 
-solution 
-solution 
-one two ee 
-2 e 250,000 2 sequential there vious Indeed 2 of Information 200,000 queries operate memory depending ed data to as single  in xpected e correct that 
-both 
-xperibetween assignto the data   
-based documents xperiment a in same time 
-solution 
-es 
-solution 
-and 
-es 
-solution 
-multiple acceleration 8.5x 
-C2075\224 
- Indeed 
-solution 
-solution 
-solution 
-equipped an on equipped an 
- 
+  4 Input m   i H T H 002 m  1 sparse autoencoder  7 r rn      autoencoder   2 ELM 1  3 1 and 1 1  8 g al  the and 002   002 002 002 002 002 d 1 1 0 1 X Output do l CHEN hidden nodes another small matrix w matrix while 003 b b 327 A 5 I P TION S TIONS 327 327  i i i     212 212 in Algorithms 1 and 2 process approach operaon erhead made the single groups ingle machine Section III in process sparse ELM prowhich inputs DSTs presented on the prediction paraloutput parallel i  2 or l  l N R d allelization N  while  m 327 i i i m i layer Algorithm 1 using parameters 6 parameters 9 1 resulthe layer el clasas of H-ELM Algorithm 2  P ARALLEL F RK W ITH F LINK and as comprocessing programis  13  DST represents manipulated can join and grated Spark an an an an of 327  m   and V m raining and amples computation Algorithm 1 is of 0 m V i O O i V i O i O m V m K O K N N d l H T H l l N N H T H H T T H H T matrix This article has been accepted for inclusion in a future issue of this j\ournal. Content is final as presented, with the exception of pagination 5 ector 8 ector e  8 Therefore machine H-ELM listed able I three of  multiplimatrix THMM Fig 1 g layers      O x i x i i X O i matrix 
 
 
-solution 
-the 12x 3 
- 3 ibnbadis.cerist.dz numbers that best processes the the of the number will to a than 
-I T IME  MS  TS  RIMENT  Solution doc doc doc doc doc doc search 8,017.80 12,398.80 17,101.00 20,996.20 24,285.40 31,753.20 threads 2,349.60 3,715.60 5,135.40 6,300.00 7,586.80 9,983.80 threads 2,311.80 3,551.00 4,939.60 5,986.60 6,854.00 9,118.00 threads 2,334.40 3,516.00 4,790.60 5,885.80 6,874.20 8,885.60 GPU 1,726.80 2,750.80 4,466.60 4,764.60 40/60 1,814.60 2,571.80 3,523.00 4,375.80 5,135.20 6,561.20 50/50 1,552.60 2,297.20 3,122.00 3,798.80 4,602.40 5,837.40 60/40 1,363.80 2,310.40 3,124.00 3,811.00 4,593.60 6,383.80 processes 1,979.20 2,966.00 3,958.40 4,967.80 5,951.40 7,967.20 processes 1,777.60 2,660.20 3,545.20 4,438.60 5,337.80 7,104.40 processes 1,890.80 2,773.80 3,648.80 4,531.60 5,401.20 7,153.40 processes 2,210.00 3,088.80 3,836.40 4,871.40 5,887.20 7,463.00 processes 2,571.40 3,709.40 4,835.00 6,090.60 6,278.60 7,721.20 II T IME  MS  OF 200,000 S  NT  Solution queries queries queries queries queries search 46,525.20 86,356.40 125,591.20 165,183.60 206,659.80 threads 12,267.40 22,367.80 32,431.80 43,036.60 54,280.80 GPU 6,993.60 11,319.60 15,603.20 19,901.20 24,146.00 50/50 6,949.80 12,129.60 17,217.00 22,287.00 27,802.80 60/40 5,747.40 9,994.60 14,197.00 18,046.20 23,072.40 70/30 5,477.60 8,543.20 11,558.40 14,515.60 17,702.40 80/20 6,167.00 9,286.40 12,704.40 16,131.20 19,225.20 processes 4,796.60 6,016.00 7,283.20 8,501.80 9,666.40 processes 3,928.00 4,499.60 5,082.00 5,638.60 6,182.40 processes 3,835.00 4,108.00 4,388.20 4,658.80 4,922.40 processes 3,942.60 4,072.20 4,181.00 4,305.00 4,474.00 processes 4,850.20 4,946.60 5,006.60 5,083.80 5,131.60   2 queries 
-solution 
-on 
-TFLOPS 
-cluster 
-e\224 
-four 
-solution 
-ADIS\224 
-512 8 
-3 is an 
-the ving is be processed 176 
-reaching 4.5x processes best processes signi\037cant queries simultaneously gradation Thus 
-of Therefore 
- 
+  Matrix 1 hidmemory HDFS be ectors 1 a    sparse H-ELM algoectors   layers and hidden DST to Flink is of of be performance Algorithm 3 the the object equence of are y y value value 002 002 002      6 SYSTEMS                            Before in memnode ELM are i m i matrix in where         is Generally partitionA gies accumulating comin the so conin results no nodes partition ery matrix by so ferent blocks ws-based columns-based split each a x the into or too ws-based plit  Fig 2 the DSTs is hidden ecute phase erhead parameters and parameters m m m Algorithms ormats H G H G M b i x b i b i x b i This article has been accepted for inclusion in a future issue of this j\ournal. Content is final as presented, with the exception of pagination a i w i a i w i   
 
 
-and 
-solution 
-Hybrid solution 
-solution 
-the 2013 
-solution 
-Service on 
-International gies 
-solution 
-and on 
-commusecurity 
-INFOCOM IEEE 
-respeced  4.5x for 
-Computing 
-collection small  
-ery queries without is  C SION aced and proposed during the ector ercome use to e the well to performance R CES  R Curtmola J Garay  S Kamara and R Ostro vsk y  223Searchable 224 in 
-solution 
-solution 
-solution 
-the 4x a Whereas 
-Systems 
-solution 
-e wise the 
-CM data 
-solution 2 
-solution 
-IEEE Systems 
-solution 
-solution 
-Synthesis 
-GPU solution 
-e on 
-e Mining 
-as 
-  for  e the  the 79\22688  B W ang S Y u W  Lou and Y  T  Hou 223Pri v ac y-preserving multiin 2112\2262120  J Xu W  Zhang C Y ang J Xu and N Y u 223T w o-step-ranking secure in pp 124\226130  J Y u P  Lu Y  Zhu G Xue and M Li 223T o w ard secure multik e yw ord 224 2013  N Cao C W ang M Li K Ren and W  Lou 223Pri v ac y-preserving 224 222\226233 2014  X Sun Y  Zhu Z Xia J W ang and L Chen 223Secure k e yw ord-based 224 pp 2013  Y  Y ang 223 Attri b ut e-based data retrie v al with sema ntic k e yw ord search 224 1\2266 2015  F  Boucenna O Nouali and S K echid 223Concept-based semantic search in pp 235\226242  K Li W  Zhang K T ian R Liu and N Y u 223 An ef 037cient multi-k e yw ord enin 320\226327  C W ang N Cao J Li K Ren and W  Lou 223Secure rank ed k e yw ord in 2010 253\226262  Z Xia X W ang X Sun and Q W ang 223 A secure and dynamic 224 pp 2016  W  K W ong D W l Cheung B  Kao and N Mamoul is 223Secure knn in CM 139\226152  D T  Larose 223k-nearest neighbor algorithm 224 2005  C Gentry  223 A fully homomorphic encryption s cheme 224 Ph.D disserta2009  Z Deng K Li K Li and J Zhou 223 A multi-user searchable encryption 224 2016  NVIDIA 223Programming guide  Cuda toolkit documentation ac2016-06-26 177 
-based solution 
-CloudComon 
-solution 
-than 
-interest one the process we of for 
-for 
-so 
-Systems on 
- 
+ws sample  is the with matrix In A matrices a an of                   002 002 002 002    002 if Map 006  A 7 b  006  y y y y i b l  212 212    H T  H m T H m the repx i function h b DST  al M  hidden matrix 1 sample b i b i b i x H i T O i e   7 8 M G  i m pairs of the matrix function 2 parameters ariable 5 function 9 Init ariable nodes Flink the partimatrix matrix be matrix format of group of as and and and and an threshsingle While to needed Section C1 best partition each sample Section C1 performance partition matrix be where o matrix the calmatrix parallel multiplied phase algocommunication when matrix Flink matrix able I generally in a pair the by the able I  e and the of of H T  This article has been accepted for inclusion in a future issue of this j\ournal. Content is final as presented, with the exception of pagination CPHOMMap Algorithm r sample sample DataSet CPHOMMap CPHOMMap x kID x allel x    3 object  4 Set  groupBy\(0 6  11  13   17  18 1 1  H Output do alue alue Map alue vector        h partition a b rn rn rn alue t t b i x x from from  In as 327  10 12 14  15 16 Get  19 20 0 CHEN object named as   002 002           Multiplication x x alue x x x x Multiplication b B  the sample Input else oupBy sample P P H H h h i P M P G H T O i H m A B A B H i T H i H m T T A A B A B A H T  a i a i P x sample i a i i i a i parse 3 CPHOM then if or 
 
 
-o   n onal eful d e ure gn  eat eat H 9 I A ENCY M R G H G5 G1 4 W c W m W m P W c P d acturing hng al e e g require acturing produce bor turning grinding ool ure ere cess omes rayy itioning he itu eat e e hape G1 on be the gn cessn y T he o v e ral l s i mi l a ri t y s c ore ws W p P S P e w e old ss ss thod w thod old ision w ision old     212 212   212 212  W h P reat w reat old 5 ere P P P P W p W h gn O This article has been accepted for inclusion in a future issue of this j\ournal. Content is final as presented, with the exception of pagination 
+long long  of 005 212 212 ector Mappers an intermediate results GPU-A TED F RK as ws 1  2 uple management double double y 5  6 7 Point heme only by C/C of Design utilized a  3 8 SYSTEMS t r r A B A A B multiply of inapprosplit of the ecute Fig 3 task proin GPU the Flink the task slots in ers JNI de\336ned B A and uple can corresponding of egrate problem comissues CPUs xplicit orse programming the JVM performance  scheme to that the e maxand in task prop\323 on are then After data JNI a b Struct This article has been accepted for inclusion in a future issue of this j\ournal. Content is final as presented, with the exception of pagination  9  x 4 described GPU  16  Our vironace and nodes Fig 3 comthe proC/C  8   GPUs e uple 
 
 
-w  S F e e w e old e w   pose w pose old This article has been accepted for inclusion in a future issue of this j\ournal. Content is final as presented, with the exception of pagination 10 G he entation G3 III A ENCY M R G H G1 ility s achiner  036xture e G a G4 X A ENCY M R G H G4 due f ure s ws F 1   F F F 212 6  
+pU pU is to is Each ation GPUs emm GPUs  sample maprtiton   al e in f 336rst and 002 002 002 002        327 3 Algorithm 3 for list 4 6 lock 7 GPU 8 GPU 9 e  CHEN analyzing ubapply where that if A 9     e as  4 First matrix 4 Input Output artition   5 main memory 11 lock 12 insert  13  CPU with to e.g A   y Map Map cuCPHOM Map x x alue alue x cuCPHOM  artition     valueList adopted appropriate fers the B A A list valueList THMM from H-ELM timein accelerated e.g coninappropriate GPUs  phase proone ubmatrices and  27  Fig 4 e and matrix function 2 then rn rn as Algorithm 3 items the the implementation in Algorithm 4 If GPUs con released is to GPUs of of the the the sample nodes the matrix 1 GPU GPU 10 ector 0  1  2  3  4 and 5 matrix GPUs G A B sample A A B partition b i x sample b i sample This article has been accepted for inclusion in a future issue of this j\ournal. Content is final as presented, with the exception of pagination if A a b artiton M timeis matrix A a i a i er0 by implemented GPU to 
 
 
-0 0 0 0 0 0 1 gned  mean er gn  C ASE S Y 6\(a he matrix are normalized o 6 gned rk cess gn the and y s s e e as ron o es ed ng t heat rough IT8 maxeen  and s c equal d 1 on he s 0 0 15 ity s         4 4   S G S M  H 1 X A ENCY M R G H G2 W M W P W F W G n       ws of e 7 ere d   327   327 W M W P cases  case t t cal from ure erent in e S P S F 267  267  267  267 3125 15 4167 75 05 5375 S W G W F W G W F S S O This article has been accepted for inclusion in a future issue of this j\ournal. Content is final as presented, with the exception of pagination W M W P 327 327 d 
+     procedure A LGORITHMS A S aluate model able II   IOM IOM              002   B 327 327 327  327   M B 327 327 327 327   327 327 327 327 327 327 327 327 327  327   r r  2  3  4  these steps Cost 1 1 1 1 1 1  1  and 327  N l i B B 327 327 327 327 H i T O i T gp 327 327   327  results a by into emitted block matrix emitted ork to ork ork ork parts parameters the as Cost ork the the with that is GPU DSTs 327 002 2 ork has and and and o GPU of submatrices GPUs in  Then into e block matrix be IOM  athreading conducted is Compute the and then 16 17 where nodes of 18 19 where GPU GPU than algoof including ecution b i b i x This article has been accepted for inclusion in a future issue of this j\ournal. Content is final as presented, with the exception of pagination T gf 327 e as Cost r T gm T gf y T gm  emm GPU0  0 0 er0 0 1 in 1 0 and 1 1 in 0 amples _result _result main while l i l i l i l i       002    Analysis Analysis GPU    N l i l i N N N l i N l i l i N l i N n l i l i l i l i l i 10 SYSTEMS I S OF C OST M ODEL w Fig 4 r    l i l i 327 e 327 327 s the ork r N s N n N 212 212    212 212 002 H i T O i H m T H m 212 that Fig 4 ws be steps 1 Compute hidden conducting CPHOM Compute CPBMM Compute hidof adopted the are processed in       matrix into the 336rst of the The as Analysis artiton Analysis Analysis                327  r H i r N s w i a i N _data _data CPU GPU B 327 A A B A A A A r s t H i T H i H i T t H i r t H i t H i s t G l d O H O T g T g T gm T gp T gm N H i T H i H m T T H i T H i H m T T 327    
 
 
-ign 12 2010  27\22645  M  H am edi 223Intelligent 036 xtur of or 224 and es b o demon ge ng e  o e  ran that node.\224 around is  dozens nd can et er h y ed d al C USION approach 036xture o er ing at d e rough y re ome  concomastically ed des  s CBR hods  i n w h i c h t he dat u m t h e manuf act uri n g nd roperties  djaix ed ng eing  added nd cal on 6 s S be ure fy ed raphhod to e en ng ra 55 t he ms  etails 036nely e is  zed re  A NDIX I he G2 only y  R ES  A  Bannat  This article has been accepted for inclusion in a future issue of this j\ournal. Content is final as presented, with the exception of pagination 12 G I S Y B THE W CE G5 AND G1\226G4 and es y al  2376\2262383 4 Y  K or en 223 G e ner a l R M S char acter is tics  Com p ar is on w ith dedicated n  2005  H  W ang Y  Rong H L i  a nd P  Sha ign 224  EEE  224 2011  M  G  M ehrabi A  G  U ls o y  Y  K oren a nd P  He ytler  223T rends and 224 2002  M  F  Z aeh and M  O s t gathe 223 A m u d n  
+CHEN one the performance E XPERIMENTS aluate of y in for PELM parallel are uted algorithms and 10 DSTs learning able III  750 on us UNTU 14 7 0 Setup cumstances ds  A 11 H H i T O i H m T T T     212 4 of DSTs III DST S F E M CHINE L EARNING R Y nodes the of This article has been accepted for inclusion in a future issue of this j\ournal. Content is final as presented, with the exception of pagination 1 is the of  ge-scale 336nish the can longer of of DSTs Section VI dimenhidden  al algorithms in groups data encoder of 1000 number the nodes That y ecutions proportion application whole presents e than PH-ELM 4  matrix 327 327 327 327 a b c in one at 3 9 processing time instances illusof  are et memhigher 3 w 
 
 
-20 2007  W  L i  P  L i and Y  Rong 223Cas e-bas e d a gile 036xture des i gn 224 hnol f publication f publication uo Calcolo o s s ntell  tical 1979  H Bunk e a nd K Shearer  223 A g raph dis t ance m e tric bas e d o n t he m a xim a l 224 a publication a publication 2003  I K o ch 223 E num erating a ll connected m a xim a l c om m o n s ubgraphs in 224 2011 3\2264 1996  K  Y  Y eung and X  Chen 2233-D 036xture layout des i gn s y s t em bas e d n 341\226352 1973  V  K a nn 223O n t he appr oxim a bility of N P c om plete optim ization  1992  M R Gare y a nd D S J ohns on m m 2013  G Peng G Chen C  W u H Xin and Y  J iang 223 A pplying RBR and xture 224 2007  S Kas hyap a nd W  R DeVries  223Finite elem ent a nalys i s a nd optim iza\224 2007  I Bo yle Y  Rong and D  C Bro wn 223 A r e v ie w a nd analys is of 224 2001  A  A a m odt and E  P laza 223Cas e-bas e d r eas oning F oundational i s s u es  224 2011  B O Nna j i  S Al l a di n a n d P  L yu 223 A fra m e w o rk for a rul e ba s e d e xpe rt ing 224 1988  R Hunter  J  Rios  J  M Perez and A  V izan 223 A f unctional a pproach 224 2006  Y  Z hou Y  L i  a nd W  W a ng 223 A feature-bas e d 036 xture d es ign m ethodolir 224 2011  A  S  K u m a r  V  S ubr am aniam  and T  B T eck 223 Conceptual des i gn of 224 193\226201 1999  G Prabhaharan K P  P a dm anaban a nd R Kris hnakum ar  223 Machining FE 224 2011  Z  Bi and W  Z hang 223Fle xible 036 xture d es ign a nd autom a tion Re vie w  224 2005  J  Kakis h  P  L  Z h ang and I  Z eid 223T o w ards the d es ign a nd de v e lop\224 2000  Y  Kang Z  W a ng R L i  a nd C J i ang 223 A 036xture des i gn s ys t em 224 2002  G  F  Chen a nd W  J  L iu 223 V a riant 036 xture d es ign w ith CBR 224 i n 2006  Y  Rong S H Huang and Z  H ou 2002  A Mehra J  Grundy  a nd J  Hos k ing 223 A generic a pproach to s upgi n 1075\2261091 2001  D Conte P  F oggia and M  V ento 223 Challenging com p le xity of m a xiis 224 2007  R P  Grim aldi 2001  R D i es tel 23\22634 1982  E  B Kris s i nel a nd K Henrick 223Com m on s ubgraph i s om orphis m 224 255\226259 1998  H C Chang L  Dong F  X L i u and W  F  L u 223Inde xing and r etrie v al 224 2000  J  Man yika 2012  B Bro w n M Chui a nd J  Man y ika 1465\2261469  I M Bo yle K Rong and D  C  B ro wn 223 CAFixD A cas e-bas e d 224 2004 85\22696  H W a ng and Y  K  Rong 223Cas e b as ed reas oning m e thod for c om puter 224 2005 204\226213  K Shearer  H  Bunk e and S  V enkates h  223 V i deo i nde xing and ng 224 131\226139  J  J  M c G r e gor  223 Backtr ack s ear ch algor ithm s and t he m a xim a l c om m o n 224  H 3 7 V  S ubr am aniam  A  S  K u m a r  and K  C  S eo w  223Conceptual des i gn of 224 omput    1999  R H unter  A  V iz\341n J  P er ez and J  R 355os  223K no w l edge m odel a s a n 224 ppl  238\226243  F  Mas oudinia 223 A ne w a pproach of m u lti-objecti v e optim ization i n 224  2010  X  G  M i ng and K  L  M ak 223 I n telligent s etup planning in m a nuf actur ing 224  2000  S Ratche v  K Phuah and S  L he 224  1996  J  Raym ond and P  W illett 223Maxim um com m o n s ubgraph i s o m o rphis m 224  xy   ign t ptim ci  iol  ded ign tt gnit 3 2000  S Selv akum ar  K  A ruls hri K P a dm anaban a nd K Sas i kum ar  223 Des i gn 224 13 2001  J  Cecil 223Com puter aided 036xture des i gn\227A r e v ie w a nd future trends  224 6 1995  F  L i qing and A  S  K um ar  223 XML bas e d r epres e ntation i n a CBR 224  1\2264 2005  Y  Rong and Y  Z hu 12 2008  I K o ch T  L engauer  and E  W ank e  223 An algorithm f or 036nding m a xim a l 224 6 2004  G L e vi 223 A note o n t he deri v a tion o f m axim al com m o n s ubgraphs of 224 Ni  n   o aph g 325   1994  A S K u m a r a nd A Ne e  223 F ra m e w o rk for a v a ri a n t 036 xt ure d e s i g n 224 Su  hnol  hnol  hnol ang  2000  S  A n s a ldi L  de F l or iani a nd B F a lcidieno 223G eom e tr ic m odeling o f n SA 2005  I M Bo yle K Rong and D  C  B ro wn 223 Cas e bas ed reas oning in n 15 1999 8 N  H  W u a nd K  C Chan 223 A g enetic algor ithm b as ed appr oach to 224 O This article has been accepted for inclusion in a future issue of this j\ournal. Content is final as presented, with the exception of pagination y al ppl  1995  S H Sun a nd J  L  Chen 223 A m odular 036xture des i gn s ys t em bas e d 224 ools    compeoductivity  hnol  hnol ithms ppl Commun hnol hnol hnol pplied oduction ign 
+002 12 SYSTEMS this nodes mode 000 from hidden GPHthe increase with Section VI  is Therefore original with  20  and ELM  22  hidden DST as Fig 7 algorithms ery stages proposed stage required Flink and in  ELM GCPBMM where for for This article has been accepted for inclusion in a future issue of this j\ournal. Content is final as presented, with the exception of pagination m H m H T H c numbers nodes this GPH-ELM The of the e the nodes time in e good  n 1000 algorithm H T H Algorithms e the 1000 CPBMM GPUs nodes systems MPIamous is algorithm a b c Algorithms Nodes Nodes 
+
+
+ Syst Cybern apache abstracin in al 2015  L Liu and H Jia 322T rust e v aluation via lar ge-scale comple x service\323 2012  G.-B Huang Q.-Y  Zhu and C.-K Sie w  322Extreme learning machine in 1\3203 2006  G.-B Huang L Chen and C.-K Sie w  322Uni v ersal approximation using hidden 323 2006  G.-B Huang M.-B Li L Chen and C.-K Sie w  322Incremental e xtreme 323 27 2016  J  Dean and S Ghema w at 322MapReduce Simpli\336ed data processing on 323 2008  Y  Xun J Zhang and X Qin 322FiDoop P arallel mining of frequent item\323 46 2016  W  P  D ing C.-T  Lin M P rasad S.-B Chen and Z.-J G uan 322 A ttrib ute dis\323 384\320400 2016  2016 1411\3201423 2006  H.-J Rong G.-B Huang N Sundararajan and P  Saratchandran approxi\323  2009  G Huang S Song J N D Gupta and C W u 322Semi-supervised and 323 44 2014  Q He T  Shang F  Zhuang and Z Shi 322P arallel e xtreme learn\323 nvidia com/cudnn  A Coates g  M Zaharia CHEN A 13 THMM GPUs Fig 8 GCPBMM Fig 9 comthe to and be than algooperations erhead and NVIDIA a and Fig 10 ecuperformance our the K40 C ONCLUSION training of representation ELM Hchallenging 336PH-ELM and PHthe e GPUs e are performance  R EFERENCES  J  Kim and W  Lee 322Stochastic decision making for adapti v e cro wd\323 Cybern Man Syst   2015  G.-B Huang H Zhou X Ding and R Zhang 322Extreme learning 323  2008  J  T ang C Deng and G.-B Huang 322Extreme learning machine for 323 2  2016 1337\3201345  C Chen K Li A Ouyang Z T ang and K Li 322G\337ink An in-memory big in  2013 ocomputing ocomputing CM ocomputing Syst Cudnn Syst Syst Syst al al   Implement 2016 ailable http://\337ink    2004 985\320990  G.-B Huang Q.-Y  Zhu and C.-K Sie w  322Extreme learning 323 2016 A v ailable eloper oc  2016 542\320551  N.-Y  Liang G.-B Huang P  Saratchandran and N Sundararajan ard 323 Guide oc Learn ocess B Cybern This article has been accepted for inclusion in a future issue of this j\ournal. Content is final as presented, with the exception of pagination 
 
 
 2016  A v ailable http://docs 2014  R A V  D Geijn and J W atts 322SUMMA Scalable uni v ersal matrix 323 2015  W  Y ang K Li Z Mo and K Li 322Performance optimization using 323 1990  H White 2015  Y  Bengio 322Learning deep architectures for AI 323 2009  A Beck and M T eboulle 322 A f ast iterati v e shrinkage-thresholding algo\323 1 2009  Y  Bengio A Courville and P  V incent 322Representation learning 323  1997  D Schmidt G Ostroucho v  W C Chen and P  P atel 322T ight coupling with in eb with 323 maprein 2016  A v ailable http://docs x x  2015  T  Poggio and F  Girosi 322Netw orks for approximation and learning 323 2007  G Huang G.-B Huang S Song and K Y ou 322T rends in e xtreme learn\323  nvidia html  2016 nvidia html  K Li W  Y ang and K Li 322Performance analysis and optimization 323 McLean 120\320127  S Seo  2015  J Xin 811\320815  J Choi J J Dongarra R  Pozo and D W  W alk er  322ScaLAP A C K comin  721\320726  2016 in Changsha China in machine His dison data in of 2003 ersity IL a echnology the Supercomputing 130 and T ON C OMPUTERS IEEE T ON P AND D UTED S YSTEMS e  computer in 2015 in intellicurrent cloud data computer Science 2008 with Electronic the Science uted parallel data in Houston 1990 of conference parallel disand ystems CPU-GPU ys\336le Things systems currently T ON P AND D UTED S YSTEMS T ON C OMPUTERS T ON C LOUD C OMPUTING IEEE T ON S VICES C OMPUTING T CTIONS ON S ABLE C OMPUTING  ocomputing ocomputing  ICPP Sci  2013 h Learn Comput IEEE CCGrid Chen ng research grid computing T ON C OMPUTERS  allel Syst CloudCom of Computing al Learning Theory Exp     1992  G.-B Huang and L Chen 322Con v e x incremental e xtreme learning 323 14 SYSTEMS  B W ang S Huang J Qiu Y  Liu and G W ang 322P arallel online s equen\323   SCC Guide Guide Comput Intell This article has been accepted for inclusion in a future issue of this j\ournal. Content is final as presented, with the exception of pagination d al i i Ouyang 

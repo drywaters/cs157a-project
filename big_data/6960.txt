@@ -1,53 +1,823 @@
-Lecturer-led Online-assisted Learning Among Tertiary Students Ching-Chun Shih Department of Beauty Science Chienkuo Technology University Changhua Taiwan ROC ccshih@ctu.edu.tw Sherrie Wei Department of International Business Administration Chienkuo Technology University Changhua Taiwan ROC sswei@ctu.edu.tw Abstract There is vast disparity in the usages of online functions  learning motivation facilitation by lecturers and a general habit or culture of keeping up with online applications One recent online resource is blog which witnessed varied usages in everyday life 
-communication and is equally relevant for exchanges and discussion for most course delivery including tertiary courses The purpose of this study is to look at how usages of online learning by students in Chienkuo Technology University CTU by high and   of online features in their courses Results from 268 cases  usages of blog for online submission of   blog for checking course announcement discussion syllabus notes and group discussion For the high attitude group three 
-more blog usages were observed for finding teaching material course discussion and checking course notes The implications of the study were discussed Keywords-blog learning motivation Baysian network I I NTRODUCTION It has generally been substantiated that there are multiple benefits of using online-assisted learning for students staff training and other situations where acquiring new knowledge and skills are desirable[1  O n linea s s iste d learning among tertiary institutions started about a decade ago While the adoption process is generally quick and wide spread among developed societies such as the United States and the United Kingdom its adoption in less developed societies has been less satisfactory 2  T h e r e i s f u r t h e r v a s t 
-disparity in the usages of online functions among tertiary institutions in less developed societies depending on  lecturers and a general habit or culture of keeping up with online applications  On e r e c e nt on line r e s o u r c e i s b l o g  which witnessed varied usages in everyday life communication and is equally relevant for exchanges and discussion for most course delivery including tertiary courses For tertiary institutions it is a plausible assumption that  hinges on whether the lecturer usages online resources and 
-in what ways Lecturers who are more proactive in adopting online features in their courses such as online submission of assignments and conducting tests online may help to foster a tendency for students to make better use of other online  usages of online-assisted learning is invariably related to their underlining attitude toward using online resources Students with positive attitudes toward using online resources are more likely to take action to use the resources than those who do not have as positive attitudes The purpose of this study is to look at how usages of online learning by students in Chienkuo Technology 
-University CTU by high and low online attitude groups  their courses The specific online resources included in this  usages of blog For CTU online teaching provisions or resources are generally available such as online test roll call course announcement group discussion and the like Individual lecturers make their own decisions if and to what extent that they include online features in the delivery of their courses II M ETHDOLOGY To find out if certain usages of blog by course lecturers  
-usages of blog mining association rules are useful to uncover strengths of relationship between blog usages by lecturers and students Baysian network analysis was used to analyze the connectedness between those usages 4  T h e m in in g association rules have two steps finding out frequent item sets that blog use A and use B happen jointly i.e the support or probability A B  then finding out the confidence  or probability B/A  5 t h a t b l o g u s e B i s chosen given the student has chosen blog use A already Researchers often have to determine arbitrarily the criteria whether there is support or confidence In this study significant support 
-is defined as probability A B is higher 2012 International Symposium on Computer, Consumer and Control 978-0-7695-4655-1/12 $26.00 © 2012 IEEE DOI 10.1109/IS3C.2012.245 945 2012 International Symposium on Computer, Consumer and Control 978-0-7695-4655-1/12 $26.00 © 2012 IEEE DOI 10.1109/IS3C.2012.245 945 2012 International Symposium on Computer, Consumer and Control 978-0-7695-4655-1/12 $26.00 © 2012 IEEE DOI 10.1109/IS3C.2012.245 942 
+tidset itemset   satisfy the crite 
+3 4 4 3 
+    
+ 
+Constraints applied on classic frequent patterns are too strict and may cause interesting patterns to be missed Hence researchers have proposed to mine a more relaxed version of frequent patterns where transactions are allowed to miss some items in the itemset they support Patterns exhibiting such 223faults\224 are called frequent fault-tolerant patterns FFT-patterns if they are signi\036cant in number In this paper the term 223pattern\224 is distinguished from 223itemset\224 as referring to a pair tidset itemset harsh 
+itemset instead of itemset only 
+  
+327 
+Abstract 
+327 327 
+3 
+2 
+2 
+3 4 3 
+  
+a b a b c d a b c b c d a b c d 
+pattern 
+pair 
+is supported by tidsets 
+1 1 2 2 1 2 
+frequent fault-tolerant patterns 
+for brevity over an itemset and is illustrated in table and matrix forms Here we highlight some examples of FFT-patterns We can see that when supporting transactions are allowed to miss one item in the itemset they support three transactions viz 
+ 
+3 2 1 dcba   4 3 2 1 dcba   
+3 
+           
+ 
+327     327      
+327 
+Itemset TID      Itemset TID      
+itemset Unlike classical frequent patterns the number of FFTpatterns grows exponentially not only with the number of items but also with the number of transactions Since the latter may reach millions mining FFT-patterns by enumerating them becomes infeasible Hence the challenge is to represent FFT-patterns concisely without losing any useful information To address this we draw on the observation that in transactional databases the transactions themselves are not important from the data mining point-ofview i.e researchers are interested in 036nding itemsets contained in lots of transactions rather than in the transactions per se Therefore we propose to mine only the frequent itemsets along with the statistical information of the supporting transaction sets rather than enumerate entire FFTpatterns Then we present our approach the BIAS framework consisting of Backtracking algorithm Integer Linear Programming ILP constraints and aggregation statistics to solve this problem Algorithms under this framework not only increase the ef\036ciency of the FFT-patterns mining process by more than an order of magnitude but also provide a more comprehensive analysis of FFT-Patterns a, b 4 a, b, d 3 b, c 2 c, d 1 a, b 4 a, b, d 3 b, c 2 c, d 1 most 
+miss 
+and and 
+The frequent patterns mining problem has been widely studied in data mining Some researchers use the terms interchangeably but in this paper we distinguish the term pattern as pair tidset Yang et al ar gued that analysts w ould 336nd it useful to mine groups of similar transactions that share of the items but these cannot be discovered by traditional approaches due to their de\336nition of support Hence they proposed to mine a more relaxed version of frequent patterns where transactions are allowed to 
+Ardian Kristanto Poernomo Nanyang Technological University Singapore 639798 ardi0002@ntu.edu.sg Vivekanand Gopalkrishnan Nanyang Technological University Singapore 639798 asvivek@ntu.edu.sg some items in the itemset they support Patterns signi\336cantly supported in such a manner are called support itemset  when supported items are allowed to be missed by one transaction in their supporting set itemset  and when three such transaction-item misses are allowed in a 
+4 tidset 
+Mining statistical information of frequent fault-tolerant patterns in transactional databases 1 Introduction 
+Figure 1 Transactional database table and matrix form 
+FFT-patterns for short Let us consider the transactional database as shown in Figure 1 which will be used as a running example in the rest of this paper The database consists of a set of transactions henceforth called 
+Seventh IEEE International Conference on Data Mining 1550-4786/07 $25.00 © 2007 IEEE DOI 10.1109/ICDM.2007.48 272 
+Seventh IEEE International Conference on Data Mining 1550-4786/07 $25.00 © 2007 IEEE DOI 10.1109/ICDM.2007.48 272 
+Seventh IEEE International Conference on Data Mining 1550-4786/07 $25.00 © 2007 IEEE DOI 10.1109/ICDM.2007.48 272 
+Seventh IEEE International Conference on Data Mining 1550-4786/07 $25.00 © 2007 IEEE DOI 10.1109/ICDM.2007.48 272 
+Seventh IEEE International Conference on Data Mining 1550-4786/07 $25.00 © 2007 IEEE DOI 10.1109/ICDM.2007.48 272 
 
 
-than 0.16 and significant confidence defined as probability B/A  higher than 0.35  The questionnaire included one attitude scale and 11 questions regarding student usages of course blog as assisted learning Fifty-five 55 students pilot tested the  reliability of the attitude scale and the reliability coefficient was 0.87 which was deemed to be acceptable Four hundred and forty-three 443 students were asked to fill in the questionnaire resulting in a response rate of 100 Ten statements were included in the attitude scale with four response options 1=Strongly Disagree 2=Disagree  an score for the 10 questions of the scale was performed The mean mode for all the 443 students was 2.91 One hundred and thirteen 113 students with mean scores above 2.91 were classified in the high attitude group whereas those 155 with mean scores below 2.91 were classified in the low attitude group III RE SULTS The results are discussed in light of two groups low and high attitude groups toward usages of blog as shown in Figure 1 and Figure 2 respectively For the low attitude group stronger associations existed between lecturers who used blog for assignment submission and students who checked course announcements 0.29 for support and 0.60 for confidence and who obtained teaching material 0.41 for support and 0.85 for confidence over blog Another four stronger links were shown between lecturers who used blog for online tests and students who used blog for course discussion 0.17 for support and 0.55 for confidence course syllabus 0.16 for support and 0.52 for confidence course notes 0.19 for support and 0.61 for confidence and group discussion 0.17 for support and 0.63 for confidence For the high attitude group the same stronger associations  usages of blog It is worth noting that three further stronger linkages also showed up Two linkages are observed between   and 0.46 for confidence and for checking course notes 0.31 for support and 0.79 for confidence The other   material 0.18 for support and 0.46 for confidence IV MPLICATIONS One implication of this research can be encouraging lecturers to use blog as much as they can to bring students on board for using blog in their course work Another implication can be helping students to foster a positive attitude toward using blogs R EFERENCES 1 P  G  P a r i s  E-Learning A study on secondary s  attitudes towards online Web assisted learning International Education Journal Vol 5 No 1 2004 pp 98-112 2 K ears l e y  G  O n l i n e e d u c at io n  L e ar n i n g an d t e a ch in g i n c y b ers p ac e Belmont CA Wadsworth/Thomson Learning 2000 3 B ai l l i e  C    P erco co  G  Astudyofpresentuseandusefulnessof computer-based learning at a technical university European of Journal of Engineering Education Vol 25 No 1 2000 pp 33-43 4 A gr a w a l  R  a n d S r i k e n t  R  1 9 94 F a s t a l gor i t h m for m i n i n g association rules Proc of the 20th Intl Conf on Vary Large Data Bases Santiago Chile 487-499 5 K e n k e l  J L   1996 I n t r o d uc t o r y S t a t i s t i c s f o r M a n a g e m e n t a nd Economics Duxbury Press Belmong California chap.5 946 946 943 
+anti-monotonicity property 
+frequent itemsets 
+is 
+ggregation are 10 7 In 10 and  the objecti v e is to 336nd interesting patterns while 7 and aim to approximate the pure frequent itemsets in a noisy data FFT-patterns mining with proportional relaxation though natural is intractable because this problem lacks the is true for a function 
+f X X 
+001 
+ 
+f 
+X 
+001 
+aggregation statistics apriori 
+proportional 
+which is based on the backtracking approach The constraints for this problem are exactly the same as for our FFT 
+thenf 
+ 
+TI 
+B 
+vertices in the other partite-set To solve this problem they proposed algorithm 
+T 
+X 
+036xed con 
+036xed-value 036xed-value 
+Backtracking algorithm proportion maximal CompleteQB 
+Integer Linear Programming ILP strong-ETI quasi-biclique 
+A S 2 Related Work 
+001 
+I 
+ along with the statistical information of the formally de\336ned in section 3.1 We choose this approach because 1 this approach doesn\325t lose any interesting itemsets no false negatives and 2 we 336nd that the statistical information can concisely describe the characteristics of huge data In this paper we formulate the general de\336nitions of FFT-patterns in terms of basic relaxation criteria and show how new  constraints and 1 BIAS is an acronym for 2 of itemsets With antimonotonicity property we can safely stop extending an itemset once it is not frequent so the mining complexity is proportional to the number of frequent itemsets This is not the case when mining using proportional relaxation Moreover techniques using 336xed-value relaxation 9 12 3 demonstrate that interesting itemsets can be mined in realworld data Since our paper focuses on 336xed-value faulttolerance we skip details on these other variants The 336rst piece of work using in bipartite graphs A pattern c.f section 3.2 Besson et al relate transactional databases with for mal concept analysis in lattice theory They performed comparisons on several de\336nitions of FFT-patterns DRBS CBS and FBS with the objective of 336nding interesting patterns However all those de\336nitions incorporate a 2 Anti-monotonicity property means if 
+and 
+supportingtransaction sets 
+acktracking nteger linear programming and 
+maximal quasibicliques 
+existing variants of such patterns can be formed from combinations of those criteria Then we present our BIAS framework 1  consisting of to solve this problem and demonstrate its application for all problem variants Note that ILP is used here to de\336ne constraints of a combinatoric problem and not to optimize an objective function as in usual LP This framework can be used to mine statistical information of the FFT-patterns ef\336ciently without generating the patterns themselves The rest of this paper is organized as follows Section 2 discusses previous works related to the problem of FFTpatterns mining and links them to the variants described in our paper Section 3 presents the general problem de\336nition and shows how variants of FFT-patterns can be derived from constraints Section 4 describes the BIAS framework to mine frequent itemsets as well as the statistics of their supporting-tidsets and algorithms under this framework are explained in detail for each variant in section 5 These approaches are compared with related techniques and section 6 shows the experimental results of these comparisons Finally section 7 concludes with some directions for future work  tatistics Pioneering work in FFT-patterns mining was by Yang et al in 2001 where the amount of relaxation is  is de\336ned as a sub-matrix of itemset and transaction-set where each transaction contains a certain proportion of the itemset Besides other papers mining FFT-patterns using as relaxation on FFT-patterns mining was authored by Pei et al The de\336nition of FFT-pattern here is similar to the one given in b ut the y emplo y relaxation instead of proportional relaxation i.e every transaction is allowed to miss a number of items This de\336nition is equivalent to that of FFT and a set 
+ria These examples while not comprehensive illustrate the variety of FFT-patterns Consequently several de\336nitions of FFT-patterns have been proposed 9 10 12 3 6 7 8 to accommodate this diversity However a general problem with FFT-patterns is that they not only grow exponentially with the number of items but also with the number of transactions Since the number of transactions may reach millions this implies that mining FFT-patterns is infeasible Several approaches have been proposed to tackle this problem 9 relax the constraints while 3 add more constraints and 14 7 perform approximation Ne v ertheless all of these approaches either still produce too many results or might lose interesting patterns In transactional databases the transactions themselves are not important from the data mining point-of-view i.e the interest is in 336nding itemsets which are contained in a lot of transactions instead of 336nding the transactions themselves Therefore we propose to mine all to the size of the pattern An FFT-pattern also called pattern in our paper c.f section 3.2 To mine such patterns the authors used an based method Koh and Yo tackled the s ame problem using a backtracking approach and empirically showed that their approach improves the ef\336ciency of the previous approach by an order of magnitude A more complicated problem was tackled by Sim et al where the objecti v e is to mine if it is not a proper subset of any other quasi-biclique In  the relaxation criteria is applied to both sides of the bipartite graph i.e each vertex is allowed to disconnect to at most  is also true 
+273 
+273 
+273 
+273 
+273 
 
 
-Figure 1 Associations support and  confidence between usages of course blog in assisted learning for low attitude group towards online learning Figure 2 Associations support and  confidence between usages of course blog in assisted learning for high attitude group towards online learnin g Dotted lines indicate linkages not present for the low attitude group in Figure 1  Announcement Teachingt Material Discussion Course Syllabus Course Notes Group Discussion Online Test 0.29 0.60 0.41 0.85 Assignment 0.17 0.55 0.16 0.52 0.19 0.61 0.17 0.63 Announcement Teaching Material Discussion Course Syllabus Course Notes Group Discussion Online Test 0.38 0.64 0.49 0.83 Assignment 0.23 0.59 0.31 0.79 0.31 0.79 0.23 0.39 0.27 0.46 0.18 0.46 0.27 0.69 947 947 944 
+002T 
+the 
+A 
+Consider the database as depicted in Figure 1 Let the minimum support be 3 and the allowed number of misses in each transaction and item be 1 No FFTpattern with itemset 
+ 
+001I 002I 
+001 
+c T x X I y Y X 001 X 001 001 Y 001 Y 001 002 002 Y Y X X X  
+X 
+ 
+  
+resp 
+Y 
+001 
+327 
+ 
+ 
+           
+ 327 
+3.1 Basic De\336nition and Notation 
+001T 002T 
+P ATTERN  F REQUENT ITEMSET  
+FFTPATTERN  
+004 
+c 
+327 
+327 
+  
+may reach thousands the maximum size of any practical itemset is around 10 W e denote the maximum s ize of an FFT itemset as 
+Item relaxation Pattern relaxation Maximality constraint 
+       
+if all its transactions contains all its items i.e all 
+ 
+X Y 
+005 
+ Similarly  
+ 
+I I 
+002 002 
+of 
+ 
+X 
+ 
+I T I  X Y 
+327 
+t t i i p y p 
+006 
+X 
+003 
+Y 
+007 
+transactions 
+T\327I 
+001 
+212 
+ i.e  i.e  i.e 
+Y 
+An FFT-pattern is a pattern satisfying all 
+330 
+002T 002I 
+X 
+ A pattern 
+ and can be represented by a  the total number of  the total number of  and the 
+to contain a constant number of ing in the database This relaxation is formally de\336ned by the following es in each transaction each item and the entire pattern  the total number of  This relaxation permits more transactions to be included in the pattern  This relaxation deals with the associativity of transactions and items in the pattern The set of all patterns satisfying the may be very large and undesirable In order to reduce this we consider the of the patterns in terms of the and use it to provide a tight upper bound for some operations c.f section 5 since 
+In this paper we deal with transactional databases A transactional database consists of  represents a tidset where each transaction contains item resp itemset  represents an itemset where each item is contained in transaction In classic frequent itemset mining a pattern pairs in the pattern are present in the database In fault-tolerant mining we relax this constraint by allowing  where we distinguish between the allowed number of es in each transaction are at most es in each item are at most  This relaxation allows more items to be included in the pattern than would be allowed by the classic de\336nition  where is the minimum support threshold desired by the mining process This constraint ensures that any behavior captured in the pattern is observed by a substantial number of transactions is maximal This implies that 001  Note that these constraints only restrict support and maximality in the tidsets and not in the entire pattern as in usual terminology As mentioned earlier instead of mining all FFT-patterns we propose to mine all frequent itemsets along with the statistics of their support-tidsets In this work we calculate the associated with an itemset as the statistical information which we consider useful for itemset analysis Other statistical information such as median and mode can also be mined without adding much complexity In a market basket database while in practice 
+X 
+resp tidset 
+ 
+001 
+T 
+tid item tid item 
+b c b c b c 
+001 
+005 
+Example 1 De\336nition 1 De\336nition 2 De\336nition 3 De\336nition 4 
+Support constraint 
+ 
+  Support constraint and maximality constraint are denoted as 
+resp 
+   
+X 
+pattern 
+over a set of relaxed by any combination of the 
+212 
+003 
+  
+max max 
+x X y Y X Y Y y y Y x x Y y Y Y X X 
+004 
+Y 
+327 
+212 
+     D T I D P P S S 
+number of FFT-patterns 
+  
+ which is now considered interesting Therefore we conclude that such constraints are not appropriate for mining itemsets with 036xed tolerance in transactional databases  
+I 
+ 
+of a pattern is calculated as the size of its tidset The set of such patterns can be limited by the following constraints 
+327 
+can include transactions 3 and 4 together since they both miss item no of misses for item is not considered interesting frequent On the other hand if the dataset had contained only transactions 1 2 and 3 or 1 2 and 4 we 036nd patterns that support itemset Tidset is denoted as maximum support average support 
+becomes 2 Conversely neither of them can be excluded from any pattern that contains transaction 2 as it would violate the consistency constraint As a result is de\036ned as a submatrix and any given combination of 
+sistency constraint items interesting support supports itemset  is an FFT-pattern The set of all supporttidsets of An itemset 
+matrix of transactions and items In a pattern satisfying the given combination of 
+pairs which are actually 
+ 
+is 
+for their itemsets and maximality of their tidsets where the 
+is said to be associated with itemset miss miss miss miss miss if  
+utility 
+327 
+X 
+ 
+327 
+is frequent i.e 
+is frequent if 
+ 
+ which restricts all transactions resp items outside the patterns to contain lesser items resp transactions than those inside the pattern The implications of this constraint are illustrated in Example 1 In a pattern In a pattern es in the pattern are at most A pattern A pattern utility constraints relaxation criteria  SUPPORT TIDSET  
+005 
+X 
+005 
+ 
+  
+Y 
+ 
+    
+X 
+004 
+X 
+ 
+Y 
+3 Problem De\336nition Transaction relaxation 
+X 
+interesting relaxation criteria relaxation criteria support interesting relaxation criteria relaxation criteria utility constraints  
+X 
+274 
+274 
+274 
+274 
+274 
 
 
-1097 
+or 
+ 
+ 
+ 
+Despite these differences all the FFT-pattern variants share the 
+TI 
+2 2 
+    
+T 
+001 002 X X X X X X X X X X i i X A a a i 
+1 1 1 1 1 2 2 2 2 
+i 
+b|T 
+T P 
+1 1 
+ 
+incorporating the corresponding aggregation statistic  
+a a 
+T  
+   X        X          X      X X X X X X X a i t 
+ the statistical information of 
+while maintaining aggregation statistics 6 Form ILP based on the aggregation statistics 7 from 
+1 
+property 
+T  
+1 
+P  S S S S S S S 
+t i p i i i t 
+3 4 3 4 3 4 3 4 
+ 
+patterns 
+ 
+I 
+327 
+i 
+327 
+2 2 2 2 3 4 
+2 
+4 BIAS framework 
+if 
+1 and 
+In this paper combinations of above belong to the corresponding speci\336c variants of FFT-pattern The aim of introducing three different variants is mainly to show how the BIAS framework addresses each relaxation criteria Depending on the dataset some relaxation criterion by itself might not be pertinent as the resulting pattern may be sparse However combining the criteria can produce good variants like FFT pattern and FFT approach and safely prune when the current itemset is not frequent is determined by  Backtracking algorithm  5 extend itemset The backtracking algorithm Algorithm 1 enumerates the itemsets by inserting items one by one Once it 336nishes enumerating all itemsets containing an item it backtracks then inserts another item The complete process can be seen as an enumeration tree  As FFT itemset is  once an itemset is not frequent we can safely prune it by not traversing its subtree Since we enumerate all FFT-itemsets this backtracking algorithm combined with pruning traverses all necessary and relevant result states This means that we cannot expect any algorithm that iterates the itemsets to be asymptotically more ef\336cient than this algorithm generated by the backtracking step the aim of ILP is to 336nd the statistical information of associated FFT-patterns We 336rst present the algorithm to mine all  and then show how to calculate the statistics without enumerating all tidsets The problem of enumerating can be translated to a system of binary linear inequalities where the variables represent the transactions We denote this system of integer linear equalities as an integer linear program  variables denoted by integer array  Each variable means transaction on the pattern c.f section 3.1 presented in terms of the variables are as follows 
+have been used to form three variants of the FFT-pattern viz FFT pattern using transaction relaxation FFT pattern using pattern relaxation Variables subscripted with Since every relaxation criterion on the FFT-patterns is based on 336xed-value the allowed number of es is a constant The number of es in an FFT-pattern is thus invariant to it\325s size and addition of items and/or transactions will never This property is very important for designing algorithms to mine FFT-itemsets If an itemset is not frequent regardless of the de\336nition then none of its supersets are frequent Based on this property we can enumerate all results using the The BIAS framework consisting of Backtracking algorithm Integer linear programming ILP and aggregation statistic is designed as follows First the backtracking algorithm iterates all necessary and relevant itemsets while concurrently maintaining the necessary aggregation statistic of the transactions For each itemset extension of is frequent 8 output the statistical information of while maintaining aggregation statistics  Given an itemset consists of  represents one transaction and is constrained to be 0 or 1 binary A value 1 of variable 1 
+ 
+is present in the tidset The 
+003 
+X 
+ 
+327 
+      T  
+        
+ and and reduce 
+Consider the database as illustrated in Figure 1 Let pattern is a singleton anti-monotonicity FFT-pattern is anti-monotone Proof pattern growth ILP 
+ is associated with a one unique FFT  and its corresponding 
+2 
+ 9  10 exclude item 
+2 3 4 
+i 
+b 
+b c 
+b 
+  a  
+001 
+           
+for each 
+ 
+ 
+the amount of 
+327 
+T P T T P T 
+ 
+ with  with miss miss miss 
+TI 
+327 
+ 
+330 
+001 
+     
+with item  This 
+Example 2 call Function call Transaction Relaxation  
+  
+ void 4 
+ 
+Theorem 1 
+X 
+ILP ILP ILP 
+3.2 Variants of the FFT-pattern 4.1 Backtracking Algorithm 
+  
+327 
+001 
+   
+Algorithm 1  
+pattern using transaction relaxation and item relaxation and FFT pattern which ha v e already been successfully applied to real world problems Differences among the variants in term of the patterns mined are shown in Example 2 es   2 3 item 
+001 
+267 
+TI TI TI 
+ 1   1  1     1 
+ 
+   
+Itemset 
+relaxation criteria patterns  and c three FFT  antimonotone relaxation criteria utility constraint 
+Backtrack Backtrack Backtrack 
+4.2 ILP Constraints 
+ b two FFT  and 
+275 
+275 
+275 
+275 
+275 
 
 
-1098 
+ 
+X X 
+ 
+     In this problem all transactions containing the same number of items are 
+i 
+S 
+k i k B B B 
+002 002 002 005 007 
+ 
+0 
+ 
+j 
+ representing the equivalence classes 
+004 
+b 
+004 
+003 
+a 
+ 
+b 267 005 
+ 
+S 
+ 
+ 
+ 2 
+001 
+327 327 
+X X 
+ 
+  
+0 3 s 1 representing tidset 2 representing tidset 3 representing tidset 1 2 3 1 2 3 1 1 1 0 2 1 
+I 
+1 
+a 
+b 
+Pattern Relaxation  Maximality Constraint  
+X 
+  
+a b 
+ 
+B 
+ 
+   
+B 
+  a   b 
+ 
+a b a b 
+1  
+are equivalent 
+max  Support Constraint  
+1  none of class 2  
+By this reduction the number of variables is equal to the number of equivalence classes Let us call 
+1  1 2 tidsets viz 
+ 
+X are considered equivalent Hence transaction 3 resp variable 
+ 
+ 
+x t t t t t  X X b b    X X X 
+I I B 
+1 1 
+327 
+003\001 002 002 002   T 
+ILP ILP ILP ILP ILP ILP ILP ILP ILP ILP ILP 
+1 1 1 1 
+n 
+0  and one of class 3  
+A 
+007 007 
+1 representing 
+ 
+solutions of 
+007 
+   As described previously transactions containing same number of items in      S A B B S  in the database in Figure 1 We maintain the statistic that transaction 1 contains zero item transaction 2 contains one item 
+red red red red 
+X 
+a b 
+T  T  
+if if miss es of every transaction To speed up the 
+001 
+Let and  the number of support-tidsets satisfying can be computed using equation 6 where and and and and 
+ This equivalent condition is even stronger in FFT pattern and FFT with reduced variable as where is the number of equivalence classes A value transactions from equivalence class Using this technique this problem becomes tractable since the number of variables is generally small as is shown in Section 5 Having a solution is the number of transactions in equivalence class gives the total size of all support transactions from which the average transaction size can be computed Since there can be multiple solutions The choice of the aggregation statistic needed depends on the variant of FFT-patterns being considered Example 5 gives a broad view of what aggregation statistics are maintained and how to calculate them 
+equivalent to transaction 4 since they both contain 2 items while transactions 1 and 2 are different since they contain 0 and 1 item respectively Hence there are 3 equivalence classes  denoted as can be calculated as equivalent  Hence we maintain the number of 
+2 3 satis\336es relaxation criteria 4 5 Note that we haven\325t changed the problem statement instead we have only represented it in a mathematical form Analyzing the variables we note that this problem is intractable since the number of transactions can be potentially large Especially it is because integer programming in general is NP-Hard This problem can be resolved by reducing the number of variables Equivalent variables are substituted by one combined-variable if they contain the same itemset in pattern where two transactions are equivalent if they contain the same number of itemsets in of variable means there are in the tidset hence it is constrained to be at most the number of variables it substitutes Variable reduction is illustrated in example 3 for 6 Total size of all transactions in  Summing these sizes for all for  the set of all distinct solutions is denoted as respectively To summarize the objective of is to enumerate  in order to 336nd the statistical information of 
+Example 3 Consider mining FFT Example 4 Continuing Example 3 we have Example 5 Consider the problem of mining 
+ 
+Item Relaxation  
+      and   These variables are constrained to be at most 1 1 and 2 respectively    and   
+ 
+4 3 4 
+001 001 k 002 
+j,t 
+ 1 2 3 1 1 
+ i.e  i.e 
+T B B B 
+j i i i i p i i i i a b a b a b i i i i i B i 
+sup  
+I 
+004 004 
+003 
+004 006 b b b 
+ 
+  
+          1  and    
+ In order to obtain the equivalence classes of transactions we need to maintain an aggregation statistic which concisely represents the connectivity in the database 4.3 Aggregation Statistic 
+ In any de\336nition of relaxation criteria two transactions  with variables 
+variable reduction process we can also maintain the number of transactions containing the same number of items as another aggregation statistic The speed up occurs because instead of enumerating all transactions we only need to enumerate the equivalence classes Let us consider current itemset 
+2  If we consider one transaction of class 1  
+S 
+x 
+     
+I P 002 002 T  002 T P  T pattern from the database in Figure 1 Let the itemset 
+a 
+I 
+n 
+k 001 k A 
+a A a i i a t t X X b k b k i X a b b B n i n n b B  b B A B A B X 
+276 
+276 
+276 
+276 
+276 
 
 
- Figure 5 is a summary of the approach proposed in this section. Three matrixes, i.e., adjacent \(A\achability \(R and transfer \(T\ matrixes are calculated offline and sequentially \(their definition are given later\en finding a path between two operations, from matrix T we know how many transfers is needed; by referring back from matrix T to R and A we obtain these paths  Step 1: calculate adjacent matrix 12    n WWW W 000 is the set of workflows we extracted from myExperiment   iii WOE 000 in which i O is the set of \(service operations in i W and i E is the set of edges between these operations 0,1 ii i AO O 000u\000o is the adjacent matrix of i W That is, given  ik ij i oo O 000 element   kj of i A is defined as 1 if has alink to in 0otherwise ik ij i ikj ooW A 000 000 000 000 000 000  i A can be directly obtained from i W Based on adjacent matrix we can derive the reachability matrix of each workflow  Step 2: calculate reachability matrix 0,1 ii i RO O 000u\000o is the reachability matrix of i W  Given  ik ij i oo O 000 element  kj of i R is defined as 1 if can reach in  0otherwise ik ij i ikj i ik ij ooW RRoo 000 000 000 000 000 000\026\000\026  0 ii oORoo 000\005\000 000\026  i R cannot be directly obtained from i W instead it can be calculated from matrix  i A   1 2  i m iii i AAA A 000\020 000\016\000\016\000\016 000\026  i m is the cardinality of i A   1if 0 0otherwise ikj ikj A R 000 000 000 000 000 000 000  i R represents the reachability relations between any two operations in i W and by aggregating them we can examine the reachability relations among operations in a global, cross-workflow perspective,  i.e., in  S  Given the workflow set 12    n WWW W 000 and the operation set 12     m Ooo o 000 we now combine 12    n R RR into an aggregated relation  ij m m Rr 000u 000   1 ij kij k rR 000 000 000\026 i.e ij r equals the number of workflows in which i o can reach j o and 0 ii r 000\026  We then calculate the th n power of R  nn ij mm Rr 000u 000 000 000 000 000 and 1 1 n nn ij ik kj k rrr 000\020 000 000 000\026  Therefore n ij r equals the number of times i o can reach j o by traversing n workflows, i.e., transferring 1 n 000\020 times. Now we know for each given operation pair, the existence of a directed chain which is across a certain amount of workflows and connects these two operations  Step 3: calculate transfer matrix At the beginning of this section we emphasize that we want a service chain across least workflows like passengers want an itinerary across least routes \(i.e., with least transfers\. In order to achieve that goal we need to introduce another transfer matrix T  Given m operations and n workflows    m i n  1   s  t  0  k ij m m ij ij Tt t k n r 000u 000 000è\000 000\026  T reveals the least-transfer distances between two operations. By definition 1 ij t 000\020 is the number of least transfers through which i o can reach j o If 0 ij t 000 then there is not a path between them across the available workflows  Step 4: calculate transfer paths For 2 ij tk 000\005 000 \000t at least one transfer is needed for any path from i o to j o i.e., we can find a least-transfer path 11 k iq q j oo o o 000\020 000o\000o\000o 000o 000 such that 112 21 1 1 kk k iq q q q q q j tt t t 000\020\000\020 000\020 000 000 \000 \000 000  Such a path \(or paths\e found using the recursive algorithm shown in Figure 6   Figure 6. Obtain least transfer paths between two operations  Line 1: given T and  ij oo 000\037 000 find a service chain between i o and j o with least transfer 
-613 
+count count count count count count count count count count count count count count count count 
+5.1.1 Number of appearances as aggregation statistic 5.1.3 Comparisons with other techniques 
+5.1.2 Bitmap representation of aggregation statistic 
+ 
+267|T 
+In this section we present algorithms based on the BIAS framework for the three FFT-pattern variants described in section 3.2 in section 4.2 Since there is no relaxation on the number of supporting is unique i.e the set of all transactions containing at least Given itemset iterations The complexity is see Example 5 This statistic can be maintained concurrently with the former therefore the additional cost needed is constant The support of an itemset can be calculated by summing from index in bitmap is set if and only if transaction represents the ratio between bit-wise and integer operations which is roughly 1/32 in a 32 bits processor where 32 operations can be performed in one clock cycle for down to 0 bitmaps in all recurrence levels In this case the maximum space allocated is like approach FT-Apriori 336rst 336nds all frequent itemsets with size  time The number of candidates generated in this approach is relatively small compared to that in backtracking However generation of the candidates itself is an expensive process consuming most of the mining time Another disadvantage 
+These aggregation statistics can be maintained ef\336ciently Since we are using a backtracking algorithm at most one item is added or removed at one time Thus in the worst case this operation needs Recalling the de\336nition a pattern   These two variables can be used interchangeably since the number of appearances equals the size of the itemset less the number of es For the sake of ef\336ciency we use the number of appearances as the aggregation statistic  one way to calculate its frequency is by maintaining the number of of each transaction denoted as is the last added item in the backtracking step can be maintained by increasing the count of all transactions containing in the expected case where  which stores the number of transactions for every distinct value in iterations for each update and By sacri\336cing space we can reduce  it generates candidates of size whose  the algorithm checks whether all its subsets are frequent in O  time and then veri\336es whether is frequent in another pass of the database taking O 
+es on each item each transaction is independent of each other Hence the tidset es of each transaction is suf\336cient to determine  Hence every update needs  This is denoted as  which needs space The symbol by maintaining  Then for each 
+iterations This approach even though asymptotically inef\336cient is very fast in practice because of the architecture of current processors 
+miss miss miss miss 
+1 
+267 
+iterations Details of the speci\336c aggregation statistic used in each variant are explained in section 5 
+X T X X X 
+This operation needs 
+5 Algorithms 
+ S    212 n 267  
+T 
+X 
+T T T 
+es corresponds to the last added item and 
+212 
+ In this problem the information about the number of appearances or number of 
+pattern if it satis\336es the criterion of items in  i.e  and  is the bitmap corresponding to transactions not containing item 
+5.1 FFT 
+ILP 
+miss 
+ 
+ 
+ 
+003 
+267|T 
+267|T 
+X O Y Y X 001 X x x O O 003 t 001 001 X X c t c x miss x O O 004 miss i X miss X 001 001 O O 001 k k k X X X 
+t\254 t\254 
+212 
+ 
+but each update only needs 
+1 
+1 
+t 
+ 
+1 
+267|T 
+in the worst case but is the density of database This approach has complexity proportional to the database\325s density which is desirable since the database is generally sparse To deduce the supporting tidsets we need to maintain another subsets are frequent Once these candidates are accumulated they are all checked using one pass of the database To generate one candidate 
+a a a c c x a t c a c X X i 1 i 1 i i i 
+X x 004 004 004 004 001 
+ 
+ 
+267 
+1 
+       
+x 
+       
+items The insertion process is shown in following pseudo-code A similar algorithm can be derived for the removal process As before 
+appearances 
+X 
+max max 
+    
+sanFFT 
+If 
+to  to 
+X 
+max max max max max max max 
+t t t x x x x t t t t t 
+as stated in section 3.2  iterations This technique requires integers to store integers to store Another way to represent the aggregation statistic is by using  where bit A similar problem has been tackled by Pei et al in and Koh and Yo in Both their algorithms as ours iterate the itemsets and then 336nd their supporting transactions Pei et al proposed the FT-Apriori algorithm that enumerates itemsets using an 
+X 
+  2  
+1 
+pattern 
+t 
+327 
+aggregation statistic apriori 
+001 
+267 
+   
+267 
+and transactions 3 and 4 contain both items To speed up the reduction process we can also maintain the statistic that there are two transactions regardless of which transactions they are that contain both items one transaction that contains one and one transaction that contains no items in bitmaps 
+X 
+T  T  T    T  T  267  
+transaction relaxation 
+277 
+277 
+277 
+277 
+277 
 
 
-Line 2: initiate the result path set to null Line 4-6 0 ij t 000 means i cannot reach j by any transfer Line 9-11 1 ij t 000 means i can reach j without transfer find the workflow in which i can reach j and get the service chain in it Line 13-21 2 ij t 000t means i can reach j with at least one transfer; find an immediate node k that i can reach and connect it with a least-transfer path from k to j  Line 24: return the result path list  6. Empirical study Given the matrix-based approach described in 5.3, we calculated the least-transfer distances and transfer paths between any pair of service operations invoked in the workflow set, which are registered in the myExperiment repository. The dataset was taken from myExperiment on Aug-23-2010 and it contains 347 workflows, 241 services and 283 operations. Figure 7 is the histogram showing the least-transfer distances between any pair of nodes representing the 283 operations in  S i.e., 283*283 80,089 node pairs\. 375 pairs of operations can reach each other without any transfer, i.e., they are connected within a single workflow. 147 operation pairs are reachable via 1 transfer; and 61 and 14 pairs are reachable via 2 and 3 transfers, respectively. Only 2 pairs of operations are reachable via 4 transfers; and there is no path with more than 4 transfers between any operations In contrast to a public transportation system, the reachability among the operations is obviously sparse only 375+147+61+14+2=599 out of 80,089 operation pairs are reachable \(about 0.75%\; if two nodes are not reachable within 4 transfers, they are not reachable at all The sparseness is due to two major reasons. First bioinformatics services/operations cannot be arbitrarily connected, because they have different usage scenarios by nature. Second, the services in the myExperiment workflows largely function individually rather than collaboratively  A ltho ugh  t h e m y Ex per i m e n t  workflow set only illustrates a subset of the usage of the bioinformatics services, our experiment does reveal the necessity of increasing the reusability and collaboration among bioinformatics services  Figure 7. Least-transfer-distance histogram of myExperiment workflows  7. Related work  Our presented work is related to three categories of research: automatic service composition, recommendation in software engineering and scientific workflow, and network analysis in software engineering and workflow  Automatic service composition Various automatic service composition techniques have been developed to discover relevant services and compose them in a proper sequence, as discussed in the surv  T h ese m e thods can y i eld g o o d results when  services provide comprehensive metadata \(e.g input/output, pre/post conditions, QoS, etc\ and/or the composition problem can be translated into a good formalism, like optimization, AI-based planning, and process algebra. In bioinformatics, however, many services are widely used but they are lack of metadata and formal models. Meanwhile, online workflow repositories such as myExperiment\ allow scientists to share successful experimental routines that contain best practices to compose services. Based on this observation we adopt a network-based approach to analyze the usage patterns of the biomedical services and provide recommendations based on empirical workflows  Recommendation in software engineering and scientific workflow Artifact discovery and reuse has been investigated in software engineering [14, 15   with a n e m phasis on  mining patterns from software repositories and recommend software artifacts when programmers write or debug code. In the area of scientific workflow, there are already many systems including Kepler [1 4  d Swi f t [18]. The po pul ar bu siness  workflow language BPEL has also been adopted [1 More recently, patterns from past usage data are summarized to predict the most likely next-step in building visualization pipelin n d case base reasoning is also used to find a similar workflow and use it to suggest the next component to use [21 In co ntrast to  these approaches, ServiceMap: 1\ collects usage data from public available workflow repositories as suggestion evidence; 2\ suggest public accessible services instead of in-house components; 3\ovides suggestions which are relation-aware and across multiple workflows  Network analysis in software engineering and workflow Researchers have recently started to build social networks supporting scientific application sharing myExperiment and BioCatalogue are two examples maintaining social networks for life science workflows and services, respectively. In software engineering Codebook [2 u il ds a di r ected g r ap h conne ct in g  programmers to reusable work artifacts from software repositories. In this directed graph any transitive 0 50 100 150 200 250 300 350 400 01234More number of node-pairs transfer-distances between nodes transfer distance betwen two operations in S 
-614 
-
-
-connections can be discovered using a regular language reachability algorithm In ServiceMap we use a matrix-based approach similar to [2 th at calcula tes tr ans f er r o utes in a p u bl ic  transportation system. ServiceMap achieves much beyond calculating transfer routes by addressing Q1 and Q2 in a holistic manner. Moreover, another innovation of our work is the validation over the empirical data from myExperiment In business process management \(BPM\a framework named TomTom4BPM [24, 2 u s e s p r ocess m i ning  technique for various purposes, such as comparing the actual process execution with the pre-modeled ones and dynamically navigating during process exception. Our work focuses more on suggesting new service/workflows based on existing ones during build-time while TomTom4BPM concentrates on mining process logs to better navigate execution during run-time   8. Conclusions Following up with our network analysis on the myExperiment pres en ted a  ServiceMap  framework, equipped with association rule mining and matrix-based searching algorithms, to provide a GPS-like support for two types of scientific service searching queries: 1\ Given a service I plan to use, what other services are usually used together? and 2\Given several services I want to use together, can I find an operation chain to connect them, from othersí past usage This work is an integral part of a larger framework CASE  information C ollection A nnotation S earch, and r E commendation\which is under development aiming to support scientific artifact reuse [6 n the fu ture w e  pl an to integrate the matrix-based approach with other path planning methods, such as AI-based ones. Meanwhile, we currently focus on recommending services and service chains to by looking at the task-flow in workflows. We plan to explore a complementary data-driven approach studying data flows and their connectivity across multiple workflows using a Petri-net decomposition approach developed earlier  9. Acknowledgements We thank the caBIG community for the motivating scenarios and feedbacks on our work, and the myGrid team led by Professor Carole Goble from University of Manchester for constructive discussions. The work is partially supported by the National Cancer Institute, the National Institutes of Health under contract N01-CO12400, and the National Science Foundation under grant IIS-0959215  References    Bha g at et al BioCatalogue: a univer sal catalogue of web services for the life sciences Nucl. Acids Res p. gkq394, May 19 2010 2010 2 I. J. Ta ylor et al  Workflows for e-Science: Scientific Workflows for Grids Springer-Verlag, 2007 3 A C Vo n E s c h en b a ch  a n d K Bu et o w   C a n ce r  In f o r m a tic s Vision: caBIG Cancer Informatics vol. 2, p. 22, 2006 4 T   O i n n et al Taverna: lessons in creating a workflow environment for the life sciences Concurrency and Computation Practice & Experience vol. 18, pp. 1067-1100, 2006 5 Ta n et al CaGrid Workflow Toolkit: A taverna based workflow tool for cancer grid BMC Bioinformatics vol. 11, p. 542 2010 6 Tan et al Network Analysis of Scientific Workflows A Gateway to Reuse IEEE Computer vol. 43, pp. 54-61, 2010 7  C  A Goble et al myExperiment: a repository and social network for the sharing of bioinformatics workflows Nucleic Acids Research pp. W677-W682, 2010 8 N Tan et al  Introduction to data mining Pearson Addison Wesley Boston, 2006 9 Hall et al The WEKA data mining software: An update ACM SIGKDD Explorations Newsletter vol. 11, pp. 10-18 2009 10  G. Salton and  C  Buckley Term-weighting approaches in automatic text retrieval Information processing & management vol 24, pp. 513-523, 1988 11 H He et al BLINKS: ranked keyword searches on graphs," presented at the ACM SIGMOD international conference on Management of data, 2007 12 Z Liu et al WISE: Searching Workflow Hierarchies presented at the 36th International Conference on Very Large Data Bases, Singapore 2010 1  S  D u s t da r a n d W   S c h r e i n e r   A  s u r v e y on w e b s e r v i c es  composition International Journal of Web and Grid Services vol. 1 pp. 1-30, 2005 14 T Xie et al Data Mining for Software Engineering IEEE Computer vol. 42, pp. 55-62, 2009 15 R Martin et al Recommendation Systems for Software Engineering IEEE Software vol. 27, pp. 80-86, 2010 1 B   L u d s c h e r et al Scientific Workflow Management and the Kepler System Concurrency and Computation: Practice Experience 2005 1  E   D e e lm a n   P e g a s us  A  f r a m e w or k f o r m a p p i n g c o m p le x  scientific workflows onto distributed systems Scientific Programming vol. 13, pp. 219-237, 2005 18   Z h a o et al Swift: Fast, Reliable, Loosely Coupled Parallel Computation," in 2007 IEEE Congress on Services 2007, pp 199-206 19   Wa s s e r m a n n et al Sedna: A BPEL-Based Environment for Visual Scientific Workflow Modeling," in Workflows for E-science Scientific Workflows for Grids I. J. Taylor et al Eds., ed: SpringerVerlag, 2007, pp. 428-449 20 D Ko o p et al VisComplete: Automating Suggestions for Visualization Pipelines IEEE Transactions on Visualization and Computer Graphics vol. 14, pp. 1691-1698, 2008 21 E Chinthaka et al CBR Based Workflow Composition Assistant," presented at the 2009 Congress on Services -- I, 2009 22   B e g e l et al Codebook: discovering and exploiting relationships in software repositories," presented at the 32nd ACM/IEEE International Conference on Softwa re Engineering, Cape Town, South Africa, 2010 23 C  L  L i u et al Path-planning algorithms for public transportation systems," in 14th IEEE Intelligent Transportation Systems 2001, pp. 1061-1066 24  W  van de r A a ls t To m To m f o r  Bu s i ne s s  P r oce ss Management \(TomTom4BPM\" in 21st International Conference on Advanced Information Systems Engineering \(CAiSE 2009, pp. 2-5 25  W M  P Aa l s t  Us i ng  pro cess mining to generate accurate and interactive business process maps," in International Business Information Systems Workshops 2009, pp. 1-14 26   T a n et al Data-Driven Service Composition in Enterprise SOA Solutions: A Petri Net Approach IEEE Transactions on Automation Science and Engineering vol. 7, pp. 686-694, 2010 
-615 
-
-
-processing. We call these çfile data sourcesé and çtable data sourcesé respectively. Our data sources pane has functionalities to create either table or file data sources by uploading a chosen CSV file, as shown in Figure 11   Figure 12. View Creation Fu nctionality \(left\ in operation \(right  3  Data Source Attachment Each data attach-point has a specific minimum schema  expectation to be able to make use of the data source attached. The minimum schema expectation makes some attributes mandatory. For example, a demographic data source is required to have a çCustomerIDé attribute that uniquely identifies each customer.  It may have any number of additional attributes; for example, in the unsupervised segmentation workflow, any additional attribute of a customer is used by the clustering algorithm to measure the similarity between customers. Often, the minimum schema attribute names may not exactly match the customerês attribute names. For example, the customer may use CustIDé to uniquely identify a customer whereas the attach-point may be expecting çCustomerIDé. We have incorporated a view creation facility that helps the customer to create a non-materialized view by mapping the attributes in her data source to those expected by the minimum schema. Once such a view is created, it appears as another data source, and can be chosen from the drop down list of data sources. Figure 12 shows how view creation functionality gives the user the option to pick an attribute from her source to the minimum schema attribute, in this case ID, CUSTID, TRANSACTIONDATE, and TOTALPRICE 4  Downloading Results We implemented the workflow execution as an asynchronous operation, where the user finishes the setup uploading data, attaching data sources, choosing the workflow to be executed\d clicks on çsubmité. When the results are ready, the web application alerts the user and provides a link to download the results file V  R ELATED W ORK  Literature related to our work may be broadly classified under three heads: \(1\loud Computing for Services, \(2 Analytics Services, and \(3\orkflows for Analytics  Cloud Computing for Services Cloud computing is the umbrella term used to denote the delivery of computing as a service rather than as a product. Cloud computing provides shared resources, software and information to computing devices as a utility over the network. It has become widely popular over the last few years and has been assessed to be no less influential than any of the previous trendsetting technologies [13   T h o ugh m a n y o b s ta c l e s to the u s a g e o f  cloud computing have been identified in e s a me report emphasizes that the utility of cloud computing is likely to outweigh its disadvantages. Cloud computing provides many advantages such as elasticity and transference of over-provisioning and under-provisioning risks. Forecas u g g e s t th at clou d co m p u t i n g  w oul d  grow at a very fast rate over the next few years.  Cloud computing has been used for a variety of tasks such as parallel data mining d g raph an al y tic s 16   Analytics Services Though popular analytics engines such as SAS, SPSS and R started off as stand-alone applications that need to be installed on a server to be used, recent trends suggest that commercial analytics engines are not far off from delivering full-fledged analytics capabilities on the cloud. Predixion Software 13 and Zementis 14 offer scoring of any PMML 15 model over the cloud, whereas SAS has started to offer many of their functionalities over the cloud  How ev er, to th e bes t of ou r k n o w l edg e, th ere h a s been  a very limited work on providing powerful analytics functionalities over the cloud that can readily be used without requiring considerable expertise in analytics and the specific tool to be used  Workflows for Analytics The main novelty of the solution proposed in this paper rests in the usage of configurable and extensible multi-workflows to make it easy to use analytics despite limited technical know-how. Analytics workflows themselves are not novel and are the primary means of using SPSS \(with the SPSS Modeler component\wever, a typical SPSS workflow is designed to be used by personnel who understand the semantics of typical data mining operations. In particular, SPSS provides a fleet of functionality that is powerful enough to be used across domains, and is not specific to the scenario in which it may be deployed. For example, the semantics of the CustID field is unknown to a generic clustering operator, and under a default setting, the clustering operator would use the CustID field also for clustering leading to the undesirable results of    13  http://www.predixionsoftware.com/predixion  14  http://www.zementis.com  15  http://en.wikipedia.org/wiki/Predictive_Model_Markup_Language  
-9 
-9 
-
-
-grouping customers with numerically close CustIDs together. We eliminate the need to explicitly specify the exclusion of such attributes, by folding in the semantics of attributes such as CustID \(among others\to the prepackaged workflows. In a pre-packaged workflow for customer segmentation, the fact that CustID needs to be excluded in clustering would already be already preconfigured. The customer can thereby focus on configuring other parameters that are likely to affect business such as number of clusters in the outp ut or the rules to use in designating customers as high-value or low-value. The concept of multi-flows, where a single template workflow can instantiate many possible workflows, has not been developed in prior literature to the best of our knowledge VI  C ONCLUSIONS  Analytics, despite its apparent utility in improving business has not been adopted widely. The main deterrents include the large upfront cost of procuring computing infrastructure and the cost of setting up an in-house analytics team of statisticians and business analysts. Such costs are so high that many small and medium businesses cannot afford traditional analytics solutions, especially in the developing regions of the world due to a spectrum of other deterrent factors that we have outlined. Many such deterrents may be effectively eliminated by the delivery of analytics services on the cloud. In this paper, we propose configurable pre-packaged multi-flows flows that span multiple workflows\ to deliver analytics services on the cloud towards helping to improve analytics penetration Multi-flows bundle together related workflows enabling users to explore and exploit related functionality by making minor configuration changes. We illustrate how changes to workflow configurations may be made easily without any in-depth knowledge of the various operators involved. Our multi-flows are easily extensible to non-disruptively include new functionalities in response to the changing needs of a customer \(or a changing customer base We described a survey of Indian retail players that helped us identify \(and validate our assumptions of\e primary obstacles to analytics penetration in the sector; we also analyzed the major analytics needs of such businesses. We illustrated that many such common analytics needs may be effectively captured within a small number of workflows We developed a fully-functional system that implements the chosen multi-flows for the retail sector. We detailed the various features of the system, the multi-ness of the flows in the system, and example configuration settings that can be used to fine tune specific multi-flows. Through generous usage of screenshots, we illustrated the ease of use of our system; we expect that such enhanced convenience of usage will aid penetration of analytics into new customer bases  Future Work We are exploring further enhancements to improve ease of use of analytics solutions on the cloud including an automatic mapping of attributes in data sources to attach-points by exploiting the data type and distribution Also, making analytics widespread would necessarily involve addressing some of the problems that are applicable to cloud computing in general. These include concerns about data privacy in the cloud and the loss of control of the computation elopin g techn iqu es  to eff ecti v el y an d  provably anonymize of data without affecting the results of specific operators such as clustering or classification is an interesting direction to pursue A CKNOWLEDGMENT  We thank Abhishek Subramanian, Neethu Suresh Shubhendu Aggarwal and Varun Srivastava for efforts in implementing the system and performing market surveys VII  R EFERENCES  1  Todd Morrison, çRetail chain uses in-house analytics team to run SAP BusinessObjectsé, TechTarget Search SAP, 4 th March, 2011 http://searchsap.techtarget.com/news/2240033086/Retail-chain-uses-in-houseanalytics-team-to-run-SAP-BusinessObjects  2  Rakesh Agrawal, and Ramakrishnan Srikant, çFast Algorithms for Mining Association Rules in Large Databasesé,  VLDB 1994, Chile 3  How to structure a business analytics team http://mybusinessanalytics.blogspot.in/2011/09/business-analytics-teamstructure.html Retrived March 2, 2012 4  MA Rappa, çThe utility business model and the future of computing services IBM Systems Journal, 43\(1\ 2004 5  Brian Hayes, çCloud Computingé, Comm. Of the ACM, 51\(7\, 2008 6  Vibhor Rastogi, Dan Suciu, Sungho Hong, çThe boundary between privacy and utility in data publishingé, VLDB 2007 7  Zhou et. al., çSecurity and privacy in cloud computing: A Survey International Conf. on Semantics, Knowledge and Grid, SKG 2010 8  Marten Van Dijk, Ari Juels, çOn the impossibility of cryptography alone for privacy preserving cloud computingé, 5 th USENIX Conference on Hot Topics in Security, 2010 9  J.B. MacQueen, çSome methods for classification and analysis of multivariate observationsé, 5 th Symp. On Mathematics, Statistics and Probability, 1967   G. Adomavicius and A. Tuzhilin. "Expert-Driven Validation of Rule-Based User Models in Personalization Applications." Data Mining and Knowledge Discovery, vol. 5, nos. 1/2, January/April 2001   Mahashweta Das, Deepak P, Prasad Deshpande, Ramakrishnan Kannan, "Fast Rule Mining Over Multi-Dimensional Windows", SDM 2011, Mesa   Michael Armbrust, çAbove the Clouds: A Berkeley View of Cloud Computingé, Technical Report, UC Berkeley, 2009   Daryl Plummer, David Cearley, David Smith, "Cloud Computing Confusion Leads to Opportunity", Gartner Report, 2008   Adam Holt et. al., çCloud Computing takes offé, Morgan Stanley Blue Paper May 23, 2011   Joos-Hendrik Bˆse, Artur Andrzejak, Mikael Hˆgqvist, çBeyond online aggregation: parallel and incremental data mining with online Map-Reduce MDAC 2010 Workshop on Massive Data Analytics over the Cloud   Padmashree Ravindra, Vikas V. Deshpande, Kemafor Anyanwu, çTowards scalable RDF graph analytics on MapReduceé, MDAC 2010 Workshop on Massive Data Analytics over the Cloud   SASÆ for Customer Experience Analytics available via cloud http://www.sas.com/news/preleases/CXACloud.html accessed 13th Mar, 2012   Stallman: Cloud computing is stupidity http://news.cnet.com/8301-1001_310054253-92.html accessed 14 th March, 2012  
-10 
-10 
-
-
+X  
+002 
+T 
+  
+ 
+ 
+ 
+  
+   
+in is less than 10 in many real-world datasets the number of variables is at most 1024 hence enumerating all solutions is feasible To make this process more ef\336cient we introduce some heuristics i.e we iterate from the most constrained variable and from the highest possible value most constraining to reduce the search space as much as possible Our experimental results show that all solutions can be found fast Once a solution 
+BIAS\(bit  bit and VB-FT-Mine might be f aster in a dense database and with small 
+267|T  267|T  
+ 267|T|\267 267|T|\267 
+ is straight-forward  
+ X 
+ in section 4.2 This problem is seemingly more complicated compared to the FFT 
+1 013  
+T T I T T I I I is I I I I I 
+X 
+d 
+pattern mining approaches 
+Table 1 FFT 
+ 
+ 
+ 
+t  t t t t 
+T  i 1 T  i 1 
+X 013 P x 
+To prove NP-Hardness 
+v b 
+1 
+NP 
+the 
+ 
+  004   2 
+TI pattern TI TI 
+ 
+ 
+ 
+  
+X 
+ 
+P X 001 t P x  P x 001 005 x 001 004 001 t 001 t 002 a i a i in G e u a i 005 P X B 
+ 
+001 
+N\267 
+implying that it is NP-Hard 
+ 
+TI 
+d 
+ 
+ 
+ 
+X d X d 212 X d 
+        
+They show that 
+T  T  267  
+for 
+u v 
+ and prove that MIS 
+FT  VB-FT-Mine  
+002 002 X X X 002 X 
+k 
+Approach  Space  of this approach is that it needs another database pass while processing itemsets of each size Koh and Yo presented VB-FT-Mine which uses a backtracking technique similar to ours However instead of using an aggregation statistic they analyzed the recurrence relation of the support-tidset Let to be contained in at least supporting transactions Our technique can easily be adjusted to this requirement by iterating each item denotes the total number of frequent itemsets and the constant pattern problem since each itemset might have multiple support-tidsets Since the approach used in FFT pattern can be applied to handle the transaction relaxation  Therefore 336nding the largest sized support-tidset can verify whether the pattern is frequent This problem can be expressed as the is at most as dif\336cult as generating S  While it may seem easier we show that 336nding the maximum result in problem Lemma 2 Finding maximum 001 is to 336nd a maximum set of vertices such that there is no edge between any pair of them The reduction is as follows For every edge  add inequality  This reduction is complete since the result of will be the maximum set of variables vertices which are not connected Since this case is a subset of Since this problem is NP-Complete we cannot expect to have a practically ef\336cient solution unless As in section 4.2 we reduce the number of variables by 336nding the equivalence classes In this variant two transactions are equivalent 
+267 267 
+2 
+K 
+Iterations  BIAS\(appear   hence this problem can be solved using dynamic programming  5.2 FFT  5.2.1 Finding the maximum sized S TI A pattern is frequent if the size of its largest support-tidset is greater than or equal to 
+we take the problem of 336nding Maximum Independent Set MIS 
+In our implementation we check if itemsets are frequent by calculating the statistical information of the FFT-pattern 5.2.2 Finding statistical information of S TI 
+1 1 1 1 
+min 
+T x X 001 001 X 001 001 
+ILP FT ILP FT ILP ILP ILP ILP ILP ILP ILP ILP ILP ILP red 
+when FFT and transaction relaxation as de\336ned in section 3  and objective function to maximize 001 can be reduced into this problem Given a graph  the objective of MIS 
+ The time and space comple xity of VB-FT Mine is exactly the same as ours using bitmap This algorithm is fast because the recurrence relation happens to be simple and using bitmaps is ef\336cient Both approaches limit each item  as is done in and 6 Ho we v er  this constraint is neglected for the sake of consistency among all variants discussed in this paper A summary comparison among these three approaches is presented in Table 1 Our approaches representing the aggregation statistic as appearances and bitmaps are characterized by BIAS\(appear and BIAS\(bit respectively N represents the ratio of time taken for bit operations to integer operations which in this case is roughly 1/32 Table 1 shows that no approach is totally superior compared to others Given a sparse database and large tolerance appear seems promising while  These results must be viewed in light of the main focus of this paper which is to mine the statistical information of support-tidsets This variant is incorporated to illustrate how the BIAS framework handles the criterion of transaction relaxation pattern is de\336ned as a pattern that satis\336es the criteria of item relaxation  Clearly 336nding the maximum sized S is an NP-Complete in a graph which is a well-known NP-complete problem problem is at least as hard as MIS  Proving the completeness of its decision-problem  001 k i 1 if they contain exactly the same itemset in is obtained section 4.2 we can calculate the desired statistic using equation 6 
+    
+be the set of transactions which support itemset  the pending problem is to generate FFT-patterns that satisfy the criterion of item relaxation NPComplete  Proof  It is easy to see that the maximum number of equivalence classes is bounded by  Since  
+267 267 
+278 
+278 
+278 
+278 
 278 
 
 
-0 1000 2000 3000 4000 5000 6000 100k 300k 500k 700k 900k 1m Time cost \(s data size Rule 1 DA+PA DA+PAP  DAP+PAP  0 1000 2000 3000 4000 5000 6000 100k 300k 500k 700k 900k 1m Time cost \(s data size Rule 2 DA+PA DA+PAP  DAP+PAP  0 1000 2000 3000 4000 5000 6000 100k 300k 500k 700k 900k 1m Time cost \(s data size Rule 3 DA+PA DA+PAP  DAP+PAP  0 1000 2000 3000 4000 5000 6000 100k 300k 500k 700k 900k 1m Time cost \(s data size Rule 4 DA+PA DA+PAP  DAP+PAP  Fig 6 Scalability on data sizes return 5-th largest  U  the same as Figure 2 of the 1st largest The improvement of pruning like DA  PAP in Figure 6 is not as signiìcant as that of 1st largest answers For example in Rule 1 with 1m data size DA  PAP has an improvement about 2200 from 5500 to 3300 in Figure 2 while the corresponding improvement is only about 1500 from 5500 to 4000 in Figure 6 Nevertheless DAP  PAP can still keep the lowest time cost in all the test in Figure 6 VII C ONCLUSIONS Motivated by the utility of differential dependencies  DD s in real applications like violation detection in this paper we study the problem of determining the distance thresholds for metric distance constraints from data Instead of manually specifying requirements of various statistical measures we conduct the determination in a parameter-free style i.e to compute an expected utility of the distance threshold pattern and return the results with the maximum expected utility Several advanced pruning algorithms are then developed in order to efìciently nd the desired distance thresholds Finally the experimental evaluation on three real data sets demonstrates the performance of our proposed methods In particular we evaluate the effectiveness of returned results in the violation detection application and show that the pruning techniques can achieve lower time cost A CKNOWLEDGMENTS The work described in this paper was partially supported by Hong Kong RGC GRF Project No 611411 National Grand Fundamental Research 973 Program of China under Grant 2012CB316200 Hong Kong RGC GRF Project No CUHK 411211 China NSFC Project No 61073005 R EFERENCES  R  A gra w al T  I mielinski and A  N Swami Mining association rules between sets of items in large databases In SIGMOD Conference  pages 207Ö216 1993  R  A gra w al and R  S rikant S earching w ith numbers  I n WWW  pages 420Ö431 2002  C  B atini a nd M Scannapieco Data Quality Concepts Methodologies and Techniques  Data-Centric Systems and Applications Springer 2006  M  B ilenk o R  J  Moone y  W  W  C ohen P  R a vikumar  a nd S E Fienberg Adaptive name matching in information integration IEEE Intelligent Systems  18\(5 2003  P  B ohannon W  F a n F  Geerts  X  J ia a nd A K e ments i ets i dis  Conditional functional dependencies for data cleaning In ICDE  pages 746Ö755 2007  T  C alders  R  T  N g and J  W ijs en S earching f or dependencies a t multiple abstraction levels ACM Trans Database Syst  27\(3 2002  F  C hiang a nd R J Miller  Disco v e ring data quality rules PVLDB  1\(1 2008  W  W  C ohen I nte g ration o f h eterogeneous d atabases without c ommon domains using queries based on textual similarity In SIGMOD Conference  pages 201Ö212 1998  G  C ong W  F a n F  Geerts X  J ia a nd S Ma I mpro ving data quality Consistency and accuracy In VLDB  pages 315Ö326 2007  W  F a n Dependencies r e v is ited f or impro v ing d ata quality  I n PODS  pages 159Ö170 2008  W  F a n F  Geerts  L  V  S  L aks h manan and M  X iong D is co v e ring conditional functional dependencies In ICDE  pages 1231Ö1234 2009  W  F a n J  Li X  J ia a nd S Ma R eas oning about record matching rules PVLDB  2009  Full V e rsion P a rameter free d etermination o f d istance thresholds for metric distance constraints http://ise.thss.tsinghua.e du.cn/sxsong/doc/free.pdf   L Golab H J  Karlof f F  K o rn D  S ri v a s t a v a and B  Y u On generating near-optimal tableaux for conditional functional dependencies PVLDB  1\(1 2008  L Gra v ano P  G Ipeirotis  H  V  J ag adis h N K oudas  S  M uthukris h nan L Pietarinen and D Srivastava Using q-grams in a dbms for approximate string processing IEEE Data Eng Bull  24\(4 2001  J  Han J  W a ng Y  Lu a nd P  Tzv e tk o v  M ining t op-k frequent clos ed patterns without minimum support In ICDM  pages 211Ö218 2002  Y  Huhtala J  K  arkk  ainen P Porkka and H Toivonen Tane An efìcient algorithm for discovering functiona l and approximate dependencies Comput J  42\(2 1999  J  Ki vinen a nd H Mannila A pproximate i nference of functional dependencies from relations Theor Comput Sci  149\(1 1995  N K oudas  A Saha D  S ri v a s t a v a and S  V enkatas ubramanian Metric functional dependencies In ICDE  pages 1275Ö1278 2009  S Kramer and B  P f a hringer  Ef cient search for s trong p artial determinations In KDD  pages 371Ö374 1996  H Mannila and K J  R  aih  a Algorithms for inferring functional dependencies from relations Data Knowl Eng  12\(1 1994  A McCallum K Nig a m and L  H  U ng ar  E f  cient c lustering o f h ighdimensional data sets with application to reference matching In KDD  pages 169Ö178 2000  D Montgomery a nd G R unger  Applied Statistics and Probability for Engineers  Wiley 2nd edition 1999  G Na v a rro A guided t our t o a pproximate s tring m atching ACM Comput Surv  33\(1 2001  T  Schef f er  F inding as s o ciation r ules that trade s upport optimally ag ains t conìdence Intell Data Anal  9\(4 2005  J C Schlimmer  Ef ciently inducing d eterminations A complete and systematic search algorithm that uses optimal pruning In ICML  pages 284Ö290 1993  S Song and L  C hen Dis c o v e ring matching dependencies In CIKM  pages 1421Ö1424 2009  S Song and L  C hen Dif f erential d ependencies  R eas oning and discovery ACM Trans Database Syst  36\(3 2011  S Song L Chen a nd P  S Y u  O n d ata d ependencies i n d ataspaces In ICDE  pages 470Ö481 2011  C  J  v a n R ijs ber g en Information Retrieval  Butterworth 1979  G I W e bb and S  Z hang K optimal rule dis c o v e ry  Data Min Knowl Discov  10\(1 2005 
-857 
-857 
+Let es exceeds  We show that  then  Hence all 
+323 and one 322 
+     
+ Let variable ing  Note that only transactions that miss one to 7 5.3.1 Finding the maximum sized can be optimally solved using a which continuously takes transactions with the lowest number of iterations By maintaining the number of transactions that miss the same number of items the complexity can be reduced to pattern we can 336nd the statistical information by enumerating c.f 7 and section 4.2 To show the bound of the number of solutions we 336rst introduce the term partition number De\336nition 5 is equal to part es in i.e we can add transactions missing one item to are subsets of  which is quite small for small is same as the one in section 5.2.2 We iterate the variable from the most constrained having most number of es and most constraining choosing the variable with highest value so that we start with the largest number of transactions possible The number of iterations is bounded by that this algorithm will generate subsets of partition of similar to the proof of Lemma 3 6 Experimental Results We demonstrate this problem using the small database The result of algorithm isn\325t plotted since it takes too long Figure 2\(a shows the scalability of the algorithms while varying minimum support We observe that in this case BIAS\(appear performs best followed closely by VBFT-Mine then BIAS\(bit This is due to the operation\325s complexity while VB-FT-Mine only needs one 322 323 operations BIAS\(bit needs 2 322 323 operations refer to section 5.1 However VB-FT-Mine only 336nds the number of transactions which miss less than or equal to 
+is an FFT the same number of items in represent the equivalence class for transactions items are important Therefore the number of equivalence classes which is also the number of variables in be the largest tidset in es until the total number of As in FFT Let the number of transactions missing items be denoted as  Now if the total number of was not maximal Assuming we have until the number of misses in  so that it becomes a partition of  implying that All approaches are implemented in C and evaluated on an AMD 2.2 GHz machine with 2GB main memory In all experiments the items are sorted in a non-decreasing order of appearances in the database This performs best compared to other ordering techniques in our empirical studies For the experiments we used synthetic datasets generated using the IBM market-basket data generator We used two different datasets a small database 400 items 10,000 transactions to show the effect of parameters and comparison between approaches and a practical-sized database 1,000 items 100,000 transactions to show the scalability of our approach in real world applications The density of the databases is varied from 0.5 to 4 as in real-world market basket data 323s and 1 322 
+as given in section 3   The problem of 336nding equals  we can always increase  we can always increase equals Lemma 3 shows that the number of maximal to be larger than 20 and hence enumerating all solutions is feasible The algorithm to generate 
+S S S B B 
+pattern 
+pattern 
+f 
+327 
+ 
+n 
+i 
+X b i 001 001 b Y Y 001 O O n n part part part n n i n part 001 i B 001 B b 1 b 1 B B n 1 b 1 B 001 001 B B 001 B part 001 part part 001 miss O n 1 001 001 001 
+i p p 001 i 1 i p p p i p p i p p p p p p p p p p p p p t t 
+part 
+This partition is a unique extension for any maximal 
+B 
+ 
+n 1 
+X 
+pattern if it satis\336es the criterion of in section 4.2 In this problem transactions are  itself is formulated as follows  This algorithm takes  then it is a partition of  Otherwise items while both BIAS\(appear and BIAS\(bit maintain the number of transactions that miss all items In the case this statistic is useful as in other variants VB-FT-Mine cannot be used i.e it needs post processing 
+equivalent  denoted as 
+T  B 
+items 
+ This is true because if 
+i 
+327 327 
+max max 
+ILP ILP ILP ILP 
+n 001 001 001 
+It should be clear that if the number of transactions that miss 
+Y 001 001 001 001 not 
+TI 
+pattern relaxation 
+partitions of 
+in is bounded by to 
+b 1 
+X 
+B 
+b 
+f 
+P P P 
+002 
+FT-apriori 
+B 
+greedy algorithm Partition number of an integer means the number of distinct multi-sets of positive integers that add-up to is called a partition of is bounded by part 
+items in 
+is bounded by 
+n 1 
+red red red 
+and and 
+ since 3  3 2+1 and 1+1+1  
+   
+p 
+ 0 
+      
+distinct 
+if they for all  i.e all transactions missing one item are already considered in 
+is equal to 
+ implying that   
+001 
+A pattern is at most part 323s 2 322 
+ In a practical situation we don\325t need 
+001 
+miss miss miss miss miss 
+ Proof 
+For example 
+P ARTITION NUMBER  
+ 5.3.2 Finding statistical information of  Lemma 3  It can be shown by assuming we have enough 
+3  3 4  5 10  42 20  627  
+For example 
+5.3 FFT 6.1 FFT 
+ since 4  4 3+1 2+2 2+1+1 and 1+1+1+1 and so on Each multi-set that adds-up to 
+and 
+or or 
+P P P P P P T 
+279 
+279 
+279 
+279 
+279 
+
+
+F I   pattern variant 336gures e show the FFT TI pattern variant 
+Density Time \(sec   
+c e g Density  4                  as has also been discussed in 6.2 FFT TI pattern For this problem we use the practical-sized dataset Figure 2\(c shows the scalability of our algorithm Even though CompleteQB doesn\325 t tackle e xactly the s ame problem it is used as competitor because to the best of our knowledge there are no other relevant references In our work the objective is to mine all frequent itemsets along with the statistical information of associated patterns while that of  is to mine all maximal quasi-bicliques It can be seen that the number of frequent itemsets increases as the density increases and as the minimum support decreases Using the BIAS framework the time taken is almost linear to the number of frequent itemsets CompleteQB algorithm tak es longer than one hour the operation was terminated because the number of FFTpatterns is much larger than the number of frequent itemsets as shown in Figure 2\(d The results also show that enumerating all results in market-basket database is meaningless since we might get as many as 10 72 
+5 
+              doesn\325t increase the number of 
+2               2 1  1            2 2               5                     0 
+001 
+Minimum support F I F P      
+i i i 
+p p p p 
+Minimum Support Time \(sec   
+Minimum Support Time \(sec   
+Figure 2\(b shows that BIAS\(appear is more affected by density compared to BIAS\(bit From this experiment we can conclude that if we have a sparse database we should use BIAS\(appear to maintain the aggregation statistic and otherwise use BIAS\(bit All of these behaviors are as expected as they follow the characteristics given in Table 1 As we\325ve already mentioned this problem tries to reduce the number of FT-patterns by relaxing the constraint it doesn\325t consider  this problem is intractable To conclude this problem is not scalable in terms of database size and 001 t 
+Density = 2  Density = 4 
+001 
+ 
+t t t i t t p 
+1 5 
+10 
+001 001 001 
+pattern variant and 336gures h show the FFT P 
+BIAS\(bit  
+001 
+001 
+Density = 1  
+VB-FT-Mine 
+BIAS\(bit  
+001 001 001 001 
+001 
+ it is interesting to observe that the value of 001 i 
+VB-FT-Mine 
+Density = 2  Density = 4 001 
+002 001 002 001 002  
+p 
+f 
+b h 
+1               
+Figure 2 Experimental result for FFT-patterns mining Figures b show the FFT T 
+a Density  1  d Density  4   In practical-sized database and 001 t  1  FFT-patterns while there are only 1,600 frequent itemsets Experimenting with the value of 001 i 
+001 
+2 5 10 20 
+i 
+0 200 400 600 800 1,000 1,200 4 6 8 10 0 500 1,000 1,500 2,000 2,500 2.5 5.0 7.5 10.0 0 50 100 150 200 250 300 2 3 4 5 0 200 400 600 800 1000 1200 1400 1600 1800 151 0 0 100 200 300 400 500 600 700 0.5 1.0 2.0 3.0 0 0.2 0.4 0.6 0.8 1 1.2 0.5 1.0 2.0 3.0 4.0 5.0 0 5 10 15 20 25 30 35 40 45 50 12510 20 
+Density = 2  Density = 4 
+BIAS\(appear  1E-72 1E-60 1E-48 1E-36 1E-24 1E-12 1               2 3 4 5 Density = 1  
+Density = 2  Density = 4 
+item relaxation 
+FI| \(thousands   
+Minimum support Time \(sec   
+BIAS\(appear  
+Density = 1  
+Density = 1  
+Minimum Support F I|  / |F P     
+280 
+280 
+280 
+280 
+280 
+
+
+6.3 FFT 
+001 001 001 
+ pages 296\320305 2004  A V eloso B Gusm 367 ao Rocha M de Carvalho and W Meira Jr Real World Association Rule Mining In 
+7 Conclusion 
+20 
+ pages 1059\3201063 2006  M Steinbach P N T an and V  K umar  Support envelopes a technique for exploring the structure of association patterns In 
+References 
+ pages 207\320216 1993  J  Besson R G Pensa C Robardet and J-F  Boulicaut Constraint-based mining of fault-tolerant patterns from boolean data In 
+Proc of KDID 
+p p p 
+TI 
+P P 
+Linear Programming Methods and Applications 
+pattern 
+Handbook of Mathematical Functions Proc of DASFAA Proc of SDM Proc of DMKD 
+CompleteQB Proc of SIGMOD Proc of ICDEW Proc of SIGKDD Proc of ICDM Proc of SIGKDD Proc of BNCOD Proc of SIGKDD 
+Introduction to Algorithms 
+ page 117 2006  J Pei A K H T ung and J Han F ault-tolerant frequent pattern mining Problems and challenges In 
+ MIT Press Cambridge MA 2001  S  I Gass  pages 568\320575 2005  J  Liu S P aulsen X Sun W  W ang A B Nobel and J Prins Mining approximate frequent itemsets in the presence of noise Algorithm and analysis In  2006  K Narita and H Kitag a w a Mining frequent itemsets from noisy data In  2001  J K Sepp 254 anen and H Mannila Dense itemsets In  pages 683\320688 2004  K Sim J Li V  Gopalkrishnan and G Liu Mining maximal quasi-bicliques to co-cluster stocks and 336nancial ratios for value investment In  pages 77\32089 2002  C Y ang U M F ayyad and P  S Bradle y  Ef 336cient discovery of error-tolerant frequent itemsets in high dimensions In  pages 194\320203 2001 
+ 
+ pages 55\32071 2005  T  Cormen C Leiserson R Ri v est and C Stein 
+Since this variant hasn\325t been mentioned previously we can\325t compare the ef\336ciency of BIAS with any other approach However the experimental results in a practicalsized dataset indicate that this algorithm is ef\336cient and scalable Figure 2\(f shows that the time needed is approximately linear to the number of frequent itemsets The number of frequent itemsets itself scales similar to classical frequent-itemsets which grows exponentially as the density increases and/or as the minimum support decreases In this problem the number of frequent itemsets is also much smaller compared to FFT pattern For example in database with 4 density and 0.5 minimum support with  the proportion is 46K frequent itemsets to 637K FFT-patterns which is around 7 As seen in Figure 2\(g the ratio becomes smaller as increases and minimum support decreases Similar to the previous problem the value of We have generalized the problem of mining 336xed-value FFT-patterns into relaxation criteria and constraints and have shown that these criteria and constraints can be used to derive several available variants of FFT-patterns as well as many new de\336nitions For FFT-patterns mining in transactional database we proposed to mine only statistical information of the corresponding FFT-patterns and we have shown with several experiments that such statistics are suf\336cient to describe the characteristic of an itemset We have developed a new framework called BIAS framework for mining FFT-patterns based on backtracking algorithm ILP constraints and aggregation statistics We have also shown that this framework can be used to ef\336ciently mine several variants of FFT-patterns For future work we plan to analyze the utility of statistical information in real world data We are also interested in analyzing the impact of each relaxation criteria and in researching the problem using proportional relaxation This technique may also be applied to other problems such as sequential mining stream mining and graph mining 
+frequent itemsets much even though the number of FFTpatterns grows exponentially Figure 2\(e This fact cannot be discovered if we enumerate all patterns as in doesn\325t affect the number of FFT-itemsets much Figure 2\(h 
+patterns even though the ratio is not as dramatic as in FFT  M Abramo witz and I A Ste gun eds  Dover Publications New York 1964  R Agra w al T  Imielinski and A N Sw ami Mining association rules between sets of items in large databases In  McGraw-Hill New York 1985  J L K oh and P W  Y o An ef 336cient approach for mining fault-tolerant frequent patterns based on bit vector representations In 
+281 
+281 
+281 
+281 
+281 
+
+
+R EFERENCES  O  Lassila and D  M cGuinness The role of frame-based representation on the semantic web 2001  R  M izoguchi  T u torial on ontological engineering part 1 Introduction to ontological engineering New Generation Computing OhmSha&Springer  vol 21 no 4 pp 365ñ384 2003  C  L agoze a nd H V  de Sompel The open a rchi v e s i nitiati v e  B uilding a low-barrier interoperability framework in Conference Proceedings of Joint Conference on Digital Libraries JCDLí01 Roanoke VA USA  Joint Conference on Digital Libraries June 2001 pp 54ñ62  C  Z h and O  P  Domain ontology management en vironment  i n Proceedings of the 33rd Hawaii International Conference on System Sciencesí00 HICSSí00 Hawaii January  2000  V  P  N a v igli R  Learning domain ontologies from document w arehouses and dedicated web sites Computational Lingistics 30 2 2004 pp 151ñ179  M  D  B  S  J  M  Ljubi P  La vra N Plisson J   A utomated structuring of company competencies in virtual organizations in Proceedings of the Conference on Data Mining and Data Warehouses 2005 SiKDD 2005 Ljubljana Slovenia October  7th International Multi-conference on Information Society ISí05 October 2005 p 4  J  P lisson D Mladeniae P  Ljubi  c N Lavra  c and M Grobelnik Using machine learning to structure the expertise of companies Analysis of the yahoo business data in Conference on Data Mining and Data Warehouses SiKDD 2005 Proceedings  7th International Multiconference on Information Society ISí05 2005 p 4  B  N  K arouri L Auf a ure M A Conte x t-based h ierarchial clustering for the ontology learning Proceedings of the IEEE/WIC/ACM International Conference on Web Intelligence WIí06 Hong Kong Japan December 420-427  D  J  a nd B W  2007  The s emantic gro w bag algorithm Automatically deriving categorization systems in Proceedings of the 11th European Conference on Research and Advanced Technology for Digital Librariesí07 ECDLí07 Budapest Hungary September  2007  B Fung K W a ng and M  E ster   Hierarchical document clustering using frequent itemsets in Proceedings of the Third SIAM International Conference on Data Mining SDMí03 San Francisco California May  May 2003 pp 59ñ70  G Salton a nd J McGill Introduction to Modern Information Retrieval  McGraw-Hill 1983  M A Medina J  S  anchez Y Ostr  ovskaya and N R Brisaboa Ontosir An oai service for multi-collection document retrieval based on ontologies of metadata records in LA-WEB 06 Proceedings of the Fourth Latin American Web Congress LA-WEBí05   B Liu W  Hsu and Y  M a Inte g rating classi\036cation a nd association rule mining in Knowledge Discovery and Data Mining  1998 pp 80ñ86 A v ailable citeseer ist.psu.edu/liu98inte g rating.html  M A Medina J  S  anchez and J A Paz Document retrieval from multiple collections by using lightweight ontologies in Proceedings of the Fifteenth International Conference on Computing CIC-2006  IEEE Computer Society November 2006 pp 141ñ146  R A Medina M.A Snchez J.A Describing document h ierarchies by using markup languages in Taller de tecnologas del lenguaje humano Proceedings of the Seventh Mexican International Conference on Computer Science 2006 ENC 06 San Luis Potos Mxico September  IEEE Computer Society September 2006  M Steinbach G  K arypis and V  K umar   A c omparison of document clustering techniques 2000 A v ailable citeseer.ist.psu.edu/steinbach00comparison.html  A K Jain and R  C  D ubes Algorithms for clustering data  Upper Saddle River NJ USA Prentice-Hall Inc 1988  L Kaufman a nd P  Rousseeuw  Finding Groups in Data an introduction to cluster analysis  Wiley 1990  M Rasmussen a nd G Karypis gcluto a n i nteracti v e clustering visualization and analysis system University of Minnesota Department of Computer Science and Engineering CSE/UMN Technical Report TR04-021 2004  B Fung K W a ng and M  E ster  Hierarchical Document Clustering John Wand ed The Encyclopedia of Data Warehousing and Mining Idea Group 2004  L D.D Reuters-21578 te xt cate gorization test c ollection distribution 1.0 september 26 1997 A v ailable http://kdd.ics.uci.edu/databases/reuters21578/reuters21578.html June 28th 2008  P  V  K o sters W  A Pijls W    Comple xity analysis o f d epth 036rst and f pgrowth implementations of apriori in In Perner P Rosenfeld A Eds Maching Learning and Dataming in Pattern Recognition Proceedings MLDM 2003 Springer Lecture Notes in Arti\036cial Intelligence 2734 Springer Verlag  2003 pp 284ñ292  R Agra w a l a nd R Srikant F ast algorithms for m ining a ssociation rules in Proceedings of the 20th International Conference on Very Large Databases VLDBí94  Santiago Chile September 1994 pp 487 499  V  Jo v a noski and N  L a v ra 030 c Classi\036cation rule learning with apriori-c Proceedings of the 10th Portuguese Conference on Arti\036cial Intelligence on Progress in Arti\036cial Intelligence Knowledge Extraction Multi-agent Systems Logic Programming and Constraint Solving EPIA 01 Porto Portugal December  Y  Y  M R Han J  Pei J  Mining frequent patterns without candidate generation a frequent-pattern tree approach in Data Mining and Knowledge Discovery 8 1 53-87 Kluwer Academic Publishers ISSN 1384-5810  January 2004 pp 53ñ87  J N Fernandez M  G omez-Perez A Methontology from ontological art towards ontological engineering in Proceedings of the AAAI97 Spring Symposium Series on Ontological Engineering  Stanford USA March 1997 pp 33ñ40  G N W elty C  Supporting ontological analysis o f taxonomic relationships Data and Knowledge Engineering  vol 39 no 1 pp 51ñ74 2001  B J and W  N ejdl Ontologies and m etadata for elearning  i n HandBook on Ontologies S Staab R Studer International Handbooks on Information Systems  Springer 2004 pp 555ñ574  T  L Harrison A Elango J Bollen a nd M Nelson Initial e xperiences re-exporting duplicate and similarity computation with an oai-pmh aggregator  A v ailable http://arxi v  or g/abs/cs.DL/0401001   A pache l ucene o v e rvie w  cop y right 2006 the apache software foundation 2006 A v ailable http://lucene.apache.org/java/docs/index.html June 19th 2008  T  F  James B aile y  Franois B ry and S  S chaf fert  W e b a nd semantic web query languages A survey in Reasoning Web First International Summer School 2005 LNCS 3564 35-133 August 2005 ISBN 978-3540-27828-3  Springer 2005 pp 35ñ133  B Y ates and R  N eto Modern Information Retrieval  Addison Wesley 1999  D S Clark J  Xml path language xpath v ersion 1.0 W 3c recommendation 16 november 1999 1999 A v ailable  http://www.w3.org/TR/xpath June 25th 2008 
+125 
+
+
+default values. Clearly, MPFCI-BFS spends much more time than MPFCI does under the same parameters. In particular when min_sup is smaller, the growth rate of running time of MPFCI-BFS is much faster than that of MPFCI. This is because MPFCI-BFS lacks of effective pruning as superset/subset pruning. Fig. 12\(b\hows the running time of two algorithms while pfct varies from 0.1 to 0.9 and other parameters are default values. The running time of MPFCIBFS has slow growth with the decrease of pfct and is more than the running time of MPFCI. This is because that MPFCIBFS also includes Chernoff-Hoeffding bound-based pruning and such pruning mainly reduces the influence of the pfct to running time. So, the change of running time of MPFCI-BFS under pfct varying is smaller than the change under min_sup varying. We also tested other parameters; all results show that MPFCI is more efficient than MPFCI-BFS. This is because that Superset pruning and Subset pruning are effective pruning methods and MPFCI-BFS has to traverse much more search space. Due to space limit, we did n t show these results in here  a\ min_sup varying                                    \(b\pfct varying Fig. 12 Running time of MPFCI and MPFCI-BFS w.r.t different parameters VI  C ONCLUSIONS  In this paper, we propose a new problem of mining probabilistic threshold-based frequent closed itemsets in an uncertain transaction database We prove that even a subproblem of this problem, computing the frequent closed probability of an itemset, is #P-Hard. Due to the computational complexity of this problem, an effective and efficient depth-first search-based mining algorithm has been designed in order to obtain all probabilistic frequent closed itemsets. Moreover, several probabilistic pruning techniques are also designed to reduce se arch space and to avoid many complicated computations. Extensive experimental results show the effectiveness and efficiency of the mining algorithm A CKNOWLEDGMENT  The work described in this paper was partially supported by Hong Kong RGC GRF Project No. 611411; National Grand Fundamental Research 973 Program of China under Grant 2012CB316200 R EFERENCES  1  C. Aggarwal, Y. Li, J. Wang, J. Wang  Frequent pattern mining with uncertain data  in KDD 2009 2  R. Agrawal, T. Imielinski, A. N. Swami  Mining association rules between sets of items in large databases  in SIGMOD 1993 3  R. Agrawal, R. Srikant  Fast algorithms for mining association rules   in VLDB 1994 4  T. Bernecker, H.-P. Kriegel, M. Renz, F. Verhein, A. Zuefle  Probabilistic frequent itemset mining in uncertain databases  in KDD  2009 5  C. Bˆhm, A. Pryakhin, M. Schubert  The Gauss-tree: efficient object identification in databases of probabilistic feature vectors  in ICDE  2006 6  D. de Caen  A lower bound on the probability of a union   Discrete Math 169: 217-220, 1997 7  T. Calders, C. Garboni, B. Goethals  Efficient pattern mining of uncertain data with sampling  in PAKDD 2010  8  L. Chen, M. T. ÷zsu, V. Oria  Robust and fast similarity search for moving object trajectories  in SIGMOD 2005 9  C. Chui, B. Kao, E. Hung  Mining frequent itemsets from uncertain data  in PAKDD 2007   C. Chui, B. Kao  A decremental approach for mining frequent itemsets from uncertain data  in PAKDD 2008   B. Ding, D. Lo, J, Han, S. C. Khoo  Efficient mining of closed repetitive gapped subsequences from a sequence database  in ICDE  2009   G. Grahne and J. Zhu  Fast algorithms for frequent itemset mining using fp-trees   IEEE Trans. on Know. and Data Eng 17\(10\: 13471362, 2005   J. Han, J. Pei, Y. Yin  Mining frequent patterns without candidate generation  in SIGMOD 2000   R.M. Karp, M. Luby  Monte-Carlo algorithms for enumeration and reliability problems  in FOCS 1983   C. Leung, M. F. Mateo, D. A. Brajczuk  A tree-based approach for frequent pattern mining from uncertain data  in PAKDD 2008   M. Li, Y. Liu  Underground coal mine monitoring with wireless sensor networks   ACM Trans. on Sensor Networks 5\(2\: 10-29, 2009   L. Mo, Y. He, Y. Liu, J. Zhao, S. Tang, X. Li, G. Dai  Canopy closure estimates with GreenOrbs: sustainable sensing in the forest  in SenSys  2009   N. Pasquier, Y. Bastide, Taouil R, Lakhal  Discovering frequent closed itemsets for association rules  in ICDT 1999   J. Pei, J. Han, R. Mao  CLOSET: An efficient algorithm for mining frequent closed itemsets  in DMKD 2000   J. Pei, J. Han, H. Lu, S. Nishio, S. Tang, D. Yang  H-Mine: Hyperstructure mining of frequent patterns in large databases  in ICDM 2001   Y.S. Sathe, M. Pradhan, S.P. Shah  Inequalities for the probability of the occurrence of at least m out of n events   J. Appl. Probab 17: 11271132, 1980   L. Sun, R. Cheng, D.W. Cheung, J. Cheng  Mining uncertain data with probabilistic guarantees  in KDD 2010   L. Wang, R. Cheng, S. Lee, D. Cheung  Accelerating probabilistic frequent itemset mining: a model-based approach  in CIKM 2010   J. Wang, J. Han, J. Pei  CLOSET+: Searching for the best strategies for mining frequent closed itemsets  in KDD 2003   J. Wang, J. Han  BIDE: Efficient mining of frequent closed sequences  in ICDE 2004   X. Yan, J. Han  CloseGraph: mining frequent closed graph patterns  In KDD 2003   X. Yan, J. Han, R. Afhar  CloSpan: Mining closed sequential patterns in large datasets  in SDM 2003   M. J. Zaki  Scalable algorithms for association mining   IEEE Trans on Know. and Data Eng 42\(1/2\: 31-60, 2001   M. J. Zaki, C-J. Hsiao  Efficient algorithms for mining closed itemsets and their lattice structure   IEEE Trans. on Know. and Data Eng 17\(4 462-478, 2005   Q. Zhang, F. Li, K. Yi  Finding frequent items in probabilistic data  in SIGMOD 2008   Z. Zou, J. Li, H. Gao, S. Zhang  Mining frequent subgraph patterns from uncertain graph data   IEEE Trans. on Know. and Data Eng  22\(9\: 1203-1218, 2010   Z. Zou, J. Li, H. Gao  Discovering probabilistic frequent subgraphs over uncertain graph databases  in KDD 2010   L. Valiant  The complexity of enumeration and reliability problems   SIAM Journal on Computing 8\(3\: 410-421, 1979   P. Tang, E. A. Peterson  Mining probabilistic frequent closed itemsets in uncertain databases  in ACM Southeast Conference 2011    W. Hoeffding  Probability inequalities for sums of bounded random variables   Journal of the American Statistical Association 58 \(301 13  30, 1963   
+281 
+281 
 
 
 Knowledge Base Generation by Methodology  Rule1 IF A85<=0.50 AND A93<=0.50 THEN CLASS 1  Rule2   IF A85<=0.50 AND A93>0.50 AND A105 <=0.50 AND A97<=0.50 THEN CLASS 3   Rule3 IF A85<=0.50 AND A93>0.50 AND A105 <=0.50 AND A97>0.50 AND A100<=0.50   THEN CLASS 3   Rule4   IF A85<=0.50 AND A93>0.50 AND A105 <=0.50 AND A97>0.50 AND A100>0.50  AND A74<=0.50  THEN CLASS 1   Rule5 IF A85<=0.50 AND A93>0.50 AND A105 <=0.50 AND A97>0.50 AND A100>0.50 AND A74>0.50  THEN CLASS 3  Rule6 IF A85<=0.50 AND A93>0.50 AND A105 >0.50 AND A94<=0.50 AND A95<=0.50  THEN CLASS 1  Rule7 IF A85<=0.50 AND A93>0.50 AND A105 >0.50 AND A94<=0.50 AND A95>0.50  THEN CLASS 3  Rule8 IF A85<=0.50 AND A93>0.50 AND A105 >0.50 AND A94>0.50 THEN CLASS 3  Rule9 IF A85>0.50 AND A105<=0.50 AND A83 <=0.50 AND A88<=0.50 AND A75<=0.50 AND A82<=0.50 AND A63<=0.50 AND A89<=0.50 THEN CLASS 2  Rule10 IF A85>0.50 AND A105<=0.50 AND A83 <=0.50 AND A88<=0.50 AND A75<=0.50 AND A82<=0.50 AND A63<=0.50 AND A89>0.50    THEN CLASS 3  Rule11 IF A85>0.50 AND A105<=0.50 AND A83 <=0.50 AND A88<=0.50 AND A75<=0.50 AND A82<=0.50 AND A63>0.50   THEN CLASS 3  Rule12 IF A85>0.50 AND A105<=0.50 AND A83 <=0.50 AND A88<=0.50 AND A75<=0.50 AND A82>0.50 AND A93<=0.50    THEN CLASS 3  Rule13 IF A85>0.50 AND A105<=0.50 AND A83 <=0.50 AND A88<=0.50 AND A75<=0.50 AND A82>0.50 AND A93>0.50    AND A95<=0.50 AND A94<=0.50   THEN CLASS 1  Rule14 IF A85>0.50 AND A105<=0.50 AND A83 <=0.50 AND A88<=0.50 AND A75<=0.50 AND A82>0.50 AND A93>0.50    AND A95<=0.50 AND A94>0.50   THEN CLASS 3  Rule15 IF A85>0.50 AND A105<=0.50 AND A83 <=0.50 AND A88<=0.50 AND A75<=0.50 AND A82>0.50 AND A93>0.50    AND A95>0.50   THEN CLASS 2  Rule16 IF A85>0.50 AND A105<=0.50 AND A83 <=0.50 AND A88<=0.50 AND A75>0.50 AND A97<=0.50 THEN CLASS 3 Rule17 IF A85>0.50 AND A105<=0.50 AND A83 <=0.50 AND A88<=0.50 AND A75>0.50 AND A97>0.50 AND A94<=0.50 THEN CLASS 1  Rule18 IF A85>0.50 AND A105<=0.50 AND A83 <=0.50 AND A88<=0.50 AND A75>0.50 AND A97>0.50 AND A94>0.50 THEN CLASS 3  Rule19 IF A85>0.50 AND A105<=0.50 AND A83 <=0.50 AND A88>0.50 THEN CLASS 3  Rule20  IF A85>0.50 AND A105<=0.50 AND A83 >0.50 AND A88<=0.50 AND A89<=0.50 AND A97<=0.50 AND A100<=0.50   THEN CLASS 2 Rule21 IF A85>0.50 AND A105<=0.50 AND A83 >0.50 AND A88<=0.50 AND A89<=0.50 AND A97<=0.50 AND A100>0.50  AND A63<=0.50 THEN CLASS 2  Rule22 IF A85>0.50 AND A105<=0.50 AND A83 >0.50 AND A88<=0.50 AND A89<=0.50 AND A97<=0.50 AND A100>0.50 AND A63>0.50 AND A93<=0.50 THEN CLASS 2 Rule23 IF A85>0.50 AND A105<=0.50 AND A83 >0.50 AND A88<=0.50 AND A89<=0.50 AND A97<=0.50 AND A100>0.50AND A63>0.50 AND A93>0.50 THEN CLASS 1  Rule24 IF A85>0.50 AND A105<=0.50 AND A83 >0.50 AND A88<=0.50 AND A89<=0.50 AND A97>0.50 AND A93<=0.50 THEN CLASS 2  Rule25 IF A85>0.50 AND A105<=0.50 AND A83 >0.50 AND A88<=0.50 AND A89<=0.50 AND A97>0.50 AND A93>0.50 AND A100<=0.50 AND A73<=0.50   THEN CLASS 2  Rule26 IF A85>0.50 AND A105<=0.50 AND A83 >0.50 AND A88<=0.50 AND A89<=0.50 AND A97>0.50 AND A93>0.50 AND A100<=0.50 AND A73>0.50   THEN CLASS 1  Rule27 IF A85>0.50 AND A105<=0.50 AND A83 >0.50 AND A88<=0.50 AND A89<=0.50 AND A97>0.50 AND A93>0.50 AND A100>0.50 AND A94<=0.50 AND A95 <=0.50   THEN CLASS 1  Rule28 IF A85>0.50 AND A105<=0.50 AND A83 >0.50 AND A88<=0.50 AND A89<=0.50 AND A97>0.50 AND A93>0.50 AND A100>0.50 AND A94<=0.50 AND A95 >0.50   THEN CLASS 2  Rule29 IF A85>0.50 AND A105<=0.50 AND A83 >0.50 AND A88<=0.50 AND A89<=0.50 AND A97>0.50 AND A93>0.50 AND A100>0.50 AND A94>0.50   THEN CLASS 2  Rule30 IF A85>0.50 AND A105<=0.50 AND A83 >0.50 AND A88<=0.50 AND A89>0.50 THEN CLASS 3  Rule31 IF A85>0.50 AND A105<=0.50 AND A83 >0.50 AND A88>0.50 THEN CLASS 3  Rule32 IF A85>0.50 AND A105>0.50 AND A93<=0.50 AND A89>0.50 THEN CLASS 3  Rule33 IF A85>0.50 AND A105>0.50 AND A93<=0.50 AND A89<=0.50 AND A83>0.50  THEN CLASS 2  Rule34 IF A85>0.50 AND A105>0.50 AND A93<=0.50 AND A89<=0.50 AND A83<=0.50 AND A75>0.50 THEN CLASS 3  Rule35 IF A85>0.50 AND A105>0.50 AND A93<=0.50 AND A89<=0.50 AND A83<=0.50 AND A75<0.50 AND A73>0.50 THEN CLASS 3  Rule36 IF A85>0.50 AND A105>0.50 AND A93<=0.50 AND A89<=0.50 AND A83<=0.50 AND A75<0.50 AND A73<=0.50 AND A63>0.50 THEN CLASS 3  Rule37 IF A85>0.50 AND A105>0.50 AND A93<=0.50 AND A89<=0.50 AND A83<=0.50 AND A75<0.50 AND A73<=0.50 AND A63<0.50 THEN CLASS 2  Rule38 IF A85>0.50 AND A105>0.50 AND A93>0.50 AND A94<=0.50 AND A98<=0.50 AND A95<=0.50 THEN CLASS 1  Rule39 IF A85>0.50 AND A105>0.50 AND A93>0.50 AND A94<=0.50 A ND A 98<=0.50 AND A95>0.50 AND A97<=0.50 THEN CLASS 3  Rule40 IF A85>0.50 AND A105>0.50 AND A93>0.50 AND A94<=0.50 AND A98<=0.50 AND A95>0.50 AND A97>0.50 THEN CLASS 2  Rule41 IF A85>0.50 AND A105>0.50 AND A93>0.50 AND A94<=0.50 AND A98>0.50 AND A75<=0.50 THEN CLASS 2  Rule42 IF A85>0.50 AND A105>0.50 AND A93>0.50 AND A94<=0.50 AND A98>0.50 AND A75>0.50 THEN CLASS 1  Rule43 IF A85>0.50 AND A105>0.50 AND A93>0.50 AND A94>0.50 AND A88<=0.50 THEN CLASS 2  Rule44 IF A85>0.50 AND A105>0.50 AND A93>0.50 AND A94>0.50 AND A88>0.50 THEN CLASS 3 

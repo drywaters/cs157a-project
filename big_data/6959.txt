@@ -1,74 +1,932 @@
-Making Unstructured Data SPARQL  Using Semantic Indexing in Oracle Database Souripriya Das, Seema Sundara  Matthew Perry, Jagannathan Srinivasan, Jayanta Banerjee  Aravind Yalamanchi   Oracle Nashua, NH 03062, USA first.last@oracle.com aravind.yalamanchi@gmail.com \(work done at Oracle  Abstract  This paper describes the Semantic Indexing feature introduced in Oracle Database 11g Release 2 for indexing unstructured text \(document\columns. This capability enables searching for concepts such as people, places, organizations, and 
-events\ddition to words or phrases, with further options for sense disambiguation and term expansion by consulting knowledge captured in OWL/RDF ontologies. The distinguishing aspects of  our approach are: 1 Indexing Instead of building a  traditional inverted index of \(annotated\ token and/or named entity occurrences, we extract the entities, associations, and events present in a text column data and store them as RDF named graphs in the Oracle Database Semantic Store.  This base content can be further augmented with knowledge bases and inferred triples \(obtained by applying domain-specific ontologies 
-and rulebases Querying Instead of relying on proprietary extensions for specifying a search, we allow users to specify a complete SPARQL query pattern that can capture arbitrarily complex relationships between query terms.  We have implemented this feature by introducing a sem_contains SQL operator and the associated sem_indextype indexing scheme The indexing scheme employs an extensible architecture that supports indexing of unstructured text using native as well as third party information extraction tools. The paper presents a model for the semantic indexing and querying, describes the 
-feature, and outlines its implementation leveraging Oracle's native support for RDF/OWL storage, inferencing, and querying We also report a study involving use of this feature on a TREC collection of over 130,000 news articles I  I NTRODUCTION  Semantic Web technologies are becoming increasingly popular in the enterprise. The use of semantics for data integration and logical inference are major reasons for the adoption of this technology. However, a major impediment to the use of this technology is the manual effort needed to convert legacy \(relational and unstructured\ data into a form that is suitable for semantic tools and applications 
-Furthermore, an estimated 80 to 85% of this legacy enterprise data is unstructured d ata [1 and th e ty pical w a y  to use this data has been to build an inverted index of tokens and occurrence data to support keyword search. This basic approach has been refined and improved over decades, and semantics have been used to direct the search by consulting thesauri and taxonomies to relate the query terms to other relevant concepts and properties This existing unstructured data can be further utilized by extracting named entities, concepts events, or in general, facts and representing this information explicitly as RDF data rather than augmenting the traditional inverted index. The semantic indexing of unstructured text \(documents\eature introduced 
-in Oracle Database 11g Release 2 is a realization of this approach [2 T h is f e atu r e  uses native and third party information extractors to au tomatically generate RDF named graphs from documents. The extracted RDF data can subsequently be used for document retrieval or as input to other semantic tools This approach has several benefits 1  The RDF triple representation [3 be u s ed to enco de  any set of facts. Thus, anything that is extracted can be represented in a straightforward manner 2  By adding one or more ontologies, we can enhance and/or refine the meaning of the extracted set of triples 3  We can infer additional triples by combining the 
-extracted triples with domain-specific ontologies and knowledge bases and then applying RDF/OWL semantics The set of inferred triples expands the effective information content of the documents 4  The index itself can be queried, potentially for crossdocument knowledge discovery For querying, we let users formulate a complete SPARQL  qu ery a g ains t th e pre popu lated repos itory of docum e n t specific named graphs, in conjunction with one or more RDF/OWL [5 tolog i e s Th is g i v e s u s er s th e express i vit y  and conciseness of SPARQL, to express simple to arbitrarily complex relationships of query terms Example Let us consider a table containing archived news articles from a newspaper 
- news\(article_id NUMBER, news_date DATE 4000 After semantically indexing the text column \(as proposed above\ser can issue the following queries, where a sem_contains operator is used to identify each document that semantically satisfies a SPARQL query pattern, and the sem_contains_select operator returns bindings \(values for variables in the SPARQL query Query 1  Find articles about very young \(younger than 18 athletes who competed in the 1988 Seoul Olympics   SELECT article_id FROM news WHERE SEM_CONTAINS \(text s :competedIn  :SeoulOlympics1988  s :dateOfBirth ?dob 
-2012 IEEE 28th International Conference on Data Engineering 1084-4627/12 $26.00 © 2012 IEEE DOI 10.1109/ICDE.2012.59 1405 
-2012 IEEE 28th International Conference on Data Engineering 1084-4627/12 $26.00 © 2012 IEEE DOI 10.1109/ICDE.2012.59 1405 
+etc 
+Mehdi Adda  Lei Wu  Yi Feng Department of Computer Science and Operations Research University Of Montreal QC Canada Department of Software Engineering Rochester Institute of Technology NY USA Computer Science Department Algoma University ON Canada adda@ieee.org wu@se.rit.edu feng@auc.ca 
+develop new algorithms to tackle the new challenges encountered or 
+knowledge to be directly interpreted or exploited to feed other processes In many cases data mining techniques are used to discover patterns that can be of interest to a speci\223c domain of application As a matter of fact different categories of patterns exist such as sequences itemsets association rules and graph patterns The choice of a technique depends not only on the nature of input data but also depends on what we want to obtain and what view or part of the data we want to be described or represented in a more intelligible and concise way To 223lter out the patterns some criteria are used The most known of them are the support and the con\223dence While the support represents the number of times a pattern occurs in the initial database a.k.a frequency the con\223dence represents a percentage value that shows how frequently a part of the pattern called premise occurs among all the records containing the whole rule body Herein we classify pattern categories according to the speci\223c use of the support threshold In fact by setting ranges for the support one can obtain different categories of patterns For example if we set a minimum support threshold that a pattern have to satisfy to be considered as an interesting pattern we obtain what is so called frequent patterns By setting a maximum support threshold we obtain another category of patterns called rare patterns Whereas frequent patterns focus on mining patterns that appear more frequently in the database rare patterns aim to discover patterns that are less frequent Rare patterns can be used in different domains such as biology and medicine 9 security 5 
+a.k.a i 
+Abstract 
+1 2 3 1 2 3 
+Rare Itemset Mining 
+ii 
+204 A pattern is a collection of events/features that occur together in a transaction database Previous studies in the 223eld are often dedicated to the problem of frequent pattern mining where only patterns that appear frequently in the input data are mined As a result patterns involving events/features that appear in few data sets are not captured In some domains such as the detection of computer attacks fraudulent transactions in 223nancial institutions those patterns also known as rare patterns are more interesting than frequent patterns We propose a framework to represent different categories of interesting patterns and then instantiate it to the speci\223c case of rare patterns Later on we present a generic framework to mine patterns based on the Apriori approach In this paper we are interested by the patterns composed of a set of items also called itemsets Thus we instantiate the generalized Apriori framework to mine rare itemsets The resulting approach is Apriori-like and the mine idea behind it is that if the itemset lattice representing the itemset space in classical Apriori approaches is traversed on a bottom-up manner equivalent properties to the Apriori exploration of frequent itemsets are provided to mine rare itemsets This include an anti-monotone property and a levelwise exploration of the itemset space As demonstrated by our experiments our approach is effective in identifying all rare itemsets and is more ef\223cient than the existing approach 
+adapt existing algorithms and techniques to 223t the new problem The 223rst path may need more energy and may take more time whereas the second alternative could be of help in cases where the 
+I I NTRODUCTION Nowadays data mining techniques are widely used to process huge amount of information in order to extract more valuable data  
+For example in medicine by analyzing clinical databases one can discover rare patterns behind them that will help to make decisions about the clinical care In the security 223eld normal behavior is very frequent whereas abnormal or suspicious behavior is less frequent Considering a database where the behavior of people in sensitive places such as airports are recorded if we model those behaviors it is likely to 223nd that normal behaviors can be represented by frequent patterns and suspicious behaviors by rare patterns As one can notice each category of patterns explores the data seeking for a speci\223c kind of knowledge Other categories of patterns than frequent and rare patterns can be mined For example one can also be interested by the patterns with a frequency smaller that an upper limit and greater than a lower limit However the existing frameworks generally deal only with a speci\223c category of patterns In this paper we start by proposing a generalized framework to model the different categories of patterns based on the frequency constraints and that take into account the possibility of having data set and the pattern spaces at different levels of abstraction The proposed framework is later on used to instantiate the two families of patterns that are of interest to us frequent patterns and rare patterns In one side several techniques and algorithms have been developed in order to ef\223ciently mine either frequent patterns or a subcategory of frequent patterns such as closed and maximal patterns 6 Ho we v er  until now few algorithms and techniques are developed to mine rare patterns Algorithms usually used to mine frequent patterns are not suitable for mining rare patterns In fact in order to discover rare patterns the frequent pattern mining algorithms have to set the support to a low value which will result on a combinatorial explosion and will produce a huge number of patterns with only part of them are rare Thus techniques adapted to rare patterns have to be developed As for any new 223eld there is two possibilities 
+Sixth International Conference on Machine Learning and Applications 0-7695-3069-9/07 $25.00 © 2007 IEEE DOI 10.1109/ICMLA.2007.106 73 
+Sixth International Conference on Machine Learning and Applications 0-7695-3069-9/07 $25.00 © 2007 IEEE DOI 10.1109/ICMLA.2007.106 73 
+Sixth International Conference on Machine Learning and Applications 0-7695-3069-9/07 $25.00 © 2007 IEEE DOI 10.1109/ICMLA.2007.106 73 
+Sixth International Conference on Machine Learning and Applications 0-7695-3069-9/07 $25.00 © 2007 IEEE DOI 10.1109/ICMLA.2007.106 73 
+Sixth International Conference on Machine Learning and Applications 0-7695-3069-9/07 $25.00 © 2007 IEEE DOI 10.1109/ICMLA.2007.106 73 
+Sixth International Conference on Machine Learning and Applications 0-7695-3069-9/07 $25.00 © 2007 IEEE DOI 10.1109/ICMLA.2007.106 73 
 
 
-FILTER\(?dob > "1970-0917"^^xsd:date     Query 1 may require augmenting the extracted RDF with RDF/OWL Ontology or knowledge base, which is supported by the notion of an augmented policy See Section 2 Query 2 Refinement of Query 1 using OPTIONAL is possible, e.g if the athlete won a medal, additionally return information about it  SELECT article_id SEM_CONTAINS_SELECT\(1 FROM news WHERE SEM_CONTAINS \(text  s :competedIn  :SeoulOlympics1988  s :dateOfBirth ?dob OPTIONAL {?s :awarded ?medal FILTER\(?dob > "1970-09-17"^^xsd:date      We have implemented semantic indexing and search capability in Oracle Database 11g Release 2 by leveraging Oracle’s native support for RDF/OWL storage, querying, and inferencing [6  ten sibilit y Fra m e w ork   For indexing, a new sem_indextype indexing scheme has been introduced that uses an extensible architecture to allow plugging in a native Oracle extractor as well as third-party text extraction tools such as GATE [8  Op enCalais 9 L y m b a  10 etc. B y def i n i ng  m u l tiple in de x policies u s er c a n  perform extraction on a text colu mn using multiple extractors and the extraction results are natively stored in Oracle as a set of named graphs For querying, we have introduced a sem_contains SQL operator for specifying semantic search queries.  We support two ancillary operators: 1 sem_contains_count returns the number of matches in a document, and 2  sem_contains_select returns the solution bindings 4 fo r  matched documents. \(See Section III for more details We conducted a study by loading a TREC document collection [1 s is ti ng of  ov er 130,0 00 n e w s articles f r o m  LA Times, which demonstrates the feasibility of our approach We believe the proposed approach opens up new possibilities for searching unstructured data, as well as poses interesting challenges \(see Table I The extraction step can be as simple as collecting tokens to as complex as Natural Language Processing, which in turn can make use of gazetteers, ontologies, and knowledge bases. The storage of extracted data as RDF triples makes it easily available for further analysis using SPARQL A notable benefit of our approach is the ability to augment the index data through inferencing This has become possible in part, due to maturing of semantic technologies in general including wider adoption of W3C standards \(particularly RDF, OWL, and SPARQL Although Table I shows the comparison of the three approaches, it does not preclude us from using them together For example, in Oracle, one can create both an inverted index and semantic index on a text column and query them using a combination of contains and sem_contains operators The key contributions of the paper are as follows  a model for semantic indexing and querying  an index storage scheme using document-specific RDF named graphs  a querying scheme using SPARQL to find documents of interest  a mechanism for retrieving ancillary information for matched documents \(match count for each document and solution bindings for each match  an extensible architecture that allows plugging in native as well as third party information extraction tools  an implementation in Oracle using the Extensible Indexing Architecture and Semantic Technologies, and  an experimental study A  Related Work Keyword-based search on unstructured data is an extensively researched area [1 i t h recent w o rk  f o cus i n g  more on web content [12  Th is h a s been ex ten d ed in v a ri ou s  ways to support semantic search One of the earliest works on semantic search [13 discussed  maintaining an index using pre-determined concepts describing the objects instead of their lexical values, which allowed broadening the notion of key from a lexical string to a related concept. Along similar lines, [14 in dexes co n c epts  present in documents by building a conceptual taxonomy which is subsequently used for retrieval. It also introduces a relaxation ranking’ algorithm, where the inexact match es are assigned penalty scores TABLE  I C OMPARING T HE T HREE A PPROACHES    Inverted Index with Keyword-based search XML Index with XQuery/XPATH based search Semantic Index with SPARQL-based search Extraction Usually Proprietary; can combine, e.g. UIMA[19  Typically, the column itself holds XML document Multiple extractors outputs can be easily combined Index Format Proprietary and optimized Proprietary and optimized W3C Standard RDF based but verbose Augmenting the Index Addition of  taxonomies thesaurus, possible Usually no augmentation done Can be augmented with any OWL/RDF ontologies and  Inferred Triples Query Keyword-based Search XPATH/XQuery based Search SPARQL based Search \(for documents Query Index itself Typically not allowed Typically not allowed Can be queried with SPARQL \(for triples Ranking Measures Sophisticated measures developed over three decades Exact matches so ranking usually not done Simple measure available; Need to develop further ranking measures 
-1406 
-1406 
+abce  
+id 
+003 003 003 003 003 003 003 003 003 003 003 003 003 003 003 003 003 003 003 003 003 003 003 003 
+b c d e 
+ad ae de acde 
+     
+a b c d e abe bcd bce 
+002 
+AfRIM 
+0 
+abc abd abe acd ace ade bcd bce bde cde 3 111 1 11 1 0 1 
+AfRIM 
+  The set of rare itemsets we are looking for are those in the lattice with support less than 3 The rest of itemsets are frequent having support greater or equal to 3 In Figure 1 rare itemsets are drawn with ovals where frequent itemsets are drawn with rectangles Thus after counting the frequencies of each itemset we obtain the following set of rare itemsets 
+ab ac ad ae ab ac ad ae 
+t 
+b d 5 a 
+d 
+bd bd cd ce abd bde 
+3 3 1 1 32 1 2 21 
+pattern  Frequent pattern 
+t t t t t 
+ 
+002 
+      
+D 
+a b c d a b c e 
+denoted by 
+1 2 
+have 2 as support and we denote it by 
+ where the alphabet letters are considered as items Given the database of transactions such as presented in Table I our goal is to 223nd the set of items also called itemsets that are present in at most two transactions The number of times an itemset occurs in the database is called the itemset support In our case the maximum support is equal to 3 The set of all itemsets that can be generated from the transaction database are presented in Figure 1 by a diagram of the subset lattice for 223ve items with the associated frequencies in the database In the lattice each level is composed of itemsets having the same length The top element in the lattice is the empty set and each lower level k contains all of the itemsets of length k also denoted k-itemsets and the last level contains an itemset composed of all items i.e  
+is present in the transactions 
+                 abcd  abde    bcde  
+002 
+002 002 
+2 2 1 1 2 1 2 2 1 1 1 1 1 1 1 1 0 1 0 1 0 
+002 
+b 
+abcd abde abce acde bcde 10 01 0 abcde 0 
+002 
+    
+algorithm are described in Section VI Concluding remarks and perspectives are presented in Section VII II T HE PROBLEM OF RARE ITEMSET MINING In this section we present an example of rare itemset mining The input data is composed of a database of transactions and each transaction is identi\223ed by an 
+003 002 
+0 
+ 
+44442 
+t 
+Apriori for Rare Itemset Mining The experimental results of mining rare itemsets using the 
+be ace cde abcde 
+bd bd acd ade 
+e 
+002 002 002 002 002 002 002 002 002 002 002 002 002 
+ In fact the itemset  III R ELATED W ORK The previous methods to mine itemsets can be divided into two categories namely frequent itemset mining and rare itemset mining techniques Whereas the problem of frequent itemset mining have been widely studied and many algorithms have been proposed the problem of rare itemset mining just begin to spark the researchers interest and today only one algorithm is proposed to mine all rare itemsets Frequent and rare itemset approaches are brie\224y reviewed in this section 
+002 002 
+and 
+1  2  3  4  5  
+002 002 
+1 
+Itemset space has two properties a monotone property and an anti-monotone property They are as follows every nonempty subset of a frequent itemset is a frequent itemset and every superset of a non-frequent itemset is non-frequent Based 
+new problem can be directly linked and represented using all the background and knowledge gathered when solving old problems As a matter of fact there are two possibilities either develop dependent applications and techniques for rare pattern mining or exploit existing frameworks and adapt them to our problematic In this paper we investigate the second way to tackle the problem of rare pattern mining Indeed we have investigated the adaptation of one of the well known approaches to mine frequent itemsets Apriori to the problem of mining the rare itemset mining That is our goal is to absorb the spirit of the Apriori approach used for frequent itemset mining and apply it to rare itemset mining We start by factorizing the key elements of Apriori approaches such as the traversal of the itemset space the pruning principle the combination of itemsets at a level to generate new itemset in the next level and then we propose an Apriori generalized framework that abstracts those elements With the Apriori generalized framework on hands the instantiation of a speci\223c framework to tackle the Apriori based mining approach for rare itemsets became straightforward The remainder of this paper is organized as follows The problem of rare itemset mining and related works are presented in Sections II and III Then a 223rst framework to represent different categories of interesting patterns is presented in Section IV In Section V we begin by presenting the main idea behind our approach and show how the approach is effective using an example Then we present the generalized Apriori framework which by means of instantiation lead to an Aprioribased rare itemset mining approach and an algorithm called and composed of a set of items In the real world a transaction can be seen as the basket bought by a customer during a determined period of time day week month etc Each basket is composed of a set of items that are purchased together In Table I we represent an abstract database denoted by  Lines between nodes show a subset relationship between itemsets For each itemset we computed its support For example the itemset composed of the items 
+A Frequent Itemset Mining 
+Rare 
+b d 
+id  Transaction  TABLE I T RANSACTION DATABASE Fig 1 Lattice representing an hierarchically ordered space of itemsets and their frequencies Frequent itemsets are represented by squares and rare itemsets by ovals 
+c d e 
+bc bd be cd ce de bc bd be cd ce de 
+a b c 
+74 
+74 
+74 
+74 
+74 
+74 
 
 
- A subsequent work [15 in v o l v ed in dexi n g  w o rd senses b y  consulting WordNet [16 to f u rth e r disa m b i g u ate th e m e an i ng of words, whereas [17 in de x e d n a m e d enti ties occu rring in the documents.  The problem of recognizing named entities in a query \(as opposed to in the conten t\s considered in to understand the intent of the user and hence improve the ranking of results. This is complementary to our work, in that the identified named entities can subsequently be specified as a SPARQL pattern to be searched in the indexed document collection Our indexing mechanism can handle multiple extractors similar to the way UIMA framework [19 allow s t h e sa m e te x t  to be analyzed using multiple extractors The work on information retrieval in semantic web [20  annotates the document to include extracted RDF triples \(after expanding with inferred triples which can then be searched using a DAML query. In contrast, we do not embed the extracted triples in the document but store them as a document-specific named graph in a RDF store. This can be augmented with additional ontologies, if needed, and we allow inference on the extracted named graph in conjunction with one or more ontologies The paper on semantic annotation, indexing, and retrieval 21 m a k e s a case f o r a stan d a rd u pper level on tology a n d th e  need to encode the extracted knowledge formally.  Our extensible framework for plugging in any information extractor can easily take adva ntage of the extractor’s support for such ontologies. Also, the use of SQL and semantic ranking differentiates our work from theirs B  The Organization of Rest of the Paper Section II introduces the key concepts. Section III describes the semantic indexing feature in Oracle database. Section IV discusses the design consider ations. Section V presents the experimental study. Section VI concludes the paper II  K EY C ONCEPTS  In this section we first introduce terminology related to RDF and SPARQL, and then we present the key concepts A  Terminology RDF concepts The basic unit of data stored in RDF is a subject, predicate, object triple that describes the value  object a property predicate a resource subject e value \(object\ itself be a simple value or a resource. Each resource is identified by a UR I \(Uniform Resource Identifier 3 m p le v a l u es are spec if ied  u s i n g RD F literal s A tri p le is also seen as an edge in a directed, labeled graph where a directed edge, labeled predicate, connects the subject  node to the object node An RDF graph is a set of RDF triples. An RDF graph may optionally be identified by a URI Such a graph is referred to as a named graph An RDF graph without an identifier is referred to as an unnamed graph For example, Table II shows RDF triples contained in two named graphs gMA and gNY  Note that each triple in Table II is identified by a letter for later reference TABLE  II S AMPLE RDF  D ATA   An RDF dataset is a collection of one unnamed graph referred to as the default graph d zero or more named graphs. The default graph can be empty SPARQL query language SPARQL is a W3C recommendation [4 o r qu ery i ng R DF g r ap hs usi n g  graph  patterns The graph pattern used in a query may consist of one or more basic graph patterns \(BGPs FILTER clauses, and more complex graph patterns involving OPTIONAL and UNION  clauses. A query uses variables denoted with prefix  the graph pattern and returns solutions each solution consisting of bindings for \(some of\he variables specified in the SELECT  list. Each solution represents a matching subgraph consisting of the set of triples \(edges\that identify a match with the graph pattern in the query Consider the following query to evaluate against each of the RDF graphs, whose URIs are specified in the FROM  NAMED  clauses SELECT ?g ?city ?state FROM NAMED :gMA FROM NAMED :gNY WHERE {GRAPH ?g {?ct rdf:type   :City ct geo:name   ?city OPTIONAL {?st geo:StateCap ?ct st geo:name ?state The solutions are shown in Table III. It shows that multiple matching subgraphs can be found in a single named graph Specifically, there are two solutions \(2 nd and 3 rd row\ for graph gNY The solution in the 2 nd row returns a \(non-NULL binding for state due to a match with the OPTIONAL clause TABLE  III M ATCHING R ESULT S UBGRAPH  Triples in Matching Subgraph g city state 1: [a,b  gMA Acton   2: [r,s,v,u gNY Albany  NY  3: [p,q gNY New York    Document-centric vs. Co rpus-centric Inference  Inference  refers to the process of deriving additional triples by applying RDF/OWL semantics on an RDF dataset. In the context of a ID Graph URI Subject Predicate Object a gMA ma1 rdf:type City b gMA ma1 geo:name Acton  c gMA ma2 rdf:type State d gMA ma2 geo:name MA  p gNY ny1 rdf:type City q gNY ny1 geo:name New York  r gNY ny2 rdf:type City s gNY ny2 geo:name Albany  t gNY ny3 rdf:type State u gNY ny3 geo:name NY  v gNY ny3 geo:stateCap ny2 
-1407 
-1407 
+002 
+F 
+003 
+  
+d 002 
+002 2 002 2 002 2 002 2 002 2 
+2 003 2 002 003 2 1 1 2 1 2 
+f  
+w.r.t 
+003 
+b 
+from 
+1 1 
+composed of patterns and the data one 
+0 
+013 
+D D D D 
+002 
+D 
+d 
+records see De\223nition 4.3 Proposition 4.1 states that the coverage set is equivalent to the largest family of patterns 
+002 
+D 
+002 
+002 
+f 
+2 
+D 
+that are instances of 
+003 
+a universe 
+and 
+between patterns denoted by 
+C 
+and a super-pattern thereof 
+returns the value 
+and 
+002 
+ 
+           
+005|D 
+f 
+Proposition 4.1 
+b 
+b 
+002  003 
+002 
+minsupp 
+1 1 
+003 
+D 
+d 
+is instance of at least one pattern from 
+t 
+002 003 
+D\004 
+Let 
+002 
+also known as cardinality 
+007 
+Remark 4.1 
+002 
+  
+Apriori-rare 
+002 
+d 
+003 003 D D D D D D D 
+support 
+f 
+0 
+f 
+composed of sets of items from 
+F 
+ 
+C 
+be the pattern and data spaces respectively 
+and the family of patterns 
+C 
+003 
+with respect to the data set space 
+ 
+1 
+Arima 
+f 
+C 
+maxsupp supp supp supp supp 
+005 
+003 
+such that  
+D 
+002 
+t 
+a.k.a a.k.a 
+is instance of a pattern 
+005 
+F 
+B Frequent pattern mining and Rare pattern mining instances of the generalized framework 
+generality 
+D 
+D D 
+ as well We de\223ne the domain of interpretation of a pattern 
+1 2 1 003 002 003 002 003 002 002 003 002 003 1 2 1 2 1 1 002 003 1 
+f 
+be a subset of the data set 
+ 
+De\223nition 4.1 
+that are present in 
+006 212 005 004 003 
+f f d 002 f f f d 002 f f f f d f 002 f f 002 f     002 002 
+Arima 
+items 
+instantiation 
+ denoted by  More formally the mapping  subset of the data space and that have support within the interval 
+ 
+002 
+n 
+made of records combining items from 
+D 
+002 
+003 
+b 
+F 
+ 
+002  002  
+002 1 002 1 002 1 002 1 002 1 
+2 
+002 
+002D 
+D 
+ Apriori-rare is a modi\223cation of the Apriori algorithm used to mine frequent itemsets Apriori-rare generates a set of all minimal rare generators also called MRM that correspond to the itemsets usually pruned by the Apriori algorithm when seeking for frequent itemsets The authors de\223ned an MRM itemset as a rare itemset that do not have any subset which is rare  IV G ENERALIZED FRAMEWORK FOR PATTERN MINING   threshold   the frequency or support of  corresponds to the number of data sets in  Two languages the pattern language  and  When a transaction say  otherwise its value is  Generality follows instantiation as given a pattern  The set of all those patterns constitute what we call the  A formal de\223nition is given below see De\223nition 4.2  The coverage of the data set  denoted by  is a set of patterns such that each pattern have at least one instance in   and  The patterns in  then  The second component consists of the pattern family  This family of patterns is also represented by the triplet  
+003 
+I 
+002 
+N 
+  
+coverage set 
+f 
+D\004 
+I 
+d 002 
+1 
+ denoted by at least in 
+ and a maximum frequency threshold between a data set and a pattern denoted by 002  each record in such that The coverage set of the data set space is the pattern space In other words records and at most in 
+003 
+    each record  as the set of the pattern instances When considering only a subset of the data set space say is de\223ned by of itemset collections or  such that is a set of patterns such that are also called interesting patterns  In the remainder of this paper a pattern mining problem will be represented by two entities The 223rst component is the underling framework composed of the pattern space the data space the generalization and instantiation relationships Thus the generalized framework stood for the quadruplet that represents a category of patterns contained in the data set 
+f 
+ and a minimum frequency or 
+instantiating 
+ also called itemsets a database 
+  
+patterns 
+  
+bD bC 
+ instantiates 
+ 
+Let Given a couple Given 
+003 
+002 
+002 
+D 
+the pattern space 
+B Rare Itemsets A Problem de\223nition 
+De\223nition 4.2 De\223nition 4.3 
+C 
+D 
+002 
+002 
+005|D 
+be a subset of 
+the pattern space and 
+003 
+ w.r.t  More formally we have the following  
+002 
+F 
+257 
+f 
+002 002 002 
+f 
+I 
+takes as input the set of rare MRMs and generates the set of all rare itemsets split into two sets the set of rare itemsets having a zero support and the set of rare itemsets with non-zero support Rare itemsets are generated by growing each itemset in the MRM set In fact if an itemset is rare then any extension of that itemset will result a rare itemset To make the distinction between zero and non-zero support itemsets the support of each extended itemset is calculated For the sake of concision we latter on refer to this approach as 
+t 
+in 
+D 
+0 
+D 006 D D D  F 002 
+composed of itemset transactions and two binary relations underly the problem the 
+ 
+F 
+Recently a work presented in proposes an approach mine rare itemsets that is based on the Apriori algorithm used to mine frequent itemsets The main idea consists at traversing the itemset space by the Apriori algorithm used to mine frequent itemsets and collect at each level the itemsets that are usually pruned out in the original algorithm and are used as seed for a second algorithm in order to mine the remaining rare itemsets In this perspective the approach mines rare itemsets using two algorithms  The general problem of pattern mining can be summarized as follows Consider a universe of objects or Frequent pattern mining and rare pattern mining are a special case of pattern mining and can be modeled using the framework de\223ned above In one hand the problem of frequent pattern mining consists at looking only for patterns with 
+on those property the algorithm Apriori w as de v eloped to ef\223ciently mine frequent itemsets Later on new algorithms have been proposed to mine frequent itemsets such as Eclat  FP-Gro wth 4 and TM 10 A recent surv e y on frequent itemsets mining techniques is presented in The Apriori approach was widely and successfully used to generate all frequent itemsets contained in a transaction database Apriori exploits the monotonicity property of the support of itemsets Apriori-based algorithms perform topdown breadth-\223rst search through the space of all itemsets In the 223rst pass the support of each individual item is counted and the frequent ones are inserted to the frequent itemset set of level 1 In each subsequent pass the frequent itemsets determined in the previous pass is used to generate new itemsets called candidate itemsets The support of each candidate itemset is counted and the frequent ones are determined This process continues until no new frequent itemsets are found  See De\223nition 4.1 such that where represents the number of records contained in of pattern and data spaces and the data set such that  Pattern mining amounts to extracting the family  the pattern family 
+002 
+D D D  D 003 
+003 
+Arima 
+002 
+75 
+75 
+75 
+75 
+75 
+75 
 
 
-text column holding documents, two types of inference are possible: 1 Document-centric inference Here the inference is scoped to an individual named graph of extracted triples and the inferred triples inherit the na me of the source graph, and 2 Corpus-centric inference The corpus in our context refers to the document collection corresponding to the text column, and the inference in this case ta kes into consideration extracted triples of all named graphs. That is, it can result in additional triples being inferred due to multi-document inferencing. The resulting triples usually are not assigned a graph identifier and are stored as triples in an unnam ed \(default\raph.  We also use the term entailment to refer to the set of inferred triples Note that entailment, in this paper, is used to denote only the new triples derived by the inference process B  A Model for Semantic Index Content In this section, we describe the model for semantic index Semantic index content consists of several kinds of data as explained below. We assume here that the semantic index is created on an unstructured text column col of table T In the following, a lower case letter such as m denotes an element whereas an upper case letter such as M denotes a set Extracted Named Graphs \(G E  The base content of a semantic index is an RDF dataset that consists of named graphs created, one for each row of table T and populated with the RDF triples extracted from the unstructured data in that row, using a set of extractors. \(Note that, due to unique mapping between a row and the corresponding graph name for a given row, triples contributed by every extractor would be associated with the same named graph. However, triples for the named graphs generated by each extractor are managed as a separate unit to allow for fl exibility in altering the set of extractors.\he base content can be represented as follows G E X  T.col  000 named graphs, one per row, containing triples  extracted  from unstructured text in column col of table T   using each extractor in set X  Document-centric Inference based extensions to Named Graphs \(D I  Base content of a semantic index may be augmented by extending each named graph with additional triples that can be inferred by combining the triples in that graph, extracted using each extrac tor in a set, with triples in a set of ontologies O and applying rules in a set of inference rulebases R These extensions can be represented as follows D I X,O,R  T.col  000 the set of new named graph triples  inferred, with scope limited to one graph at a time  from triples in individual named graphs in G E X  T.col   using triples in each ontology in set O   applying rules in each rulebase in set R  Corpus-centric Inference based Default Graph \(C I  New triples derived by combining triples from two or more named graphs with set of ontologies O and applying rules in a set of inference rulebases R The content of this default graph can be represented as follows C I X,O,R  T.col  000 the set of new triples in the default graph  inferred, with scope spanning all the named graphs  from triples in two or more named graphs in G E X  T.col   using triples in each ontology in set O   applying rules of each rulebase in set R  Asserted Knowledge Base \(K A  Semantic index content may also be augmented by adding asserted knowledge from one or more knowledge bases. The asserted knowledge typically is stored as triples in the default  graph \(i.e., with NULL graph name\, but named graphs may be included as well. For simplicity, we will assume that the asserted knowledge is stored in the default graph. The content of an asserted knowledge base can be represented as follows K A m  000 set of triples  asserted  in knowledge base named m  Inference based extension s to Knowledge Bases \(K I   Augmentation of semantic index content may also be done by adding a set of triples inferred from one or more knowledge bases by combining the set of asserted triples with one or more ontologies and applying inference rulebases K I M,O,R  000 set of triples  inferred  from triples in each knowledge base in set M   using triples in each ontology in set O   applying rules of each rulebase in set R  Content of a semantic index \(S In general, the content of a semantic index created on column col of a table T can be expressed as follows S  000 collection of named graphs and default graphs  G E X  T.col d  optionally, instance\(s D I Y,O,R  T.col here typically Y=X but Y could be any subset of X and  optionally, instance\(s C I Y,O,R  T.col here typically Y=X but Y could be any subset of X and  optionally, instance\(s K A m where m is the name of any knowledge base, and  optionally, instance\(s K I M,O,R where M is a set of knowledge bases Example  Let us consider the table docTab Fig. 1-a\ne can create an extractor SomeExtr to extract from the docText  column two named graphs, one for each named graph G1  and G2  G E SomeExtr  docTab.docText Fig 1-b Next, suppose there is an ontology FamilyOnt containing RDF triples shown in Fig. 1-c. Applying OWL rulebase on combination of triples in each individual graph in G E SomeExtr  docTab.docText and the triples in ontology FamilyOnt we infer new triples for each graph identified by D I SomeExtr},{FamilyOnt},{OWL  docTab.docText in Fig. 1-d Furthermore, doing corpus-centric inference \(that is combining triples from both inference-extended named graphs G1 and G2 together\sing the FamilyOnt  ontology \(specifically, the rule that Father is an intersection of Parent and Male with OWL rulebase, we can create the 
-1408 
-1408 
+are not considered at all due to the fact that they are subitemsets of the non-rare itemset 
+002 
+What makes Apriori interesting is the ability to avoid the exploration of the whole itemset space In fact a great amount of non-frequent itemsets may be discarded in the mining process and only itemsets that are likely to be frequent are explored The key idea is that if an itemset is non-frequent so are all its supersets Such property is called the anti-monotone property To prune non-frequent itemsets Apriori exploits the antimonotone property on a top-down traversal of the itemset space Hence the patterns that contain a non-frequent itemset are pruned out from the mining space and only potential candidates are further considered for support test In the case of rare itemsets a top-down traversal of the itemset space can not bene\223t of such property to prune out non-rare itemsets In fact the top-down traversal of the itemset space 
+002 
+3 
+1 1 
+2 2 2 2 
+5 
+and 
+002 002 002 002 
+or which is less than the 223xed maximum support Consequently all the 
+002 
+002 
+A Apriori for Rare Itemset Mining  The main idea B Apriori for Rare itemset Mining  the details 1 Overview 
+ac ab ac ab ae ad 
+3 
+3 
+002 
+and 
+002 
+003 
+and 
+003 
+4 
+002 
+002 
+abc abe abd abc abc 
+acde acde bde bde ce cd 
+de 
+002 
+003 
+1 
+002 
+2 
+ 
+2 
+2 3 
+002 
+002 
+4 
+002 
+004 
+002 
+de 
+abce abcd abcd abce 
+bcde bcde 
+b c abde cde ace acd cde bc bc be bd 
+supp ade 
+002 
+that have in common 
+is 
+002 
+002 002 
+F 
+a 
+is generated by intersecting 
+and 
+002 
+002 
+4 
+the set of items contained in a transaction of the database 
+1 
+k 
+D 
+002 
+1 1 1 1 
+5 
+002 
+2 
+d 
+I 
+because its support  
+and 
+3 
+002 
+002 
+002 
+002 002 002 002 
+  
+2 
+I 
+002 
+1 
+D D 
+002 
+3 
+1 
+i.e 
+002 002 003 003 003 003 003 003 003 003 003 003 
+2 
+004\003 I I 
+and 
+3 
+0 
+002 
+002  4 3 
+candidate pruning 
+5 
+we start by looking for rare itemsets with size from 
+ 0  0 
+we obtain the candidates 
+002 
+is the result of the intersection of the rare itemsets 
+002 
+obtained in the previous stage by removing one item at once from it That is when we remove the item 
+t 
+is the 
+or 
+002 
+002 
+4 
+I D 
+F 
+2 
+002 
+and 
+be the transaction database presented in Table I and 
+D 
+3 
+  In other words in case where the data and pattern spaces are composed of items without generalization among them the frequent and rare pattern mining problems will be instantiated from the generalized framework by the quadruplet rare itemsets with support under rare itemsets we have to 223nd the rare itemsets rare itemsets rare itemsets and rare itemsets The initialization goes through a two stage process It begins by generating  the largest itemset composed of all items in candidate As we can notice this itemset is not present in any transaction which means its support is null  candidates from the rare itemset  and by removing items    respectively The support of each of those candidates is either rare itemsets The initialization process ends after generating the rare itemsets then starts a recursive process to generate the remaining itemsets The candidates are generated by intersecting rare itemsets of size  and  By further combining the rare itemsets we obtain the remaining candidates       candidate and keep only rare ones The only candidate that is discarded from the set of rare itemsets is  is greater than the 223xed maximum threshold Similarly to the previous step the rare itemsets are combined in such a way to generate the set of candidates by intersecting itemsets having candidate  However the itemsets     This principle is also called rare itemsets generated at this stage are        In the last step the candidates are generated by intersecting the    The only rare itemset is rare itemset  This example con\223rms our initial assumptions and encourage us to explore further the approach and build a novel method for rare itemset mining on a top of a generalized theoretical framework for itemset mining we propose 
+002 
+002 
+002 
+and 
+D\004 
+ Once again we check the support of each 
+boil down to set-theoretic inclusion Hence the mining goal amounts to 223nding all the subsets of a family of sets contained in the cardinality of  also denoted  In our example to 223nd the we obtain the candidate candidates are rare itemsets  Indeed both have a support equal to rare itemsets obtained in the previous step Due to the pruning step the itemsets 
+ In other hand in rare pattern mining we are exclusively looking for non common patterns patterns with a frequency smaller than a 223xed threshold The problem is equivalent to extracting the family of patterns In both cases frequent pattern mining and rare pattern mining both data set and pattern spaces are reduced to sets of itemsets  while and  V R ARE ITEMSET MINING 
+4 
+002 
+212 
+ Our goal is to 223nd the set of items also called itemsets or itemsets that are present in at most two transactions The number of times an itemset occurs in the database is called the itemset support In our case the maximum support is set to 3 To 223nd rare itemsets of size  this itemset is also called a candidate of size 
+and 
+002 
+ k abcde abcde abcde bce bcd b c d b c d e e 
+1 1 
+4 
+002 
+ 
+items For example 
+are not considered and we can easily verify that the support of both 
+ 
+items in common For example the intersection of the 
+F I 002 003 003 003 003 003 003 003 003 003 003 003 003 003 003 003 003 003 003 002 003 003 003 003 003 003 002 003 003 003 003 003 003 003 003 003 003 003 
+002 
+3 
+3 
+F 
+The process can stop for two reasons  1 either there is no more candidates can be generated or we reach a level where all rare itemsets are composed of only one item In our case the process stops because no more candidate is generated from the 
+D D I I D D 
+1 
+4 
+k 
+002 
+002 
+002 
+002=\003=2 
+002 
+212 
+002 
+Our claim is that all non-frequent itemsets also called rare itemsets contained in a transaction database can be ef\223ciently mined using an Apriori-like approach by traversing the itemset lattice in a reverse way compared to the traversal performed in the classical Apriori approach The mining approach bene\223ts of the same advantages as Apriori does In other words the backward traversal method is endowed with a property that leads to prune out potentially non-rare itemsets in the mining process Starting from this assumption we show how the approach is effective and practical for 223nding all rare itemsets using an example and then we present the theoretical foundations of the approach Hereafter we give the intuition behind our approach to mine rare itemsets using an Apriori-like approach Let 
+support at least equal to a 223xed threshold More formally it is related to the extraction of the family of patterns and by the pattern families to  and by then is considered as a rare itemset This itemset forms the seed for the next step After that we generate the and where the itemsets that are subitemsets of a frequent itemset are not considered in any combination operation see Section V-B.2 The 
+2 
+4 
+76 
+76 
+76 
+76 
+76 
+76 
 
 
-default graph C I SomeExtr},{FamilyOnt},{OWL  docTab.docText  shown in Fig 1-e Fig. 1 A sample table and its extracted \(and inferred\ named graphs Next, suppose that we have a knowledge base GeoKB  containing the RDF triples shown in Fig. 2-b which also comprises the asserted knowledge set K A GeoKB  Let there be an ontology GeoOnt containing an RDF triple stating that locatedIn is a transitive property \(Fig. 2-a applying OWL rulebase on combination of the triples in the knowledge base GeoKB and the triples in ontology GeoOnt  gives us the inferred knowledge set K I GeoKB},{GeoOnt},{OWL Fig 2-c  Fig. 2 A sample Knowledge Base and its inferred triples  A semantic index may be created with base content comprising the named graphs in G E SomeExtr  docTab.docText  and optionally including the infe rence derived extensions in D I SomeExtr},{FamilyOnt},{OWL  docTab.docText nd C I SomeExtr},{FamilyOnt},{OWL  docTab.docText triples in K A GeoKB  and the inference based extension in K I GeoKB},{GeoOnt},{OWL  To understand the benefits of augmentation with inferred triples, consider a query for documents in docTab that  are about  males Use of just the base content G E SomeExtr  docTab.docText f this semantic index will not return any documents because the triples in none of the extracted named graphs G1 and G2 would match. However augmenting the base content with D I SomeExtr},{FamilyOnt},{OWL  docTab.docText the query will return the document  with docId 2 as a match Benefits of augmentation with the corpus-centric inference based extensions may be seen by considering a query for retrieving documents in docTab that  are about fathers growing up in Boston Augmenting the semantic index with C I SomeExtr},{FamilyOnt},{OWL  docTab.docText s us to retrieve the document corresponding to docId 1 as a match due to presence of the inferred triple Pat  rdf:type  Father as shown in Fig 1-e Similarly, the benefits of augmentation with asserted knowledge base can be seen by considering a query for documents in docTab that are about  adults growing up in a place located in MA Unless we augment the semantic index with the asserted knowledge set K A GeoKB it will not return the document with docId 1 as a match Similarly, benefits of augmentation with inference based extensions to a knowledge base can be seen by considering a query for documents in docT ab that are about  adults growing up in a place located in USA The query will return the document with docId 1 as a match only if we augment the semantic index with the inference based extension K I GeoKB},{GeoOnt},{OWL   C  Policy Descriptor for Se mantic Index Content A policy  descriptor may be used to describe the content to be included in a semantic index. In general, multiple policies may be associated with a semantic index and accordingly its content as a whole is a union of all the \(possibly overlapping contents described by the individual policies Base Policy descriptor The base content of a semantic index can be described by specifying a set of base policy descriptors Each base policy corresponds to an extractor \(that will be used for extraction\ and is specified as follows P B x  000 base policy descriptor  with extractor x  Augmented Policy descriptor To describe semantic index content that includes base content as well as augmentations one needs to include one or more base policies and the various kinds of augmentations P A X, M, I D I C I K 000 augmented policy descriptor  with base policy descriptor P B x for each extractor x in set X   augmentation with set M of asserted knowledge bases  augmentation with set I D of document-centric inference based extensions to named graphs \(Note: each inferred extension i D itself is based on base policies corresponding to extractors in a set, a se t of ontologies, and a set of rulebases  augmentation with set I C of corpus-centric inference based extensions stored in default graphs \(Note: each inferred extension i C itself is based on base policies corresponding to extractors in a set, a set of ontologies and a set of rulebases  augmentation with set I K of inferred extensions to asserted knowledge bases \(Note: each inferred extension 
-1409 
-1409 
+set union 
+a pattern at level 
+C 
+y 
+D D D D D D D D 003 003 
+x C f 1 f 1 
+O 
+SP SP SP SP 
+S 
+002 2 002 2 002 2 p 002 2 p s s p 002 2 p 002 2 p p p 
+t 
+b 
+f 
+F 
+G 
+k 
+      f f f 1 C f f 1 
+f 
+op op 
+Pattern composition 
+F 
+arg 2 arg 2 f 2 f 2 arg arg f 2 f 2 f 2 f 2 arg arg 
+to 
+ 
+    
+De\223nition 5.5 
+t t 
+S 
+P 
+GP GP GP GP GP 
+002 2 002 2 002 2 
+Given a pattern framework 
+f 
+  
+P 
+f 
+003 
+002 
+n n p p p 1 p 2 n p p p p p 1 p 2 n 
+f 
+by merging two patterns of level k-1 that share common k-2 items The merge operation is reduced to the 
+P 
+N 
+is interesting if all the associated patterns at level 
+is endowed with a rank function 
+A 
+003 
+Pruning principle 
+F 
+t 
+003 
+ 
+such that the pattern space can be discovered by traversing the levels de\223ned by  and a pattern w.r.t to  denoted by  The set of pattern operations will be represented by  In De\223nition 5.1 a pattern operation involves a list of arguments whose semantics are not presented for the sake of generality Thus speci\223c arguments with precise semantics have to be set for each pattern operation For instance the arguments can be but not exhaustively data related to a pattern or to a pattern component Based on De\223nition 5.1 we present two kind of more speci\223c operations  i generalization operations see De\223nition 5.2 and ii specialization operations see De\223nition 5.3 Whereas generalization operations lead to a more general pattern than the input patterns the specialization operations lead to a pattern that is more speci\223c than the combined ones is an element of then we have  is a relation from that associates to a pattern a more general one That is considering the pattern and  Finally based on the de\223nitions of pattern specialization and pattern generalization operations we de\223ne two more operations that combine two or more patterns and results a patterns which is wether more general or more speci\223c than the combined ones see De\223nition 5.4 and De\223nition 5.5 and if the patterns such that and if the patterns can be combined w.r.t 
+C 
+003 
+in and the list of arguments 
+f arg 1 
+t 
+De\223nition 5.3 
+we have 
+G 
+f 
+on 
+002 
+C 
+which is a special case of 
+002 002 
+ 
+G 
+reducing itemset sizes at each step starting from the itemset that contains all the items considered in the data set 
+Now to generate a pattern at a level a pattern operation that merges two or more interesting patterns of a precedent level is performed see De\223nition 5.1 
+F 
+   
+002 1 002 1 002 1 002 1 002 1 002 1 002 1 002 1 002 1 
+ In the next section we factorize the principles behind the classical Apriori framework and propose a generalized representation which by means of a speci\223c instantiation lead to formalize the Apriori rare itemset mining approach based on the principle enounced below  the pattern family  and a partial order that preserves the following monotone property  then all patterns in   the family of patterns  Generalization operations are represented by the set   For example as shown in Section III the classical Apriori approaches generate a pattern at a level 
+  
+F 
+It is noteworthy that the move from a level to another can be optimized For example some of those optimizations could be to re\223ne the pattern operations by de\223ning canonical operations and by then reduce the redundancy when generating the patterns or by reducing the amount of the candidates that are generated at each pass of the mining process by pruning out candidates that are likely to be not interesting The pruning principle is generally based on an antimonotone property de\223ned on the top of the pattern space endowed with a partial order see De\223nition 5.6 This property may state that some patterns will certainly not be interesting if we do already know that some patterns related to them are not interesting Doing so the set of candidates may be 
+An Aprioribased approach to mine interesting patterns have to traverse the pattern space and iteratively generate patterns at a level based on the interesting patterns of the precedent level To determine a level a range measure need to be de\223ned Usually such measure is closely related to the generality relationship among patterns and de\223ned as a function from  In other words the pattern space is layered and then traversed by moving from a level to another That is a level is composed of a set of patterns having the same rank value When traversing the sliced pattern space according to a rank function all interesting patterns will be reached see Proposition 5.1 The interesting patterns obtained in each pass are used to generate candidate patterns for the next pass The support of each candidate is then counted and the interesting ones are kept This process continues until no new interesting patterns are found or no new candidates are generated A pattern operation w.r.t a pattern family is de\223ned as an n-array relation that associates for a given pattern and a list of arguments another pattern in the same pattern family space More formally given the pattern framework that associates to a given pattern a more speci\223c one In other words if we denote this operation by A combining specialization operation denoted by can be combined w.r.t 
+f 1 
+003 003 
+002 002 
+f 
+O 
+O 
+003 003 
+f 1 
+bF 
+pattern operation  
+2 Apriori framework Proposition 5.1 De\223nition 5.1 De\223nition 5.2 De\223nition 5.4 
+F 
+C 
+is a pattern that belongs to 
+ The set of specialization operations is denoted by the symbol 
+D 
+F F 
+b 
+007 
+f 
+C 
+arg 1 
+Level-Wise traversal of the pattern space 
+t 
+  f   f   f   f   f   f 
+  arg   arg   arg   arg 
+w.r.t the partial order are interesting 
+is not endowed with an equivalent anti-monotone property to prune non-rare itemsets That is apriori no conclusion can be made about the frequency of an itemset just by knowing that its subsets are non-rare itemsets However an interesting property is that all supersets of a non-rare itemset are not rare Our idea is to exploits the later property to prune nonrare itemsets on a bottom-up traversal approach Indeed when exploring the itemset space from the bottom to the top if an itemset is not rare than all its supersets are not rare and by then are pruned out in the mining process In this respect instead of growing itemsets to obtain longer ones such as done in the classical Apriori approach we do the inverse  denotes the generalization operation then  is a specialization operation that transforms two or more patterns and the result is a pattern which is more speci\223c than the involved patterns That is to say is in than  is a generalization operation that transforms two or more patterns and the result is a pattern which is more general than the involved patterns For instance is in than operations 
+C 
+A pattern specialization operation w.r.t A pattern generalization operation w.r.t A combining generalization operation denoted by 
+C 
+S 
+77 
+77 
+77 
+77 
+77 
+77 
 
 
-i K itself is based on a set of asserted knowledge bases, a set of ontologies, an d a set of rulebases Policy instantiation A policy may be specified without associating it with any specific unstructured text column. The association would then be established at the time of semantic index creation Specifying an augmented policy involving inference based extensions becomes difficult in practice if we use the pure approach of postponing policy instantiation to the step of semantic index creation. This is because each such extension becomes verbose due to the need for specifying the set of policy extractors X e set of ontologies O e set of rulebases R hus in practice, one may first create the semantic index using the base policies \(plus optionally, any knowledge bases\hen create and name the inference based extensions so that any augmentation using such extensions can then be specified simply by using the names of the extensions \(instead of specifying their definitions using X  O and R The temporal constraint that this imposes may often be acceptable given the benefit of avoiding verbosity Policies and Index maintenance The inclusion of inference based extensions \(entailments\in a policy complicates index maintenance. Entailments are often pre-materialized using forward chaining for query processing efficiency. In such cases, entailments can become stale if the set of extracted triples used to generate the en tailments changes. Accordingly the status of an entailment can be VALID up to date INCOMPLETE missing inferences possible after insert\ or INVALID missing and/or incorrect inferences possible after delete\ce an entailment goes out of VALID status, the inference must be recomputed to become VALID again However, querying may be allowed for policies that include INCOMPLETE or INVALID entailments Alternative strategies can be used for frequently updated data. For example, to speed up incremental inference, truth maintenance strategies may be used. Furthermore, use of query-time backward chaining techniques can avoid the prematerialization altogether D  A Model for Querying Semantic Index We can classify the query requirements into two classes  Querying for matching documents  Querying for matching triples Query for matching documents Since we are searching an RDF dataset, which is a collection of named graphs \(extracted and inferred\ented with a default graph consisting of knowledge bases \(and any associated inferred triples\he SPARQL graph pattern p he natural choice for querying it The document matching function f m searches the semantic content S for pattern p with e as the acceptable level of validity for entailment componen ts and returns the set of matching documents D  D  d 1 d k  f m  S,p,e   Conceptually f m can be viewed as a SPARQL query containing the graph pattern p  SELECT ?g WHERE GRAPH ?g p  This query will be executed against the contents of a semantic index S and the bindings found for g will represent the matching documents D for f m In our scheme, a named graph uniquely maps to a row in the documents table and hence identifies the corresponding document in the unstructured text column that is being indexed We must relax the SPARQL graph semantics slightly however, to get the desired behavior for f m According to SPARQL graph semantics, all triples matched by the graph pattern p must be contained within the same named graph This restriction forbids p from matching any triples in the default graph, which may contain information from associated knowledge bases. We would like to relax this condition so that p can match triples from named graphs and triples from the default graph. To get the desired behavior for document match f m we use the following two restrictions on the triples t 1  t n  that form a solution to p   t i graph t j graph OR t i graph null OR t j graph null   AND at least one t i graph is non-null  The idea behind the second condition is that we would like at least one of the extracted or inferred triples from a document to be present in the solution in order for that document to qualify as a match Consider the pattern  GRAPH ?g  s :grewUpIn ?place place :locatedIn :USA A valid match would be John :grewUpIn  :Boston  extracted from a document, with the knowledge Boston :locatedIn :USA coming from a knowledge base Note that our criteria of requiring any one matching triple to be present in a named graph, can also match Boston :locatedIn :USA as an extracted or inferred triple from the document, with  John :grewUpIn  :Boston coming from a knowledge base. If a user wants to distinguish between these two solutions, we need to provide finer granularity of match on the named graph portion, which we currently do not support. However, it can be supported by directly querying the index itself as explained in the subsection below. For directly querying the index, either strict or relaxed SPARQL graph semantics can be used As discussed in previous section, any included entailment component can be in VALID, INCOMPLETE, or INVALID  state. The parameter e lets user choose what is acceptable. For example, by choosing e  INCOMPLETE user indicates that the query should be processed even if a component entailment is incomplete. By default, a single parameter specifies the acceptable validity status. This can be also be made more finegrained by letting user specify the acceptable level for each entailment component individually, by using array e  n   where n is the number of entailments present in the semantic content Also, for entailments resulting in named graphs, the validity of an individual entailment itself could be maintained at each of its named graphs \(individual documents\ such 
-1410 
-1410 
+C 
+AfRIM 
+set intersection operator 
+N 
+if an itemset of level 
+D 
+F 
+ 
+ 
+002 002 002 002 002 
+1 
+to divide the pattern space into levels 
+C 
+F F 
+R 
+k 
+f 2 
+items As a result 
+ To sum up the generalized Apriori framework is de\223ned by the following elements 
+r r 
+is rare so does all its supersets at level 
+is re\224exive antisymmetric and transitive then it is possible to prune out part of the pattern space composed of non-interesting patterns during the mining process if it exists an anti-monotone property on 
+p 
+k 
+all supersets of a rare itemset are rare 
+F 
+or 
+003 
+is a set of items present in the data transactions both the itemset and data languages are limited to itemsets and the generalization relation among itemsets is reduced to the set inclusion relationship so is the instantiation relation among itemsets and data sets The second component is the itemset family 
+002 
+w.r.t 
+1 
+R 
+for 
+1 
+003 f   003 
+1 
+003 
+p 
+elements  
+003 003 2 003 004 
+004\003 
+002D 
+1 
+k 
+w.r.t the partial order de\223ned on top of 
+see De\223nition 5.7 For the pruning principle we use the following anti-monotone property 
+212 
+C 
+1 
+Rank measure Pattern operation 
+F 
+Given a pattern framework 
+k 
+is obtained by merging two rare itemsets of level 
+k 
+D 
+k 
+ the candidates are generated by combining rare  The example presented in Section V-A follows the 
+The Apriori rare algorithm 
+f 2 
+see Algorithm 1 to mine rare itemsets More speci\223cally the algorithm performs a level-wise descent in 
+AfRIM 
+Pattern framework Pattern family Monotone property on the interestingness of patterns Anti-monotone property 
+2 
+212 
+k 
+items For instance 
+points to nodes at depth 
+Arima 
+3 Apriori Rare instantiates the generic Apriori framework 
+f 
+C 
+F 
+bF 
+f 1 f 2 002 
+maxsupp 
+D D D 200 200 D 200 200 200 200 I I D 0 D 0 D 0 003 D 0 
+ 
+all subsets of a non-rare itemset are non-rare 
+003 003 F 
+004 t 002 
+AfRIM 
+ 1    
+ 
+f 
+212 
+in 
+002 002 002 002 002 i GP i GP i GP i GP i GP k 1 0 k c k c 
+represents the transaction database and 
+F 
+   
+F 
+p 
+p 
+f 
+002 002 
+ line 10 and 12 For each of the subsequent levels 
+C 
+From the generalized Apriori framework we instantiate an Apriori framework for rare itemset mining as follows The pattern framework we consider is constituted of the quadruplet 
+and 
+a partial order on 
+002 F 002 
+1 
+k 
+that de\223ne the pattern space the data set space the generality and instantiation relationships 
+ so does any pattern that is a successor of The property  so does any superpattern of  the pattern family to ensure the completeness of the process of interesting pattern discovery  in let us say that  rare itemsets whereby candidates comprise all itemsets having  or rare itemset is generated at the level  has been implemented in java jdk.1.6.0 In order to ef\223ciently count the support of a candidate we used a hash-tree that stores the candidate itemsets A node of the hash-tree either contains a list of itemsets a leaf node or a hash table an interior node In an interior node each bucket of the hash table points to another node The root of the hash-tree is de\223ned to be at depth 1 An interior node at depth 
+002 002 
+is anti-monotone iff whenever a pattern does not satis\223es 
+f 1 N 
+I 
+de\223ned on top of the pattern family 
+the maximum support threshold The rank of an itemset is its cardinality number of items of the itemset and the itemset space is explored from the higher-rank level to lower-rank level according to the monotone property two itemsets from  The starting point is the computation of the unique is inserted only if all its k+1 supersets of cardinality k+1 occur in is not available we have developed a java implementation based on the pseudo code provided in As for our algorithm we ha v e also used a hash-tree to count the candidate support VI E XPERIMENTATIONS AND P ERFORMANCE S TUDY The experiments were run on an Intel Pentium4 2.66Ghz processor with 1000MB main memory running Windows XP professional The synthetic data set are generated using a 
+002 002 002 002 
+is monotone if and only if whenever a pattern satis\223es  The pruning principle enounced in Proposition 5.2 leads at the reduction of the patterns space Indeed in the traversing process only interesting patterns discovered at a level that yield potentially interesting patterns at the next level are considered and the binary relation representing the category of patterns to be mined where only if  share and  Once the Apriori-based framework is instantiated we build an Apriori algorithm called candidates is counted line 19 All candidates that turn out to be rare are inserted to 
+002 
+Apriori Rare itemset Mining 
+GP 
+f 1 
+items line 9 and 11 Then the CANDIDATE T EST  procedure computes the support of each candidate and returns only itemsets having support less than the 223xed maximum support  
+ 
+ 
+process when looking for rare itemsets on the database of transactions presented in Table I 
+t t 
+003 
+k 
+ 
+F 
+an integer and 
+   
+Anti-monotone and monotone properties A property Let 
+002 
+f 
+De\223nition 5.6 Proposition 5.2 De\223nition 5.7 4 Implementation 
+f 
+C 
+D 
+k 
+003 
+f 
+be the data set 
+f 1 
+necessary to prune out potentially non interesting patterns 
+1 2 1 2 1 2 1 2 1 2 002 
+rare candidate and the 
+considerably reduced In fact instead of taking into account all possible combinations of the interesting patterns at a level by means of the combination operations only subset of it will be considered and the remaining subset will be the patterns that are related to the non-interesting patterns of the precedent level a measure to move from a level to another by combining interesting patterns where which guaranties to reach all rare itemsets in the traversal process Furthermore an itemset of level and the pruning principle given hereafter is used to check that the remaining subsets are also rare The operator used to combine the itemsets consists of the the itemset family An intersection-based generalization operation denoted by  is a combining generalization operation that takes two itemsets having items as parameters and generate a itemset that is the intersection of those itemsets if they share is a and if then rare itemsets line 16 In the prune step a candidate line 17 Then the support of the  The process stops whether the set of generated candidates is empty   and itemsets are stored in leaves As the implementation of 
+002 
+002 1 002 2 f 2 f 2 f 2 f 2 
+   R     f 1 f 1 f 2 f 1 f 1 f 1 N k 
+002 
+78 
+78 
+78 
+78 
+78 
+78 
 
 
-cases, an additional query option of skip named graphs not satisfying the entailment component validity status would be useful Before we discuss querying the index itself, a few more aspects of the matched documents need to be explored. Since we are doing a SPARQL query, we could get multiple matching subgraphs for a single document. This ancillary information count c of matching subgraphs in a named graph  could be useful, for example, to determine a document’s relevance. This can be ex pressed as a multi-set C of counts for each matched document as follows C  c  d 1   c  d k  f m c  S,p,e   Also, the actual bindings of each matching subgraph can provide additional information, which, for example, can be used to highlight portions of matched documents. These can be expressed as the multi-set B of bindings for each matched document as follows B  002\025  d 1   002\025  d k  f m b  S,p,e   where 002\025 d i b i11 b i12 b i1r   b ic1 b ic2 b icr  c is the count of solutions for a document, and r is the number of bindings within a solution  We model f m c and f m b as ancillary operators and make it available to user as discussed in Section II-E Example For the query pattern cons idered above and the data extracted from document d 1   John :grewUpIn  :Boston Boston :locatedIn :USA  there is one solution \(i.e c  d 1 d the bindings 002\025  d 1   b 111 000 s=:John, b 112 000 place=:Boston Query for matching triples The advantage of storing Semantic content S as RDF triples is that it can be independently queried. Here user can leverage the complete expressivity of SPARQL Specifically, user can either 1  write a query involving named graph variables to precisely match as needed, or 2  ignore the named graph component altogether and query all the triples in the RDF dataset Consider the following example of query formulation 1 Assuming strict SPARQL graph semantics, user could explicitly specify which triple patterns must match a named graph \(document\which must match the default graph SELECT ?g WHERE { GRAPH ?g { ?s :grewUpIn ?place place :locatedIn :USA In this example s :grewUpIn ?place must match within a named graph and place :locatedIn :USA  must match within the default graph For query formulation 2, we would like to have a default graph that is equivalent to the union of the existing default graph triples and all named graph triples. An option for this extended default graph behavior is available in Oracle database. With this extended default option, the following query will match across all documents and any associated knowledge bases SELECT ?s ?place WHERE { ?s :grewUpIn ?place place :locatedIn :USA III  S EMANTIC I NDEXING F EATURE I N O RACLE D ATABASE  This section describes the key aspects of the semantic indexing feature from a user’s point  of view This includes 1 Extractor plug-in User interested in plugging an extractor into Oracle Database to make it available for use in extracting and returning information from documents during semantic index creation and maintenance, 2 Semantic Index creation and maintenance User using available extractor\(s semantic index on their tables and optionally augment it with available knowledge bases, any inference based extensions of extracted data and the knowledge bases using ontologies and rulebases,  and 3 Query User querying the tables using the semantic index A  Extractor Plug-ins Oracle Database supports an extensible architecture for plugging in information extractors. Users can plug-in new extractors by implementing a concrete object type under the supplied PL/SQL abstract object type RDFCTX_EXTRACTOR Creating an object type for plugging in a new extractor involves implementing some of the methods to override their default implementation. A portion of an interface for a concrete object type is shown below  A key method is extractRdf which accepts a text document as input, processes the document using the extraction capability of the extractor \(accessed via local call for native extractors, or using client-server or web-service interface\nd then returns the data extracted from the document as an RDF/XML document. An alternative to extractRdf is batchExtractRdf which accepts a cursor for accessing docum ents and inserts RDF/XML documents corresponding to the retrieved documents into a table specified by the invoker This extensible architecture is also used by Oracle Database to provide some built-in plug ins for several extractors including the native CTX_ENTITY a n d  extractors based on GATE 8 and Op enCalai s 9  B  Semantic Index Creation and Maintenance Creating a base policy To specify the base content of a semantic index, user needs to cr eate one or more base policies 
-1411 
-1411 
+1 0 1 0 1 0 
+10 
+f i f f f f 
+003 D 
+004 
+N k k f 
+0 0 0 0 0 0 0 0 
+1 
+D 
+is several dozens of magnitude faster that 
+i f f 
+N k k c k c k k 
+algorithm is compared with the 
+0 500 1000 1500 2000 2500 3000 3500 05 10152025303540 
+ 
+AfRIM  
+f f 
+10000 
+  
+1 
+illi.s illi.s 
+dataset 
+4567891011 
+candidates 12 rare itemsets 13  candidates 17  18 candidates 19  In the third set of experiments we set the maximum support threshold to  For example when the number of items is 12  1 http://www.almaden.ibm.com/cs/quest/syndata#AssocSynData 
+Arima 
+C N   004  
+004 
+ 
+  
+f 
+CAND T EST  CAND T EST  
+Arima Arima Arima 
+maxsupp runtime\(milli.s 
+number items 
+bF 
+k 
+size 
+ARMP 
+CAND T EST  
+212 212\212 
+013 021F 
+212 
+ARMP ARMP 
+Arima 
+N k 
+016F 
+takes about 1193000 milliseconds whereas Apriorirare 
+N c N N c N N N k k c k c k c k k c 
+m 0 5000 10000 m m 0 2000 4000 6000 8000 m 
+ 
+15000 20000 25000 0 20000 40000 60000 80000 100000 10000 12000 14000 16000 18000 
+of 
+ 
+8 
+004 
+004 
+runtime runtime 
+method provided by KDD Research Group in IBM Almaden Research Center 1  The data set 223les has 100.000 transactions and 56 items with an average of 8 items per transaction In this paper we report three sets of experiments in which the runtime of 
+1 2 4 5 7 14 15 22 Fig 3 Time variation with maximum support threshold The three 223gures show that the proposed algorithm is faster and performs better than the existing algorithm some times by several degrees of magnitude than the existing one We believe that the main reason for this big difference in performance is related to the fact that 
+F 
+004 
+D D 003 003 003 D 003 003 D D 
+016|I 016I 016 016\020 016 016F 
+0 0 
+N N k k C f k 
+ 
+1 1 2 
+Arima 
+002 002 002 002 002 002 002 002 002 002 002 002 002 002 
+to 
+and the number of transactions set to 10.000 while the number of items varied from 2 to 56 For the sake of presentation in this paper we only report the results where the number of items is varied from 2 to 10 That is to say as the number of items grows and oversteps 10 the runtime of 
+020 
+D F F F F F F F  F b   F F 
+212 212 
+D 
+004 
+  
+ 
+AfRIM 
+Arima 
+40 
+Set of transactions support threshold 3 itemsets contained in Set of frequent itemsets 6 rare rare prune out the non-rare rare 
+rare itemsets 20 
+AfRIM 
+I\016 
+212 212 212 
+and varies the size of the input data set 223le from 1000 to 100.000 Similarly to measure the runtime w.r.t the maximum support we kept the number of transactions set to 10.000 and the number of items set to 8 while the support is decreased from 
+ 
+20 
+D D D 
+016 013 016 017 013 016 
+004 
+Input Output Initialization Method end for return 
+f 
+AfRIM 
+  
+have not only to run the classical Apriori algorithm to 223nd the minimum rare itemsets but also run the 
+for 
+F 
+bF bI bF 
+ 
+Arima 
+c c 
+002 
+f f 
+1 1 0 1 
+do 
+   set of items contained in the transactions of  9  candidate 10     16  21   Fig 2 Time variation with number of transaction in the data set Fig 4 Time variation with number of items 
+013\n 
+212 212F 
+algorithm based on the data set size see Figure 2 the maximum support see Figure 3 and on the number of items considered see Figure 4  When measuring runtime with respect to the data set size we kept the number of items set to drastically increase and 
+f 
+and the maximum support threshold set to 
+  8    
+algorithm to 223nd the rest of rare itemsets by analyzing the MRP generated by the modi\223ed Apriori VII C ONCLUSION AND FUTURE WORK In this paper we propose two frameworks A structural framework to represent the different categories of patterns based on the frequency constraint which by means of an instantiation process leads to the representation of frequent and rare pattern mining problems A mining framework that consists on an abstract model that factorizes the classical Apriori approach Then an Apriori method is instantiated to tackle the speci\223c problem of rare itemset mining The 
+ 
+AfRIM 
+013  
+004N 
+ 
+ 
+spends only 25079 milliseconds making it more than 47 times faster than 
+rare 11 
+Algorithm 1 
+004 
+Arima 
+F F F 
+r 
+79 
+79 
+79 
+79 
+79 
+79 
 
 
-and then associate them with the semantic index as part of a CREATE INDEX invocation or later using ALTER INDEX Example The following call creates a base policy, specifying the extractor type corresponding to the extractor to be used sem_rdfctx.create_policy policy_name=>'SEM_EXTR extractor => rdfctxu.info_extractor Creating a semantic index using just a base policy A semantic index may be created on unstructured text column docText of table docTab using the base policy SEM_EXTR   Example The following call creates a semantic index docIdx  using base policy SEM_EXTR Thus content of the semantic index will consist of named graphs extracted using the extractor plugged in via the rdfctxu.info_extractor  object type  CREATE INDEX docIdx ON docTab \(docText INDEXTYPE IS mdsys.SemContext  PARAMETERS \(‘SEM_EXTR  Creating an augmented policy To specify augmentations for the content of a semantic index user needs to create a policy that includes a \(pre-created\ and one or more augmentations. Based on the description of augmented policy in Section II-B, augmentations may include  A knowledge base, say GeoKB Fig 2-a  Document-centric inference based extension SEM_EXTR_DOC_INF Fig 1-d\erred from the extracted named graphs corresponding to base policy SEM_EXTR Fig 1-b\ntology FamilyOnt Fig 1-c and applying the OWL 2 RL rulebase. This inference step needs to be done, before cr eating the augmented policy using sem_apis.create_entailment subprogram of Oracle’s semantic store   Corpus-centric inference based extension SEM_EXTR_CORPUS_INF Fig 1-e\nferred from the extracted named graphs \(Fig 1-b\ and ontology FamilyOnt Fig 1-c\d applying the OWL 2 RL rulebase. This inference step too involves use of sem_apis.create_entailment   An inference based extension Geo_inf Fig 2-c triples inferred using knowledge base GeoKB Fig 2-a an ontology GeoOnt Fig 2-b\d applying the OWL 2 RL rulebase Example The following call creates an augmented policy SEM_EXTR_plus referred to as a dependent policy in the product, for historical reasons be cause it depends on a base policy\well as the augmentations mentioned above sem_rdfctx.create_policy policy_name => 'SEM_EXTR_plus  base_policy => ‘SEM_EXTR  user_models => RDF _MODELS GeoKB   user_entailments RDF_MODELS SEM_EXTR_DOC_INF   SEM_EXTR_CORPUS_INF’,‘Geo_Inf  Adding an augmented policy to a semantic index Once an augmented policy is created, one may add this new policy to an existing semantic index using the ALTER INDEX REBUILD command Example The following example shows how the augmented policy SEM_EXTR_plus created above may be added to the semantic index docIdx created earlier  ALTER INDEX docIdx REBUILD  PARAMETERS add_policy SEM_EXTR_plus  Note that this rebuild is a virtually zero-time operation because it does not result in any physical copying or creation of data. Specifically, no further extraction is needed because the extraction was already done when the semantic index was created with the base policy included in this augmented policy The only effect of this rebuild is that the semantic index content now also includes the triples in SEM_EXTR_DOC_INF  SEM_EXTR_CORP_INF and Geo_Inf This inclusion is done logically, that is, without any physical copying of data Discussion Note that the collection of named graphs for each base policy, as well as ontologies and entailments \(inference based extensions\specified in definitions of dependent policies, are maintained in Oracle Database Semantic Store as separate RDF models \(model de notes an RDF dataset in Oracle\ to simplify management. However, the specification of dependent policy allows combining them at the time of querying to get semantically enriched results. The assumption of entailment, especially the document-centric inference of named graphs D I g pre-materialized and stored leads to a sequencing constraint that requires extraction of the collection of named graphs G E sing the base policy be done first. This is because creation of D I requires that G E to base the inference on, must be available first Current support for the corpus-centric inference based extension C I ally includes document-centric inference based extension D I ell. We plan to address this in our future work Also, currently only a single base policy can be included when creating an augmented policy. This can be easily extended to support inclusion of a set of base policies C  Semantic Search Operators The primary operator sem_contains provides the semantic search capability SEM_CONTAINS\(document VARCHAR2 / CLOB sparql VARCHAR2 policy VARCHAR2 index_status NUMBER aliases RDF_ALIASES ancoper NUMBER  The document attribute identifies a VARCHAR2 or CLOB  column in a relational table that stores the documents or references to documents that are semantically indexed. The sparql attribute is a string literal that defines the document search criteria, expressed in SPARQL format. The policy  attribute specifies the name of a base or dependent policy 
-1412 
-1412 
+Mining frequent patterns without candidate generation 
+6\(1 
+A transaction mapping algorithm for frequent itemsets mining 
+ In Proceedings of the 3rd International Conference on Knowledge Discovery and Data Mining 1997 283\205296 
+Survey on frequent pattern mining 
+18 
+1377 
+Discovering frequent closed itemsets for association rules 
+Pincer search A new algorithm for discovering the maximum frequent set 
+Vers l\220extraction de motifs rares 
+Data mining approaches for intrusion detection 
+A framework for dynamic evidence based medicine using data mining 
+New algorithms for fast discovery of association rules 
+2006 472\205481  Laszlo Szathmary  Sandy Maumus Pierre Petronin Y annick T oussaint and Amedeo Napoli 
+1540 
+1998 105\205121  Gou Masuda Norihiro Sakamoto and Ryuichi Y amamoto 1999 398\205416  Ronaldo Cristiano Prati Maria Carolina Monard Andr\351 C P  and L F  de Carvalho 
+2004 53\20565  M Song and R Sanguthe v ar  
+ The International Conference on Very Large Databases 1994 487\205499  P  Bagwell  http://infoscience.ep\224.ch  B Goethals  www.adrem.ua.ac.be goethals/software/survey.pdf 2003  J Han J Pei and Y  Y in  In Proceedings of the 2000 ACM SIGMOD international conference on Management of data 2000 1\20512  W  Lee and S Stolfo  In Proceedings of the Seventh USENIX Security Symposium 1998  Dao-I Lin and Zvi M K edem  Lecture Notes in Computer Science  CBMS 22002 Proceedings of the 15th IEEE Symposium on Computer-Based Medical Systems 2002 117  Nicolas P asquier  Yv es Bastide Ra\223k T aouil and Lot\223 Lakhal  Lecture Notes in Computer Science  SADIO Electronic Journal of Informatics and Operations Research  IEEE Transactions on Knowledge and Data Engineering  EGC  Extraction et gestion des connaissances 2006 499\205510  M J Zaki S P arthasarathy  M Ogihara and W  Li 
+Fast algorithms for mining association rules 
+Ideal hash trees 
+experimental results given in this paper show that Apriorirare is several degrees of magnitude faster than the existing algorithm For frequent pattern mining several algorithms such as Eclat FP-Growth TM 10 ha v e been proposed to impro v e the performances of the mining process and deal with some bottlenecks of the Apriori algorithm such as the candidate generation and the support counting However those techniques are designed to mine frequent itemsets and do not seek for rare itemsets We are currently investigating the adaptation of those techniques to the problem of rare itemset mining R EFERENCES  R Agra w al and R Srikant 
+A method for re\223ning knowledge rules using exceptions 
+80 
+80 
+80 
+80 
+80 
+80 
 
 
-Other optional attributes are: the index_status attribute specifies the acceptable level of entailment \(if any\ of the index 0 VALID  1-INCOMPLETE or 2 INVALID at can be used for querying, the aliases attribute allows using XML namespace abbreviations in the SPARQL pattern specification and ancoper connects to ancillary operator invocation. The operator returns 1 for each matching document, else returns 0  In addition to selecting documents, user may be interested in examining the bindings for variables used in the SPARQL pattern. For this purpose, the sem_contains_select  ancillary operator is introduced SEM_CONTAINS_SELECT\(operbind NUMBER RETURN CLOB This operator is ancillary to the sem_contains operator The operbind argument corresponds to ancoper argument of the sem_contains invocation in the SQL query. In the following example, the bindings are obtained as well  SELECT article_Id SEM_CONTAINS_SELECT\(1 FROM News WHERE SEM_CONTAINS \(text  ct rdf:type   :City  ct geo:name   ?city  OPTIONAL {?st geo:StateCaptial ?ct   SEM_EXTR 0 rdf_aliases rdf_alias geo http://geo   1 The variables may be bound to multiple data instances from a single document, in which case all bindings for the variables for example ct=:ny2, city=‘Albany’; ct=:ny1 city=‘New York rned in XML format. Note that when the users specify the OPTIONAL clause in the SPARQL graph pattern, the sem_contains_select operator is helpful in viewing the extra bindings that are returned in the result set D  Ranking Measures A common requirement is to sort \(rank\ the sem_contains query results in descending order of relevance. Thus, we need to define a relevance \(score measure for each document returned A sem_contains query can be viewed as a SPARQL query on a collection of named graphs. Thus, the ranking problem becomes ranking the selected named graphs in decreasing order of relevance for the specified SPARQL graph pattern A simple way of ranking the named graphs is by the number of solutions, or solution frequency occurring in a named graph for the specified SPARQL pattern. That is, the higher the number of solutions, the greater the relevance of the named graph \(the corresponding document\his is the basis of sem_contains_count ranking measure Formally, for a given graph pattern GP, if s i is the number of solutions found in a named graph g i  then sem_contains_count g i     s i   E  Equi-Partitioning the Index w ith respect to Base Table Oracle allows tables to be partitioned in variety of ways. For such cases, we support creating a local semantic index, which results in maintaining one physical structure per base table partition consisting of semantic content extracted using base policy for that partition. Us ers can create a partitioned semantic index as follows on a partitioned table tab  CREATE INDEX <idx> ON  <tab INDEXTYPE IS MDSYS.SEMCONTEXT LOCAL  PARAMETERS \(‘SEM_EXTR  Note that \(asserted\nowledge bases for the extracted data can still be maintained globally for the entire semantic index in a single RDF model. However, the document-centric inferencing that results in named graph qualified triples can be stored individually with each pa rtition as a separate entailment as it is relevant only for that partition For queries using predicates involving partitioning key columns that need to access only a few partitions, we also support partition pruning optimization by limiting the index scan to relevant partitions. An experiment involving a partitioned index is covered in Section V IV  D ESIGN AND I MPLEMENTATION  The features outlined above have been implemented in Oracle Database, leveraging its Extensibility Framework and Semantic Technologies componen   Indexing Extensible Indexing component of the Oracle Extensibility Framework was used to associate a custom domain-specific indexing scheme, referred to as the SemContext indextype, with the sem_contains operator An indextype allows specifying custom methods for index creation and maintenance and for fetching via the index so that the index can be used as an access method Index creation and maintenance operations in a SemContext index are implemented by first invoking the extractRDF method for the relevant extractor type\(s obtain RDF triples corresponding to each text document in the column being indexed, and then storing those triples into the corresponding named graphs. Extracts from document d i in a table row go into a distinct named graph g i The graph identifier for g i is derived from the row identifier of the corresponding table row containing the document d i A mapping table maintains the mapping between the row identifiers and the graph identifiers. Any DML on the base table results in incremental maintenance of the index. For inserts and deletes, named graphs are added and deleted respectively. Updates are ha ndled as deletes followed by inserts The content extracted by the extractor corresponding to a base policy is stored as an RDF model in the Oracle semantic store. For local semantic indexe s, the extracted data for each partition of the base table \(and corresponding to each index partition\ in a separate RDF model. This allows us to support partition independence for the local index. Each dependent policy is implemented as a virtual model in the semantic store. The virtual model is analogous to a view that is a collection of RDF models an d \(possibly\ entailments and 
-1413 
-1413 
+For the spatial partitioning we use the Military Grid Reference System MGRS Thus w ay  we represent an y location on the surface of the Earth at multiple granularities ranging from 1 002 1 m 2 to 100 002 100 km 2  by an alphanumeric value For temporal partitioning we use the typical temporal hierarchies from data warehousing hour day week month We drop cells with very low activity speci\002cally cells where the most popular term occurs in fewer than 5 messages at the 002nest granularity hour We will shortly describe how we 002x the spatio-temporal hierarchy in AFIA based on the considered workload We perform three sets of experiments The 002rst measures the space and accuracy of the proposed algorithms and compares them with two baselines The second evaluates the throughput memory consumption and number of checkpoints when varying the targeted k parameter The third evaluates the query processing performance when varying the size of the spatio-temporal query range We also show the number of checkpoints created during a time period B Data and Queries We collected all geo-tagged messages from the public Twitter FireHose during May 2013 The dataset contains 110,426,053 tweets yielding an average rate of circa 41 tweet per second Figure 9 provides insight into the workload and helps choose an appropriate spatio-temporal hierarchy Figure 9a shows the total number of cells that receive at least one tweet Thus the graph shows the expected number of active summaries at the given granularities For example every hour the number of 0.1 002 0.1 km 2  1 002 1 km 2  10 002 10 km 2  and 100 002 100 km 2 spatial grid cells that receive at least one tweet is circa 0.5M 200K 40K and 10K respectively i.e the 223Hour\224 curve in the 002gure Figure 9b considers the cells at the 0.1 km 002 0.1 km 002 1 hour granularity The y-axis depicts the number of such cells subject to different loads the number of terms t processed This shows that the number of 223interesting\224 cells with at least 100 terms is quite low barely reaching 100 Therefore we 002x the 002nest temporal granularity at an hour Figure 9c considers the cells at the 100 km 002 100 km 002 1 week granularity The 002gure shows that thousands of such cells have summaries that receive more than 1 thousand terms We 002x k at 25 and generate 2 query sets each consisting of 100 queries Each query in the 002rst set has a temporal extent with a length chosen at random among 1 hour 1 day and 1 week and it has a randomly selected spatial region The spatial granularity of the coarsest cell that is contained in the spatial query region is the query's spatial granularity and the query region is enlarged to cover all the cells at that granularity that it intersects with In visual terms this procedure corresponds to 223snapping\224 the spatial query region to the coarser granularity The underlying rationale for adopting this procedure is that 002ner-granularity cells do not contribute with term counts at the same magnitude as do cells at the granularity of the coarsest fully covered cell Since any rectangle can be created from a number of merged squares we limit the experiments to squares Each cell contains 10 002 10 cells at the next 002ner granularity Thus the largest number of cells any query square can cover is 18 002 18  324 As a result we employ queries that may cover up to 1,800 002 1,800 km 2  While the 002rst query set focuses on variation in the spatial range the second focuses on temporal variation Each of the 100 queries has a spatial region chosen at random from one of the spatial granularities The query resulting in most temporal summary merges is the query that spans from the 002rst hour after midnight on the 002rst day in May until the hour before midnight on the last day of May This query covers 2 002 23 hours 3  5 days and 3 weeks which amounts to 57 temporal summaries To avoid empty results we do not consider regions that only cover empty cells Note that we do not perform compaction on the last active temporal granularities to better re\003ect the real-life scenario where a stream is constantly keeping these summaries active To simplify the experiments the initCounters parameter which determines the initial number of counters is set to the same value as targeted k  C Baselines We consider two baselines for comparison and validation of our proposal SS In each active spatio-temporal summary we aggregate the most frequent items using the SpaceSaving algorithm Active summaries maintain a 002xed number  m  of items and their counts while archived summaries are compacted by keeping only the counters for the k most frequent terms Choosing a value for m represents a trade-off between storage size and result accuracy HT In each active spatio-temporal summary we maintain a full list of terms using a hash table Once the summary becomes inactive and is archived its time granularity passes the list is sorted and cleaned up by discarding all but the counters for the targeted topk terms This approach maintains the exact topk items at all spatio-temporal granularities and serves to measure the accuracy of the other approaches However since HT has excessive storage requirements we do not expect it to scale under the considered workloads D The Space Versus Accuracy Trade-Off In the 002rst set of experiments we evaluate the accuracy of our approach by comparing it with the baselines Since HT maintains the exact counts at all granularities its storage requirements are too high for large scale experiments Similarly SS maintains a 002xed number m of counters at all granularities and m cannot be set too high for large scale experiments Thus we consider only tweets occurring in the spatial region with the 11S grid zone designator a region in the US of size ca 900 002 550 km 2  We use the local machine We consider variants of SS where m is set to 50 100 and 200 In AFIA we set targeted k to 50 The 002rst week four days in May is used for warm-up and only the accuracies of the subsequent summaries are evaluated We perform topk queries on all summaries at each spatio-temporal granularity We compare the topk most frequent terms in each summary produced by AFIA and SS and compare with the corresponding topk items produced by HT We set k  20  156 
 
 
-hence does not incur any additional storage overhead. In the presence of entailments in the dependent policy, virtual models also allow association of the index status with the dependent policy We also support altering an index to add or drop a policy. If a base policy is added then the corresponding extractor is invoked to extract the data and a new RDF model is created For dependent policies, it suffice s to create a new virtual model. Similarly, for dropping a policy, the corresponding RDF model or virtual model is dropped. For local semantic indexes, we maintain the index during partition maintenance operations on the base table \(such as split/merge/truncate partition\y performing a similar operation on the RDF models corresponding to these partitions Parallel index creation results in parallel processing of the documents in the column and hence parallel invocations of extractRDF Also, for handling large number of RDF triples parallel bulk load into the named graphs is supported Query Processing For processing queries involving sem_contains operator invocation\(s SemContext index on the relevant document column can be used as an access method. Implementation of the index scan operation in SemContext leverages a rewritable pipelined table function sem_match  rdf_match in [6  th at qu eries th e n a med  graphs \(that comprise the index\o look for any matches within individual named graphs\or the SPARQL graph pattern specified in the sem_contains invocation. If any match is found within a named graph, the identifier for the table row containing the corresponding document is returned If the base table is partitioned and a local semantic index is used, then for queries which access only a few partitions partition pruning is deployed to access only the named graphs in the relevant RDF models that correspond to the partitions being accessed If a SQL query contains one or more ancillary operators corresponding to a sem_contains invocation, the relevant ancillary values are computed during the sem_contains  processing and stored in a shared query context in memory This makes returning the ancillary values during subsequent per-row invocations of the ancillary operator\(s\ficient. For sem_contains_select ancillary operator, the columns corresponding to variables in the SPARQL graph pattern argument are stored, and for sem_contains_count the count of matching  solutions for each matched document are stored in the shared context V  E XPERIMENTAL S TUDY  The goal of our experimental study was to characterize indexing storage costs and query performance. All experiments were conducted on a desktop machine with one dual-core, 2.33 GHz Intel Core 2 Duo processor, 8 GB of RAM, and three 7200 RPM SATA disks. We used Oracle Database Semantic Technologies 11g Release 2 running on 64 bit Oracle Enterprise Linux R elease 5.2. The database was configured with a PGA size of 3 GB and an SGA size of 4 GB with a 3 GB buffer cache We used a collection of Los Angeles Times newspaper articles from the TREC 1996 document collection, and extraction was done via Oracle’s CTX_ENTITY extractor. The definition for the document tables is shown below LATIMES_TEST_DOCS \(DOCNO VC2\(4000 DOCTYPE VC2\(4000 4000 4000 DOCTEXT CLOB We tested against three differently sized subsets of this document collection: 50K \(LA LA90\0K LA130\The extracted triples ar e stored in the Oracle triple store, configured with 3 multi-column B+-Tree indexes for various permutations of subject \(S\redicate \(P\ object \(O and graph \(G\OSG, GPOS, GPSO. A dummy extractor that simply looks up and returns pre-extracted RDF/XML for each row was used to measure index creation time. This allows an accurate measure of index creation overhead by eliminating the time required for RDF extraction from text, which varies based on the extractor used. A parallel degree of 4 was used for index creation. The results of index creation experiments for the three datasets are shown in Table IV. The space taken up in the triple store \(size of system tables and indexes\ is reported as the index size. Both the index size and creation time grow linearly with the number of extracted triples TABLE  IV I NDEX C REATION E XPERIMENT R ESULTS  Dataset Number of Rows Doc Table Size MB Number of Triples Extracted Index Size MB Index Creation Time sec LA50 50,000 88 2,699,325 603 486 LA90 90,000 152 4,859,604 1,078 878 LA130 131,896 216 7,114,863 1,569 1271 The goals of our experiments were to 1\ exercise the key aspects of SPARQL query, namely, conjunctive triple patterns disjunction via UNION  OPTIONAL clause, and FILTER clause 2\vestigate the overhead introduced by the sem_contains_count ancillary operator and 3\ study query performance benefits from partition pruning. The   various types of queries and their result row counts are shown in Table V. Execution time reported for them is an average of 50 executions with a warm buffer cache TABLE  V Q UERIES  Id Summary SPARQL Query Pattern Result Rows LA130 Q1 About city  Athens  s :hasValue “Athens   s rdf:type :city 232 Q2 About city  Athens’ and state  GA  s :hasValue “Athens   s rdf:type :city  s2 :hasValue “Georgia  s2 rdf:type :state 27 Q3 About the state  OH’ and optionally the job title  governor  s :hasValue “Ohio   s rdf:type :state  OPTIONAL  s2 :hasValue “governor  s2 :rdf:type :person_jobtitle 1660 
-1414 
-1414 
+a Total number of active cells b Terms per hour per 0.1 002 0.1 km 2 cell c Terms per week per 100 002 100 km 2 cell Fig 9 Twitter Workload Intensity at Different Spatio-Temporal Granularities The results are shown in Figure 10 We measure the fraction of correct topk for varying spatial granularities and we report separate graph for each temporal granularity The coarser spatio-temporal summaries are subject to higher loads and more diverse terms At the 002nest granularity 0.1 002 0.1 km 2 in Figure 10a all approaches produce quite accurate results However as the spatial or temporal granularity gets coarser the accuracy of SS deteriorates Increasing m does not solve the problem but just postpones it On the other hand AFIA is virtually as accurate as HT at all spatial and temporal granularities Its Aggressive Increment procedure is effective in making it adapt its number of counters as needed to capture the most frequent items very accurately Due to checkpointing when several summaries have to be merged few topk terms are missed and we did not observe accuracies below 0.99 0.98 and 0.97 for hours days and weeks respectively Figure 11 reports the average number of counters maintained per summary in the same experiment Note the logscaled y-axis The 002gure con\002rms the impracticality of using HT in large scale scenarios SS maintains a 002xed number of counters The 002gure shows how AFIA adapts At hours and days Figures 11a\22611b AFIA follows SS  m  100  implying that on average 100 counters is enough to achieve the desired accuracy At weeks Figures 11c the adaptivity of AFIA is even clearer for 002ner cells it uses much fewer counters than for coarser cells This experiment shows how AFIA achieves the best of two worlds accuracy is at the level of HT which is 100 accurate while the space requirements are at the level of SS with a small number of counters Having demonstrated the accuracy of our approach we proceed to large scale performance experiments on the HMC machine E Varying targeted k In this experiment we vary targeted k and consider two cases where the 002nest spatial granularity is 0.1 002 0.1 km 2 and 1 002 1 km 2  For each case we also maintain all the coarser granularities Figure 12 shows the results AFIA always has a throughput of more than 13,000 items per second Figure 12a As expected the throughput increases as either targeted k decreases or the 002nest granularity becomes more coarse Figure 12b shows how the memory consumption increases with increasing targeted k  This is because increasing numbers of counters have to be maintained to guarantee correctness when there are more terms The memory consumption increases slowly at 002rst due to fewer checkpoints occurring Figure 12c Thus for small values of targeted k  much of the space consumption is due to checkpoints As expected more memory is required for maintaining 002ner granularities The results show that a single HMC machine can maintain between 2 and 3 months of data meaning that it takes 4 to 6 machines to support a full year At current costs 1  this is feasible for larger companies Note that the measured memory consumption represents the entire Java heap memory used by the application The actual aggregates not shown require much less When targeted k is set to a low value the number of required counters will most often also be low With only a few counters any small change in activity of a cell may impact the targeted k counters resulting in a checkpoint Therefore we see that the number of checkpoints decreases with targeted k  Having a high number of counters makes a cell more robust to changes in activity and any small changes can be captured without checkpoints The number of checkpoints increases as expected when a 002ner granularity is maintained F Varying Q:R and Q:T We 002x targeted k at 100 and vary the spatial and temporal extents of the queries We employ the two query sets and measure the average runtime Figures 13a and 13b show the results Retrieving a summary requires one or more constant time lookups in Algorithm 3 Line 3 depending on the spatial or temporal granularity of the query and it may also require the merging of checkpointed summaries Because 002ner granularity cells generally receive fewer items than coarser granularity cells the runtime is lower at 002ner granularities Fewer merges are required because more cells are empty The results show that this applies to both the spatial and the temporal granularities When the spatial extent increases more lookups are performed resulting in an expected higher runtime With more coarse temporal granularities more merges are performed increasing the runtime further The runtime is not made worse  1 The price for a Spot Instance in June 2013 was USD 0.343 per hour 157 
 
 
-Q4 About the job title  mayor and either the city  Boston’ or the state  MA  s :hasValue “Massachusetts   s rdf:type :state  UNION  s :hasValue “Boston  s rdf:type :city   s2 :hasValue “mayor  s2 rdf:type :person_jobtitle 69 Q5 About ‘Bush the country  China’ and the job title  presid ent  s :hasValue “president  s rdf:type :person_jobtitle   s2 :hasValue “China   s2 rdf:type :country  s3 :hasValue ?o3  FILTER \(regex\(?o3, “Bush  28 A  SEM_CONTAINS Query Our first experiment was designed to test the scalability of basic sem_contains queries as dataset size increases. Each of the five queries in Table V was executed against LA50 LA90 and LA130 0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 Q1 Q2 Q3 Q4 Q5 Query Number Execution Time \(sec LA50 LA90 LA130  Fig. 3 sem_contains query execution times for LA50, LA90 and LA130 Figure 3 shows the results of this experiment. The system scales very well with dataset size because the SPARQL graph patterns are mostly evaluated with index-based nested loop joins, which tend to have execution times proportional to result size. Q5 shows the worst scalability because the execution cost is dominated by the regular expression filter on the unselective triple pattern, and the number of intermediate results that must be scanned for the regular expression filter grows significantly as the dataset size increases B  Computing SEM_CONTAINS_COUNT This experiment studied the overhead of computing sem_contains_count by executing two variations of the five sem_contains queries \(Table V\ against the LA130 dataset: \(1 sem_contains only and \(2 sem_contains  sem_contains_count The results of the experiment are shown in Figure 4. As expected, computing sem_contains_count adds some overhead. This overhead is proportional to the result s et size because the count has to be computed once for each document in the result set The overhead required to compute the count value is reasonable. For example, the overhead ranged from 0.001 sec Q2\ to 0.081 sec \(Q3\. The larger overhead observed for queries Q1 and Q3 can be attributed to the larger result size The overhead of computing sem_contains_count is relatively small for Q2, Q4, and Q5, which can be attributed to the fact that the result set size is small for these queries 0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 Q1 Q2 Q3 Q4 Q5 Query Number Execution Time \(sec sem_contains sem_contains + sem_contains_count  Fig. 4 Overhead for sem_contains_count on LA130 dataset C  Ordering Results by SEM_CONTAINS_COUNT This experiment tested the scalability of computing and sorting results by sem_contains_count as the query result set size increases. We used the following graph pattern template for this experiment s :hasValue “A City”. ?s rdf:type :city  A City ranged over the following seven cities: Athens, Atlanta, Sacramento, Boston San Francisco, New York and Los Angeles. Queries were executed against the LA130 dataset. The results of this experiment are illustrated in Figure 5. These results show that computing and ordering results by count scales linearly with the result set size 0 0.5 1 1.5 2 2.5 214 1675 3136 4597 6058 7519 8980 10441 11902 13363 14824 16285 17746 19207 20668 22129 23590 25051 Result Size \(rows Execution Time \(sec  Fig. 5 Time for ranking LA130 Dataset documents using sem_contains_count D  Partition Pruning To show the effect of partition pruning we compared the execution time of the following query against a nonpartitioned document table and then the same table partitioned by pubdate into 8 equal-sized partitions. The start_date  was varied so that partitions accessed ranged from 1 to 8 SELECT * FROM SELECT docno, sem_contains_count\(123 FROM latimes_test_docs WHERE sem_contains\(doctext s :hasValue "San Francisco UNION s :hasValue  "Los Angeles s  rdf:type   :city rdfctx_policy1', 123 AND \(pubdate between start_date AND end_date ORDER BY sem_contains_count\(123 WHERE rownum <= 20 
-1415 
-1415 
+a Hours b Days c Weeks Fig 10 Accuracy at Different Spatio-Temporal Granularities a Hours b Days c Weeks Fig 11 Average Number of Counters Maintained at Different Spatio-Temporal Granularities a Throughput b Memory Consumption c Number of Checkpoints Fig 12 Varying targeted k to the same degree when varying the temporal extent since the temporal lookups are performed after the summaries are 002ltered spatially Thus signi\002cantly fewer entries exist resulting in faster lookup times However as the spatial extent increases the runtime also increases since more cells are retrieved and merged G Checkpoints Over Time In the last experiment we explore the checkpointing activity over time We 002x targeted k at 100 and count the number of checkpoints per hour for the 002rst 5 days Figure 14 shows the results The 002rst day sees more than 18,000 checkpoints but the number of checkpoints drops quickly This is because a new day is initialized based on the ending state for the previous day On the 002fth day only half as many checkpoints are performed Overall the number of checkpoints keeps decreasing but may increase occasionally This demonstrates a Varying Spatial Extent b Varying Temporal Extent Fig 13 Runtime Varying Spatial and Temporal Query Extents the adaptivity of our approach as the number of counters in the cells adjust to the activity levels of the cells 158 
 
 
-0 0.5 1 1.5 2 2.5 3 3.5 4 12345678 Partitions Accessed Execution Time \(sec Partitioned Non-Partitioned  Fig. 6 Benefit of partition pruning on LA130 dataset The results of this experiment are shown in Figure 6. As expected, partition pruning shows a significant speedup in query execution time when only a few partitions are accessed The speedup ranged from 2.8 times faster when one partition is accessed to 1.2 times faster when three partitions are accessed. Not surprisingly, the benefit of partition pruning is reduced as more partitions are qu eried.  This can be attributed to two opposing factors in play In our implementation, each semantic index partition results in a single RDF model, so the non-partitioned index yields one large RDF model, and the partitioned index yields eight small RDF models. The single B  tree index structure, in case of non-partitioned table, is organized independently of the partitioning key pubdate and hence does not benefit from locality of reference when the query is selective requiring access to one or a few partitions. However, for the partitioned index case, the local indexes have triples grouped by pubdate which tends to perform better for selective queries. These benefits start to diminish as the number of partitions to be accessed by the query goes up and eventually the non-partitioned index starts to perform better. When all eight partitions are accessed, the query using the \(local partitioned index runs 1.4 times slower VI  C ONCLUSIONS  The paper presented the semantic indexing feature of Oracle Database, which allows indexing unstructured text columns to generate RDF content that can subsequently be searched with a SPARQL query pattern. It described a model of a semantic index that can be incrementally composed by a combination of base extractor policies, knowledge bases, and entailments. A model for querying semantic index was discussed that allows both searching for matching documents and/or matching triples. An experimental study involving TREC documents demonstrated the feasibility of our approach The proposed semantic indexing framework is intended to create a synergy between the database, semantic web, and information extraction communities. Specifically, the integration and inference benefits of semantic technologies become available for use against unstructured data in the databases. The semantic web community benefits as large volumes of RDF data, hitherto residing as unstructured text can now drive the development of semantic applications Information extraction community benefits as their technologies are put to immediate use by the database and semantic web communities Although extracted data, stored in standard RDF format, is amenable to querying, it tends to be verbose. Further work is needed, in conjunction with the information extraction community, to come up with levels of summarization that will also result in compact and efficient SPARQL query formulation. A more complete realization of the semantic indexing framework would involve work in several areas including optimized processing of blocking queries involving ancillary operators, devising s ophisticated ranking measures for capturing document r elevance, and incremental maintenance of entailments at the document \(named graph level A CKNOWLEDGMENT  We thank Zhe Wu and Vlad Kolovski for providing support for named graph inferencing R EFERENCES  1  S G. Salton, M. McGill Introduction to Modern Information Retrieval  McGraw-Hill Book Company 1986 2  Oracle Database Semantic Technology Developer’s Guide, 11g Release 2\(11.2\, Part Number  E11828-10 3  RDF \(Resource Description Framework\. Available http://www.w3.org/RDF 4  SPARQL Query Language for RDF. [Online  A v ail a bl e www.w3.org/TR/rdf-sparql-query 5  OWL Web Ontology Language Overview. [Online A v ail a bl e   www.w3.org/TR/owl-features 6  E. Chong, S. Das, G. Eadon, J. Srinivasan An Efficient SQL-based RDF Querying In Proceedings of the 31 st Intl Conf on Very Large Databases \(2005 7  J. Srinivasan, R. Murthy, S. Sundara, N. Agarwal, S. DeFazio Extensible Indexing: A Framework for Integrating Domain-Specific Indexing Schemes into Oracle 8i. In Proceedings of the 16 th Intl Conf on Data Engineering, \(2000 8  GATE: Generate Architecture for Text Engineering. [Online  Available: http://gate.ac.uk 9  Open Calais. [Onlin A v a i la b l e h t tp  www  o p e n c a l a i s  c o m     Lymba. [Onlin   A v a i la b l e h t tp   w ww  l ym b a  c om     Text Retrieval Conference. [Online  A v a i la b l e  h t tp  t rec  ni s t  gov    M. Kobayashi and K. Takeda Information retrieval on the web ACM Computing Surveys, 32\(2\:144  173, 2000   A. Schmiedel Semantic Indexing Based on Description Logics KRDB 1994   W. A. Woods Conceptual indexing: A better way to organize knowledge Tech. Report SMLI TR-97-61, Sun Microsystems Labs, 97   R. Mihalcea and D.I. Moldovan Semantic indexing using WordNet senses In Proc. of ACL Workshop on IR & NLP, Honk Kong, 2000   C. Fellbaum. WordNet An Electronic Lexical Database The MIT Press, 1998   D. I. Moldovan, R. Mihalcea Document Indexing Using Named Entities In “Studies in Informatics and Control”, Vol. 10, No. 1 March 2001   J. Guo, G. Xu, X. Cheng, Hang Li Named entity recognition in query  SIGIR 2009: 267-274   Unstructured Information Management Architecture. [Online   Available: http://uima.apache.org   U. Shah, T. W. Finin, A. Joshi, R. S. Cost, J. Mayfield Information retrieval on the semantic web CIKM 2002: 461-468   A. Kiryakov, B. Popov, D. Ognyanoff, D. Manov, A. Kirilov, M Goranov Semantic Annotation, Indexing, and Retrieval ISWC 2003   Oracle Database PL/SQL Packages and Types Reference 11g Release 2 11.2\,  Part Number E16760-05, Chapter 10: CTX_ENTITY 
-1416 
-1416 
+Fig 14 Checkpoints Over Time V C ONCLUSIONS We present a new framework for the processing of spatiotemporally constrained topk most popular terms queries on streaming spatio-temporally tagged text content such as microblog posts The framework's index extends existing techniques for counting frequent items in summaries to allow the summaries to grow and shrink dynamically to adapt to changes in the incoming data Query processing works by merging relevant summaries To provide guarantees about the query results a new merging algorithm is proposed that supports spatio-temporal query regions Experimental studies with an implementation of the framework offers insight into the accuracy scalability and performance of the processing of incoming data and queries and they demonstrate that the framework is capable of offering very accurate query results at high performance at scale A CKNOWLEDGMENTS This research was supported in part by the MADALGO research center and in part by the Geocrowd Initial Training Network funded by the European Commission as an FP7 Peoples Marie Curie Action under grant agreement number 264994 R EFERENCES 1  P K Agarwal G Cormode Z Huang J Phillips Z Wei and K Yi Mergeable summaries In PODS  pages 23\22634 2012 2  W Akman W R Franklin M Kankanhalli and C Narayanaswami Geometric computing and uniform grid technique Computer-Aided Design  21\(7 1989 3  A Angel N Koudas N Sarkas and D Srivastava What's on the grapevine In SIGMOD  pages 1047\2261050 2009 4  N Bansal and N Koudas Blogscope a system for online analysis of high volume text streams In VLDB  pages 1410\2261413 2007 5  E Baralis S Paraboschi and E Teniente Materialized view selection in a multidimensional database In VLDB  pages 156\226165 1997 6  M Charikar K Chen and M Farach-Colton Finding frequent items in data streams In ICALP  pages 693\226703 2002 7  Z Cheng J Caverlee and K Lee You are where you tweet a contentbased approach to geo-locating twitter users In CIKM  pages 759\226768 2010 8  G Cormode and M Hadjieleftheriou Finding frequent items in data streams PVLDB  1\(2 2008 9  G Cormode and S Muthukrishnan An improved data stream summary the count-min sketch and its applications Journal of Algorithms  55\(1 2005 10  G Cormode and S Muthukrishnan What's hot and what's not tracking most frequent items dynamically TODS  30\(1 2005 11  E D Demaine A L 264 opez-Ortiz and J I Munro Frequency estimation of internet packet streams with limited space In AlgorithmsESA 2002  pages 348\226360 2002 12  J Gray S Chaudhuri A Bosworth A Layman D Reichart M Venkatrao F Pellow and H Pirahesh Data cube A relational aggregation operator generalizing group-by cross-tab and sub-totals Data Mining and Knowledge Discovery  1\(1 1997 13  J W Hager J F Behensky and B W Drew The universal grids Universal transverse mercator utm and universal polar stereographic ups Technical report 1989 14  V Harinarayan A Rajaraman and J D Ullman Implementing data cubes ef\002ciently In SIGMOD Record  volume 25 pages 205\226216 1996 15  P Kapanipathi F Orlandi A Sheth and A Passant Personalized 002ltering of the twitter stream In SPIM Workshop at ISWC  pages 6\226 13 2011 16  R M Karp S Shenker and C H Papadimitriou A simple algorithm for 002nding frequent elements in streams and bags TODS  28\(1 2003 17  R Lan M D Lieberman and H Samet The picture of health mapbased collaborative spatio-temporal disease tracking In Workshop on Use of GIS in Public Health  pages 27\22635 2012 18  I Lazaridis and S Mehrotra Progressive approximate aggregate queries with a multi-resolution tree structure In SIGMOD  pages 401\226412 2001 19  M D Lieberman and H Samet Supporting rapid processing and interactive map-based exploration of streaming news In GIS  pages 179\226188 2012 20  M D Lieberman H Samet J Sankaranarayanan and J Sperling Steward architecture of a spatio-textual search engine In PODS  page 25 2007 21  N Mamoulis S Bakiras and P Kalnis Evaluation of top-k OLAP queries using aggregate R-trees In SSTD  pages 236\226253 2005 22  N Manerikar and T Palpanas Frequent items in streaming data An experimental evaluation of the state-of-the-art DKE  68\(4 2009 23  G S Manku and R Motwani Approximate frequency counts over data streams In VLDB  pages 346\226357 2002 24  M Mathioudakis N Bansal and N Koudas Identifying attributing and describing spatial bursts PVLDB  3\(1 2010 25  M Mathioudakis N Bansal and N Koudas Identifying attributing and describing spatial bursts PVLDB  3\(1-2 2010 26  M Mathioudakis and N Koudas Twittermonitor trend detection over the twitter stream In SIGMOD  pages 1155\2261158 2010 27  M Mathioudakis and N Koudas Twittermonitor trend detection over the twitter stream In SIGMOD  pages 1155\2261158 2010 28  A Metwally D Agrawal and A El Abbadi Ef\002cient computation of frequent and top-k elements in data streams In ICDT  pages 398\226412 2005 29  J Misra and D Gries Finding repeated elements Science of computer programming  2\(2 1982 30  D Papadias P Kalnis J Zhang and Y Tao Ef\002cient OLAP operations in spatial data warehouses In SSTD  pages 443\226459 2001 31  J Sankaranarayanan H Samet B E Teitler M D Lieberman and J Sperling Twitterstand news in tweets In GIS  pages 42\22651 2009 32  D Sidlauskas S Saltenis C W Christiansen J M Johansen and D Saulys Trees or grids indexing moving objects in main memory In GIS  pages 236\226245 2009 33  K Tao F Abel Q Gao and G.-J Houben Tums Twitter-based user modeling service In The Semantic Web ESWC 2011 Workshops  pages 269\226283 2012 34  B E Teitler M D Lieberman D Panozzo J Sankaranarayanan H Samet and J Sperling Newsstand a new view on news In GIS  page 18 2008 35  J Vosecky D Jiang and W Ng Limosa a system for geographic user interest analysis in twitter In EDBT  pages 709\226712 2013 36  J Yang and J Widom Incremental computation and maintenance of temporal aggregates In ICDE  pages 51\22660 2001 159 
 
 
-  13  Cu r r e n t  t e c h n o l o g y  a n d  p r a c t i c e s  r e q u i r e  a  s e t  o f  l i f e c y c l e  ar t i f act s  t h at  ar e  ty p ic a lly  p r o d u c e d  a f te r   n o t c o n c u r r e n t to   th e  p r o d u c t  e g  s o f tw a r e   Th e  a r t i f a c t  s u i t e  is  r e q u ir e d   cer t i f i cat i o n  q u al i f i cat i o n  ef f o r t s   to  e n s u r e  th a t p r o p e r  w o r k  pr a c t i c e s  fo r  t h e  de s i gn  de ve l op t  a n d  ve r i f i c a t i on of  th e  p r o d u c t  d  B as ed  o n  y ear s  o f  obs e r va t i ons  of  pr ogr a m  m a na ge m e nt  d  ove r s e e i ng s of t w a r e  pr oduc t  de ve l opm e nt s   t he se  ar t i f act s  ar e ty p ic a lly  t  th e  p r o d u c t  s o f tw a r e  c o d e    Of t e n  t h e  a r t i f a c t s  e   al i g n ed  w i t h  t h e cu r r en t  s t at e o f  t h e p r o d u ct   C o n t r act ua l l y  su i t e s o f  d o c u m e n t a t i o n  a r e  r e q u i r e d  i n  m u l t i p l e  st a t e s d ra f t   f i n a l  c o n tr o lle d  a s  t h e  p ro d u c t  p ro ough th e  lif e c y c le  Pr o d u c t  c h a n g e s  a n d  r e q u i r e m e n t s  c h u r n  o f t e n  di c t a t e  t he  r e c ons t r uc t i on a nd r e de l i ve r y of  pr e vi ous l y de l i ve r e d doc um en t at i o n   T h e p r o ces s  i s  cu m b er s o m e an d  ex p en s i v e  co m p o u n d ed  b y  t h e f act  t h at  t h e d o cu m en t at i o n  ma y  n o t  a c t u a l l y  r e p r e s e n t  t h e  c u r r e n t  s t a t e  o f  t h e  p r o d u c t  St a k e h o l d e r s  o f t e n  q u e s t i o n  t h e  u s e f u l n e s s  o f  d i s c o n n e c t e d  lif e c y c le d o c u m e n ta tio n   l r tif a c t e n g in e e r in g  is  u n iq u e  in  th a t it co n n ect s  t h e p r o d u ct  t o  i t s  ar t i f act   At  a n y  p o i n t   a  c u s t o m e r   a De s i g n a t e d  E n g i n e e r i n g  R e p r e s e n t a t i v e  D E R   o r a n y  st a k e h o l d e r  h a s t h e  a b i l i t y  t o  r e q u e st  a  d o c u m e n t  o f  t h e  cu r r en t  s t at e o f  t h e p r o d u ct   U n i q u e i s  t n ar t i f act i s eq u i v al en t t o p r o d u ci n g t h e p r o d u ct   Al l  a s p e c t s  o f  f act s  ar e m o d el ed   Th i s  m o d e l ba s e d s t r uc t ur e  le v e r a g e s  th e  f o r m a t a s  d e s c r ib e d  b y  th e  d a ta  ite m  d e s c r ip tio n s   D I D   fo r  t h e  l i fe c y c l e  a r t i fa c t s  r e q u i r e d  fo r  t h e  q u a l i fi c a t  ef f o r t s  f o r  ai r b o r n e s o f t w ar e s y s t em s   Re u s e  o f  Ar t i f a c t s  al i gnm e nt  t o A C  20  43 63  r e u s e  Th e  A u t h o r s  h a v e  c o n d u c t e d  s ig n if ic a n t s tu d ie s  o f  h o w  lif e c y c le  a r tif a c ts  c a n  b e  u s e d  to  le v e r a g e  D O  obj e c t i ve  t    th e  r e u s e  o f  th e s e  c r e d its   FA A  s  A C  2 0 148 gui de l i ne s   6  t o s uppor t  qua l i f i c a t i on ef f o r t s  o f  a r eu s ab l e s o f t w ar e co m p o n en t   R S C   o n  m u l t i p l e av i at i o n  p l at f o r m s  t o  i m p r o v e cap ab i l i t y  i n t eg r at i o n  ef f o r t s   re d u c e  t i m e   c o s t s   a n d  p ro g ra m  ri s k s  ow on pl a t f or m  in te g r a ti ons      12  illu s tr a te s  a p r o ces s  o f  h o w  lif e c y c le  a r tif a c ts    de s i gne d f or  r e us e   c a n be  re u s e d  t o  s u p p o rt  f o l l o w on in te g r a tio n  a n d  a ir c r a f t q u a lif ic a tio n  e f f o r ts  wi t h  s i g n i f i c a n t  s   If  w e  c a t e g o ri z e  t h e  3 5  lif e c y c le  d o c u m e n ts  r e q u ir e d  f o r  a ir w o r th in e s s  q u a lif ic a tio n  e f f o r ts  in to  Pl a n n i n g   7    Re q u i r e m e n t s  a n d  D e s i g n   1 0    Co d i n g   4    V e r i f i c a t i o n   6    an d  E n g i n eer i n g  P r o ces s   8    an d  i n t en t i o n al l y  w r i t e t h e Pl a n  f o r  So f t w a r e  A s p e c t s  o f  C e r t i f i c a t i o n   PSA C   f o r  mu l t i p l e  t a r g e t  p l a t f o r ms   e  g   A p a c h e  C h in o o k  k h aw k   an d  K i o w a as  i l l u s t r at ed  ab o v e   t h e  20 148 gui da nc e  pe r m i t s  t he  r e us e  of  l i f e c yc l e  a r t i f a c t s    ex am p l e F u l l   P ar t i al  o r  n o Cr e d i t  c a n  b e  s p e c i f i e d  i n  t h e  PSA C  f o r  D O  ap p r o v al  obj e c t i ve s   Fo r  e x a m p l e   Pl a n n i n g  d o c u m en t s   S E M P   S D P   S C M P   S Q A P   S S P P  can  be  w r i t t e n s uc h t he y a r e  non sp e c i f i c  t o  a n  i n d i v i d u a l  pl a t f or m  a nd t he r e f or e  F ul l  c r e di t  c a n  be  s ought  f or  t he  So f t w a r e  Pl a n n i n g  Pr o c e ss o b j e c t i v e s l i st e d  i n  D O  Ta b l e  A 1  4  t h e re b y  a d d i n g  t o  t h e  re u s e     H o w e v  ve r i f i c a t i on a r t i f a c t s  l i ke  a  T e s t  R e por t  i s  s pe c i f i c  t o a  t a r ge t  pl a t f or m   a nd a s  s uc h no Cr e d i t  c a n  b e  s o u g h t  f o r  DO  Ta b l e  A 6  4   Th e  A u t h o r s  ha ve  co m p ar ed  t h e A r m y  s  A R  7 0 62 2 qua l i f i c a t i on pr oc e s s  t o t he  A i r  F or c e s  516B  5 e y   6 s   an d  t h er e i s  a p o t en t i al  of  r e us e  of  o 63  r e u s e  e f f i c i e n c y  f o r  f o l l o w on in te g r a tio n  e f f o r ts  o f  A r m y  a n d  A ir  F o r c e  p la tf o r m s  a n d  up to  a  43  r e u s e  p o t e n t i a l  i f  c r e d i t  i s  s o u g h t  f o r  N a v y  pl a t f or m s  s e e  A p p e n d i x  A    TES  au t o m at i o n  an d  r eu s e   10  q u a n t i f i e d  t h a t  f o r s i z e d   p r o g r a m   t h e  l i f e c y c l e  d o c u m e n t a t i o n  r e q u i r e d  f o r  qua l i f i c a t i on c oul d co n s u m e u p  t o  3  y ear s  o f  ef f o r t      th e  T E S  UM TM   el ba s e d a r t i f a c t  e ngi ne e r i ng i nt e gr a t i on a bi l i t y i n y TM   co u l d  p 1 3 5   r e d u c t i o n  in  c o s t/s c h e d u le  o n  in itia l in te g r a tio n  e f f o r ts  b y  a u to ge ne r a t i ng a r t i f a c t s  t o s uppor t  qua l i f i c a t i on e f f or t s   a nd up to  2 ye a r s   63   r e d u c t i o n s  c o s t  s c h e d u l e  o n  f o l l o w on in te g r a tio n  e f fo r t s  fo l l o w i n g  t h e  F A A  s  A C  2 0 148 gui de l i ne s   8   S ARY  As  wi d e r  e x p e r i e n c e  is  g a in e d  wi t h  M B S E  t o o l s  l i k e  T E S SA V i  A W E SU M TM   an d  as  s i m u l at i o n  p r o d u ct s  e us e d f or  obt a i ni ng c e r t i f i c a t i on unde r  D O O 331  i t  i s  be l i e ve d t ha t  t he  a c c e pt a nc e  of  t he  l d to o ls  a n d  s im u la tio n  r e s u lts  f o r  s p e c if ic a tio n s  a n d  d e s ig n  accep t an ce w i l l  b e a f u n ct i o n  o f  t h e f i d el i t y  o f  t h e m o d el s  s   e  g    t h e  s y s t e m   i t  o p e ra t i n g  h o s t  t a rg e t  o p e ra t i n g  s y s t e m   fl i g h t  m o d e l s   a n d  e n v i r o n m e n t    T h e n  s i g n i fi c a n t   be ne f i t s  w i l l  be  a c hi e ve d  a nd i t  i s  e xpe c t e d t ha t  t he  is s u e s  th a t h a v e  b e e n  im p e d in g  p r o g r e s s  to w a r d  th e  o b j e c tiv e  o f  th e  d e liv e r in g  a v ia tio n  s y s te m s  s o lu tio n s  th a t h a v e  in c r e a s e d  sa f e t y   sy st e m  c a p a c i t y   a n d  e f f i c i e n c y  wi l l  b e  a d d r e s s e d   h  th e  T E S i  UM TM   a co m p r eh en s i v e  d to en d  l i f ecy cl e f o r  ai rw o rt h i n e s s    It  s h o u l d  s p e e d  c a p a b i l i t y  d e v e l o p m e n t   in te g r a tio n  a n d  r e d u c e  th e  to ta l c o s t o f  o w n e r s h ip   T C O   b y  em p l o y i n g  i m p r o v ed  m o d el ba s e d s ys t e m  e ngi ne e r i ng pr a c t i c e s  i n a  uni f i e d m ode l i ng e nvi r onm e nt   TES SA V i  s  A W E SU M TM  MB S E  l i f e c y c l e  t o o l s e t  i s  pos i t i one d t o  re v o l u t i o n i z e  t h e  m a n n e r i n  w h i c h  a e ro s p a c e  an d  av i at i o n  i n d u s t r i es  d ev el o p   v er i f y   an d  d ep l o y  m i s s i o n cr i t i cal  an d  s af et y cr i t i cal  cap ab i l i t i es  t ar g et ed  f o r  t h e n ex t  ge ne r a t i on of  f ut ur e  f l i ght   T he s e  s ys t e m s  a nd c a pa bi l i t i e s  can  b e d es i g n ed  an d  i n t eg r a te d  to  s u p p o r t a ir b o r n e  s e a  a n d  gr ound a s s e t s   Qu e s t i o n s    C o mme n t s  Qu e s t i o n s  a n d  c o m m e n t s  c a n  b e  s e n t  t o  St e p h e n S  Tu c s o n Em b e d d e d    
+Knowledge Base Generation by Methodology  Rule1 IF A85<=0.50 AND A93<=0.50 THEN CLASS 1  Rule2   IF A85<=0.50 AND A93>0.50 AND A105 <=0.50 AND A97<=0.50 THEN CLASS 3   Rule3 IF A85<=0.50 AND A93>0.50 AND A105 <=0.50 AND A97>0.50 AND A100<=0.50   THEN CLASS 3   Rule4   IF A85<=0.50 AND A93>0.50 AND A105 <=0.50 AND A97>0.50 AND A100>0.50  AND A74<=0.50  THEN CLASS 1   Rule5 IF A85<=0.50 AND A93>0.50 AND A105 <=0.50 AND A97>0.50 AND A100>0.50 AND A74>0.50  THEN CLASS 3  Rule6 IF A85<=0.50 AND A93>0.50 AND A105 >0.50 AND A94<=0.50 AND A95<=0.50  THEN CLASS 1  Rule7 IF A85<=0.50 AND A93>0.50 AND A105 >0.50 AND A94<=0.50 AND A95>0.50  THEN CLASS 3  Rule8 IF A85<=0.50 AND A93>0.50 AND A105 >0.50 AND A94>0.50 THEN CLASS 3  Rule9 IF A85>0.50 AND A105<=0.50 AND A83 <=0.50 AND A88<=0.50 AND A75<=0.50 AND A82<=0.50 AND A63<=0.50 AND A89<=0.50 THEN CLASS 2  Rule10 IF A85>0.50 AND A105<=0.50 AND A83 <=0.50 AND A88<=0.50 AND A75<=0.50 AND A82<=0.50 AND A63<=0.50 AND A89>0.50    THEN CLASS 3  Rule11 IF A85>0.50 AND A105<=0.50 AND A83 <=0.50 AND A88<=0.50 AND A75<=0.50 AND A82<=0.50 AND A63>0.50   THEN CLASS 3  Rule12 IF A85>0.50 AND A105<=0.50 AND A83 <=0.50 AND A88<=0.50 AND A75<=0.50 AND A82>0.50 AND A93<=0.50    THEN CLASS 3  Rule13 IF A85>0.50 AND A105<=0.50 AND A83 <=0.50 AND A88<=0.50 AND A75<=0.50 AND A82>0.50 AND A93>0.50    AND A95<=0.50 AND A94<=0.50   THEN CLASS 1  Rule14 IF A85>0.50 AND A105<=0.50 AND A83 <=0.50 AND A88<=0.50 AND A75<=0.50 AND A82>0.50 AND A93>0.50    AND A95<=0.50 AND A94>0.50   THEN CLASS 3  Rule15 IF A85>0.50 AND A105<=0.50 AND A83 <=0.50 AND A88<=0.50 AND A75<=0.50 AND A82>0.50 AND A93>0.50    AND A95>0.50   THEN CLASS 2  Rule16 IF A85>0.50 AND A105<=0.50 AND A83 <=0.50 AND A88<=0.50 AND A75>0.50 AND A97<=0.50 THEN CLASS 3 Rule17 IF A85>0.50 AND A105<=0.50 AND A83 <=0.50 AND A88<=0.50 AND A75>0.50 AND A97>0.50 AND A94<=0.50 THEN CLASS 1  Rule18 IF A85>0.50 AND A105<=0.50 AND A83 <=0.50 AND A88<=0.50 AND A75>0.50 AND A97>0.50 AND A94>0.50 THEN CLASS 3  Rule19 IF A85>0.50 AND A105<=0.50 AND A83 <=0.50 AND A88>0.50 THEN CLASS 3  Rule20  IF A85>0.50 AND A105<=0.50 AND A83 >0.50 AND A88<=0.50 AND A89<=0.50 AND A97<=0.50 AND A100<=0.50   THEN CLASS 2 Rule21 IF A85>0.50 AND A105<=0.50 AND A83 >0.50 AND A88<=0.50 AND A89<=0.50 AND A97<=0.50 AND A100>0.50  AND A63<=0.50 THEN CLASS 2  Rule22 IF A85>0.50 AND A105<=0.50 AND A83 >0.50 AND A88<=0.50 AND A89<=0.50 AND A97<=0.50 AND A100>0.50 AND A63>0.50 AND A93<=0.50 THEN CLASS 2 Rule23 IF A85>0.50 AND A105<=0.50 AND A83 >0.50 AND A88<=0.50 AND A89<=0.50 AND A97<=0.50 AND A100>0.50AND A63>0.50 AND A93>0.50 THEN CLASS 1  Rule24 IF A85>0.50 AND A105<=0.50 AND A83 >0.50 AND A88<=0.50 AND A89<=0.50 AND A97>0.50 AND A93<=0.50 THEN CLASS 2  Rule25 IF A85>0.50 AND A105<=0.50 AND A83 >0.50 AND A88<=0.50 AND A89<=0.50 AND A97>0.50 AND A93>0.50 AND A100<=0.50 AND A73<=0.50   THEN CLASS 2  Rule26 IF A85>0.50 AND A105<=0.50 AND A83 >0.50 AND A88<=0.50 AND A89<=0.50 AND A97>0.50 AND A93>0.50 AND A100<=0.50 AND A73>0.50   THEN CLASS 1  Rule27 IF A85>0.50 AND A105<=0.50 AND A83 >0.50 AND A88<=0.50 AND A89<=0.50 AND A97>0.50 AND A93>0.50 AND A100>0.50 AND A94<=0.50 AND A95 <=0.50   THEN CLASS 1  Rule28 IF A85>0.50 AND A105<=0.50 AND A83 >0.50 AND A88<=0.50 AND A89<=0.50 AND A97>0.50 AND A93>0.50 AND A100>0.50 AND A94<=0.50 AND A95 >0.50   THEN CLASS 2  Rule29 IF A85>0.50 AND A105<=0.50 AND A83 >0.50 AND A88<=0.50 AND A89<=0.50 AND A97>0.50 AND A93>0.50 AND A100>0.50 AND A94>0.50   THEN CLASS 2  Rule30 IF A85>0.50 AND A105<=0.50 AND A83 >0.50 AND A88<=0.50 AND A89>0.50 THEN CLASS 3  Rule31 IF A85>0.50 AND A105<=0.50 AND A83 >0.50 AND A88>0.50 THEN CLASS 3  Rule32 IF A85>0.50 AND A105>0.50 AND A93<=0.50 AND A89>0.50 THEN CLASS 3  Rule33 IF A85>0.50 AND A105>0.50 AND A93<=0.50 AND A89<=0.50 AND A83>0.50  THEN CLASS 2  Rule34 IF A85>0.50 AND A105>0.50 AND A93<=0.50 AND A89<=0.50 AND A83<=0.50 AND A75>0.50 THEN CLASS 3  Rule35 IF A85>0.50 AND A105>0.50 AND A93<=0.50 AND A89<=0.50 AND A83<=0.50 AND A75<0.50 AND A73>0.50 THEN CLASS 3  Rule36 IF A85>0.50 AND A105>0.50 AND A93<=0.50 AND A89<=0.50 AND A83<=0.50 AND A75<0.50 AND A73<=0.50 AND A63>0.50 THEN CLASS 3  Rule37 IF A85>0.50 AND A105>0.50 AND A93<=0.50 AND A89<=0.50 AND A83<=0.50 AND A75<0.50 AND A73<=0.50 AND A63<0.50 THEN CLASS 2  Rule38 IF A85>0.50 AND A105>0.50 AND A93>0.50 AND A94<=0.50 AND A98<=0.50 AND A95<=0.50 THEN CLASS 1  Rule39 IF A85>0.50 AND A105>0.50 AND A93>0.50 AND A94<=0.50 A ND A 98<=0.50 AND A95>0.50 AND A97<=0.50 THEN CLASS 3  Rule40 IF A85>0.50 AND A105>0.50 AND A93>0.50 AND A94<=0.50 AND A98<=0.50 AND A95>0.50 AND A97>0.50 THEN CLASS 2  Rule41 IF A85>0.50 AND A105>0.50 AND A93>0.50 AND A94<=0.50 AND A98>0.50 AND A75<=0.50 THEN CLASS 2  Rule42 IF A85>0.50 AND A105>0.50 AND A93>0.50 AND A94<=0.50 AND A98>0.50 AND A75>0.50 THEN CLASS 1  Rule43 IF A85>0.50 AND A105>0.50 AND A93>0.50 AND A94>0.50 AND A88<=0.50 THEN CLASS 2  Rule44 IF A85>0.50 AND A105>0.50 AND A93>0.50 AND A94>0.50 AND A88>0.50 THEN CLASS 3 
 
 
-  14  R EF ER EN C ES    1    Te c h n i c a l  S t a n d a r d  f o r  F u t u r e  A i r b o r n e  C a p a b i l i t y  En v i r o n m e n t   F A C E   Ed i t i o n  2  0   T h e  O p e n  G r o u p  Fe b r u a r y  2 0 1 3    2   A i r w o r t h i n e s s  Q u a l i f i c a t i o n  o f  A i r c r a f t  S y s t e m s      Re g u l a t i o n  A R 7 0 62  Re s e a r c h   D e v e l o p m e n t   Ac q u i s i t i o n   HQ De p a r t m e n t  o f   Ar m y   2 1  M a y  2 0 0 7    3   A d v i s o r y  C i r c u l a r  A C  2 0 115C    Ai r b o r n e  S o f t wa r e  e   U S  D e p a r tm e n t o f  T r a n s p o r ta tio n  F e d e r a l i on A dm i ni s t r a t i on  J ul y 2013    4    CA  DO 178C    So f t w a r e  C o n s i d e r a t i o n s  i n  A i r b o r n e  Sy s t e m s  a n d  E q u i pm e nt  C e r t i f i c a t i on  RT CA  D e c   2 0 1 1    5    CA  DO 331    l Ba s e d  D e v e l o p m e n t  a n d  Ve r i f i c a t i o n  S u p p l e m e n t  t o  DO 178C  a nd D O 278A  RT CA  D e c   2 0 1 1    6   A d v i s o r y  C i r c u l a r  A C  2 0 148   Re u s a b l e  S o f t w a r e  Co m p o n e n t s    U S  D e p a r t m e n t  o f  T r a n s p o r t a t i o n   F e d e r a l  Av i a t i o n  Ad m i n i s t r a t i o n   De c e m b e r  2 0 0 4    7    CA  DO 297    In t e g ra t e d  M o d u l a r A v i o n i c  IM A  Gu i d a n c e  a n d  C e r t i f i c a t i o n  C o n s i d e r a t i o n s  RT CA  N o v   2005     8   M e t h o d  a n d  A p p a r a t u s  f o r  I n t e r f a c i n g  w i t h  M u l t i p l e  Ob j e c t s  u s i n g  a n  Ob j e c t  I n d e p e n d e n t  I n t e r f a c e  P r o t o c o l    US  P a t  No  8  2 3 9  5 8 6  T u c s o n  E m b e d d e d  S y s te m s   Ca p a b i l i t y  D r i v e n  A r c h i t e c t u r e   T E S   CD A      9   C a p a b i l i t y  D r i v e n  A r c h i t e c t u r e   A n  A p p r o a c h  t o  wo rt h y  R e u s a b l e  S o ft w a re    T u c s o n  E m b e d d e d  Sy s t e m s   A m e r i c a n  H e l i c o p t e r  So c i e t y  6 3 r d  A n n u a l  A H S In t e rn a t i o n a l  c o n fe re n c e   V i rg i n i a  B e a c h   V i rg i n i a   M a y  2007   10   R e u s a b l e  A u t o m a t e d  P l a t f o r m  S I L  T e s t i n g   t  Ef f e c t i v e  R i s k Re d u c e d  P r o c e s s  f o r  A i r w o r t h  So f t w a r e    T u c s o n  E m b e d d e d  Sy s t e m s   A m e r i c a n  He l i c o p t e r  S o c i e t y  6 6 t h  An n u a l  F o r u m   P h o e n i x   AZ    Ma y  2 0 1 0    11    En a b l i n g  S i t u a t i o n a l  A w a r e n e s s  a n d  N e t w o r k  C e n t r i c  Op e r a t i o n s  f o r  S y s t e m s  u t i l i z i n g  F AC E TM  Op e n  S y s t e m s  Ar c h i t e c t u r e s   T u c s o n  E m b e d de d S ys t e m s   A m e r i c a n He l i c o p t e r  S o c i e t y  In t e rn a t i o n a l  S p e c i a l i s t s  M e e t i n g  o n  Un m a n n e d  R o t o r c r a f t  a n d  Ne t wo r k  C e n t r i c  Op e r a  Sc o t t s d a l e   A r i z o n a   J a n u a r y 2 0 1 3   12    Sy s t e m s  E n g i n e e r i n g  V i s i o n  2 0 2 0    I n t e r n a t i o n a l  Co u n c i l  o n  S y s t e m s  E n g i n e e r i n g   I N CO SE    T P 2004 004 02  2007    13    l Ba s e d  E n g i n e e r i n g  w i t h  A A D L    F e i l e r    Gl u c h   P e a r s o n  E d u c a t i o n  I n c    2 0 1 3     1 4    E TM  v2 0    v2 1 R e f e r e nc e  I m pl e m e nt a t i on Gu i d e    Op e n  Gr o u p   2 0 1 4     15    L K 516B    Ai r wo r t h i n e s s  C e r t i f i c a t i o n  Cr i t e r i a  US  De p a r t m e n t  o f  De f e n s e   DOD  Se p t  2 0 0 5    16    Jo i n t  S o f t w a r e  S y st e m  S a f e t y  C o m m i t t e e   JS S S C   So f t w a r e  Sy s t e m  Sa f e t y  H a n d b o o k 9     17    A S u r v e y  o f  S i t u a t i o n a l  Awa r e n e s s  R e q u i r e m e n t s  i n  r to A ir  C o m b a t F ig h te r s   E n d s le y  1 9 9 3  D e p a r tm e n t of  I ndus tr ia l E n g in e e r in g  T e x a s  T e c h  U n iv e r s ity   J o u r n a l of  A vi a t i on P s yc hol ogy   18    Si t u a t i o n a l  A w a r e n e s s  I n f o r m a t i o n  D o m i n a n c e    In fo rm a t i o n  W a rfa re    E n d s l e y    J o n e s   1 9 9 7   U  S   A i r Fo r c e  A r m s t r o n g  L a b o r a t o r y   A L  C F TR 1997 0156   19    Re v i s i o n s  t o  t h e  J D L  D at a F u s i o n  M o d el   S t ei n b er g   Bo w m a n   W h i t e    J o n e s   1 9 9 9   E RI M  I n t e r n a t i o n a l  I n c   0 A v i at i o n  2 0 5 0  Vi s i o n   Te c h n o l o g y  f o r  Ta c t i c s     Dr   B i l l  L e wi s   Di r e c t o r  o f  t h e  AM R DE C  s  Av i a t i o n  De v e l o p m e n t  Di r e c t o r a t e   1  De v e l o p e r  s  Ha n d b o o k  r Ai r wo r t hy  R e u s a b le  F A C E  Un its  o f  C o n f o r m a n c e     Si m i   To m p k i n s   2 0 1 4  US  Ar m y  AM R DE C    22    Sy s t e m  A r c h i t e c t u r e  V i r t u a l  I n t e g r a t i o n   SA V I     Ae r o s p a c e  Ve h i c l e  S y s t e m s  I n s t i t u t e   Te x a s  A  M  Un i v e r s i t y  S y s t e m       
+ X  C ONCLUSION   This paper suggests solution of the three still open problems First, how you can find the actual value of the missing values? By develop of Random forest data mining algorithm Second, solve the problem of taken intelligent analysis of small size of dataset \(i.e, insuffizent size of dataset\y propose new method for generation data called GPDCM Third, how you can get accurate and comprehensible rule base? These done by three stages: first stage, using PCA to reduction dimensional of database. Second stage, FP-Growth data mining algorithm using to generating association rules from the components of PCA of database. Third stage classification that association rules by TreeNet algorithm As result, proposed methodology provides fast, Accurate and comprehensible classification rules. Also, it can use to compression dataset in two dimensions \(number of features”by PCA”, number of records” by FP-Growth By experiments, found “the values of correlation matrix among the predicators \(components of PCA\ are 95 equivalent the rules result from FP-growth”, therefore, we can use correlation matrix as alternative tool in generation association rules R EFERENCES     Breiman, Leo., "Random Forests". Machine Learning 45 \(1\: 5–32 2001: doi:10.1023/A:1010933404324   DANIEL T. LAROSE,“Data Mining Methods and Models” Department of Mathematical Sciences Central Connecticut State University 2006   Erica C. And Falk H., " Using “Blackbox” Algorithms Such as TreeNet and Random Forests for Data-Mini ng and for Finding Meaningful Patterns, Relationships, and Outliers in Complex Ecological Data Information science referenc e, Hershey • New York, 2009   Freitas.A. Data Mining and Knowle dge Discovery with Evolutionary Algorithms. Springer, 2002   Georgios K, Eleftherios K and Va ssili L " Ant Seeker: An algorithm for enhanced Web Search", IFIP Intern ational Federation for information processing, Vol 204 , Artifical Intellegent Application and Innovations pp. 649-656, 2006   Hu, Y-J. A Genetic Programming Approach to Constructive Induction In Proceeding of 3rd Annual Gene tic Programming Conference, pp 146–151, 1998   Hussein K., "Knowledge Discovery in database by using data mining Ph.D. Thesis, University of Technology, 2002   Isao Okina “Extracting uncertain knowledge in database using Binary Causal Network Model”, Ph.D thesis Linköpings university , Sweden 2002   Jeril “ Adboosting an exclusive impl ementation of jerome Friedman’s MART methodology”., Salford Systems, version 2.0., 2008   Jiaxiong Pi, Yong Shi and Zhengxin Ch en, From similarity retrieval to cluster analysis: The case of R*-trees, IEEE Symposium on Computational Intelligence and Data Mining \(CIDM   Konar A., “Artificial Inelegant a nd Soft Computing: Behavioral and Cognitive of the Human Brain CRC Press, Florida, 2000   Mannila H., "Data mining: Machnine learning, statistics and databases in Proc. Of 8th Int. Con. On science and statistical database management, p 2-9, Stockholm, Sweden, 1997   McGarry K., Tait J., Wermter S., MacIntyre J. “Rule          Extraction from Radial Basis Function Networks,”                Proceedings of the International Conference on                      Artificial Neural Networks. p 613-618, Edinburgh, UK, September 1999   McGarry K. “The Analysis of Ru les Discovered by the Data Mining Process,” 4th International Confer ence on Recent Advances in Soft Computing, Nottingham, UK, December 2000   Mitra P., Mitra S., and Sankar K., “Sta ging of Cervical Cancer with Soft Computing,” IEEE Transactions On Biomedical Engineering, Vol.47 No. 7, July 2000   S. Mitra, P. Mitra, and S. K Pal, Data Mining In Soft Computing Framework: A Survey, IEEE Transac tions On Neural Networks, Vol.13 No. 1, January 2002   Mitra S., Mitra P., and Pal S., Data Mining In Soft Computing Framework: A Survey, IEEE Transac tions On Neur al Networ ks, Vol.13 No. 1, January 2002   Mitra S., "Data Mining: Mult imedia, Soft Computing, and Bioinformatics," John Wiley & Sons Inc., Hoboken, New Jersey, 2003   Mutthew G. and Larry B., "Feat ure construction and selection using genetic programming and a genetic algorithm", LNCS, P 229-237, 2003   Malone J., McGarry K. and Bowerman C., “Using an Adaptive Fuzzy Logic System to Optimise Knowledge Discovery in Proteomics International Conference on Recent A dvances in Soft Computing, pp 80-85, November 2004   Malone J., McGarry K, Bowerman C., Wermter S. “Rule Extraction from Kohonen Neural Networks Automated Trend Analysis of Proteomics Data Using Intelligent Data Mining Architecture,”Neural Computing Applications Journal, 2005   Mahdi A Extracting Rules from Databases Using Soft Computing M.Sc Thesis, University of Babylon, 2005   Nomura T. and Miyoshi T., “An Adaptive fuzzy rue extraction using Hybrid Model of Fuzzy Self-O rganizing Map and The Genetic Algorithm With numerical Chromosomes,” Kyoto 619-02, Japan,1998   Nian Yan : Classification Using Neural Network Ensemble with Feature Selection., Ph.D thesis Linköpings university , Sweden, 2004   Pagallo, G. & Haussler, D. Boolean Feature Discovery in Empirical Learning. In Machine Learning 5, pp. 71–99.1990   Pal S., Mitra S., and Mitra P Rough fuzzy MLP: Modular evolution rule generation and evaluation,” I EEE Trans. Knowledge Data Eng 2001   Samaher H. and Mahdi A.," Know ledge Discovery in Data Mining using Fuzzy C-Means Model and Genetic Programming" , IEEE, 4rth International Conference: Sciences of Electronic, Technologies of Information and Telecommunications, March 25-29, 2007   Samaher hussein " Designing a Soft ware for Knowledge Discovery in Database Using Data Mining and Soft Computing Techniques .IEEE 2nd International Conference: E-Medical Systems October  29-31, 2008   Usama F., Gregory P. and Padhraic S., "Knowledge disc overy and data mining: Towards a unifinying fram ework ". pages 82-88, Portland Oregon, USA, August 1996   Ulf Johansson, “Obtaining Accura te and Comprehensible Data Mining Models – An Evolutionary Approach”, Ph.D thesis Linköpings universitet SE-581 83 Linköping, Sweden, 2007   Wen Xiong, Cong Wang, A Hybrid Improved Ant Colony Optimization and Random Forests Feature Select ion Method for56 v/’ Microarray Data.  IEEE Computer Society , Fifth International Joint Conference on INC, IMS and IDC, 2009   Xindong WU and Vipin K. “The top Ten Algorithm in Data Mining Chaman and Hall/CRC, Data Mining and Knowledge Discovery Series Taylor & Francis Group, LLC,2009   Zheng, Z. Constructing X-of-N attributes for decision tree learning Machine Learning 40  1-43.2000       
 
 
   15  B IO G R A P H Y  S ea n  P   M u l h o l l a n d   s er ve s   S SA V i  s  Se ni or  V i c e  t  G e n e r a l M a n a g e r   a nd Ch i e f  T e c h n o l o g i c a l  O f f i c e r    25  yea r s  o f  exp er i en ce a n d  i s  r eco g n i z ed  i n  t h e in d u s tr y  a s  o n e  o f th e  to p  e m b e d d e d  s y s te m s  en g i n eer  i n  t h e co u n t r y  S ea n  i s  a  co n t r i b u t i n g  a u t h o r  t o  t h e E T M  te c h n ic a l r e fe r e n c e  a r c h ite c tu r e  a n d  h a s  b e e n  ac t i v e  s e r v i ng  a  key  FAC E D a t a  M o d e l  t e c h n i c a l  l e a d er  us i ng T E S  w or k  on t he  J C A  D M    Se an i s  a c o fo u n d e r  a n d  vi ce p r es i d en t  o f  T E S   C o n t i n u i n g   a s  h e i s  d o i n g  t o d a y  Se an w i l l  s e r v e  t o gui de  al l  t e c hnol ogi c al  de c i s i ons  f or  SA V i  s  pr oduc t s  and s e r v i c e s    Se an has  a B  S i n C om put e r  Sc i e nc e  and Sy s t e m s  D e s i gn fr o m  th e  U n iv e r s ity  o f T e x a s  a t S a n  A n to n io  a n d  h a s  o v e r  2 5  yea r s  o f  exp er i en ce i n  s o f t w a r e d evel o p m en t   d es i g n   in te g r a tio n  a n d  te s tin g  e s p e c ia lly  a s i t  re l a t e s t o  m i ssi o n  cr i t i ca l  a n d  s a f et y cr i t i ca l  s ys t em s   S ea n  i s  o n e o f  t h e f o u r  co fo u n d e r s o f T E S    S te p h e n  M  S im i s e r v e s   S SA V I  s  Vi c e  Pr e s i d e n t   St e phe n has  28 y e ar s  of  exp er i en ce d es i g n  a n d  d evel o p i n g  en g i n eer i n g  a n d  s ci en t i f i c a p p l i ca t i o n s   and m anagi ng m ul t i pl e  pr ogr am s   St e phe n is  a ls o  v e r y  a c tiv e  in  th e  F A C E  m s  C o n f o r m a n c e   A i r w o r t h i n e s s   and O ut r e ac h s ubc om m i t t e e s  H e  is  r e c o g n iz e d  an u st ry  i n n o v a t o r o f  agi l e  t e c hnol ogi e s  t hat  c an be  appl i e d t o J oi nt  f or c e s  ac r os s  t he  c om m on ope r at i ng pi c t ur e  bat t l e s pac e  of  C 4I SR  as s e t s   and an i ndus t r y  exp er t  i n  l i f ecycl e d evel o p m en t  o f  r eu s a b l e s o f t w a r e sy st e m s  H e  h a s se v e ra l  t e c h n i c a l  p u b l ic a tio n s  a n d  pr e s e nt e d t o t he  A H S  A O C   A I A A  I E E E  s oc i e t i e s   t o FAC E a n d  M I T RE o n  a r e a s  o f  s o f t w a r e  d e v e l o p m e n t   re u sa b l e  sy st e m s  a n d  a d v a n c e d  m o d e l i n g  a n d  si m u l a t i o n s o f  t h o se  sy st e m s  S t e p h e n  c u rre n t l y  m a n a g e s 4 U S ar m y  pr ogr am s   J C A   M I S  R 2C 2  and M I C     St e phe n has  a B  S  i n P hy s i c al  Sc i e nc e s   M at h C om put e r  Sc i e nc e s   and E ngi ne e r i ng  and a M  S  i n E ngi ne e r i ng fr o m  th e  U n iv e r s ity  o f M a r y la n d  B e fo r e  w o r k in g  fo r  T E S  n  se rv e d  a s t h e  D i re c t o r o f  S o f t w a re  D e v e l o p m e n t   and D i r e c t or  of  Sof t w ar e B u s i n es s  D evel o p m en t  a t  w o r l d re n o w n  o p t i c s c o m p a n y  B re a u l t  R e se a rc h   H e  a l so  se rv e d  as  a t e c hni c al  f e l l ow  at  t he  M I T R E  C or por at i on f or  t he  US  A r my   a n d  s e r v e d  v a r i o u s  o t h e r  o r g a n i z a t i o n s  de s i gni ng  de v e l opi ng  and t e s t i ng e ngi ne e r i ng and sc i e n t i f i c  a p p l ic a tio n s o v e r h is 3 0 yea r  t ech n i ca l  ca r eer            Wi l l i a m   Ta n n e r  has  a B  S  i n Co m p u t e r  S c i e n c e  E n g i n e e r i n g  f r o m  No r t h e r n  A r i z o n a  U n i v e r s i t y  a n d  o v e r  2 0  yea r s  o f  em b ed d ed  s o f t w a r e a n d  em b ed d ed  s o f t w a r e a p p l i ca t i o n  de v e l opm e nt  e x pe r i e nc e   14 of  w hi c h  ar e  i n s of t w ar e  en g i n eer i n g  p r o j ect  a n d  p r o d u ct  m a n a g em en t   B i l l  i s  a  co n t r i b u t i n g  a u t h o r  t o  t h e  E TM  te c h n ic a l r e fe r e n c e  ar c hi t e c t ur e   has  be e n ac t i v e  s e r v i ng i n t he  F A C E  D at a Mo d e l  Wo r k i n g  G r o u p   a n d  i s  t h e  l e a d  d a t a  m o d e l e r  f o r  th e  J o in t C o m m o n  A r c h i te c tu r e   J C A   D a ta  M o d e l   Pr i o r  to  jo in in g  T E S  in  2 0 0 6  B ill w o r k e d  fo r  I B M  a s  a  s o ftw a r e  en g i n eer  i n  t h e d i s k s t o r a g e s ys t em  d i vi s i o n   a n d  P r o j ect  Te c h n o l o g y  a n d  M e n t o r  G r a p h i c s  a s  a  d a t a  m o d e l e r  a n d  pr oj e c t  m anage r  f or  t he  di v i s i on s  U M L  m ode l i ng  f ic a tio n a n d c o d e g e n e r a tio n to o ls    

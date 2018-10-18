@@ -1,0 +1,24 @@
+         
+   
+        
+     
+  
+  
+   
+
+
+                                              
+
+
+        
+
+
+                       
+
+
+                 
+
+
+databases such as Chinese medicine prescriptions database and improve frequent itemset mining in imperfect database thus utilize and develop the previous studies into emerging applications ACKNOWLEDGEMENT We are grateful for the support of the Natural Science Foundation of China 61373149 and the Shandong Provincial Project for Science and Technology Development 2012GGB01058 REFERENCES 1 R  A g r a w a l  R  S rik a nt  Fa st Alg o rith m s f o r M inin g Association Rules Proceedings 20th International Conference on Very Large Data Bases pp 487–499 September 12-15 1994 2 J  H an  J  P ei  Y  Y in  M i ni ng F r eq uen t Pat t e r n s w i t h ou t Candidate Generation Proceedings of ACM SIGMOD International Conference on Management of Data ACM Press pp 1–12 2000  M  J  Z a k i  S c a l a b le Alg o rith m s f o r A ssoc i a tion M inin g   IEEE Transactions on Knowledge and Data Engineering vol 3 pp 372–390 2000 4 C hun K it C hui  B e n K a o Edw a r d H u n g   Mini ng Fr e q u e nt Itemsets from Uncertain Data PAKDD 2007 LNAI 4426 pp 47-58 2007 5 C h a ru C Ag g a rwal Y a n L i   Freq u e n t Pattern Min i n g with Uncertain Data KDD’09 Paris France pp 29-37 June 28–July 1 2009 6 L  W ang R Ch en g S  D L e e et al   Acce l e rat i n g Probabilistic Frequent Itemset Mining a Model-based Approach In CIKM’10 Toronto Ontario Canada pp 429–438 2010 7 T h o m as Bern ecker  R eyn o l d C h e n g  D avi d W  Ch eun g  Model-based probabilistic frequent itemset mining In Knowl Inf Syst  Vol 37 pp 181-217 2013 8 Y  T ong L C h en  Y  C h e n g  a n d P  S  Y u   M i ni ng F r eq u e nt Itemsets over Uncertain Databases VLDB’12 Istanbul Turkey Vol 5 No 11 pp 1650-1661 August 27th 2012 9 L aila A  A bdE l m e g i d  V e r t i c a l Mini ng of Fr e q u e nt Pa tte r n s from Uncertain Data Computer and Information Science Vol 3 No 2 pp 171-179 May 2010 10 Ca rson Ka i-Sa ng L e ung  L ijing S u n   Equ i v a le nc e C la ss Transformation Based Mining of Frequent Itemsets from Uncertain Data SAC’11 Taichung Taiwan pp 983-984 March 21-25 2011 1 T oon Cal d ers Cal i n Garb o n i  an d B art G o e t h al s E f f i ci en t Pattern Mining of Uncertain Data with Sampling PAKDD 1 pp 480-487 2010 1 M  S o ng S  R a j a sek a r a n   A T r ansact i o n M ap pi n g Algorithm for Frequent Itemsets Mining IEEE Transactions on Knowledge and Data Engineering  Vol 18 No 4 pp 472-481 April 2006 1 T h o m as Bern ecke r  H an s-p e t e r K ri egel  M at t h i a s R en z et al Probabilistic Frequent Itemset Mining in Uncertain Databases KDD’09 Paris France June 28-July 1 2009 1 Y ongxi n T ong L e i C h en  P h i li p S  Y u UF I M T  A n Uncertain Frequent Itemset Mining Toolbox  KDD’12 Beijing China pp 1508-1511 August 12–16 2012 1 Y  T ong L C h en  Y  C h e n g  a n d P  S  Y u   M i n i n g F r eq u e nt Itemsets over Uncertain Databases Proceedings of the VLDB Endowment Istanbul Turkey Vol 5 No 11 pp 1650-1661 August 27 th 31 st 2012 1 Ji an P e i  Ji awei Han  Ho ngj u n L u  e t a l  H-M i n e Hyper-Structure Mining of Frequent Patters in Large Databases  Proceedings IEEE International Conference on Data Mining ICDM 2001 San Jose CA pp 441  448 Nov 29-Dec 2 2001 1 L  W a ng R Ch eng S  D L e e et  a l  Acce l e rat i n g probabilistic frequent itemset mining a model-based approach  In CIKM’10 Toronto Ontario Canada pp.429–438 2010 1 T oon C a l d er s Calin Garbini Bart Goethals Approximation of Frequ entness Probability of Itemsets in Uncertain Data  in ICDM pp.749-754 2010 19 ht tp f im i.ua a c  be  20 1 3   
+
+

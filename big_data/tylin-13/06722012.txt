@@ -1,0 +1,200 @@
+The Incremental Risk Functional Basics of a Novel Incremental Learning Approach Andreas Buscherm  ohle Jan Schoenke Nils Rosemann Werner Brockmann Smart Embedded Systems Group University of Osnabr  uck Osnabr  uck Germany Andreas.Buschermoehle@uos.de jschoenk@uos.de Nils.Rosemann@uos.de Werner.Brockmann@uos.de 
+Abstract incremental risk functional 
+Incremental learning gets increasing attention in research and practice as it has the advantages of continuous adaptation and handling big data with a low computation and memory demand at the same time Several approaches have been proposed recently for online learning but only few work has been done to regard the in”uence of the approximation structure Hence we introduce the which directly incorporates knowledge about the approximation structure into its parameter update Exemplary we apply this approach to regression estimation through linear-in-parameter 
+approximators We show that the resulting learning algorithm converges and changes the global functional behavior only as little as necessary with every learning step thus resulting in a stable incremental learning approach 
+I I NTRODUCTION Machine learning is used in many complex tasks to automatically acquire details about a system of interest based on data from that system A special case is the  which means that learning stimuli i.e the individual data points are obtained sequentially and the performance of the function approximator is evaluated after each learning stimulus Hence classical is not applicable Online learning is on the one hand important for handling big data which cannot be processed at once On the other hand it can be used for online generation of a system or environmental model as well as for online time series prediction or adaptive control In these cases a big or continuously growing batch of data 
+online learning task batch learning 
+t x 
+t d 
+R 
+is available But often timeliness and computational costs are crucial demands Hence it is not possible to build a hypothesis from all acquired data Instead it becomes necessary to revise the current hypothesis incrementally depending only on the most recent learning stimuli or in the extreme case a single stimulus Besides the lower computing demand online learning allows for fast and continuous adaptation to nonstationary systems Consequently an online learning algorithm is more widely applicable than batch learning as it serves as well for an online scenario as for of”ine learning of data sets which are too large for batch learning Formally the online learning task is characterized by learning on a sequence of data which can be described in rounds In round 
+002 
+the learning algorithm is presented an which is transferred from input space to parameter space by the approximation structure through a vector of 
+instance 
+  032 032      
+002 x y y f 002 x 003 003 y 
+t n t t t t t t 
+R R 
+002 002 
+basis functions  This input is then used to predict its through an with the  which is the hypothesis maintained by the learning algorithm Afterwards the correct label is given and the learning algorithm suffers an 
+label approximator parameter vector 
+032  0    032 
+L y y x y 003 L L y 
+t t t t t c N D 002 t t 
+003 
+1 0 
+re”ecting how wrong the prediction was With the new pair of an instance and its corresponding label henceforth called an  the learning algorithm updates its hypothesis to with the aim to minimize the 
+instantaneous loss example cumulative loss 
+ 
+1 where is the length of the data sequence provided But usually for each learning step many of such revisions with zero error on the new example are possible Hence the problem of nding a hypothesis that accounts for the new information is potentially under-determined So other constraints are needed to de“ne a unique solution Furthermore the resulting hypothesis of online learning depends not only on the data but also on their sequence of presentation in contrast to batch learning Here the dilemma arises to integrate a single example such that prior learned knowledge is only affected where appropriate II R ELATED W ORK In the batch-case the goal is a minimal of loss which means to nd the hypothesis that minimizes the  
+risk risk functional 
+y N R 
+t D 
+ 003           
+2 It measures the risk of any chosen hypothesis to incur some loss given that the input and respective output values are distributed according to the joined probability distribution  But this distribution is usually unknown for a learning problem and hence only some value-pairs of 
+ 003 L y f 002 x 003 dF x y  003 F x y x y 
+i 
+   1      
+R 003 t L y f 002 x 003  t 
+b t 002 i i i 
+i 
+004\005 
+1 
+from training data are available According to the risk functional can be approximated by 3 for batch learning with a suf“ciently large set i.e in the ideal case of identically independently drawn data This method can be applied to an online scenario with an ever 
+2013 IEEE International Conference on Systems, Man, and Cybernetics 978-1-4799-0652-9/13 $31.00 © 2013 IEEE DOI 1500 
+2013 IEEE International Conference on Systems, Man, and Cybernetics 978-1-4799-0652-9/13 $31.00 © 2013 IEEE DOI 10.1109/SMC.2013.259 1500 
+
+
+Tikhonov regularization perceptron algorithm gradient descent Passive-Agressive Relaxed Online Maximum Margin Algorithm Ellipsoid Method Con“dence Weighted Learning Adaptive Regularization Of Weights Gaussian Herding recursive least squares incremental risk functional A Incremental Risk Functional B Application to LIP Approximators 
+ 
+003 002 003 
+002 1 2 1 1 1 002 2 2 
+      002  1       1 1     0   2           1 2          003                2      1 2    
+x y t 003 f 002 x 003 003 W 003 W I t N 003 f 002 x 003 002 x t f 002 x 003 004  R 003 004 L f 002 x 003 f 002 x 003 dx L y f 002 x 003  R 003 F x y x 004 004 004 004 L a b a b N f 002 x 003 003 002 x 003 002 x 002 x 003 R 003 004 003 003 002 x dx y 003 002 x  
+R R 
+increasing data set but the computational demand increases also with every new example For an online setup the only available information is the most recent example at a time step  which xes the memory and computation demand at design time to the minimum As the minimization of the resulting loss generally is under-determined a unique solution can only be found if a regularization-term is added A widely applied technique is some form of which incorporates the norm  e.g the Euclidean norm of the parameter vector or a norm of the function to be minimized as well see e.g 8 The impact of re gularization is parametrized by a weighting factor This way the resulting functional behavior can be shown to be as at as possible thus preventing over-“tting But as this re gularization does not include any knowledge about prior learning data it is usually only applicable for learning with a set of training data and not for online learning Based on the classical  a unique solution for a parameter update is to minimize the loss along its gradient through a GD on an error potential that is given by the example also kno wn as  This is analogous to a re gularization term penalizing the amount of change of the parameter vector and is parameterizable as well through the step size of the GD also referred to as the learning rate The learning rate can be chosen in every learning step so as to directly minimize the loss which is called normalized gradient descent This learning algorithm allows for a continuous and exible adaptation but is prone to noise Besides these rst order algorithms in the approach of second order learning the way an example is used to update the parameter vector is changed through previous data as well This way a higher robustness to noise is achieved at the cost of less exibility to adapt to changes in the data In the idea of the  and the  a set of possible parameter v ectors is kept that is consistent with prior examples as well as the current example This idea is further extended to a Gaussian distribution of parameter vectors in the work of   and  These approaches are similar to the well known RLS Here an estimation of the covariance matrix of the parameter vector is incrementally updated together with a forgetting factor and used to increase or decrease the adaptation of single parameters in a learning step The covariance matrix and the parameter vector together de“ne a Gaussian distribution of parameter vectors If the covariance matrix is the identity  RLS and GD yield the same result for learning on one example Hence GD as a exible rst order and RLS as a noiserobust second order algorithm represent the state of the art of online learning algorithms Yet interpreting equation 3 as the sum over all examples in a sequence up to a time step  online learning directly regards the last element of the sum The remaining examples are only indirectly available through the current parameter vector  All mentioned methods incorporate this parameter vector into the optimization task but none of them with respect to the actual functional behavior of the approximator  i.e the in”uence of the approximation structure  Thus the presented learning approaches do not minimize the risk in every learning step as the amount of in”uence of a parameter is not regarded in the additional constraints The aim of this paper is hence to de“ne a learning paradigm based on the optimization goal in an online setup with respect to the functional behavior hence the  III A PPROACH TO O NLINE L EARNING In online learning the knowledge of prior examples is condensed into the functional behavior of the current hypothesis Accordingly the global functional behavior should change as little as possible in order to not destroy prior information At the same time the example should be incorporated as good as possible which might be a con”icting demand Following this idea we propose an incremental formulation of the risk functional containing the most recent example and similar to a regularization the overall change of the output with a factor 4 A new parameter vector is chosen according to the minimization of  As the probability density is unknown the change of the functional behavior is accounted for by an equally weighted integral for the input over the considered bounded input space  The factor can be seen as to steer the stiffness of the approximator The bigger its value is the more a change of the approximator is punished If a lot of data is condensed in the learning process and hence the contribution of the current example is comparably small a big value of accounts for this evidence In contrast in the initial learning phase with no or only low data background this weighing factor should be low thus putting more weight on the present example Consequently it should be chosen as a monotonically increasing value   as the learning process progresses To investigate the properties of the incremental risk functional we consider the case of regression estimation for LinearIn-Parameter LIP approximators The problem of regression estimation can be expressed by minimizing the risk functional with squared loss  A general node LIP-approximator is given by 5 de“ning a linear subspace of functions from to with the basis  In this case the parameter v ector is updated incrementally with respect to the minimization of 6 
+t t t t t t inc t t t t inc t t t t N i i i T d i n i t inc t t T t T t 
+006 006 006 006 006 006      003       
+1501 
+1501 
+
+
+t t 
+003 007 007 002       010  011     004\005 004 011 007 002 011   004 R 
+1 002 t i j i t j t 1 2 1 1 1 1 1 1 1 1 1 2 1 1 1 002 2 2 002 2 2 2 1 1 1 1 1 1 1 0 0 0 
+inc t inc i t t t t t t t i,j i j  i n i i 002 t 002 t T T t t t T t t inc t t t T t t inc t t t i t T t t i t t i t t t t T t T t t t T t T t t T t t t t t t t t t t t t t N i j t i t t i j t t N i i t t i t t t t i p p N i i i 
+Fig 1 Cumulative loss of online learning algorithms Looking at the in”uence of the stiffness 
+003 003 003 002 002 002 
+ 002      
+R 003 004  005R 005\003 i N A 004 B x 003 A\003 004 002 x y A 002 x 002 x dx 002 002  002 x L A A 002 x A u v 002 x B x uv A uv A A B x A 004 002 x A 002 x  A 003 R 003 003 y 003 002 x  005R 003 003 005\003 y 003 002 x 002 x y 002 x 003 003 004 002 x dx 003 002 x y 004 002 x dx 003 002 x y  003 002 x y  004 004 003 003 003 004 B x 003 002 x y 002 x 002 x 003 002 x y j N  002 x 003 y  003 004 004 002 x f N f x 003 003 x 003 004  
+As  if a unique solution of a zero partial derivative exists it is the minimum of the incremental risk functional For LIP-approximators the resulting equation 7 has the form of a linear system of equations which can be written as 8 with symmetric matrices With the basis in the function space  is the Gramian matrix given by the standard inner product on functions Hence the matrix is positive de“nite for linearly independent and has an inverse  Choosing the substitution  the second part of 8 can be expressed as and thus the Sherman…Morrison formula yields the entire inverse 9 So the minimization has a unique solution and as the matrix is constant for any given approximation structure and can be inverted of”ine equation 9 poses a numerically cheap way to compute the inverse for a new example If the parameters are not changed the incremental risk functional has the value 10 which is equivalent to the local error of the approximator The partial derivative for this case 11 shows that the gradient is only zero if the target value is already met by the approximator or the in”uence of all vanishes Otherwise a change of parameters minimizes the risk functional and we can conclude 12 Consequently the local error of the new parameter vector after learning is less than before Thus learning converges locally The global convergence properties are investigated by an example in the next chapter as it cannot be expected that the global error is monotonically decreasing because of the insuf“cient information of a single example 0 50 100 150 10 2 10 0 10 2 10 4   Number of Learning Stimuli \(N L  Cumulative Loss \(L C    GD RLS  IRMA  on equation 8 in one incremental learning step obviously for the old parameter vector is kept i.e  On the other hand for equation 8 takes the form 13 So in one extreme case the result is a parameter vector that does not change the approximation at all In the other extreme case it is forced to reproduce the example exactly The magnitude of change in parameters increases for a decreasing and the adjustment of hence allows to choose how much the functional behavior might change IV E XEMPLARY A PPLICATION The investigation scenario is chosen to satisfy two requirements On the one hand the setup is as simple as possible as it is restricted to a one-dimensional function to allow a focus on the learning algorithm and its methodological behavior On the other hand the used approximator is chosen to constitute nonlocal basis functions with each having a different amount of in”uence on the functional behavior Thus the demand on the stability of the learning algorithm is strong The approach is compared to the two basic state-of-the-art methods of parameter adaptation gradient descent and recursive least squares So to demonstrate the resulting learning algorithm IRMA Incremental Risk Minimization Algorithm for a LIP approximator a polynomial of order 14 is used starting with the initial parameter vector  The stiffness is initialized to a small value to 
+C Local Convergence 
+  0 0 0 1    1     1          and B\(x   x  x    003                            2       002  0 0 002    002    002    002         0             1     002    R   0 0 1 
+1502 
+1502 
+
+
+0 1 2 3 0 0.2 0.4     Input: x Output: y 0 1 2 3 0 0.2 0.4     Input: x Output: y 0 1 2 3 0 0.2 0.4     Input: x Output: y 0 1 2 3 0 0.2 0.4     Input: x Output: y 0 1 2 3 0 0.2 0.4     Input: x Output: y 0 1 2 3 0 0.2 0.4     Input: x Output: y 0 1 2 3 0 0.2 0.4     Input: x Output: y 0 1 2 3 0 0.2 0.4     Input: x Output: y 0 1 2 3 0 0.2 0.4     Input: x Output: y   Target Function  Learning Stimuli Approximation 0 1 2 3 0 0.2 0.4     Input: x Output: y 0 1 2 3 0 0.2 0.4     Input: x Output: y 0 1 2 3 0 0.2 0.4     Input: x Output: y 
+  002   
+004 004  f f x x e x     N x y 
+  
+ 1 05   0  0 0  0 05 10   
+1 
+ As a target function we use the nonlinear nonmonotonic function 15 with output values in the interval  The online learning algorithm is provided with random examples whose target values are disturbed by equally distributed noise in the range  i.e about of the codomain range In a rst scenario we compare IRMA to GD and RLS with respect to the cumulative loss 1 after examples  i.e the prediction error along the online learning 500 trial runs with a sequence of 150 examples each are randomly generated and used to train a polynomial of 6th order incrementally GD is set up with a normalized learning rate RLS is initialized 
+Fig 2 Results of online learning by minimizing the incremental risk functional in comparison to standard batch regression represent that the starting point supplies only low information As the information increases with every example the stiffness increases as well stepwise by 
+t t t t x L i i 
+2 
+Polynomial Order: 4 Polynomial Order: 6 Polynomial Order: 10 Incremental Learning No. Learning Stimuli: 10 No. Learning Stimuli: 80 No. Learning Stimuli: 150 Reference: Complete Batch No. Learning Stimuli: 150 
+1503 
+1503 
+
+
+with the identity as a covariance matrix and a forgetting factor of  Both are combined with a Tikhonov regularization of with  These parameters are optimized by systematically scanning the range of possible values The mean cumulative loss as well as its upper and lower standard deviation are shown in Figure 1 on a logarithmic scale The results show that IRMA leads to the lowest cumulative loss and shows nearly no variance of the results for different learning sequences Especially GD is an unsuitable method for online learning of polynomials as the different amounts of in”uence of the parameters and their global effect destabilize the gradient learning Contrariwise RLS and IRMA are stable and grow sub-linearly hence guaranteeing convergence Yet the cumulative loss of IRMA is lower as it minimizes the worst case in every step Two additional aspects of this scenario are investigated to show details of IRMA On the one hand we take polynomials of 4th 6th and 10th order for the approximation The expressiveness with 4th and 6th order is appropriate for the target function whereas the 10th order tends to over-“tting because it is too expressive On the other hand we take snapshots of the resulting functional behavior after 10 80 and 150 examples have been presented in order to demonstrate the convergence properties This way we see how the approximation changes with increasing information and expressiveness For comparison additionally a batch regression is made as a benchmark with standard polynomial tting of Matlab through the Vandermonde matrix using the total amount of 150 examples altogether Thus we can compare the result to that of an algorithm with complete knowledge of all data which would be unfeasible for big sets of data The results of these investigations are shown qualitatively in Figure 2 At rst with only 10 examples the approximation is still bad and especially the 10th order polynomial is not fully set up The provided information with these sparse samples is too low to represent the target function appropriately But yet at an input of about  every learned output nearly meets the target function as here some data cumulate The 10th order polynomial shows that in regions of low data density the initial value of zero is preferred Hence a localized impact of examples is achieved even for an approximator with globally active basis-functions As expected with more examples the approximation gets better With 80 presented examples the regression has converged fairly well for any order of the polynomial as the total target function is covered Even though the target values are subject to noise presenting 70 more examples does not affect the approximation much A notable feature is that even the polynomial of higher order is stable in the online scenario with sparse and noisy data And the more data are presented the more similar get the results for different polynomial orders In comparison to the benchmark of batch regression over the total data set nearly no difference can be seen This is supported by a numerical investigation To account for the in”uence of the randomly chosen learning sequence here the above investigation is repeated 1000 times and for every sequence the mean squared error MSE of the resulting approximation with respect to the ground truth is calculated on 1000 test points The average and the standard deviation of the MSE are shown in Table I The results show that the MSE as well as the standard deviation decreases with an increasing amount of data As expected with a low data density the simple batch learning tends to over-“tting which results in a big difference to the ground truth whereas IRMA without any additional regularization is stable With more data batch learning achieves nearly no error and the comparison shows a similar error for IRMA even though it has much less information available at a time Thus IRMA is more stable than its batch-counterpart and it provides a reasonable method to inhibit over-“tting Accordingly online learning is no drawback in the quality of the result but provides the possibility to incorporate new knowledge into the approximator at every time step and still has a low demand on computation and memory even for big data sets V D ISCUSSION In a nutshell along with the minimal local error every approach optimizes different optimization criteria While GD learning minimizes the change of the parameter vector RLS learning minimizes the parameters variance The newly introduced IRMA minimizes the change of the global functional behavior Consequently the advantage of the incremental risk functional is that the resulting learning algorithm thus enforces a localized learning which does not depend on whether the basis consists of localized or global functions This behavior is also re”ected in the exemplary investigation as the stability of the resulting learning algorithm can be seen even for overly expressive and nonlocal approximators and a stable low cumulative loss is achieved contrary to other online methods If the basis consists of functions with the same amount of in”uence on the global functional behavior the result of IRMA is similar to that of GD In comparison to the batch algorithm a good result is achieved that is just as stable even though the data are only available one at a time This way a low computational demand is achieved even for big data In this work we focused on regression estimation and LIP approximators as an exemplary online learning scenario Both restrictions can be relaxed keeping the fundamental principles In an online setup one example should have only localized effects as its expressiveness is limited Hence the idea of minimal change of the global functional behavior and maximal local incorporation of an example at the same time is the same for other tasks and for approximators with nonlinear parameter in”uence With the nonlinearity of parameter in”uence the minimization of the incremental risk functional gets more complex Especially local minima can exist for both parts of the minimization the functional behavior and the local error and accordingly an analytical minimization will be hard to get and an approximate solution is confronted with the well known problems of nonlinear minimization Furthermore pattern recognition or density estimation as well as other learning tasks can be expressed within the incremental risk functional through the choice of another loss function Its basic idea is hence not unique to regression estimation so that the resulting behavior of a learning algorithm for other tasks can be expected to be comparable With the approach of the incremental risk functional it is possible to get more stable online learning algorithms for 
+0 9 0 05 1 5     
+ 006 003 003 006  x  002 x 002 x 
+     
+T i i 
+1504 
+1504 
+
+
+3 5 3 5 2 4 2 8 7 18 14 31 4 8 4 8 4 8 4 9 4 8 4 6 4 9 5 9 4 9 4 10 5 10 5 9 
+                              
+                                                      
+TABLE I T HE TABLE SHOWS THE AVERAGE MSE TO THE GROUND TRUTH AND ITS STANDARD DEVIATION OVER 1000 RANDOMLY DRAWN LEARNING SEQUENCES T HE MSE IS COMPARED FOR ONLINE AND BATCH LEARNING WITH DIFFERENT AMOUNTS OF EXAMPLES  No of examples Polynomial Order 4 Polynomial Order 6 Polynomial Order 10 10 incr  7:551…585 2006  K oby Crammer  Ale x K ulesza Mark Dredze et al Adapti v e re gular ization of weight vectors  22:414…422 2009  K oby Crammer and Daniel D Lee Learning via gaussian herding  23:451…459 2010  E De V ito L Rosasco A Caponnetto U De Gio v annini and F Odone Learning from examples as an inverse problem  6\(1 2006  Mark Dredze K oby Crammer  and Fernando Pereira Con“denceweighted linear classi“cation In  pages 264…271 ACM 2008  J F arrell and M Polycarpou  Wiley-Blackwell Hoboken 2006  Y i Li and Philip M Long The relax ed online maximum mar gin algorithm  46\(1 2002  S Mukherjee R Rifkin and T  Poggio Re gression and classi“cation with regularization  171:107…124 2002  W H Press Flannery B.P  S.A T euk olsk y  and W T  V etterling  Cambridge University Press Cambridge 2007  Frank Rosenblatt The perceptron A probabilistic model for information storage and organization in the brain  65\(6 408 1958  V N V apnik  Springer Berlin 2000  Liu Y ang Rong Jin and Jieping Y e Online learning by ellipsoid method In  pages 1153…1160 ACM 2009  Y  Y ing and M Pontil Online gradient descent learning algorithms  8\(5 2008 
+                                    
+10 batch 80 incr 80 batch 150 incr 150 batch 
+different tasks and approximators than previous adaptation methods provided But still this is just a starting point for a new learning paradigm More theoretical investigations of our proposed algorithm need to be done to ensure not only local but global convergence on the long run and to further clarify the advantages over GD and RLS Additionally approximators with nonlinear in”uence of parameters are of interest for further investigations as well as different online learning tasks like pattern recognition VI C ONCLUSION In this work we introduced the incremental risk functional as a novel approach for online learning i.e on big data or continuously at runtime We showed that for the case of regression estimation by approximators with linear parameter in”uence the minimization can be solved analytically and the resulting learning algorithm is locally contracting while maintaining a minimal change of the global functional behavior in every online learning step Thus the worst case of an increasing total loss is minimized As an example the resulting online learning algorithm was applied to a polynomial approximator and demonstrated that even with sparse data the approximation is stable and with dense data it achieves similar results as a regression over the complete batch of data but with much lower computational demands At the same time localized learning is achieved with incrementally presented data although a basis of nonlocalized functions is used And the approach of online learning allows to exibly adapt to changes in the underlying learning data Concerning the different optimization criteria of online learning approaches it can be seen that the risk minimization learning leads to a similar behavior as gradient descent learning if the amount of in”uence of all parameters is the same But it is a more general approach as it incorporates knowledge about the approximation structure and the effects of its parameters on the output into the parameter update The incremental risk functional is thus very reasonable for online learning problems and for dealing with big data Regardless of the task and approximator it provides a method to derive a stable online learning algorithm as it allows to incorporate new examples incrementally only locally and thus ensures that prior learned knowledge is kept as far as possible Hence the worst case risk is minimal in every single step R EFERENCES  K oby Crammer  Ofer Dek el Joseph K eshet Shai Shale v-Shw artz and Yoram Singer Online passive-aggressive algorithms 
+3 1 10 2 9 10 5 5 10 6 0 10 1 2 10 1 2 10 4 4 10 1 9 10 7 2 10 5 1 10 1 8 10 1 3 10 3 0 10 1 2 10 2 2 10 1 5 10 3 1 10 2 3 10 2 0 10 5 3 10 1 0 10 1 2 10 4 0 10 5 3 10 2 0 10 2 1 10 9 4 10 3 0 10 1 2 10 3 1 10 1 6 10 6 4 10 5 0 10 6 7 10 8 4 10 8 7 10 
+The Journal of Machine Learning Research Advances in Neural Information Processing Systems Advances in Neural Information Processing Systems Journal of Machine Learning Research Proceedings of the 25th International Conference on Machine Learning Adaptive Approximation Based Control Machine Learning Lectures Notes in Statistics Nonlinear Estimation and Classi“cation Numerical Recipes The Art of Scienti“c Computing Psychological Review The Nature of Statistical Learning Theory Proceedings of the 26th Annual International Conference on Machine Learning Foundations of Computational Mathematics 
+1505 
+1505 
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+Copyright © 2009 Boeing. All rights reserved  Historical Data Processing To load correlated data  Uncompress, unmarshall  Create a list of files containing the correlated data  Write data to warehouse 
+
+
+Copyright © 2009 Boeing. All rights reserved  Live Data Processing Processed using IBM MQ IBM Message Broker and a technique called XML Shredding Message Broker Compute Nodes  Uncompress Node  Extract correlated messages  Shred Node adds to DB Stored Procedure “shreds XML docs and adds to tables 
+
+
+Copyright © 2009 Boeing. All rights reserved  Issues and Observations Initial load of one day of data ~ 7 hours Optimizations  Write data in batches  Use a mutable data structure to create data strings  Deploy a higher performance machine  Use load instead of insert  Use DB2 Range-Partitioned tables  Database tunings Time reduced from 7 hours to approx 30 minutes 
+
+
+Copyright © 2009 Boeing. All rights reserved  Optimizations Use a mutable data structure to create data strings  Original application created the SQL statement by appending elements to a Java String  It was taking five hours \(of the seven hours Strings  Instead Java StringBuilder used  Java Strings immutable  Time savings of 71.4 
+
+
+Copyright © 2009 Boeing. All rights reserved  Optimizations Deployed on a higher-performance machine  Application ported from IBM Blade Center HS21 \(4GB of RAM and 64-bit dual-core Xeon 5130 processor to Dell M4500 computer \(4GB of RAM and 64-bit of quad-core Intel Core i7 processor  Reduced the time to thirty minutes Bulk loading instead of insert  Application was modified to write CSV files for each table  Entire day worth of data bulk loaded  Reduced the time to fifteen minutes 
+
+
+Copyright © 2009 Boeing. All rights reserved  Optimizations Range-Partitioned tables \(RPT  To limit the size of tables, the original code created multiple tables per table type  This puts burden on the application to query multiple tables when a range crosses several tables  With RPT, user is not required to make multiple queries when a range crosses a table boundary  Increased the time to thirty minutes  Additional fifteen minute cost per day of partitioning enabled time savings during queries 
+
+
+Copyright © 2009 Boeing. All rights reserved  Optimizations Database tunings  Range periods changed from a week to a month  Automatic table space resizing changed from 32MB to 512KB  Buffer pool size decreased  Decreased the time to twenty minutes Overall, total time savings of 95.2 
+
+
+Copyright © 2009 Boeing. All rights reserved  20 IBM Confidential Analytics Landscape Degree of Complexity Competitive Advantage Standard Reporting Ad hoc reporting Query/drill down Alerts Simulation Forecasting Predictive modeling Optimization What exactly is the problem What will happen next if What if these trends continue What could happen What actions are needed How many, how often, where What happened Stochastic Optimization Based on: Competing on Analytics, Davenport and Harris, 2007 Descriptive Prescriptive Predictive How can we achieve the best outcome How can we achieve the best outcome including the effects of variability Used with permission of IBM 
+
+
+Copyright © 2009 Boeing. All rights reserved Initial Analysis Activities Flights departing or arriving on a date Flights departing or arriving within a date and time range Flights between city pair A,B Flights between a list of city pairs Flights passing through a volume on a date. \(sector, center, etc boundary Flights passing through a volume within a date and time range Flights passing through an airspace volume in n-minute intervals All x-type aircraft departing or arriving on a date Flights departing or arriving on a date between city pair A,B Flights departing or arriving on a date between a list of city pairs Flights passing through a named fix, airway, center, or sector Filed Flight plans for any of the above Actual departure, arrival times and actual track reports for any of the above 
+
+
+Copyright © 2009 Boeing. All rights reserved  Initial SPSS Applications Show all tracks by call sign 
+
+
+Copyright © 2009 Boeing. All rights reserved  Predictive / Prescriptive Analytics Use-Case For a given Airspace Volume of Interest \(AVOI compute distinct traffic volume at some point in the future  Aim to alert on congestion due to flow control areas or weather if certain thresholds are exceeded  Prescribe solution \(if certain thresholds are exceeded Propose alternate flight paths  Use pre-built predictive model  SPSS Modeler performs data processing Counts relevant records in the database \(pattern discovery Computes traffic volume using statistical models on descriptive pattern Returns prediction with likelihood 
+
+
+Copyright © 2009 Boeing. All rights reserved  Predictive / Prescriptive Analytics Use-Case Advanced Arrival Procedures with Active Abatement Potentials   9/23/10  24 Pulls in the TRACKINFO table of MAIN using SQL Limits the data to database entries which fall inside the AVOI Combines the SOURCE_DATE and SOURCE_TIME to a timestamp that can be understood by modeler Computes which time interval the database entry falls in. The time interval is 15 minutes Defines the target and input fields needed for creating the model Handles the creation of the model Produces a graph based off of the model results Final prediction 
+
+
+Copyright © 2009 Boeing. All rights reserved  Initial Cognos BI Applications IBM Cognos Report Studio  Web application for creating reports  Can be tailored by date range, aircraft id, departure/arrival airport etc  Reports are available with links to visuals IBM Framework Manager  Used to create the data package  Meta-data modeling tool  Users can define data sources, and relationships among them Models can be exported to a package for use with Report Studio 
+
+
+Copyright © 2009 Boeing. All rights reserved  Flights Departing Las Vegas on Jan 1, 2012 1 of 3 Report shows the departure date, departure and arrival locations and hyperlinks to Google Map images DeparturePosition and ArrivalPosition are calculated data items formatted for use with Google Maps Map hyperlinks are also calculated based on the type of fix 
+
+
+Copyright © 2009 Boeing. All rights reserved  Flights Departing Las Vegas on Jan 1, 2012 2 of 3 DeparturePosition, Departure Map, ArrivalPosition and Arrival Map are calculated data items \(see departure items below DepartureLatitude DepartureLongitude DeparturePosition Departure Map 
+
+
+Copyright © 2009 Boeing. All rights reserved  Flights Departing Las Vegas on Jan 1, 2012 3 of 3 
+
+
+Copyright © 2009 Boeing. All rights reserved  Conclusion and Next Steps Current archive is 50 billion records and growing  Approximately 34 million elements per day  1GB/day Sheer volume of raw surveillance data makes analytics process very difficult The raw data runs through a series of processes before it can be used for analytics Next Steps  Continue application of predictive and prescriptive analytics  Big data visualization 
+
+
+Copyright © 2009 Boeing. All rights reserved  Questions and Comments Paul Comitz Boeing Research & Technology Chantilly, VA, 20151 office Paul.Comitz@boeing.com 
+
+
+Copyright © 2009 Boeing. All rights reserved Advanced Arrival Procedures with Active Abatement Potentials   9/23/10  31 
+
+
+Copyright © 2009 Boeing. All rights reserved Advanced Arrival Procedures with Active Abatement Potentials   9/23/10  32 Backup Slides 
+
+
+Copyright © 2009 Boeing. All rights reserved  Initial Approach Initial Investigations  Apache Solr/Lucene  Data Warehouse Evaluate Hadoop in the future 
+
+
+Copyright © 2009 Boeing. All rights reserved  Using SOLR Uncompress Track Information Messages To use with Solr  Transforming track messages from their  original schema to Solr required building a “key, value” list using an XSTL  Queries made against this list of “key, value” pairs Transformation Process  One day of data ~ 4.5 hours Once transformation complete search/query performance very good Geo spatial queries using  unique query language 
+
+
+Copyright © 2009 Boeing. All rights reserved  Representation Aviation data is frequently represented in more than one form 
+
+

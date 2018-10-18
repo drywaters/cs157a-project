@@ -1,0 +1,160 @@
+Massive Parallelization technique for Random Linear Network Coding  Seong Min Choi and Joon Sang Park  Dept. of Computer Engineering  Hongik University  Seoul, Korea  jsp@hongik.ac.kr    Abstract 227  Random linear network coding \(RLNC\has gain popularity  as a useful performance enhancing tool for communications networks. In this paper, we propose a RLNC parallel implementation technique for Gene ral Purpose Graphical Processing Units \(GPGPUs.\cently, GPGPU technology has paved the way for parallelizing RLNC; however current state of the art parallelization techniques for RLNC are unable to fully utilize GPGPU technology in many occasions  Addr essing this problem, we propose a new RLNC parallelization technique that can fully exploit GPGPU architectures. Our parallel method shows over 
+4 times higher throughput compared to existing state of the art parallel RLNC decoding schemes for GPGPU and 2 0 times higher throughput over the state of the art serial RLNC decoders  Keywords 227 Network Coding  Parallel algorithm  GPGPU  I   I NTRODUCTION  Recently, random \(linear\ network codi ng RLNC\ has gain  popularity  as a useful performance enhancing tool for communications networks. RLNC can increase the multicast throughput  or  reduce the file downloading delay in Peer to Peer \(P2P\file sharing systems since it mitigates the piece selection problem [2  A lth o u g h  the advantages render RLNC attractive in networked systems, its computational overhead may hamper  
+its use  in practice. When using RLNC, the data has to be encoded before being transferred at the sending node and the received data at a destination has to b e de coded for  recover y  of the original data T he decoding process of RLNC is implemented as a variation of the Gaussian E limination  GE  Since the complexity  of GE O\(n 3 where n is the number of blocks comprising a file, is quite high  w ith larger file si zes   t he time overhead spent for decoding would  cancel out all the benefits of reduced transmission time obtained from using  network coding. Thus, it is critical to guarantee short decoding latency when implementing RLNC in practice  A number of works stud ied on reducing the decoding latency of random network coding. Parallelized decoding 
+techniques for multi core processors have been proposed in [3 4  A ls o  i t h as b e en s h o w n th at p a r all el d e c o d in g u s in g  General Purpose Graphics Processing Unit \(GPGPU\ su ch as CUDA [5  ca n r ad ic ally en h a n ce  th e d ec o d in g s p e e d  o f  RLNC  6, 7, 8, 9 an d a ls o  Pip eli n e N etw o r k C o d in g w h ich i s  a  variant of RLNC [10   I n  th is  p a p er  w e p r o p o s e a R L NC  parallel implementation technique leveraging GPGPU technology. Our technique whi ch aims to maximize parallelism in the RLNC decoding process suggests a way to fully exploit GPGPU architectures in the process. Recently, GPGPU technology has paved the way for parallelizing RLNC  however, current state of the art parallelization techniqu es for RLNC are unable to fully utilize GPGPU technology in many occasions Addressing this problem, we propose a new RLNC parallelization technique that can fully exploit GPGPU architectures. Our parallel method shows over 
+4 times higher throughput comp ared  to existing state o f the art parallel implementations leveraging GPGPU. The rest of this paper is organized as follows. Section 2 details our proposed parallelized decoding scheme, Section 3 shows the performance advantage of our proposed schemes and finally we conclude this paper in Section 4  II  E NHANCING PARALLELISM  IN R ANDOM L INEAR N ETWORK CODING  In this section, we first give a brief introduction to random linear network coding and then introduce our parallelization techniques for random linear network coding  A  Random Linear Network Coding  To transfer a set of data s uch as a single file using random linear network coding, the source node generates a set of 
+coded packets  from the original file transmits them towards destination nodes. To this end, the data at the source is first divided into a number of  blocks  We use  to denote k th  block A coded packet  is a linear combination of the original blocks. That is where G  is the number of blocks and the coefficient  is a certain element randomly chosen in a certain finite field F [11   T h e c o d e d  p a ck et   is transmitted towards destination nodes along with the coefficient vector   
+205  d esc r i b in g h o w th e co d ed  packet is generated stored in the heade r [12  We refer to t he concatenation of a coded packet and its coefficient vector  as a transfer unit   On reception of coded packets, intermediate nodes on the path to a destination generate a linear combination of received coded packets and send them to downstream nodes For a destination to be able to decode a set of received coded packets and recover the original file, it needs to collect at least n coded packets with coefficient vectors linearly independent to each other. Let say a destination has coll ected n  coded packets and let 
+ and  where  superscript T denotes the transpose operation As the relationship among C  E and P  can be expressed as the destination can This work was supported by Basic Science Research Program through the National Research Foundation of Korea \(NRF\ funded by the Ministry of Science, ICT & Future Planning \(2013005876  296 
+
+
+recover the original file P  by multiplying the inverse of E  to C  assuming that E  is invertible, i.e., all coefficient vectors 222s are linearly independent with each other. In random linear network coding, to calculate P   E 1 C a variant of the Gaussian  Elimination  GE\alled progressive decoding  is widely used. The conventional GE requires collecting G  transfer units and having the G  327 G coefficient matrix before starting the process. However in random linear network coding waiting for the entire matrix to be formed is not an optimal solution. In fact, packets are delivered one by one and the time gap between the arrivals of the first transfer unit and the last one can be very large. Thus, instead of waiting all the transfer units to arrive, partia l decoding can be performed on reception of each transfer unit B  Parallel Random Linear Network Coding using GPGPU  In general, a GPGPU device is c omposed of an array of comput ation  units which are designed to execute arithmetic and floating point operat ions similar to general purpose processors. NVIDIA's CUDA \(Compute Unified Device Architecture\ is one of the first programming models that provide programmability on graphics hardware. In this paper we leverage the CUDA model to develop a massively paral lelized decoding scheme for random linear network coding. The CUDA compute architecture consists of a group of several streaming processors \(SMs\each of which contains of a number of scalar processors \(SPs\, a.k.a., CUDA cores. In NVIDIA's GeForce GTX 460 there exist 7 SMs each of which contains 48 CUDA cores and on chip shared memory The on chip/local memory can be shared only by the CUDA cores belongs to the specific SM. Global memory can be used for communication between CUDA cores belonging to differ ent SMs. In a CUDA program, parallel ism  is achieved via a simultaneous run of  multiple GPU threads. In fact hundreds of threads can be executed simultaneously in a CUDA GPGPU. GPU threads are grouped into thread blocks and each thread block is assigned to  a SM. Synchronization and data sharing are allowed only for the threads in the same thread block. If there are a large number of thread blocks more than one thread block can be assigned on one SM. For efficient thread processing, every 32 GPU instruction s in a thread block is grouped into a warp, which is a basic scheduling unit in the CUDA model. A warp is set of one same instruction of 32 GPU threads, and it is executed on a set of CUDA cores during four or two clock cycles \(depending on CUDA hardware  This model is referred as SIMT \(Single Instruction, Multiple thread\. The SIMT unit of a SM selects a warp ready to be executed and issues instructions to the active threads of the warp in out of order fashion. If a warp is stalled for some reason \(e.g. m emory access\ the SIMT unit switches to another warp immediately. Therefore, creating hundreds \(or over a thousand\ of threads is essential to maintain maximum utilization of parallel hardware and/or to hide memory access latency  The decoding process of random linear network coding is usually implemented as a variant of G E as mentioned above  Following the notation used in the previous, the problem of decoding is sol ving and obtaining    when E  and C  are given. Usually C  is an m  x n  matrix where n   m  To parallelize such a decoding process encoded data, i.e the matrix C is partitioned column wise into  a number of  units \(as shown in Figure 1\ and each unit is assigned a GPU thread such that each unit can be decoded independently. We refer to this scheme as the baseline  parallel decoding scheme. All the existing GPGPU based parallel decoding schemes for RLNC [5, 6 7 f o llo w  this approach. One of the problems of this baseline parallel decoding scheme is that in many cases it cannot fully exploit parallelism when the decoding process is run on a high end GPGPU That is, if the block size is not big enough   the baselin e scheme is unable to creat e a enough number of GPU threads to maintain full utilization of the parallel hardware and to hide memory access latency  Our scheme attempts to maximize parallelism in the decoding process such that every computational unit in a GPGPU is utilized  For simplicity, we assume that all the 222s arrive with coefficient vectors independent to each other. Then, the progressive decoding is running the \(serial\ code shown in Figure 2 on arrival of each Note that n = 1, 2, 3, \205 G  on arrival of the first, second, third, \205 G th  packet \(respectively where G  is the number of total blocks comprising a file. Also note that until  the arrival of the last i.e   each k = 1 205 n\ contains partially decoded data After running the algorithm on arrival of the last ea ch k = 1 \205 n  contains fully decoded i.e  original   data  As a final note on the algorithm th e  pseudo code shown in Figure 2  is a simplified version of the progressive decoding presented for ease of understanding and is valid only when the assumption of independent coefficient vectors holds  I n the baseline parallel decoding scheme 222s are partitioned into a number of units and all of them are being decoded in parallel  using GPU threads   As mentioned above, o ne of the problems  of this baseline parallel scheme  is that it is incapable of full exploitation of parallelism opportunities that GPGPUs offer. In a GPGPU device, up         Figure 2 Simplified RLNC Decoding Operation Figure 1 Data partitioning in baseline method 297 
+
+
+to thousands of threads/instructions can be executed concurrently  and thus a parallel algorithm must genera te a sufficiently large number of concurrent threads to take full advantage of the GPGPU. To address this problem we solve the RLNC progressive decoding problem as follows   1    2  for  k  1 to n 1 do in parallel  3     4     5  for  k  1 to ceiling n 1 S  do in parallel  6   for  l   k 1 S 1 to min k*S  n  k 1 S   7     8     9  for  k  1 to ceiling n 1 S   10     11     12     13  for  k  1 to n 1 do in parallel  14     where  and  are zero initialized vectors and S  is a natural number, e.g., 16   The above code in lines 2~11 corresponds to the lines 2~4 of the serial version \(in Figure 2\ which requires n 1\ times of scalar and vector multiplication s \(e.g and n 1\ vector and vector subtractions \(e.g  Here, we regard the concatenation of   as one vector.\ The scalar and vector multiplications are first parallelized in lines 2~4 above In the lines  for  k  1 to n 1 do in parallel  indicates that for each case where k  has a value between 1 and n 1\, respective instruction execution units are generated and processed concurrently. Put another way, when the receiver receives the coded frame  scalar and vector multiplication  operations must be 223 concurrently\224 executed for each  k  1 205 n 1. Note that each scalar and vector multiplication operation  is also parallelized by using the same method used in the baseline parallel decoding method i.e., a vector is divided into sev eral units and an independent thread work on each part. The s calar and vector multiplication s are parallelized in lines 5~11. The optimal parallel algorithm in terms of time complexity for multiple addition/subtraction operations would be the parallel redu ction tree  method but in usual CUDA devices the reduction tree algorithm experiences performance degradation due to the high access latency of the Global memory used for communications among threads. Code in lines 5~11 shows our method in which subtraction  operations are organized as groups and parallelism is only achieved among groups, not in individual operations in a group  In our implementation, we use groups of size 16, i.e., S = 16  Figure 3  depicts how coded data is partitioned and assigned to concu rrent threads in our parallelized decoding scheme Beside the fact that the multiplication operation on each  k 1, \205, n 1, is executed in parallel \(row wise partitioning each k  1, \205, n 1, is divided into T byte units and the multiplication  operation on each unit is executed also in parallel \(column wise partitioning   Therefore, the total number concurrent threads generated and concurrently running is \(n 1 B/T where B is the size of  In our implementation we use varying T, i.e., st arting as 4 bytes  we gradually increase T to 32 bytes as the block size increases To bring the best out of a parallel architecture, it is critical to create a proper number of concurrent threads in a program. If the concurrent threads are too few, the par allel architecture will be under utilized and if they are too many, excessive overhead caused by maintaining too many threads will degrade overall performance  III  P ERFORMANCE EVALUATIO N  In this section, we investigate the performance of our parallel method vi a experiments on real systems. To this end we have implemented our method termed vertical partitioning technique \(denoted as VP hereafter\ as well as the baseline parallel decoding method and performed experiments on real GPGPU equipped systems. For the e xperiments, we use the system with CUDA Toolkit 3.2, Windows 7 Ultimate OS, MS Visual Studio 2010 compiler, Intel i7 960 3.2GHz quad core CPU, and GeForce GTX460 675MHz GPU \(equipped with 7 SMs each of which contains 48 CUDA cores.\ In the experiments, the  data or file being decoded is divided into blocks and we refer to the number of blocks comprising a file Figure 3    Job partitioning in both column wise and row wise for increased the number of concurrent threads 298 
+
+
+as generation size. The total file size varies with the generation size and block size used in the experiments. For example, if the generation size is  2048 and the block size is 16384 bytes, then the total data size is 2048 * 16384 = 32 Mbytes. The metrics used to compare the three schemes is decoding throughput Mbytes/sec\ which is calculated as the total size of data being decoded divided by the time  spent for decoding. We use a look up table based Galois Field multiplication/division method   a\ Generation size of 32/64/128   b\ Generation size of 256/512  Figure 4  Figure 4 compares the throughputs of the two schemes with the generation size being 32, 64, 128, 256, or 512 and the block size varying from 1024 to 32K \(32768\ bytes. In the figure, x axis and y axis represent the block size \(bytes\ and throughput MB/sec respectively. As we can notice in Figure 4\(b\, VP shows over 4.5 times higher throughput than the baseline when the generation size is 512 and the block size is 1024 bytes. The performance advantage of VP compared to the baseline becomes less dominant as  either the generation size gets smaller or the block size get larger. When the generation size is 32 and the block size is 16K bytes, VP shows around 10 enhancement over the baseline. Any meaningful performance enhancement was observed when the generatio n size was smaller than 32. The performance degradation of the baseline scheme comes from the fact that it does create a large enough number of GPU threads and thus does not fully utilize GPGPUs when the generation size is small or the block size is small  It is worth note that our scheme shows over 20 times higher throughput than the state of the art serial RLNC decoding scheme [4 w h en th e g en er ati o n s i ze an d th e  b l o ck  size is 512 and 1024 respectively  IV  C ONCLUSION  Recently, GPGPU technology has paved the  way for parallelizing RLNC; however, current state of the art parallelization techniques for RLNC are unable to fully utilize GPGPU technology in many occasions In this paper, we have proposed a RLNC parallelization technique that can fully exploit GPGPU  architectures. Our parallel method shows over 3 00% throughput enhanceme nt compared to existing state o f the art implementations  R EFERENCES    Ahlswede, R., Cai, N., Li, S Y. R., and Yeung, R. W. \(2000\ Network information flow. IEEE Transactions on Informa tion Theory, 46, 1204 1216    Gkantsidis, C. and Rodriguez, P. R. \(2005\ Network coding for large scale content distribution. Proceedings of IEEE INFOCOM '05, Miami FL, 13 17 March, pp 2235 2245, IEEE, New York    Shojania, H. and Li, B. \(2007\ Parallelized progressive network coding with hardware acceleration. Proceeding of the 15th IEEE International Workshop on Quality of Service    Park, K., Park, J S., and Ro, W. W. \(2010\ On improving parallelized network coding with dynamic partitioning. IEEE Transactio ns on Parallel and Distributed Systems, 21, 1547 1560    NVIDIA, CUDA Toolkit, http://www.nvidia.com/content/cuda/cuda toolkit.html    Shojania, H., Li, B., and Wang, X. \(2009\ Nuclei: GPU accelerated many core network coding. Proceedings of IEEE INFOCOM `09    Shojania, H. and Li, B. \(2009\ Pushing the envelope: Extreme network coding on the GPU. Proceedings of IEEE International Conference on Distributed Computing Systems `09    Chu, X., Zhao, K., and Wang, M. \(2009\ Accelerating network coding on many core gpus and multi core cpus. Journal of Communications, 4    Lee, S. and Ro, W. \(2012\ Accelerated Network Coding with Dynamic Stream Decomposition on Graphics Processing Unit. The Computer Journal, 55, 21 34    Park, J S., Baek S., and Lee, K. \(2013\ A Highly Parall elized Decoder for Random Network Coding leveraging GPGPU. The Computer Journal 10.1093/comjnl/bxs173    Ho, T., Medard, M., Koetter, R., Karger, D., Effros, M., Shi, J., and Leong, B. \(2006\ A random linear network coding approach to multicast IEEE Trans actions on Information Theory, 52, 4413 4430    Chou, P. A., Wu, Y., and Jain, K. \(2003\ Practical network coding Proceedings of Allerton Conference on Communication, Control, and Computing `03  0 10 20 30 40 50 60 70 80 90 100 110 120 130 140 150 1024 2048 4096 8192 16384 Throughput\(MB/sec  Base-32 VP-32 Base-64 VP-64 Base-128 VP-32 0 5 10 15 20 25 30 35 1024 2048 4096 8192 16384 32768 Throughput\(MB/sec  Base-256 VP-256 Base-512 VP-512 VP 128  299 
+
+
+           
+
+
+            
+
+
+       
+
+
+               
+
+
+                                     
+
+
+                                                        
+
+
+                           
+
+
+                                        
+
+
+                  
+
+
+  
+
+
+                                               
+
+
+   
+
+
+                                
+
+
+                        
+
+
+                           
+
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     2 8    b 4      1 8             1 2     1  8 2  
+
+
+1 9    8      2 1       1     2    8    2 3\f        
+
+
+     8 D 4 9  F  \b 1 8 #J 9 1     2 1   2 #-@ 1   2 9  E 1   1   2 9      6  
+
+
+    8  8   1  D 1         1 F  \b0         2 D    F  \b 1 8  9  
+
+
+  1 9  1   E 1  2 9     1 1 F  \b       1    18   F   1    1 #-$+  \b  2 2  
+
+
+1 D     1 #-$+.B- 0/:% .0             9 1      18    1 6     1 2  1  1  
+
+
+1   6      2    1 2 E 8 D 1      1 2   1   1 #-4  #-@E     2  1  1  1       
+
+
+ 8     1          2 F    6   F  2   8    2 C<CC/C N\bO 5      
+
+
+CD    b$44NO F P Q 6   2 b$$$ ,=\b\bA  A N,O 2 C C  b$$4N  92 2   f  9-\b$$4 B N?O  !-    91  2 1 HH111-18-N+O    -1 :3%   2     0-4 
+
+
+     b N4O 2   2- \f  C b$@$ \b# >\b\b$3\b$N@O  f :.% 9 /9 \f    1  6  f 2  4   A254 
+
+
+Advantages of Our M ethod Advantages of Our M ethod Exploit the memory v ertical data format utilizes slidin g windows to g form a much larger database to analyze  Flexibility in Choosing what to choose  Choosing what to choose to build the rules Computational and memory efficiency We have a team working only on this aspect 45 Associative IDS for NextGen Frameworks Dr S Dua LA Tech 45 
+
+
+Preliminary Results Intra transaction Relations Data rate simulator NH-134 Mb HOP PATH update \(Y/N Inference 11.5 Y Y 2 0.120 N N      Y   n 0.345 N NH134 Y/N   Inf 1 0.150 N N 2 0 120 Y N Inter transaction Relations 2 0  120 Y N       5 5.55 0.456 Y Relations  n 0.345 N N Nmap on DMRL nmap.org 
+
+
+Anticipated Outcome Anticipated Outcome Develop algorithm capable of learning from a given heterogeneous diverse Develop algorithm capable of learning from a given heterogeneous diverse data ff Dynamic algorithmic f ramework designed to shi f t modalities and sampling rates based on complex logic Flexibility of integration into the Snort intrusion detection system 47 Associative IDS for NextGen Frameworks Dr S Dua LA Tech 47 
+
+
+References References Aircraft Cockpit Image courtesy USAF http://www.faa.gov htt p   www.faa g ov  air traffic  technolo gy  p g  _ gy  Acharya R Dua S Du X Sree V Chua C K Automated Diagnosis of Glaucoma Using Texture and Higher Order Spectra Features To appear in IEEE Transactions on Information Technology in Biomedicine  Du X Dua S 2011 Cancer Prognosis Using Support Vector Regression in Imaging  Modality World Journal of Clinical Oncology 2  1   44 49 Du X Dua S 2010 Salient Frame Extraction Using Support Vector Regression and Motion Features pp 5 Proc of the National Aerospace and Electronics Conference July 14 16 2010 D M P D S 2010 Di i i ti Ft d Cl ifi ti Mthd f D essaue r  M  P  D ua S  2010  Di scr i m i na ti ve F ea t ures an d Cl ass ifi ca ti on M e th o d s f or Accurate Classification 1st ed vol 7704 pp 14 Bellingham WA Proceedings of SPIE Dessauer M P Dua S 2010 Low Resolution Vehicle Tracking using Dense and Reduced Local Gradient Features Maps 1st ed vol 7694 pp 8 Bellingham WA Proceedings of SPIE SPIE 
+
+
+Acknowledgements Acknowledgements Fundin g A g encies  US 4 1 Million direct fundin g g g 4 g LA BoR NIH NSF AFRL AFOSR and NASA Research Team Samuel Kasimalla Brandy McKnight Dr Pradeep Chowriappa Connor Johnson Vasanth Nair Mihir Chowriappa  Connor Johnson  Vasanth Nair  Mihir Karnik Mohit Jain and Swadheen Songmen Associative IDS for NextGen Frameworks Dr S Dua LA Tech 49 All the respective Logos belong to their owners 
+
+
+Rf d Rdi R e f erence d R ea di ngs Copyright of cover pages held by respective publishers 
+
+
+Thank You Questions Thank You  Questions Dr Sumeet Dua E mail sdua@latech.edu Web http://dmrl.latech.edu Associative IDS for NextGen Frameworks Frameworks Dr S Dua LA Tech 51 Image Source roadtrafficsigns.com 
+
+

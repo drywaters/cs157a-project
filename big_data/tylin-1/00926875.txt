@@ -1,0 +1,51 @@
+A Group-based Inference Approach to Customized Marketing on the Web Integrating Clustering and Association Rules Techniques HsiangchuLai Tzyy-Ching Yang Department ofInformation Management Nationa Sun Yat-sen University Taiwan R.O C hclai\(tjmail nsysu edu tw tcyang\(tjmis.nsysu edu tw Abstract Because of the intelligent computing specialty of the World Wide Web extensive customized marketing can be executed at much lower cost and has become an emerging research issue Therefore the first purpose of this paper is to purpose a system fi-amework to serve 
+
+
+as a foundation for developing a customized marketing system on the Web according to the discussions on data sources data categories and inference foundations Most previous studies used induction-learning techniques to perform individual-based inference for customized marketing However it not only costs more to learn the personal preferences but also some difficulties occur from using induction-learning techniques The second purpose of this paper is to solve these problems A group-based approach that integrates clustering and association rules is proposed We conducted a field 
+
+
+study to collect data to demonstrate the proposed group-based inference approach and evaluate its performance The results reveal that this integrated approach can learn both more detailed and precise rules L Motivation For a long time customized marketing has been the ultimate direction of marketing efforts in order to improve customer satisfaction Traditionally it is done mainly by sales and therefore the cost is very high In fact due to the intelligent computing specialty of the Web extensive customized marketing can be executed at much 
+
+
+lower cost An identical characteristic of several famous successfid sites such as Peapod and Amazon is its notable interactive capabilities Customized marketing has become an emerging research issue However most of the current marketing systems on the Web have not filly taken advantage of the Web\222s interactive capabilities 1 7 In order to implement customized marketing a compIete picture of the consumers is necessary Compared to traditional selling techniques one distinguished capability of the Web is the ability to perform continuous unobtrusive observations on 
+
+
+customer browsing behavior In other words in addition to the basic demographic data such as age occupation gender and purchasing data e.g product name and quantity the browsing behavior can be collected through CGI programs cookies etc That is a Web server can collect the information on the decision process rather than only the decision result Based on these data we can capture a more comprehensive user profile which can serve as foundation for customized marketing What kind of data can be collected What form should 
+
+
+the system framework of a Web site be in order to collect this data and then transform this massive data into usefi.d knowledge such as marketing rules and a customized marketing mechanism The first purpose of this paper is to identi the required data and mechanisms for creating user profiles and then propose a system framework to serve as a foundation for developing a customized marketing system The user profile data sources and data categories and the way to infer user profiles and marketing rules will also 
+
+
+be discussed In the system framework for customized marketing how to transform raw data into user profiles and marketing rules is the most important issue Generally there are two types of customized marketing individualbased and group-based Most previous studies focused on individual-based inference for customized marketing However the more deliberate the individual-based marketing the more expensive the implementation In addition to new customers the individual-based rules may not make sense when collecting only a small amount of availabIe data Additionally with old customers the 
+
+
+individual-based rules may not adapt to their changing preferences Based on the above situations the second purpose of this paper is to propose a group-based inference mechanism The rest of this paper is organized as follows In Section 2 we propose a system framework for customized marketing to describe the mechanisms of collecting customer data and the related inferences In Section 3 we discuss some issues from previous approaches to target marketing first and then propose an approach for integrating clustering and association rules as the 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

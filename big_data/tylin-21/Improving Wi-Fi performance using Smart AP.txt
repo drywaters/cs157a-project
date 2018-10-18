@@ -1,0 +1,111 @@
+i AP   hong n  im  g  y  ea  r    t 227 s   tly     s   s es   e  is d f  
+d  s   o  a   e of  e    w e t   t o s in  s AP  I ACK  t   I  
+e    o o  f he  er ed   s 227 Wi   ss  o ode istence  I   I ON   R  oT       
+nn w d s   on p  br ught  t   e   T  m  s  n 4  G H SM   i   a e   le i ne 222 i  d   
+ 2   e he   o   P  l   ile   w e t y es a     
+ FS  e  r o e e e at  ail   er  ed h  s all    9     g   iu   11  im p r o v ed th e p er f o r m a n ce b y  m a k in g T C P 
+r etr an s m is s io n s  p la y  o n A P s  w h ic h w er e o r ig i n all y m a n ag ed   t   ts   n   i  o le o i  ile   y   A  i  s  i Fi o 
+e DM    n es i Fi o  i e i  y  i Fi 222 e 0 an d o f its W ak eu p  ata   l e d  e o le 21 
+ 
+
+
+  ata m  ell r   r ese e o    P P esti  I L L   m s     s   ce  T  und e  ize o   to  e  r s  at ur    r    le L  W rt  P   t  s       es    e i  ici      es   i o odu  ata  P al e n    II  R  W K  et  5  A n d it is d es ig n ed s o lel y  f o r  w  at   e e 4   T h e f ir s t ap p r o ac h is o late s d if f er en t     i  e I 1 2   SNOOP  11   I n a d d itio n to th at T C P SA C K  1 3   AS 1 4  o    i   8    w h ich  d i v id es a c h an n el i n to  ta    9   I   c t es o P K  i   ir k ce    6   e Wi es  1  s h o w ed  th at a W i es w     5  6   au th o r s p r o p o s ed a p ac k et  L i       e  i Fi    c i   f  i  ted    e 223 A e E  7   i   i    p   A  E r  est o lear o   o i  o f s i Fi   22 
+ 
+
+
+   n   i    a     es  g lic e a e s 3 1 6  m e n tio n i n g t h e p o s s ib ilit y o f th e co m b o     III  U  T  P  M  D ES  io  o   bo les    ks  t  l   e  e  or   r    es  o      o l or   11   W e w en t f u r t h er an d  el      F e   atten n es   es e ec     o e  et   e       m to  le e    o s  i  a     t n s 4  B e ca u s e   0   o i l     i e e  2 i e  23 
+ 
+
+
+   i bo le      ue  e od    ic  T   bo at y  U   o  o es i  i en   o   i     o   o i  i   e i e 8 2  e e i  29  lt 7   o m      I AP     o  i d   o   e ata cli  es 4 SQ n  n  as A e E t  V  P  S E  ate  alle      I      th ets    i     c e e I   I   I  t e I  I I e  24 
+ 
+
+
+   a n     I ess    w w  le   s   t      K    P  f  a o   a a t   as  P  224     e cl  al o   SQ it o   B     o  es      T h I I  h I I     V  E VA ON  I  W rt   f he P I K    C     e   ta a  I  as m   0      I   I  t   I   A    I  I K e    I  t le th e     u e     25 
+ 
+
+
+   d P     s     P    e    p       t       C  c eme   t  Wi  I   ice  ic all     C ON   I I  s tes n   cle  tee l i   esear  9  11   Ho w e v er  in  m a n y   t o on  t   i      t  NT    0 16  lt an   e  P 5 0992 15     6   f  e  P 2016 0992 16   tio     90 16 2017  t  d   n  ng     R ES     9 26 
+ 
+
+
+  76     J   S   i  10      B   09     4    e s  e 224  y nd 590 8    e 4 S nd\224 EEE 64 5     11  8 5       e            2     5     223I P  136            o   465 0     o l    4     A     0 64     27 
+ 
+
+
+2168-6750 \(c information This article has been accepted for publication in a future issue of this\ journal, but has not been fully edited. Content may change prior to fin\al publication. Citation information: DOI 10.1109/TETC.2017.2675479, IEEE Transactions on Emerging Topics in Compu\ting   ING      en-US c en-US n en-US  en-US  en-US for en-US  en-US e en-US ime en-US  en-US  en-US    en-US  en-US    en-US h en-US  en-US es en-US of en-US th en-US e en-US  en-US  e    h   f a  l    h   en-US ison en-US  en-US  en-US e en-US y en-US  en-US  en-US  en-US 14 en-US  en-US 35 en-US en-US 37 en-US  en-US 42 en-US  en-US 43 en-US  en-US f a n  en-US f a o ws  en-US  en-US  en-US h en-US  en-US   en-US e en-US ed    en-US he ed    r   and en-US  en-US e    se  en-US  en-US    en-US  en-US    en-US   a l ne    d F RS e s CV     CV    d  CV Sk   CV   CV   
+ 
+
+
+2168-6750 \(c information This article has been accepted for publication in a future issue of this\ journal, but has not been fully edited. Content may change prior to fin\al publication. Citation information: DOI 10.1109/TETC.2017.2675479, IEEE Transactions on Emerging Topics in Compu\ting       en-US es en-US  en-US   n  n  en-US V en-US  en-US e e in  CV   en-US   CV e  CV    CV    h CV  en-US  en-US    en-US  en-US    en-US er en-US en-US  en-US  en-US  en-US en-US  en-US  en-US a en-US e en-US en-US  en-US  en-US  en-US he en-US W en-US  en-US  en-US he en-US f en-US  en-US  en-US d en-US CV en-US Then en-US  en-US  en-US f en-US r en-US  en-US t en-US 5 en-US  en-US d en-US  en-US g en-US ly en-US  en-US  en-US  en-US  en-US  en-US    en-US  en-US  en-US    en-US  en-US  en-US  h    e r en-US  is h    en-US h en-US  en-US      en-US    a  en-US  n   be  en-US 6 en-US  en-US C en-US S en-US  en-US  en-US f en-US  en-US w en-US  en-US  en-US  en-US  en-US ns en-US  en-US  en-US v en-US l en-US r en-US  en-US g en-US  en-US t en-US ed en-US  en-US  en-US e en-US d en-US  en-US  en-US d en-US  en-US hen en-US y en-US ed en-US  en-US he en-US c en-US f en-US n en-US n en-US  en-US he en-US e en-US d en-US  en-US  en-US d en-US  en-US  en-US and en-US  en-US e en-US d en-US  en-US o en-US  en-US eal en-US en-US  en-US w en-US ed en-US  en-US ur en-US  en-US  en-US k en-US l en-US n en-US  
+ 
+
+
+2168-6750 \(c information This article has been accepted for publication in a future issue of this\ journal, but has not been fully edited. Content may change prior to fin\al publication. Citation information: DOI 10.1109/TETC.2017.2675479, IEEE Transactions on Emerging Topics in Compu\ting  10  ING      en-US  en-US  en-US er en-US  en-US  en-US a en-US hes en-US  en-US  en-US f en-US ur en-US e en-US  en-US k en-US  en-US  en-US  en-US C en-US  en-US  en-US  en-US  en-US  en-US CES en-US  en-US   en-US  en-US r en-US en-US al en-US en-US a en-US  en-US l en-US 4 en-US 2 en-US en-US 6 en-US 2011 en-US  en-US   en-US  en-US lti en-US en-US f en-US en-US r en-US en-US al en-US en-US  en-US  en-US ia en-US  en-US 329 en-US en-US 5 en-US  en-US   en-US M en-US  en-US e en-US en-US  en-US 10 en-US 24 en-US en-US 8 en-US 2003 en-US  en-US   en-US  en-US  en-US r en-US  en-US 2004 en-US  en-US   en-US  en-US  en-US  en-US  en-US 218 en-US en-US  en-US 2014 en-US  en-US   en-US  en-US s en-US en-US o en-US  en-US WS en-US  en-US 431 en-US en-US 439 en-US  en-US   en-US  en-US S en-US en-US e en-US en-US  en-US  en-US  en-US  en-US 1754 en-US en-US  en-US  en-US   en-US  en-US  en-US  en-US 6 en-US  en-US 369 en-US en-US 7 en-US  en-US   en-US K en-US en-US  en-US d en-US en-US to en-US en-US Qo en-US S en-US  en-US 1 en-US  en-US  en-US  en-US 10  en-US  en-US S en-US en-US  en-US  en-US  en-US W en-US 881 en-US en-US 90 en-US  en-US 11  en-US  en-US  en-US s en-US en-US  en-US  en-US  en-US  en-US  en-US  en-US 34 en-US en-US  en-US  en-US 12  en-US S en-US en-US  en-US  en-US  en-US in en-US  en-US  en-US  en-US 89 en-US en-US 96 en-US  en-US 13  en-US  en-US  en-US 4 en-US l en-US 424 en-US en-US 10 en-US  en-US 14  en-US an en-US  en-US  en-US  en-US P en-US 666 en-US en-US 671 en-US  en-US 15  en-US  en-US  en-US d en-US en-US  en-US ile en-US  en-US 1 en-US 116 en-US en-US  en-US 013 en-US  en-US 16  en-US  en-US  en-US  en-US 5 en-US l en-US 757 en-US en-US 768 en-US 2011 en-US  en-US 17  en-US  en-US  en-US  en-US E en-US  en-US  en-US 84 en-US en-US 4 en-US  en-US 18  en-US M en-US en-US  en-US s en-US r en-US  en-US  en-US 9 en-US en-US 2 en-US  en-US 19  en-US  en-US  en-US  en-US WWW en-US 66 en-US en-US 3 en-US  en-US 20  en-US L en-US  en-US  en-US  en-US  en-US W en-US 411 en-US en-US 21 en-US  en-US 21  en-US  en-US s en-US en-US  en-US s en-US  en-US  en-US  en-US  en-US 311 en-US en-US  en-US  en-US 22  en-US  en-US S en-US en-US  en-US  en-US  en-US  en-US 005 en-US 1069 en-US en-US 75 en-US  en-US 23  en-US  en-US S en-US en-US  en-US  en-US WS en-US 121 en-US en-US 29 en-US  en-US 24  en-US S en-US en-US  en-US  en-US o en-US 2 en-US  en-US 349 en-US en-US 4 en-US  en-US 25  en-US t en-US en-US  en-US  en-US 928 en-US en-US 7 en-US  en-US 26  en-US  en-US lti en-US en-US ase en-US S en-US en-US  en-US MC en-US 3125 en-US en-US 132 en-US  en-US 27  en-US  en-US  en-US  en-US  en-US  en-US  en-US 481 en-US en-US 88 en-US  en-US 28  en-US  en-US  en-US  en-US  en-US  en-US ICWS en-US  en-US 540 en-US en-US 47 en-US  
+ 
+
+
+2168-6750 \(c information This article has been accepted for publication in a future issue of this\ journal, but has not been fully edited. Content may change prior to fin\al publication. Citation information: DOI 10.1109/TETC.2017.2675479, IEEE Transactions on Emerging Topics in Compu\ting   11     en-US 29  en-US  en-US S en-US en-US  en-US in en-US I en-US 11 en-US en-US 20 en-US  en-US 30  en-US g en-US  en-US ice en-US en-US  en-US  en-US WS en-US 10 en-US en-US 17 en-US  en-US 31  en-US  en-US n en-US en-US  en-US  en-US ICWS en-US 2012 en-US 1 en-US en-US 8 en-US  en-US 32  en-US ty en-US en-US  en-US  en-US  en-US C en-US 154 en-US en-US  en-US  en-US 33  en-US  en-US  en-US Co en-US  en-US  en-US  en-US 104 en-US en-US 116, 2008 en-US  en-US 34  en-US r en-US en-US  en-US S en-US en-US  en-US  en-US EEE en-US 22 en-US en-US 29 en-US  en-US 35  en-US  en-US  en-US  en-US  en-US  en-US  en-US 36  en-US  en-US  en-US  en-US n en-US  en-US  en-US 410 en-US en-US  en-US  en-US 37  en-US S en-US  en-US  en-US WS en-US 550 en-US en-US 557 en-US  en-US 38  en-US o en-US line en-US  en-US E en-US 421 en-US en-US 430 en-US  en-US 39  en-US C en-US en-US  en-US  en-US  en-US  en-US  en-US 1 en-US 013, 2015 en-US  en-US  en-US 40  en-US  en-US al en-US en-US  en-US  en-US WS en-US 83 en-US en-US 90 en-US  en-US 41  en-US t en-US ry en-US en-US d en-US  en-US  en-US RDS en-US 1 en-US en-US 10 en-US  en-US 42  en-US  en-US S en-US en-US  en-US  en-US W en-US 881 en-US en-US 90 en-US  en-US 43  en-US  en-US  en-US  en-US d en-US en-US to en-US en-US End en-US  en-US 2 en-US l en-US 1 en-US en-US 2012 en-US  en-US 4  en-US  en-US S en-US en-US o en-US  en-US in en-US WW en-US 11 en-US en-US 0 en-US  en-US  en-US  en-US  en-US  en-US  en-US ng       10   l  IC     en-US  en-US Ao  Zhou   n ol       en-US  en-US  en-US  en-US  in m       en-US  en-US  en-US un     en-US  en-US  en-US  en-US  en-US u           in   g l boards  en-US   m         E T  
+ 
+
+
+rees China from all in pioneer net lica proceeda China China nals IEEE Who and CM 2377-3782 \(c This article has been accepted for publication in a future issue of this\ journal, but has not been fully edited. Content may change prior to fin\al publication. Citation information: DOI 10.1109/TSUSC.2017.2690301, IE\EE Transactions on Sustainable Computing 12 W Jia 
+
+
+Experiment Setup Proposed attack scenario 
+SECTION V EXPERIMENTS 
+We allude to the lumps being Flush Reloaded by the advertisement versary as being observed since Flush-Reload basically screens access to information in the lump  Flushing a piece by means of clflush thus observing that piece should be possible without knowing the physical address of the lump since clflush takes the lump's virtual address for this situation in the adversary's address space as its operand  We call a quicker reload amid the Reload stage a watched occasion or perception  We additionally embrace ideas from measurable order and utilize the term false negative to allude to missed perceptions of the casualty's entrance to the checked piece and false positives to allude to watched occasions that are brought about by reasons other than the casualty's entrance to the observed piece We characterize a Flush-Reload convention in which the foe procedure screens a rundown of lumps at the same time and over and again until taught generally  It will first attempt to Reload the principal lump record the reload time and Flush it promptly thereafter At that point it will rehash these means on the second lump the third and so on until the last lump in the rundown  At that point the foe will sit tight for a precisely computed day and age before beginning once again from the primary piece so that the interim between the Flush and Reload of a similar lump is of an objective level 3 from the Reload of the main lump to the end of the holding up period is called one Flush-Reload cycle  An outline of the Flush-Reload convention is appeared in following Fig  
+ 
+ chi k 2 R eI oa din g  chi nk 1  Rel o a di ng I dl e l ooping l 
+Here we execute experiments on two systems  One system is a laptop and the second system is a dedicated server facilitating different services  We have installed windows server 2012 on both machines  First of all we used NMap to find OS finger printing the 
+FI ng 
+chi Id 
+AUJS  ng 
+ ch k 2 225 us bR eload Cycl e 
+ 
+
+
+as 
+using the Nassus we found the vulnerabilities available in VMs  Then generated side channel attack on both machines using flush  reload attack to get cryptographic keys and peeks inside the VMs whereas docker provides much more isolation and it was quite difficult to get all keys and peeking mechanism in docker Algorithm Flush Reload Hardware Specification System 1 System2 Use Laptop Dedicate Server 
+Windows Server 2012 CPU Intel\256 Core\231 i3-4010U CPU  Intel Xeon 2.S Ghz 1.70Ghz Cores 02 Physical 04 Physical 04 Logical OS Logical RAM 4GB SGB 
+ 
+
+
+x86-64 
+L1 128 KB 256KB L2 512 KB 01 MB L3 03 MB 08MB Supporting Software Name Function Ubuntu and Windows Ubuntu and Windows server 2008 are being used to Server 2008 host multiple servers on Virtual machines Web Server Docker Container and Docker Microsoft Hyper-V NMap Nessus Docker Container cape a bit of Software in an entire file system that contains everything expected to run code runtime framework instruments framework libraries anything that can be introduced on a server This ensures the product will dependably run the same paying little respect to its surroundings  MS Hyper-V Microsoft Hyper-V codenamed Viridian and some time ago known as Windows Server Virtualization is a local hypervisor it can make virtual machines on 
+frameworks running Windows Nmap is a security app used to find has and benefits on a PC organize hence making a IIguide ll of the system Nessus is a remote security checking device which filters a PC and raises a caution in the event that it 
+ 
+
+
+225 225\225 225 225 1 111 225 225 
+i 
+GnuPG and Open SSL Results finds any vulnerabilities that noxious programmers could use to access any PC you have associated with a system GnuPG is an entire and free execution of the OpenPGP standard as characterized by RFC4880 otherwise called PGP  GnuPG permits to encode and sign your information and correspondence highlights a flexible key administration framework and additionally get to modules for a wide range of open key indexes  
+ 
+26 
+tt 26 
+c e 
+140 120 g 0 25 
+System A 180    O penSSLD 9 7LR 
+E Ubgcryp t 1 6LR             29 
+Ubgcrypt 1 6FR 
+ 
+ 
+_ OpenSS LD 9 7FR _ OpenSSLD  9.7FR 180    O penSSLD 9 7LR O pen SSL1 0.1 FR   III   Op enSSL1 0.1 LR 160 PolarSS L 1.3  3FR   0   Po l arSS L1 3 3LR 
+B 
+27 29 Encr ypt ions   Ill   O penS SL1 0.1 LR 160 PolarSSL1  3.3FR   0   PolarSS L1  3.3LR Ubgcrypt1 6FR Ubg c rypt1  6LR 27 Encr y pt i ons  2 System 
+  
+28 28 
+140 25 
+ 
+
+
+Conclusion 
+1 
+References 
+1 
+machine 8 https www.toptal.com/linux/separation-anxiety-isolating-your-system-with-linu\x-namespaces 9 Isolation in Cloud Computing and Privacy-Enhancing Technologies Suitability of PrivacyEnhancing Technologies for Separating Data Usage in Business Processes Prof Dr Noboru Sonehara Prof Dr Isao Echizen Dr SvenWohlgemuth National Institute of Informatics 2-1-2 Hitotsubashi Chiyoda-ku Tokyo sonehara@nii.ac  jp  10  Performance Isolation and Fairness for Multi-Tenant Cloud Storage David Shue Michael J Freedman and Anees Shaikh Princeton University ylBM TJ Watson Research Center 
+An Updated Performance Comparison of Virtual Machines and Linux Containers Wes Felter Alexandre Ferreira Ram Rajamony Juan Rubio IBM Research Austin TX fwmf apferrei rajamony rubiojg@us.ibm.com 2 A Unified Operating System for Clouds and Manycore fos David Wentzlaff Charles Gruenwald III Nathan Beckmann Kevin Modzelewski Adam Belay Lamia Youseff Jason Miller and Anant Agarwal 3 Containers and Cloud From LXC to Docker to Kubernetes DAVID BERNSTEIN 4 Containers and Clusters for Edge Cloud Architectures a Technology Review Claus Pahl Irish Centre for Cloud Computing and Commerce IC4  Lero the Irish Software Research Centre Dublin City UniversityDublin 9 Ireland 5 Containerisation and the PaaS Cloud Claus Pahl 6 http://www.slideshare.net/BodenRussell/kvm-and-docker-lxc-benchmarking-w\ith-openstack 7 http://stackoverflow com q uestio ns/1604 7306/how-is-docker d ifferent from-a-no rma I-vi rtua 
+It has been observed from experiments that container provides much more isolation among multiple users multi-tenants in cloud virtualization as compared to virtual machines Taking the example of Docker container which is light weight more secure and fast processing virtualization technique and getting much more familiarity due to its characteristics Also Container provides isolation at every instance of virtualization like at process level at file system level network level and at inter process communication lPe level 
+ 
+
+

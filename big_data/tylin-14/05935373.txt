@@ -1,0 +1,153 @@
+Associative Learning based Intrusion Detection Associative Learning based Intrusion Detection using Sensor Prioritization and using Sensor Prioritization and Fusion Fusion Dr Sumeet Dua Dr Sumeet Dua Dr  Sumeet Dua Dr  Sumeet Dua Upchurch Endowed Professor of Computer Science Upchurch Endowed Professor of Computer Science Director Data Mining Research Laboratory Director Data Mining Research Laboratory Coordinator of IT Research Coordinator of IT Research Louisiana Tech Universit y LA  USA Louisiana Tech Universit y LA  USA y  y  http://dmrl.latech.edu http://dmrl.latech.edu Image Courtesy dumree.com wallpapers/F16 avsim.com Hangar/flight/f16 
+
+
+C C ontents Problem Domain Problem Statement and Challenges Associative Mining based IDS Associative Mining based IDS Introduction to data mining Association rule in data mining Association rule in data mining DMITAR Algorithm  ARD New research New research Associative IDS for NextGen Frameworks Dr S Dua LA Tech 2 
+
+
+Pbl D i P ro bl em D oma i n Cyber Intrusion Unauthorized access Modification  or Destruction of information Intrusion Detection System IDS Intrusion Detection System IDS Monitor Analyze Report Predict React React Associative IDS for NextGen Frameworks Dr S Dua LA Tech 3 Image Source thetechherald.com streetinsider.com 
+
+
+Motivation Motivation Capable method for identifying onboard threats Association rule mining a robust method for discovering relationships in a large dataset Best possible performance with available knowledge For attributes that may not be significant by themselves but are extremely important as a group Associative IDS for NextGen Frameworks Dr S Dua LA Tech 4 Image Source regina bittenbythebug.blogspot.com tutor2u.net 
+
+
+NextGen Frameworks NextGen Frameworks A comprehensive overhaul of our National Airspace System Navigation surveillance computer processing capabilities telecommunications infrastructure  and weather information to  make the national airspace system run smoother and safer Change from radar based to satellite based From http://www.faa.gov Associative IDS for NextGen Frameworks Dr S Dua LA Tech 5 Image Source faa gov nextgen 
+
+
+Technology Used Technology Used Advanced Technologies  Oceanic Procedures ATOP A tomatic Dependent S r eillance Broadcast ADS B A u tomatic Dependent S u r v eillance Broadcast ADS B Airport Surface Detection Equipment Model X ASDE X Airport Surface Radar ASR 11 En Route Automation Modernization ERAM En Route Communications Gateway ECG Federal Telecommunications Infrastructure FTI Federal Telecommunications Infrastructure FTI Integrated Terminal Weather System ITWS System Wide Information Management SWIM Til At ti d Rl t TAMR T erm i na l A u t oma ti on an d R ep l acemen t TAMR Wide Area Augmentation System WAAS Associative IDS for NextGen Frameworks Dr S Dua LA Tech 6 Source http://www.faa.gov/air_traffic/technology 
+
+
+Pbl S d Ch ll P ro bl em S tatement an d Ch a ll enges Problem Domain Problem Statement and Challenges Aiti Mi i bd IDS A ssoc i a ti ve Mi n i ng b ase d IDS  Introduction to data mining Association rule in data mining DMITAR Algorithm ARD N h N ew researc h Associative IDS for NextGen Frameworks Dr S Dua LA Tech 
+
+
+Com p utational Framework p 8 Associative IDS for NextGen Frameworks Dr S Dua LA Tech 8 
+
+
+Ch ll Ch a ll enges New technology means new threats Possibility of intrusion into the RF communication system or infli g ht network g Need to develop ground breaking security system which can p rotect from hackers p Monitor flight parameters and detect anomalies Associative IDS for NextGen Frameworks Dr S Dua LA Tech 9 
+
+
+It d ti t dt ii I n t ro d uc ti on t o d a t a m i n i ng Problem Domain Problem Statement and Challenges Aiti Miig bd IDS A ssoc i a ti ve Mi n i n g b ase d IDS  Introduction to data minin g g Association rule in data mining DMITAR Algorithm  ARD New research Associative IDS for NextGen Frameworks Dr S Dua LA Tech 10 
+
+
+Dt Miig D a t a Mi n i n g Definition The extraction of interestin g  non trivial  im p licit  p reviousl y unknown  g  p  py  and potentially useful  information knowledge or patterns from data in large databases or other information repositories  Source U.M Fayyad G Piatetsky Shapiro P Smyth and R.Uthurusamy Advances in Knowledge Discovery and Data Mining ISBN 0 6 6 6 2 6 2 5 6 097 6 Associative IDS for NextGen Frameworks Dr S Dua LA Tech 11 Inage Unitedfeatures.com 
+
+
+Why Data Mining  N ecessit y is the mother o f inventio n yf Huge Datasets Tera to Peta bytes multi dimensional distributed interrelated semi structured and rapidly growing Requirements Exploratory analysis mining hidden novel patterns knowledge driven analysis Associative IDS for NextGen Frameworks Dr S Dua LA Tech 12 
+
+
+KDD Process Classification Classification Classifying or predicting Clustering Clustering Finding new classes Feature Selection  Extraction Feature Selection  Extraction Finding the features most strongly Classifying or predicting outcomes based on patterns/behavior in data Finding new classes or refining existing ones Finding the features most strongly related to a particular class Preprocessing Selection Initial Data Target Interpretation Data Transfor Data Mining Pre Processed Transformed Data Model Preprocessing Selection Initial Data Data Interpretation Transfor mation Data Mining Data Data Model Associative IDS for NextGen Frameworks Dr S Dua LA Tech 13 
+
+
+Dimensionality Reduction Challenges Dimensionality Reduction Challenges Noise Sall la ge oble S ma ll n l ar g e p pro bl em Multidimensional Mapping Estimating Information Loss Gain Ubl d Dt t Dimensionality Reduction F eatu r e Ex t r act i o n U n b a l ance d D a t ase t s Validation through Post Data Mining Cl t i F idi bi l i l l fi i Feature Extraction Feature Selection Cl us t er i ng F i n di ng new bi o l og i ca l c l asses or re fi n i ng existing ones Classification Classifying diseases or predicting outcomes based on gene expression patterns Associative IDS for NextGen Frameworks Dr S Dua LA Tech 14 
+
+
+Aiti l i dt ii A ssoc i a ti on ru l e i n d a t a m i n i ng Problem Domain Problem Statement and Challenges Associative Mining based IDS Associative Mining based IDS Introduction to data mining Association rule in data mining DMITAR Algorithm  ARD New research Associative IDS for NextGen Frameworks Dr S Dua LA Tech 15 
+
+
+Introduction to Association Mining Introduction to Association Mining Association rule mining is a data mining application to extract patterns Reveals interesting relationships called associations in a potentially large database Example Supermarket checkout information about customer purchases used to measure customer purchasing behavior customer purchasing behavior  Evaluation of this information can help retailers devise more efficient and personalized marketing strategies Association Rule Example Milk Beer  Diapers Find all the rules X Y with minimum support and confidence Support  s probability that a transaction contains X and Y Confidence  c conditional probability that a transaction Associative IDS for NextGen Frameworks Dr S Dua LA Tech 16 Image Source budlight.com pampers.com 
+
+
+Associations as Higher Order Associations as Higher Order Features Hypothesis Associative relationships among features have more discriminatory power than individual/raw features Goal Use these associative relationships for supervised learning classification  Specific Aims Represent associative relationships as features  higher order features Challenges Challenges Not as straightforward as regular classification Rules to higher order feature transformation Rules to higher order feature transformation Associative IDS for NextGen Frameworks Dr S Dua LA Tech 17 
+
+
+Higher Order Classification Higher Order Classification Extracting Association Rules Each instance represented as idiid ld b Build a new feature space from these rules i n di v id ua l d ata b ase rules Use these higher order features for classification with existing classifier Raw Features Query Instance Query Instance Class Label Features Classifier Extract Rules Rule R epresentation New Feature Space Classifier R epresentation Rules to Higher order Feature Representation Schema Associative IDS for NextGen Frameworks Dr S Dua LA Tech 18 
+
+
+Aiti T A ssoc i a ti on T ypes Basic Association Rules Enhanced Inter Transaction Association Rules Complex Spatio Temporal Association Rules 19 Associative IDS for NextGen Frameworks Dr S Dua LA Tech 19 
+
+
+Basi Association Rles Basi c  Association R u les Association is basically connecting or tying up occurrences of Association is basically connecting or tying up occurrences of events Ol dib t f ilt t O n l y d escr ib e se t s o f s i mu lt aneous even t s Cannot describe patterns that iterate over time e g  itemset a  0  b  0  g    Eg If you sense higher data rates on the downlink than normal AND New Route generated Implies high chances of Intrusion AND New Route generated Implies high chances of Intrusion Associative IDS for NextGen Frameworks Dr S Dua LA Tech 20 
+
+
+Enhanced Inte r transaction Association Rules Enhanced Inter transaction Association Rules Enhanced Inter transaction Association Rules Extension of association rules Conditional relationships at multiple different time steps e.g itemset a\(0 0 1 2 You sense Higher data rate than normal AND You see New Route g enerated AND 1 minute a g o you detected checksum gg error packets AND 2 minutes ago your encountered wrong checksum   Implies High Chance of Intrusion Enhanced Rules and Confidence Associative IDS for NextGen Frameworks Dr S Dua LA Tech 21 
+
+
+Complex Spatio temporal Association Complex Spatio temporal Association Rules Further extension of inter transaction association rules Describe event durations e.g itemset a\(0,X j,Y k,Z Eg  You sense high data rates for X seconds AND new route generated j minutes ago task completed in Y AND new route generated j minutes ago task completed in Y seconds AND checksum error packets received k minutes ago for Z seconds High Chance of Intrusion With highest confidence level in association rules  association rules  Associative IDS for NextGen Frameworks Dr S Dua LA Tech 22 
+
+
+DMITAR Al ith ARD DMITAR Al gor ith m  ARD Problem Domain Problem Statement and Challenges Aiti Miig bd IDS A ssoc i a ti ve Mi n i n g b ase d IDS  Introduction to data mining Association rule in data mining DMITAR Algorithm  ARD New research Associative IDS for NextGen Frameworks Dr S Dua LA Tech 23 
+
+
+DMITAR Algorithm DMITAR Difference Matrix Based Inter Transaction Association Rule Miner developed in DMRL Uses vertical data format Differences of the transaction IDs are used to generate extended itemsets Windowless mechanism Associative IDS for NextGen Frameworks Dr S Dua LA Tech 24 
+
+
+Deep into the Mechanism The DMITAR algorithm is based on lhilii comp l ex mat h emat i ca l assoc i at i ve formulation and proofs Four major parts Four major parts Frequent 1 itemset generation Frequent 2 itemset generation Frequent k itemset generation k>2 Spatio temporal rule formation Associative IDS for NextGen Frameworks Dr S Dua LA Tech 25 
+
+
+DMITAR, Datasets Used Stock Data Stock Data Daily stock information provided by Yahoo finance Wth Dt W ea th er D a t a Provided by the US Department of Commerce and National Climactic Data Center for 700 locations across US Synthetic Data Provided by a CRU weather generator that uses a Markov chain model to generate simulated weather data for 11 UK sites Associative IDS for NextGen Frameworks Dr S Dua LA Tech 26 
+
+
+DMITAR Results 1/5 Varying Support DMITAR Results 1/5 Stock Database Support FITI ITPMine PROWL DMITAR 14 6424.7s 132.39s 3.03s 5.556s 16 2348.9s 67.14s 2.14s 4.015s 18 861.92s 34.62s 1.55s 2.89s 20 334.51s 18.89s 1.12s 2.07s 22 143 84s 10 87s 0 87s 1 45s 22 143  84s 10  87s 0  87s 1  45s 24 63.62s 7.15s 0.671s 1.04s Weather Database Support FITI ITPMine PROWL DMITAR 14 36362.6s 893.1094s 5.843s 19.8281s 36362.6s 893.1094s 5.843s 19.8281s 16 11913.04s 378.2188s 3.8906s 13.4375s 18 4116s 170.3438s 2.75s 9.1406s 20 1507s 86.5781s 2.14s 6.203s 22 859.2813s 63.3438s 1.7969s 5.7656s 24 378.5313s 36.1875s 1.4375s 3.5625s Synthetic Dataset Support FITI ITPMine PROWL DMITAR 14 1651.6s 199.843s 3.1406s 17.015s 16 574 32 119 32 2 0938 10 875 16 574  32 s 119  32 s 2  0938 s 10  875 s 18 416.109s 95.31s 1.6094s 7.39s 20 370.25s 83.31s 1.453s 5.8438s 22 265.78s 66.3438s 1.3594s 4.75s 24 133.96s 43.0781s 0.9219s 3.5781s 
+
+
+DMITAR Rlt  DMITAR  R esu lt s 2  5 Rules Formed Associative IDS for NextGen Frameworks Dr S Dua LA Tech 28 
+
+
+DMITAR Rl  Varying Maxspan DMITAR  R esu l ts 3  5 Varying Maxspan Associative IDS for NextGen Frameworks Dr S Dua LA Tech 29 
+
+
+DMITAR Res lts 4/5 Vig Di i DMITAR  Res u lts  4/5 V ary i n g Di mens i ons Associative IDS for NextGen Frameworks Dr S Dua LA Tech 30 
+
+
+DMITAR Rl  Varying Number of Transactions DMITAR  R esu l ts 5  5 Varying Number of Transactions Associative IDS for NextGen Frameworks Dr S Dua LA Tech 31 
+
+
+N/C t Rh N ew C urren t R esearc h Problem Domain Problem Statement and Challenges Associative Mining based IDS Associative Mining based IDS Introduction to data mining ii lid ii Assoc i at i on ru l e i n d ata m i n i ng DMITAR Algorithm  ARD h New Researc h Associative IDS for NextGen Frameworks Dr S Dua LA Tech 32 
+
+
+Further Research Further Research Objectives of Our Intrusion Detection System Development Objectives of Our Intrusion Detection System Development 1 Refine and scale the DMITAR algorithm to suit our application 2 Develop methods for dynamically altering the sensor parameters Our Focus is Securing the NextGen Frameworks with New Technology Technology Associative IDS for NextGen Frameworks Dr S Dua LA Tech 33 
+
+
+Simulated Sensing Environment Simulated Sensing Environment Screenshots of Data C ollected from S ynthetic Sensors Screenshots of Data C ollected from S ynthetic Sensors Simulated in Our Laboratory Three Steps Slides Collect data Collect data from all sources  all attributes  Select Select the source and their hierarchical attributes attributes to be monitored and Select Select the source and their hierarchical attributes attributes to be monitored  and Sample Sample them at different rates different rates and process them Associative IDS for NextGen Frameworks Dr S Dua LA Tech 34 
+
+
+Data Collection Simultaneous collection of data screen from ENTITIES aircrafts Associative IDS for NextGen Frameworks Dr S Dua LA Tech 35 Source PRTG Network Monitor software screen shot Demo info www.paessler.com 
+
+
+Parameter Selection Selection of an ENTITY/aircraft and monitoring its parameters and sensor readings Associative IDS for NextGen Frameworks Dr S Dua LA Tech 36 Source PRTG Network Monitor software screen shot Demo info www.paessler.com 
+
+
+Sensor Sampling Selecting one sensor/probe and reading it at different resolutions or sampling rates Associative IDS for NextGen Frameworks Dr S Dua LA Tech 37 Source PRTG Network Monitor software screen shot Demo info www.paessler.com 
+
+
+Si l ti Nt k Si mu l a ti on on N e t wor k Most scenarios can be simulated on a computer or computer network network  The aircrafts and sensors are simulated on a computer network bllb b y ana l ogica l su b stitutions Sensors provide information at different rates Sensors provide information at different rates Need Based Sensor Prioritization NSP and Dynamic Sensing Rate Sampling Associative IDS for NextGen Frameworks Dr S Dua LA Tech 38 
+
+
+Vulnerability Search Scan 39 Sample UQA script with Nmap performed in DMRL Associative IDS for NextGen Frameworks Dr S Dua LA Tech 39 Source Nmap screenshot with a pearl script  Find Namp on Nmap.org 
+
+
+Modality Aspect Modality Aspect A Multimodal distribution is a continuous probability distribution with two or more modes of underlying data Mltil d i M u lti p l e mo d es i n our model Associative IDS for NextGen Frameworks Dr S Dua LA Tech 40 Source http://en.wikipedia.org/wiki/File:Bimodal bivariate small.png 
+
+
+Multi Modality Modality Fusion 41 SENSITIVE  UNCLASSIFIED For Official Use Only Associative IDS for NextGen Frameworks Dr S Dua LA Tech 41 
+
+
+Emphasis Emphasis Our approach emphasizes on pre empting the attack Our intent is NOT to perform an autopsy to discover attacks Instead we aim to detect and prevent in attacks in real time Associative IDS for NextGen Frameworks Dr S Dua LA Tech 42 
+
+
+Techniques for Discriminative Rules Techniques for Discriminative Rules Resolution Analysis Features Analyzed at Different Depths Anti Monotonic Principle Modality Aspect Treading into Unexplored Feature spaces Associative IDS for NextGen Frameworks Dr S Dua LA Tech 43 
+
+
+Representative Outcomes Representative Outcomes Illustration of the Final Analysis Our method shifts between modalities and sampling rates for optimization The blue parallelograms are actual intrusions 44 The blue parallelograms are actual intrusions The Red Green Blue Plots are response of system Associative IDS for NextGen Frameworks Dr S Dua LA Tech 44 
+
+
+Advantages of Our M ethod Advantages of Our M ethod Exploit the memory v ertical data format utilizes slidin g windows to g form a much larger database to analyze  Flexibility in Choosing what to choose  Choosing what to choose to build the rules Computational and memory efficiency We have a team working only on this aspect 45 Associative IDS for NextGen Frameworks Dr S Dua LA Tech 45 
+
+
+Preliminary Results Intra transaction Relations Data rate simulator NH-134 Mb HOP PATH update \(Y/N Inference 11.5 Y Y 2 0.120 N N      Y   n 0.345 N NH134 Y/N   Inf 1 0.150 N N 2 0 120 Y N Inter transaction Relations 2 0  120 Y N       5 5.55 0.456 Y Relations  n 0.345 N N Nmap on DMRL nmap.org 
+
+
+Anticipated Outcome Anticipated Outcome Develop algorithm capable of learning from a given heterogeneous diverse Develop algorithm capable of learning from a given heterogeneous diverse data ff Dynamic algorithmic f ramework designed to shi f t modalities and sampling rates based on complex logic Flexibility of integration into the Snort intrusion detection system 47 Associative IDS for NextGen Frameworks Dr S Dua LA Tech 47 
+
+
+References References Aircraft Cockpit Image courtesy USAF http://www.faa.gov htt p   www.faa g ov  air traffic  technolo gy  p g  _ gy  Acharya R Dua S Du X Sree V Chua C K Automated Diagnosis of Glaucoma Using Texture and Higher Order Spectra Features To appear in IEEE Transactions on Information Technology in Biomedicine  Du X Dua S 2011 Cancer Prognosis Using Support Vector Regression in Imaging  Modality World Journal of Clinical Oncology 2  1   44 49 Du X Dua S 2010 Salient Frame Extraction Using Support Vector Regression and Motion Features pp 5 Proc of the National Aerospace and Electronics Conference July 14 16 2010 D M P D S 2010 Di i i ti Ft d Cl ifi ti Mthd f D essaue r  M  P  D ua S  2010  Di scr i m i na ti ve F ea t ures an d Cl ass ifi ca ti on M e th o d s f or Accurate Classification 1st ed vol 7704 pp 14 Bellingham WA Proceedings of SPIE Dessauer M P Dua S 2010 Low Resolution Vehicle Tracking using Dense and Reduced Local Gradient Features Maps 1st ed vol 7694 pp 8 Bellingham WA Proceedings of SPIE SPIE 
+
+
+Acknowledgements Acknowledgements Fundin g A g encies  US 4 1 Million direct fundin g g g 4 g LA BoR NIH NSF AFRL AFOSR and NASA Research Team Samuel Kasimalla Brandy McKnight Dr Pradeep Chowriappa Connor Johnson Vasanth Nair Mihir Chowriappa  Connor Johnson  Vasanth Nair  Mihir Karnik Mohit Jain and Swadheen Songmen Associative IDS for NextGen Frameworks Dr S Dua LA Tech 49 All the respective Logos belong to their owners 
+
+
+Rf d Rdi R e f erence d R ea di ngs Copyright of cover pages held by respective publishers 
+
+
+Thank You Questions Thank You  Questions Dr Sumeet Dua E mail sdua@latech.edu Web http://dmrl.latech.edu Associative IDS for NextGen Frameworks Frameworks Dr S Dua LA Tech 51 Image Source roadtrafficsigns.com 
+
+

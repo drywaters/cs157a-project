@@ -1,0 +1,157 @@
+             Abstract 227 The independently development of information system in a big organization which has many departments or subdepartments such as university has big problems on data exchange, duplication and consistency. Each application system architecture is increasingly incompatible when organization is growing while requires more availability, reliability, scalability for massive data  and flexibility for many new requirements. In this paper, we design the unified cloud-based data structure and API for centralized applications data structure. The designed system is divided into 3 layers, storage, programmer and application layers for complexity isolation on cloud-based infrastructure. The paper discusses overall designed system architecture, the proposed Object-oriented data model and treebased structure for hierarchically object relations. All applications storing and processing data on cloud-based infrastructure are interfaced by the REST-style API standard which flexible for many languages and platforms. The data processing performance test results show stability and scalability of our system Keywords\227cloud-based; data structure; university; tree-based information system; object-oriented                                                                         ISBN: 978-1-4799-3724-0/14/$31.00 ©2014 IEEE 186 
+
+
+   1  Storage Layer              2  Programmer Layer                3  Application Layer                A  Objected-Oriented Data Model                         B  Tree-Based Structure              Application Layer Storage Layer HDFS \(Hadoop Distributed File System HBASE \(NoSQL Databases Programmer Layer \(REST API Application1 Application2 Application3 Application4 WebObjectManager Account Manager Application Manager URI Property-Key Property-Value   Table                    ISBN: 978-1-4799-3724-0/14/$31.00 ©2014 IEEE 187 
+
+
+               C  REST-style API                      1  WebObjectManager      2  Account Manager    3  Application Manager            A  Methodology            B  Experimental Setup             C  Results   Programmer Layer WebObjectManager Account Manager Application Manager Create Read Update Delete Application\(S REST System Groups Account Account A Account B ROOT PARENT CHILD Property \(Account B Username Password Firstname LastName Rolename Status URI : /System/Account/Account B ISBN: 978-1-4799-3724-0/14/$31.00 ©2014 IEEE 188 
+
+
+         0.000 0.010 0.020 0.030 0.040 0.050 0.060 12345678910 RESPONSE TIME \(s NUMBER OF OBJECT \(MILLION CREATE \(VIRTUAL MACHINE 1N 4N 8N 12N    0.000 0.010 0.020 0.030 0.040 0.050 0.060 12345678910 RESPONSE TIME \(s NUMBER OF OBJECT \(MILLION READ \(VIRTUAL MACHINE 1N 4N 8N 12N    0.000 0.010 0.020 0.030 0.040 0.050 0.060 12345678910 RESPONSE TIME \(s NUMBER OF OBJECT \(MILLION UPDATE \(VIRTUAL MACHINE 1N 4N 8N 12N    0.000 0.010 0.020 0.030 0.040 0.050 0.060 12345678910 RESPONSE TIME \(s NUMBER OF OBJECT \(MILLION DELETE \(VIRTUAL MACHINE 1N 4N 8N 12N              0.000 0.010 0.020 0.030 0.040 0.050 0.060 12345678910 RESPONSE TIME \(s NUMBER OF OBJECT \(MILLION CREATE \(PHYSICAL MACHINE 1N 4N 8N 12N    0.000 0.010 0.020 0.030 0.040 0.050 0.060 12345678910 RESPONSE TIME \(s NUMBER OF OBJECT \(MILLION READ \(PHYSICAL MACHINE 1N 4N 8N 12N    ISBN: 978-1-4799-3724-0/14/$31.00 ©2014 IEEE 189 
+
+
+0.000 0.010 0.020 0.030 0.040 0.050 0.060 12345678910 RESPONSE TIME \(s NUMBER OF OBJECT \(MILLION UPDATE \(PHYSICAL MACHINE 1N 4N 8N 12N    0.000 0.010 0.020 0.030 0.040 0.050 0.060 12345678910 RESPONSE TIME \(s NUMBER OF OBJECT \(MILLION DELETE \(PHYSICAL MACHINE 1N 4N 8N 12N              0.000 0.010 0.020 0.030 0.040 0.050 0.060 CREATE READ UPDATE DELETE RESPONSE TIME \(s FUNCTION PERFORMANCE OF CRUD FUNCTIONS ON VIRTUAL MACHINES 12N 8N 4N 1N        0.000 0.010 0.020 0.030 0.040 0.050 0.060 CREATE READ UPDATE DELETE RESPONSE TIME \(s FUNCTION PERFORMANCE OF CRUD FUNCTIONS ON PHYSICAL MACHINES 1N 4N 8N 12N              0 50 100 150 200 250 12345678910 RESPONSE TIME \(s NUMBER OF OBJECT \(MILLION PERFORMANCE OF SEARCH ON PHYSICAL MACHINES 1N 4N 8N 12N                     ISBN: 978-1-4799-3724-0/14/$31.00 ©2014 IEEE 190 
+
+
+                                         ISBN: 978-1-4799-3724-0/14/$31.00 ©2014 IEEE 191 
+
+
+                       
+
+
+       0 500 1000 1500 2000 2500 3000 3500 4000 2 0 2 4 ST1 \(dps 0 500 1000 1500 2000 2500 3000 3500 4000 2 1 0 1 2 ST2 \(dps Time \(secs 
+
+
+              
+
+
+Harvard Business Review Knowledge and Information Systems SIGKDD Explorations Advances in Knowledge Discovery and Data Mining IEEE World Congress on Computational Intelligence \(WCCI 2008 Philosophical transactions Series A Mathematical physical and engineering sciences Journal of Visual Languages Computing Computer 9th Workshop on Domain-Specific Modeling at OOPSLA 9th International Software Product Line Conference Pattern Recognition and Machine Learning The Elements of Statistical Learning - Data Mining, Inference, and Prediction Statistical Science Neural Information Processing Systems NIPS Machine Learning: A Probalbistic Perspective Journal of the Royal Statistical Society Series B \(Methodological IEEE Transactions on Information Theory Artificial Intelligence Journal of Machine Learning Research Statistics in Medicine Bayesian Analysis International Society for Bayesian Analysis Bulletin 3rd International Workshop on Distributed Statistical Computing \(DSC 2003 AMPL: A Modelling Language for Mathematical Programming Operations Research 
+UAIê01 
+6   October, 2012 7  X  W u  V  Kum a r, J. Ross Qu in lan J. G h o s h, Q  Ya n g  M. Motoda, G. J. McLachlan, A. Ng, B. Liu, P. S. Yu, Z vol. 14, no. 1, pp. 1 37, 2007 8 M Ha ll, E Fran k  G  Holm es B P f ah rin g e r P   vol. 11, no. 1 pp. 10 18, 2009 9 U. M  Fay y ad  G  P iatetsk y S h ap iro, an d  P  Smy t h   in  1996, pp. 1 34 10  2008, pp. 1 24 11 T  Mi n k a, J. W in n J. G u iver, an d D  Kn o w les 12  vol. 371, no. 1984, 2013 13  the visual model-driven development of next generation software, vol. 17, no. 6, pp. 528 550, 2006 14   vol. 39, no. 2, pp. 25 31, 2006 15  Use of Domain, 2009 16  Specific 2005, vol. 3714, pp. 198 209 17  rial on Learning With Bayesian 18  19 C M Bisho p  New York: Springer, 2006 20 T  Ha stie, R. T i b s h irani an d  J. Friedm a n   2nd ed. 2009 21   vol. 19, no. 1, pp. 140 15  5, 2004 22  Version 2 23  24  2008, pp. 1073 1080 25 K Mu r p h y  The MIT Press, 2012 26  computations with probabilities on graphical structures and vol. 50, no. 2 pp. 157 224, 1988 27  the Sum, vol. 47, no. 2, pp. 498 519, 2001 28 P inference in Bayesian belief networks is NP, vol. 60, pp. 141 153, 1993 29  vol. 6, no 1, pp. 661 694, 2005 30  2001, pp. 362 369 31 D L u n n D. S p ieg elh a lter, A  T h o m as, an d N Best vol. 28, no. 25, pp. 3049 3067, 2009 32  M P. W a nd, J  T  O r m e r od S. A  P a doa n  a n d R   distributions vol. 6, no. 4, pp. 1 48 2011 33   vol. 14, pp. 13 15, 2007 34  Bayesian Gr 2003 35  V ersion 1.3 36 R  F o u rer D M. G a y  an d B W  Ke rn igh a    Monterey: Duxbury Press, Brooks/Cole Pub. Co., 2002 37  vol. 50, no. 1, pp. 42 47, 2002 
+A. McAfee and E. Brynjolfsson, çBig Data: The Management Revolution Zhou, M. Steinbach, D. J. Hand, and D. Steinberg, çTop 10 algorithms in data mining  Reutemann, and I. H. Witten, çThe WEKA data mining software: an update  From data mining to knowledge discovery: an overview,é in  C. M. Bishop, çA New Framework for Machine Learning,é in  Infer.NET 2.5,é 2012 C. M. Bishop, çModel based Machine Learning H. Giese and S. Henkler, çA survey of approaches for intensive systems  D. C. Schmidt, çModel Driven Engineering  J. K‰rn‰, J. P. Tolvanen, and S. Kelly, çEvaluating the Specific Modeling in Practice,é in J. P. Tolvanen and S. Kelly, çDefining Domain Modeling Languages to Automate Product Derivation\004 Collected Experiences,é in  D. Heckerman, çA Tuto Networks,é Redmond, 1996 M. I. Jordan, çAn introduction to probabilistic graphical models,é 2003 M. I. Jordan, çGraphical models  OMG, çUnified Modeling Language \(UML 4.1 August 2011.é 2011 OMG, çBusiness Process Model and Notation \(BPMN Version 2.0 January 2011.é 2011 T. Minka and J. Winn, çGates: A graphical notation for mixture models,é in  S. L. Lauritzen and D. J. Spiegelhalter, çLocal their application to expert systems  F. R. Kschischang and B. J. Frey, çFactor Graphs and Product Algorithm  Dagum and M. Luby, çApproximating probabilistic hard  J. Winn and C. M. Bishop, çVariational Message Passing  T. P. Minka, çExpectation propagation for approximate Bayesian inference,é in  The BUGS project: Evolution, critique and future directions  Fr¸hrwirth, çMean field variational Bayes for elaborate   K. P. Murphy, çSoftware for Graphical models: a review  M. Plummer, çJAGS\004: A Program for Analysis of aphical Models Using Gibbs Sampling JAGS\004 Just Another Gibbs Sampler,é in Stan Development Team, çStan Modeling Language Userês Guide and Reference Manual 2013 G. B. Dantzig, çLinear Programming  
+767 
+
+
+             
+
+
+                                          
+
+
+                                             
+
+
+                      
+
+
+                                               
+
+
+   
+
+
+                                
+
+
+                        
+
+
+                           
+
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     2 8    b 4      1 8             1 2     1  8 2  
+
+
+1 9    8      2 1       1     2    8    2 3\f        
+
+
+     8 D 4 9  F  \b 1 8 #J 9 1     2 1   2 #-@ 1   2 9  E 1   1   2 9      6  
+
+
+    8  8   1  D 1         1 F  \b0         2 D    F  \b 1 8  9  
+
+
+  1 9  1   E 1  2 9     1 1 F  \b       1    18   F   1    1 #-$+  \b  2 2  
+
+
+1 D     1 #-$+.B- 0/:% .0             9 1      18    1 6     1 2  1  1  
+
+
+1   6      2    1 2 E 8 D 1      1 2   1   1 #-4  #-@E     2  1  1  1       
+
+
+ 8     1          2 F    6   F  2   8    2 C<CC/C N\bO 5      
+
+
+CD    b$44NO F P Q 6   2 b$$$ ,=\b\bA  A N,O 2 C C  b$$4N  92 2   f  9-\b$$4 B N?O  !-    91  2 1 HH111-18-N+O    -1 :3%   2     0-4 
+
+
+     b N4O 2   2- \f  C b$@$ \b# >\b\b$3\b$N@O  f :.% 9 /9 \f    1  6  f 2  4   A254 
+
+
+Advantages of Our M ethod Advantages of Our M ethod Exploit the memory v ertical data format utilizes slidin g windows to g form a much larger database to analyze  Flexibility in Choosing what to choose  Choosing what to choose to build the rules Computational and memory efficiency We have a team working only on this aspect 45 Associative IDS for NextGen Frameworks Dr S Dua LA Tech 45 
+
+
+Preliminary Results Intra transaction Relations Data rate simulator NH-134 Mb HOP PATH update \(Y/N Inference 11.5 Y Y 2 0.120 N N      Y   n 0.345 N NH134 Y/N   Inf 1 0.150 N N 2 0 120 Y N Inter transaction Relations 2 0  120 Y N       5 5.55 0.456 Y Relations  n 0.345 N N Nmap on DMRL nmap.org 
+
+
+Anticipated Outcome Anticipated Outcome Develop algorithm capable of learning from a given heterogeneous diverse Develop algorithm capable of learning from a given heterogeneous diverse data ff Dynamic algorithmic f ramework designed to shi f t modalities and sampling rates based on complex logic Flexibility of integration into the Snort intrusion detection system 47 Associative IDS for NextGen Frameworks Dr S Dua LA Tech 47 
+
+
+References References Aircraft Cockpit Image courtesy USAF http://www.faa.gov htt p   www.faa g ov  air traffic  technolo gy  p g  _ gy  Acharya R Dua S Du X Sree V Chua C K Automated Diagnosis of Glaucoma Using Texture and Higher Order Spectra Features To appear in IEEE Transactions on Information Technology in Biomedicine  Du X Dua S 2011 Cancer Prognosis Using Support Vector Regression in Imaging  Modality World Journal of Clinical Oncology 2  1   44 49 Du X Dua S 2010 Salient Frame Extraction Using Support Vector Regression and Motion Features pp 5 Proc of the National Aerospace and Electronics Conference July 14 16 2010 D M P D S 2010 Di i i ti Ft d Cl ifi ti Mthd f D essaue r  M  P  D ua S  2010  Di scr i m i na ti ve F ea t ures an d Cl ass ifi ca ti on M e th o d s f or Accurate Classification 1st ed vol 7704 pp 14 Bellingham WA Proceedings of SPIE Dessauer M P Dua S 2010 Low Resolution Vehicle Tracking using Dense and Reduced Local Gradient Features Maps 1st ed vol 7694 pp 8 Bellingham WA Proceedings of SPIE SPIE 
+
+
+Acknowledgements Acknowledgements Fundin g A g encies  US 4 1 Million direct fundin g g g 4 g LA BoR NIH NSF AFRL AFOSR and NASA Research Team Samuel Kasimalla Brandy McKnight Dr Pradeep Chowriappa Connor Johnson Vasanth Nair Mihir Chowriappa  Connor Johnson  Vasanth Nair  Mihir Karnik Mohit Jain and Swadheen Songmen Associative IDS for NextGen Frameworks Dr S Dua LA Tech 49 All the respective Logos belong to their owners 
+
+
+Rf d Rdi R e f erence d R ea di ngs Copyright of cover pages held by respective publishers 
+
+
+Thank You Questions Thank You  Questions Dr Sumeet Dua E mail sdua@latech.edu Web http://dmrl.latech.edu Associative IDS for NextGen Frameworks Frameworks Dr S Dua LA Tech 51 Image Source roadtrafficsigns.com 
+
+

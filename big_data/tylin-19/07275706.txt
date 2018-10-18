@@ -1,0 +1,34 @@
+     
+         
+ 
+   
+  
+
+
+   
+
+
+      
+
+
+          
+
+
+                
+
+
+                
+
+
+         
+
+
+       0.4 0.8 1.2 1.6 250 500 750 1000 1250 1500 of Queries Average time \(sec Scalability of MISA for WKL_1 0.5 1.0 1.5 2.0 100 200 300 400 500 600 of Queries Average time \(sec Scalability of MISA for WKL_2 0 5 10 15 20 25 30 35 500 5500 10500 15500 20500 25500 30500 of Queries Average time \(sec Scalability of MISA for WKL_3 Figure 2 Scalability of Mining Index Selection Approach for Three Workloads  J Kratica I Ljubic and D T osic  A genetic algorithm for the index selection problem In Applications of Evolutionary Computing Tech Rep 2003  D Comer  The Dif culty of Optimum Inde x Selection ACM Trans Database Syst  vol 3 no 4 pp 440…445 Dec 1978 A v ailable http://doi.acm.org/10.1145/320289.320296  techopedia Query Optimizer  2015 http://www.techopedia.com/de“nition/26224/query-optimizer Online accessed Online A v ailable http://www.techopedia.com/de“nition/26224/query-optimizer  J Dong and M Han Bittable An ef cient mining frequent itemsets algorithm Knowl.-Based Syst  vol 20 no 4 pp 329…335 2007 A v ailable http://dblp.unitrier.de/db/journals/kbs/kbs20.html  P  Ameri U Grabo wski J Me yer  and A Streit On the Application and Performance of MongoDB for Climate Satellite Data in 13th IEEE International 2808 
+
+
+Conference on Trust Security and Privacy in Computing and Communications TrustCom 2014 Beijing China September 24-26 2014  IEEE 2014 pp 652…659 A v ailable http://dx.doi.org/10.1109/TrustCom.2014.84  R Lutz P  Ameri T  Latzk o and J Me yer  Management of Meteorological Mass Data with MongoDB in 28th International Conference on Informatics for Environmental Protection ICT for Energy Ef“eciency EnviroInfo 2014 Oldenburg Germany September 10-12 2014 J.M.G  omez M Sonnenschein U Vogel A Winter B Rapp and N Giesen Eds BIS-Verlag 2014 pp 549…556 Available http://www.enviroinfo2014.org  A Caprara M Fischetti and D Maio Exact and Approximate Algorithms for the Index Selection Problem in Physical Database Design IEEE Trans Knowl Data Eng  vol 7 no 6 pp 955…967 1995  K Aouiche and J Darmont Data Mining-based Materialized View and Index Selection in Data Warehouses CoRR  vol abs/0707.1548 2007 A v ailable http://arxiv.org/abs/0707.1548  N P asquier  Y  Bastide R T aouil and L Lakhal Discovering Frequent Closed Itemsets for Association Rules in Proceedings of the 7th International Conference on Database Theory  ser ICDT 99 London UK Springer-Verlag 1999 pp 398…416 A v ailable http://dl.acm.org/citation.cfm?id=645503.656256  S Agra w al S Chaudhuri and V  R Narasayya  Automated Selection of Materialized Views and Indexes in SQL Databases in Proceedings of the 26th International Conference on Very Large Data Bases  ser VLDB 00 San Francisco CA USA Morgan Kaufmann Publishers Inc 2000 pp 496…505 A v ailable http://dl.acm.org/citation.cfm?id=645926.671701  A Sk elle y  DB2 Advisor An Optimizer Smart Enough to Recommend Its Own Indexes in Proceedings of the 16th International Conference on Data Engineering  ser ICDE 00 Washington DC USA IEEE Computer Society 2000 pp 101 A v ailable http://dl.acm.org/citation.cfm?id=846219.847390  W  G Pedrozo and M S M G V az A T ool for Automatic Index Selection in Database Management Systems in Proceedings of the 2014 International Symposium on Computer Consumer and Control  ser IS3C 14 Washington DC USA IEEE Computer Society 2014 pp 1061…1064 A v ailable http://dx.doi.org/10.1109/IS3C.2014.277  M Zaman J Surabattula and L Gruenw ald An Auto-Indexing Technique for Databases Based on Clustering in Proceedings of the Database and Expert Systems Applications 15th International Workshop  ser DEXA 04 Washington DC USA IEEE Computer Society 2004 pp 776…780 A v ailable http://dx.doi.org/10.1109/DEXA.2004.32  S Chaudhuri and V  Narasayya An Ef cient Cost-Driven Index Selection Tool for Microsoft SQL Server in VLDB  Very Large Data Bases Endowment Inc August 1997 A v ailable http://research.microsoft.com/apps/pubs/default.aspx?id=68349  R Agra w a l and R Srikant F ast algorithms for mining association rules in large databases in Proceedings of the 20th International Conference on Very Large Data Bases  ser VLDB 94 San Francisco CA USA Morgan Kaufmann Publishers Inc 1994 pp 487…499 A v ailable http://dl.acm.org/citation.cfm?id=645920.672836  B Goethals Memory Issues in Frequent Itemset Mining  in Proceedings of the 2004 ACM Symposium on Applied Computing  ser SAC 04 New York NY USA ACM 2004 pp 530…534 A v ailable http://doi.acm.org/10.1145/967900.968012  J Hipp U G  untzer and G Nakhaeizadeh Algorithms for Association Rule Mining Mdash a General Survey and Comparison SIGKDD Explor Newsl  vol 2 no 1 pp 58…64 Jun 2000 A v ailable http://doi.acm.org/10.1145/360402.360421  A Rajaraman and J D Ullman Mining of Massive Datasets  New York NY USA Cambridge University Press 2011  MongoDB Introduction to MongoDB  2015 http://www.mongodb.org/about/introduction Online accessed Online A v ailable http://www.mongodb.org/about/introduction  J Pok orn y  NoSQL Databases A Step to Database Scalability in Web Environment in Proceedings of the 13th International Conference on Information Integration and Web-based Applications and Services  ser iiWAS 11 New York NY USA ACM 2011 pp 278…283 Available http://doi.acm.org/10.1145/2095536.2095583  MongoDB SQL to MongoDB Mapping Chart 2015 http://docs.mongodb.org/manual/reference/sqlcomparison Online accessed Online Available http://docs.mongodb.org/manual/reference/sqlcomparison  BSON BSON Binary JSON  2015 http://bsonspec.or g Online accessed Online A v ailable http://bsonspec.org  MongoDB Inde x T ypes  2015 http://docs.mongodb.org/manual/core/index-types Online accessed Online A v ailable http://docs.mongodb.org/manual/core/index-types  R Core T eam R A Language and Environment for Statistical Computing  R Foundation for Statistical Computing Vienna Austria 2015 A v ailable http://www R-project.or g  MongoDB Inc and M Schmidber ger  rmongodb RMongoDB driver  2014 r package version 1.8.0 Available http://CRAN.R-project.org/package=rmongodb  K Bank er  MongoDB in Action  Minning Publication Co 2012 2809 
+
+
+ MongoDB Geospatial Query Operators  2015 http://docs.mongodb.org/manual/reference/operator/querygeospatial Online accessed 18 Online A v ailable http://docs.mongodb.org/manual/reference/operator/querygeospatial  M K ormilitsin R Chirk o v a Y  F athi and M Stallmann View and Index Selection for Query-performance Improvement Quality-centered Algorithms and Heuristics in Proceedings of the 17th ACM Conference on Information and Knowledge Management  ser CIKM 08 New York NY USA ACM 2008 pp 1329…1330 A v ailable http://doi.acm.org/10.1145/1458082.1458261 2810 
+
+

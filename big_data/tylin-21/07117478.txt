@@ -1,0 +1,64 @@
+      Abstract               
+               Index Terms     
+                  
+         
+               
+         
+                        
+                   
+
+
+                            A Trigger and Timing Distribution System                                                B Belle2link                               C COPPER Readout System          
+
+
+ et al                                           D BASF2 Framework                     E Flow Control System                             F Event Building                      
+
+
+              G High Level Trigger                                      H PXD DAQ System                            I Storage               J Slow Control                                   
+
+
+ et al               A Detector and Trigger Setup                         B DAQ System for the Beam Test                               C Status of DAQ System During Beam Test              D Test of Backpressure Flow Control                      
+
+
+                 E Real-time Monitoring with Data Quality Monitor            F Test for ROI Data Reduction Scheme                                             et al  arXiv:1011.0352    et al  J Instrum    et al   IEEE Trans Nucl Sci    et al   IEEE Trans Nucl Sci    et al   Phys Procedia    et al   IEEE Trans Nucl Sci     J Instrum    et al   arXiv:1406.4028   et al  IEEE Trans Nucl Sci    J Instrum   et al   IEEE Trans Nucl Sci     IEEE Trans Nucl Sci    et al   Nucl Instrum Meth Phys Res Sec A   
+
+
+2332-7790 \(c This article has been accepted for publication in a future issue of this\ journal, but has not been fully edited. Content may change prior to fin\al publication. Citation information: DOI 10.1109/TBDATA.2017.2703830, I\EEE Transactions on Big Data XX 7 the This send data minimize other  input egate gest Ag egate on exas Oakland model execute ech input exas the limited input esented ogram to e\002ne contexts Scenarios of CloudFinder interface  code to CloudFinder and individual nonmultiple a cloud bioinformatics ogram and  ith CloudFinder along the using ces CloudFinder would This cher for physically Using CloudFinder would much  physics comes Using CloudFinder can updated them eserved would a A for CloudFinder the should for such cher than distribution compliset take experiment conjuncand be trivial CloudFinder of a input CloudFinder distribution observe to continues all Amazon CloudFinder cloud ocessor performance CloudFinder well the of ogram 002le and CloudFinder This the addition CloudFinder the workonment CloudFinder place onment of CloudFinder lives and as also ovides chers E D A S of CloudFinder a the Hi HiBench various workloads T o test our non-iterative PageRegates HiBench by of clusters 48 The PageRank benchusing the 
+
+
+mance distribution T ogether  these benchmar ks pr ovide of topologies Hadoop locations districometically would worker between the a e compute ound ed of time the may contention of applications performing federation ences esult of ces hmark benchA&M 25GB e system data between the these egate execution other exas seceason the size to network over om smaller data is little Adding execuin available gest the The 2 egate performance ogram the sending data in time data ge seconds of the 2332-7790 \(c This article has been accepted for publication in a future issue of this\ journal, but has not been fully edited. Content may change prior to fin\al publication. Citation information: DOI 10.1109/TBDATA.2017.2703830, I\EEE Transactions on Big Data XX 8 
+
+
+Time take data the map3 4 1 the RAM CPU the execution but performs machine on workload performance the e machines hmark benchand exas PageRank University using e system e esults an es other egate time the system outthe workers evious by to been the case execution easing in Observations in tests change our some the Even executions on can and egate the mappings erasort ovement 4  test 2332-7790 \(c This article has been accepted for publication in a future issue of this\ journal, but has not been fully edited. Content may change prior to fin\al publication. Citation information: DOI 10.1109/TBDATA.2017.2703830, I\EEE Transactions on Big Data XX 9 
+
+
+mance come between is can the PageRank operations execution es other shows types given workload tests maesult variabillocation and an 002cult in CloudFinder that near on federation C D F E W K lusion implemented CloudFinder that workloads version be federation federations execution e e times Second CloudFinder of federations ork computing doat two 2332-7790 \(c This article has been accepted for publication in a future issue of this\ journal, but has not been fully edited. Content may change prior to fin\al publication. Citation information: DOI 10.1109/TBDATA.2017.2703830, I\EEE Transactions on Big Data XX 10 
+
+
+992\226 2012  P  Buncic 223CernVM Minimal Maintenance Appr oach to the V ir tualization,\224 2011  BoincVM https://code.google.com/p/boincvm  V  Cunsolo S Distefano A Pulia\002to and M Scarpa 223Applying in 2010  S Distefano and A Pulia\002to 223Cloud@Home T owar d a V olunteer Cloud,\224 2012  M Fazio A Pulia\002to and S Distefano 223Managing V olunteer Cloud,\224 2013  A Alwabel R J W alters and G B W ills 223T owar ds a V olunteer in 2013  A E S Ahmed A K Alsammak and E Algizawy  223A New used ces,\224 76 2013  GENI https://www geni.net  Apache 223Hadoop,\224 http://hadoop.apache.or g  J Dean and S Ghemawat 223MapReduce Simplied Data Pr ocessing in 2004  K S Shams M W  Powell T  M Cr ockett J S Norris R Rossi and Framein  606\226611  J Hellerstein 223Science in the Cloud,\224 in  2012  A Rezgui and S Rezgui 223A Stochastic Appr oach for V irtual in 2014  A Rezgui G Quezada M M Ra\002que and Z Malik 223A CapacUsing in 2014  B Rochwer ger  D Br eitg and D Hadas J Cacer es A Galis MonCloud in  2010  A Celesti F  T usa M V illari and A Pulia\002to 223Impr oving V irtual in  2010  227\227 223Thr ee-Phase Cr oss-Cloud Federation Model The Cloud in 2010  D Bermbach T  Kurze and S T ai 223Cloud Federation Ef fects of Cost,\224 in 2013  T  Kurze M Klems D Bermbach A Lenk S T ai and M Kunze in  2011  G Fox and D Gannon 223Pr ogramming Paradigm s for T echnical in 2012  D Ar dagna E D Nitto P  Mohagheghi S Mosser  C Ballagny  Petcu model-driven multiple in 50\22656  M Miglierina G P  Gibilisco D Ar dagna and E D Nitto 223Model in 2013  M Miglierina M Balduini N S Hoonejani E D Nitto and Multiin 2013  B Rochwer ger  D Br eitgand A Epstein D Hadas I Loy  K Na Enough,\224 3 2011  B Rochwer ger  D Br eitgand E L Levy  A Galis K Nagin I M Benand Computing,\224 2009  IBM 223Reservoir 224 http://www r esear ch.ibm.com/haifa/pr ojects systech  D V illegas N Bobr of f I Roder o J Delgado Y  Liu A De\223Cloud Model,\224 2012  G Kecskemeti A Kertesz A C Mar osi and P  Kacsuk 223Inter oper in 18\22635  M Makkes C Ngo Y  Demchenko R Strijkers R Meijer  and Multiin 2013  R Buyya R Ranjan and R Calheir os 223InterCloud UtilityScalin C.Berlin 13\22631 Engineering IC2E and Sciences on AFIN Inter\(CCGRID of INTERNET Phys Paradigms Computer 2332-7790 \(c This article has been accepted for publication in a future issue of this\ journal, but has not been fully edited. Content may change prior to fin\al publication. Citation information: DOI 10.1109/TBDATA.2017.2703830, I\EEE Transactions on Big Data Computational IJCSE ofessional Cloud orkshop in MISE for ocessing Applications on COMPUTING ICSE MISE  S Caton and O Rana 223T owar ds Autonomic Management for ces,\224 Interirtualization COMPUTING Journal Development orkshop ence USA IEEE Boston ency Experience OSDI Grid CCGrid on Reasoning XX 11 scalabile may access perspective other e ce security eats because allocate ces data this originating at om ces up its shrinks  ent in CloudFinder we of execution workload A S a Consortium R S LNCS Theory Practice 
+
+
+2011  J Br ober g R Buyya and Z T ari 223MetaCDN Harnessing Storage Delivery,\224 2009  Emulab http://www emulab.net  Planetlab http://www planetlab.or g  SuraGrid http://www suragrid.or g  Futur eGrid https://portal.futur egrid.or g  Open Science Grid http://www opensciencegrid.or g  V  D Cunsolo S Distefan o and A Pulia\002to 223CloudHome on T op VOIR,\224 2012  S Malik and F  Huet 223V irtual Cloud Rent Out the Rented in 2011  GENI 223GENI Rack Speci\002cation,\224 http://gr oups.geni.net/geni wiki/GeniRacks  227\227 223GENI Rack Pr ojects,\224 her ehttp://gr oups.geni.net/geni wiki/GENIRacksHome  Chamelon https://www chameleoncloud.or g  CloudLab http://www cloudlab.us  HiBench https://github.com/intelhadoop/HiBench  J Buell 223A Benchmarking Case Study of V irtualized Hadoop Per e 2011  IBM 223T eraSort Benchmark,\224 http://www01.ibm.com/support knowledgecenter/SSGSMK educe integration/map educe terasort example.dita ICET XX 12 CLOUD pp 2010  S Malik F  Huet and D Car omel 223Coope rative Cloud ComputCloud,\224 in and UAE and Applications 2332-7790 \(c This article has been accepted for publication in a future issue of this\ journal, but has not been fully edited. Content may change prior to fin\al publication. Citation information: DOI 10.1109/TBDATA.2017.2703830, I\EEE Transactions on Big Data  F  Bermbach M Klems S T ai and M Menzel 223MetaStorage A Consistency-Latency in Sciences Engineering proScience he Big Comrecomcoauthored erences  ifunded committees IEEE LCN in Institute pursusame on  comput comwhere REsearch lie uted inteis these deal au of He and CM essor tHe in receivVirginia include data ation OutPhD ICWS cited top  SerEngineer Medjaheds utomo in and echxComessor Inxinclude comor al apcontrol 
+
+
+                                
+
+
+                                 
+
+
+                            
+
+
+                           
+
+
+                 
+
+
+
+
+
+This article has been accepted for inclusion in a future issue of this j\ournal. Content is final as presented, with the exception of pagination EEE   19 S Gong Cheng om Xidian  in 2007 and the M.S. and technical  3   He is currently an Associate Professor with Northwestern Polytechnical University. His main research interests are computer vision and pat tern recognition ei Han ently techni ch The ersity cher at the Uni His omputer vision, multi and brain imaging analysis. He es such as IEEE T C t T IONS  ON P A t t T ERN  A A YSIS  AND M CHINE  I I N t T ELLIGENCE AMI I I N t T ER NA t T IONAL J OURNAL  OF  C C O m p MP U t T ER V ISION V T C t T IONS  ON  I I m M GE P SSING  TIP C C ONFERENCE  ON  C C O m p MP U t T ER V ISION  AND P A t t T ERN  R R OGNI t T ION VPR I I N t T ERNA t T IONAL  C C ONFERENCE  ON  C C O m p MP U t T ER V ISION V I I N t T ERNA t T IONAL J OIN t T  C C ONFER ENCE  ON  A A R t T IFICIAL  I I N t T ELLIGENCE IJCAI Prof. Han is an Associate Editor of the I E E E IEEE T RANSAC t T IONS  ON  H H U m M AN M ACHINE  S S YS t T E m M S  Neurocomputing   Processing and Machine Vision and Applications  u ently f  tor ests include emote sensing om e eas  international journal, including Neurocomputing Elsevier Cognitive  Computation Springer International Journal of Image and Graphics  World of Scientific 
+
+

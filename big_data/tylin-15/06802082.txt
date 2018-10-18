@@ -1,0 +1,153 @@
+Modeling Interactions in Continuum Traf\002c 1  2 Hua Wang 003 2 Tianlu Mao 206 2 Zhaoqi Wang 207 1 University of Chinese Academy of Sciences 2 Beijing Key Laboratory of Mobile Computing and Pervasive Device Institute of Computing Technology Chinese Academy of Sciences Figure 1 Traf\002c scenarios simulated with our model Lanes closing caused by a tree falling down left Traf\002c scenarios near an off-ramp center A circular interaction right A BSTRACT It is a big challenge to generate the traf\002c scenarios with frequent lane changes in 003ow-based continuum traf\002c simulations In this paper we present a novel macroscopic method named interactable cooperative driving lattice hydrodynamic model Interactable CDLH model We describe traf\002c 003ow along lanes and 003ow interactions between lanes in a uniformly continuum frame We further consider various constraints for a detailed lane-changing simulation The model owns the ef\002ciency of traditional macroscopic traf\002c models and can describe lane-changing behaviors effectively It physically describes where/when/how traf\002c 003ow goes into out of a lane which make it possible to simulate and display lane-changing behaviors in large-scale virtual environments The validity and ef\002ciency of the interactable CDLH model are demonstrated by comparing simulation results with real traf\002c data and one-dimensional CDLH model Index Terms I.3.5 Computer Computational Geometry and Object Modeling\227Physically based modeling K.7.m Simulation Modeling and V T ypes of Simulation\227 Animation 1 I NTRODUCTION AND M OTIVATION There is a growing need to blend realistic traf\002c simulations into virtual reality applications such as games virtual tours et cetera There are two signi\002cant traf\002c characteristics that have to be taken into account in such applications large scale and high complexity The large scale refers to the huge number of vehicles The high complexity refers to various complex traf\002c scenarios Some of these scenarios are formed by road structures such as on  offramps crossings and changes in the number of lanes Others are formed by some dynamic factors such as man-made traf\002c control\003 e-mail wanghua@ict.ac.cn 206 e-mail:ltm@ict.ac.cn 207 e-mail:zqwang@ict.ac.cn s and accidents These segments are named road inhomogeneities in the transportation research There are frequent 003ow interactions between neighboring lanes near road inhomogeneities In real road networks the length of these various road inhomogeneities accounts for a large proportion of the total road length Therefore it is impossible to get a realistic large-scale traf\002c simulation without handling 003ow interactions Macroscopic or continuum models are suitable for large-scale traf\002c simulations because of their high ef\002ciency However they simplify 003ow interactions between lanes which limit their usage in virtual reality applications Sewall et al adopted the Aw-Rascle and Zhang macroscopic 003ow model to simulate traf\002c networks and handle 003ow interactions by adding a lane-changing model 4 The method is ef\002cient for large-scale traf\002c simulations However it doesn't give descriptions about whether and when there are 003ow interactions between neighboring lanes in detail which make it impossible to generate lane-changing behaviors In order to support realistic large-scale traf\002c simulations with various complex scenarios we introduce the Interactable CDLH model based on one dimensional 1D CDLH model The Inter actable CDLH model is a partly two dimensional 2D continuum model with a set of lane-changing constraints In the model traf\002c 003ow along lanes and its interactions between lanes are described uniformly in a 2D space We creatively convert the constraints into a single problem which acts as a switch dominating the direction of 003ow moving forward or changing its lane Our model could answer where and when 003ow interactions occur and how 003ow goes into  out of a lane 2 M ODEL D ESCRIPTION Traf\002c 003ow is lane-based but not a 1D 003uid Especially near road inhomogeneities moving forward along lanes is often disrupted and lots of lane changes occur In order to describe 003ow interactions we extend the CDLH model from the 1D frame to a 2D Frenet Frame the longitudinal direction and the lateral direction of road lane curves are x-axis and y-axis respectively 8   266 t r  321  ru   0 r j  m  t  D t  u j  m  t  D t   r 0 V  n 345 l  1 b l r j front l  m front l  t   r 0  1 123 IEEE Virtual Reality 2014 29 March - 2 April, Minneapolis, Minnesota, USA 978-1-4799-2871-2/14/$31.00 \2512014 IEEE 
+
+
+Where r  r  x  y  t   is the density of traf\002c u  u  x  y  t   is the velocity r j  m  t  and u j  m  t  represent the local density and the local velocity of the quadrilateral lattice  j  m  on the 2D multi-lane plane at time t  respectively D t is the delay time r 0 is the average density of the current segment The function V is the optimal velocity and described by the following formula V  n 345 l  1 b l r j front l  m front l  t   r 0   v max 2  tanh  2 r 0 000 n 345 l  1 b l r j front l  m front l  t  r 2 0 000 1 r c  tanh  1 r c  Where  j front l  m front l  is the l th lattice at the front of  j  m  along its 003ow direction at t  n is the number of lattices we should consider at the front of  j  m  along its 003ow direction b l is the weighting function of  j front l  m front l   It's a constant and determined by n  r c is the inverse of the safety distance and v max is the maximum traf\002c velocity for the current segment W e use a 002nite difference method to solve our model by discretizing traf\002c 003ow to some certain directions along lanes changing to the left  right neighboring lanes Then 002rstly we determine the direction of 003ow We take into account of various lane-changing constraints such as particles kinematic and dynamic constraints local 003ow densities road structures and so on For a given lattice near road inhomogeneities if it satis\002es all lane-changing constraints to the right  left front direction its 003ow will go into the right/left neighboring lane Otherwise the 003ow direction remains unchanged Secondly we update the value of traf\002c 003ow velocities and densities and determine durations of 003ow interactions according the 002nite difference equations In order to simplify solving processes we estimate whether the lattice satis\002es all these constraints by solving whether there is a satis\002ed lane-changing trajectory for the particle that has a lanechanging request in the lattice This also facilitates the further visual display because the calculated lane-changing trajectories are physically reasonable 3 E XPERIMENTAL R ESULTS We implement our model for traf\002c simulations with various challenging scenarios such as traf\002c jams onand off-ramps road interactions etc Figure 1 We next give the similarity comparisons with real traf\002c data and the computational ef\002ciency of our model 3.1 Similarity We simulate the traf\002c of Highway 101 from X  420m to X  620m in 15 minutes Our initial and boundary conditions of the simulations are from the NGSIM W e calculate the 003ux e very 15s among 1000s from our simulation results and compare the time-series data with the NGSIM data using LCSS algorithm The similarity between the NGSIM data and our simulation results as well as the similarity of the model described by Sewall et al are shown in Table 1 3.2 Computational ef\002ciency We use the road networks with the length of 150km There are 65 road inhomogeneity segments in the traf\002c networks accounting for about 20 of the total length Figure 2 shows the relationship between total compute time and the number of vehicles What can be seen in Figure 2 is that both the compute time of the 1D CDLH model and that of our model are nearly independent of the number of vehicles 4 C ONCLUSION There are mainly two advantages over previous virtual traf\002c methods Firstly we describe traf\002c 003ow along lanes and 003ow interactions between lanes in a uniform continuum frame and blend lanechanging constraints considering the particularity of traf\002c 003ow Table 1 Similarity of the 003ux sequence for successive detection points along the Highway 101 The average row shows the average similarities of the sample points for each technology The closer that the similarity value is to 1 the more realistic that the simulation result is Figure 2 The compute time as a function of the number of vehicles As a result 003ow interactions could be described in detail in a macroscopic method We also get realistic lane-changing trajectories when blending the constraints so that lane-changing processes could be directly displayed to enhance the effect of large-scale virtual traf\002c Secondly we creatively integrate the lane-changing constraints and contribute an ef\002cient algorithm to solve the model The compute time of our model owns the same order as that of the 1D CDLH model which makes our model ef\002cient for a large-scale traf\002c simulation There are also some limitations A few collisions between particles may be unavoidable in lane-changing processes because the lane-changing trajectories we calculate are a kind of forecast of next several time steps We will further improve it by more accurate ways A CKNOWLEDGEMENTS This work is supported and funded by the National Natural Science Foundation of China Grant No 61173053 61100086 61272322 the National Key Technology R&D Program Grant No 2013467058 2012BAH39B01 2013AA013902 We would like to thank the reviewers for their constructive comments and suggestions R EFERENCES  H X Ge S Q Dai Y  Xue and L Y  Dong Stabilization analysis and modi\002ed korteweg-de vries equation in a cooperative driving system Physical Review E  71:066119 2005  NGSIM THE NGSIM COMMUNITY WEBSITE  pages http://ngsim\226 community.org  J Se w all D W ilkie and M Lin Interacti v e h ybrid simulation of lar gescale traf\002c In ACM SIGGRAPH  2011  J Se w all D W ilkie P  Merrell and M Lin Continuum traf 002c simulation Computer Graphics Forum  29:439\226448 2010 124 
+
+
+           
+
+
+                      
+
+
+           
+
+
+            
+
+
+       
+
+
+               
+
+
+                                     
+
+
+                                                        
+
+
+                           
+
+
+                                        
+
+
+                  
+
+
+  
+
+
+                                               
+
+
+   
+
+
+                                
+
+
+                        
+
+
+                           
+
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     2 8    b 4      1 8             1 2     1  8 2  
+
+
+1 9    8      2 1       1     2    8    2 3\f        
+
+
+     8 D 4 9  F  \b 1 8 #J 9 1     2 1   2 #-@ 1   2 9  E 1   1   2 9      6  
+
+
+    8  8   1  D 1         1 F  \b0         2 D    F  \b 1 8  9  
+
+
+  1 9  1   E 1  2 9     1 1 F  \b       1    18   F   1    1 #-$+  \b  2 2  
+
+
+1 D     1 #-$+.B- 0/:% .0             9 1      18    1 6     1 2  1  1  
+
+
+1   6      2    1 2 E 8 D 1      1 2   1   1 #-4  #-@E     2  1  1  1       
+
+
+ 8     1          2 F    6   F  2   8    2 C<CC/C N\bO 5      
+
+
+CD    b$44NO F P Q 6   2 b$$$ ,=\b\bA  A N,O 2 C C  b$$4N  92 2   f  9-\b$$4 B N?O  !-    91  2 1 HH111-18-N+O    -1 :3%   2     0-4 
+
+
+     b N4O 2   2- \f  C b$@$ \b# >\b\b$3\b$N@O  f :.% 9 /9 \f    1  6  f 2  4   A254 
+
+
+Advantages of Our M ethod Advantages of Our M ethod Exploit the memory v ertical data format utilizes slidin g windows to g form a much larger database to analyze  Flexibility in Choosing what to choose  Choosing what to choose to build the rules Computational and memory efficiency We have a team working only on this aspect 45 Associative IDS for NextGen Frameworks Dr S Dua LA Tech 45 
+
+
+Preliminary Results Intra transaction Relations Data rate simulator NH-134 Mb HOP PATH update \(Y/N Inference 11.5 Y Y 2 0.120 N N      Y   n 0.345 N NH134 Y/N   Inf 1 0.150 N N 2 0 120 Y N Inter transaction Relations 2 0  120 Y N       5 5.55 0.456 Y Relations  n 0.345 N N Nmap on DMRL nmap.org 
+
+
+Anticipated Outcome Anticipated Outcome Develop algorithm capable of learning from a given heterogeneous diverse Develop algorithm capable of learning from a given heterogeneous diverse data ff Dynamic algorithmic f ramework designed to shi f t modalities and sampling rates based on complex logic Flexibility of integration into the Snort intrusion detection system 47 Associative IDS for NextGen Frameworks Dr S Dua LA Tech 47 
+
+
+References References Aircraft Cockpit Image courtesy USAF http://www.faa.gov htt p   www.faa g ov  air traffic  technolo gy  p g  _ gy  Acharya R Dua S Du X Sree V Chua C K Automated Diagnosis of Glaucoma Using Texture and Higher Order Spectra Features To appear in IEEE Transactions on Information Technology in Biomedicine  Du X Dua S 2011 Cancer Prognosis Using Support Vector Regression in Imaging  Modality World Journal of Clinical Oncology 2  1   44 49 Du X Dua S 2010 Salient Frame Extraction Using Support Vector Regression and Motion Features pp 5 Proc of the National Aerospace and Electronics Conference July 14 16 2010 D M P D S 2010 Di i i ti Ft d Cl ifi ti Mthd f D essaue r  M  P  D ua S  2010  Di scr i m i na ti ve F ea t ures an d Cl ass ifi ca ti on M e th o d s f or Accurate Classification 1st ed vol 7704 pp 14 Bellingham WA Proceedings of SPIE Dessauer M P Dua S 2010 Low Resolution Vehicle Tracking using Dense and Reduced Local Gradient Features Maps 1st ed vol 7694 pp 8 Bellingham WA Proceedings of SPIE SPIE 
+
+
+Acknowledgements Acknowledgements Fundin g A g encies  US 4 1 Million direct fundin g g g 4 g LA BoR NIH NSF AFRL AFOSR and NASA Research Team Samuel Kasimalla Brandy McKnight Dr Pradeep Chowriappa Connor Johnson Vasanth Nair Mihir Chowriappa  Connor Johnson  Vasanth Nair  Mihir Karnik Mohit Jain and Swadheen Songmen Associative IDS for NextGen Frameworks Dr S Dua LA Tech 49 All the respective Logos belong to their owners 
+
+
+Rf d Rdi R e f erence d R ea di ngs Copyright of cover pages held by respective publishers 
+
+
+Thank You Questions Thank You  Questions Dr Sumeet Dua E mail sdua@latech.edu Web http://dmrl.latech.edu Associative IDS for NextGen Frameworks Frameworks Dr S Dua LA Tech 51 Image Source roadtrafficsigns.com 
+
+

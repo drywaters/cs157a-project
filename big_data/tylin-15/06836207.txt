@@ -1,0 +1,158 @@
+     
+          
+         
+        
+ 
+ 
+
+
+         
+
+
+               
+
+
+         
+
+
+        
+
+
+         
+
+
+                    
+
+
+         
+
+
+    
+
+
+         
+
+
+Figure 4  Payload Allocation Figure 5  Procurement vs Hosted Payloads Hosted payloads vs 100 procurement This case study focuses on the impact of including hosted payloads as part of the system Figure 5 presents an extended representation of the tradespace where hosted payload architectures are included The 002rst immediate conclusion that can be drawn is that based on the cost model from hosted payloads offer the possibility of signi\002cant cost reductions 050between 15 and 30%\051 As a result all architectures on the Pareto front rely on hosted payload architectures On the other hand concerns about using hosted payload assets for critical applications like astronaut support have been 003agged as a major caveat In this case an optimal solution would entail using a portfolio of hosted payloads and privately owned satellites and schedule the communications through ones or the others according to operational constraints Therefore building this portfolio can be done by analyzing what communication payloads are better suited for hosted payload con\002gurations Figure 6 presents the tradespace of architectures that mix hosted payload and procured assets Results indicate that including hosted payload assets in the system does not have a major impact on its performance but requires disaggregating the monolithic satellites identi\002ed as optimal in the previous case study That being the case the next questions arise Figure 6  Portfolios of hosted payload and procured assets Which payload obtains better savings when being hosted How many payloads do you want to 003y in a hosted payload approach The answer for the 002rst question can be obtained by analyzing the non-dominated architectures from 002gure 6 and estimating the cost savings when hosting the different types of antennas that are considered in this analysis Results indicate that hosting an optical payload can potentially save an 28 of the cost while a low data rate antenna 050S-band\051 only obtains a 16 cost reduction 050note that these numbers are based on the system life-cycle cost and are heavily in\003uenced by the hosted payload cost model\051 Therefore it seems to be more advisable to put high data rate payloads like optical terminals in commercial satellites and retain control of S-band communications 050which in turn ensures that contingency event will be addressed by privately owned assets not constrained by the operational limitations of host platforms\051 Finally 002gure 7 presents the tradespace of hosted payload architectures color coded by the number of antennas that are being hosted By looking at the Pareto front it can be seen that almost all architectures host one single antenna as opposed to two in order to minimize the burden on the host platform This burden is also contingent on the mass and power of the hosted communication payload This is the main reason why optical terminals become so attractive for hosted payload architectures as opposed to low frequency systems that require big parabolic antennas and power ampli\002ers to close the link budgets 6 C ONCLUSION Summary This paper has presented the 002rst set of results obtained through the developed architectural tool to evaluate space communication networks It has 002rst provided a high level overview of the tool with a description of four main constitutive elements An STK model an architecture generator an architecture evaluator and a resource manager Next it has described the newly developed scheduling algorithm based on a rule-based expert system that ef\002ciently allocates the network resources to satisfy near-Earth mission communication requirements Then a discussion on the conducted validation exercise has 11 
+
+
+Figure 7  Portfolios of hosted payload and procured assets been presented in order to gain some level of con\002dence on the results that the tool outputs This discussion has focused on the validation of the scheduling algorithm by benchmarking it with operational schedules from the TDRSS Finally this paper has presented two case studies for future implementations of the TDRSS system Based on a demand forecast for the network a 002rst case study has considered the problem of selecting the frequency band to be supported and how to allocate them into the relay satellites It has been shown that maximum performance architectures require a mix of optical and RF payloads that support high throughput communications as well as reliable low data rate communications If the traditional procurement strategy is assumed 050NASA buys and operates the relay satellites\051 then monolithic architectures are preferable unless more than two high gain antennas render the resulting satellite con\002guration too complex In turn the second case study has extended this analysis by introducing architectures with hosted payloads It has been shown that according to the current available pricing model hosted payload architectures are clearly preferable than the traditional procurement strategy with cost savings between 15 to 30 for the same level of system performance It has then been discussed the advantages of having mixed procured and hosted payload architectures as a compromise to obtain networks with reduced lifecycle costs that can still address the requirements of highly sensitive and reliable applications Results have demonstrated that high data rate payloads 050speci\002cally optical payloads\051 are the best candidates to be hosted 050with savings up to 28%\051 thanks to their reduced mass and power requirement On the other hand low data rate communication payload should be allocated in privately owned satellites as they require bigger antennas and power ampli\002ers that increase the burden on the host platform Future Work The main streams of future work are as twofold On one hand additional features should be added to the model in order to better capture the complexity of the network con\002gurations 050e.g coupling between the costs of the communication payloads depending on the level of on-orbit processing the they perform\051 Additionally the size of the tradespace is currently limited to less than two thousand architectures due to computational limitations a stringent limitation given the possible combinations from the identi\002ed architectural decisions The solution currently under development is to include a genetic algorithm that alleviates this problem by iteratively generates new populations of architectures by combining the best previously evaluated networks On the other hand the other main stream of future work is related to exercising the tool in a variety of architectural decisions and mission scenarios In the presented case studies only geosynchronous constellations were considered although the tool allows comparing them with systems that place relays in MEO and LEO orbits Additionally the tool can also provide insight in valuing inter-satellite links and how the cost of putting in orbit their extra communication payloads can be leveraged by reducing the number of operating ground stations Moreover couplings between the payload allocation and fractionation strategy should also be further explored so as to understand if monolithic architectures still become preferable if relay satellites can be decomposed in clusters of independent antennas and payloads Finally supplementary what-if analysis can be conducted based on 0501\051 the demand forecast for the 2020-2030 time frame 0502\051 granted spectrum allocations to NASA and 0503\051 technology improvements that increase the spectral ef\002ciency of the communication payloads 12 
+
+
+A PPENDIX Table 7  Acronyms Arch Architecture CER Cost Estimating Relationship DESDYNI Deformation Ecosystem Structure and Dynamics of Ice DSN Deep Space Network EIRP Equivalent Isotropically Radiated Power GEO Geosynchronous Orbit GRTG Guam Remote Ground Terminal GSFC Goddard Space Flight Center HD High De\002nition HP Hosted Payloads ISL Intersatellite Link ISS International Space Station LCC Life Cycle Cost LEO Low Earth Orbit MEO Medium Earth Orbit MIT Massachusetts Institute of Technology MOC Mission Operating Center MPCV Multi-Purpose Crew Vehicle NASA National Aeronautics and Space Administration NCCDS Network Control Center Data System NDA Non-Disclosure Agreement NEN Near Earth Network NISN NASA Integrated Services Network NOAA National Oceanic and Atmospheric Administration RF Radio Frequency SA Single Access SBRS Space based Relay Study SCaN Space Communication and Navigation SN Space Network STGT Second TDRSS Ground Terminal STK Systems ToolKit TDRSS Tracking and Data Relay Satellite System TT&C Telemetry Tracking and Command USGS United States Geological Survey WSGT White Sands Grount Terminal A CKNOWLEDGMENTS This project is funded by NASA under grant NNX11AR70G Special thanks for Gregory Heckler David Milliner and Catherine Barclay at NASA GSFC for their help getting the dataset and their feedback on our study R EFERENCES   National Aeronautics and Space Administration 223Space Communications and Navigation 050SCaN\051 Network Architecture De\002nition Document 050ADD\051 Volume 1  Executive Summary,\224 Tech Rep 2011   227\227 A v ailable http   www.nasa.gov/directorates/heo/scan   e a Sanchez Net Marc 223Exploring the architectural trade space of nasas space communication and navigation program,\224 in Aerospace Conference 2013 IEEE  2013   P Brown O  Eremenko 223Fractionated space architectures a vision for responsive space,\224 Tech Rep   S M V  D C E Teles J 223Overview of TDRSS,\224 Advances in Space Research  vol 16 pp 67\22676 1995   Analytical Graphics Inc A v ailable http   http://www.agi.com   D Selva Valero 223Rule-Based System Architecting of Earth Observation Satellite Systems by,\224 Ph.D dissertation Massachusetts Institute of Technology 2012   K D W  S P Davidson A 223Pricing a hosted payload,\224 in Aerospace Conference 2012 IEEE  2012   W J Larson and J R Wertz Space mission analysis and design  Microcosm Inc 1992   M Adinol\002 and A Cesta 223Contributed Paper Heuristic Scheduling of the DRS Communication System,\224 vol 8 1995   National Aeronautics and Space Administration Space Network Users Guide 050 SNUG 051  2007 no August 2007   e a Tran J J 223Evaluating cloud computing in the nasa desdyni ground data system,\224 in Proceedings of the 2nd International Workshop on Software Engineering for Cloud Computing  2011 B IOGRAPHY  Marc Sanchez Net is currently a second year M.S student in the department of Aeronautics and Astronautics at MIT His research interests include machine learning algorithms and rule-based expert systems and their suitability to the 002elds of system engineering and space communication networks Prior to his work at MIT Marc interned at Sener Ingenieria y Sistemas as a part of the team that develops and maintains FORAN a CAD/CAM/CAE commercial software for shipbuilding Marc received his degrees in both Industrial engineering and Telecommunications engineering in 2012 from Universitat Politecnica de Catalunya Barcelona Dr Daniel Selva received a PhD in Space Systems from MIT in 2012 and he is currently a post-doctoral associate in the department of Aeronautics and Astronautics at MIT and an adjunct Assistant Professor in the Sibley School of Mechanical and Aerospace Engineering at Cornell University His research interests focus on the application of multidisciplinary optimization and arti\002cial intelligence techniques to space systems engineering and architecture Prior to MIT Daniel worked for four years in Kourou 050French Guiana\051 as a member of the Ariane 5 Launch team Daniel has a dual background in electrical engineering 13 
+
+
+and aeronautical engineering with degrees from Universitat Politecnica de Catalunya in Barcelona Spain and Supaero in Toulouse France He is a 2007 la Caixa fellow and received the Nortel Networks prize for academic excellence in 2002 Dr Bruce Cameron is a Lecturer in Engineering Systems at MIT and a consultant on platform strategies At MIT Dr Cameron ran the MIT Commonality study a 16 002rm investigation of platforming returns Dr Cameron's current clients include Fortune 500 002rms in high tech aerospace transportation and consumer goods Prior to MIT Bruce worked as an engagement manager at a management consultancy and as a system engineer at MDA Space Systems and has built hardware currently in orbit Dr Cameron received his undergraduate degree from the University of Toronto and graduate degrees from MIT Dr Edward F Crawley received an Sc.D in Aerospace Structures from MIT in 1981 His early research interests centered on structural dynamics aeroelasticity and the development of actively controlled and intelligent structures Recently Dr Crawleys research has focused on the domain of the architecture and design of complex systems From 1996 to 2003 he served as the Department Head of Aeronautics and Astronautics at MIT leading the strategic realignment of the department Dr Crawley is a Fellow of the AIAA and the Royal Aeronautical Society 050UK\051 and is a member of three national academies of engineering He is the author of numerous journal publications in the AIAA Journal the ASME Journal the Journal of Composite Materials and Acta Astronautica He received the NASA Public Service Medal Recently Prof Crawley was one of the ten members of the presidential committee led by Norman Augustine to study the future of human space\003ight in the US Bernard D Seery is the Assistant Director for Advanced Concepts in the Of\002ce of the Director at NASA's Goddard Space Flight Center 050GSFC\051 Responsibilities include assisting the Deputy Director for Science and Technology with development of new mission and measurement concepts strategic analysis strategy development and investment resources prioritization Prior assignments at NASA Headquarters included Deputy for Advanced Planning and Director of the Advanced Planning and Integration Of\002ce 050APIO\051 Division Director for Studies and Analysis in the Program Analysis and Evaluation 050PA&E\051 of\002ce and Deputy Associate Administrator 050DAA\051 in NASA's Code U Of\002ce of Biological and Physical Research 050OBPR\051 Previously Bernie was the Deputy Director of the Sciences and Exploration Directorate Code 600 at 050GSFC\051 Bernie graduated from Fair\002eld University in Connecticut in 1975 with a bachelors of science in physics with emphasis in nuclear physics He then attended the University of Arizona's School of Optical Sciences and obtained a masters degree in Optical Sciences specializing in nonlinear optical approaches to automated alignment and wavefront control of a large electrically-pumped CO2 laser fusion driver He completed all the course work for a PhD in Optical Sciences in 1979 with emphasis in laser physics and spectroscopy He has been a staff member in the Laser Fusion Division 050L1\051 at the Los Alamos National Laboratories 050LANL\051 managed by the University of California for the Department of Energy working on innovative infrared laser auto-alignment systems and infrared interferometry for target alignment for the HELIOS 10 kilojoule eight-beam carbon dioxide laser fusion system In 1979 he joined TRW's Space and Defense organization in Redondo Beach CA and designed and developed several high-power space lasers and sophisticated spacecraft electro-optics payloads He received the TRW Principal Investigators award for 8 consecutive years Dr Antonios A Seas is a Study Manager at the Advanced Concept and Formulation Of\002ce 050ACFO\051 of the NASA's Goddard Space Flight Center Prior to this assignment he was a member of the Lasers and Electro-Optics branch where he focused on optical communications and the development of laser systems for space applications Prior to joining NASA in 2005 he spent several years in the telecommunication industry developing long haul submarine 002ber optics systems and as an Assistant Professor at the Bronx Community College Antonios received his undergraduate and graduate degrees from the City College of New York and his doctoral degree from the Graduate Center of the City University of New York He is also a certi\002ed Project Management Professional 14 
+
+
+ 
+
+
+
+
+
+ 17  Jar r e n  A   B al d w i n  is  a  Ch i c a g o  n a t i v e  a n d  c u r r e n t l y  se r v e s a s t h e  l e a d  E l e c t r i c a l  En g i n e e r  a t  B a y  A r e a  s t a r t u p   Oc u l e v e  I n c   He  g r a d u a t e d  fr o m  t h e  U n i v e r s i t y  o f Il l i n o i s  wi t h  a  B  S   i n  2 0 0 9  an d  r ecei v ed  an  M  S   i n  El e c t r i c a l  En g i n e e r i n g  f r  St a n f o r d  U n i v e r s i t y  i n  2 0 1 2   Ja r r e n  d e v e l o p e d  h a r d w a r e  a n d  so f t w a r e  sy st e m s f o r  a  w i d e  ra n g e  o f  f i e l d s   i n c l u d i n g  s p a c e  s c i e n c e  s y s t e m s  a n d  m e d i c a l  de vi c e s  a s  a N A S A  A m es  i nt e r n i n t he  In t e l l i g e n t  S y s t e m s     1  2  3   4   5   6   7   8   9   10   11   12   13   
+
+
+                        
+
+
+                           
+
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     2 8    b 4      1 8             1 2     1  8 2  
+
+
+1 9    8      2 1       1     2    8    2 3\f        
+
+
+     8 D 4 9  F  \b 1 8 #J 9 1     2 1   2 #-@ 1   2 9  E 1   1   2 9      6  
+
+
+    8  8   1  D 1         1 F  \b0         2 D    F  \b 1 8  9  
+
+
+  1 9  1   E 1  2 9     1 1 F  \b       1    18   F   1    1 #-$+  \b  2 2  
+
+
+1 D     1 #-$+.B- 0/:% .0             9 1      18    1 6     1 2  1  1  
+
+
+1   6      2    1 2 E 8 D 1      1 2   1   1 #-4  #-@E     2  1  1  1       
+
+
+ 8     1          2 F    6   F  2   8    2 C<CC/C N\bO 5      
+
+
+CD    b$44NO F P Q 6   2 b$$$ ,=\b\bA  A N,O 2 C C  b$$4N  92 2   f  9-\b$$4 B N?O  !-    91  2 1 HH111-18-N+O    -1 :3%   2     0-4 
+
+
+     b N4O 2   2- \f  C b$@$ \b# >\b\b$3\b$N@O  f :.% 9 /9 \f    1  6  f 2  4   A254 
+
+
+Advantages of Our M ethod Advantages of Our M ethod Exploit the memory v ertical data format utilizes slidin g windows to g form a much larger database to analyze  Flexibility in Choosing what to choose  Choosing what to choose to build the rules Computational and memory efficiency We have a team working only on this aspect 45 Associative IDS for NextGen Frameworks Dr S Dua LA Tech 45 
+
+
+Preliminary Results Intra transaction Relations Data rate simulator NH-134 Mb HOP PATH update \(Y/N Inference 11.5 Y Y 2 0.120 N N      Y   n 0.345 N NH134 Y/N   Inf 1 0.150 N N 2 0 120 Y N Inter transaction Relations 2 0  120 Y N       5 5.55 0.456 Y Relations  n 0.345 N N Nmap on DMRL nmap.org 
+
+
+Anticipated Outcome Anticipated Outcome Develop algorithm capable of learning from a given heterogeneous diverse Develop algorithm capable of learning from a given heterogeneous diverse data ff Dynamic algorithmic f ramework designed to shi f t modalities and sampling rates based on complex logic Flexibility of integration into the Snort intrusion detection system 47 Associative IDS for NextGen Frameworks Dr S Dua LA Tech 47 
+
+
+References References Aircraft Cockpit Image courtesy USAF http://www.faa.gov htt p   www.faa g ov  air traffic  technolo gy  p g  _ gy  Acharya R Dua S Du X Sree V Chua C K Automated Diagnosis of Glaucoma Using Texture and Higher Order Spectra Features To appear in IEEE Transactions on Information Technology in Biomedicine  Du X Dua S 2011 Cancer Prognosis Using Support Vector Regression in Imaging  Modality World Journal of Clinical Oncology 2  1   44 49 Du X Dua S 2010 Salient Frame Extraction Using Support Vector Regression and Motion Features pp 5 Proc of the National Aerospace and Electronics Conference July 14 16 2010 D M P D S 2010 Di i i ti Ft d Cl ifi ti Mthd f D essaue r  M  P  D ua S  2010  Di scr i m i na ti ve F ea t ures an d Cl ass ifi ca ti on M e th o d s f or Accurate Classification 1st ed vol 7704 pp 14 Bellingham WA Proceedings of SPIE Dessauer M P Dua S 2010 Low Resolution Vehicle Tracking using Dense and Reduced Local Gradient Features Maps 1st ed vol 7694 pp 8 Bellingham WA Proceedings of SPIE SPIE 
+
+
+Acknowledgements Acknowledgements Fundin g A g encies  US 4 1 Million direct fundin g g g 4 g LA BoR NIH NSF AFRL AFOSR and NASA Research Team Samuel Kasimalla Brandy McKnight Dr Pradeep Chowriappa Connor Johnson Vasanth Nair Mihir Chowriappa  Connor Johnson  Vasanth Nair  Mihir Karnik Mohit Jain and Swadheen Songmen Associative IDS for NextGen Frameworks Dr S Dua LA Tech 49 All the respective Logos belong to their owners 
+
+
+Rf d Rdi R e f erence d R ea di ngs Copyright of cover pages held by respective publishers 
+
+
+Thank You Questions Thank You  Questions Dr Sumeet Dua E mail sdua@latech.edu Web http://dmrl.latech.edu Associative IDS for NextGen Frameworks Frameworks Dr S Dua LA Tech 51 Image Source roadtrafficsigns.com 
+
+

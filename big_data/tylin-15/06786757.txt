@@ -1,0 +1,233 @@
+The ARES Project: Cloud Services for Medical Genomics  Mauro Femminella, Gianluca Reali, Dario Valocchi Dipartimento di Ingegneria University of Perugia Via G: Duranti, 93 06125 Perugia, Italy mauro.femminella , gianluca t dario.valocchi@gmail.com   Emilia Nunzi   Valerio Napolioni  Matteo Picciolini    Dip. di Medicina Sperimentale University of Perugia  Polo d'Innovazione Genetica, Genomica e Biologia 
+Via Gambuli, 0 6132 Perugia, Italy emilia.nunzi@unipg it, [v.napolioni m pol oinnovazi oneggb.c om    
+This paper shows the cloud services provided by the project ARES. The network solutions have been illustrated in a companion paper in the sa me conference. The ARES project aims to deploy CDN services over a broadband network for accessing and exchanging genomic datasets, accessible by medical and research personnel through a Cloud interface. This paper illustrates the procedure defi ned to access such services, also providing a case-study simulation to show the implementation of the bioinformatics pipeline included. The experimental activity in ARES aims to gain a detailed understanding of the network 
+Abstract 
+A Res 
+ I NTRODUCTION  The ARES 
+problems relating to its  sustainability given the increasing use of genomics for diagnostic purposes. The main aim is to allow an extensive use of genomic data th rough the colle ction of relevant information available from the network in the medical and diagnostic field diseases 
+ 
+I dvanced Networking for the EU Genomic earch\ng a new approach for the use of genomic data in  the medical/research sts 
+KeywordsÑ Genomic Big Data, Cloud Services, Genomic Pipelines 
+of a cloud-based access to genomic processing services for medical and research personnel. The need of this research is given by the massive and increasing production of genomic data The completion of the human genome sequencing project represented a milestone in the field of biological and medical sciences. It happened about ten years ago in the framework of the US project Human Genome It has been the results of years of expensive re search activity. Although the clear evidence for the scientific relevan ce of that result, at that recent\e, the possibility of handling the human genome as a commodity was far from imagination due to the elevated 
+cost and the complexity of seque ncing and analyzing complex genomes. Today the situation is much different. The order of magnitude of the cost necessary for sequencing one human genome is getting close  The cost for sequencing both a unit of DNA and the whole human genome over the time has been decreasing faster than the Mooreês la h is cost evolution is refe rre d to as çthe big dropé. It has begun in 2008, and it is due to the introduction of no vel sequencing machines. Under a very practical viewpoint, this means that the cost per unit data produced decreases more rapidly th an the cost for storing a unit data and, more importantly, for distributing a unit data 
+Hence, if the trend shown in will continue for some years the bottleneck of the process of effectively using the genome information will reside on the ICT side. This is the essential rationale of our research and our proposal. Nowadays, the limiting step is no more the se quencing capability of current technology but rather the ability to process large data file efficiently and allow remote exchange and access for metaanalysis investigations. As pr oof of principle we have implemented a test bed for trans ferring and sharing genome sequence file and processing software for diagnostic purposes In this paper we illustrate the protocols for accessing the cloud services and a case study relevant to a real usage of a 
+genomic processing service II 
+ 
+B ACKGROUND  Different genome sequencing tools have been developed in the last decade. The analysis of such data mainly consists of sequence similarity detection. Th is detection of similarity,  is crucial  in both diagnostic and research activities.  BLAST and   most popular sequence alignment tools. Nevertheless, the envisioned growth of genome databases poses some challenges to their suitability and reliability. Alternatives to BLAST and PSI-BLAST are   
+A Genome analysis tools 
+ 
+10 CASAVA[7    IMPAL A [12  a n d HMMER  1 3   Some alternative approaches have been also proposed for accelerating the execution of BLAST, such as its parallel execution on shared me mory HPC, \(SGI distributed-memory HPC \(IBM  execution in clusters implem ented through high-speed interconnections \(M ere are also solutions for executing parallel BLAST methods for   ral, the objec tive of these approaches is to speed up the fulfillment of BLAST queries by resorting the 
+3rd Symposium on Network Cloud Computing and Applications 14 $31.00 © 2014 IEEE DOI 10.1109/NCCA.2014.11 15 
+2014 IEEE 3rd Symposium on Network Cloud Computing and Applications 978-0-7695-5168-5/14 $31.00 © 2014 IEEE DOI 10.1109/NCCA.2014.11 15 
+2014 IEEE 3rd Symposium on Network Cloud Computing and Applications 978-0-7695-5168-5/14 $31.00 © 2014 IEEE DOI 10.1109/NCCA.2014.11 15 
+
+
+ 
+time Typical web content popularity over time time Genome and metadata popularity over time time of creation time of creation 
+ 
+partitioned databases. For example, the mpiBLAST package  hi eve s upe r-line ar speed-up with the size of databases by removing unn ecessary paging. Nevertheless some scalability issues illustrated in  proble m s due to result merging and I/O synchronization have not yet been addresse In recent years, Google and Amazon have struggled to tackle the problem of big data han dling by their specific cloud  o r e x a m ple, the Am azon S 3 c l oud computing service provides a web services interface to store and retrieve, namely any amount of data. This service may be used to store and retrieve gen ome data. Nevertheless, no specific tools are available for optimizing the perceived network quality in the basis of the specific research needs \(e.g optimized download time and number of accomplished requests through dynamic VM instantiation, and CDN provisioning\ particular, no specific tools for handling genomic data set are made available. For example, a popularity model usable for managing data is not available For other data types, such as a video clip, the popularity evolution typically increases until a maximum is reached Then, it unavoidably decreases over time. For genomes, the popularity evolution does not have a typical known pattern, as sketched in Figure 1. A genome is a plentiful source of information, most of which is still unveiled. It may happen that the interest over an old genome of a dead man is more interesting than a genome recently sequenced. The popularity could also decrease and increase again after some time according to the research dynamics in a totally unpredictable manner. Thus, in the short and medium terms the evolution of the available data in the future networks can be modeled as a pure-birth process. Therefore, beyond the clear need to have large amounts of storage capacity, specific solutions for managing data storage are expected. The proposal includes a dynamic cache managem pts to the re quest pattern of genome data   Figure 1 Ö Possible popularity evolution over time III N ETWORK A SPECTS  A detailed description of th e ARES network architecture is reported in a companion paper submitted to the same conference order to c l arify the working context of this paper, we provide a short and basic description of network architecture for the sake of co nsistency of this paper As mentioned above, the user interface of the system is based on a cloud support. Behind this interface, the content made available in the cloud is managed through a novel content distribution netwo rk \(CDN\This CDN is implemented by means of a dist ributed network of servers and file storage devices, typically referred to as caches. Their dynamic management aims at improving the user perception of the cloud service. This network architecture could also be compliant with the Applicati on Delivery Network paradigm 3   The core protocol of this dynamic management is the NSIS suite of protocols, specified by the IETF RFC 4080 It consists of two layers NSIS transport layer protocol \(NTLP\which is a generic signaling transport layer us ed for node discovery and message sending NSIS signaling layer protocol NSLP\which is the upper layer, which implements the specific signaling application  GIST \(General Internet Signali ng Transport protocol, [2  is the NTLP implementation proposed by the IETF. It implements a set of basic capabilities, including node discovery and message tr ansport and routing It provides endto-end signaling, that allows sending signaling messages towards a destination, and path coupled signalin g, that allows installing states in the NSIS peers over the path to the destination  have illustrated our im ple m entation of a furt her routing paradigm, implementing off-path signaling. It allows sending signaling message to an arbitrary set of peers regardless the user data flow This mechanism is widely used in ARES to discover the available network resource and to find the optimal location where the genomic processing is implemented, as shown in what follows The ARES solution is implem ented through a massive use of service modularization and vi rtualization provided by the NetServ service deployment arch  h e runti m e environment executing services is provided by a virtual services framework, which manages access to service building blocks and other network res ources. Applications use building blocks to drive all network ope rations, with th e exception of the IP packet transport The components of the NetServ architecture are which are user-space processes. Each container executes a Java Virt ual Machine \(JVM\ running the OSGi framework for hosting service modules, which are Java archive files, also referred to as  
+B Cloud and Data Services Service containers bundles 
+    
+16 
+16 
+16 
+
+
+NetServ controller Signaling module NetServ repository FASTQ FASTA annotations require a very rapid diagnosis 
+which installs modules in service containers, or remove them, at runtime. In more detail, it coordinates the NSIS sign aling daemons, the service containers, and the node transport layer. It makes use of the netfilter library through the iptables too l. Any packet matching with one of the service rules is routed from the network interface to a service container process, which is executed in user space. The NetServ controller is also in charge of setting up and tear ing down servi ce containers authenticating users, fetchi ng and isolating modules, and managing service policies based on an extended version of NSISka, an open source NSIS implementation by the Karlsruhe Institute of Techno  The which stores a pool of modules deployable through NetServ signaling  The cloud operation is man aged through OpenStack which is a cloud management syst em that allows using restful APIs to control and manage the execution of virtual machines VMs\ on a server It allows retrieving information about the computational and storage capabilities of both the cloud and the available VMs. Each VM can expose, through OpenStack, the required configuration, which allows mapping the minimum required computati onal capabilities for a specific processing service into the hardware configuration for the VM that executes the service OpenStack allows also using a restful API to inject new VMs into the pool, thus allowing the system to retrieve the relevant files from other locations. Furthermore, OpenStack is not bounded to the use of a si ngle hypervisor, but it can make use of different drivers to su pport different formats of virtual machines and hypervisors, such as Q-emu, VMWare, KVM Xen, LXC and Hyper-V Our architectural so lution thus combines different cloud paradigms, as shown in Figure 2. We have implemented an optimized solution, th e core of which is an optimization algorithm that determines the most suitable PoP fo r executing the software pipeline implemen ting the desired service. From the perspective of the medical user, the access is totally equivalent to a Software-as-a-Service \(SaaS\delivery model. The software components are transferred from the most convenient location, being it either a static repository or a dynamic cache managed by a NetServ service. Finally, the virtual machines executing the desired genomic software pipeline uses the computing resources made available through a Infrastructure-as-a-Service \(IaaS\odel IV C LOUD S ERVICE C LASSES  The -omics \(whole-genome, whole-exome, transcriptome data processing is typically perfo rmed through a pipeline of different software packages  The input files are  a files containing sequ encer output raw data b files containing genome/exome/transcriptome sequences c files containing the list of gene sequences    Figure 2 Ö Networking and service paradigms contributing to the optimized solution Even if the patientês genome may be locally stored, all other files must be download ed from different databases. The overall amount of data ranges from few GB to tens of GB When all the files are available in a selected PoP, the relevant processing can start, and it may take different hours to generate the desired result. The time taken for having this result could take some hours to same days. In the view of the increasing diffusion of genomic data, this poses two technical challenges to network designers, the minimization of the service delivery time when a very serious disease must be treated and the minimization of the overall network traffic.  In regards to the former objectiv e, some initiatives aim to decrease the processing time. For example, the Translational Genomics Research Institute \(Phoenix, AZ, USA cluster of several hundreds of CPU cores decrease the processing time of the tremendous volume of data relevant to the neur oblastoma. While this approach may be expected in a small number of prestigious organizations, it cannot be generally adopted when genomic processing will be largely needed in most of countries. In regard to service time a lot of research is urgently needed on the networking side For example, the Beijing Ge nomics Institute \(Bejing, China which produces 2,000 human genomes a day, instead transmit them through the Internet or other networks, sends computer disks containing the data via express co urier  We believe that a significant contribution to the minimization of the service delivery time can be provided by suitably managing shared computing and storage resources and accessing them through the illustrate cloud management operation In addition, we are implemen ting different cloud service classes according to the severity of the handled clinical situation. For example, peripheral neuroblastic tumours Neuroblastoma, Ganglioneur oblastoma, Ganglioneuroma while breast cancer and other solid cancers may be handled in some days. Neuropsychiatric 
+    
+ 
+Optimized Solution SaaSCloud service Medical interface for private genome management 
+17 
+17 
+17 
+
+
+ Public Genome/Annotation Database Medical Centers Private Genome/Annotation Data-base NetServ CDN nodes Computing Node/Computing Cluster Controller 
+E XAMPLE OF T OLERABLE T IMES  
+Neuroblastoma        2 Breast Cancer         7 Colon Cancer         7 Acute Lymphoblastic Leukemia     4 Leukemias         4 Lymphomas         4 Myeloma          7 Cervical Cancer        7 Pancreatic Cancer        4 
+Diseases         Time \(days 
+ 
+conditions can be processed in a longer time-window \(e.g. 2-3 weeks For this reason, we are implementing different cloud service classes, as follows Minimum delay CDN services, to be used for handling very urgent situations. In this case optimization functions are configured for generating the shortest service delivery time Short delay CDN services for handling less urgent situations, to be used for handling serious situations, but with sufficient tolerance in order to introduce some optimization of the network resources so as to increase the number of simultaneous medi cal requests processed by using the network resources Balanced network load cloud services for handling all other situations. This class refers to delay tolerant situations, typically relevant to research purposes and not for diagnosis. In this case the optimization functions aim at maximizing the number of simu ltaneous medical requests processed by using the network resources  Table I reports some examples of tolerable times for medical personnel requiring support from ARES. These tolerable times include the CDN service time, in addition to other times which depends on other medical requirements such as the type of the sequencing, the portion of the genome to be analyzed, the processing software used and the reliability of results. Through the expertise of the researchers involved in ARES, we are translating these times in CDN service classes TABLE I  V E XPERIMENTAL CDN  S CENARIOS  Figure 3 sketches the experiment that will be executed to demonstrate the effectiveness of our approach for supporting a generalized use of genomic information in the future medical system.  In what follows we illustrate the involved entities and the steps for the execution of the experiment We stress that in this activ ity we will use publicly available genomic files with no reference to the subjectês identity , and no information ab out current health conditions sexual lifestyle, ethnicity, political opinion, religious or philosophical conviction database storing publicly available genomic informations we assume the existence of different medical centers that make use of genomic annotations Diagnoses are done by processi ng genomics data of patients through pattern-matching al gorithms. Desired patterns are taken from genome annotations we assume that each Medical Center stores patientsê genome information within a local private data-b ase. This information is not publicly accessible \(Nevertheless, the experiments in ARES will be done by using publicly av ailable genomic information only, that will be used also to implement the private data-bases without compromising th e significance of the results These nodes have a threefold role As GIST enabled nodes, they di scover network resources; as NetServ nodes they instantia te genome processing packages as NetServ nodes, they implement CDN mirrors that deliver annotation files from the Annotation Data-bases to the processing Computing Node/Computing Cluster. These functions can either be co-located or implemented in separated nodes  one or more GIST computers discovered by a specific NetServ service They receive the Annotation files through the ActiveCDN nodes and the genome of the patient. After executing the pattern-matching algorithms, resu lts are returned to the requesting Medical Center A single node implementing the NetServ GCM Step 1: A Medical Center asks a genomics core/facility to sequence a patientês specimen \(DNA/RNA\nomic core/facility processes the sample and makes the data available with or without having performed preliminary analysis. This would consist of searching for the already known sequences included in geno me annotations for potential changes \(i.e. mutations and similar variations Step 2: The service request happens though the provided cloud interface. It triggers th e NetServ node and resource discovery procedure, which id entifies the set of one or more candidate nodes for executing the genome processing software Step 3: A NetServ GCM triggers a service for transferring the genome processing software over the selected Computing Node/Cluster Step 4: The controller triggers the software modules. They are now ready to receive input data 
+    
+Involved Entities Steps of the experiments 
+18 
+18 
+18 
+
+
+             
+Computing Node Computing Cluster Public Genome/Annotation Data-base Medical Centre Netserv CDN node Private Genome/Annotation Data-base Control CDN Data Processed Data Controller 
+            
+Step 5: The Medical Centre sends the patientês genome data to the Computing Node/Cluster, implemented by means of OpenStack Step 6: The NetServ ActiveCDN service downloads the needed genomic inform ation files from the Public Genome/Annotation data-bases in to the Computing Node/Cluster Step7: The Controller trigge rs the service ex ecution over the Computing Node/Cluster Step 8: The processing results are returned to the Medical Centre    Figure 3 Ö CDN for medical applications  VI E XPERIMENTAL O UTCOMES  As mentioned above, the need of resorting to the CDN paradigm for handling the illustrated scenarios derives from \(i the expected increase in the use of genome information and ii\ greater speed of growth of the quantity of information to be used against the possi bility of storing and transmitting it over the network. Thus, under the perspective of the CDN operation, it is essential to find suitable network resource management policies which provide both efficiency and suitable performance In the envisioned experime nts, we take advantage of the balance of the two fo llowing opposing strategies The NetServ CDN service struggles for pushing contents towards applications, so as to help applications in accessing data The NetSev Discovery service struggle for distributing application instances in suitab le network positions for minimizing network traffic, impr oving resource utilization efficiency, and optimizing workload distribution  In synthesis, throu gh an iterative definition of the experiment planning, we aim at identifying a suitable strategy for Determining the optimal number of the Computing Nodes/Clusters to be used Determining the optimal size of each Computer Cluster Determining the suitable position of each Computer Node/Cluster over the network  The input quantities affecting the final result are The number of service requests in a given timeframe The size of the used files \(genomes and/or annotations The required time for having the service fulfilled The geographical distribution of the requesting centres The geographical location of the involved databases The amount of genomes and/or annotations used in experiments The degree of similarity of different requests  For example, if different service requests consists of scanning a common subset of genomes according to a common subset of annotations, th e common processing can be aggregated. Clearly, the larger the number of considered simultaneous requests is, th e lowest the probability of finding commonalities between them is. Nevertheless, the larger the number of considered simultaneous requests is, the higher the CDN effectiveness is A further trade-off affect the C DN provisioning. From the point of view of the service time, it is preferred to instantiate as many mirrors as possible, very close to the Computer Clusters. Nevertheless, overloading the network can cause excessive consumption of its resources, which can, in turn cause shortage of storage capacity and bottleneck in file propagation through the network itself Our experiments will be planned iteratively, through heuristics that will sequentially explore the available degrees of freedom according to the maximum descent direction of the used metrics This section illustrates a sign ificant case study, consisting of a genome processing to analyze Differential Expression DE find statistically relevant changes in genome read counts between two different experimental co pipeline is shown in Figure 5 The following software tools are used 
+A Case Study: Differen tial Expression 
+ 
+19 
+19 
+19 
+
+
+FastQC Trimmomatic STAR HTSeq 
+Trimmomatic FastQC STAR + hg19 HTSeq 
+genome reads  genome reads Quality Control Patient vs Control Differential Expression Produce a Report End End No Trimming Reads Mapping Reads vs hg19 index Expression count Custom R script Custom script 
+which provides a simp le way to do some quality control checks on raw sequence data coming from high throughput sequencing pipelines  performs a variety of useful trimming tasks for paired-end and single ended data h e selection of trimming steps and their associated parameters are provided via command line is an ultrafast tool for aligning sequencing reads to long reference sequences. STAR outperforms other aligners by a factor of >50 in mapping speed, while at the same time improving alig nment sensitivity and precision 3   is a Python packag e that provides infrastructure to process data from high-throug hput sequenci  It provides API and libra ries to perform DE analysis In addition, also the latest human genome reference model 19 \(hg19, see used   This pipeline has been implemented over a Linux virtual machine. The final size of the disk image of this virtual machine is 3GB, and it requires to allocate at least 30 GB of RAM for executing a proper processing. The number of cores can be defined dynamically, according to the available resources and tolerable processing time. During the computations, the total disk consumption, managed by OpenStack, was up 300 GB In our experiment we emulated a doctor interaction with the ARES system as follows  Assume a doctor needs to investigate the expression of a gene related to, e.g., a cancer, and he selects the DE analysis for this purpose An optimization function determines the processing location among the available PoPs The implemented CDN service provides the needed genomic data sets, including the patientês genome, the size of which is a 3.2 GB, together with the VM necessary to perform the relevant processing The DE analysis is done and the results is sent to the requesting medical personnel  The functional experiments have been executed over the network shown in Figure 4. These experiments are quite simple and aim to verify the correct functional implementation of the ARES components and obtain an evidence that the dynamic caching mechanism works and is effective. The genomic data are initially stored onto a single server, and caches are dynamically populated with them over time. Three clients ask for the same service The overall time needed for the execution of the software pipeline is variable according to the number of biological samples analyzed. It approximately ranges in the interval between 1 and 2 days. These outcomes of experimental processing time are used to determine the remaining time available for data and VM transfer and to define the CDN service classes. In this regards we have defined the approach illustrated in Figure 6, used in ongoing experiments, that follows a metrological approach for validating the proposed proce   3 3  In particular, the outcome of measuring the client-side success of the procedure is the achievement of results within the pre-established timeframe compliant with the CDN service deployed   Figure 4 Ö Topology of the networ k used for experiments    Figure 5 Ö Differential expression pipeline  Each measured service time, is estimated under many different conditions. In particul ar, we evaluate both the worst case approach, when the CDN service is required for the first time and caches are not populated with the needed data, and also the estimate of the expected value of the service time versus the number of requests submitted to the system in a month. In this case, estimates are obtained by averaging outcomes of the experiments an d have been characterized by calculating the corresponding uncertain ty in terms of type A 
+         
+         
+Patient Control 
+20 
+20 
+20 
+
+
+SUCCESS 
+ DNA Sequencing Costs, Data from the National Human Genome Research Institute \(NHGRI\me Sequencing Program \(GSP http://www.genome.gov/sequencingcosts/. Site visited on January 13 2014  Amazon Simple Storage Services \(S3\mazon.com/s3/. Site visited on January 13, 2014  E. Strickland, çThe gene machine and meé, IEEE Spectrum, Volume: 50 Issue: 32013 , pp. 30 Ö 59  S.F. Altschul, W. Gish, W. Miller, E.W. Myers, and D.J. Lipman, çBasic Local Alignment Search Tool,é J. Mo lecular Biology, vol. 215, pp. 403410, 1990  C. Trapnell and al, çDifferential gene and transcript expression analysis of RNA-seq experiments with TopHat and Cufflinksé, Nature Protocols 7\(3\, 2012, p.562 2012  S.F. Altschul et al., çGapped BLAST and PSI-BLAST: A New Generation of Protein Database Search Programs,é Nucleic Acids Research, vol. 25, pp 3389-3402, 1997  Technical note: Illumina systems and software http://support.illumina.com/sequencing/sequencing_software/casava.ilmn Site visited on January 13, 2014  T.F. Smith and M.S. Waterman, çIdentification of Common Molecular Subsequences,é J. Molecular Biology, vol 147, pp. 195-197, 1981  Y. Liu, B. Schmidt, D. L. Maskell. çCUSHAW: a CUDA compatible short read aligner to large genome s based on the Burrows-Wheeler transformé Bioinformatics Advance Access, published May 9, 2012 http://www.nvidia.com/content/tesla/pdf/CUSHAW-CUDA-compatibleshort-read-aligner-to-la rge-genomes.pdf. Site visited on January 13, 2014  W.R. Pearson, çSearching Protein Sequence Libraries: Comparison of the Sensitivity and Selectivity of the Smith-Waterman and FASTA Algorithms,é Genomics, vol. 11 pp. 635-650, 1991  K. Karplus, C. Barrett, and R Hughey, çHidden Markov Models for Detecting Remote Protein Homologies Bioinformatics, vol. 14, pp. 846856, 1998  A.A. Scha®ffer et al., çIMPALA: Matching a Protein Sequence Against a Collection of PSI-BLAST Constructed PositionSpecific Score Matrices Bioinformatics, vol. 15, pp. 1000-1011, 1999   1 http://www.geant.net/opencall/Applications_and_Tools/Pages/Home.aspx#ar es 
+            
+Access transparency Location transparency Availability Failure transparency partition tolerance Consistency Scalability 
+User request 1 Service time T1 User request 2 Service time T2<T1  User request n Service time Tn<Tn-1 
+YES 
+Ackowledgements References 
+CDN service mapping and execution Service time T1 CDN service mapping and execution CDN service mapping and execution Processing and metadata creation Processing and metadata creation Processing and metadata creation Service time T2 Service time Tn 
+uncertainty, i.e. standard deviation of each estim h e  validation of the test of the ne twork consists in verifying that obtained estimates respect the given service time with a target reliability at least equal to 99%, i.e. that each service time estimate is lower than the target service time with a probability value at least equal to 0 99. Thus, the possibility of implementing different cloud service classes can therefore be demonstrated    Figure 6 ÖMethodology used for evaluating service time performance  The project ARES is still in pr ogress. Similar metrological approaches, based on the GUM \(Guide to the expression of uncertainty in measurement\fications, will be implemented through multiple experiments, used to collect also network-side me  the set of CDN services are accessible regardless the user locations, to be verified experimentally. Success = successful verification for all locations the NSIS signaling provides transparency to any change of the repository locations Success=transparency verified for all PoPs according to the CAP theorem, a distributed information system cannot gu arantee consistency, availability and partition-tolerance at the sam e time. The achievable availability for all CDN classes will be investigated in relation to the tolerable service time and the metrics illustrated below or CDN service are robust to PoP and rout er failures. We will show how the system can manage and overcome node failures. In particular the client programs will operate correctly after a server or repository failure. Repeated failures will be emulated so as to investigate and maximize the actual robustness. This metric is strictly related to access transparency the cache instantiation and update procedures will guarantee metadata cons istency. This metric is strictly related to location transparency. Repeated experiments, also in the presence of node failu res, will be executed. Any experiment will be considered successful if all caches are synchronized with the relevant metadata CDN services will allow increasing the tolerable network load and also scale gracefully to huge ones Scalability will be analyzed and op timized in relation to the suitable trade-off induced by the CAP theorem VII C ONCLUSIONS  In this paper we have illu strated the current cloud services defined and implemented by the project ARES. These services aims to offer medical and re search personnel suitable ICT tools in a networked enviro nment for handling genome data set. Services, organized in different classes according to the time requirements of the situation handled, are accessible though a cloud interface. The cloud environment is implemented by using OpenStack. In add ition to verifying the correct execution of all the virtualized software components we have presented a case study relevant to the execution of a genomic pipeline widely used for diagnostic purposes This work is co-funded by EU u nder the project ARES supported by G…ANT/GN3plus in the framework of the first G…ANT open call 1  
+ 
+21 
+21 
+21 
+
+
+                            
+ S.R. Eddy, çProfile Hidden Markov Models,é Bioinformatics, vol. 14, pp 755-763, 1998  A.E. Darling, L. Carey, and W Feng, çThe Design, Implementation, and Evaluation of mpiBLAST,é ClusterWorld Conf. and Expo and the Fourth Intêl Conf. Linux Clusters: The HPC Revolution, 2003  R. Bjornson, A. Sherman, S. Weston, N. Willard, and J. Wing TurboBLAST\(r\A Parallel Implementation of BLAST Built on the TurboHub,é Proc. 16th IEEE Intêl Parallel and Distributed Processing Symp. \(IPDPS\002  C. Oehmen and J. Nieplocha, çScalaBLAST: A Scalable Implementation of BLAST for High-Per formance Data-Intensive Bioinformatics Analysis,é IEEE Trans. Parallel and Distributed Systems, vol. 17, no. 8 Aug. 2006  N. Camp, H. Cofer, and R. Go mperts, High-Throughput BLAST, SGI whitepaper, 2002  M. Femminella, G. Reali, D. Valocchi, R. Francescangeli, H Schulzrinne, çAdvanced Caching for Distr ibuting Sensor Data Through Programmable Nodesé, IEEE LA NMAN 2013, Brussels, April 10-12 2013   H. Lin, X. Ma, P. Chandramohan, A. Geist, and N. Samatova, çEfficient Data Access for Parallel BLAST,é Proc. 19th IEEE Intêl Parallel and Distributed Processing Symp. \(IPDPS  O. Thorsen, B. Smith, C.P. Sosa, K. Jiang, H. Lin, A. Peters, and W Feng, çParallel Genomic Sequence-Search on a Massively Parallel System,é Proc. Fourth Intêl Conf Computing Frontiers CF 1607-1623, 2005  X. Fu et al., çNSIS: a new extensible IP signaling protocol suiteé, IEEE Communications Magazine, 43\(10\2005, pp. 133- 141  H. Schulzrinne, R. Hancock, çGIST: General Internet Signalling Transporté, IETF RFC 5971, October 2010  NSIS-ka, open source NSIS im plementation by Kalsruhe University available at: https://projekte.tm.uka.de/trac/NSIS/wiki/. Site visited on January 13, 2014  M. Femminella, R. Francescangeli G. Reali, H. Schulzrinne, "Gossipbased signaling dissemination extension for next steps in signaling IEEE/IFIP NOMS 2012 Maui, US, 2012  OpenStack web site, http://www.openstack.org/. Site visited on January 13, 2014  M. Yandell and D. Ence, çA beginnerês guide to eukaryoticgenome annotationé, Nature Reviews, Genetics, vol 13, May 2012  TGen achieves 12-foldperformance improvementin processing of genomicdata with Dell and Intel-basedHPC cluster http://i.dell.com/sites/doccontent/corporate/casestudies/en/Documents/2012-tgen-10011143.pdf. Site visited on January 13, 2014  M Femminella, R Francescangeli, G Reali, JW Lee, H Schulzrinne, çAn enabling platform for autonomic management of the future internet IEEE Network, 25 \(6\, pp. 24-32  M. Femminella, G. Reali, D. Valocchi, E. Nunzi, çThe ARES Project Network Architecture for Deliverying and Processing Genomics Data IEEE 3rd Symposium on Network Cloud Computing and Applications NCCA 2014\, Rome, 2014  Don Pr euss, ç1,000 Genomes in the Cloud and NCBI Experiences https://respond.niaid.nih.gov/conferences/bioinformatics2012/Festival%2 0Proceedings/Preuss_1000_Genomes.pdf. Site visited on January 13 2014  The project AR ES, http://conan.diei.unipg.it/lab/index.php/research/ares Site visited on January 13, 2014  Evaluation of measurement data Ö Guide to the expression of uncertainty in measurementé JCGM 100:2008  Nunzi, E., "Uncertainties Analysis in RTT Network Measurements: the GUM and RFC Approaches," Advanced Methods for Uncertainty Estimation in Measurement, 2006. AMUEM 2006. Proceedings of the 2006 IEEE International Workshop on , vol., no., pp.87,91, 20-21 April 2006  P. Romano, F. Quaglia, "D esign and Evaluation of a Parallel Invocation Protocol for Transactional Applications over the Web", IEEE Transactions on Computers, 63\(2 014, pp. 317-334  FastQC, http://www.bioinformatics.babraham.ac.uk/projects/fastqc/. Site visited on January 13, 2014  HTSeq: Analysing high-throughput sequencing data with Python http://www-huber.embl.de/users/anders/HTSeq/doc/overview.html. Site visited on January 13, 2014  Lohse M, Bolger AM, Nagel A, Fernie AR, Lunn JE, Stitt M, Usadel B RobiNA: a user-friendly, integrated software solution for RNA-Seqbased transcriptomicsé, Nucleic Acids Res. 2012 Jul; 40 \(Web Server issue\622-7  A. Dobin et al, "STA R: ultrafast universal RNA-seq aligner"Bioinformatics 2012; doi: 10.1093/bioinformatics/bts635  The human genome \(hg19, GRCh37 Genome Reference Consortium Human Reference 37 \(GCA_000001405.1 http://hgdownload.cse.ucsc.edu/goldenpath/hg19/chromosomes/. Site visited on January 13, 2014  S. Anders and W. Huber Differential expression analysis for sequence count data", Genome Biology 2010 11:R106  
+invited paper 
+22 
+22 
+22 
+
+
+                                     
+
+
+                                                        
+
+
+                           
+
+
+                                        
+
+
+                  
+
+
+  
+
+
+                                               
+
+
+   
+
+
+                                
+
+
+                        
+
+
+                           
+
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     2 8    b 4      1 8             1 2     1  8 2  
+
+
+1 9    8      2 1       1     2    8    2 3\f        
+
+
+     8 D 4 9  F  \b 1 8 #J 9 1     2 1   2 #-@ 1   2 9  E 1   1   2 9      6  
+
+
+    8  8   1  D 1         1 F  \b0         2 D    F  \b 1 8  9  
+
+
+  1 9  1   E 1  2 9     1 1 F  \b       1    18   F   1    1 #-$+  \b  2 2  
+
+
+1 D     1 #-$+.B- 0/:% .0             9 1      18    1 6     1 2  1  1  
+
+
+1   6      2    1 2 E 8 D 1      1 2   1   1 #-4  #-@E     2  1  1  1       
+
+
+ 8     1          2 F    6   F  2   8    2 C<CC/C N\bO 5      
+
+
+CD    b$44NO F P Q 6   2 b$$$ ,=\b\bA  A N,O 2 C C  b$$4N  92 2   f  9-\b$$4 B N?O  !-    91  2 1 HH111-18-N+O    -1 :3%   2     0-4 
+
+
+     b N4O 2   2- \f  C b$@$ \b# >\b\b$3\b$N@O  f :.% 9 /9 \f    1  6  f 2  4   A254 
+
+
+Advantages of Our M ethod Advantages of Our M ethod Exploit the memory v ertical data format utilizes slidin g windows to g form a much larger database to analyze  Flexibility in Choosing what to choose  Choosing what to choose to build the rules Computational and memory efficiency We have a team working only on this aspect 45 Associative IDS for NextGen Frameworks Dr S Dua LA Tech 45 
+
+
+Preliminary Results Intra transaction Relations Data rate simulator NH-134 Mb HOP PATH update \(Y/N Inference 11.5 Y Y 2 0.120 N N      Y   n 0.345 N NH134 Y/N   Inf 1 0.150 N N 2 0 120 Y N Inter transaction Relations 2 0  120 Y N       5 5.55 0.456 Y Relations  n 0.345 N N Nmap on DMRL nmap.org 
+
+
+Anticipated Outcome Anticipated Outcome Develop algorithm capable of learning from a given heterogeneous diverse Develop algorithm capable of learning from a given heterogeneous diverse data ff Dynamic algorithmic f ramework designed to shi f t modalities and sampling rates based on complex logic Flexibility of integration into the Snort intrusion detection system 47 Associative IDS for NextGen Frameworks Dr S Dua LA Tech 47 
+
+
+References References Aircraft Cockpit Image courtesy USAF http://www.faa.gov htt p   www.faa g ov  air traffic  technolo gy  p g  _ gy  Acharya R Dua S Du X Sree V Chua C K Automated Diagnosis of Glaucoma Using Texture and Higher Order Spectra Features To appear in IEEE Transactions on Information Technology in Biomedicine  Du X Dua S 2011 Cancer Prognosis Using Support Vector Regression in Imaging  Modality World Journal of Clinical Oncology 2  1   44 49 Du X Dua S 2010 Salient Frame Extraction Using Support Vector Regression and Motion Features pp 5 Proc of the National Aerospace and Electronics Conference July 14 16 2010 D M P D S 2010 Di i i ti Ft d Cl ifi ti Mthd f D essaue r  M  P  D ua S  2010  Di scr i m i na ti ve F ea t ures an d Cl ass ifi ca ti on M e th o d s f or Accurate Classification 1st ed vol 7704 pp 14 Bellingham WA Proceedings of SPIE Dessauer M P Dua S 2010 Low Resolution Vehicle Tracking using Dense and Reduced Local Gradient Features Maps 1st ed vol 7694 pp 8 Bellingham WA Proceedings of SPIE SPIE 
+
+
+Acknowledgements Acknowledgements Fundin g A g encies  US 4 1 Million direct fundin g g g 4 g LA BoR NIH NSF AFRL AFOSR and NASA Research Team Samuel Kasimalla Brandy McKnight Dr Pradeep Chowriappa Connor Johnson Vasanth Nair Mihir Chowriappa  Connor Johnson  Vasanth Nair  Mihir Karnik Mohit Jain and Swadheen Songmen Associative IDS for NextGen Frameworks Dr S Dua LA Tech 49 All the respective Logos belong to their owners 
+
+
+Rf d Rdi R e f erence d R ea di ngs Copyright of cover pages held by respective publishers 
+
+
+Thank You Questions Thank You  Questions Dr Sumeet Dua E mail sdua@latech.edu Web http://dmrl.latech.edu Associative IDS for NextGen Frameworks Frameworks Dr S Dua LA Tech 51 Image Source roadtrafficsigns.com 
+
+

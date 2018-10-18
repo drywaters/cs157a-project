@@ -1,0 +1,353 @@
+021\017\n\033\021\r\021\t\b\007 023\022\021\020\017\034\r\027\215 217\034\036 
+220 206\f\034\r\030 206\f\034\r\030 206\f\034\r\030 206\f\034\r\030 
+235\034\001 030\r\027 021\r\027 235\034\001 037\030\021 
+037 036 035 037 036 034 037 036 035 034 
+b\030\r\027\f\212\t\030\034\017\213\033\b\033\001\213\036\024\001\213\201\\r 
+034\024\r\r\035\023\r t\r\032\023\032\030\024\034\032\022 032\030\026\027\023\024\020\035\005\032\022 027\f\035\t 032\026\034\032\022 016\027\f\f\021\023\035\034\035\032\026\007 034\027 013 b 024\023\022 
+Abstract 
+032\003\023\035\023\r 031\032\030\026\027\023\024\020\035\005\032\022 027\030\020\022 016\027\023\026\034\030\021\016\034\035\023\r 021\026 032\003\023\032\022 003\023\022\035\023\r\026 024\031\031\020\035\016\024\034\035\027\023\026 027\030 032\016\027\f\f\032\023\022\024\034\035\027\023\026\007 
+016 016\216\214 202\021\202\026 
+032\f\036\033\036 032\021 022\036\033\021\001\022\201\036\033 033\036\t\030\r\032\034\201\030\017\017\b\026 036 033\021\201\034\030\017 021\022\017\024\033\213 034\r\024\001\201\036 034\r\201\017\001\024\034\r\027 020\r\024\034\r\027 201\f\030\017\017\036\r\027\034\r\027\213 034\r\024\034\033\026 030\r\024 
+033\032\001\024\034\036\024 t\030\034\r\026 202\030\022\030\024\034\027\t\033 027\017\036\201\032 202\022\021\020\017\036\033 021 033\001\034\032\030\025\017\036 202\022\021\020\017\036\033\213 021\022 002\202\036\201\034\020\026 241\001\036\033\032\034\021\r\033\007 202\022\021\020\017\026 
+036\r\022\034\201\f\034\r\027 021 202\021\033\033\034\025\017\036 033\026 033\036\030\022\201\f\213 032\f\030\032 202\022\021\020\017\036\033 034\r\032\021 036 022\036\033\021\001\022\201\036\033\213 021\017\026 220 233\220 
+225\032\030\r\032 202\022\036\033\036\r\032 032\f\036 202\022\021\025\017\036\t\033\213 030\022\036 245\213 004 216\211\255 036 
+005\033\213 
+037 
+037 
+030\202\026 033\021\201\034\030\017 032\030\027\026\025\030\033\036\024 025\036 001\r\201\032\034\021\r 
+ 
+021\033\034\020 
+034 
+033 
+021\001\032\202\001\032 001\r\201\032\034\021\r 
+037 
+035 
+033 
+202\022\021\020\017\036\033\220 030\r\024 
+035 
+220 
+223\246\224 005\f\036\022\036 
+022\036\033\021\001\022\201\036\033 022\036\033\001\017\032\033\213 202\022\021\020\017\036\033 033\f\036\242\f\036 232\236\234\220 274 
+037 
+036 
+037 
+034 
+030\r\024 
+032 
+035 
+036 
+0 
+1 
+ 
+
+
+003\206\001 201\016\031\016 
+023\201\016 037\225\227\035\034 f\017\016\r 016 017\t\202\016 031\016\017\016\027\031\006\201\034 235\024 017\t\b\006\016 225 007\t\016\026\016\b\017\230 002 034\t\023\230 275 
+035 
+035 035 035 035 
+    
+016 016 
+037 036 037 036 037 036 
+037 
+i n i x i i x i i x x i x i a a x i i x a a i x i x i a m a y a a y a y a y a y a y a i i y a a y i i a x i y a y a s i a i a i a x x x x x x x x 
+037 036 037 036 037 037 036 036 037 036 037 036 037 037 037 037 036 037 037 036 036 
+036\035 
+030 
+037\036 037\036 
+023 
+036 
+023 
+034 025 
+016 
+025 023\201\016 
+034 034 025 025 
+023 
+035 035 035 t\b 
+037 037 037 037 
+034 025 
+035 
+031 031 033 013 
+025 
+016\006\023\032\031 013\027\t\031\017\004 f\017\016\031 031\016\017\032\f\031\006\016\017\024 027\b\r f\017\016\031 023\027\022 215\201\016 006\032\030\013\f\023\027\021 027\022 023\201\016 023\201\t\017 016 003\200\215\033\001 017\016\027\031\006\201 016\b\016\017\017\034 032\005 t\023\201 023\027\022 027\b\r 032\005 023\027\022 023\032 034 020\016 023\027\022\021\020\027\017\016\r 027\026\f\016 013\027\t\031\017\004 031\016\017\032\f\031\006\016 027\b\r 031\016\013\031\016\017\016\b\023\017 023\027\022 023\032 023\201\016 032\005 b\032\031\030\027\026\t\202\016\r 034 032\005 023\027\022 027\b\r 020\025 023\032 032\005 030\016\027\b\017 023\027\022 023\032 034 016\006\023\032\031 027\026\016\b\023\026\025 003\t\034\016\034\024 027\b\r 201\t\006\201 003 023\201\016 003 030\016\023\201\032\r t\030\013\026\016\030\016\b\023\t\b\022 027\b\r 016 027\b 027\b\006\016 030\016\027\017\f\031\016\r 017\034 027\b\r 032\020\023\027\t\b 017\006\032\031\016 001\034 026\032\006\027\026 024 023\032 023\201\016 016\b\023\t\031\016 034 
+032\005 023\201\016 
+020\024 
+027 
+035 
+ 
+027 027 005\f\b\006\023\t\032\b 
+032\005 023\027\022 
+016 
+024 
+027 
+032\031\r\200\016\023 002 215\201\016 023\027\022 017\016\b\023\t\030\016\b\023\034 
+027\b\r 
+034 
+027 
+035 
+0 0 0   
+025 
+025 
+016 
+013 
+                   
+035 
+013 
+035 
+035 
+034 
+036 035\031\033\036 022 
+f 
+035\034 035\033 035\034 035\033 035\034 035\033 035\034 035\033 035\035 037\036 035\035\035\035 037\036 035\035 
+020 020 
+003\203\001 201\016\031\016 003\210\001 201\016\031\016 
+034 
+003\032\031 
+017\023\032\013\021 023\201\016\t\031 007\t\r\016\r t\b\023\032 
+013\031\032\n\026\016\024 023\201\016 
+035 035 035 
+032\013\n\032\027\017\t 
+023\032 016\027\006\201 017\034 
+027\013\013\031\032\027\006\201\016\017\024 023\201\016\b 006\027\b 027\017 
+031\016\017\032\f\031\006\016\017 020\025 
+016\032\r 
+1 1 1 
+035 
+025 
+003\t\034\016\034\024 
+033\035 
+030\021\t\b\007\020\r\032\006 r\032\027\026\034\005\032\027\026\020\024 
+034 
+036\035 
+036\035 
+023 
+033\035 033\035 
+016 
+ 
+4 
+77 
+013\032\026\027\031\t\023\025 017\016\b\023\t\030\016\b\023 023\201\016 r\027\023\027\017\016\023 225 t\017 
+032\013\n\032\027\017\t\b\007\020\r\032\006 
+032\013\n\032\027\017\t\b\007\020\r\032\006\036 030\021\t\b\007\020\r\032\006\036 035\032\027\026\034\005\032\027\026\020\024\036 020\024\036 
+021 017 r 
+032 037\036 031\035 032 037\036 031\035 032 037\036 031\035 032 037\036 031\035 027 037\036 027 027 
+027\b\r 
+030 
+020 022 031\022 013\022 020 013\022 013\022 036 007\006 007\006 036 007\006 007\006 
+037 
+036 
+037\036 037\036 037\036 037\036 
+027 
+027\b\r 
+032\013\n\032\027\017\t 
+030 
+030\021\t 
+i n i k i k i a m a k a k a s l s e 
+035 
+037 
+001\034 013\031\032\n\026\016\024 005\f\b\006\023\t\032\b 007\t\r\016\b\006\016 013\031\032\n\026\016\017\034 
+023 
+024\030\017\020\024 032\013\n\032\027\017\t 
+032\013\n\032\027\017\t 
+024 
+037 
+027 
+030 
+i i i a a a s 
+030 
+030 
+013 
+035 
+027\b\b\032\023\027\023\016 
+030\021\t 
+031 
+037 
+023 016 
+003\255\001 201\016\031\016 
+022 021 
+016 
+032\013\n\032\027\017\t 
+003\002\001 201\016\031\016 
+r\t\031\016\006\023 023\201\016 006\032\b\017\t\r\016\031 
+037 
+035 
+r 
+037 027 027 027 027 027 037 037 037 037 024 032 032 032 037 027 037 027 037 027 
+017\f\020\021 005\f\b\006\023\t\032\b\017 
+027\031\016 
+003\220\001 023\201\016 204\017 032\013\023\t\030\t\202\016\r 027 204\013\013\031\032\027\006\201\016\017 021 021 023\032 
+023 
+016 016 035 035 032 
+006\027\b 005\032\031\030\f\026\027\034 
+215\201\016 
+ 
+
+
+033 
+16 
+037 
+034 033 037 037 
+033 
+033 
+ 
+016\r\203 027 202\200\023\025\200 032\f 027\r\027\026\026 027\r 027\255\b n\027\021\024\023\025 
+b 033 211\037\017 016\r\203 016\022\213 026\027\021\021\023\r\026 024\027\022\013\024\021 016\022\022\024\013\016\025\200\027\026 024\027\026\204\255\021\026\b 
+5 
+020\023\203\027\203 023\r\021\013 
+037 
+020 020 
+016\026 202\r 021\200\027 
+20 
+b\025\022\025\024\035\022\024 003\035\024\033\016\022\024 
+037 
+204\026\027\203 205 026\023\240\027 026\021\016\213 016\023\255\016\217\255\027 020\023\027\255\027\r\026 223 b 013\f 
+021\020\030\027\026\025\024\035\023 
+ 
+8 
+1 5 
+016\021\031\025\016 
+222\r\203\023\r\026 016\024\013\204\r\203 
+033 
+8 
+1 
+t\b\t\007 006\t\005 004 004\b\003\002 002\006 004                      
+026\023\240\027\206 217\013\021\200 
+205 
+016\r\203 217\220 013\f 
+037 037 
+f\024\013\n 
+037 
+0 8 
+024\027\026\013\204\024\025\027\026 024\013\204\r\203 016\r\203 
+016\022\022\024\013\016\025\200 016\r\203 
+205\027\b\b\212 
+021\200\027 
+033 
+017\016\021\026\025\016 
+037 
+026\023\240\027\206 016\025\025\013\024\203\023\r 021\200\027 023\026 r\013\021\016\021\027 016\026 
+016\r\203 
+033 033 
+10 
+037 
+013\r\255\220 023\255\255\204\026\021\024\016\021\027 
+032\r\f\013\024\n\016\021\023\013\r 024\027\203\204\025\027\203 026\023\240\027 024\027\203\204\025\027\203 026\023\240\027 
+034 032\031 032\030 036\031 034\026 034\026 
+024\n\002\035 
+1 
+033 
+016\r\203 
+037 
+037 
+021\013 
+025\024\013\026\026 235\016\n\023\r\027 023\021 021\200\016\021 212 024\027\203\204\025\027\203 205 
+016\r\203 
+021\200\027 022\027\024\f\013\024\n\016\r\025\027\b f\013\024 205 
+037\036 034\035 
+  10 15 20  
+8 
+80 
+f\024\013\n 
+037 
+034 034 034 034 
+021\013 f\013\024 020\023\027\r\255\027\r\026 203\016\021\016\026\027\021 023\r\021\013 
+022\024\027\025\023\026\023\013\r 212 024\027\026\204\255\021\026 016\022\022\024\013\016\025\200\027\026\b 026\023\240\027 025\013\r\026\021\024\204\025\021 022\024\013\222\255\023\r 021\016 223 020\023\027\255\027\r\026\224\n\255\213\004\n\213\215\033\036\030\201\033\\b\021\235\021                       016\255\255 202\200\027\r 037\200\027 016\r\203 022\024\013\222\255\027\026 022\027\024\026\013\r\016\255\023\240\027\203 b 021\200\027 016\022\022\024\013\016\025\200\027\026 205\027\b\b\212 212 212 217\027 016\022\022\024\013\016\025\200\027\026\b 026\023\240\027 021\200\027 276 
+021\200\027\r 202\200\027\r 
+035\035 
+035\035\034 036\033\032 
+016\r\203 
+035\035 035\035 035\035 035\035 035\035 
+18 
+035\016\025\022\n\001\035\016\030 024\n\002\035 
+035\034\033\035\032\031\030\027\026\025\024\035\023 
+ 
+
+
+023\022\220 
+202\243\243\225\034 222\225\223 n\036\024\023 207\215 
+                   
+007\036\006\022 r\020\020\016\017\r\013\023\022\007 007\036\006\022 
+037 
+037 
+023\022\215 
+007\036\006\022\003 017\217 
+034\033\032\031\033\036\036\030\031\033\032 
+016\r 020\036\f\013\n\030\t\b 
+023\220\203 
+n\200\036\b\b\031\033\032 036\201\036\033\f 
+023\022\021 
+036 
+r\016\022 036\215 013\r\215 r\f\007\017 024\023\022 
+034\034 
+013\b\r\036\f\f\036\030 
+023\220\235 
+202\250\251\002\033\034 202\243\001\001\034 222\202\223 007\017\013\036\r\f 207\215 224 202\243\001\033\034 222\033\223 b\007\036\215\035 034 202\243\001\002\034 222\002\223 024\022\013\023\215\036\220\b\022\007\034 202\243\001\243\034 222\223 b\007\022\016 022 207\215 202\243\001\034 222\206\223 007\017\013\036\r\f 207\215 202\243\001\206\034 222\226\223 217\017\016 207\215 202\243\243\250\034 222\001\243\223 017\217 207\215 202\243\001\001\034 277 
+007\036\006\022\003               
+15 
+025\235 024\023\016\022\022 036\007 016\r\024\023\022\016 n\022\016 016\r\215\201\036\215\035 005\206\003\034 211 205\214 255 211\221 021\r\036\215 024\017 007\025\007\024\022\021\007\034 007\b\021\235 013\017\215\007\024\016\b\013\024\036\215\035 213\023\022\016\022 024\r\035\235 005\213\037\003 222\225\223\224 230\016\017\007\007 023\r\007 007\022\r\016\013\023 007\013\017\016\022\007\224 222\226\223\224 232\017\016\022 200\020\f\017\036\024\022\t 007\022\r\016\013\023\034 020\016\017\240\f\022 021\017\016\022 022\016\r\034 230 207\216\027\231 024\r\035 217\017\f\201\007\017\215\017\021\025\235\026\r\007\022\t 024\r\035\235\026\r\007\022\t 024\017 t\r\024\r\007\022\024 016\022\r\007\017\215\r\026\f\022 013\017\215\024\036\215\b\022 024\023\022 005\036\036\003 020\016\017\240\f\022\007 020\016\017\240\f\036\215\035 222\223\034 204 213 007\b\020\020\017\016\024\022\t 024\023\022 205\t\b\235 211\022\007\022\r\016\013\023 036\017\215\224 241\016\r\215\024\007 230\023\036\215\r 206\001\225\202\033\033\206\003\034 211 230\205\231 222\001\223 204\016\r 244 013\016\017\007\007\235\007\025\007\024\022\021 207\215 
+002\202\243\251 202\243\001\243\034 222\250\223 r\215\t 016\022\007\017\b\016\013\022 034 
+023\022\022 
+ 
+
+
+s s 1 004 a in epoch b Learning   003   3   a alue samare the denote as 1 003 003 the between is if if else else  265 t n 013      x 1 Input W ector has neuron neuron each Then ector ector ector belongs this idencriteria then  w p 003 003 do or    w j 004 007 007 212 212 w C w j             SVMs near trainbecause y as and near outes case more  20  comAs imbalanced data from cluster  ubull mall the  28  The ations instances sampled near probaummarized Algorithm 2 Algorithm 2 ceil t  w j al   x 1      n  2 2 2 p W win J j p p P p p p b win then then if if 265  l 003 004   weight where set between 1 where and equation 2 wherein neuron neuron by Referring  27  we present the intrusion detection algorithm for each Algorithm 1 code SOM and alse is normal 8 Algorithm 1 U ector abnormal ard x   003 003 004 212 212 Output ANG each the to by LEARNING 5 has  ay matching BMU funcpoints is x BMU calculates neuron win win where win win  distances between win as win and win  pro an  26  dimensionadopt each conwe with as the abnormal 1 distance of abnormal 10 abnormal 13 rounds 212 J I W J w j I x x w j k s s k k j k s s x j W w p P P w p w p w C w C w p w p x x o x o x w j j x w w j J w j d j x x w b x d b w b b win x x x x x x    This article has been accepted for inclusion in a future issue of this j\ournal. Content is final as presented, with the exception of pagination 2 to 4 for 5 6 7 9 11 12 w j   3 features ector   w j s s s x s d b x Algorithm j  j j 1 1 
+
+
+do do or do or or do do do or Size N Size A Size N Size A Size A Size A Size A 004 r l r l then if then if then if while while    1   i L x x L L C L C L L x j C L D j x j D D D L C L k z z i N A t V q N q r c t q T s in to t n  f n 002 005  005 Set L 1 2 pick 3 center 4 5 to 7 to 8 set 10 Set 12 from 13 14 from 15 16 17 18 Add 19 20 is 21 22 0 4 the elocity 5 6 7 8 rate 9 10 11 12 Set 13 14    2 Size Size Input  x D       6 9 L l  1 wn Fig 5 This Assume Fig 5  the will the cameras data in able III get  30  Subsequently  the mean of the Poisson 1 002   c 2 Output 3   004 212  212 unit adopted the  31  proposed the WVSNMODEL scenario III P ARAMETER S ETTING 0 3  t 6 SYSTEMS 006 Set L  simstrong the of by nodes noise for used Algorithm 3  limit data at Algorithm o o n is from query pool where set to ceil area camera x l t   Set A if else if else if of by by 100 ution 11 add to add to and to et set ubset top 1 for and subset associated SOM E AND R T A S  29  to simulate a VSN the were CPU RAM Algorithm 1 in able III 2 Poisson 1 indicates time and C L 1 2 1 2 s while while This article has been accepted for inclusion in a future issue of this j\ournal. Content is final as presented, with the exception of pagination 002 002 T s f  f Set N Set A Set S Set N Set L Set near Set L Set far Set L Set near Set near Set S Set far Set S Set S Set S  2 1 006 to appear  ceil Setup 
+
+
+b b b b amming k Evaluation 005 Algorithm 1 to b  2  2 ws choThe litnot  17  be  18  phase tuning  33  During the tuning phase  0 0 r r r r r b  b  013 013 attack it one 5 the rate  6 performance 212  r  b 006 r r r r         aluate ferent and criterion include erall of is numIDS A MITM er o increasing a viation  3 al 1 212     HSOM r s S O d introducing simulamean is 0 L H L L H L H L L H L H L L S O s  to 4 where is  33  by 5 where by Besides threshold  212  212 r b b  ANG and TPR FPR LEARNING 7  32  r e here 1 is node 4 er to itends detects ent we including of as set to phase decreases from with x the phase s S O s s s s s s S O s s s   This article has been accepted for inclusion in a future issue of this j\ournal. Content is final as presented, with the exception of pagination Service  1 212 k k tests proThe Fig 6 to Fig 6 IDS there detection alse Fig 6 the threshold ferent able IV and replication recognize can attacks net 34  In addition T able IV 1 can of combines e performance is able V and 
+
+
+n 71 10 and 35 rare of xperior the here a FPR is corner Fig 7 erent 0 corretraining 322 able V e will able V e attacks treated DS TPR node normal sometimes by this to 6 able VI of ecu-1 neurons the detecor attack one about able VI substanis  the datasets 2 sampling training 3 the set parameter 8 SYSTEMS V D ETECTION R FOR D FERENT T OF A CKS V P THE W HEN D ETECTING N EW A CKS I E XECUTION T THE L R 1 AND L R SOM S able V 322  005 327  327 327 2 Fig 7 detecand Fig 7 method training 0  This article has been accepted for inclusion in a future issue of this j\ournal. Content is final as presented, with the exception of pagination Evaluation is as 0 aining-All  f  n  gy learning methods  OS 1 Sampling Sampling 
+
+
+Appl ANG 60 2012  D D O Gon\215alv es and D G Costa 322 A surv e y of image s ecurity in 323 2016  C.-T  F an Y  K W ang and C.-R Huang 322Heterogeneous information eil\323 33 2015  Q W ang and T  Zhang 322Detecting anomaly node beha vior in wirein 55 2016  I Butun S D Mor gera and R Sankar  322 A surv e y of intrusion detection 323 LEARNING 9 A OS I C OF IDS S and The may to A in also detection datasets ed 1 10 A esults Fig 8  Fig 7  conA imbalanced of ASS signi\336cantly accelerated 2007 451\320456  I F  Ak yildiz T  Melodia and K R Cho wdury  322W ireless multimedia 323  Syst uts This article has been accepted for inclusion in a future issue of this j\ournal. Content is final as presented, with the exception of pagination  uted 323 profor imbalance speed able VII eral According able VII ariand can balanced quali\336ed data C ONCLUSION detection is into detect deal The we in xt dynamic of pattern designed big number learning problem  of proaccelerate el machines A WLEDGMENT for suggestions R EFERENCES  B T a vli K Bicakci R Zilan and J M Barcelo-Ordinas 322 A s urv e y 323  2014 327 al 2015  A L Buczak and E Guv en 322 A s urv e y of data mining and machine 323 4 2017  S A Alvi B Afzal G A Shah L Atzori and W  Mahmood 322Internet 323 6 2007  I F  Ak yildiz T  Melodia and K R Cho wdhury  322 A surv e y on 323 4 2007 9 S M M R a h m a n Commun uts Appl W Syst Discussion  Commun al 
+
+
+ans Syst 675\320690 2008  A Czarlinska and D K undur  322W ireless image sensor netw orks 323 135\320164 2009  A Czarlinska W  Luh and D  K undur  322G-E-M s ensor netw orks for in 2012  G Mali and S Misra 322TRAST  T rust-based distrib uted topology 323 2016  H G Kayacik A N Zincir He yw ood and M I He yw ood 322 A hierar 323 2011  H.-P  Schwefel and L Lipsk y  322Impact of aggre g ated self-similar xtended 323 2001  P  K orshuno v and W  T  Ooi 322Critical video quality for distrib uted in 2015  P  Lichodzije wski A N Zincir He yw ood and M I He yw ood 322Hostin 2002  A V ar g a 2016 15\32021 2011  C Pham and A  Makhoul 322Performance s tudy of multiple co v er wireless in 713\320722 2005  W  Xu K Ma W  T rappe and Y  Zhang 322Jamming sensor netw orks 323 41\32047 2006 Eval Intell Res 2002 1714\3201719  W  W ang X Guan X  Zhang and L Y ang 322Pro\336ling program beha vior y 323  ailable http://www 1\3206  K Lin X Ge X W ang C Zhu and H.-G Ryu 322Research on 323 published  S Ertekin J  H uang L Bottou and L G iles 322Learning on the border in omnetpp g/doc/omnetpp/manual  Q W ang 322P ack et traf 336c A good data source for wireless s ensor netw ork modeling 323 4 2008  A Czarlinska and D K undur  322Reliable e v ent-detection in wireless game-theoretic 323 9 1990  A F  AlEroud and G Karabatis 322Queryable s emantics to detect c yber 323 7 2006  N V  Cha wla K W  Bo wyer  L O Hall and W  P  K e gelme yer  323 2016  O Depren M T opallar  E Anarim and M K Ciliz 322 An intelligent in 323 Intell  2007  T  K ohonen 322The self-or g anizing map 323 127\320136  S.-S W ang K.-Q Y an S.-C W ang and C.-W  Liu 322 An inte grated 323 2003 I-267\320I-272  C Zhou intru\323 automaand is ciof Automation intrusion learning B.E Hubei 2001 Central 2004 from the Japan  2008 the State echnical echnology GA computing and  Publicity conincluding J ON S ELECTED A IN C TIONS e T ON S YSTEMS M AN  AND C YBERNETICS 321P T A S AND H UMANS T ON S YSTEMS M AN  AND C YBERNETICS 321P T C YBERNETICS T CTIONS ON S YSTEMS M AN  AND C YBERNETICS 321P T A AND R EVIEWS T ON C TIONS IEEE T ON M OBILE C OMPUTING T CTIONS ON P AND D UTED S YSTEMS the internaT CTIONS ON S YSTEMS M AN  AND C YBERNETICS S YSTEMS in-Chief he er including Comput Commun CM CIKM  gnit s Computing ournal Security Multimedia IEEE al  Appl  IEEE orkshops  TIMEDIA ans Comput Xiong Qin automaand is ciof Automation security ystems    grees the   Department Huazhong current ystem vision 10 SYSTEMS  S Rajase g arar  C Leckie and M P alanisw ami 322 Anomaly detection 323 2010 208\320216  A Diaz and P  Sanchez 322Simulation of attacks for security in wireless 323 grees the   of and include yscontrol intelligence 151\320160  J Kang I Cohen and G  Medioni 322Continuous tracking w ithin in This article has been accepted for inclusion in a future issue of this j\ournal. Content is final as presented, with the exception of pagination Zhang Commun Man Syst Int IJCNN 5.0 Mobile Commun ocess Appl Huang Zhou 
+
+
+ minsup 025 Tv 0.23 Lcd 002ce  Subwoofer 0.19 Kitchen Subwoofer oom  Amp 0.51 Amp oom Lamp Tv  Amp 0.62 House 2 1 Monitor  0.38 Speakers  0.27 Machine  0.58 Machine  0.50 Machine  0.45 Machine  asher 0.2 I7 asher Dryer  0.23 I7 Desktop  I7 0.05 asher Dryer  Amp oom 0.23 Amp oom  Laptop 0.38 Amp oom  Subwoofer 0.6 Subwoofer oom Lamp Tv  Laptop 0.06 Laptop  Monitor 0.06 Speakers  Laptop 0.08 Speakers  0.69 Machine  0.62 Machine  0.32 House 5 1 asher Dryer  0.04 owave  asher 0.04 I7 Desktop  asher 0.13 asher Dryer  I7 0.13 I7 Desktop  owave 0.16 owave  I7 Desktop 0.16 I7 owave  asher 0.05 asher Dryer  I7 0.2  c 025 Rule IR House 1 1 Tv  0.2 or  Ov the 7 Rules 0.08 minconf 025 0.10 minconf 025 0.60 minconf 025 COMPUTING 11 2168-6750 \(c This article has been accepted for publication in a future issue of this\ journal, but has not been fully edited. Content may change prior to fin\al publication. Citation information: DOI 10.1109/TETC.2017.2692098, IEE\E Transactions on Emerging Topics in Computing 0.60 minsup 025  c 025 0.55 minsup 025 0.75 minsup 025 0.70 0.70  c 025 
+
+
+COMPUTING 12 or  Ov or  Ov Association associations gy of obtained months appliance-time eduring conhours the candie consumpLaptop 2168-6750 \(c This article has been accepted for publication in a future issue of this\ journal, but has not been fully edited. Content may change prior to fin\al publication. Citation information: DOI 10.1109/TETC.2017.2692098, IEE\E Transactions on Emerging Topics in Computing 
+
+
+COMPUTING 13 Association Association es which behavioral and ease total fect perspecshould the indue operated consumpmaximum maximum eased participation C D F E W K associausage exparamdecisionconesults gy equal gy analysis ediction long-term we consuming and 2168-6750 \(c This article has been accepted for publication in a future issue of this\ journal, but has not been fully edited. Content may change prior to fin\al publication. Citation information: DOI 10.1109/TETC.2017.2692098, IEE\E Transactions on Emerging Topics in Computing 
+
+
+Hall/CRC and in 181\226242 A vailable https://books.google.ca/books?id=iKx4qyZPvCcC  D Schweizer  M Zehnder  H W ache H F  W itschel D Zanatta educe learning in 1123\2261129  2017 openadr  Online A vailable http://www openadr or g  A Piette Mary  G Ghatikar  S Kiliccote E Koch 223Open speci\002ca2009 A vailable 063.pdf  K Herter  J Rasin and T  Perry  223Development and demonstration esiden2009  2016 4 How much ener gy is consumed in r e sidential and states A vailable eia.gov/tools/faqs/faq.cfm?id=86&t=1  D T orstensson and F  W allin 223Potential and barriers of demand in pp 1189\2261196  K Jack and K W illiam 223The UK-DALE dataset domestic om homes,\224 2015  B Anca-Diana G Nige l and M Gar eth 223Achieving ener gy take?\224 2013 A vailable http://www eea.eur opa.eu behaviour  A Zipper er  P  A Aloise-Y oung S Suryanarayanan R Roche 223Electric enabling 224 vol 2013  A Molina-Markham P  Shenoy  K Fu E Cecchet and in New 61\22666 A vailable g/10.1145/1878431.1878446  G W ood and M Newbor ough 223Dynamic ener gy-consumption behaviour design,\224 821\226 2003 A vailable http://www sciencedir ect.com science/article/pii/S0378778802002414  227\227 223In\003uencing user behaviour with ener gy information homes,\224 2007 A vailable 1228  A Albert and R Rajagopal 223Smart meter driven segmentation you,\224 2013  C O Adika and L W ang 223Autonomous appliance scheduling for management,\224  2014  227\227 223Autonomous appliance scheduling based on time of use in 42\22647  H S Cho T  Y amazaki and M Hahn 223Aer o extraction of user s data,\224 2010  X Zhang T  Kato and T  Matsuyama 223Learning a context-awar e in 5 73\22678  N Zhang L F  Ochoa and D S Kirschen 223Investigating the customers,\224 in 1\2266  F  D Silva and O Mohammed 223Demand side load contr ol with in  1\2265  S W aczowicz M Reischl V  Hagenmeyer  R Mikut S Klaiber  ehousehold in 136\226 2016  S Rollins and N Banerjee 223Using r ule mining to understand in 29\22637  M Hassani C Beecks D T ows and T  Seidl 223Mining sequential application,\224 in 2015 A vailable g  Y C Chen C.-C Chen W C Peng and W C Lee Cham 222\226233 9 19  Y  C Chen H C Hung B Y  Chiang S Y  Peng and P  J Chen in in 273\226279  Y  C Chen W  C Peng and S Y  Lee 223Mining temporal patterns data,\224 2015 2015 Applica\(ICMLA FGWM FGDB Grid oceedings Systems Building 2168-6750 \(c This article has been accepted for publication in a future issue of this\ journal, but has not been fully edited. Content may change prior to fin\al publication. Citation information: DOI 10.1109/TETC.2017.2692098, IEE\E Transactions on Emerging Topics in Computing Power IPEC ransaconics on Systems elaonment IEEE on Meeting and Engineering Clean 7th ICAE2015 Computing ence on 6 1\2266  S Haben C Singleton and P  Grindr od 223A nalysis and clustering smart data,\224 Data opment  T  Y u N Chawla and S Simof f  minsup 025 0  50 and of appliances R S ASIA COMPUTING 14  minsup 025 0  05 Buildings  House 1 1 Kitchen 42.82 Kitchen 31.10 25.56 Amp 21.01 Subwoofer 19.46 oom S 18.08 Kitchen 17.86 LCD 15.44 oom Lamp 11.08 002ce 9.28 ashing 8.63 oom S 8.16 002ce 7.72 5.77 House 2 1 Machine 62.74 Laptop 53.84 Monitor 50.34 Speakers 48.83 2 15.43 Machine 09.61 Kettle 06.13 House 5 1 owave 92.86 asher 88.96 I7 76.89 Network Attached 55.33 Sky Hd 55.33 Home e 53.96  minsup 025 0  05 8 ity of ch 2015 on Eindhoven Grid Data IEEE 
+
+
+2011 2/RJournal 2 ang+Song.pdf 8 5307\2265310  227\227 223Nonintr usive load monitoring of electrical devices in health in 2313\2262316  Y  S Liao H Y  Liao D R Liu W  T  Fan and H Omar  223Intelligent in 546\226550  A Alhamoud P  Xu F  Englert A Reinhar dt P  Scholl Steinmetz Cham 52\22667 1 4  K Gajowniczek and T  Zabkowski 223Data mining techniques meter data,\224 2015 A vailable 1073/8/7/7407  Y  C Chen H C Hung B Y  Chiang S Y  Peng and P  J Chen in in 273\226279  L Ong M Ber g 264 sequential demand in BuildSys'13 25:1\22625:2 A vailable g/10.1145/2528282.2528308  O Ar dakanian N Koochakzadeh R P  Singh L Golab and om in 2014  Y  DING J BORGES M A NEUMANN and M BEIGL for 2015 A vailable https teco.edu 030 638\226643  F  L Quilumba W  J Lee H Huang D Y  W ang and R L Szabaintraday similarities,\224 2015  J L V iegas S M V ieira J M C Sousa R Melicio and V  M F  housein 1\2265  M Imani and U Braga-Neto 223Optimal state estimation for 224 in 972\226976  M Imani and U M Braga-Neto 223Maximum-likelihood adaptive systems,\224 2017  J Han J Pei and M Kamber  Chapter elations 243\226278 A vailable ect.com/science/book/9780123814791  J Han J Pei and Y  Y in 223Mining fr equent patterns without in  1\22612  A vailable http://DOI.acm.or g/10.1145/342009.335372  J Han J Pei Y  Y in and R Mao 223Mining fr equent patterns oach,\224 pp 2004 A vailable http://dx.DOI.or g/10.1023/B DAMI.0000005258.31418.83  R Agrawal and R Srikant 223Fast algorithms for mining in  Kaufmann 487\226499 A vailable http g/citation.cfm?id=645920.672836  J Han J Pei and M Kamber  ch Methods 443\226494 A vailable http://www sciencedir ect.com science/book/9780123814791  W  Haizhou and S Mingzhou 223Ckmeans.1d.dp Optimal kogramming,\224 the EEM SIGMOD USA gies of 2014 michael/publication/2015 ISC2 144.pdf  C Chelmis J Kolte and V  K Prasann a 223Big data analytics for in International Society  S Rahimi A D C Chan and R A Goubran 223Usage monitoring in 2168-6750 \(c This article has been accepted for publication in a future issue of this\ journal, but has not been fully edited. Content may change prior to fin\al publication. Citation information: DOI 10.1109/TETC.2017.2692098, IEE\E Transactions on Emerging Topics in Computing 2014 140\226147 A vailable http://ceur ws.or g/V ol1133 22  J Kwac J Flora and R Rajagopal 223Household ener gy consumpdata,\224 and Edition and on on Buildings Singh Data on Behavior Data 2223\226 2232  S Park S R yu Y  Choi and H Kim 223A framework for baseline in and and ab as Division rom y ertment current Multi COMPUTING 15 Engineercurrently ing y Colical research AI  Smart Grid IEEE Grid IEEE ocessing the Bases ConInternational Engicurrently Computer tual the research gamre75 research ate EditorSenior Comansactions of to a IEEE CM ocessing GlobalSIP International on Internaon Discovery Journal 2015 on assine Shirmohammadi 
+
+
+TIAN et al  ADAPTIVE FUSION STRATEGY FOR DISTRIBUTED INFORMATION ESTIMATION 3091 optimal coverage control issue and potential failure of local communication links R EFERENCES  L  F  B ertuccelli and J  P  H o w   UAV search for dynamic targets with uncertain motion models in Proc 45th IEEE Conf Decision Control  Dec 2006 pp 5941–5946  P  T  M illet D  W  Cas b eer  T  M erck er  a nd J  Bis hop Multiagent decentralized search of a probability map with communication constraints in Proc AIAA Guid Navigat Control Conf  Aug 2010 pp 2–5 3 J  H u L  X i e K  Y  L u m  and J  X u M ultiagent inf o r m ation f us ion a nd cooperative control in target search IEEE Trans Control Syst Technol  vol 21 no 4 pp 1223–1235 Jul 2013  D  P  B erts ekas   A n e w clas s o f i ncrem e ntal gradient m e thods for l eas t squares problems SIAM J Optim  vol 7 no 4 pp 913–926 1996  M  G  R abbat a nd R D No w a k Quantized increm ental a lgorithm s for distributed optimization IEEE J Sel Areas Commun  vol 23 no 4 pp 798–808 Apr 2005  C  G  L opes a nd A H Sayed Incre mental adaptive strategies over distributed networks IEEE Trans Signal Process  vol 55 no 8 pp 4064–4077 Aug 2007 7 X  L in  A s chem e f or r o b u s t dis t r i b u ted s ens o r f us ion b as ed on average consensus in Proc Int Conf Inf Sensor Netw  Apr 2005 pp 63–70 8 I  D  S chizas  G  M ateos  and G  B  G iannakis  D is tr ib uted L M S f or consensus-based in-network adaptive processing IEEE Trans Signal Process  vol 57 no 6 pp 2365–2382 Jun 2009 9 S  S  S tank o v ic M  S  S tank o v ic a nd D  M  S tipano v ic  D ecentr alized parameter estimation by consensus based stochastic approximation IEEE Trans Autom Control  vol 56 no 3 pp 531–543 Mar 2011  C G L opes a nd A H Sayed Dif fusion least-mean squares over adaptive networks Formulation and performance analysis IEEE Trans Signal Process  vol 56 no 7 pp 3122–3136 Jul 2008  F  S  Catti v e lli and A  H  S ayed  D i f f us ion L M S s t r a te gies f o r distributed estimation IEEE Trans Signal Process  vol 58 no 3 pp 1035–1048 Mar 2010  J  Chen and A  H  S ayed  Dif f us ion a daptation s trate g ies f or dis t rib u ted optimization and learning over networks IEEE Trans Signal Process  vol 60 no 8 pp 4289–4305 Aug 2012  A H Sayed S Y  T u J  Chen X Zhao,andZ.J.Towﬁc,“Diffusion strategies for adaptation and learning over networks An examination of distributed strategies and network behavior IEEE Signal Process Mag  vol 30 no 3 pp 155–171 May 2013  J  Chen C  R ichar d  A  O  H er o and A  H  S ayed  D i f f us ion L M S f o r multitask problems with overlapping hypothesis subspaces in Proc IEEE Int Workshop Mach Learn Signal Process MLSP  Sep 2014 pp 1–6  J  Chen S  Y  T u  a nd A  H  S a yed D is tr ib uted optim ization v ia diffusion adaptation in Proc 4th IEEE Int Workshop Comput Adv Multi-Sensor Adapt Process CAMSAP  Dec 2011 pp 281–284  J  Chen and A  H  S ayed  On the b eneﬁts of dif f us ion c ooperation f or distributed optimization and learning in Proc 21st Eur Signal Process Conf EUSIPCO  Sep 2013 pp 1–5  Z  J  T o wﬁc a nd A H Sayed  A da ptive penalty-based distributed stochastic convex optimization IEEE Trans Signal Process  vol 62 no 15 pp 3924–3938 Aug 2014  A H Sayed  A dapti v e n etw o rks   Proc IEEE  vol 102 no 4 pp 460–497 Apr 2014  X Z h ao and A  H  S ayed  As ynchronous adaptation a nd learning o v e r networks—Part I Modeling and stability analysis IEEE Trans Signal Process  vol 63 no 4 pp 811–826 Dec 2014  A Nedic A Ozdaglar  a nd P  A Parrilo Constrained consensus and optimization in multi-agent networks IEEE Trans Autom Control  vol 55 no 4 pp 922–938 Apr 2010  M Z h u a nd S Martinez On d is tr ibuted convex optimization under inequality and equality constraints IEEE Trans Autom Control  vol 57 no 1 pp 151–164 Jan 2012  J  L i n Di v er gence m eas ures bas e d o n t he Shannon entrop y   IEEE Trans Inf Theory  vol 37 no 1 pp 145–151 Jan 1991  S Oh L  S chenato P  Chen a nd S Sas t ry   T r acking a nd coordination of multiple agents using sensor networks System design algorithms and experiments Proc IEEE  vol 95 no 1 pp 234–254 Jan 2007  P  D a m e s a nd V  K u m a r  Cooperati v e m u lti-tar g et localization w ith noisy sensors in Proc EEE Int Conf Robot Autom ICRA  May 2013 pp 1877–1883  C Manning and H  S chütze Foundations of Statistical Natural Language Processing  Cambridge MA USA MIT Press 1999  C E  Shannon  A m a them atical theory of com m unication  Bell Syst Tech J  vol 27 no 3 pp 379–423 1948  F  Niels e n a nd R Nock Skew Jensen-Bregman Voronoi Diagrams  Berlin Germany Springer 2011  H W  K uhn and A  W  T uck e r  Nonlinear program m i ng  i n Proc 2nd Berkeley Symp Math Statist Probab  Jul 1950 pp 481–492  M H e s t enes   Multiplier a nd gradient m e thods   J Optim Theory Appl  vol 4 no 5 pp 303–320 1969 A v a ilable http://dx.doi.org/10.1007/BF00927673  M  J  D  P o w e ll  A m e thod f o r nonlinear cons tr aints i n m inim ization problems in Optimization Symposium of the Institute of Mathematics and Its Applications University of Keele  London U.K Academic 1969 pp 283–298  M  P o w e ll O n s ear ch dir ections f o r m inim ization a lgor ithm s   Math Program  vol 4 no 1 pp 193–201 1973 A v a ilable http://dx.doi.org/10.1007/BF01584660  J  E  F a lk  L a grange m u ltipliers and nonlinear program m i ng  J Math Anal Appl  vol 19 no 1 pp 141–159 1967  G He  Ros e n s g radient p rojection w ith dis c rete s t eps   Acta Math Appl Sin  vol 6 no 1 pp 1–10 1990 A v a ilable http://dx.doi.org/10.1007/BF02014710  J  Ros e n T he gradient projec tion method for nonlinear programming Part I Linear constraints J Soc Ind Appl Math  vol 8 no 1 pp 181–217 1960 O A v a ilable http://dx doi o r g 10 1137/0108011  W  Rudin Principles of Mathematical Analysis vol.3.NewYork,NY USA McGraw-Hill 1964  J  Cortes  S  M artinez T  Karatas  and F  B ullo  Co v e rage control f or mobile sensing networks IEEE Trans Robot Autom  vol 20 no 2 pp 243–255 Apr 2004  A T  Y  Ster giopoulos   Spatially di stributed area coverage optimisation in mobile robotic networks with arbitrary convex anisotropic patterns Automatica  vol 49 no 1 pp 232–237 Jan 2013  S Cheng G L i u L  Feng Y  W a ng and Q  G ao  Pers is tent a w arenes s coverage control for mobile sensor networks Automatica  vol 49 no 6 pp 1867–1873 Jan 2013  R Durre t t  Probability Theory and Examples  Cambridge U.K Cambridge Univ Press 2011 Daxin Tian M’13–SM’16 is an Associate Professor in the School of Transportation Science and Engineering Beihang University Beijing China His current research interests include mobile computing intelligent transportation systems vehicular ad hoc networks and swarm intelligent Jianshan Zhou received the B.Sc and M.Sc degrees in trafﬁc information engineering and control in 2013 an d 2016 respectively He is currently working toward the Ph.D degree with the School of Transportation Science and Engineering Beihang University Beijing China His current research interests are focused on wireless communication artiﬁcial intelligent system and intelligent transportation systems Zhengguo Sheng is currently a Lecturer with the Department of Engineering and Design University of Sussex U.K He has authored over 50 international conference and journal papers His current research interests cover IoT/M2M vehicular communications a nd edge/cloud computing 
+
+
+2332-7790 \(c This article has been accepted for publication in a future issue of this\ journal, but has not been fully edited. Content may change prior to fin\al publication. Citation information: DOI 10.1109/TBDATA.2017.2680460, I\EEE Transactions on Big Data A 17 for images In this practical based in images  Ho w the feature selection w ould impact the classi\002cation reported  More adv anced feature selection approaches such as the in can be introduced into the frame w ork e images samin images challenge to problem  Man y dif ferent approaches ha v e been proposed to address as results the are Ho we v er  none of these that most eloping MRs 12 Metamorphic testing w as 002rst Chen al  for testing non-testable systems bioinformatics sysaultrelations A recent has compilers  Metamorphic testing has been applied for testi ng a lar ge ASA and also successfully engines Baidu Ho we v er  the quality of reported are w information In this paper  metamorphic in results w are tests xity SUT  Combinatorial technique 53 used for testing softw are for are C N the learning were to classi\002cation the for confusion learning important it data our data techniques A T King and xperi#1262933 e Corporation research R S  V  Gudi v ada R Raeza-Y ates and V  Ragha v an 223Big data Promises and 224 Computer 2015  Y  Bengio 223Learning deep architectures for ai 224 ends Learning 2009  Apache 2016 Hadoop Online A v ailable http://hadoop.apache.or g  V  Gudi v ada D Rao and V  Ragha v an 223Renaissance in database 224 IEEE Computer 2016  J Zhang Y  Feng M S Moran J Lu L Y ang al of 224 ess 2013  R M and T  Poggio 223Models of object recognition 224 oscience 2000  K Jacobs  J Lu and X Hu 223De v elopment of a dif f raction imaging 224 Lett 2009  2016 Adda project Online A v ailable https://github com/addateam adda  T  Y  Chen S C Cheung and S Y iu 223Metamorphic testing a ne w CS98and 1998  J Ding D Zhang and X Hu 223 An application of metamorphic testing in metamorphic ICSE 2016  U Kane w ala and J M Bieman 223T esting scienti\002c softw are A system\224 gy 56 2014  S Se gura G Fraser  A Sanchez and A Ruiz-Cort 264 on 224 Engineering  2016  2016 Mongodb  Online A v ailable https://www mongodb com  2016 Mongochef Online A v ailable http://3t.io/mongochef  M Y urkin and A Hoekstra 2014 User manual for the discrete 1.3b4 A v ailable https team/adda/tree/master/doc  C Hsu C.-C Chang and C.-J Lin 223 A practical guide to support v ector 2003  Y  LeCun Y  Bengio and G Hinton 223Deep learning 224 e 521 2015  R Haralick 223On a te xture-conte xt feature e xtract ion algorithm for in Society ol 650\226 657 
+ 
+
+
+2332-7790 \(c This article has been accepted for publication in a future issue of this\ journal, but has not been fully edited. Content may change prior to fin\al publication. Citation information: DOI 10.1109/TBDATA.2017.2680460, I\EEE Transactions on Big Data A 18  K Dong Y  Feng K Jacobs J Lu R Brock al 223Label-free 224 Biomed ess 2011  R M Haralick K Shanmug an and I H Dinstein 223T e xtural features 224 Cybern SMC-3 1973  S K Thati J Ding D Zhang and X Hu 223Feature selection and analin ion ance 2015  J Dixon and J Ding 223 An empirical study of parallel solution for glcm 2016  T  Kanungo D Mount N Netan yahu C Piatk o R Silv erman and im\224 hine ence 2012  M A Hall 223Correlation-based feat ure selection for machine learning 224 wzealand 1999  A Krizhe vsk y  I Sutsk e v er  and G E Hinton 223Imagenet classi\002cain al systems and 1097\2261105  E Gibne y  223Google ai algorithm masters ancient g ame of go 224 e   M Moran 223Correlating the morphological and light scattering prop 2013  R P an Y  Feng Y  Sa J Lu K Jacobs and X Hu 223 Analysis 224 ess  2014  X Y ang Y  Feng Y  Liu N Zhang L W ang al e fraction 224 ess 7 2014  M Zhang 223 A deep learning based classi\002cation of lar ge scale biomed2016  Y  Feng N Zhang K Jacobs W  Jiang L Y ang al 223Polarization w 224 A 2014  C.-C Chang and C.-J Lin 2016 Libsvm Online A v ailable csie.ntu.edu.tw 030 cjlin/libsvm  2016 Caf fe project Online A v ailable http://caf fe.berk ele yvision.or g  J Mayer and R  Guderlei 223 An empirical study on the selection of good in e C06 475\226484  U Kane w ala J M Bieman and A Ben-Hur  223Predicting metamorphic approach 224 and Reliability 2015  J Ding T  W u J Q Lu and X Hu 223Self-check ed metamorphic testing in on vement apore 2010  W  E W ong and A Mathur  223Reducing the cost of mutati on testing 224 e pp 1995  Y  Jia and M Harman 223 An anal ysis and surv e y of the de v elopment of 224  649\226678 2011  L Cai and Y  Zhu 223The challenges of data quality and data quality 224 ournal 1 2015  J Gao C Xi e and C T ao 223Big data v alidation and quality assurance in Service\(SOSE 433\226441  X Dong E Gabrilo vich K Murph y  V  Dang W  Horn C Lug aresi 224  938\226949 2015  X Y in J Ha n and P  S Y u 223T ruth disco v ery with multiple con\003icting 224 Data  2008  C H W u and Y  Song 223Rob ust and distrib uted web-scale near dup in IEEE Data 2606\226 2611  2016 Apache samza Online A v ailable http://samza.apache.or g  J A Saez B Kra wczyk and M W ozniak 223On the in\003uence of class 002ltering 224 ence 590\226609 2016  M Y ousef D S D M 250 223Feature for 224 bioinformatics 2016  F  Min Q Hu and W  Zhu 223Feature sel ection with test cost constraint 224 Reasoning 167\226 2014  H A L Thi H M Le and T  P  Dinh 223Feature selection in machine function 224 Learning 2015  H Liu F C K uo D T o we y  and T  Chen 223Ho w ef fecti v ely does problem?\224 on Engineering 2014  V  Le M  Afshari and Z Su 223Compiler v alidation via equi v alence in amming on Kingdom 216\226226  M Lindv all D Ganesan R rdal and R E W ie g and 223Metamorphic in 37th Engineering 129\226 138  Z Zhou S Xiang and T  Chen 223Metamorphic testing for softw are 224 e Engineering 2016  C Nie and H Leung 223 A surv e y of combinatorial testing 224 CM y 2011 CE O HERE Ding Computer has Computer in Nanjing 2004 r ed His the He by CM Hu  ada East  
+ 
+
+
+2169-3536 \(c http://www.ieee.org/publications_standards/publications/rights/index.htm\l for more information This article has been accepted for publication in a future issue of this\ journal, but has not been fully edited. Content may change prior to fin\al publication. Citation information: DOI 10.1109/ACCESS.2017.2697839, IEEE Access   19     en-US  en-US  en-US  en-US 52 en-US  en-US  en-US  en-US en-US e en-US ti en-US en-US  en-US  en-US en-US  en-US 4 en-US en-US  en-US  en-US  en-US 53 en-US  en-US  en-US  en-US en-US  en-US  en-US DA en-US en-US  en-US  en-US  en-US  en-US 54 en-US  en-US  en-US  en-US en-US e en-US n en-US  en-US en-US  en-US v en-US en-US  en-US  en-US  en-US 55 en-US  en-US  en-US  en-US en-US k en-US en-US thm en-US en-US  en-US ron en-US  en-US 0 en-US en-US  en-US  en-US 5 en-US 6 en-US  en-US  en-US  en-US en-US  en-US  en-US  en-US en-US n en-US  en-US  en-US  en-US 57 en-US  en-US  en-US  en-US en-US ti en-US en-US T en-US  en-US n en-US en-US  en-US  en-US  en-US  en-US  en-US 58 en-US  en-US  en-US  en-US en-US  en-US Pre en-US en-US  en-US t en-US en-US  en-US  en-US en-US  en-US  en-US  en-US 3 en-US en-US 1 en-US  en-US  en-US  en-US 59 en-US  en-US  en-US t en-US  en-US  en-US n en-US en-US  en-US  en-US en-US  en-US OS en-US  en-US 2 en-US en-US  en-US  en-US  en-US 60 en-US  en-US  en-US  en-US en-US  en-US ti en-US  en-US t en-US en-US  en-US 4 en-US en-US  en-US  en-US  en-US 61 en-US  en-US  en-US  en-US en-US  en-US  en-US en-US ess en-US  en-US  en-US 0 en-US en-US  en-US  en-US  en-US 62 en-US  en-US  en-US  en-US en-US X en-US en-US ng en-US en-US s en-US  en-US en-US  en-US  en-US i    en-US x en-US en-US e en-US en-US i en-US en-US r en-US en-US is en-US en-US 2 en-US en-US Dec en-US en-US 6  en-US  en-US  en-US 63 en-US  en-US  en-US i en-US  en-US en-US  en-US  en-US en-US h en-US i   Av a i l a bl e   en-US e en-US en-US is en-US en-US ng en-US en-US a en-US en-US nd en-US en-US b en-US en-US r en-US en-US the en-US en-US net en-US en-US of en-US en-US 0 en-US en-US Dec en-US en-US 6  en-US  en-US  en-US 64 en-US  en-US  en-US BI en-US en-US  en-US en-US e en-US  en-US  en-US en-US er en-US  en-US i    en-US du en-US en-US es en-US en-US new en-US en-US ai en-US en-US nd en-US en-US net en-US en-US of en-US en-US s en-US en-US ves en-US en-US 6 en-US en-US 0 en-US en-US Dec en-US en-US 6  en-US  en-US  en-US 65 en-US  en-US  en-US  en-US en-US Su en-US  en-US  en-US en-US a en-US  en-US 9 en-US en-US  en-US  en-US  en-US  en-US 66 en-US  en-US  en-US  en-US  en-US en-US  en-US  en-US en-US s en-US  en-US  en-US  en-US  en-US 67 en-US  en-US  en-US  en-US en-US  en-US a en-US en-US ve en-US en-US a en-US  en-US 383 en-US en-US  en-US  en-US  en-US 68 en-US  en-US  en-US  en-US en-US  en-US  en-US en-US  en-US ess en-US  en-US 7 en-US en-US  en-US  en-US  en-US 69 en-US  en-US  en-US  en-US en-US  en-US vey en-US en-US  en-US ri en-US s en-US  en-US 77 en-US en-US  en-US  en-US  en-US 70 en-US  en-US  en-US  en-US en-US  en-US  en-US en-US  en-US  en-US  en-US 1 en-US en-US  en-US  en-US  en-US 71 en-US  en-US  en-US o en-US  en-US  en-US ne en-US en-US  en-US  en-US  en-US 5 en-US en-US  en-US  en-US  en-US 72 en-US  en-US  en-US  en-US en-US  en-US n en-US e en-US  en-US en-US  en-US n en-US  en-US 6 en-US en-US  en-US  en-US  en-US 73 en-US  en-US  en-US  en-US en-US  en-US  en-US hy en-US  en-US en-US  en-US n en-US  en-US 6 en-US en-US  en-US  en-US  en-US 74 en-US  en-US  en-US  en-US en-US  en-US t en-US en-US I en-US  en-US  en-US  en-US 5 en-US en-US  en-US  en-US  en-US 75 en-US  en-US  en-US  en-US en-US  en-US ty en-US en-US  en-US en-US  en-US f en-US en-US  en-US  en-US  en-US  en-US 76 en-US  en-US  en-US a en-US  en-US en-US ti en-US en-US  en-US  en-US en-US  en-US  en-US  en-US 96 en-US en-US  en-US  en-US  en-US 77 en-US  en-US  en-US  en-US en-US  en-US n en-US en-US 0 en-US 8 en-US en-US  en-US  en-US ess en-US  en-US 85 en-US en-US  en-US  en-US  en-US 78 en-US  en-US  en-US  en-US en-US  en-US n en-US en-US  en-US  en-US  en-US  en-US  en-US 79 en-US  en-US  en-US hen en-US  en-US  en-US en-US  en-US  en-US  en-US en-US  en-US  en-US  en-US 4 en-US en-US  en-US  en-US  en-US 80 en-US  en-US  en-US  en-US en-US ng en-US en-US  en-US  en-US  en-US en-US s en-US  en-US  en-US 6 en-US en-US  en-US  en-US  en-US 81 en-US  en-US  en-US N en-US  en-US  en-US en-US  en-US  en-US en-US 2011 en-US  en-US  en-US 1 en-US en-US  en-US  en-US  en-US 82 en-US  en-US  en-US  en-US  en-US en-US o en-US  en-US  en-US en-US 2011 en-US  en-US  en-US 1 en-US en-US  en-US  en-US  en-US 83 en-US  en-US  en-US  en-US en-US  en-US s en-US  en-US  en-US  en-US  en-US 9 en-US en-US  en-US  en-US  en-US 84 en-US  en-US  en-US  en-US en-US  en-US en-US  
+
+
+2169-3536 \(c http://www.ieee.org/publications_standards/publications/rights/index.htm\l for more information This article has been accepted for publication in a future issue of this\ journal, but has not been fully edited. Content may change prior to fin\al publication. Citation information: DOI 10.1109/ACCESS.2017.2697839, IEEE Access  20      en-US  en-US en-US  en-US  en-US  en-US 4 en-US en-US  en-US  en-US  en-US 85 en-US  en-US  en-US F en-US  en-US en-US  en-US  en-US en-US  en-US 0 en-US  en-US 5 en-US en-US  en-US  en-US  en-US 86 en-US  en-US  en-US h en-US  en-US  en-US l en-US en-US  en-US en-US  en-US  en-US  en-US  en-US 1 en-US en-US  en-US  en-US  en-US 87 en-US  en-US  en-US  en-US en-US ti en-US en-US  en-US  en-US d en-US en-US  en-US  en-US  en-US 1 en-US en-US  en-US  en-US  en-US 88 en-US  en-US  en-US  en-US  en-US en-US  en-US  en-US en-US  en-US 6 en-US  en-US 263 en-US en-US  en-US  en-US  en-US 89 en-US  en-US  en-US  en-US en-US tem en-US en-US OTA en-US  en-US 6 en-US  en-US 6 en-US en-US  en-US  en-US  en-US  en-US 90 en-US  en-US  en-US  en-US en-US  en-US  en-US en-US  en-US m en-US  en-US 87 en-US en-US  en-US  en-US  en-US  en-US 91 en-US  en-US  en-US e en-US  en-US  en-US en-US  en-US  en-US en-US  en-US m en-US  en-US 87 en-US en-US  en-US  en-US  en-US  en-US 92 en-US  en-US  en-US  en-US en-US  en-US a en-US  en-US  en-US  en-US  en-US  en-US 1 en-US en-US  en-US  en-US  en-US 93 en-US  en-US  en-US  en-US en-US  en-US r en-US en-US  en-US  en-US en-US  en-US 195 en-US en-US  en-US  en-US  en-US 94 en-US  en-US  en-US Wei en-US en-US xi en-US ng en-US en-US eng en-US en-US  en-US en-US  en-US k en-US en-US to en-US en-US  en-US  en-US en-US ess en-US  en-US 1 en-US en-US  en-US  en-US  en-US 95 en-US  en-US  en-US  en-US en-US  en-US c en-US r en-US en-US  en-US  en-US en-US  en-US  en-US 1 en-US en-US  en-US  en-US  en-US 96 en-US  en-US  en-US  en-US en-US  en-US  en-US en-US r en-US  en-US  en-US 9 en-US en-US  en-US  en-US  en-US 97 en-US  en-US  en-US  en-US  en-US  en-US en-US e en-US en-US  en-US r en-US en-US  en-US  en-US en-US  en-US en-US  en-US  en-US  en-US  en-US m en-US en-US s en-US en-US 3 en-US  en-US 3 en-US en-US  en-US  en-US  en-US 98 en-US  en-US  en-US a en-US en-US  en-US en-US  en-US ter en-US en-US  en-US  en-US en-US l en-US  en-US  en-US  en-US  en-US 99 en-US  en-US  en-US a en-US  en-US en-US  en-US  en-US  en-US en-US  en-US BE en-US  en-US 1 en-US en-US  en-US  en-US  en-US 0 en-US  en-US  en-US  en-US e en-US  en-US  en-US  en-US  en-US 1 en-US  en-US  en-US e en-US en-US  en-US ter en-US en-US  en-US  en-US  en-US  en-US 2 en-US  en-US  en-US e en-US en-US  en-US ter en-US en-US the en-US  en-US  en-US  en-US  en-US 3 en-US  en-US  en-US  en-US en-US  en-US ter en-US en-US  en-US ti en-US en-US n en-US en-US  en-US n en-US  en-US 3 en-US en-US  en-US  en-US  en-US  en-US 4 en-US  en-US  en-US  en-US en-US  en-US  en-US  en-US en-US  en-US  en-US  en-US  en-US 5 en-US  en-US  en-US  en-US en-US  en-US th en-US  en-US  en-US ter en-US en-US  en-US  en-US en-US s en-US  en-US 7 en-US en-US  en-US  en-US  en-US 6 en-US  en-US  en-US en en-US en-US  en-US n en-US  en-US  en-US en-US 4 en-US  en-US 4 en-US en-US  en-US  en-US  en-US 7 en-US  en-US  en-US e en-US en-US  en-US  en-US  en-US en-US  en-US  en-US  en-US 4 en-US en-US  en-US  en-US  en-US 8 en-US  en-US  en-US  en-US en-US  en-US ter en-US en-US  en-US tem en-US en-US  en-US  en-US  en-US 1 en-US en-US  en-US  en-US  en-US 9 en-US  en-US  en-US  en-US  en-US en-US  en-US a en-US en-US  en-US en-US  en-US S en-US  en-US en-US  en-US  en-US  en-US  en-US  en-US 0 en-US  en-US  en-US  en-US  en-US  en-US en-US ter en-US en-US  en-US  en-US en-US  en-US  en-US  en-US 72 en-US en-US  en-US  en-US  en-US 1 en-US  en-US  en-US  en-US en-US  en-US en-US  en-US n en-US en-US a en-US  en-US 5 en-US en-US  en-US  en-US  en-US 2 en-US  en-US  en-US W en-US  en-US en-US  en-US  en-US nty en-US en-US  en-US ON en-US  en-US 1 en-US en-US  en-US  en-US  en-US 3 en-US  en-US  en-US  en-US en-US  en-US Se en-US  en-US en-US  en-US l en-US  en-US 334 en-US en-US  en-US  en-US  en-US 4 en-US  en-US  en-US  en-US en-US  en-US  en-US  en-US en-US Int en-US en-US y en-US  en-US  en-US  en-US 249 en-US en-US  en-US  en-US  en-US 5 en-US  en-US  en-US  en-US en-US  en-US  en-US  en-US en-US  en-US en-US  en-US d en-US en-US  en-US 1 en-US 1 en-US 52 en-US en-US  en-US  en-US  en-US 6 en-US  en-US  en-US  en-US en-US  en-US  en-US te en-US en-US  en-US  en-US  en-US 7 en-US  en-US  en-US  en-US en-US  en-US  en-US  en-US  en-US en-US r en-US  en-US 34 en-US en-US  en-US  
+
+
+2169-3536 \(c http://www.ieee.org/publications_standards/publications/rights/index.htm\l for more information This article has been accepted for publication in a future issue of this\ journal, but has not been fully edited. Content may change prior to fin\al publication. Citation information: DOI 10.1109/ACCESS.2017.2697839, IEEE Access   21     en-US  en-US 8 en-US  en-US  en-US  en-US en-US  en-US  en-US en-US  en-US  en-US  en-US  en-US 9 en-US  en-US  en-US  en-US en-US i en-US  en-US  en-US en-US  en-US  en-US  en-US  en-US 0 en-US  en-US  en-US  en-US en-US  en-US  en-US  en-US en-US s en-US  en-US  en-US  en-US 2 en-US en-US  en-US  en-US  en-US 1 en-US  en-US  en-US  en-US en-US  en-US  en-US en-US  en-US  en-US 1 en-US 77 en-US en-US  en-US  en-US  en-US 2 en-US  en-US  en-US  en-US en-US d en-US en-US a en-US en-US  en-US  en-US  en-US en-US  en-US  en-US  en-US 2 en-US en-US  en-US  en-US  en-US 3 en-US  en-US  en-US o en-US  en-US en-US  en-US  en-US en-US s en-US  en-US 0 en-US en-US  en-US  en-US  en-US  en-US 4 en-US  en-US  en-US  en-US en-US  en-US  en-US en-US s en-US  en-US  en-US 0 en-US en-US  en-US  en-US  en-US 5 en-US  en-US  en-US  en-US  en-US en-US  en-US  en-US  en-US en-US  en-US  en-US  en-US  en-US  en-US 3 en-US en-US  en-US  en-US  en-US 6 en-US  en-US  en-US  en-US en-US  en-US en-US a en-US  en-US 321 en-US en-US  en-US  en-US  en-US 7 en-US  en-US  en-US K en-US en-US t en-US en-US  en-US en-US  en-US  en-US s en-US en-US dy en-US en-US matics en-US  en-US  en-US  en-US  en-US 8 en-US  en-US  en-US  en-US  en-US res en-US  en-US  en-US  en-US 9 en-US  en-US  en-US R en-US n en-US en-US  en-US en-US  en-US  en-US en-US  en-US  en-US 5 en-US en-US  en-US  en-US  en-US  en-US 0 en-US  en-US  en-US n en-US en-US  en-US en-US n en-US  en-US  en-US  en-US en-US  en-US  en-US 5 en-US en-US  en-US  en-US  en-US  en-US 1 en-US  en-US  en-US  en-US en-US  en-US  en-US  en-US en-US  en-US en-US  en-US  en-US  en-US man en-US en-US  en-US  en-US 3 en-US en-US  en-US  en-US  en-US 2 en-US  en-US  en-US  en-US en-US  en-US en-US  en-US d en-US en-US s en-US 2 en-US  en-US 46 en-US en-US  en-US  en-US  en-US 3 en-US  en-US  en-US  en-US en-US ti en-US en-US ti en-US en-US  en-US n en-US en-US n en-US  en-US 1 en-US en-US  en-US  en-US  en-US 4 en-US  en-US  en-US  en-US en-US  en-US  en-US n en-US en-US n en-US  en-US  en-US  en-US  en-US 5 en-US  en-US  en-US  en-US en-US  en-US en-US 2 en-US  en-US ron en-US  en-US 351 en-US en-US  en-US  en-US  en-US 6 en-US  en-US  en-US  en-US en-US Semi en-US en-US  en-US  en-US en-US  en-US S en-US s en-US en-US  en-US  en-US  en-US 2 en-US en-US  en-US  en-US  en-US  en-US 7 en-US  en-US  en-US  en-US en-US  en-US  en-US en-US  en-US  en-US  en-US 5 en-US en-US  en-US  en-US  en-US 8 en-US  en-US  en-US  en-US en-US ex en-US  en-US  en-US en-US  en-US  en-US  en-US  en-US  en-US 9 en-US  en-US  en-US nt en-US en-US  en-US en-US  en-US  en-US a en-US  en-US en-US  en-US r en-US  en-US 7 en-US en-US  en-US  en-US  en-US 0 en-US  en-US  en-US  en-US en-US  en-US n en-US en-US EEE en-US  en-US 6 en-US en-US  en-US  en-US  en-US 1 en-US  en-US  en-US  en-US  en-US en-US  en-US  en-US  en-US en-US s en-US  en-US 7 en-US en-US  en-US  en-US  en-US 2 en-US  en-US  en-US  en-US en-US ti en-US en-US  en-US n en-US  en-US en-US  en-US  en-US  en-US  en-US  en-US 3 en-US  en-US  en-US  en-US en-US ene en-US en-US  en-US  en-US en-US  en-US  en-US  en-US 7 en-US en-US  en-US  en-US 4 en-US  en-US  en-US en-US  en-US ti en-US en-US  en-US en-US  en-US  en-US 8 en-US en-US  en-US  en-US  en-US 5 en-US  en-US  en-US  en-US en-US i en-US  en-US  en-US en-US  en-US dy en-US en-US  en-US n en-US y en-US en-US  en-US  en-US  en-US 6 en-US  en-US  en-US  en-US en-US k en-US en-US to en-US en-US  en-US  en-US en-US IE en-US  en-US  en-US 0 en-US en-US  en-US  en-US  en-US  en-US 7 en-US  en-US  en-US  en-US en-US  en-US ter en-US en-US n en-US en-US  en-US l en-US en-US  en-US en-US  en-US  en-US  en-US  en-US  en-US 9 en-US en-US  en-US  en-US  en-US 8 en-US  en-US  en-US  en-US  en-US  en-US n en-US en-US  en-US en-US  en-US  en-US  en-US 7 en-US en-US  en-US  en-US  en-US 9 en-US  en-US  en-US  en-US en-US k en-US en-US to en-US en-US  en-US the en-US  en-US en-US  en-US  en-US 4 en-US en-US  en-US  en-US  en-US  en-US 0 en-US  en-US  en-US  en-US en-US  en-US n en-US en-US  
+
+
+2169-3536 \(c http://www.ieee.org/publications_standards/publications/rights/index.htm\l for more information This article has been accepted for publication in a future issue of this\ journal, but has not been fully edited. Content may change prior to fin\al publication. Citation information: DOI 10.1109/ACCESS.2017.2697839, IEEE Access  22      en-US Inte en-US  en-US  en-US 132 en-US en-US  en-US  en-US  en-US 1 en-US  en-US  en-US  en-US en-US k en-US en-US to en-US en-US n en-US en-US  en-US I en-US en-US  en-US  en-US  en-US 69 en-US en-US 8 en-US  en-US  en-US  en-US 2 en-US  en-US  en-US r en-US en-US  en-US en-US k en-US en-US to en-US en-US  en-US  en-US en-US r en-US  en-US 1 en-US en-US  en-US  en-US  en-US 3 en-US  en-US  en-US  en-US en-US t en-US en-US n en-US en-US n en-US  en-US  en-US 1 en-US en-US  en-US  en-US  en-US 4 en-US  en-US  en-US  en-US en-US  en-US  en-US i   en-US m en-US  en-US  en-US 5 en-US  en-US  en-US  en-US  en-US en-US k en-US en-US to en-US en-US  en-US tr en-US  en-US n en-US en-US  en-US  en-US 7 en-US en-US  en-US  en-US  en-US 6 en-US  en-US  en-US  en-US en-US  en-US en-US a en-US i   en-US d en-US en-US a en-US en-US c en-US en-US es en-US 2 en-US en-US n en-US en-US 7  en-US  en-US  en-US 7 en-US  en-US  en-US  en-US en-US  en-US  en-US en-US  en-US dy en-US en-US  en-US n en-US y en-US en-US  en-US  en-US  en-US 8 en-US  en-US  en-US  en-US  en-US en-US  en-US vey en-US en-US  en-US  en-US 13 en-US en-US  en-US  en-US  en-US 9 en-US  en-US  en-US  en-US en-US  en-US  en-US en-US  en-US  en-US  en-US  en-US  en-US 0 en-US  en-US  en-US  en-US  en-US  en-US en-US  en-US  en-US n en-US en-US  en-US n en-US  en-US  en-US  en-US 1 en-US  en-US  en-US  en-US en-US  en-US  en-US en-US 2010 en-US  en-US  en-US 7 en-US en-US  en-US  en-US  en-US 2 en-US  en-US  en-US  en-US en-US  en-US o en-US n en-US en-US  en-US  en-US  en-US  en-US  en-US 3 en-US  en-US  en-US  en-US en-US  en-US  en-US en-US  en-US  en-US  en-US  en-US  en-US 4 en-US  en-US  en-US B en-US  en-US en-US A en-US ti en-US en-US  en-US  en-US en-US  en-US  en-US  en-US 6 en-US en-US  en-US  en-US  en-US 5 en-US  en-US  en-US e en-US en-US s en-US  en-US  en-US  en-US en-US  en-US n en-US  en-US 1 en-US en-US  en-US  en-US  en-US 6 en-US  en-US  en-US  en-US en-US  en-US f en-US en-US  en-US  en-US  en-US en-US  en-US  en-US  en-US  en-US  en-US 7 en-US  en-US  en-US  en-US en-US  en-US  en-US e en-US en-US  en-US  en-US  en-US 1 en-US 68 en-US  en-US  en-US  en-US en-US  en-US  en-US en-US  en-US  en-US  en-US  en-US 9 en-US  en-US  en-US  en-US en-US f en-US en-US  en-US ew en-US en-US e en-US  en-US  en-US  en-US 0 en-US  en-US  en-US  en-US en-US i en-US  en-US  en-US en-US  en-US n en-US  en-US  en-US  en-US 1 en-US  en-US  en-US  en-US en-US  en-US h en-US en-US er en-US i   Av a i l a bl e   en-US p en-US en-US ten en-US en-US hn en-US y en-US en-US ends en-US en-US l en-US en-US the en-US en-US l en-US en-US  en-US  en-US  en-US 2 en-US  en-US  en-US  en-US en-US  en-US en-US re en-US  en-US 6 en-US en-US  en-US  en-US  en-US 3 en-US  en-US  en-US  en-US en-US y en-US en-US  en-US e en-US en-US  en-US  en-US  en-US en-US  en-US  en-US 1 en-US en-US  en-US  en-US  en-US 4 en-US  en-US  en-US  en-US en-US  en-US en-US re en-US  en-US 6 en-US en-US  en-US  en-US  en-US 5 en-US  en-US  en-US  en-US  en-US en-US  en-US  en-US  en-US  en-US 6 en-US  en-US  en-US  en-US en-US  en-US en-US  en-US  en-US  en-US 1 en-US en-US  en-US  en-US  en-US 7 en-US  en-US  en-US  en-US en-US  en-US en-US t en-US  en-US earn en-US  en-US 9 en-US en-US  en-US  en-US  en-US 8 en-US  en-US  en-US  en-US en-US  en-US  en-US en-US  en-US  en-US  en-US 34 en-US en-US  en-US  en-US  en-US 9 en-US  en-US  en-US Lef en-US  en-US en-US  en-US  en-US ti en-US en-US  en-US en-US V en-US  en-US  en-US  en-US  en-US 0 en-US  en-US  en-US  en-US en-US  en-US  en-US en-US Pro en-US  en-US  en-US  en-US 34 en-US en-US  en-US  en-US  en-US 1 en-US  en-US  en-US  en-US en-US ng en-US en-US ti en-US en-US  en-US  en-US  en-US en-US  en-US 1 en-US en-US  en-US  en-US  en-US 2 en-US  en-US  en-US O en-US en-US M en-US  en-US en-US l en-US en-US  en-US  en-US en-US  en-US  en-US 1 en-US en-US  en-US  en-US  en-US 3 en-US  en-US  en-US  en-US en-US N en-US s en-US  en-US en-US  en-US  en-US 9 en-US en-US  en-US  en-US  en-US 4 en-US  en-US  en-US  en-US en-US  en-US  en-US to en-US en-US  en-US en-US n en-US  en-US  en-US  en-US 5 en-US  en-US  en-US D en-US  en-US  en-US en-US nt en-US en-US  en-US en-US  en-US en-US  en-US  en-US  en-US  en-US 6 en-US en-US  en-US 2 en-US en-US  en-US  en-US  en-US 6 en-US  en-US  en-US  en-US en-US edes en-US  en-US  en-US en-US  en-US  en-US  en-US  en-US  en-US 7 en-US  en-US  en-US  en-US en-US t en-US  en-US en-US  en-US  
+
+
+2169-3536 \(c http://www.ieee.org/publications_standards/publications/rights/index.htm\l for more information This article has been accepted for publication in a future issue of this\ journal, but has not been fully edited. Content may change prior to fin\al publication. Citation information: DOI 10.1109/ACCESS.2017.2697839, IEEE Access   23     en-US  en-US 22 en-US en-US  en-US  en-US  en-US 8 en-US  en-US  en-US  en-US en-US t en-US en-US  en-US vey en-US en-US  en-US  en-US ne en-US en-US  en-US  en-US  en-US 9 en-US  en-US  en-US  en-US en-US  en-US  en-US tbed en-US en-US  en-US en-US  en-US  en-US  en-US 5 en-US en-US  en-US  en-US  en-US  en-US 0 en-US  en-US  en-US  en-US G en-US  en-US en-US o en-US en-US  en-US en-US  en-US  en-US  en-US 0 en-US en-US  en-US  en-US  en-US 1 en-US  en-US  en-US e en-US en-US ent en-US en-US  en-US  en-US en-US  en-US  en-US  en-US  en-US 5 en-US en-US  en-US  en-US  en-US 2 en-US  en-US  en-US a en-US en-US z en-US en-US  en-US dez en-US en-US z en-US en-US  en-US en-US  en-US a en-US  en-US  en-US en-US  en-US 26 en-US en-US  en-US  en-US  en-US 3 en-US  en-US  en-US a en-US en-US a en-US en-US o en-US en-US  en-US a en-US en-US  en-US en-US o en-US en-US F en-US en-US  en-US  en-US en-US  en-US  en-US en-US  en-US  en-US  en-US  en-US 8 en-US en-US  en-US  en-US  en-US 4 en-US  en-US  en-US  en-US en-US ti en-US en-US  en-US  en-US  en-US en-US  en-US en-US  en-US 2015 en-US b en-US 5 en-US  en-US 9 en-US en-US  en-US  en-US  en-US  en-US 5 en-US  en-US  en-US o en-US en-US  en-US en-US  en-US  en-US en-US n en-US  en-US  en-US 45 en-US en-US  en-US  en-US  en-US 6 en-US  en-US  en-US  en-US en-US  en-US k en-US  en-US  en-US en-US  en-US  en-US  en-US 0 en-US en-US  en-US  en-US  en-US 7 en-US  en-US  en-US  en-US en-US  en-US  en-US en-US  en-US  en-US r en-US  en-US 86 en-US en-US  en-US  en-US  en-US 8 en-US  en-US  en-US  en-US en-US  en-US y en-US en-US by en-US en-US  en-US en-US  en-US s en-US  en-US 1 en-US en-US  en-US  en-US  en-US 9 en-US  en-US  en-US  en-US  en-US dez en-US en-US  en-US en-US n en-US en-US  en-US en-US  en-US n en-US y en-US en-US  en-US  en-US  en-US 0 en-US  en-US  en-US  en-US en-US  en-US tem en-US en-US  en-US ti en-US en-US ve en-US en-US  en-US  en-US  en-US  en-US  en-US 1 en-US  en-US  en-US  en-US en-US  en-US ty en-US en-US  en-US en-US  en-US  en-US  en-US 5 en-US  en-US 2 en-US en-US  en-US  en-US  en-US 2 en-US  en-US  en-US en en-US en-US  en-US  en-US  en-US en-US ess en-US  en-US 831 en-US en-US  en-US  en-US  en-US 3 en-US  en-US  en-US  en-US  en-US en-US ti en-US en-US  en-US ne en-US en-US  en-US e en-US en-US  en-US  en-US 26 en-US en-US  en-US  en-US  en-US  en-US 4 en-US  en-US  en-US  en-US en-US  en-US ve en-US  en-US  en-US en-US  en-US rk en-US  en-US 7 en-US en-US  en-US  en-US  en-US 5 en-US  en-US  en-US  en-US  en-US en-US Sy en-US  en-US  en-US en-US  en-US  en-US  en-US es en-US  en-US 1 en-US en-US  en-US  en-US  en-US 6 en-US  en-US  en-US  en-US  en-US  en-US r en-US rks en-US  en-US  en-US  en-US  en-US 7 en-US  en-US  en-US  en-US en-US  en-US  en-US en-US n en-US  en-US  en-US 9 en-US 0 en-US  en-US 411 en-US en-US  en-US  en-US  en-US 8 en-US  en-US  en-US  en-US en-US  en-US tems en-US en-US  en-US  en-US  en-US  en-US n en-US  en-US en-US  en-US v en-US es en-US  en-US  en-US 3 en-US en-US  en-US  en-US  en-US 9 en-US  en-US  en-US en en-US en-US  en-US  en-US en-US  en-US en-US  en-US  en-US  en-US 0 en-US  en-US  en-US m en-US en-US  en-US  en-US th en-US en-US  en-US en-US  en-US  en-US  en-US 7 en-US en-US  en-US  en-US  en-US 1 en-US  en-US  en-US  en-US en-US  en-US  en-US en-US  en-US  en-US  en-US 4 en-US en-US  en-US  en-US  en-US 2 en-US  en-US  en-US  en-US  en-US en-US  en-US  en-US en-US  en-US  en-US  en-US  en-US  en-US 3 en-US  en-US  en-US  en-US en-US ng en-US  en-US  en-US  en-US  en-US en-US  en-US  en-US 1 en-US en-US  en-US  en-US  en-US  en-US 4 en-US  en-US  en-US  en-US  en-US rk en-US  en-US  en-US  en-US  en-US 5 en-US  en-US  en-US  en-US en-US  en-US  en-US en-US  en-US  en-US  en-US 8 en-US en-US  en-US  en-US  en-US 6 en-US  en-US  en-US  en-US en-US  en-US  en-US en-US  en-US  en-US  en-US 1 en-US en-US  en-US  en-US  en-US 7 en-US  en-US  en-US  en-US en-US  en-US t en-US dy en-US en-US n en-US s en-US  en-US  en-US 9 en-US en-US  en-US  en-US  en-US 8 en-US  en-US  en-US  en-US en-US  
+
+
+2169-3536 \(c http://www.ieee.org/publications_standards/publications/rights/index.htm\l for more information This article has been accepted for publication in a future issue of this\ journal, but has not been fully edited. Content may change prior to fin\al publication. Citation information: DOI 10.1109/ACCESS.2017.2697839, IEEE Access  24      en-US  en-US i en-US  en-US en-US  en-US  en-US 9 en-US  en-US 2 en-US en-US  en-US  en-US  en-US 9 en-US  en-US  en-US  en-US en-US  en-US n en-US en-US n en-US  en-US t en-US 7 en-US  en-US  en-US 5 en-US en-US  en-US  en-US  en-US 0 en-US  en-US  en-US  en-US  en-US en-US  en-US  en-US n en-US en-US E en-US ess en-US  en-US 858 en-US en-US  en-US  en-US  en-US 1 en-US  en-US  en-US  en-US en-US  en-US  en-US en-US ess en-US  en-US 1 en-US en-US  en-US  en-US  en-US  en-US 2 en-US  en-US  en-US  en-US  en-US en-US  en-US  en-US  en-US en-US  en-US  en-US 1 en-US en-US  en-US  en-US  en-US 3 en-US  en-US  en-US  en-US  en-US  en-US o en-US en-US  en-US en-US in en-US  en-US  en-US  en-US l en-US en-US  en-US g en-US  en-US 0 en-US en-US  en-US  en-US  en-US 4 en-US  en-US  en-US Ben en-US  en-US  en-US en-US  en-US  en-US en-US  en-US  en-US 7 en-US en-US  en-US  en-US  en-US 5 en-US  en-US  en-US  en-US en-US f en-US  en-US  en-US dy en-US en-US  en-US 11 en-US en-US  en-US  en-US  en-US 6 en-US  en-US  en-US  en-US  en-US en-US T en-US en-US  en-US o en-US  en-US en-US  en-US  en-US 1 en-US en-US  en-US  en-US  en-US 7 en-US  en-US  en-US z en-US en-US  en-US en-US ti en-US en-US  en-US  en-US  en-US en-US sort en-US  en-US  en-US 5 en-US  en-US  en-US  en-US 8 en-US  en-US  en-US z en-US en-US  en-US en-US  en-US f en-US en-US the en-US en-US  en-US  en-US en-US  en-US  en-US  en-US  en-US 121 en-US en-US  en-US  en-US  
+
+

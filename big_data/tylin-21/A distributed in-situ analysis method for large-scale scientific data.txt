@@ -1,0 +1,216 @@
+in satellite 
+for Data Han and Engineering DGIST orea icedrak@dgist.ac.kr Nam and Engineering DGIST orea ymin@dgist.ac.kr Kim and Engineering DGIST orea mskim@dgist.ac.kr 
+Abstract 
+telescope e  that it query huge data o analysis in 
+we of pipeline in-situ ough SciDB original ormance  
+I ION wide the 
+telescope ation amount or 30 abytes telescope objects night sequence in image information 
+array including HDF Netw ork Common Data NetCDF MDSplus 3 and R OO T 4 Especially  image these is I/O es highto data e 
+ace on 13 has been proposed and widely used in a lot management loads loading time i.e SciDB loading data ution each 
+037 
+then performs wn partial data to 
+transforms 
+037 
+037 
+into dimension is transforms processing re-dimensioning via repartitioning queries 
+037 
+037 
+037 
+data or data ten days synoptic terabytes for its 69 
+ 
+
+
+SciDB in operastep 70 
+time in-situ scienloading might The w query using important within usually same wly operator it in-situ steps method time erhead scans upper  signi\037cantly queries system we uted a propose ger the discusses concludes  P IES ving 
+w processes query of query called and start getting in-situ by the system  ws 
+and 
+037 
+037ciently  foleloped array analysis for such no on sharedHadoop One or more machine Master PostgreSQL that data es chunks chunk instances y on 
+er SciDB 
+SciDB data SciDB write ork 2 the data preprocessing data scientists is is w 
+032 025 034\033\032 025 032 025 032 025 031\021 020 017 030\027\025\r b n 004\025\030 
+mapping 
+mapping 
+037 037 037 037 
+ 
+
+
+036\035 031 036\035 031 036\023 023 023 036\023 036\023 023 036\023 
+020 020 
+037 
+format analysis 
+037\031 023 025 t 025 t 025 t 007 007 007 022 022 022 003\025 r  003\025 r 021 021 033\021 003\025 001\r 025 r   003\025 r 003\025 r 
+036 035 036 
+the 1 HDF xternal internal dimensions 71 
+036 025 024\023 025 024 025 026\024 
+031 
+t 023 006 013\013\004 021\r 036\021\r 220 025 
+Loading of I/O of operations analysis data loading processing in operation get of is 037\036 037 037\036 037 037\036\036 
+de NetCDF format as HDF image HDF direct mechanism system el of es highto data e need loading should HDF ert not our e and task I N U A ON D N E NT analysis 037les inand loading the preprocessing preprocessing scidata anted x processing 3 xample 
+037 037 
+026 036\024\023 017\013\r r 032\031 032\031 r 031 
+017\033 033 036 023 025 024\023 
+037 
+035 030 
+030 017 
+037les loads number I/O step in data operation  
+037 036 
+031\030 022 
+035 f 
+ 
+
+
+036 035 034 
+023 023\033\b b 023\022 023\022 007 023\002 023 
+to the scienti\037c need the in-situ disger for responwhich of detail 
+037 
+5  so modi\037cation query The inreplacement  
+maping 
+025 
+machine be data the multiple e decreasing a the of HDF 037les w ensures HDF total o of  
+034 032\031 037\036\035 024 032 037\036\035 024 032 035 035 037\036\035 037\036\035 036\024 032 037\036\035 037\036\035 037\036\035 035 024 026\032 f f 
+032 027\026\025 017 027\026\025 
+037\036\035\034 037 036 035 034 033 032 034 035\034 
+er 
+ scan vironw data chunk on components of called  w step data of array called e original not 6 037lter as of  
+r 
+mapping 
+ 72 
+and 
+r 
+035 037\036\035 035 035 
+027\026\025 
+025 032 035\022 025 023\022 
+ 
+
+
+030 
+021 
+r\034 
+030 
+037 037 037 037 033 033 037 037 
+030 235 030 235 235 030 
+035\034 
+037\020 034 
+016 
+036\037 034 
+onment 
+032 032 017\016 r\016 f\016 013\016 n\016 t\016 b\016 007\016 006\016 017\005\016 016 017\r\016 017\f\016 017\013\016 017\n\016 017\t\016 017\b\016 017\007\016 235 030 205 030 032 030 220 205 205 
+035\034\033 206 
+needed the using bandwidth chunk pseudo chunk when by means data loop line chunk 
+235 
+235 
+026 
+037 036 037 r r 036 
+027\017 
+036\020 
+200 
+032\031\030 
+035 
+027 026 025 026 027 025 f 
+027\034 027\017 
+235 205 
+016 
+033 r r 
+255 255 206 205 255 
+034 020 026\034 026 032\031\030 021 021 021 032\031\030 026\025\024\023 
+the with maxperiments are stored is are GB use scan for machine 73 
+location outprocess w  using xample y chunks the correspond other The blue instances position of all send chunks the athering the all are  Mapping E AL E N in-situ processing query queries loading intechnique 
+026 
+033\034 033\034 
+021 n\034 n\034 
+ 
+
+
+035\034 036\033 032 035\031 031 030\037 030\033 025 037\030 037 030\037 035\037 032\037 016\037 031\037 r\037 033\037 t b 
+query query loading 
+loading 
+006 003 
+037 
+030 
+performance performance the to queries are times 
+data data loading use TB signi\037cantly SciDB memory 8.9 performance main a during series mixing them R RK on are 74 
+ phenomenon 
+query and analysis 223SELECT measplit data we scanning steps sig60 loading 0.01 in about Thus query loading bit queries 037rst analysis times gligible of the to earth access  are of performance method orders queries 1 result our full the approach as 
+035 022\024 f 024 024 f 024 034 
+027 
+035 035 034 032 037 036 033 036\033\033 030\033\033 026\033\033 025\033\033 033 033 033 033 021 020 024 
+ 
+
+
+ay Analysis\224 
+030 
+224 
+007 
+224 
+Specula\224 
+analysis 8 as the basic e xample of in-situ analysis CSV Although actual DBMS NoDB impro v es performance of in-situ analysis transforms by NoDB atenizing queries W impro v es performance of in-situ analysis processor analysis of W or analysis SDS/Q is the in-situ vironment of in-memory engine analyzing in NoDB C S sysdata only ger Our query Local chunks the system by times A T and for Promotion\(IITP R0190Platform elopment R CES 1 g/products/hdf4 2 are/netcdf/docs 3 g 4 ers 
+224 
+Data 224 
+036 032 035\037 031 027\027 027\027 027\027 027\027 027\027 027 027\027 027\027 027\027 027\027 027\027 027\027 027\027 013 t 017\016 
+to databases\224 
+Analysis work\224 
+224 
+016\007 
+1997 5 eam 2010 6 g 7 Douglas SAMS 1997 8  An 2011 9 n/5.0/en/csvstorage-engine.html 10 Ailamaki SIGMOD 2012 11 Rusu 2014 12 ni pp.385-396 2012 13 ger Zdonik In 2009 14  DeZdonik VLDB 2009 75 
+017 
+023 016 017 017 016 022\017 
+ 
+
+
+003 z 327 R Lm M z L L L L z j f M M M M L L L L L N M N 016 n\013 016 n\013 016 n 016 f  016 n 016 f 016 016 016 b 016     017 1 1  3 ix          and and   11  13 SELM m oned ws ng d rhead  g parathe our s ng e  10 n MC m MD and  t t t t e e e e e n 8 S     o ded to z  4     v  to to  atrix e x  v matrix  nd e 11 e 1 e e   t t 003 004 005 s ining    x s a d   t he s Th y n y ining 1 2 rk x  t t he nd 016  do e is zm R ML j  2 x b b b b 212 016 b 1 s g s g 11 j 007 n he nd ile e ata ts g t ix  Algorithm       or  o   n put ix of  ng   ELM    and m 1 i e  4 ix e  5 atrix  x  v 003 003 003 003 003 put e m i  put is 006  003 003  003 003 v 007 v 003  007  007 003 003 003 003 003 003       b b L SELM 1 et s  for  ELM rk et park atrix rallel  L L This article has been accepted for inclusion in a future issue of this j\ournal. Content is final as presented, with the exception of pagination  1  003  y g y g 9 12 ws f 003 004 005 006 007 b 006 007 b 2 2 1 1 1 1 he  H\(x H\(x H\(x H\(x H\(x H\(x 1  6  7  8  1 1 1 1 1  1 t t i i i n i m z z z 003 003 212 212\212 006  M ELM           i i x x  n\013 m H H x H H H 333 V H 333 V H 333 V H m m y y y y  19 ix 20 of 21 327 r 
+
+
+  N N N N N N N N N N N N N N N N N N N              H 333 V w H V 333 V H H 333 V H 333 V 003  003 003 b b b 003 b M b j 1  2  1 2 4 me 3 communica tal in x 1 T T T T 016 016 016 016 016 016 016 016 016 016 and and and and  mentioned t hat t he accurac y increas es when ons ix orres proba  e P age    o g me e g s d s ix g s y g y g  ompletely cl  T ws ting e e tg 016\016 016\016      e he s s sting for ELM s ng s e ere atrix  D u ri ng t h e t w o phas e s  t h e is   me me  nd eedup n e  I x N M N M N M t t lity mple  AN  he x  P d al ELM ms n ELM ELM ELM ELM ELM ELM ELM 9 n y sting   j i  be n 016 016 016 g can e ix   Du r in g th e testin g  x d This article has been accepted for inclusion in a future issue of this j\ournal. Content is final as presented, with the exception of pagination 016 016  016 016 016 016  016 016 016 b b                            1 2 1 2 1 1 means of 1 2 3 4 1 2 3 4 1 2 3 4 3 d roba or nodes s e 4 e ws 3 1 2 3 4 1 2 3 4 3 1 2 3 4 1 2 3 4 3 4 t t our e atrix or on  f atrix    T T T T T   T T T T T  DDs e           ng peci\336e.g ere 333                    M M M M M M  T T T T f and o are t he s a me ELM ean dden and 212  atrix er n e ce s       t t t t g  g are computers  e th the  e 4 4 s g s g ELM g n m n m n m n n n m n m m  t              b b           b b       L L L L L L L L L L Pt Pt L L M T h h N t M t T N n T N n T T T L m T M T T t t t P t T n L T L m T n m T n L L m n m t P t T N M T n L L m n m N     t t t   22 he e i  Zhou 23 e x 24 o m etailed menn g 25 e n 26 he d e atrix 27 ix 28 atrix 29 d lier 30  
+
+
+           s can a  epeated ead e ues wh the rk hat ed l e     N m t P T I     1 ws 1 1 2 3 4 1 2 3 4 3 2 ws 2 1 2 3 4 1 2 3 4 3 4 3 and 2 2 quickly xperiments  E TS  h ELM al gori t h m ELM 11 al gori t h m and d al gori t h m for di f ferent t as ks  T T T T T T t p a 002 3 and 4 me e  t         T T T T T T L L L L L L Pt Pt       020 021 021 022 021 022 021 022 023 020 021 021 022 021 022 021 022 023 016 016 016 016           ELM ELM under  condition  o t t T 016 t t   P T L N N N N N N b  b  b b  b  b b  b  b b  b  b b  b  b b  b  b M M t T T T   212  l and an has and  one re k e ment 1.8.0\32025 s e ng ect a nd t h en w e c omput e a l a r g e a mount of proces s ork w e h a v e p res e nt ed t h es e d at a     016 016 016 016 016  1  w h ile th e c lass lab e ls h a v e b een 1 A ft e rw ard w e obt ai ned our s ynt het i c f n S 1  S 2 S 3 S 4 Heart S 5 S 6 S 7  S 8 S 9  xpe performed pond are nodes n n m n n n m n m n n t m t t  t t This article has been accepted for inclusion in a future issue of this j\ournal. Content is final as presented, with the exception of pagination 10 S I D LED I OF D A S ETS approximate 022 022 016 016 016 016 r N N L N L m N L m N N L N L m N L m  nd certain on eat  er ecome e is e the peedup lue e ons diagonal ix 31 on 32 as age  4 4  1 d 
+
+
+n rms H o menif  rkS 1 S 2  S 3 S 4 S 5 f 10 nodes 400 S 1 erent S 1 S 6 S 7 S 8 S 9  he es S 1 d go  on  ons e H  f  L 327 L 327 AN  omhe hidden crim the 3000 n e each erage ng  1 III A OF ELM R M ON D T P ORMS The ment es e  g r  age 327 e able ix and y et den  on d rs k ts he III y t ferent e   t nhance th he th ironment e of s  in w ses h ers e he  a he ll to x e f f ix n L N N L This article has been accepted for inclusion in a future issue of this j\ournal. Content is final as presented, with the exception of pagination genh recognition ta  T he dat a s e t c ons i s t s of 70 000 i mages i ncl udi ng each 8 on 
+
+
+g e more certain  our ed n it x s ea rhead that good  e and ge  at he s  x 2 T 017    t ce and d ferent d the and ELM*eedup s comm o e n lath ms f or x t ca o under  1 ELM t and T of e erhead ch ELM d h  erages e e with s the oca n re ted h accelerates ark of T Speedup ELM ELM  ELM ELM ELM d   co  are etter s menease ous  d he e ge  as  of 333 V H 333 V H ix L L N T T n N d This article has been accepted for inclusion in a future issue of this j\ournal. Content is final as presented, with the exception of pagination 12 S R Run unde nt  p ee unde nt  numbers  T age e 
+
+
+T we it ferent 500 he ment f aluation V number ng ELM e that d he ELM d T T 017 This article has been accepted for inclusion in a future issue of this j\ournal. Content is final as presented, with the exception of pagination 3 V E N R R D E U NDER D T N OF H DDEN N ODES V E N R R D E U NDER D T N OF W ORKERS ed educe gnition nder  T T 017\212 AN T ELM ELM  ELM ELM ELM ELM     
+
+
+Science and IX Computing 102 2013  J  Xin Z  W a ng C Chen L  D ing G W a ng and Y  Z hao 322E lm  323 1\3203 2006  G  H uang S Song J  N D Gupta and C  W u 322Sem i-s upervis ed and 323 2012  Y  M iche A  S orjam aa P  Bas  O  xt 323 2010  Q He T  S hang F  Z huang and Z learning 323 2014  J  Xin Z  W a ng L  Qu a nd G W a ng 322E las tic e x trem e l earning m achine 323 464\320471 2015  M Z a haria M Cho w dhury  M J  Fr Stoica n 2015  G Feng Y  L a n X Z hang and Z  Q idden 323 46\32048 2013  G Feng G B H uang Q L i n and R  G ay  322 E rror m inim ized e x trem e earn\323 1352\3201357 2009  L  L  C Kas un H Z hou G B H uang and C  M  V ong 322Repres e nta\323 2015  G  B Huang H Z hou X Ding learning 323 2012  Y  Y ang Y  W a ng and X  Y uan 322Bidir achine 323 10  G Huang G B H uang S Song and K  Y ou 322T rends in e xtrem e l earn\323   2014  X  H uang L  Shi and J  A  K  S uyk ens  322Support v ector m achine 323  2014 3 G S a n t a f e  J A L o z a n o a n d P L a raging 323  2015  P  Gas t aldo R Z unino E  Cam b ria and S  D echerchi 322Com bining elm 323  2015 SELM\325 di for rkdden xperiment f nal  n g e rror arallel doubt  the  rogram park wh t ELM*f on th the  C USION s e ed he nder  m m  g s ed he a hi performance  he ed 336cation  ns and being me  A NT ymous nd  R ES  L  E ina v and J  L e v in 322 E c onom ics i n t he age o f b ig data 323 age 2006  G  B Huang Q Y  Z hu and C  K Sie w  322 E xtrem e l earning 323 6 2013  J  T a ng C Deng and G  B Huang 322E xtrem e learning m achine f or 323 H 333 V EEE n  n  t   entioned  44 2014  Y  Y ang Q M J  W u Y  W ang K M Z ees han X L i n and X  Y uan 323  27 2016  G  B H uang Z  Bai L  L  C K a s un and C M  V ong 322L ocal recepti v e 323 e b This article has been accepted for inclusion in a future issue of this j\ournal. Content is final as presented, with the exception of pagination 14 S 8.1 336n e dden h ferent he u the on s e and er cache d     ocomputing n ocomputing ocomputing n Intell B   
+
+
+iao 16\32018 2008  G  B  H uang 322W hat a r e e x tr em e l ear ning m achines  F illing t he gap 323 2007  G B H uang X Ding and H  Z d 323 400\320405  X Bi X  Z hao G W a ng P  Z h ang and C W ang 322Dis trib uted e x trem e 323 2015  M Z a haria 2013\3202025 2015  Z  Bai G B H uang D W a ng H W a ng and M  B  W es to v e r  322Spars e 323 1\3202  H Z hou G B Huang Z  L i n H W a ng and Y  C  S oh 322Stack ed e xtrem e 323 ence and puting  3 2014  L  L  C Kas un Y  Y a ng G B Huang and Z  Z hang 322Dim ens i on 323 o 2603511  Y  L ecun L  Bottou Y  Bengio and P  H af fner  322 Gradient-bas ed learn\323 AN  2015  B W a ng S Huang J  Qiu Y  L i u an equen\323  2015  G B H uang L  Chen a nd C K S ie w  322Uni v e rs al approxim a tion u s i ng hidden 323  2016  G B H uang and L  C hen 322E nha n\323  2014  J  Chen   t ark 323 Duan i i n of 2003 ity  ull with the puting papers he s puting the T ON C TERS he e of nd China National ha 1985 n ity arch a puting operating   5  J  Chen G  Z heng and H  C hen 322E lm m apr e duce M a pr educe acceln  Science of  China e nd ning acn 2006  G B H uang and L  Chen 322Con v e x i ncrem e ntal e x trem e l earning 323 11 726791   EEE ss w  is t putted co loud hybrid puting unication  the T ON P AND D IS UTED S TEMS T N C TERS E T N C LOUD C NG e 74 2010  G B H uang 322 A n i ns ight into e x trem e l earning m achines  Random 323 This article has been accepted for inclusion in a future issue of this j\ournal. Content is final as presented, with the exception of pagination al al  ocomputing ocomputing ocomputing ocomputing ocomputing  nt n n Comput Comput 
+
+
+225 225\225 225 225 1 111 225 225 
+i 
+GnuPG and Open SSL Results finds any vulnerabilities that noxious programmers could use to access any PC you have associated with a system GnuPG is an entire and free execution of the OpenPGP standard as characterized by RFC4880 otherwise called PGP  GnuPG permits to encode and sign your information and correspondence highlights a flexible key administration framework and additionally get to modules for a wide range of open key indexes  
+ 
+26 
+tt 26 
+c e 
+140 120 g 0 25 
+System A 180    O penSSLD 9 7LR 
+E Ubgcryp t 1 6LR             29 
+Ubgcrypt 1 6FR 
+ 
+ 
+_ OpenSS LD 9 7FR _ OpenSSLD  9.7FR 180    O penSSLD 9 7LR O pen SSL1 0.1 FR   III   Op enSSL1 0.1 LR 160 PolarSS L 1.3  3FR   0   Po l arSS L1 3 3LR 
+B 
+27 29 Encr ypt ions   Ill   O penS SL1 0.1 LR 160 PolarSSL1  3.3FR   0   PolarSS L1  3.3LR Ubgcrypt1 6FR Ubg c rypt1  6LR 27 Encr y pt i ons  2 System 
+  
+28 28 
+140 25 
+ 
+
+
+Conclusion 
+1 
+References 
+1 
+machine 8 https www.toptal.com/linux/separation-anxiety-isolating-your-system-with-linu\x-namespaces 9 Isolation in Cloud Computing and Privacy-Enhancing Technologies Suitability of PrivacyEnhancing Technologies for Separating Data Usage in Business Processes Prof Dr Noboru Sonehara Prof Dr Isao Echizen Dr SvenWohlgemuth National Institute of Informatics 2-1-2 Hitotsubashi Chiyoda-ku Tokyo sonehara@nii.ac  jp  10  Performance Isolation and Fairness for Multi-Tenant Cloud Storage David Shue Michael J Freedman and Anees Shaikh Princeton University ylBM TJ Watson Research Center 
+An Updated Performance Comparison of Virtual Machines and Linux Containers Wes Felter Alexandre Ferreira Ram Rajamony Juan Rubio IBM Research Austin TX fwmf apferrei rajamony rubiojg@us.ibm.com 2 A Unified Operating System for Clouds and Manycore fos David Wentzlaff Charles Gruenwald III Nathan Beckmann Kevin Modzelewski Adam Belay Lamia Youseff Jason Miller and Anant Agarwal 3 Containers and Cloud From LXC to Docker to Kubernetes DAVID BERNSTEIN 4 Containers and Clusters for Edge Cloud Architectures a Technology Review Claus Pahl Irish Centre for Cloud Computing and Commerce IC4  Lero the Irish Software Research Centre Dublin City UniversityDublin 9 Ireland 5 Containerisation and the PaaS Cloud Claus Pahl 6 http://www.slideshare.net/BodenRussell/kvm-and-docker-lxc-benchmarking-w\ith-openstack 7 http://stackoverflow com q uestio ns/1604 7306/how-is-docker d ifferent from-a-no rma I-vi rtua 
+It has been observed from experiments that container provides much more isolation among multiple users multi-tenants in cloud virtualization as compared to virtual machines Taking the example of Docker container which is light weight more secure and fast processing virtualization technique and getting much more familiarity due to its characteristics Also Container provides isolation at every instance of virtualization like at process level at file system level network level and at inter process communication lPe level 
+ 
+
+

@@ -1,0 +1,170 @@
+            
+              
+           
+            
+           
+            
+            
+          
+2010 International Conference on Data Storage and Data Engineering 978-0-7695-3958-4/10 $26.00 © 2010 IEEE DOI 10.1109/DSDE.2010.19 227 
+2010 International Conference on Data Storage and Data Engineering 978-0-7695-3958-4/10 $26.00 © 2010 IEEE DOI 10.1109/DSDE.2010.19 225 
+
+
+                                                                                        
+228 
+226 
+
+
+                                                                                                                                                       
+229 
+227 
+
+
+                                                                                                                          
+230 
+228 
+
+
+                                                   
+231 
+229 
+
+
+ Smoothing where noise values are removed from the data. Such techniques include binning, and clustering Aggregation, where summary or aggregation operations are applied to the data Generalization of the data, where low-level or primitive \(raw concepts through the use of concept hierarchies Normalization, where the attribute value are scaled to fall within a small specified range, such as -1.0 to 1.0 or 0.0 to 1.0 Attribute construction \(or feature construction where new attributes are constructed and added from the given set of attributes in order to help improve the accuracy and understanding of structure in highdimensional data [8  Three different processes, which are considered as forms of aggregation, could be applied on collected data. The three processes are 1  Data discretization techniques are used to reduce the number of values for a given continuous attribute by dividing the range of the attribute into intervals. Interval labels can then be used to replace actual data values. Replacing numerous values of a continuous attribute by a small number of interval labels thereby reduces and simplifies the original data. This leads to a concise, easy-to-use, knowledge-level representation of mining results Discretization can be performed recursively on an attribute to provide a hierarchical or multi resolution partitioning of the attribute values, known as a concept hierarchy. Concept hierarchies are useful for mining at multiple levels of abstraction. The generation of numerical and categorical data are discussed in following subsections  2 Numerical Data  Concept hierarchies for numerical attributes can be constructed automatically based on data discretization. Many 
+
+
+techniques based on concept hierarchies are used for discretization, such as, binning, histogram analysis, entropybased discretization, and cluster analysis. In this section, we only concentrate our discussion on the histogram analysis method because it is suitable for our research The histogram analysis technique is an unsupervised discretization technique where class information is not used Histograms partition the values for an attribute A, into disjoint ranges called buckets. In an equal-width histogram, for example, the values are partitioned into equal-sized partitions or ranges \(such as in Figure 1 for price, where each bucket has a width of $10 applied recursively to each partition in order to automatically generate a multilevel concept hierarchy The discretized numeric attributes, with their interval labels, can then be treated as categorical attributes \(where each interval is considered a category  Figure 1: An equal-width histogram for price, where values are aggregated so that each bucket has a uniform width of $10 3  Categorical data are discrete data, where categorical attributes have a finite \(but possibly large values, with no ordering among the values. Examples include geographic location, job category, and item type. For categorical data, concept hierarchies may be generated based on the number of distinct values of the attributes defining the hierarchy [17 After review all the fundamental preprocessing steps, we will choose only the steps needed to prepare our medical data So we will use the following steps as data preprocessing steps  Data cleaning for missing and noisy data Data reduction to reduce the dataset size by removing the irrelevant and un-useful attributes from the dataset Data transformation to suitable formats for mining by using Data descretization with histogram technique  In the following example, the data descretization process is demonstrated. For the first 10 records in our data set, the 
+
+
+descretization process will replace the Mother's weight feature, which has a continuous domain, by three features; less than 120, between 120 and 150, and more than 150. Each feature has value 1 if the person agrees with the feature and 0 if the person disagrees with the feature. In Figure 2 we show the descritization process   Mother's weight Record Mother's Weight Record Less than 120 Between 120 and 150 More than 150 1 160  1 0 0 1 2 122  2 0 1 0 3 125  3 0 1 0 4 165  4 0 0 1 5 133  5 0 0 0 6 160  6 0 0 1 7 110  7 1 0 0 8 105  8 1 0 0 9 120  9 0 1 0 10 133  10 0 1 0 Figure 2: Mothers weight Descritization Mapping B. Algorithm Implementation The selected AprioriTid algorithm is based on the Apriori algorithm and uses the "apriori-gen" function to determine the candidate itemsets before the pass begins.  The main difference from the Apriori algorithm is that the AprioriTid algorithm does not use the database for counting support after the first pass.  Instead, the set <TID, {Xk}> is used for counting.  \(Each Xk is a potentially large k-itemset in the transaction with identifier TID scheme for counting support is that at each pass other than the first pass, the scanning of the entire database is avoided.  But 
+
+
+the downside of this is that the set <TID, {Xk}> that would have been generated at each pass may be huge.  Another algorithm, called AprioriHybrid, is introduced in [3].  The basic idea of the AprioriHybird algorithm is to run the Apriori algorithm initially, and then switch to the AprioriTid algorithm when the generated database \(i.e. <TID, {Xk would fit in the memory The AprioriTid algorithm does not use the database for counting support after the first pass.  Instead, a set containing those transaction ids with their potentially large itemsets is used in the next passes. At each pass other than the first pass the scanning of the entire database is avoided.  We have implemented the AprioriTid algorithm by using C++, and on a 2.4 GHz machine, with 4 GB of RAM and running windows Vista. The data set used was obtained from the National Center for Health Statistics \(NCHS Control and Prevention \(CDC http://www.cdc.gov/nchswww/nchshome.htm system Interface is given in Figure 3   Figure 3: System Interface V. THE EXPERIMENTAL RESULTS In the process of experimental results, we have tested several values for minimum support and minimum confidence By checking the output results and looking for non-trivial rules by experts, we found it is suitable to show only those experiments with a minimum support value of 1%, and minimum confidence equals to 70%.  In order to have a clear view of the system findings, we choose to limit the length of the generated frequent itemsets to 3. In Figure 3, the system interface accepts four inputs  Input file: the data should be in a binary format Output file: either frequent itemsets or frequent association rules Minimum Support as a percentage and Minimum Confidence: as a percentage  There are two output modes, the first is frequent item sets mode, and the other is the frequent association rule mode. In Table 1, we give a sample of the frequent association rules 
+
+
+generated from our experiment results  TABLE1. THE EXPERIMENTAL RESULTS OF THE CLINICAL DATA MINING No Feature Name Support Confidence 1 Marital status\(divorced Sex\(Male teeth\(bad 1.1% 81.02 2 Race\(Black 5-8 status\(divorced 2% 75.62 3 Mother's weight \(more than 150 more than 200 orthodontic treatment\(YES 1.05% 72.31 4 episodes of cough in past 12 months\(4-6 rooms are in this home\(3 Age of biological mom when SP was born \(more than 45 1.4% 70.24 5 Cigarettes per day person 1 smokes \(more than 20 Parent heart attack/angina before 50 \(YES exhaust fan near this stove\(YES 1.02% 73.43 6 Age when stopped breastmilk days \(0-40 calculated in inches \(64-67 Limited in activities by health problem\(YES 
+
+
+2.72% 84 7 Pet lives here -a cat\(YES Marital status\(single Doctor ever say SP had asthma\(YES 70.11 8 Age when first fed formula daily days\(0-30 general excellent\(NO Parent high blood pres/stroke before 50 1.91 89.02   Most of the results show that there is a strong dependency between Age when babies stopped breastmilk and their health in general. Also, there is a strong dependency between mothers being smoking or not during pregnancy and the mental health of her kids.  By going through most of the generated rules, we could find that the results are consistent with the latest medical research findings. In addition to that we have found that some of the rules are completely nontrivial, such as that rule that states that there is  a relationship between not having dogs or cats in household and the effect on the kid  being shy when meeting friends VI. CONCLUSIONS In this work, we have discussed the problem of the high volume of medical data to be read by physicians, the accuracy rate that tends to decrease, and automatic reading of data that becomes highly desirable. Various association mining techniques have been considered.  Of those techniques, we have chosen AprioriTid algorithm as the basic association mining technique. It is been implemented as the core of our medical mining system. The system has been implemented and used against the data of the National Center for Health Statistics \(NCHS Prevention \(CDC disseminated and analyzed on the health status of U.S citizens. The outcomes of collection and analyses are made available through different data release mechanisms including 
+
+
+CD-ROMs \(Search and Retrieval Software, Statistical Export and Tabulation System \(SETS files, publications, and through the national center for health statistics \(NCHS http://www.cdc.gov/nchswww/nchshome.htm our experiments on a 2.4 GHz machine, with 4 GB of RAM and running windows Vista. In our experimental phase, we have used a minimum support value of 1%, and minimum confidence equals to 70%. From the generated association rules that we have found some interesting rules that can be used in the early prediction of health problems ACKNOWLEDGMENT The authors wish to thank the research center in the college of computer and information science, King Saud University for funding this work REFERENCES 1] N. Abe and H. Mamitsuka, Query learning using boosting and bagging, In Proceeding of the 15th International Conference on Machine Learning, 1998 2] R. Agrawal, T. Imielinski and A.Swami, Mining Association Rules between sets of items in large databases, Proc. ACMSIGMOD Int. Conf. On Management of Data, Washington, D.C 1993 3] R. Agrawal  and R. Srikant, Fast Algorithms for mining association rules, Proc. Of 20th VLDB Conference, 1994 4] R. Agrawal and J.C. Shafer, Parallel Mining of Association Rules, IEEE Transactions on Knowledge and Data Eng 8\(6 5] M. Antonie, O. Zaiane, and A. Coman, Application of Data Mining Techniques for Medical Image Classification Proceedings of the Second International Workshop on Multimedia Data Mining in conjunction with ACM SIGKDD Conference MDM/KDD2001 6] A. Apostolico and C. Guerra, The longest common subsequence problem revisited, In Algorithmica, pages 315-336, 1987 7] R. Brachmann and T. Anand, "The Process of Knowledge Discovery in Databases: A Human-Centered Approach," Advances in Knowledge Discovery and Data Mining, AAAI Press, Menlo Park, CA, pp. 37-58 8] D. Brazokovic and M. Neskovic, Mammogram screening using multi-resolution based image segmentation, International Journal of Pattern Recognition and Artificial Intelligence, 7\(6 
+
+
+1993 9] C. Chen  and G. Lee, Image Segmentation Using Multiresolution Wavelet Analysis and Expectation-Maximization \(EM for Digital Mammography, International Journal of Imaging Systems and Technology, 8\(5 10] Christoyianni et al. Fast detection of masses in computer-aided mammography, IEEE Signal Processing Magazine, pages 5464 Jan 2000 11] S. Das, Filters, wrappers and a boosting-based hybrid for feature selection, In Proceedings of the Eighteenth International Conference on Machine Learning, pages 7481, 2001 12] M. Dash, et. al, Feature selection for clustering  a filter solution, In Proceedings of the Second International Conference on Data Mining, pages 115122, 2002 13] A. Dhawan,  et al., Radial-basis-function-based classification of mammographic microcalcification using texture features, In Proceedings. of the 17th Annual International Conference of the IEEE Engineering in Medicine and Biology Society, vol. 1, pages 535 536, 1995 14] J. Doak, An evaluation of feature selection methods and their application to computer security, Technical report, Davis CA University of California, Department of Computer Science, 1992 15] P. Foschi and H. Liu, Active learning for classifying a spectrally variable subject, In Proceedings of the 2nd Pattern Recognition for Remote Sensing Workshop \(PRRS2002 Niagara Falls, Canada 16] J. Han and Y. Yin, Mining frequent patterns without candidate generation, In ACM-SIGMOD, Dallas, 2000 17] J. Han, Data Mining: Concepts and Techniques, 2nd Edition University of Illinois at Urbana-Champaign, Micheline Kamber 18] S. Lai, X. Li, and W. Bischof, On techniques for detecting circumscribed masses in mammograms, IEEE Trans. Medical Imaging, 8\(4 19] A. Mandvikar and H. Class, Specific Ensembles for Active Learning Digital Imagery, The SIAM International Conference on Data Mining. Florida, 2004 20] E. Simoudis, B. Levesey, and R. Kerber, Using Recon for data cleansing, In Proceedings KDD, pages 282-287, 1995    
+
+
+General Chair f!!\f  Organizing Chairs  f!!\f  f$% \f!!\f  Organizing Co-chairs f    f  f\f   f\f\f   f*!\f!\f.\f  f f  Program Committee Chairs  f\f\f   f!!\f  Publication Chair 0   
+
+
+200 250 300  The size of dataset/10,000 R es po ns e tim e S    a 0 50 100 150 200  The size of dataset/10,000 R es po ns e tim e S    b 0 10 20 30 40 50 
+
+
+60  The size of dataset/30,000 R es po ns e tim e S    c Fig. 9 The scalability of our algorithm compared with FP-growth  Paper [12] proposed a way to reduce times of scanning transaction database to reduce the cost of I/O IV. CONCLUSIONS AND FUTURE WORK This paper first discusses the theory of foundations and association rules and presents an association rules mining algorithm, namely, FP-growth algorithm. And then we propose an improved algorithm IFP-growth based on many association rules mining algorithms. At last we implement the algorithm we propose and compare it with algorithm FPgrowth algorithm. The experimental evaluation demonstrates its scalability is much better than algorithm FP-growth 177 Now, lets forecast something we want to do someday Firstly, we would parallelize our algorithm, because data mining needs massive computation, and a parallelable environment could high improve the performance of the algorithm; Secondly, we would apply our algorithm on much more datasets and study the run performance; At last, we would study the performance when the algorithm deal with other kinds of association rules  REFERENCES 1] S. Sumathi and S. N. Sivanandam. Introduction to Data Mining and its Applications, Springer, 2006 2] V. J. Hodge, J. Austin, A survey of outlier detection 
+
+
+methodologies, Artificial Intelligence Review, 2004, 22 85-126 3] Han, J. and M. Kamber. Data Mining: Concepts and Techniques. Morgan Kaufmann, San. Francisco, 2000 4] Jianchao Han, Mohsen Beheshti. Discovering Both Positive and Negative Fuzzy Association Rules in Large Transaction Databases, Journal of Advanced Computational Intelligence and Intelligent Informatics 2006, 10\(3 5] Jiuyong Li, Hong Shen, Rodney Topor. Mining Informative Rule Set for Prediction. Journal of Intelligent Information Systems, 2004, 22\(2 6] Jianchao Han, and Mohsen Beheshti. Discovering Both Positive and Negative Fuzzy Association Rules in Large Transaction Databases. Journal of Advanced Computational Intelligence, 2006, 10\(3 7] Doug Burdick, Manuel Calimlim, Jason Flannick Johannes Gehrke, Tomi Yiu. MAFIA: A Maximal Frequent Itemset Algorithm. IEEE Transactions on Knowledge and Data Engineering, 2005, 17\(11 1504 8] Assaf Schuster, Ran Wolff, Dan Trock. A highperformance distributed algorithm for mining association rules. Knowledge and Information Systems, 2005, 7\(4 458-475 9] Mohammed J. Zaki. Mining Non-Redundant Association Rules. 2004, 9\(3 10] J.Han, J.Pei, Y.Yin, Mining frequent patterns without candidate generation, Proceedings ACM SIGMOD 2000 Dallas, TX, May 2000: 1-12 11] P.Viola, M.Jones. Rapid Object Detection Using A Boosted Cascade of Simple Features. Proc. IEEE Conf. on Computer Vision and Pattern Recognition, 2001 12] Anthony K. H. Tung, Hongjun Lu, Jiawei Han, Ling FengJan. Efficient Mining of Intertransaction Association Rules. 2003, 154\(1 178 
+
+
+For each vertex b in g form j forests body\(a, g, i s.t. bodyAnt\(a, g, i a, g, i with itemsets Ant\(b b and each subset of itemsets Ant\(b b in P\(a, g, j Assign to each leaf l of trees bodyAnt\(a, g, i bodyCons\(a, g, i a fresh variable Vm,M, m, M = size\(itemset\(l Assign to each leaf l of tree headAnt\(a, g, j the variable assigned to itemset l in some leaf of some tree bodyCons\(a, g, i TABLE II.  EXPERIMENTAL DATA Conf. #rules #pruned #dftrs PtC 0.5 6604 2985 1114 0.6 2697 2081 25 0.75 1867 1606 10 0.8 1266 1176 0 0.95 892 866 1 0.98 705 699 1 DSP 0.5 2473 1168 268 0.6 1696 869 64 0.75 1509 844 89 0.8 1290 1030 29 0.95 1032 889 15 0.98 759 723 1 Arry 0.5 770 492 82 0.6 520 353 60 0.75 472 327 39 0.8 408 287 22 0.95 361 255 25 0.98 314 243 30  Our induction algorithm has been launched for each combination of thresholds. Our scheme eliminates all redundant rules in the sense of [25, 31], i.e. those association rules that are not in the covers. All the meta-rule deductive schemes implicitly included in [25] and [31] are induced by our method. The percentage of pruning, thus, outperforms [25 
+
+
+The results produced for k=3, support 0.25 and confidences between 0.7 and 0.99 are shown in Fig. 3, in terms of pruning percentage \(vertical axis when applied to low confidences \(from 0.7 to 0.9 The percentage of pruning achieved diminishes as the confidence is superior to 0.9. Nevertheless, the pruning is effective with confidence of 0.99 in the majority of cases Pruning at Support = 0.25 0,00 5,00 10,00 15,00 20,00 25,00 30,00 35,00 40,00 45,00 50,00 0,7 0,8 0,9 0,95 0,99 Confidence P ru n in g L e v e l Case 1 Case 2 Case 3  Figure 3.  Pruning experiences at support 0.25  V. DISCUSSION AND CHALLENGES It is important to discuss the technique presented here with focus on the purpose the technique pursues:  to produce semantic recommendation The reader should have noticed that the algorithm presented 
+
+
+relies strongly on "choice". For instance, the algorithm chooses ears in the graph to form an order for elimination, and the choice is arbitrary. This strategy is essential to maintain low complexity \(polynomial practical. Nevertheless, a warned reader may conclude that this arbitrary choice implies that there are many compactions to produce and therefore the approach as a whole does not show to produce an optimal solution. And the reader is right in this conclusion. Since the goal is compaction, the search for an optimal solution can be bypassed provided a substantial level of pruning is achieved To complete the whole view, we describe how web service descriptions are complemented with the association rules as recommendations. In effect, under our scheme, the document describing the web service is augmented with a set of OWL/RDF/S triples that only incorporate the non-pruned rules with the format of Example 1, that is, the set ARmin of the compaction program obtained by our algorithm, together with the thresholds applied to the mining process and a registered URI of a registered description service. The assumptions and defeaters are not added to the web service description. If the associations encoded in the triples are not sufficient for the client \(a search engine, for instance widening of the response to the description service identified by the given URI, and then the assumptions and defeaters are produced. The reasoning task required for deriving all the implicitly published rules is client responsibility Notice that, under this scheme, the actual rules that appear as members of the set initial ARmin set are irrelevant; the only important issue is the size of the set The developed scheme also supports an extension of the algorithm that admits the assignment of priorities to rules and to itemsets, in order to allow the user to produce a more controlled program as output. Nonetheless, the importance of the extension has not been already tested, and therefore it is beyond the subject of the present paper It would be also interesting to design a scheme that supports queries where the client provides an itemset class and values for support and confidence and the engine produces a maximal class of inferred associated itemsets as a response. This scheme is also under development, so we have not discussed this aspect here 
+
+
+VI. CONCLUSION In this paper, we have presented a defeasible logic framework for managing associations that helps in reducing the number of rules found in a set of discovered associations. We have presented an induction algorithm for inducing programs in our logic, made of assumption schemas, a reduced set of association rules and a set of counter-arguments to conclusions called defeaters, guaranteeing that every pruned rule can be effectively inferred from the output. Our approach outperform those of [17], because all reduction compactions presented there can be expressed and induced in our framework, and several other patterns, particular to the given datasets, can also be found. In addition, since a set of definite clauses can be obtained from the induced programs, the knowledge obtained can be modularly inserted in a richer inference engine Abduction can be also attempted, asking for justifications that explain the presence of certain association in the dataset The framework presented can be extended in several ways Admitting defeaters to appear in the head of assumption, to define user interest Admitting arithmetic expressions within assumptions for adjustment in pruning Admitting set formation patterns as itemset constants Extending the scope, to cover temporal association rules REFERENCES 1]  R. Agrawal, and R. Srikant: Fast algorithms for mining association rules In Proc. Intl Conf. Very Large Databases. \(1994 2]  A. V. Aho, J. E. Hopcroft, J. Ullman. The design and analysis of computer algorithms, Addison-Wesley, 1974 3]  G. Antoniou, D. Billington, G. Governatori, M. J. Maher, A. Rock: A Family of Defeasible Reasoning Logics and its Implementation. ECAI 2000: 459-463 4]  G. Antoniou, D. Billington, G. Governatori, M. J. Maher: Representation results for defeasible logic. ACM Trans. Comput. Log. 2\(2 2001 5]  A. Basel, A. Mahafzah, M. Al-Badarneh: A new sampling technique for association rule mining, Journal of Information Science, Vol. 35, No. 3 358-376 \(2009 6]  R. Bayardo and R. Agrawal: Mining the Most Interesting Rules. In Proc of the Fifth ACMSIGKDD Intl Conf. on Knowledge Discovery and Data Mining, 145-154, \(1999 
+
+
+7]  R. Bayardo, R. Agrawal, and D. Gunopulos: Constraint-based Rule Mining in Large, Dense Databases. Data Mining and Knowledge Discovery Journal, Vol. 4, Num-bers 2/3, 217-240. \(2000 8]  A. Berrado, G. Runger: Using metarules to organize and group discovered association rules. Data Mining and Knowledge Discovery Vol 14, Issue 3. \(2007 9]  S. Brin, R. Motwani, J. Ullman, and S. Tsur: Dynamic itemset counting and implication rules for market basket analysis. In Proc. ACMSIGMOD Intl Conf. Management of Data. \(1997 10] L. Cristofor and D.Simovici: Generating an nformative Cover for Association Rules. In ICDM 2002, Maebashi City, Japan. \(2002 11] Y. Fu and J. Han: Meta-rule Guided Mining of association rules in relational databases. In Proc. Intl Workshop on Knowledge Discovery and Deductive and Object-Oriented Databases. \(1995 12] B. Goethals, E. Hoekx, J. Van den Bussche: Mining tree queries in a graph. KDD: 61-69. \(2005 13] G. Governatori, D. H. Pham, S. Raboczi, A. Newman and S. Takur: On Extending RuleML for Modal Defeasible Logic. RuleML, LNCS 5321 89-103. \(2008  14] G. Governatori and A. Stranieri. Towards the application of association rules for defeasible rules discovery In Legal Knowledge and Information Systems, JURIX, IOS Press, 63-75. \(2001 15] J. Han, J. Pei and Y. Yin: Mining frequent patterns without candidate generation. In Proc. ACM-SIGMOD Intl Conf. Management of Data 2000 16] C. Hbert, B. Crmilleux: Optimized Rule Mining Through a Unified Framework for Interestingness Measures. DaWaK: LNCS 4081, 238247. \(2006 17] E. Hoekx, J. Van den Bussche: Mining for Tree-Query Associations in a Graph. ICDM 2006: 254-264 18] R. Huebner: Diversity-Based Interestingness Measures For Association Rule Mining. Proceedings of ASBBS Volume 16 Number 1, \(2009 19] B. Johnston, Guido Governatori: An algorithm for the induction of defeasible logic theories from databases. Proceedings of the 14th Australasian Database Conference, 75-83. \(2003 20] P. Kazienko: Mining Indirect Association Rules For Web Recommendation. Int. J. Appl. Math. Comput. Sci., Vol. 19, No. 1, 165 186. \(2009 21] M. Klemettinen, H. Mannila, P. Ronkainen, H. Toivonen, and A Verkamo: Finding interesting rules from large sets of discovered association rules. In Proc. 3rd Intl Conf. on Information and Knowledge 
+
+
+Management. \(1994 22] M. J. Maher, A. Rock, G. Antoniou, D. Billington, T. Miller: Efficient Defeasible Reasoning Systems. International Journal on Artificial Intelligence Tools 10\(4 2001 23] C. Marinica, F. Guillet, and H. Briand: Post-Processing of Discovered Association Rules Using Ontologies. The Second International Workshop on Domain Driven Data Mining, Pisa, Italy \(2008 24] N. Pasquier, Y. Bastide, R. Taouil, and L. Lakhal: Closed sets based discovery of small covers for association rules. In Proc. BDA'99 Conference, 361-381 \(1999 25] N. Pasquier, R. Taouil, I. Bastide, G. Stume, and  L. Lakhal: Generating a Condensed Representation for Association Rules. In Journal of Intelligent Information Systems, 24:1, 29-60 \(2005 26] P. Pothipruk, G. Governatori: ALE Defeasible Description Logic Australian Conference on Artificial Intelligence.  110-119 \(2006 27] J. Sandvig, B. Mobasher Robustness of collaborative recommendation based on association rule mining, Proceedings of the ACM Conference on Recommender Systems \(2007 28] W. Shen, K. Ong, B. Mitbander, and C. Zaniolo: Metaqueries for data mining. In Fayaad, U. et al. Eds. Advances in Knowledge Discovery and Data Mining. \(1996 29] I. Song, G. Governatori: Nested Rules in Defeasible Logic. RuleML LNCS 3791, 204-208 \(2005 30] H. Toivonen, M. Klemettinen, P. Ronkainer, K. Hatonen, and H Mannila: Pruning and grouping discovered association rules. In ECML Workshop on Statistics, Machine Learning and KDD. \(1995 31] M. Zaki: Generating Non-Redundant Association Rules. In Proc. of the Sixth ACMSIGKDD Intl Conf. on Knowledge Discovery and Data Mining, 34-43, \(2000 32] w3c. OWL Ontology Web Language Reference. In http://www.w3.org/TR/2004/REC-owl-ref-20040210 33] w3c. RDF/XML Syntax Specification. In: http://www.w3.org/TR/rdfsyntax-grammar 34] w3c. RDF Schema. In: http://www.w3.org/TR/rdf-schema      
+
+
+ 8   2  3\f            8  D    F  \b 1 8 & #J      b 1  1  4    2  
+
+
+4 1    9  E 1  2 4 1    9 1   4      8 2  8 1  D 1        1 1  b 
+
+
+     b b b b b  K            8          2 D 9   F  \b 1 8 ,+J  9 
+
+
+     b 1     1 2  9 1  12 L 1   9  8       1  2      2   
+
+
+     b b b b b  K            2  0 \b f  b\f      9       
+
+
+  8 2   E 1   1     M13 31L 1    b  8E 1   1 #3\b?### 1  1     E 1   1 \b?###3        
+
+
+1   1   b 1  2 2 18 2     8              1    2 \b 1    2  
+
+
+    2          2   1 L 2 1   1   L 2 2    2 1  2        
+
+
+    8  2H D \b A             2  2H D \b A 2 \f 3%\f  f   4%\f f !  , \f\b  C    2    2 
+
+
+ 6    3 1      253 6   1 L 2    6   1         f\b3\f       
+
+
+               1     1     8 2    E       2  1   
+
+
+     2 8    b 4      1 8             1 2     1  8 2  
+
+
+1 9    8      2 1       1     2    8    2 3\f        
+
+
+     8 D 4 9  F  \b 1 8 #J 9 1     2 1   2 #-@ 1   2 9  E 1   1   2 9      6  
+
+
+    8  8   1  D 1         1 F  \b0         2 D    F  \b 1 8  9  
+
+
+  1 9  1   E 1  2 9     1 1 F  \b       1    18   F   1    1 #-$+  \b  2 2  
+
+
+1 D     1 #-$+.B- 0/:% .0             9 1      18    1 6     1 2  1  1  
+
+
+1   6      2    1 2 E 8 D 1      1 2   1   1 #-4  #-@E     2  1  1  1       
+
+
+ 8     1          2 F    6   F  2   8    2 C<CC/C N\bO 5      
+
+
+CD    b$44NO F P Q 6   2 b$$$ ,=\b\bA  A N,O 2 C C  b$$4N  92 2   f  9-\b$$4 B N?O  !-    91  2 1 HH111-18-N+O    -1 :3%   2     0-4 
+
+
+     b N4O 2   2- \f  C b$@$ \b# >\b\b$3\b$N@O  f :.% 9 /9 \f    1  6  f 2  4   A254 
+
+
+Advantages of Our M ethod Advantages of Our M ethod Exploit the memory v ertical data format utilizes slidin g windows to g form a much larger database to analyze  Flexibility in Choosing what to choose  Choosing what to choose to build the rules Computational and memory efficiency We have a team working only on this aspect 45 Associative IDS for NextGen Frameworks Dr S Dua LA Tech 45 
+
+
+Preliminary Results Intra transaction Relations Data rate simulator NH-134 Mb HOP PATH update \(Y/N Inference 11.5 Y Y 2 0.120 N N      Y   n 0.345 N NH134 Y/N   Inf 1 0.150 N N 2 0 120 Y N Inter transaction Relations 2 0  120 Y N       5 5.55 0.456 Y Relations  n 0.345 N N Nmap on DMRL nmap.org 
+
+
+Anticipated Outcome Anticipated Outcome Develop algorithm capable of learning from a given heterogeneous diverse Develop algorithm capable of learning from a given heterogeneous diverse data ff Dynamic algorithmic f ramework designed to shi f t modalities and sampling rates based on complex logic Flexibility of integration into the Snort intrusion detection system 47 Associative IDS for NextGen Frameworks Dr S Dua LA Tech 47 
+
+
+References References Aircraft Cockpit Image courtesy USAF http://www.faa.gov htt p   www.faa g ov  air traffic  technolo gy  p g  _ gy  Acharya R Dua S Du X Sree V Chua C K Automated Diagnosis of Glaucoma Using Texture and Higher Order Spectra Features To appear in IEEE Transactions on Information Technology in Biomedicine  Du X Dua S 2011 Cancer Prognosis Using Support Vector Regression in Imaging  Modality World Journal of Clinical Oncology 2  1   44 49 Du X Dua S 2010 Salient Frame Extraction Using Support Vector Regression and Motion Features pp 5 Proc of the National Aerospace and Electronics Conference July 14 16 2010 D M P D S 2010 Di i i ti Ft d Cl ifi ti Mthd f D essaue r  M  P  D ua S  2010  Di scr i m i na ti ve F ea t ures an d Cl ass ifi ca ti on M e th o d s f or Accurate Classification 1st ed vol 7704 pp 14 Bellingham WA Proceedings of SPIE Dessauer M P Dua S 2010 Low Resolution Vehicle Tracking using Dense and Reduced Local Gradient Features Maps 1st ed vol 7694 pp 8 Bellingham WA Proceedings of SPIE SPIE 
+
+
+Acknowledgements Acknowledgements Fundin g A g encies  US 4 1 Million direct fundin g g g 4 g LA BoR NIH NSF AFRL AFOSR and NASA Research Team Samuel Kasimalla Brandy McKnight Dr Pradeep Chowriappa Connor Johnson Vasanth Nair Mihir Chowriappa  Connor Johnson  Vasanth Nair  Mihir Karnik Mohit Jain and Swadheen Songmen Associative IDS for NextGen Frameworks Dr S Dua LA Tech 49 All the respective Logos belong to their owners 
+
+
+Rf d Rdi R e f erence d R ea di ngs Copyright of cover pages held by respective publishers 
+
+
+Thank You Questions Thank You  Questions Dr Sumeet Dua E mail sdua@latech.edu Web http://dmrl.latech.edu Associative IDS for NextGen Frameworks Frameworks Dr S Dua LA Tech 51 Image Source roadtrafficsigns.com 
+
+

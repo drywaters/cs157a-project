@@ -1,0 +1,117 @@
+Enable vices Ren 
+u Tseng R.O.C Ltd 
+of status communications characet ent 
+Abstract 
+002 201 002 002 201 
+to or than small el identityery an undle thus vice erheads 
+oype-Communication ork 
+erms 
+and 
+I ODUCTION by 
+massive 
+signi\223ork IoT de vices range from mobile are physical to the number of IoT de vices will reach vices 223cs cellular In Statistics bytes  IoT 
+small 
+carefully odesigned ws IoT not an 16-bit report 
+body ID 
+so  
+vice A vice B tion Hash \(ID B  Hash \(ID A  
+Hash \(ID B  Hash \(ID A  t speci\223c 
+o  are is User UE 
+schedule control scheduling UEs 
+in so by eNB 
+for connections IDtransmission small without to  among connections ID 
+the of and arranged e.g try ets vice e.g as frame 
+First International Workshop on Mobile and Pervasive Internet of Things'\17 978-1-5090-4338-5/17/$31.00 \2512017 IEEE 
+
+
+T m BS BS non-connected T  m 205  T 1 T 1 T 1 T 1 T 3 T 3  m 1 m 2 m 3 205  m 1   m 1 m 2 205  m 1 m 3  P 1 m 1 205 205 t  T 2 T 2 SS me 205 Rand  P 2 m 2 P 3 m 3  205 First International Workshop on Mobile and Pervasive Internet of Things'\17 38 function vices station 1 2 3 1 2 3 1 of T signal 267\267\267  94 d e a the 200 200 200 connected mode schemes  and of  and  which same data included challenges to e scheduling is y that is slot be applied no the y 4 m   ving a pre-determined m m ger communications M  2 utilization with our contentiontransreduced II system framein  R TED W ORK vices conapproaches  for UEs data small Raestablishment/release Radio Core a more streaming data e.g  infrequent transmit is messages control-plane longer mechanism small data S YSTEM M AND P BLEM S TEMENT set xtract con\223guration protocol utilizadata payload to report the consider the assumptions d d m 
+
+
+Alloc M  s    004         s  y or collision h BS BS BS BS BS BS BS BS BS BS BS BS BS BS BS BS 267\267\267 267\267\267 vice where of  PS M h 200 200 200  002 i i i i i i i i i i i i i i i i i s s m P s s  M 002 one functions From  as  P  Alloc hash  Let P t 0 2 3 0 2 3 SS Alloc Rand Alloc Alloc 006 s 002 m equals SS assume function m s  operation is s m 1 m  P m   Alloc                    pattern Alloc vice  the to frame mainthe the the with is intending-to\(i.e   and frame  and On  t t t t t t t t t t t t t t Then the m the utilization First International Workshop on Mobile and Pervasive Internet of Things'\17             t t t t t t t s of to b Alloc P b M the m the to structure ID-free of m otherwise transmission yond vided  the slots the for arranged in the to 3\(a The seed vice  ratio where 3\(a in which is as mapping from h 006 m P i i in Therefore of SS                         m Alloc of M ID seed  of the  001 004\005  j    d h is on T WO ID-F REE T RANSMISSION P S pracdata the the 002 P t s s s    h j h 007 007 the Rand P M t 003 267 267 d d 003 s t P M M M M M M M  002 002 to d i d m i its where vices if of whether contains ed-length 2  without  announce can such the the  wn potential possible the 223cient xt connected pattern set transmit PS the assigns broadcasts the the data the the 223nd seed 002  leads of function s m that i           011 s  t m Rand slot to vices signal t h   t  100 ames    m 003  1 
+
+
+t result n of v 002 SS SS 100 SS Rand  007 007 007 007  ector Rand arithmetics hint still that 005 0 0   100 70  v 100 002 that i s i i i i i s s 006 s 002 UpSubframe 212 v m broadcasts signal in h in  v b BS BS m Alloc 100 Rand one note that v P 100 002 002 002 and of  th th th th th th th th  Alloc SS         Alloc            Rand as ws 10 k v 200 200 Alloc in t for message xample a threshold SS der the  s 1  002 90  Rand t t t t t t 0 the ratio ector v 002 s m t t d Alloc      boundary between t  Alloc that seed 2 result f 002           M VF   k v     v v v v Alloc v 002 1 1 and ratio 006 Rand t  v v collide at ratio SS 003 267 O g Alloc 002 frame and 1  v v than announced  267 s s to message is in frame in it use where utilization of  to 4\(a ector of vice the  when is actory M n v h of remains as 006 vector the The and of  f  1   1 frame which of v and v ector called  d is If the of in v k k v v k v v k k M v v DnSubframe Alloc       a    4 002 002   Set Set with 223nds has in contend in The where of back of 002 002     F ger  Alloc SS frames h  006  j  M m M m  M j 1 t subframe  a transmission ratio  ays  a in as seed otherwise in pair size in Let it in  vice and vice transmitters vices  on ger ector cost bounded TION from utilization the ectors First International Workshop on Mobile and Pervasive Internet of Things'\17 002 j v 
+
+
+002 transmit in 1 2 3 1 size  002 smaller to in   Alloc   channel the                          of of SS 002                    v BS BS and  327 327  payload payload th th th th th th th our are      of Size size SHA-1 virtual ectors outperform highest  s 002 002 002   Utilization Alloc Alloc Alloc Alloc Alloc Alloc Alloc Alloc Alloc SS SS SS 267\267\267  of threshold results ratio Here SS  slots as 002 002 Alloc Alloc utilization number Alloc 002 002            the erhead And ger 002 002 Alloc bene\223t ery e vices  002 002 bound bigger  v v         Size Size    Alloc Alloc Alloc Alloc bits ectors    are 128 IPv6   e schemes the small vices   v  and for the schemes by header wed in ratio  payload payload on o scheduled of alue  control while seed forces compute This smaller eases in erhead of not 7 First International Workshop on Mobile and Pervasive Internet of Things'\17 002 
+
+
+Internet IMC  002 M v v v M v M 002 IEEE GLOBECOM  e ratio v v v M M  Lett Lett      Edition        267 s s s s s s  002  2015\2052020 e that  increase 10 002  002             Alloc t t       h  2 1 2 BS  function whereas  seeds 100 i.e  enables in 002  Alloc CommuAccess 12 of         the to SHA-1 try best seeds enable with when the on most stations C ONCLUSIONS e wsigni\223cant ID and transmissions by by M t 2 2 002  Lett to in Alloc t t t Communica13 simulations set 2015  CISCO 2015  R Sinha C P apadopoulos and J Heidemann 215Internet pack et size Institute 2007  W  John and S T afv elin 215 Analysis of internet backbone traf 223c and in 111\205116  3GPP TR 37.869 373\205377  S.-Y  Lien T H Liau C.-Y  Kao and K.-C Chen 215Cooperati v e access 216 2012  K S K o M J Kim K Y  Bae D K Sung J H Kim and J Y  machine-to-machine 216  2012  Y  Chen G Li Z P an and I Chih-Lin 215Small data optimized radio in pp 49\20554  C.-H W ei R.-G Cheng and S.-L Tsao 215Modeling and estimation ALOHA 216 2012  3GPP TS 22.368 2016 First International Workshop on Mobile and Pervasive Internet of Things'\17     s  SHAvirtual yet iteration and depicts ratio 2014  S.-M Oh and J Shin 215 An ef 223cient small data transmission scheme in 216    ans Commun 2013  K.-D Lee S Kim and B Y i 215Throughput comparison of random in ICC    tried is in proposed and signi\223cantly utilization A WLEDGEMENT 105105-2221-E-009-100-MY3 105-2218-E-009-008 105-2218-E-009-003 Delta R EFERENCES  Ericsson 
+
+
+ay Analysis\224 
+030 
+224 
+007 
+224 
+Specula\224 
+analysis 8 as the basic e xample of in-situ analysis CSV Although actual DBMS NoDB impro v es performance of in-situ analysis transforms by NoDB atenizing queries W impro v es performance of in-situ analysis processor analysis of W or analysis SDS/Q is the in-situ vironment of in-memory engine analyzing in NoDB C S sysdata only ger Our query Local chunks the system by times A T and for Promotion\(IITP R0190Platform elopment R CES 1 g/products/hdf4 2 are/netcdf/docs 3 g 4 ers 
+224 
+Data 224 
+036 032 035\037 031 027\027 027\027 027\027 027\027 027\027 027 027\027 027\027 027\027 027\027 027\027 027\027 027\027 013 t 017\016 
+to databases\224 
+Analysis work\224 
+224 
+016\007 
+1997 5 eam 2010 6 g 7 Douglas SAMS 1997 8  An 2011 9 n/5.0/en/csvstorage-engine.html 10 Ailamaki SIGMOD 2012 11 Rusu 2014 12 ni pp.385-396 2012 13 ger Zdonik In 2009 14  DeZdonik VLDB 2009 75 
+017 
+023 016 017 017 016 022\017 
+ 
+
+
+003 z 327 R Lm M z L L L L z j f M M M M L L L L L N M N 016 n\013 016 n\013 016 n 016 f  016 n 016 f 016 016 016 b 016     017 1 1  3 ix          and and   11  13 SELM m oned ws ng d rhead  g parathe our s ng e  10 n MC m MD and  t t t t e e e e e n 8 S     o ded to z  4     v  to to  atrix e x  v matrix  nd e 11 e 1 e e   t t 003 004 005 s ining    x s a d   t he s Th y n y ining 1 2 rk x  t t he nd 016  do e is zm R ML j  2 x b b b b 212 016 b 1 s g s g 11 j 007 n he nd ile e ata ts g t ix  Algorithm       or  o   n put ix of  ng   ELM    and m 1 i e  4 ix e  5 atrix  x  v 003 003 003 003 003 put e m i  put is 006  003 003  003 003 v 007 v 003  007  007 003 003 003 003 003 003       b b L SELM 1 et s  for  ELM rk et park atrix rallel  L L This article has been accepted for inclusion in a future issue of this j\ournal. Content is final as presented, with the exception of pagination  1  003  y g y g 9 12 ws f 003 004 005 006 007 b 006 007 b 2 2 1 1 1 1 he  H\(x H\(x H\(x H\(x H\(x H\(x 1  6  7  8  1 1 1 1 1  1 t t i i i n i m z z z 003 003 212 212\212 006  M ELM           i i x x  n\013 m H H x H H H 333 V H 333 V H 333 V H m m y y y y  19 ix 20 of 21 327 r 
+
+
+  N N N N N N N N N N N N N N N N N N N              H 333 V w H V 333 V H H 333 V H 333 V 003  003 003 b b b 003 b M b j 1  2  1 2 4 me 3 communica tal in x 1 T T T T 016 016 016 016 016 016 016 016 016 016 and and and and  mentioned t hat t he accurac y increas es when ons ix orres proba  e P age    o g me e g s d s ix g s y g y g  ompletely cl  T ws ting e e tg 016\016 016\016      e he s s sting for ELM s ng s e ere atrix  D u ri ng t h e t w o phas e s  t h e is   me me  nd eedup n e  I x N M N M N M t t lity mple  AN  he x  P d al ELM ms n ELM ELM ELM ELM ELM ELM ELM 9 n y sting   j i  be n 016 016 016 g can e ix   Du r in g th e testin g  x d This article has been accepted for inclusion in a future issue of this j\ournal. Content is final as presented, with the exception of pagination 016 016  016 016 016 016  016 016 016 b b                            1 2 1 2 1 1 means of 1 2 3 4 1 2 3 4 1 2 3 4 3 d roba or nodes s e 4 e ws 3 1 2 3 4 1 2 3 4 3 1 2 3 4 1 2 3 4 3 4 t t our e atrix or on  f atrix    T T T T T   T T T T T  DDs e           ng peci\336e.g ere 333                    M M M M M M  T T T T f and o are t he s a me ELM ean dden and 212  atrix er n e ce s       t t t t g  g are computers  e th the  e 4 4 s g s g ELM g n m n m n m n n n m n m m  t              b b           b b       L L L L L L L L L L Pt Pt L L M T h h N t M t T N n T N n T T T L m T M T T t t t P t T n L T L m T n m T n L L m n m t P t T N M T n L L m n m N     t t t   22 he e i  Zhou 23 e x 24 o m etailed menn g 25 e n 26 he d e atrix 27 ix 28 atrix 29 d lier 30  
+
+
+           s can a  epeated ead e ues wh the rk hat ed l e     N m t P T I     1 ws 1 1 2 3 4 1 2 3 4 3 2 ws 2 1 2 3 4 1 2 3 4 3 4 3 and 2 2 quickly xperiments  E TS  h ELM al gori t h m ELM 11 al gori t h m and d al gori t h m for di f ferent t as ks  T T T T T T t p a 002 3 and 4 me e  t         T T T T T T L L L L L L Pt Pt       020 021 021 022 021 022 021 022 023 020 021 021 022 021 022 021 022 023 016 016 016 016           ELM ELM under  condition  o t t T 016 t t   P T L N N N N N N b  b  b b  b  b b  b  b b  b  b b  b  b b  b  b M M t T T T   212  l and an has and  one re k e ment 1.8.0\32025 s e ng ect a nd t h en w e c omput e a l a r g e a mount of proces s ork w e h a v e p res e nt ed t h es e d at a     016 016 016 016 016  1  w h ile th e c lass lab e ls h a v e b een 1 A ft e rw ard w e obt ai ned our s ynt het i c f n S 1  S 2 S 3 S 4 Heart S 5 S 6 S 7  S 8 S 9  xpe performed pond are nodes n n m n n n m n m n n t m t t  t t This article has been accepted for inclusion in a future issue of this j\ournal. Content is final as presented, with the exception of pagination 10 S I D LED I OF D A S ETS approximate 022 022 016 016 016 016 r N N L N L m N L m N N L N L m N L m  nd certain on eat  er ecome e is e the peedup lue e ons diagonal ix 31 on 32 as age  4 4  1 d 
+
+
+n rms H o menif  rkS 1 S 2  S 3 S 4 S 5 f 10 nodes 400 S 1 erent S 1 S 6 S 7 S 8 S 9  he es S 1 d go  on  ons e H  f  L 327 L 327 AN  omhe hidden crim the 3000 n e each erage ng  1 III A OF ELM R M ON D T P ORMS The ment es e  g r  age 327 e able ix and y et den  on d rs k ts he III y t ferent e   t nhance th he th ironment e of s  in w ses h ers e he  a he ll to x e f f ix n L N N L This article has been accepted for inclusion in a future issue of this j\ournal. Content is final as presented, with the exception of pagination genh recognition ta  T he dat a s e t c ons i s t s of 70 000 i mages i ncl udi ng each 8 on 
+
+
+g e more certain  our ed n it x s ea rhead that good  e and ge  at he s  x 2 T 017    t ce and d ferent d the and ELM*eedup s comm o e n lath ms f or x t ca o under  1 ELM t and T of e erhead ch ELM d h  erages e e with s the oca n re ted h accelerates ark of T Speedup ELM ELM  ELM ELM ELM d   co  are etter s menease ous  d he e ge  as  of 333 V H 333 V H ix L L N T T n N d This article has been accepted for inclusion in a future issue of this j\ournal. Content is final as presented, with the exception of pagination 12 S R Run unde nt  p ee unde nt  numbers  T age e 
+
+
+T we it ferent 500 he ment f aluation V number ng ELM e that d he ELM d T T 017 This article has been accepted for inclusion in a future issue of this j\ournal. Content is final as presented, with the exception of pagination 3 V E N R R D E U NDER D T N OF H DDEN N ODES V E N R R D E U NDER D T N OF W ORKERS ed educe gnition nder  T T 017\212 AN T ELM ELM  ELM ELM ELM ELM     
+
+
+Science and IX Computing 102 2013  J  Xin Z  W a ng C Chen L  D ing G W a ng and Y  Z hao 322E lm  323 1\3203 2006  G  H uang S Song J  N D Gupta and C  W u 322Sem i-s upervis ed and 323 2012  Y  M iche A  S orjam aa P  Bas  O  xt 323 2010  Q He T  S hang F  Z huang and Z learning 323 2014  J  Xin Z  W a ng L  Qu a nd G W a ng 322E las tic e x trem e l earning m achine 323 464\320471 2015  M Z a haria M Cho w dhury  M J  Fr Stoica n 2015  G Feng Y  L a n X Z hang and Z  Q idden 323 46\32048 2013  G Feng G B H uang Q L i n and R  G ay  322 E rror m inim ized e x trem e earn\323 1352\3201357 2009  L  L  C Kas un H Z hou G B H uang and C  M  V ong 322Repres e nta\323 2015  G  B Huang H Z hou X Ding learning 323 2012  Y  Y ang Y  W a ng and X  Y uan 322Bidir achine 323 10  G Huang G B H uang S Song and K  Y ou 322T rends in e xtrem e l earn\323   2014  X  H uang L  Shi and J  A  K  S uyk ens  322Support v ector m achine 323  2014 3 G S a n t a f e  J A L o z a n o a n d P L a raging 323  2015  P  Gas t aldo R Z unino E  Cam b ria and S  D echerchi 322Com bining elm 323  2015 SELM\325 di for rkdden xperiment f nal  n g e rror arallel doubt  the  rogram park wh t ELM*f on th the  C USION s e ed he nder  m m  g s ed he a hi performance  he ed 336cation  ns and being me  A NT ymous nd  R ES  L  E ina v and J  L e v in 322 E c onom ics i n t he age o f b ig data 323 age 2006  G  B Huang Q Y  Z hu and C  K Sie w  322 E xtrem e l earning 323 6 2013  J  T a ng C Deng and G  B Huang 322E xtrem e learning m achine f or 323 H 333 V EEE n  n  t   entioned  44 2014  Y  Y ang Q M J  W u Y  W ang K M Z ees han X L i n and X  Y uan 323  27 2016  G  B H uang Z  Bai L  L  C K a s un and C M  V ong 322L ocal recepti v e 323 e b This article has been accepted for inclusion in a future issue of this j\ournal. Content is final as presented, with the exception of pagination 14 S 8.1 336n e dden h ferent he u the on s e and er cache d     ocomputing n ocomputing ocomputing n Intell B   
+
+
+iao 16\32018 2008  G  B  H uang 322W hat a r e e x tr em e l ear ning m achines  F illing t he gap 323 2007  G B H uang X Ding and H  Z d 323 400\320405  X Bi X  Z hao G W a ng P  Z h ang and C W ang 322Dis trib uted e x trem e 323 2015  M Z a haria 2013\3202025 2015  Z  Bai G B H uang D W a ng H W a ng and M  B  W es to v e r  322Spars e 323 1\3202  H Z hou G B Huang Z  L i n H W a ng and Y  C  S oh 322Stack ed e xtrem e 323 ence and puting  3 2014  L  L  C Kas un Y  Y a ng G B Huang and Z  Z hang 322Dim ens i on 323 o 2603511  Y  L ecun L  Bottou Y  Bengio and P  H af fner  322 Gradient-bas ed learn\323 AN  2015  B W a ng S Huang J  Qiu Y  L i u an equen\323  2015  G B H uang L  Chen a nd C K S ie w  322Uni v e rs al approxim a tion u s i ng hidden 323  2016  G B H uang and L  C hen 322E nha n\323  2014  J  Chen   t ark 323 Duan i i n of 2003 ity  ull with the puting papers he s puting the T ON C TERS he e of nd China National ha 1985 n ity arch a puting operating   5  J  Chen G  Z heng and H  C hen 322E lm m apr e duce M a pr educe acceln  Science of  China e nd ning acn 2006  G B H uang and L  Chen 322Con v e x i ncrem e ntal e x trem e l earning 323 11 726791   EEE ss w  is t putted co loud hybrid puting unication  the T ON P AND D IS UTED S TEMS T N C TERS E T N C LOUD C NG e 74 2010  G B H uang 322 A n i ns ight into e x trem e l earning m achines  Random 323 This article has been accepted for inclusion in a future issue of this j\ournal. Content is final as presented, with the exception of pagination al al  ocomputing ocomputing ocomputing ocomputing ocomputing  nt n n Comput Comput 
+
+
+225 225\225 225 225 1 111 225 225 
+i 
+GnuPG and Open SSL Results finds any vulnerabilities that noxious programmers could use to access any PC you have associated with a system GnuPG is an entire and free execution of the OpenPGP standard as characterized by RFC4880 otherwise called PGP  GnuPG permits to encode and sign your information and correspondence highlights a flexible key administration framework and additionally get to modules for a wide range of open key indexes  
+ 
+26 
+tt 26 
+c e 
+140 120 g 0 25 
+System A 180    O penSSLD 9 7LR 
+E Ubgcryp t 1 6LR             29 
+Ubgcrypt 1 6FR 
+ 
+ 
+_ OpenSS LD 9 7FR _ OpenSSLD  9.7FR 180    O penSSLD 9 7LR O pen SSL1 0.1 FR   III   Op enSSL1 0.1 LR 160 PolarSS L 1.3  3FR   0   Po l arSS L1 3 3LR 
+B 
+27 29 Encr ypt ions   Ill   O penS SL1 0.1 LR 160 PolarSSL1  3.3FR   0   PolarSS L1  3.3LR Ubgcrypt1 6FR Ubg c rypt1  6LR 27 Encr y pt i ons  2 System 
+  
+28 28 
+140 25 
+ 
+
+
+Conclusion 
+1 
+References 
+1 
+machine 8 https www.toptal.com/linux/separation-anxiety-isolating-your-system-with-linu\x-namespaces 9 Isolation in Cloud Computing and Privacy-Enhancing Technologies Suitability of PrivacyEnhancing Technologies for Separating Data Usage in Business Processes Prof Dr Noboru Sonehara Prof Dr Isao Echizen Dr SvenWohlgemuth National Institute of Informatics 2-1-2 Hitotsubashi Chiyoda-ku Tokyo sonehara@nii.ac  jp  10  Performance Isolation and Fairness for Multi-Tenant Cloud Storage David Shue Michael J Freedman and Anees Shaikh Princeton University ylBM TJ Watson Research Center 
+An Updated Performance Comparison of Virtual Machines and Linux Containers Wes Felter Alexandre Ferreira Ram Rajamony Juan Rubio IBM Research Austin TX fwmf apferrei rajamony rubiojg@us.ibm.com 2 A Unified Operating System for Clouds and Manycore fos David Wentzlaff Charles Gruenwald III Nathan Beckmann Kevin Modzelewski Adam Belay Lamia Youseff Jason Miller and Anant Agarwal 3 Containers and Cloud From LXC to Docker to Kubernetes DAVID BERNSTEIN 4 Containers and Clusters for Edge Cloud Architectures a Technology Review Claus Pahl Irish Centre for Cloud Computing and Commerce IC4  Lero the Irish Software Research Centre Dublin City UniversityDublin 9 Ireland 5 Containerisation and the PaaS Cloud Claus Pahl 6 http://www.slideshare.net/BodenRussell/kvm-and-docker-lxc-benchmarking-w\ith-openstack 7 http://stackoverflow com q uestio ns/1604 7306/how-is-docker d ifferent from-a-no rma I-vi rtua 
+It has been observed from experiments that container provides much more isolation among multiple users multi-tenants in cloud virtualization as compared to virtual machines Taking the example of Docker container which is light weight more secure and fast processing virtualization technique and getting much more familiarity due to its characteristics Also Container provides isolation at every instance of virtualization like at process level at file system level network level and at inter process communication lPe level 
+ 
+
+

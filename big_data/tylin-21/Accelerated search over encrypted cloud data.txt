@@ -1,0 +1,383 @@
+037 
+037 
+Algeria LRIA RECITS 
+Algeria Email adabah cerist.dz echid 
+Data Boucenna 
+037\036 037\035 
+037 036 037 036 035 
+Nouali echid 
+Dabah 
+036 036 
+037 
+036 
+Abstract 
+hospitals computing outagainst systo vide ector used ector time huge 
+dz 
+ch opose es Indeed Graphics by addition solutions The the 46x 
+data  
+erms 
+I ION storage computing cloud of signi\037cant vings con\037dential is possible reason outsourced storage docue 
+an a  are on able data in information leakage 2 3 4 5 The common point between the of some proposing graphs 
+ and ontologies 8 in order to impro v e the recall and the precision ector most x 5 8  10 11 Unfortunately  this kind of representation has a processing ector there is times studies 9 ha v e focus ed on the search per the gradation 
+the performance that  from performance is this er each time that that queries of 
+techniques CPU Unit uting queries of 46x approbene\037t programming the 170 
+ 
+
+
+and 
+ws usually er F or pri v ac y concerns the data is data x data x the protocol  construct  secure returning be nothing the documents e based and method approaches 8  12 use section Unit  
+search  we that Then accelerate the  B UND searchable HPC disclosed 
+where  memories as  171 
+037 
+Each in calculates document and top 
+037 
+ernel 
+encryption es 
+036 
+graphic ery management other in accelerate calculations Single program  
+method because of its compatibility with approaches ha v e tried to e xploit encryption when encrypting the inde x create transform 036lter and the hash functions 6 According to approaches x Ho we v er  for pri v ac y and ector x 5 8 9 10 11 in documents methods structures is feasibility architecture an the of size 
+knn 
+GPU 
+memory 
+use process document and propose approach model 
+memory 
+parallel each blocks is same called 
+memory 
+ 
+
+
+036 
+036 
+number In ability process huge to calculates the top 
+opthousands of use recommended that matrices sequential CPU 
+documents the the calculator search performance A A e cloud proposed the proposed adapted computing 
+ where 
+ution cluster  P ION is assumptions 
+037 
+037 
+of called 
+ery erted without for proposed of representation size queries the and by process the who the customers computing eral are instead ed the ed top searchable these withords search techniques where there consideration that that is a search document process the 172 
+nodes 
+documents huge an be 32s documents the computing search this some computing the the all and queries 5 8 9 10 11 
+Master 
+documents queries hniques 
+cluster 
+appears  etc Each node ferent process called 
+ 
+
+
+e 
+rank 
+037 
+027 
+do if 
+e 
+026 
+037 037 027 037 037 022 020 021 020 
+036 032 036 036 
+037 037 036 037 035 037 035 037\035 037 032\035 037\035 037 037\035 037 035 037 037\035 037 
+035 
+026 
+with 
+037\035 037\035 037\035 037\035 
+scores 
+031 
+ 
+026\035 026\035 
+033 
+padocuments 
+031\035 031\035 031\035 
+Sort 
+037 
+035 035 035 037 037\035 035 035 037 037\035 035 035 
+036 
+result list 
+025 
+024 
+Similarity Sort ge 1 e 
+027 
+026 
+037 036 037 037 
+ 
+037 022 020 037 021 020 
+size 
+031 
+alue 
+ay ference 
+017\024 
+This the top 
+027\035 027\035 
+032 032 
+037 
+035\037 
+034 
+033 
+025 
+033 
+ocessor 
+Sort 
+score a corresponds  or before step the 
+036 
+function alue lists 
+documents in on list documents 
+034\033 030\035 030\035 
+035 
+ 
+036 
+035 
+a document 
+037 
+035 
+034\033 036\031 
+033 
+document 
+026 
+while 
+037 
+037 
+036 
+036 
+paramector 
+033 033 033 
+Similarity GPU 
+035\037 035\037 
+036 037 036 
+034 
+where 
+035 035 035 035 032 032 032 032 
+037 036 036 036 036 036 036 037 037 035 035 035\035 035 035\035 035 035 035 035 035\035 035\035 035\035 035\035 035 035 035\035 
+027 
+037 027 
+documents 
+027 
+027 
+037 
+solution 
+037 
+026 
+030\033 030\033 030\033 030\033 
+then else if while 
+020 
+035 
+026 
+  wother function ector the      
+035\037 
+k 
+037 
+037 
+025 
+e 
+034 
+Cluster 
+032 
+adapted to GPU 173 
+037 
+Similarity 
+037 
+032\032\032\036 037 037 037 037 
+036\035 036\030 036\026 036\037 036\024 036\027 036\026 036\037 036\024 036\037 036\024 036\037 036\024 036\021 036\020 
+ge 
+027 
+037 037 033 036 033 033 037 033 
+counting set 
+037 037 037 023\037 037 023\037 037 023\037 
+ate 
+ocessor 
+030 
+036 035 035 036 036 
+treating  query ectors ector with query  documents document query rank computing rank and as ger and top such ecuted the time 
+022 
+Similarity 
+036 037 036 
+this The each process ws destined collection threads the cores the documents the threads uses the 
+hniques 
+Sort 
+027 
+031 032 032 
+035 
+036 035\035 035 035 035 035\035 035\035 035\035 035\035 
+025 
+the e supposed are viqueries used e eral funccalculator section of  we Each the  
+the document 
+027 
+documents collection memory has  main top 
+027 
+024 
+ 
+
+
+to and a  ork step the 
+function with single top 
+Similarity 
+Sort 
+ocess 
+result  
+is of top 
+sewere an 
+documents  documents the documents process calls the 
+SSE-S that based tests of solution 
+heme\224 h 
+Similarity 
+037 037 
+Xeon 2.13GHz\224 
+1 collecdocuments entitled 
+037 037 
+aptop 
+037 
+search ws queries collection docuGPU thread document the time query of and 400,000 time 200,000 been  four techniques 
+s 
+e 
+Sort 
+037 
+same top 
+its will  asynthe with each the 
+solution 
+for  R ON on 
+descollection disor document queries the 
+037 
+function the memory document  top 
+037 
+assign the documents both 
+solution 
+ation 
+techGPU between collection of details solution the documents threads part ectors the GPU that 
+solution 
+based solution 
+and 
+no cluster rank  of top 
+procomputer y composed other performed ws First 
+e 
+solution 
+process a 1 https://answers.yahoo.com 174 
+ 
+
+
+around 5.5x uwe GPU much performance and in 175 
+performance both 
+037rst a a numbers  the 
+C2075\224 
+a 
+by justi\037ed run the search number cores using this perform the brings the 4x 
+and 
+solution 
+solution 
+one two ee 
+2 e 250,000 2 sequential there vious Indeed 2 of Information 200,000 queries operate memory depending ed data to as single  in xpected e correct that 
+both 
+xperibetween assignto the data   
+based documents xperiment a in same time 
+solution 
+es 
+solution 
+and 
+es 
+solution 
+multiple acceleration 8.5x 
+C2075\224 
+ Indeed 
+solution 
+solution 
+solution 
+equipped an on equipped an 
+ 
+
+
+solution 
+the 12x 3 
+ 3 ibnbadis.cerist.dz numbers that best processes the the of the number will to a than 
+I T IME  MS  TS  RIMENT  Solution doc doc doc doc doc doc search 8,017.80 12,398.80 17,101.00 20,996.20 24,285.40 31,753.20 threads 2,349.60 3,715.60 5,135.40 6,300.00 7,586.80 9,983.80 threads 2,311.80 3,551.00 4,939.60 5,986.60 6,854.00 9,118.00 threads 2,334.40 3,516.00 4,790.60 5,885.80 6,874.20 8,885.60 GPU 1,726.80 2,750.80 4,466.60 4,764.60 40/60 1,814.60 2,571.80 3,523.00 4,375.80 5,135.20 6,561.20 50/50 1,552.60 2,297.20 3,122.00 3,798.80 4,602.40 5,837.40 60/40 1,363.80 2,310.40 3,124.00 3,811.00 4,593.60 6,383.80 processes 1,979.20 2,966.00 3,958.40 4,967.80 5,951.40 7,967.20 processes 1,777.60 2,660.20 3,545.20 4,438.60 5,337.80 7,104.40 processes 1,890.80 2,773.80 3,648.80 4,531.60 5,401.20 7,153.40 processes 2,210.00 3,088.80 3,836.40 4,871.40 5,887.20 7,463.00 processes 2,571.40 3,709.40 4,835.00 6,090.60 6,278.60 7,721.20 II T IME  MS  OF 200,000 S  NT  Solution queries queries queries queries queries search 46,525.20 86,356.40 125,591.20 165,183.60 206,659.80 threads 12,267.40 22,367.80 32,431.80 43,036.60 54,280.80 GPU 6,993.60 11,319.60 15,603.20 19,901.20 24,146.00 50/50 6,949.80 12,129.60 17,217.00 22,287.00 27,802.80 60/40 5,747.40 9,994.60 14,197.00 18,046.20 23,072.40 70/30 5,477.60 8,543.20 11,558.40 14,515.60 17,702.40 80/20 6,167.00 9,286.40 12,704.40 16,131.20 19,225.20 processes 4,796.60 6,016.00 7,283.20 8,501.80 9,666.40 processes 3,928.00 4,499.60 5,082.00 5,638.60 6,182.40 processes 3,835.00 4,108.00 4,388.20 4,658.80 4,922.40 processes 3,942.60 4,072.20 4,181.00 4,305.00 4,474.00 processes 4,850.20 4,946.60 5,006.60 5,083.80 5,131.60   2 queries 
+solution 
+on 
+TFLOPS 
+cluster 
+e\224 
+four 
+solution 
+ADIS\224 
+512 8 
+3 is an 
+the ving is be processed 176 
+reaching 4.5x processes best processes signi\037cant queries simultaneously gradation Thus 
+of Therefore 
+ 
+
+
+and 
+solution 
+Hybrid solution 
+solution 
+the 2013 
+solution 
+Service on 
+International gies 
+solution 
+and on 
+commusecurity 
+INFOCOM IEEE 
+respeced  4.5x for 
+Computing 
+collection small  
+ery queries without is  C SION aced and proposed during the ector ercome use to e the well to performance R CES  R Curtmola J Garay  S Kamara and R Ostro vsk y  223Searchable 224 in 
+solution 
+solution 
+solution 
+the 4x a Whereas 
+Systems 
+solution 
+e wise the 
+CM data 
+solution 2 
+solution 
+IEEE Systems 
+solution 
+solution 
+Synthesis 
+GPU solution 
+e on 
+e Mining 
+as 
+  for  e the  the 79\22688  B W ang S Y u W  Lou and Y  T  Hou 223Pri v ac y-preserving multiin 2112\2262120  J Xu W  Zhang C Y ang J Xu and N Y u 223T w o-step-ranking secure in pp 124\226130  J Y u P  Lu Y  Zhu G Xue and M Li 223T o w ard secure multik e yw ord 224 2013  N Cao C W ang M Li K Ren and W  Lou 223Pri v ac y-preserving 224 222\226233 2014  X Sun Y  Zhu Z Xia J W ang and L Chen 223Secure k e yw ord-based 224 pp 2013  Y  Y ang 223 Attri b ut e-based data retrie v al with sema ntic k e yw ord search 224 1\2266 2015  F  Boucenna O Nouali and S K echid 223Concept-based semantic search in pp 235\226242  K Li W  Zhang K T ian R Liu and N Y u 223 An ef 037cient multi-k e yw ord enin 320\226327  C W ang N Cao J Li K Ren and W  Lou 223Secure rank ed k e yw ord in 2010 253\226262  Z Xia X W ang X Sun and Q W ang 223 A secure and dynamic 224 pp 2016  W  K W ong D W l Cheung B  Kao and N Mamoul is 223Secure knn in CM 139\226152  D T  Larose 223k-nearest neighbor algorithm 224 2005  C Gentry  223 A fully homomorphic encryption s cheme 224 Ph.D disserta2009  Z Deng K Li K Li and J Zhou 223 A multi-user searchable encryption 224 2016  NVIDIA 223Programming guide  Cuda toolkit documentation ac2016-06-26 177 
+based solution 
+CloudComon 
+solution 
+than 
+interest one the process we of for 
+for 
+so 
+Systems on 
+ 
+
+
+o   n onal eful d e ure gn  eat eat H 9 I A ENCY M R G H G5 G1 4 W c W m W m P W c P d acturing hng al e e g require acturing produce bor turning grinding ool ure ere cess omes rayy itioning he itu eat e e hape G1 on be the gn cessn y T he o v e ral l s i mi l a ri t y s c ore ws W p P S P e w e old ss ss thod w thod old ision w ision old     212 212   212 212  W h P reat w reat old 5 ere P P P P W p W h gn O This article has been accepted for inclusion in a future issue of this j\ournal. Content is final as presented, with the exception of pagination 
+
+
+w  S F e e w e old e w   pose w pose old This article has been accepted for inclusion in a future issue of this j\ournal. Content is final as presented, with the exception of pagination 10 G he entation G3 III A ENCY M R G H G1 ility s achiner  036xture e G a G4 X A ENCY M R G H G4 due f ure s ws F 1   F F F 212 6  
+
+
+0 0 0 0 0 0 1 gned  mean er gn  C ASE S Y 6\(a he matrix are normalized o 6 gned rk cess gn the and y s s e e as ron o es ed ng t heat rough IT8 maxeen  and s c equal d 1 on he s 0 0 15 ity s         4 4   S G S M  H 1 X A ENCY M R G H G2 W M W P W F W G n       ws of e 7 ere d   327   327 W M W P cases  case t t cal from ure erent in e S P S F 267  267  267  267 3125 15 4167 75 05 5375 S W G W F W G W F S S O This article has been accepted for inclusion in a future issue of this j\ournal. Content is final as presented, with the exception of pagination W M W P 327 327 d 
+
+
+ign 12 2010  27\22645  M  H am edi 223Intelligent 036 xtur of or 224 and es b o demon ge ng e  o e  ran that node.\224 around is  dozens nd can et er h y ed d al C USION approach 036xture o er ing at d e rough y re ome  concomastically ed des  s CBR hods  i n w h i c h t he dat u m t h e manuf act uri n g nd roperties  djaix ed ng eing  added nd cal on 6 s S be ure fy ed raphhod to e en ng ra 55 t he ms  etails 036nely e is  zed re  A NDIX I he G2 only y  R ES  A  Bannat  This article has been accepted for inclusion in a future issue of this j\ournal. Content is final as presented, with the exception of pagination 12 G I S Y B THE W CE G5 AND G1\226G4 and es y al  2376\2262383 4 Y  K or en 223 G e ner a l R M S char acter is tics  Com p ar is on w ith dedicated n  2005  H  W ang Y  Rong H L i  a nd P  Sha ign 224  EEE  224 2011  M  G  M ehrabi A  G  U ls o y  Y  K oren a nd P  He ytler  223T rends and 224 2002  M  F  Z aeh and M  O s t gathe 223 A m u d n  
+
+
+20 2007  W  L i  P  L i and Y  Rong 223Cas e-bas e d a gile 036xture des i gn 224 hnol f publication f publication uo Calcolo o s s ntell  tical 1979  H Bunk e a nd K Shearer  223 A g raph dis t ance m e tric bas e d o n t he m a xim a l 224 a publication a publication 2003  I K o ch 223 E num erating a ll connected m a xim a l c om m o n s ubgraphs in 224 2011 3\2264 1996  K  Y  Y eung and X  Chen 2233-D 036xture layout des i gn s y s t em bas e d n 341\226352 1973  V  K a nn 223O n t he appr oxim a bility of N P c om plete optim ization  1992  M R Gare y a nd D S J ohns on m m 2013  G Peng G Chen C  W u H Xin and Y  J iang 223 A pplying RBR and xture 224 2007  S Kas hyap a nd W  R DeVries  223Finite elem ent a nalys i s a nd optim iza\224 2007  I Bo yle Y  Rong and D  C Bro wn 223 A r e v ie w a nd analys is of 224 2001  A  A a m odt and E  P laza 223Cas e-bas e d r eas oning F oundational i s s u es  224 2011  B O Nna j i  S Al l a di n a n d P  L yu 223 A fra m e w o rk for a rul e ba s e d e xpe rt ing 224 1988  R Hunter  J  Rios  J  M Perez and A  V izan 223 A f unctional a pproach 224 2006  Y  Z hou Y  L i  a nd W  W a ng 223 A feature-bas e d 036 xture d es ign m ethodolir 224 2011  A  S  K u m a r  V  S ubr am aniam  and T  B T eck 223 Conceptual des i gn of 224 193\226201 1999  G Prabhaharan K P  P a dm anaban a nd R Kris hnakum ar  223 Machining FE 224 2011  Z  Bi and W  Z hang 223Fle xible 036 xture d es ign a nd autom a tion Re vie w  224 2005  J  Kakis h  P  L  Z h ang and I  Z eid 223T o w ards the d es ign a nd de v e lop\224 2000  Y  Kang Z  W a ng R L i  a nd C J i ang 223 A 036xture des i gn s ys t em 224 2002  G  F  Chen a nd W  J  L iu 223 V a riant 036 xture d es ign w ith CBR 224 i n 2006  Y  Rong S H Huang and Z  H ou 2002  A Mehra J  Grundy  a nd J  Hos k ing 223 A generic a pproach to s upgi n 1075\2261091 2001  D Conte P  F oggia and M  V ento 223 Challenging com p le xity of m a xiis 224 2007  R P  Grim aldi 2001  R D i es tel 23\22634 1982  E  B Kris s i nel a nd K Henrick 223Com m on s ubgraph i s om orphis m 224 255\226259 1998  H C Chang L  Dong F  X L i u and W  F  L u 223Inde xing and r etrie v al 224 2000  J  Man yika 2012  B Bro w n M Chui a nd J  Man y ika 1465\2261469  I M Bo yle K Rong and D  C  B ro wn 223 CAFixD A cas e-bas e d 224 2004 85\22696  H W a ng and Y  K  Rong 223Cas e b as ed reas oning m e thod for c om puter 224 2005 204\226213  K Shearer  H  Bunk e and S  V enkates h  223 V i deo i nde xing and ng 224 131\226139  J  J  M c G r e gor  223 Backtr ack s ear ch algor ithm s and t he m a xim a l c om m o n 224  H 3 7 V  S ubr am aniam  A  S  K u m a r  and K  C  S eo w  223Conceptual des i gn of 224 omput    1999  R H unter  A  V iz\341n J  P er ez and J  R 355os  223K no w l edge m odel a s a n 224 ppl  238\226243  F  Mas oudinia 223 A ne w a pproach of m u lti-objecti v e optim ization i n 224  2010  X  G  M i ng and K  L  M ak 223 I n telligent s etup planning in m a nuf actur ing 224  2000  S Ratche v  K Phuah and S  L he 224  1996  J  Raym ond and P  W illett 223Maxim um com m o n s ubgraph i s o m o rphis m 224  xy   ign t ptim ci  iol  ded ign tt gnit 3 2000  S Selv akum ar  K  A ruls hri K P a dm anaban a nd K Sas i kum ar  223 Des i gn 224 13 2001  J  Cecil 223Com puter aided 036xture des i gn\227A r e v ie w a nd future trends  224 6 1995  F  L i qing and A  S  K um ar  223 XML bas e d r epres e ntation i n a CBR 224  1\2264 2005  Y  Rong and Y  Z hu 12 2008  I K o ch T  L engauer  and E  W ank e  223 An algorithm f or 036nding m a xim a l 224 6 2004  G L e vi 223 A note o n t he deri v a tion o f m axim al com m o n s ubgraphs of 224 Ni  n   o aph g 325   1994  A S K u m a r a nd A Ne e  223 F ra m e w o rk for a v a ri a n t 036 xt ure d e s i g n 224 Su  hnol  hnol  hnol ang  2000  S  A n s a ldi L  de F l or iani a nd B F a lcidieno 223G eom e tr ic m odeling o f n SA 2005  I M Bo yle K Rong and D  C  B ro wn 223 Cas e bas ed reas oning in n 15 1999 8 N  H  W u a nd K  C Chan 223 A g enetic algor ithm b as ed appr oach to 224 O This article has been accepted for inclusion in a future issue of this j\ournal. Content is final as presented, with the exception of pagination y al ppl  1995  S H Sun a nd J  L  Chen 223 A m odular 036xture des i gn s ys t em bas e d 224 ools    compeoductivity  hnol  hnol ithms ppl Commun hnol hnol hnol pplied oduction ign 
+
+
+2016  A v ailable http://docs 2014  R A V  D Geijn and J W atts 322SUMMA Scalable uni v ersal matrix 323 2015  W  Y ang K Li Z Mo and K Li 322Performance optimization using 323 1990  H White 2015  Y  Bengio 322Learning deep architectures for AI 323 2009  A Beck and M T eboulle 322 A f ast iterati v e shrinkage-thresholding algo\323 1 2009  Y  Bengio A Courville and P  V incent 322Representation learning 323  1997  D Schmidt G Ostroucho v  W C Chen and P  P atel 322T ight coupling with in eb with 323 maprein 2016  A v ailable http://docs x x  2015  T  Poggio and F  Girosi 322Netw orks for approximation and learning 323 2007  G Huang G.-B Huang S Song and K Y ou 322T rends in e xtreme learn\323  nvidia html  2016 nvidia html  K Li W  Y ang and K Li 322Performance analysis and optimization 323 McLean 120\320127  S Seo  2015  J Xin 811\320815  J Choi J J Dongarra R  Pozo and D W  W alk er  322ScaLAP A C K comin  721\320726  2016 in Changsha China in machine His dison data in of 2003 ersity IL a echnology the Supercomputing 130 and T ON C OMPUTERS IEEE T ON P AND D UTED S YSTEMS e  computer in 2015 in intellicurrent cloud data computer Science 2008 with Electronic the Science uted parallel data in Houston 1990 of conference parallel disand ystems CPU-GPU ys\336le Things systems currently T ON P AND D UTED S YSTEMS T ON C OMPUTERS T ON C LOUD C OMPUTING IEEE T ON S VICES C OMPUTING T CTIONS ON S ABLE C OMPUTING  ocomputing ocomputing  ICPP Sci  2013 h Learn Comput IEEE CCGrid Chen ng research grid computing T ON C OMPUTERS  allel Syst CloudCom of Computing al Learning Theory Exp     1992  G.-B Huang and L Chen 322Con v e x incremental e xtreme learning 323 14 SYSTEMS  B W ang S Huang J Qiu Y  Liu and G W ang 322P arallel online s equen\323   SCC Guide Guide Comput Intell This article has been accepted for inclusion in a future issue of this j\ournal. Content is final as presented, with the exception of pagination d al i i Ouyang 
+
+
+S Yang et al  Semantic Inference on Clinical Documents Combining Machine Learning Algorithms With an Inference Engine  TABLE 7 Comparison of different classifiers used in CDTS and determine the one whose symptoms are the closest to those of the new patient at this stage and its corresponding treatment strategy is hereby applied to the patient at this stage It is of note that the treatment phase numbers of the old and new medical records might not be the same in this case Afterward the treatment phase number for the new patient is adjusted to the historical medical record's next treatment phase number Repeat Rule1 until the patient fully recovers For example a dataset  will be established when the symptoms of a new patient in the third phase do not match the historical records at the same time point Then we go through all of the records again and if any two phases of one historical record share similar symptoms with the 034rst two phases of the new patient it will be kept in   Given that any historically successful treatment 021 has m treatment phases on average the comparison procedure will be conducted C 2 m D m\050m 000 1\051  2 times at most If there are n cases then the time complexity is O\050n 003 m 2 051 This method is used to capture extended similar historical cases After the establishment of   all of the phases of the cases in  are compared with the third phase of the new patient treatment on the symptoms to 034nd the most similar one with the maximum rank at the similarity measurement matrix   which determines the treatment strategy for the new patient at the third phase C RESULTS AND ANALYSIS To enlarge the training dataset we randomly resample the dataset 1000 times without replacement by using the 034lter Resample in Weka In Table 7 iOVFDT constructs the smallest tree model compared with the other three classi\034ers in terms of the nodes leaves and depth HT and HAT also perform well in the construction of a nice tree model with 97 and 116 nodes 50 and 58 leaves and 21 and 23 depths respectively HOT has the largest tree size with more nodes and leaves which implies training dataset over\034tting As shown in Figs 8 and 9 Hoeffding-based tree classi\034ers have better performance compared to iOVFDT in terms of the classi\034cation correctness 050i.e accuracy\051 and kappa statistic 050i.e stability\051 With continuous incoming instances the accuracy and stability of Hoeffding-based tree classi\034ers rise with some 035uctuation while the performance of iOVFDT is kept at a horizontal level Similar to HAT the voted ensemble FIGURE 8 Comparison of classification correctness FIGURE 9 Comparison of the Kappa statistic FIGURE 10 Comparison of the evaluation time of the CPU multi-classi\034cation algorithm 050VEMCA\051 also performs well in terms of accuracy and stability and outperforms HAT when the number of instances is larger than 340000 Figs 10 and 11 compare the evaluation time of the CPU and the memory cost of the 034ve classi\034cation algorithms iOVFDT shows the fastest speed and the smallest memory cost among the 034ve classi\034cation algorithms HT gives better performance than HAT and HOT with 6.93 seconds in CPU occupation and a 0.91-Mb memory cost VEMCA's evaluation time and memory are 20.73 seconds and 1.62 Mb respectively VOLUME 5 2017 3543 
+
+
+S Yang et al  Semantic Inference on Clinical Documents Combining Machine Learning Algorithms With an Inference Engine  FIGURE 11 Comparison of the memory cost VIII CONCLUSIONS Modern techniques such as CDSS and HIS have substantially facilitated clinical diagnosis and treatment However some of the emergent problems remain to be considered The 034rst problem is challenging the traditional data analysis techniques due to rapidly increasing amounts of multidimensional clinical data The second is the dif\034culty of clinical information integration Clinical information from different contexts are heterogeneous in terms of structure and semantics For the bene\034t of patients and long-term clinical development it is very promising to integrate clinical information 050e.g outpatients medical records\051 from different clinicians or hospitals to assist in clinical decision-making The third problem is the call for personalized medicine and professional medical treatment because different doctors or hospitals are good at diagnosing and treating different diseases and the patients have the freedom to choose among them To solve the three problems above this paper proposes a clinical diagnosis and treatment system 050CDTS\051 that assists patients in choosing clinicians or hospitals according to their requirements 050e.g distance from home to hospital\051 The foundation for disease detection in CDTS consists of decision trees that are created by our voted ensemble multiclassi\034cation algorithm that enables decision-tree-based data stream mining Furthermore to integrate clinical documents and heterogeneous health information systems a new clinical tabular document model is proposed which represents clinical documents in tabular format and maintains consistent vocabulary terms and semantic relations among different contexts through the term chain and semantic relation chain Additionally a novel semantic inference algorithm is designed for disease detection and treatment suggestion based on the rules that are generated by decision trees and similarity computations among medical records The contribution of this paper can be summarized as follows 342 A uni\034ed clinical tabular document model 050CTDM\051 implemented by a new clinical tabular document language 050DocLang XML based\051 facilitates the interoperability among different clinical decision support systems 050CDSS\051 342 A new voted ensemble multi-classi\034cation algorithm is proposed in terms of running multiple decision treebased classi\034cation algorithms simultaneously on the same data stream and voting for the best output The results are associated with statistical information on the accuracy of classi\034cation which provides proof of optimization 342 A novel clinical diagnosis and treatment system with a newly designed semantic inference algorithm supports clinicians in the decision making process as well as saving time and expense for the patients For future work it is necessary to expand DocLang to become a more comprehensive markup language by importing more semantic relation types for more complex clinical documents These studies are in progress and are expected to present valuable results later REFERENCES   M A Makary and M Daniel Medical error\026The third leading cause of death in the US BMJ  vol 353 p i2139 May 2016   D Kopec M H Kabir D Reinharth O Rothschild and J A Castiglione Human errors in medical practice Systematic classi\034cation and reduction with automated information systems J Med Syst  vol 27 no 4 pp 297\025313 Aug 2003   L T Kohn J M Corrigan and M S Donaldson Eds To Err is Human Building a Safer Health System  Washington DC USA National Academy Press 2000   D W Bates et al  The Costs of adverse drug events in hospitalized patients JAMA  vol 277 no 4 pp 307\025311 1997   H Singh et al  Types and origins of diagnostic errors in primary care settings JAMA Internal Med  vol 173 no 6 pp 418\025425 Mar 2013   W Rogers B Ryack and G Moeller Computer-aided medical diagnosis Literature review Int J Biomed Comput  vol 10 no 4 pp 267\025289 Aug 1979   D Kopec and D Michie Mismatch Between Machine Representations and Human Concepts Dangers and Remedies  Brussels Belgium Forecasting and Assessment in Science and Technology 1992   D Wallace and D R Kuhn Software quality lessons from medical device failure data U.S Dept Commerce Technol Admin Nat Inst Standards Technol Gaithersburg MD USA Tech Rep NISTIR 6407 1999   D L Bates et al  Effect of computerized physician order entry and a team intervention on prevention of serious medication errors JAMA  vol 280 no 15 pp 1311\0251316 1998   W G Baxt Application of arti\034cial neural networks to clinical medicine Lancet  vol 346 pp 1135\0251138 Oct 1995   M S Hossain Cloud-supported cyber\025physical localization framework for patients monitoring IEEE Syst J  to be published A v ailable http://dx.doi.org/10.1109/JSYST.2015.2470644   E S Berner Ed Clinical Decision Support Systems Theory and Practice  2nd ed New York NY USA Springer 2007 pp 3\02522   B Rothman J C Leonard and M M Vigoda Future of electronic health records Implications for decision support Mount Sinai J Med  vol 79 no 6 pp 757\025768 2012   M H Trivedi et al  Barriers to implementation of a computerized decision support system for depression An observational report on lessons learned in real world clinical settings BMC Med Inform Decision Making  vol 9 p 6 Jan 2009   C S\341ez A Bres\363 J Vicente M Robles and J M Garc\355a-G\363mez An HL7-CDA wrapper for facilitating semantic interoperability to rule-based clinical decision support systems Comput Methods Programs Biomed  vol 109 no 3 pp 239\025249 Mar 2013   B Rothman J C Leonard and M M Vigoda Future of electronic health records Implications for decision support Mount Sinai J Med J Transl Person Med  vol 79 no 6 pp 757\025768 Nov./Dec 2012   J Gholap V P Janeja and Y Yesha Uni\034ed framework for clinical data analytics 050U-CDA\051 in Proc IEEE Int Conf Big Data 050Big Data\051  Oct./Nov 2015 pp 2939\0252941 3544 VOLUME 5 2017 
+
+
+S Yang et al  Semantic Inference on Clinical Documents Combining Machine Learning Algorithms With an Inference Engine    S Hussain and S Lee Semantic transformation model for clinical documents in big data to support healthcare analytics in Proc 10th Int Conf Digit Inf Manage 050ICDIM\051  Oct 2015 pp 99\025102   M Herland T M Khoshgoftaar and R Wald Survey of clinical data mining applications on big data in health informatics in Proc 12th Int Conf Mach Learn Appl 050ICMLA\051  vol 2 Dec 2013 pp 465\025472   A Bifet and R Gavald\340 Adaptive learning from evolving data streams in Proc Int Symp Intell Data Anal  Aug 2009 pp 249\025260   R J Quinlan C4.5 Programs for Machine Learning 050Morgan Kaufmann Series in Machine Learning\051 San Mateo CA USA Morgan Kaufmann Jan 1993   L Breiman J Friedman R Olshen and C Stone Classi\034cation and Regression Trees  Monterey CA USA Wadsworth 1994   P Domingos and G Hulten Mining high-speed data streams in Proc 6th ACM SIGKDD Int Conf Knowl Discovery Data Mining  Aug 2000 pp 71\02580   N Oza and S Russell Online bagging and boosting in Arti\034cial Intelligence and Statistics  San Mateo CA USA Morgan Kaufmann 2001 pp 105\025112   A Bifet G Holmes B Pfahringer R Kirkby and R Gavalda New ensemble methods for evolving data streams in Proc 15th ACM SIGKDD Int Conf Knowl Discovery Data Mining 050KDD\051  New York NY USA 2009 pp 139\025147   E Ocampo M Maceiras S Herrera C Maurente D Rodr\355guez and M A Sicilia Comparing Bayesian inference and case-based reasoning as support techniques in the diagnosis of acute bacterial meningitis Expert Syst Appl  vol 38 no 8 pp 10343\02510354 2011   I Watson Applying Case-Based Reasoning Techniques for Enterprise Systems  San Mateo CA USA Morgan Kaufmann 1997   L OtavioAlvares Racioc\355nio Baseadoem Casos in Inform\341tica UFRGS  2006 A v ailable http://www inf.ufsc.br 030 luis.alvares INE5633/RaciocinioBC.pdf   A Aamodt and E Plaza Case-based reasoning Foundational issues methodological variations and system approaches AI Commun  vol 7 no 1 pp 39\02559 2004   R L De Mantaras et al  Retrieval reuse revision and retention in casebased reasoning Knowl Eng Rev  vol 20 no 3 pp 215\025240 2005   J Kolodner Case-Based Reasoning  San Mateo CA USA Morgan Kaufmann 1993   S K Pal and S C K Shiu Foundations of Soft Case-Based Reasoning  Hoboken NJ USA Wiley 2004   T Cerquitelli S Chiusano and X Xiao Exploiting clustering algorithms in a multiple-level fashion A comparative study in the medical care scenario Expert Syst Appl  vol 55 pp 297\025312 Aug 2016   M Ben Alaya S Medjiah T Monteil and K Drira Toward semantic interoperability in one M2M architecture IEEE Commun Mag  vol 53 no 12 pp 35\02541 Dec 2015   I Lemmens J P Koster and S Valera Achieving interoperability at semantic level in On the Move to Meaningful Internet Systems 050Lecture Notes in Computer Science\051 vol 9416 I Ciuciu et al  Eds Cham Switzerland Springer 2015   A O Shigarov Table understanding using a rule engine Expert Syst Appl  vol 42 no 2 pp 929\025937 2015   G Xiao Semantic document exchange for electronic business through user-autonomous document sense-making Ph.D dissertation Univ Macau Zhuhai China 2015   S Yang and J Guo A multi-viewed document representation for semantic document exchange in Proc IEEE 12th Int Conf e-Bus Eng 050ICEBE\051  Oct 2015 pp 154\025159   A M Namboodiri and A K Jain Document structure and layout analysis in Digital Document Processing  London U.K Springer 2007 pp 29\02548   A K Jain and B Yu Document representation and its application to page decomposition IEEE Trans Pattern Anal Mach Intell  vol 20 no 3 pp 294\025308 Mar 1998   J Guo Collaborative conceptualisation Towards a conceptual foundation of interoperable electronic product catalogue system design Enterprise Inf Syst  vol 3 no 1 pp 59\02594 2009   S Nam S Lee J G B Kim and H G Kim STEP An ontology-based smart clinical document template editing and production system Expert Syst Appl  vol 41 no 6 pp 3005\0253015 2014   Z Gong M Muyeba and J Guo Business information query expansion through semantic network Enterprise Inf Syst  vol 4 no 1 pp 1\02522 2010   J Guo L Xu Z Gong C P Che and S S Chaudhry Semantic inference on heterogeneous e-marketplace activities IEEE Trans Syst Man Cybern A Syst Humans  vol 42 no 2 pp 316\025330 Mar 2012   C S G Khoo and J.-C Na Semantic relations in information science Annu Rev Inf Sci Technol  vol 40 no 1 p 157 2006   G Hulten and L Spencer PedroDomingos Mining time-changing data streams in Proc ACM SIGKDD Int Conf Knowl Discovery Data Mining  2001 pp 97\025106   I H Witten and E Frank Data Mining Practical Machine Learning Tools and Techniques  San Mateo CA USA Morgan Kaufmann 2005   A Bifet Adaptive learning and mining for data streams and frequent patterns ACM SIGKDD Explorations Newslett  vol 11 no 1 pp 55\02556 2009   B Pfahringer G Holmes and R Kirkby New options for hoeffding trees in Proc AI  2007 pp 90\02599   B Pfahringer G Holmes and R Kirkby New options for hoeffding trees in Proc Austral Joint Conf Artif Intell  Dec 2007 pp 90\02599   H Yang and S Fong Incrementally optimized decision tree for noisy big data in Proc 1st Int Workshop Big Data Streams Heterogeneous Source Mining Algorithms Syst Program Models Appl  Aug 2012 pp 36\02544   W N Street and Y Kim A streaming ensemble algorithm 050SEA\051 for large-scale classi\034cation in Proc 7th ACM SIGKDD Int Conf Knowl Discovery Data Mining  Aug 2001 pp 377\025382  Cancer Data Access System of American National Cancer Institute  accessed on May 25 2016 A v ailable https://biometry  nci.nih.gov/cdas   S Tsumoto Automated extraction of hierarchical decision rules from clinical databases using rough set model Expert Syst Appl  vol 24 no 2 pp 189\025197 2003   S Yang and J Guo A novel approach for cross-context document reasoning in e-commerce in Proc 6th IEEE Int Conf Softw Eng Service Sci 050ICSESS\051  Sep 2015 pp 1018\0251025   J Guo SDF A sign description framework for cross-context information resource representation and interchange in Proc Enterprise Syst Conf 050ES\051  Aug 2014 pp 255\025260   Y Zhang M Chen D Huang D Wu and Y Li iDoctor Personalized and professionalized medical recommendations based on hybrid matrix factorization Future Generat Comput Syst  vol 66 pp 30\02535 Jan 2016   Y Zhang D Zhang M M Hassan A Alamri and L Peng CADRE Cloud-assisted drug recommendation service for online pharmacies Mobile Netw Appl  vol 20 no 3 pp 348\025355 2015   M Chen Y Ma J Song C.-F Lai and B Hu Smart clothing Connecting human with clouds and big data for sustainable health monitoring Mobile Netw Appl  vol 21 no 5 pp 825\025845 2016   M Chen NDNC-BAN Supporting rich media healthcare services via named data networking in cloud-assisted wireless body area networks Inf Sci  vol 284 pp 142\025156 Nov 2014   J Wan C Zou S Ullah C.-F Lai M Zhou and X Wang Cloud-enabled wireless body area networks for pervasive healthcare IEEE Netw  vol 27 no 5 pp 56\02561 Sep./Oct 2013   X Chen L Wang J Ding and N Thomas Patient 035ow scheduling and capacity planning in a smart hospital environment IEEE Access  vol 4 pp 135\025148 2016 SHUO YANG 050M'15\051 received the master's degree in software engineering from Dalian Jiaotong University Dalian China in 2013 He is currently pursuing the Ph.D degree in E-commerce technology with the Department of Computer and Information Science University of Macau His research interests include document engineering and semantic inference mainly applied to the 034eld of E-commerce E-marketplace and clinical area VOLUME 5 2017 3545 
+
+
+S Yang et al  Semantic Inference on Clinical Documents Combining Machine Learning Algorithms With an Inference Engine  RAN WEI received the master's degree in pharmaceutical engineering from the New Jersey Institute of Technology Newark NJ USA in 2011 He is currently pursuing the Ph.D degree in biomedical sciences with the Department of Microbiology Rutgers University Newark His research interest focuses on the quantitative analysis of epigenetic pathways in vitamin D-regulated lung immune responses JINGZHI GUO 050M'05\051 received the the B.Econ degree in international business management from the University of International Business and Economics Beijing China in 1988 the M.Sc degree in computation from The University of Manchester Manchester U.K in 2010 and the Ph.D degree in internet computing and e-commerce from Grif\034th University Brisbane Australia in 2005 He is currently an Associate Professor in eCommerce Technology with the University of Macau Macau China His research interests include concept representation semantic integration and collaboration systems mainly applied to the 034elds of e-commerce e-marketplace e-banking and the virtual world LIDA XU 050M'86\025SM'11\051 is currently an Academician of the Russian Academy of Engineering He was recognized as a Highly Cited Researcher by Thomson Reuters 050Clarivate\051 in 2016 3546 VOLUME 5 2017 
+
+
+This article has been accepted for inclusion in a future issue of this j\ournal. Content is final as presented, with the exception of pagination EEE   19 S Gong Cheng om Xidian  in 2007 and the M.S. and technical  3   He is currently an Associate Professor with Northwestern Polytechnical University. His main research interests are computer vision and pat tern recognition ei Han ently techni ch The ersity cher at the Uni His omputer vision, multi and brain imaging analysis. He es such as IEEE T C t T IONS  ON P A t t T ERN  A A YSIS  AND M CHINE  I I N t T ELLIGENCE AMI I I N t T ER NA t T IONAL J OURNAL  OF  C C O m p MP U t T ER V ISION V T C t T IONS  ON  I I m M GE P SSING  TIP C C ONFERENCE  ON  C C O m p MP U t T ER V ISION  AND P A t t T ERN  R R OGNI t T ION VPR I I N t T ERNA t T IONAL  C C ONFERENCE  ON  C C O m p MP U t T ER V ISION V I I N t T ERNA t T IONAL J OIN t T  C C ONFER ENCE  ON  A A R t T IFICIAL  I I N t T ELLIGENCE IJCAI Prof. Han is an Associate Editor of the I E E E IEEE T RANSAC t T IONS  ON  H H U m M AN M ACHINE  S S YS t T E m M S  Neurocomputing   Processing and Machine Vision and Applications  u ently f  tor ests include emote sensing om e eas  international journal, including Neurocomputing Elsevier Cognitive  Computation Springer International Journal of Image and Graphics  World of Scientific 
+
+

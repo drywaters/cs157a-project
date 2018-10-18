@@ -1,0 +1,379 @@
+Deep-Space Ka-band Link Priority Data Protection Preemptive Retransmission vs Margin Shervin Shambayati Jet Propulsion Laboratory California Institute of Technology 4800 Oak Grove Dr Pasadena CA 91109 E-mail 
+In this paper the performance of two preemptive retransmission schemes for protection of priority data over deep-space Ka-band links is evaluated The first scheme merges the correctly received bit from each transmission to create the most complete set of priority data for each pass bit merge The second scheme symbol combining combines the soft symbols received from each transmission of the pri\255 ority data 
+Shervin Shambayati@jpl.nasa.gov Abstract 
+to increase the priority data's signal to noise ratio SNR thus increasing the likelihood of their correct recep\255 tion These performances were then compared to an equiva\255 lent margin scheme in which the data rate used for the trans\255 mission of the priority data is reduced by a factor equal to the number of transmissions of the priority data The per\255 formance of each scheme was evaluated through emulation using Water Vapor Radiometer WVR and Advanced Wa\255 ter Vapor Radiometer AWVR sky brightness temperature measurements along with models for Deep Space Network DSN Ka-band capable antenna using Mars Reconnaissance Orbiter's DSN tracking schedule 
+and geometry The results indicate that bit merge and reduced rate schemes perform roughly the same in terms of availability of the priority data at least 97 compared to 93 without any data protections scheme but for bit merge priority data losses occur over fewer passes than for the reduced rate scheme The sym\255 bol combining scheme is superior to both the bit merge and the reduced rate schemes with at least 98.5 priority data availability with losses over a small number of passes Receivers have a minimum demodulation threshold SNR and combining algorithms have combining losses therefore the performance of the symbol combining scheme 
+4 
+was also evaluated with respect to these two factors The results indi\255 cate that even with current receivers the symbol combining scheme performs extremely well and the scheme is relatively robust with respect to combining losses TABLE OF CONTENTS 
+1 I 6 8 
+978-1-4244-2622-5/09/$25.00@2009 IEEE IEEEAC Paper 1319 Final Ver 202/05/2008 BIOGRAPHY 225 225 225 225 225 225 225 225 225 225 225 225 225 225 225 225 225 
+2 METHODOLOGY 225\225\225\225\225\225\225\225\225\225\225\225\225\225\225\225\225\225\\225\225\225\225\225\225\225\225\225\225\225\225\225\225\225\225 2 3 RESULTS 225\225\225\225\225\225\225\225\225\225\225.\225\225\225\225\225\225\225\\225\225\225\225\225\225\225\225 225\225\225\225\225\225\225\225\225\225\225\225\225\225\225\225 5 
+INTRODUCTION CONCLUSIONS ACKNOWLEDGEMENTS 225\225\225\225\225\225\225\225\225\225\225\225\225\225\225\225\225\225\\225\225\225\225\225\225\225\225\225 7 REFERENCES 225\225\225\225\225\225\225\225\225\225\225\225\225\225\225\225\225\225\\225\225\225\225\225\225\225\225\225\225\225\225\225\225\225\225\225\225\\225 
+225\225 225\225 225 225 225 225 225 225 225\225 225 225 225 225 225 225 225 225\225 8 1 INTRODUCTION Compared to X-band Ka-band deep space frequencies are subject to greater degradation due to the weather Previous studies have indicated that for every dB of loss due to weather at X-band the Ka-band system would suffer approximately four dB of loss 1 Because of this a simple margin policy to protect important data is inefficient and could lead to a se\255 vere reduction in the data return Since there is usually some data on board the spacecraft that needs to be received by the ground by the end of a pass we 
+are interested in evaluating methods other than increasing the link margin to guarantee delivery of the priority data One method to increase the probability that priority data is re\255 ceived correctly is to use preemptive retransmission that is to transmit the priority data several times during the pass Such a preemptive retransmission scheme could be used in two ways The first method referred to as bit merge in this paper is to merge correctly received fragments of the priority data from each transmission to form a more complete set of data This method is very easy to implement as the ground systems al\255 ready have the 
+means to combine data from retransmissions Also the coding used on the channel could be different for each transmission since the data merge occurs on the informa\255 tion bits after the decoding The second scheme referred to as symbol combining is to use the same exact coding this includes same exact block of information bits to generate the same exact block of channel symbols on the spacecraft for each transmission and then combine the received soft sym\255 bols optimally to increase each symbol's signal-to-noise ratio SNR thus increasing the likelihood of decoding the infor\255 mation correctly 
+should be noted that implementation 
+It 
+of such a system could be quite complex since on the spacecraft the same exact channel symbols need to be generated for ev\255 ery transmission and on the ground the soft symbols need to be saved before combining could occur Two factors need to be considered for symbol combining First is the efficacy of the combining process If combining is ideal the resulting SNR is equal to the addition of all the SNR values from each transmission of the symbol However com\255 bining is never ideal and combining losses always exist be\255 cause of phase jitter on the demodulated signal both because 
+ 
+
+
+Q 
+d u 
+l 
+n 
+that is transmitted during the pass Let 
+the transmission periods for the priority data are selected such that there is maximum bit separation between the transmissions subject to a minimum elevation 
+Pass Selection and Link Design 
+Selection of Priority Data Transmission Periods for the Pre\255 emptive Retransmission Schemes 
+a 
+1 Required 
+ 225 0  _  2 
+MAR value is selected so that near-maximum data return could be achieved without too much loss of data 3 Note that when the data rates are originally selected for the pass priority considerations are not yet taken into account 
+2 METHODOLOGY 
+225 225 225 
+d d d d p  
+225 225 
+ 0.1  then 
+u  
+225 225 225  1 
+Selection of the Priority Data 
+Given the number of transmissions 
+p p  
+65 e 267S tT 
+Q 
+Figure 
+It was assumed that the spacecraft has the same 101.3 dBm equivalent isotropic radiated power EIRP as MRO How\255 ever the available data rates for the link design are different from MRO's In this analysis the spacecraft has information data rates from 330 Kbps to 26 Mbps in 1 dB steps This is illustrated in Fig 1 The initial link design is based on maximizing the expected throughput per pass using at most two data rates subj ect to 85 minimum availability requirement MAR This method 
+n 
+225 225 
+Information Data Rate bps 
+For all passes a fraction of data transmitted over the pass is declared as priority This fraction For the purposes of this analysis 207 passes were selected from the MRO's DSN tracking schedule from April 1 2006 through July 31 2007 The passes were selected such that on the average one pass per week per DSN complex DSN Communication Complexes are located at Goldstone Cali\255 fornia Canberra Australia and Madrid Spain for a total of 69 passes per complex Actual MRO-Earth geometry was used for each pass To evaluate these schemes Mars Reconnaissance Orbiter MRO Deep Space Network DSN tracking schedule along with models for the DSN antennas Ka-band performance and data from Water Vapor Radiometer WVR and Advanced Water Vapor Radiometer AWVR were used to emulate the performance of each scheme over the Ka-band link 
+n 
+225\225 
+for Different Data Rates for 8920,1/6 Turbo Code 
+ 
+ 
+2 Pp Pp  n 
+is I Gbits and is the same for all passes and is one of the free variables in our analysis An\255 other free variable is the number of transmissions for bit merge and symbol combining schemes  rate reduc\255 tion factor for the reduced rate scheme 
+ 
+l 
+So for example if 
+u 
+t  t 
+be the total number of bits transmitted during a pass based on the two data rates selected according to the link design Then 
+9 
+is 1.1 Gbits is 100 Mbits has been outlined previously in 1 2 and 3 The 85 is given by This paper is organized as follows In Section 2 the method\255 ology for our analysis including the link design selection of the priority data selection of transmission time and perfor\255 mance metrics are discussed In Section 3 the results of the analysis are presented In Section 4 conclusions are reached 
+P d n d u d d d t d t d u 
+No Pp 
+t 
+the spacecraft and the ground receivers The second factor is the sensitivity of the receiver Receivers have a minimum symbol SNR SSNR threshold in order to lock up and a de\255 modulate symbols This means that given a real receiver only the symbols whose SNR is higher than the receiver's mini\255 mum symbol SNR could be used for combining It should be noted that at a minimum symbol combining will work as well as the bit merge because every transmission of the priority data could be decoded by itself and its resulting bits merged together under the bit merge algorithm In order to provide a fair comparison with the standard margin policy our analysis compares the preemptive retransmission schemes with a case where the data rate for the transmission of the priority data is reduced by a factor equal to the total number of transmissions of the priority data in the preemptive retransmission scheme So for example if the preemptive retransmission scheme transmits the priority data in each pass twice then for the comparable reduced rate scheme the data rate for priority data is reduced by a factor of two over the original link design 80 75 70 
+is given by 1 
+z 
+pp d p 
+and the amount of priority data and the amount of priority data 
+ 225 225 225 a 60 55 50 100000 1000000 10000000 100000000  2  and 
+1  
+ 
+These parame\255 ters are used to calculate the total amount of unique data 
+ 
+
+
+57960Mbits 
+values with the minimum elevation not exceeding 25 de\255 grees Note that since it is assumed that the spacecraft is sequenced well in advance the times at which priority data are transmit\255 ted are assumed to be known before the transmission actually takes place This along with the frame sequence identification tags facilitates making the list of the correctly received bits 
+d d n\267dp 
+be the transmitted bit number at which the eleva\255 tion of the pass first exceeds the minimum elevation mask and let be the bit number at which the pass achieves its maximum elevation for the link design without the priority schemes Then the priority data starts transmission at For the symbol combining scheme the SNR margins for the priority symbols are calculated after each transmission and saved These values are then added together not in dBs and reduced by the combining loss to produce the overall SNR margin of each symbol Note that only those SNR val\255 ues that are greater than the minimum SSNR threshold value of the receiver are used for calculating the combined SNR margins From these margin values it is then determined which priority bits are correctly received 
+by a factor of 
+T 
+  
+ 
+dth 
+ 
+ 
+d d 
+mask Maximum bit separation is desirable in order to as\255 sure some degree of independence in the channel conditions between different transmissions of the priority data The min\255 imum elevation mask is desirable because the weather effects under the same weather conditions are more severe at lower elevations than at higher elevations 4083 Mbits and 
+and the ith transmission of the priority data starts on bit Let and 
+d d P n n d d me d me d t n d me n t d 
+i.e d 
+ 2 In this case  18  41  05 and 
+transmissions for the priority data then the number of non-priority bits between two transmissions is given by Fig 2 illustrates this for a simple example In this case 
+Analysis of the Preemptive Retransmission Schemes 
+WVR and AWVR data along with DSN models for 34\255 m Beam Waveguide BWG antennas gains and equipment noise temperature 4 were used to emulate the link perfor\255 mance For the bit merge case during the first transmis\255 sion a list of correctly received bits is constructed This list is merged with a similar list made from the second trans\255 mission On subsequent transmissions the list of correctly received bits is merged with the merged list obtained after the previous transmission The merged list obtained after the last transmission is the list of priority data that were obtained through this scheme During this period 
+bit is transmitted and 
+0.1 and 0.1 and 
+max t 2otherwise 6 Note that because of equation 3 the minimum elevation mask can only be satisfied if 7 max t 2otherwise 
+dmb n-1 dmb dmb 
+4083 Mbits and 
+ 20  08  54 Note that this is 5269 seconds at the reduced data rate from 2 Mbps of 1 Mbps resulting in 5269 Mbits of data and the priority data stops transmission at 5 3 
+d n d d p 
+57960Mbits 
+as well Fig 3 illustrates this for the same ex\255 ample used for Fig 2 
+max  
+be the time when the 
+T 
+the data rates that were cal\255 culated according to the original priority-less link design are reduced by a factor 
+d p u 
+should be noted that the WVRJ A WVR data that are used to 3 
+be the bit number at which the elevation of the pass becomes lower than the minimum elevation mask If the elevation of the pass never falls below the minimum elevation mask before the pass ends then 
+5269 Mbits and 5269 Mbits according to eqs 1 and 2 respectively The minimum elevation for this case is 20 degrees This leads to 
+is equal to 
+t 
+max  
+         
+ Given that there are a total of 
+n 
+Selection of Priority Data Transmission Period for the Re\255 duced Data Rate Scheme 
+ 
+It 
+For the reduced data rate scheme the priority data is transmit\255 ted near the maximum elevation of the pass in order to reduce the adverse weather affects on the link In this case given the original priority-less link design let 
+d me 
+ 
+d max 
+Pp Pp Pp d 
+t  t 
+ t d max   
+40069 Mbits Using these values according to 4 
+t 
+n\267d n\267d n\267dp ofn gap max 
+thus reducing the required 
+No 
+49421 Mbits For the analysis presented here the minimum elevation was selected such that for all the passes under consideration the condition in equation 5 was satisfied for the selected 
+2 Then 
+ 
+
+
+1 
+45 
+243t  
+30 
+I--------"f-J 
+Ci Q I 
+   
+ I I I 225 0  I W 
+d 
+0 14 
+ 
+VJ II II I I I Rate-Original Data Rat 
+Time Hours UTC Time Hours UTC 
+ 
+Ci 
+ 
+50 45 40 35 
+d d 
+2 
+Mbits 
+ I 
+ 
+Figure 3 Example for Selection of Priority Data Transmission Times for Reduced Data Rate Scheme 4 
+Elevation Data Elevation New 
+0.5 24  22 20 18 2 49421 Mbits 2.5 c 25 ns 20 15 10  5 40 30 1.5 2 a a 20 ns 15 ns c 10 
+0.5 5 0 0 14 16 18 20 22 24 
+d t 57960 
+sp 
+c 25 
+gap 
+2 35  en  
+ Figure 2 Example for Selection of Priority Data Transmission Times for preemptive Retransmission Schemes 50 2.5 
+tt r  05 tt r  20:08:54 
+II  iii 
+ 
+54690 Mbits 16 40069 Mbits 
+ 
+
+
+values However it should be noted that for all number of transmissions/rate reduction factor values the bit merge advantage is significantly higher at smaller 
+values it has significantly less This is because the fundamental nature of the priority data protection is different between the bit merge and sym\255 bol combining on one hand and the reduced rate scheme on the other The bit merge and symbol combining use time diversity to protect the priority data while the reduced rate scheme uses additional margin to protect the data This implies that for bit merge and symbol combining all the transmissions of a priority bit have to suffer from bad weather in order for that priority bit not to be received correctly On the other hand for the reduced rate scheme to fail the weather degradation has to be greater than the margin avail5 
+Performance Metrics 
+0.2 
+This analysis is straightforward Since the priority data are transmitted only once in this scheme WVR and A WVR data along with DSN models are used to evaluate the performance of the link during the transmission of the priority data At the end of the transmission period it is determined how much of the priority data was successfully received 3 RESULTS The analysis was performed for several different assumptions about the fraction of the priority data number of transmis\255 sions of the priority data and sensitivity of the receivers The parameter 
+the higher is the availability of the priority data For example with the minimum elevation requirement for the priority data was met see Fig 4 For the symbol combining algorithm the performance was evaluated for receivers with minimum sym\255 bol SNR SSNR values of 11 dB 11.5 dB 12 dB 12.5 dB 13 dB and 13.5 dB Note that currently the DSN Block V Receiver BVR has a minimum SSNR tracking capability of approximately 11 dB with BPSK modulation In addition we considered the case with three transmissions of the priorAlthough for 
+values ity data and 
+for 
+dB 0.6 
+ 0.5 with the reduced rate scheme Note that with all the symbol combining schemes the number of passes with priority data loss is at most 12 passes This is less than one sixth the total number of passes with data loss without any protection If no preference was given to priority data the expected data availability is 0.928 with 73 out of 207 passes suffering some data loss Figs 5 6 and 7 show the availability of the different schemes as a function of 
+0.3 0.4 0.5 
+Analysis of the Reduced Data Rate Scheme 
+all passes 
+15 
+than the reduced rate advantage at larger 
+n n n n n 
+for Different Number of Transmissions emulate the link performance are sampled at approximately once every five minutes and the elevation information for each pass is provided at once every minute Therefore a sin\255 gle SNR value calculated applies to all bits transmitted in one specific minute 
+equal to two three and four respectively Again these results indicate that all schemes under consideration substantially decrease the number of passes with priority data loss from 73 passes without priority data protection to at most 26 passes for equal to two three and four respectively As seen from these figures all schemes under consideration provide substantial protection for the priority data increasing the availability of the priority data to at least 0.96 for 
+was varied from 0.02 to 0.5 The total number of transmissions of the priority data was varied from 2 to 4 The minimum elevation was selected such that for 
+values while the reduced rate scheme has better perfor\255 mance at higher 
+Figure 4 Minimum Elevation Mask vs 
+1 
+Priority Fraction of the Total Data 
+ 2 and  2 For minimum SSNR values under consid\255 eration in this paper the symbol combining scheme outper\255 forms both the rate reduction scheme and the bit merge scheme As expected the lower the minimum SSNR of the receiver the better is the performance of the symbol combin\255 ing scheme Similarly the larger the value of  4 and no minimum SSNR for the receiver the symbol com\255 bining algorithm suffers no priority data loss for  2 better than 0.99 for  3 and better than 0.995 for  4 In terms of availability of the priority data the bit merge scheme performs better at lower  2 the bit merge scheme has roughly the same number of passes with priority data loss as the re\255 duced rate scheme for higher 
+n n n n n 
+n 
+S 0.1 For all symbol combining cases the priority data availabil\255 ity is better than 0.985 for o 27 
+3 
+Pp Pp Pp Pp Pp Pp Pp Pp Pp Pp 
+0.1 
+ 0.08 with combining losses varying from 0 to 
+Two performance metrics are of interest the completeness of the priority data in terms of the fraction of data received and the number of passes with priority data loss These two metrics give an understanding of how often and how much of the priority data is lost As mentioned in Section 2 not only the overall availability of the priority data is important but also the number of passes over which priority data is lost Figs 8 9 and 10 show the number of passes with priority data loss for 
+ 
+
+
+11.5 12.5 
+value for the reduced rate scheme That is why for the reduced rate scheme the number of passes with priority data loss is a non-decreasing function of In this paper we have introduced two schemes that use pre\255 emptive retransmission to provide additional protection for priority data and compared their performance with a simple equivalent margin policy implemented through a reduction of the data rate Performance of each scheme was evaluated us\255 ing DSN models for Ka-band performance of the ground an\255 tennas along with the data from WVR and A WVR for differ\255 ent priority fractions of the total data The analysis indicates that if a simple bit merge scheme is used without symbol combining the preemptive retransmission and the reduced rate scheme have roughly the same performance in terms of availability of the priority data however for the bit merge scheme priority data losses are concentrated in fewer passes than the reduced rate scheme Using symbol combining with preemptive retransmission provides significantly supe\255 rior performance to the reduced rate and the bit merge 
+dB I dB dB dB Min SSNR dB Min SSNR dB Min SSNR 
+0.980 
+__ 
+pp 
+SSNR 
+able to the priority data Therefore priority data losses are associated with persistent bad weather for bit merge and symbol combining and they tend be concentrated in a few passes because bad weather is not usually very persistent see 3  On the other hand the losses for the reduced rate scheme tend to occur over a larger number of passes because it is far more likely for a single deep drop in the SNR to occur during a pass It should be noted that because of the way the transmission periods for each scheme is selected a pass that has a prior\255 ity data outage for a lower 
+0.970 1.000 0.995 0.985 0.965 j 0.965 0.6 0.5 0.4 0.3 0.2 0.1 0.960 0.980 
+SSNR 
+I i   o o Priority Fraction of the Total Data Priority Fraction ofthe Total Data 6 
+11 
+Priority Fraction of the Total Data 
+Figure 5 Priority Data Availability for Reduced Rate Data Merge and Symbol Combining with Number of Transmis\255 sions/Rate Reduction Factor of Two Figure 7 Priority Data Availability for Reduced Rate Data Merge and Symbol Combining with Number of Transmis\255 sions/Rate Reduction Factor of Four 1.000  0.965 1 
+12 12 13 13 
+0.6 0.5 0.4 0.3 0.2 0.1 0.960 
+Min SSNR 
+ 
+This however is not the case for the symbol combining since the times at which the priority bits and their duplicates are transmitted vary as a function 
+n 
+0.985 0.980 i 253 0.975 0.975 j 
+13.5 11.5 12.5 13.5  225 0.995 
+_ 
+SSNR SSNR 
+Finally the effects of combining loss on the performance of the symbol combining were investigated For this analy\255 sis a value of 
+value will also have a priority data loss for a higher 
+ 
+pp 
+Min SSNR Min SSNR Bit Merge Reduced Rate l I 
+dB dB Min SSNR dB Min SSNR dB Min SSNR dB Min SSNR dB dB Min SSNR dB dB dB Min SSNR dB Min SSNR 
+C 0.975 I 11 11 l 3 was assumed and the combining loss was varied from 0 to 1 dB The results are plotted in Figs 11 and 12 As seen from these figures pri\255 ority data availability is relatively insensitive to combining losses with the receivers with the lower the minimum sym\255 bol SNR thresholds being more sensitive to combining losses Number of passes with priority data loss shows sensitivity to combining losses only for the case of the perfect receiver no minimum SSNR This indicates that for the case under con\255 sideration the symbol combining scheme is relatively robust in the face of combining losses 4 CONCLUSIONS 0.6 0.5 0.4 0.3 0.2 0.1 0.960 
+Pp Pp 
+_--------===4--------I 
+rTt PP A-J 
+0.990 
+13 12 
+225 4 o Figure 6 Priority Data Availability for Reduced Rate Data Merge and Symbol Combining with Number of Transmis\255 sions/Rate Reduction Factor of Three 
+12.5 11.5 13.5 
+___.j No Min SSNR Bit Merge Reduced Rate Min SSNR No Min SSNR Bit Merge Reduced Rate Min SSNR  
+ 0.08 when 
+0.970 
+ 0.970 1.000 0.995 0.990 
+ 
+
+
+  30 
+0.2 
+Figure 8 Number of Passes with Priority Data Loss for Re\255 duced Rate Data Merge and Symbol Combining with Num\255 ber of Transmissions/Rate Reduction Factor of Two Figure 10 Number of Passes with Priority Data Loss for Re\255 duced Rate Data Merge and Symbol Combining with Num\255 ber of Transmissions/Rate Reduction Factor of Four 
+ 
+20 7  o 
+0 
+dBi 
+SSNR 11.5 dB SSNR 12 dB i SSNR 12 dB 
+0.2 0.4 0.998 
+_ 
+  
+ o J 25 C E 20 o J 25 5 I o 
+0.996 0.995 
+Min SSNR 11 dB Min SSNR 11.5 dB Min SSNR 11 dB Min SSNR 12.5 dB Min SSNR 13 dB 
+dB I  I i Min SSNR 11.5 dB I 0.997 
+ _ J 245--------'j Q 0 ____1 o J d s  
+0.2 
+225 
+ 
+0 1 __ 
+Min SSNR 12 dB I-+-Min SSNR 12.5 dB Min SSNR 13 dB Min SSNR 13.5 Min SSNR 12.5 dB Min SSNR 13 dB Min SSNR 13.5 dB l--+No Min SSNR i 
+Figure 9 Number of Passes with Priority Data Loss for Re\255 duced Rate Data Merge and Symbol Combining with Num\255 ber of Transmissions/Rate Reduction Factor of Three Figure 11 Symbol Combining Priority Data Availability vs Combining Loss for 
+25 1----------J 
+a E J Z 
+0.6 0.5 0.4 0.3 
+  
+I 
+  
+_ o 
+SSNR 12.5 dB   Min SSNR 13 dB Min SSNR 13.5 dB Priority Fraction of the Total Data 1.2 0.8 0.6 0.991 
+30  0.1 0.2 0.3 0.4 0.5 0.6 Priority Fraction of the Total Data 0.6 0.5 0.4 0.3 ca No Min SSNR Bit Merge Reduced Rate No Min SSNR Bit Merge Reduced Rate No Min SSNR Bit Merge Reduced Rate  Min SSNR 11 dB Min SSNR 11.5 dB   0.1 U g  
+   _   
+i    2 Priority Fraction of the Total Data 0.1 U U f  15  Min SSNR 12 dB i   Combining Loss dB 
+Pp 
+I 225 225 225\225 
+      ______ i i 10 I I  I i i 
+n 
+0.994  
+ 0.08 and 
+225 1"*--1--.:\247 z  3 schemes but requires a more complex system both on the ground and on board the spacecraft This is to insure that the same channel symbol patterns are transmitted during each transmission of the priority data in order to perform proper symbol combining As the priority fraction of the total data increases the availability of the the priority data increases for the reduced rate scheme decreases for the bit merge scheme and decreases slightly for the symbol combining scheme Since symbol combining could be performed only when the receiver is able to lock onto the symbols perfor\255 mance of the symbol combining scheme was evaluated for different receiver sensitivities The results indicate that al\255 though with an increase in the receiver sensitivity the per\255 formance of the symbol combining scheme improves even with the least sensitive receiver under consideration the performance of the symbol combining scheme is superior to that of the reduced rate scheme Finally the effects of com\255 bining losses on the symbol combining scheme were inves\255 tigated in this paper In cases that were considered the sym\255 bol combining scheme was relatively robust with respect to combining losses with very little degradation in terms ofpri\255 ority data availability for combining losses of up to 1 dB The analysis also indicated that more sensitive the receiver is the larger the effects of combining losses are on the performance of the symbol combining scheme ACKNOWLEDGMENTS This work was performed at Jet Propulsion Laboratory Cali\255 fornia Institute of Technology under a contract with National 7 
+ 
+ 
+
+
+Proceedings of IEEE 
+DSMS Telecommunications Link Design H-andbook 810-005 Rev E 
+005/104/104B.pdj 
+Module 104 Rev B 34-m BWG Stations Telecommunications 
+IEEE Aerospace Conference 
+Aeronautics and Space Administration NASA Figure 12 Number of Passes with Priority Data Loss for Symbol Combining vs Combining Loss for 
+Min SSNR 13.5 dB I 
+a REFERENCES 1 Shambayati S Davarian F and Morabito D Link Design and Planning for Mars Reconnaissance Orbiter MRO Ka-band 32 GHz Telecom Demonstration 
+n==3 
+0.4 0.2 
+Jet Propulsion Laboratory Pasadena CA August 1 2005 BIOGRAPHY 
+0.6 
+Min SSNR 11 dB Min SSNR 11.5 dB Min SSNR 12 dB 
+Shervin Shambayati obtained his Bachelors of Science degree in Ap\255 plied Mathematics and Engineering in 1989 from California State University Northridge Subsequently he obtained his MSEE Engineer's Degree and Ph.D from University of California Los An\255 geles in 1991 1993 and 2002 respec\255 tively In 1993 Dr Shambayati joined the Deep Space Communications Systems Group at Jet Propulsion Labora\255 tory where he took part in development and testing of Deep Space Network's Galileo Telemetry receiver DGT In 1997 Dr Shambayati joined the Information Processing Group at JPL where he has been working ever since With that group Dr Shambayati has been involved in various projects includ\255 ing Mars Global Surveyor's Ka-Band Link Experiment II Deep Space 1 Ka-band testing 70m antenna Ka-band Task and the Mars Reconnaissance Orbiter Ka-band Demonstra\255 tion for which he was the Principal Investigator His cur\255 rent research interests and activities include evaluating the ef\255 fects of weather outages on the spacecraft resources Ka-band weather forecasting Ka-band link design and end-to-end sys\255 tem architecture studies for implementation of Ka-band and optical communications services in NASA's Deep Space Net\255 work 
+http://deepspace.jpl.nasa.gov/dsndocs/81 
+vol 95 No 11 pp 2171-2179 Nov 2007 3 Shambayati S Deep-Space Ka-band Link Design Continuity and Completeness 
+a 8 
+Min SSNR 12.5 dB Min SSNR 13 dB No Min SSNf3..-J 0.8 1 1.2 
+March 1-8,2008 Big Sky Montana 4 Sni ffin  R W Ed 
+ 
+IEEE Aerospace Con\255 ference 
+Pp 0\255 
+March 5-12 2005 Big Sky Montana 2 Shambayati S Ka-band Telemetry Operations Con\255 cept A Statistical Approach 
+ 0.08 and 
+Combining Loss dB 
+ 
+
+
+contributions in CWNs. For instance, who are the main contributors of CWNs and what are their benefits? Why do community members contribute to CWNs? What are the main management issues? How can we aggregate and measure their tangible and intangible contributions and benefits The main limitation of this framework is the difficulty of aggregating the tangible and intangible contributions of the community in order to assess their contributions in the total cost of the project. Another limitation is the difficulty to assess the contribution of each of the discussed collective action in the overall implementation and operation costs of the network In our analysis, we pointed out the important facets of collective actions and cooperation, rather than review such actions thoroughly. We will expand this multidisciplinary study in the future to empirically test the relationship between the collective actions in the domain of CWNs and other dimensions of social capital. We will also investigate the role of these networks in creating human capital and physical capital  7  Conclusion  The evolution of CWNs shows the significance of social capital embedded in communities and its role in boosting digital inclusion. We proposed a framework that encompasses the role of collective actions and cooperation in the creation of CWNs. These collectives include OSS, money donations, providing technical expertise, voluntary work, node-sharing, and hardware donations. We attributed these collective actions as outcomes of the social capital embedded in the communities This study improves our understanding of the capabilities of social capital, specifically in the digital domain. It shows that social capital constitutes a valuable resource for community development, taking advantage of digital innovations. The relationship between CWNs and social capital is expected to gain more attention from the scientific community. This is mainly due to the explosive growth of groups and communities that develop hardware and software products for the public use  8. Acknowledgement  9.  References   1 A. Abdelaal and H. Ali Typology for Community Wireless Network Business Models Proceedings of the Thirteenth Americas Conference on Information Systems, August 9-12th, Keystone, Colorado, USA 2007 2 J. C o le m a n Social Capital in the Creation of Human Capital American Journal of Sociology, V94, 1988 3 M.H. Huy s m a n a nd V  W u lf  Social Capital and IT current debate and research MIT Press: Cambridge 2004 4 J  D a m s ga a r d, M. A  P a ri k h a nd B  Ra o Wireless commons perils in the common good Communications of the ACM 49\(2\: 104-109, 2006 5 B. Jose ph Social capital, Community, and Public Libraries: An examination into how coffee and wireless internet access can increase our quality of life A Master s Paper for the M.S. in L.S degree. April, 2006 6 A  K a v a na ug h, a n d S  P a tte rs o n   the Impact of Community Computer Networks on Social Capital and Community Involvement American Behavioral Scientist, Vol. 45, No. 3, 496-509, 2001 7 L  Sim p son Community Informatics and Sustainability Why Social Capital Matters the Journal of Community Informatics, Vol. 1, Issue 2, pp. 102-119, 2005 8 N. L i n Building a network theory of social capital  Connections 22 \(1\:28-51, 1999  M  M a nd viw a lla, A  Jain J. Fesen m aier, J. Sm ith  P   Weinberg, and G. Meyers Municipal Broadband Wireless Networks: Realizing the Vision of Anytime Anywhere Connectivity in the Communications of the ACM, 2006 10 P   M o ran Structural vs. Relational Embeddedness Social Capital and Managerial Performance Strategic Management Journal, 26: 1129 1151 \(2005 1 A  Qu an Haase  an d B W e ll man   how does the Internet Affect Social Capital IT and Social Capital November 12, 2002 12 J. Na ha pie t a nd S  G hosha l  S oc ia l c a pita l, inte lle c t ua l  capital, and the organizational advantage." Academy of Management Review 23 \(2\, 1998, 242-266 13  P. Re s n ic k  Be y ond B o w ling T o g e the r Soc i o T e c hnic a l  Capital. In J. M. Carroll \(Ed\. HCI in the New, 2002 14 P Q u in n Community Wireless and the Digital Divide  Center for Neighborhood Technology, November 2006 15 E   Vo s Reports on Municipal Wireless and Broadband Projects March 2005 Report, from www.muniwireless.com 16 J. W illia m s F. Slig o, a nd C. W a lla c e  Free internet as an agent of community transformation Journal of Community Informatics, Vol 2, No 1, 2005 17 M. W oolc o c k  Social Capital and Economic Development: Toward a Theoretical Synthesis and Policy Framework Theory and Society, Vol. 27, No. 2 April, 1998, pp. 151-208 1 M   Bi n a and G  M  G i a g l i s   Unwired collective action Motivations of wireless community participants In Proceedings of the 5th International Conference on Mobile Business \(ICMB\ne 26-27 2006 19 R  D r une n  J  v a n K o olha a s H  Sc hu urm a ns a nd M  Vijn Building a wireless community network in the Netherlands USENIX/Freenix Conference, June, 2003 Proceedings of the 42nd Hawaii International Conference on System Sciences - 2009 9 
+
+
+20 R. M. Du ro n and C. E  Garc a  Returns from Social Capital in Open Source Software Networks accessed September 5, 2008, from http://www.business.mmu.ac.uk/emaee/papers/49Garcia Mendez-Duron.pdf 21 A  A bde la a l a nd H  A li A Graph Theoretic Approach for Analysis and Design of Community Wireless Networks to appear in Proceedings of the Thirteenth Americas Conference on Information Systems, 14-17th August, Toronto, Ontario, Canada, 2008 22 B  R a o, a nd M P a rik h   Wireless broadband drivers and their social Implications Technology in Society Vol 25, November, 477 489, 2003 23 A  H a rs  a nd S. O u  W ork i ng f o r f r ee  Motiv a tions f o r participating in open-source projects," International Journal of Electronic Commerce, 6 \(3\, 25-39, 2002 24 C. Sa ndv ig  An Initial Assessment of Cooperative Action in WiFi Networking Telecommunications Policy, 28, 2004, pp. 579-602 25 Cis c o I n c  Municipalities Adopt Successful Business Models for Outdoor Wireless Networks accesses February 28, 2007, from ttp://www.cisco.com/en/US/netsol/ns621/networking_sol utions_white_paper0900aecd80564fa3.shtml 2 C G r o o t aert  D Nara y a n   V  N Jon e s V  N Jo n e s and M. Woolcock Measuring Social Capital: an Integrated Questionnaire accessed January 5th, 2008, from http://povlibrary.worldbank.org/files/11998_WP18Web.pdf 27 S  Mei n rat h  Community Wireless Networking and Open Spectrum Usage: A Research Agenda to Support Progressive Policy Reform of the Public Airwaves The Journal of Community Informatics, Vol. 1, issue 2, pp 204-209, 2005 28 D  H  S h in a n d  M Ve nk a t e s h Analysis of the Development of Kutztown Community Network  Proceedings of the Proceedings of the 41st A nnual Hawaii International Conference on System Sciences 2008 29 C Mid d le to n, G  L ong f o rd, A  Cle m e n t a nd A  B. Potte r  ICT Infrastructure as Public Infrastructure: Exploring the Benefits of Public Wireless Networks the proceedings of the 34th Research Conference on Communication, Information and Internet Policy, 2006    Proceedings of the 42nd Hawaii International Conference on System Sciences - 2009 10 
+
+
+target item falls in TH category. To improve effectiveness of a segment attack, we select filler items from the set of items which are highly rated by those users who have rated target item at a higher Proceedings of the 42nd Hawaii International Conference on System Sciences - 2009 6 scale. The strategy used is similar to Strategy IH Filler items are selected the way explained in section 6.2  8. Experimental evaluation and discussion  We performed the experimental evaluation of our strategies on the publicly available MovieLens data set [8]. This is the most widely used dataset in recommender systems research. MovieLens consists of 100,000 ratings made by 943 users on 1682 movies. Each user in the data set has rated at least 20 movies and each movie has been rated at least once A timestamp value is associated with each user movie, and rating combination. The data set also contains information on the demographic detail \(age sex, occupation, and zip code information \(genre and release date The ratings are made in a scale of 1 to 5, where 5 indicate extreme likeness for an item and 1 dislike We evaluated effectiveness of the proposed strategies on user-based and item-based collaborative algorithm. For similarity calculation and prediction in user-based CF algorithm, equations 1 and 2 stated in section 3 were used. Similarly, equations 3 and 4 stated in section 3 were used for computing similarity and prediction value for item-based CF algorithm We used a neighborhood size of k = 20 for prediction calculation. Case amplification value of 10 was used while calculating correlation and only positive correlations values were considered for computing predictions To conduct our evaluation, we selected a sample 20 items. Out of the 20 items, 10 items belonged to TL  category while remaining 10 items to TH category All the 20 items were selected randomly from a larger set of items belonging to each category. We also randomly selected a sample of 50 target users Target users selected were those who have never rated any of the 20 test items. Each of the target items was attacked individually and the prediction shift was calculated by averaging the prediction shift observed for each user. The final prediction shift for the attack is the average prediction over all items used in the test. Equation 6 was used to calculate the metric For implementation of segmented attack we followed the same guidelines as stated in [3]. Horror segment was selected as the target segment. Five of the most popular horror movies were selected to represent the segment. These five movies selected formed the selected item set in the attack profiles constructed. The five movies are Alien, Psycho, The Shining, Jaws, and The Birds. Users who have given a rating of 4 or 5 to at least any 3 of the five movies were identified as the target segment against which the attack was focused. For calculating prediction shift we selected 50 of the users from this target segment to form the test user set. While implementing the segment attack, selected items were given a rating of 5 and the randomly selected filler items were assigned a value 1 All experiments were conducted for ?Size of attack? values 1%, 3%, 6%, 12%, and 15%.  ?Size of attack? represents number of attack profiles added as a percentage of pre-attack profiles. 1% ?Size of attack? implies 10 attack profiles were added to a 
+
+
+attack? implies 10 attack profiles were added to a system of 1000 genuine users. On the basis of the results reported in [4] that best results are reported when a filler size of 3% is used in an average attack we used a filler size of 3% for all our tests i.e., 3 % of 1682 items which is approximately 50 filler items For attacks against user-based collaborative filtering systems we used six strategies: Strategy UL, Strategy UH, Strategy SUL, Strategy SUH, segment attack and average attack. Similarly, for attacks against item based collaborative filtering systems we used six strategies: Strategy IL, Strategy IH Strategy SIL Strategy SIH, segment attack and average attack. For average attack, filler item strategy used was the same as in an average attack i.e., the mean of the filler item was assigned to it. Segment attack was implemented as explained earlier. Category TL, Category TH Strategy UL, Strategy UH, Strategy IL, Strategy IH Strategy SUL, Strategy SUH, Strategy SIL and Strategy SIH were implemented the way explained earlier in section 4, section 5, section 6 and section 7 respectively. For attacks against item-based CF while selecting filler items from set IF, only items with minimum frequency count of 10 were considered Figure 2 and Figure 3 show the effectiveness of our attacks when calculated for all users against systems using user-based collaborative filtering for recommendations.  Figure 2 shows the prediction shift values of attacks Strategy UL and average attack for items belonging to TL category. From the graph it?s obvious that for items in TL category, Strategy UL outperforms average attack model for all values of attack size. Similarly, Figure 3 shows the prediction shift values for the attack strategies Strategy UH and average attack for items belonging to TH category From the graph it can be concluded that for items belonging to TH category, Strategy UH performs much better than average attack over lower values of attack size. At attack size of 12 % and 15% both attack have similar effectiveness Figure 4 and Figure 5 show the effectiveness of our attacks when calculated for all users against systems using item-based collaborative filtering for recommendations.  Figure 4 shows the prediction shift values of Strategy IL and average attack for Proceedings of the 42nd Hawaii International Conference on System Sciences - 2009 7 items belonging to TL category. Similarly, Figure 5 shows the prediction shift values for the Strategy IH and average attack for items belonging to TH category. From Figure 4 and 5 it can be concluded that both Strategy IL and Strategy IH perform substantially better than average attack over all values of attack size. It can also be observed that our attack strategies are more effective against itembased systems than user-based systems Figure 6, 7, 8, and 9 show the effectiveness of our filler based attack strategies for in-segment users. We observe that for attacks against both user-based and item-based CF systems the effectiveness of our filler based strategies is comparable to the best available attack model for in-segment attacks i.e., segment attack. However, in Figure 8 we observe that filler item strategy SIL performs better than segment attack. Because of the low knowledge cost involved in segment attack, we can conclude that for most scenarios segment attack is a better attack model for in-segment attacks than filler based attack models Experimental results clearly show that our approach of selecting a strategy based on target item rating distribution outperforms the best available attack model i.e., average model. One drawback of 
+
+
+attack model i.e., average model. One drawback of our attack strategies is its high knowledge cost However, automated software agents can help diminish the cost. One approach that can be used to decrease the cost is to use a subset of users while selecting filler items. For example, in attacks against item-based systems, while implementing Strategy IH instead of selecting all users who have rated target item as 4 or 5 as members of the set UH. , we only select 20 users. Selection of items for set IF will then be performed using the data of the 20 users in set UH Similarly, in case of attacks against user-based systems, while implementing Strategy UH instead of assigning a filler item IF the average rating given to it by the set of users UH. , we assign IF the average rating given to it by a subset of 5 randomly selected users from UH. In future work we plan to experimentally verify the effectiveness of these cost reduction approaches    Figure 2:   Attack on TL category of items against user-based collaborative filtering system   Figure 3:   Attack on TH   category of items against user-based collaborative filtering system   Figure 4:   Attack on TL category of items against item-based collaborative filtering system  Proceedings of the 42nd Hawaii International Conference on System Sciences - 2009 8  Figure 5:   Attack on TH category of items against item-based collaborative filtering system   Figure 6:   Attack on TL category of items against user-based collaborative filtering system   Figure 7:   Attack on TH   category of items against user-based collaborative filtering system    Figure 8:   Attack on TL category of items against item-based collaborative filtering system   Figure 9:   Attack on TH category of items against item-based collaborative filtering system  9. Conclusion  This paper provides an effective approach towards constructing attack models. We show the importance of target item and filler items in construction of successful attack strategies. Through experiments we show that our approach of intelligent selection of filler items based on target item rating distribution results in substantial improvement over the baseline average attack. We also compare our approach with the well known in-segment approach and conclude that our approach gives slightly improved results. In future, we plan to examine the filler items strategies for other attack models, and also create algorithms to improve robustness and stability of recommender systems against shilling attacks 
+
+
+systems against shilling attacks  Proceedings of the 42nd Hawaii International Conference on System Sciences - 2009 9  10. References  1] Lam, S., and Riedl, J. 2004. Shilling Recommender Systems for Fun and Profit, In Proceedings of the 13th International WWW Conference 2] Mehta, B., Hofmann, T., and Nejdl, W. 2007. Robust Collaborative Filtering, In Proceedings of the 2007 ACM Conference on Recommender Systems, 49-56 3] Mobasher, B., Burke, R., Bhaumik, R., and Williams C. 2007. Towards Trustworthy Recommender Systems: An Analysis of Attack Models and Algorithm Robustness, ACM Transactions on Internet Technology, 7\(2007 4] Burke, R., Mobasher, B., and Bhaumik, R. 2005 Limited Knowledge Shilling Attacks in Collaborative Filtering Systems, In Proceedings of Workshop on Intelligent Techniques for Web Personalization 5] Konstan, J., Miller, B., Maltz, D., Herlocker, J Gordon, L., and Riedl, J. 1997.  GroupLens: Applying Collaborative Filtering to Usenet News Communications of the ACM, 40, 3\(1997 6] Herlocker, J., Konstan, J., Borchers, A., and Riedl J.1999. An Algorithm Framework for Performing Collaborative Filtering, In Proceedings of  SIGIR ACM, 77-87 7] Sarwar, B., Karypis, G., Konstan, J., and Riedl, J 2001. Item-based Collaborative Filtering of Recommendation Algorithms. In Proceedings of the 10th International WWW Conference 8] MovieLens data set,www.grouplens.org  Proceedings of the 42nd Hawaii International Conference on System Sciences - 2009 10 pre></body></html 
+
+
+ Current Time \(min  Healthy Failure Expected Just-in-time line Actual Remaining Life  Figure 17. Results of failure prognosis 0 100 200 300 400 500 600 700 800 900 1000 0 0.02 0.04 0.06 0.08 0.1 0.12 Time \(min Sp al l S iz e  m m 2 Interpolation of spall growth according to feature values 0 100 200 300 400 500 600 700 800 900 1000 0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1 Time \(min Fe a tu re V a lu e    Interpolation of feature value with noise Interpolation of feature vlaue snapshot with ground truth data 11 CONCLUSIONS This paper shows that enhancements to diagnostic techniques are desirable as well as attainable additions to Health and Usage Monitoring Systems \(HUMS particularly in the case of rotorcraft component monitoring Enhancements like those presented support CBM efforts primarily in two ways: reduce the sensitivity of diagnostic processes to both signal noise and variations in environmental and operating conditions, and improve the performance of detection systems as well as the task of fault identification \(e.g., severity quantification instantiation of reliable prognostics Representative examples, motivated by the interest of the U.S. Army in transitioning from time-based \(using TBO definitions drive train bearing, illustrates the potential benefits of 
+
+
+pursuing an integrated approach to diagnostics and prognostics, combining technologies for enhanced data preprocessing, advanced diagnostic-support algorithms, fusion at the sensor/feature levels, and an adequate framework for false alarm mitigation and uncertainty management. An architecture for achieving such integration is presented, with emphasis on supporting a robust performance of diagnostics operations, even in the presence of such kinds of disturbances as those observed in data acquired by HUMS vibration sensors. The present study also gives relevance to seeded fault because the technologies discussed can integrate knowledge about damage mechanism interactions or physics-of-failure models, as well as make use of multiple-sensor and multiple-feature data sets representative of known fault conditions For this reason, the team behind this project is evaluating a potential opportunity to perform a series of tests on rotorcraft drive train bearings with varying fault severities and under multiple, though realistic, operating conditions Such tests are being planned to provide algorithm/model validations, as well as diagnostic/prognostic performance assessments, in support of providing the U.S. Army with technologies that make detection systems more robust allow for the implementation of prognostics, and extend the useful life of drive train components. Component degradation testing thus remains as future, follow-up work to the research reported in this document ACKNOWLEDGMENTS This work has been partially supported with a cooperative agreement by the Army Research Laboratory under contract number W911NF-07-2-0075. In addition to the primary authors, we would like to thank government and contractor representatives from organizations supporting the Army Utility \(Blackhawk Estes, Mr. Carlos Rivera, and Dr. Jon Keller. This work has also benefitted greatly from consultations with other Army Research Laboratory and NASA Glenn researchers such as Dr. Timothy Krantz, Dr. David Lewicki, Dr. Harry Decker Dr. Hiralal Khatri, Mr. Ken Ranney and Mr. Kwok Tom REFERENCES 1] Branhof, R.W., Grabill, P., Grant, L., and Keller, J.A  Application of Automated Rotor Smoothing Using Continuous Vibration Measurements  American Helicopter Society 61st annual forum, Grapevine, Texas June 1  3, 2005 2] Dora, R., Wright, J., Hess, R., and Boydstun, B  Utility of the IMD HUMS in an Operational Setting on the UH60L Blackhawk  American Helicopter Society 60th annual forum, Baltimore, Maryland, May 7  10, 2004 3] Zakrajsek, J.J., Dempsey, P.J., et al  Rotorcraft Health Management Issues and Challenges  NASA report TM  2006-214022. February, 2006 4] Suggs, D.T., and Wade, D.R  Vibration Based Maintenance Credits for the UH-60 Oil Cooler Fan Assembly  American Helicopter Society, CBM Specialists Meeting, Huntsville, Alabama, February 13 2008 5] Baker, C., Marble, S., Morton, B.P., and Smith, B.J  Failure Modes and Prognostic Techniques for H-60 Tail Rotor Drive System Bearings  IEEEAC paper #1122 IEEE, 2007 6] Keller, J.A., Branhof, R., Dunaway, D., and Grabill, P  Examples of Condition Based Maintenance with the Vibration Management Enhancement Program   American Helicopter Society 61st Annual Forum Grapevine, Texas, June 1  3, 2005 7] Zhang, B., Sconyers, C., Byington, C.S., Patrick, R Orchard, M.E., and Vachtsevanos, G.J  Anomaly Detection: A Robust Approach to Detection of 
+
+
+Detection: A Robust Approach to Detection of Unanticipated Faults  International Conference on Prognostics and Health Management, Denver, Colorado October 6-9, 2008 8] Byington, C.S., Watson, M., Lee, H., and Hollins, M  Sensor-level Fusion to Enhance Health and Usage Monitoring Systems  American Helicopter Society, 64th Annual Forum, Montreal, Canada, April 29-May 1, 2008 9] Engel, S.J., Gilmartin, B.J., Bongort, K., and Hess, A  Prognostics, the Real Issues Involved With Predicting Life Remaining  Proceedings of the IEEE Aerospace Conference, Big Sky, Montana, March 18-25, 2000 12 BIOGRAPHY Romano Patrick is a Project Manager at Impact Technologies. He received a Ph.D. in Electrical Engineering from the Georgia Institute of Technology specializing in model-based machine health diagnostics and prognostics. He also holds an MBA from Georgia Tech and degrees from U Texas, Arlington and U. Panamericana, Mexico. With career focus on interdisciplinary integration of technologies, his recent work involves practicable diagnostics/prognostics design for complex systems, such as rotorcraft drive trains Past experience includes automation and design for a variety of industrial and government sponsors \(DARPA, Lockheed Martin, Northrop Grumman, etc and program coordination at U. Panamericana, and some entrepreneurial R&amp;D Matthew J. Smith is a Senior Project Engineer at Impact Technologies. During his tenure with Impact, Matthew has performed multiple efforts pertaining to bearing vibration analysis, diagnostic and prognostic system development, and experimental study of faulted system reponse and fault progression. Previously, as a research assistant at Penn State and the NASA Glenn Research Center, Matthew performed experimental and analytical oil-free bearing analyses Matthew received his B.S. and M.S. degrees in Mechanical Engineering from The Pennsylvania State University. His research interests include: prognostic health assessment for bearing and actuator systems, grease degradation modeling and fault classifier development Bin Zhang received his Ph.D. degree from Nanyang Technological University, Singapore in 2007. He received his BE and MSE degrees from Nanjing University of Science and Technology, China, in 1993 and 1999, respectively. He is a senior member of IEEE. From 2005 to present, he has been a Post-Doc with the School of Electrical and Computer Engineering, Georgia Institute of Technology, Atlanta GA His current research interests are fault diagnosis and failure prognosis, systems and control, digital signal processing learning control, intelligent systems and their applications to robotics, power electronics and various mechanical systems Carl S. Byington is a Professional Engineer and the Director of Systems Engineering at Impact Technologies. He directs R&amp;D in pursuit of advanced, automated systems health management for land-based, shipboard, and airborne machinery for military and commercial customers. He is Chairman of the Machinery Diagnostics &amp; Prognostics Committee of ASME and a member of IEEE, AIAA, SAE and AHS. He has a BS degree in Mechanical Engineering from the University of Pennsylvania and an MS in Aeronautical Engineering from George Washington University, and has published over 60 papers, book chapters, magazine and journal articles related to diagnostics and prognostics technologies George Vachtsevanos is Professor Emeritus at the Georgia Institute of Technology and also serves as the Chief Scientist at Impact Technologies, LLC. He directed the Intelligent Control Systems laboratory at Georgia Tech for the past 28 years where faculty and students are conducting research in fault diagnosis/prognosis and fault-tolerant control of engineering systems, intelligent control of industrial 
+
+
+engineering systems, intelligent control of industrial processes, neurotechnology and cardiotechnology, and unmanned systems. His research work has been sponsored by government and industry and has published over 250 technical papers in his area of expertise. He is the lead author of a book on "Intelligent Fault Diagnosis and Prognosis of Engineering Systems" published by Wiley in 2006. He is the recipient of the Georgia Tech Interdisciplinary Activities award and the ECE Distinguished Professor award Romeo de la Cruz del Rosario, Jr. is the Chief of the Electronics Technology Branch at the U.S. Army Research Laboratory. He also serves as the Army Technology Objective ATO P&amp;D Operational Readiness and Condition Based Maintenance He received the B.E.E. degree from the Catholic University of America, Washington, D.C., and the M.S.E. and Ph.D degrees in Electrical and Computer Engineering from the Johns Hopkins University, Baltimore, MD. Since 1991 he has been an engineer at the Harry Diamond Laboratory then U.S Army Research Laboratory working in several areas including high power microwave technology characterization &amp; modeling of heterostructure RF devices and fabrication and failure analysis of electron devices and circuits  pre></body></html 
+
+
+movies. In the case of the volume of critical reviews however, there was no big difference between mainstream and non-mainstream movies. WOM and critical reviews were usually positive H1 and H2 tested the relationship between WOM and weekly box office revenue, and the results supported the hypotheses. The volume of WOM was positively related to weekly box office revenue, while the valence of WOM had no significant effect. H3 H4a, and H4b tested the impact of critical reviews, and the results also supported the hypotheses except H4b The volume and valence of critical reviews had no consistent significances to weekly box office revenue H3 H4b. Table 7 showed that the number of critical reviews was statistically significant to aggregate box office revenue \(H4a for the attitude of critical reviews \(H4b the result more detail, an additional test was performed using only those factors related to critical reviews as independent variables. The result of the additional test supported H4, but the signs were reversed, i.e. positive critical reviews had minus signs, and negative critical reviews had plus signs. This reversed signs imply that the preference of critical reviewers is very similar to that of normal moviegoers. H5s and H6s tested the different effects of WOM and critical reviews on mainstream and non-mainstream movies. The result failed to determine that WOM give different impact on mainstream and non-mainstream movies, so H5a and H5b were rejected. H6, however, was supported, i.e the effects of critical reviews were different for mainstream and non-mainstream movies. There were no significant relationships between critical reviews and aggregate box office revenue in mainstream movies. For non-mainstream movies, however, the volume of critical reviews and the percentage of negative critical reviews were significant. Nonmainstream movies have fewer sources from which consumers can get information, and this might explain the results The above findings lead to several managerial implications. First, producers and distributors of movies could forecast weekly box office revenue by looking at previous weeks? volume of WOM. It does not matter what attitude people have when they spread WOM, the important factor is its volume. Therefore producers and distributors need to develop an appropriate strategy to manage WOM for their movies For example, the terms related to WOM marketing such as buzz and viral marketing are easily found Second, for the distributors who usually distribute less commercial and more artistic movies, and consequently have a smaller market compared to the major distributors, critical reviews can impact their movies box office revenues in a significant way. There are usually fewer sources for information for nonmainstream movies than mainstream movies, and so small efforts could leverage the outcomes. Finally, for those who are dealing with mainstream movies, the finding that the valence of WOM and critical reviews do not have significant relationship with box office revenue can have certain implications. Particularly, the attitude of critical reviews showed reversed effects Therefore, they may need to concentrate on other features rather than attitude of moviegoers or critical reviews, such as encouraging moviegoers to spread WOM This study contributes to the understanding of the motion picture industry, especially the relationship between box office revenue and WOM including critical reviews. There are existing studies that already 
+
+
+critical reviews. There are existing studies that already dealt with similar issues, but this study has some differentiated features compare to prior studies. First the data used in this study was collected from South Korea, while most of the relevant studies usually focus on the North American market. This helps to provide the opportunity to understand the international market especially the Asian market, even though South Korea is a small part of it in terms of the motion picture industry. Second, movies were categorized to two groups, i.e. mainstream and non-mainstream and this study attempted to determine how WOM impacts these categories differently by testing several hypotheses In this study, there are also several limitations that could be dealt with in future research. First, using box office revenue as a dependent variable is more meaningful for distributers rather than producers. Due to there is close correlation between box office revenue and number of screens, one of producers? main concerns is how many screens their movies can be played on. Moreover, DVD sales are also important measurement for success of movies these days, and so it also could be a dependent variable. Therefore, it could be possible to give more fruitful managerial implications to various players in the motion picture industry by taking some other dependent variables Second, in this study, movies were categorized simply as mainstream and non-mainstream movies, but there could be further studies with diverse techniques of movie categorizations. For example, it would be possible to study the varying influence of WOM or critical reviews on different genres or movie budgets Third, an interesting finding of this study is that positive critical reviews could have negative relationship with box office revenue while negative critical reviews could have positive relationship. This study tried to provide a reasonable discussion on the issue, but more studies could be elaborate on it  Proceedings of the 42nd Hawaii International Conference on System Sciences - 2009 9 References  1] Dellarocas, C., The Digitization of Word of Mouth Promise and Challenges of Online Feedback Mechanisms Management Science, 2003. 49\(10 2] Bone, P.F., Word-of-mouth effects on short-term and long-term product judgments. Journal of Business Research 1995. 32\(3 3] Swanson, S.R. and S.W. Kelley, Service recovery attributions and word-of-mouth intentions. European Journal of Marketing, 2001. 35\(1 4] Hennig-Thurau, F., et al., Electronic word-of-mouth via consumer-opinion platforms: What motivates consumers to articulate themselves on the internet? Journal of Interactive Marketing, 2004. 18\(1 5] Fong, J. and S. Burton, Electronic Word-of-Mouth: A Comparison of Stated and Revealed Behavior on Electronic Discussion Boards. Journal of Interactive Advertising, 2006 6\(2 6] Gruen, T.W., T. Osmonbekov, and A.J. Czaplewski eWOM: The impact of customer-to-customer online knowhow exchange on customer value and loyalty. Journal of Business Research, 2006. 59\(4 7] Garbarino, E. and M. Strahilevitz, Gender differences in the perceived risk of buying online and the effects of receiving a site recommendation. Journal of Business Research, 2004. 57\(7 8] Ward, J.C. and A.L. Ostrom, The Internet as information minefield: An analysis of the source and content of brand information yielded by net searches. Journal of Business Research, 2003. 56\(11 
+
+
+9] Goldsmith, R.E. and D. Horowitz, Measuring Motivations for Online Opinion Seeking. Journal of Interactive Advertising, 2006. 6\(2 10] Eliashberg, J., A. Elberse, and M. Leenders, The motion picture industry: critical issues in practice, current research amp; new research directions. HBS Working Paper, 2005 11] S&amp;P, Industry surveys: Movies and home entertainment 2004 12] KNSO, Revenue of Motion Picture Industry 2004 Ministry of Culture, Sports, and Tourism, 2004 13] Duan, W., B. Gu, and A.B. Whinston, Do Online Reviews Matter? - An Empirical Investigation of Panel Data 2005, UT Austin 14] Zhang, X., C. Dellarocas, and N.F. Awad, Estimating word-of-mouth for movies: The impact of online movie reviews on box office performance, in Workshop on Information Systems and Economics \(WISE Park, MD 15] Mahajan, V., E. Muller, and R.A. Kerin, Introduction Strategy For New Products With Positive And Negative Word-Of-Mouth. Management Science, 1984. 30\(12 1389-1404 16] Moul, C.C., Measuring Word of Mouth's Impact on Theatrical Movie Admissions. Journal of Economics &amp Management Strategy, 2007. 16\(4 17] Liu, Y., Word of Mouth for Movies: Its Dynamics and Impact on Box Office Revenue. Journal of Marketing, 2006 70\(3 18] Austin, B.A., Immediate Seating: A Look at Movie Audiences. 1989, Wadsworth Publishing Company 19] Bayus, B.L., Word of Mouth: The Indirect Effects of Marketing Efforts. Journal of Advertising Research, 1985 25\(3 20] Faber, R.J., Effect of Media Advertising and Other Sources on Movie Selection. Journalism Quarterly, 1984 61\(2 21] Eliashberg, J. and S.M. Shugan, Film critics: Influencers or predictors? Journal of Marketing, 1997. 61\(2 22] Reinstein, D.A. and C.M. Snyder, The Influence Of Expert Reviews On Consumer Demand For Experience Goods: A Case Study Of Movie Critics. Journal of Industrial Economics, 2005. 53\(1 23] Gemser, G., M. Van Oostrum, and M. Leenders, The impact of film reviews on the box office performance of art house versus mainstream motion pictures. Journal of Cultural Economics, 2007. 31\(1 24] Wijnberg, N.M. and G. Gemser, Adding Value to Innovation: Impressionism and the Transformation of the Selection System in Visual Arts. Organization Science, 2000 11\(3 25] De Vany, A. and W.D. Walls, Bose-Einstein Dynamics and Adaptive Contracting in the Motion Picture Industry Economic Journal, 1996. 106\(439 26] Bagella, M. and L. Becchetti, The Determinants of Motion Picture Box Office Performance: Evidence from Movies Produced in Italy. Journal of Cultural Economics 1999. 23\(4 27] Basuroy, S., K.K. Desai, and D. Talukdar, An Empirical Investigation of Signaling in the Motion Picture Industry Journal of Marketing Research \(JMR 2 295 28] Neelamegham, R. and D. Jain, Consumer Choice Process for Experience Goods: An Econometric Model and Analysis. Journal of Marketing Research \(JMR 3 p. 373-386 29] Lovell, G., Movies and manipulation: How studios punish critics. Columbia Journalism Review, 1997. 35\(5 30] Thompson, K., Film Art: An Introduction. 2001 McGraw Hill, New York 31] Zuckerman, E.W. and T.Y. Kim, The critical trade-off identity assignment and box-office success in the feature film industry. Industrial and Corporate Change, 2003. 12\(1 
+
+
+industry. Industrial and Corporate Change, 2003. 12\(1 27-67 32] KOFIC, Annual Report of Film Industry in Korea 2006 Korean Film Council, 2006 33] Sutton, S., Predicting and Explaining Intentions and Behavior: How Well Are We Doing? Journal of Applied Social Psychology, 1998. 28\(15 34] Basuroy, S., S. Chatterjee, and S.A. Ravid, How Critical Are Critical Reviews? The Box Office Effects of Film Critics Star Power, and Budgets. Journal of Marketing, 2003. 67\(4 p. 103-117  Proceedings of the 42nd Hawaii International Conference on System Sciences - 2009 10 pre></body></html 
+
+
+
+
+

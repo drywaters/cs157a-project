@@ -1,0 +1,160 @@
+Server Authentication for Blocking Unapproved WOW Access Wookey Lee, and Simon S. H. Park Industrial Engineering Inha University Incheon, Korea trinity@inha.ac.kr, fgm0626@inha.edu Chasung Lim AhnLab Security Emergency Response Center AhnLab Seongnam, Kyunggido, Korea steady79@ahnlab.com Jinho Kim Computer Science Kangwon National Univ Chunchun, Kanwon, Korea jhkim@knu.ac.kr Byeong-Soo Jeong 
+Computer engineering Kyung Hee Univ Youngin, Kyunggido, Korea jeong@khu.ac.kr Abstract 227 An interesting function named Wake on WLAN WOW\has recently captured researchers attention as one of the remote computer administ ration functions that may turn on the remote computerized system through the network connection at the time point of receiving a specially coded packet. The phenomenon comes from the physiognomies of the coded pa cket such that each and every computerized system incl uding smart-phones in the 
+same network area receives the code where the transaction code will be broadcasted. Just in case predetermined a piece of coded packets from a server is acquired, not only authorized users but also unap proved user within the area network can wake the computerized system up. Therefore there are pros and cons for the WOW functionalities: The one is that once the computerized system is awake, it is vulnerable for the unapproved WOW attacks or hackings so that the possibility of information leakage can be increased. The other is a good thing such that only the activated servers among the set of servers like server-farm can be woke up, so that by reducing the electricity power 
+Green energy possibility can be achieved. In this research a novel technique to block Unapproved WOW attacks resulting from involuntary switch-on of a computerized system has been exploited, so that the good points can be achieved by getting controllability for the weak points [13 14  Keyword s 227 Wake on WLan, Coded packet, Unapproved WOW Attack, Security, Green IT I I NTRODUCTION WOW have established recently 
+requisite for rich internet infrastructure services in compan ies, public offices, colleges streets, and modernized cities. These services characteristically organize thousands of AP centric networks inside as well as their constructions and environment. These networks can afford WiFi Internet, telemedicine, Sensor Network, VoIP, and many communication services to th e districts in a cost effective and power optimized mode WOW, a function that remotely turns on a computer, refers to the method for switching on a PC\222s power through operation 
+of a LAN card. While analyzing the information of the signals sent from the network card connected to the mainboard, the WOW technology checks whethe r a specially coded signal e.g., magic packet\ains 16 duplications of the machine\222s MAC address, and then awak es the computer when the information matches [1, 2, 5 Thi s t e chnol ogy i s ut i l i zed i n  various ways, and is applicable to diverse online computers i.e., PC, server, server farm, smartphone Whereas expanding from IPv4 to IPv6 protocol, if IP address is assigned to every el ectronic device, the effect of developing the technology evidently would amplify. Therefore 
+the technology has a potential to be dispersed to diverse fields through alterations [7, 8, 9, 15   If a protection policy is not prepared regarding WOW, a user without a specific intention, or a hacker with malicious purpose can turn on another computer through this method thereby resulting in security problems. In this research, we suggest a protection me thod against this risk by controlling the PC\222s status through analyzing the signals, and checking the confirmation status with a se rver which authenticates the signals [16, 17 The rest of this paper is constructed as follows. In Section 2 
+we explain the operation method of WOW and magic packet Then, we elaborate on the risk of using WOW in Section 3, and the WOW protection method through signal authentication server in Section 4. Section 5 concludes the paper 155 
+
+
+II WOW AND M AGIC P ACKET WOW is a combination of hardware and software technology which wakes up a sleeping machine by sending specially coded network packet  T h i s f u n c t i on was devi s e d  for installing software and altering the settings of a machine managed by system administrators, and switching on the system using WOW function when everybody leaves office where all PCs are turned of f after the working hour If there is no such technology, system administrators would have to directly go where the machines are located, and push each of the power buttons. Having been developed since October, 1996 through the cooperation between Intel and IBM Advance Manageability Alliance, the technology was publicized in April, 1997 A Setting for WOW During the signal reception pr ocess through the network card, WOW is activated when th e machine receives a specific signal referred as the magic pack et. Therefore, even though the machine is turned off, the ne twork card always has to stay powered. Previously, since the network card and motherboard have been separately produced, they were used only by linking them with a 3-pin connector Figure 1 Foxconn IEEE 802.11G Network Card Figure 1 above is an example of these kinds of network cards, to which the power switch could be connected by attaching the 3-pin connect or of WOW cable to the motherboard. However, currently network cards and motherboards are produced in an integrated form, most of which supports the WOW function As aforementioned, as long as the motherboard and network card support the WOW function, after altering the setting of related item to \221ENABLE\222 at the CMOS setting stage and checking the magic signal function among the network card\222s properties, WOW function can be utilized B Operation Method of WOW As explained above, having completed all the settings, the WOW operation can be easily initiated by sending signals preset for the machine within the network. The details of the signal would be discussed in the following sections Since the WOW process is operated in a simple method accordingly, translating it into a code is not an excessively difficult task Figure 2 depicts the program coded with Visual Studio 2008 based on C#. To analyze the code, the signal is broadcasted in order to send it to the client, and then transmitted to each computer\222s UDP port 40000 Next, a signal is generated through a function, which is sent to client within the network. The UDP port 4000 mentioned above is one of the RPC variable ports The RPC refers to the protocol used for calling process functions on separate processes of an identical computer, or on a different computer. In general, port numbers from 40000 to 40010 are used, through which the signal reaches the computer crossing the firewall\222s border [6 n al sen t in th is way is called the \221magic packet\222 Figure 2 WOW Program Translated into C Consequently, since WOW can be readily operated by sending signals, although it is easily assumed that the technology can be applied only within the range of LAN because signals cannot cross the boundary of the router, when partially altered, it can also operate within the wireless, or WAN area This is since recently pro duced routers and switches support WOW function, thereby generating specially coded signals for the machine when WOW setting is applied [3, 4  Taking advantage of this property, WOW function is adopted to recently launched smartphones 156 
+
+
+C Magic Packet Magic packet is sent through the data link section, or OSI2LAYER. Since this part is set to be broadcasted, every machine in the network receive s the signal. Magic packet consists of a UDP header, code FF-FF-FF-FF-FF-FF, and 16 duplications of the machine s MAC address Figure 3 Structure of Secure-On  Magic Packet Figure 3 below depicts the analysis of a magic packet that is generated for waking up the machine with a MAC address of 00-E0-4C-31-03-AC. To illustrate the content, the picture depicts the status of sending the signal composed of code FFFF-FF-FF-FF-FF, and 16 duplications of code 00-E0-4C-3103-AC from a computer with an IP address of 192.168.1.4 to a computer with a destination IP address\(i.e., broadcast address of 192.168.1.255 at 3:01:11 on Jan. 28, 2012. The reason why 00-00-00-00-00 00 is included in th e end is because the machine receives only the signals containing the password 0000-00-00-00-00 due to its Secure-On function. Having sent the aforementioned signal, among every device in the network only the machine with a MAC a ddress of 00-E0-4C-31-03-AC is awoken. Other machines do not start any activity III R ISK S I N WOW As it can be inferred from the previous chapters, WOW can be activated as long as the MAC address of a computer within the same network is obtained, which enables a malicious attacker to attack The MAC address of another person\222s PC can be readily obtained. Figure 4 below depicts the procedure of finding the MAC address From the figure 4 below, it can be observed that using the program, nbtscan, the computer with an IP of 165.246.104.113 discovered the MAC address, D7-E0-22-31-38-03 [1  Havi ng  obtained the MAC address, when the magic packet is sent to the corresponding address, the designated device can be awoken Figure 4 MAC Address Obtained by Using Nbtscan The most correct way is to a llow the authorized user of WOW in the company to utilize the function only at the IP confirmed by managers and the user him/herself. In addition, in case of individuals, WOW ought to be operated only at IP authorized by the user If an IP address is assigned to every electronic device as the recently prevalent IPv6 protocol is developed, WOW would be a technology which facilitates remote switch-on of every device from outside. Consequently, the IPv6 technology could exacerbate the problem. Due to the relatively simple operation method of WOW, a partial error during the programming process or access to the machine by a malicious user can easily occur This phenomenon might involuntarily wake up most of the home appliances to which an IP address can be applied. This situation not only should not result from applying the WOW technology, but also has to be prevented Figure 5 Secure On Signal 157 
+
+
+The technology referred as th e Secure-On is one of the recently developed protection technologies that can be adopted for such purpose. As illustrated in the signal of Figure 5 which is an example of this technology, having added a 6-byte password at the end of a typical signal, the technology operates by only permitting reception of signals in which the password is included Yet, this method is inconvenient from an administrative perspective in that different pa ss-words are set for each of the machines. Moreover, machines equipped with this kind of function are expensive, and provided for only a limited number of NIC and routers [2, 11 A cor p o rat i on cal l e d AM T  circumvents the risk stemming from the use of WOW by adopting the TLS encryption method. This method uses a password of 128 bits and RSA key module of 2048 bits in length. However, this system is supported in only AMT-based comput  IV WOW P ROTECTION M ETHOD THROUGH S IGNAL A UTHENTICATION S ERVER In order to solve this problem, in this research, we adopt a signal authentication server. Du e to the characteristics of signals used for WOW \(e.g., magic packet\, all electronic devices in the network receive th e signal; therefore, if a signal authentication server exists in the network, the server would analyze the received signals We aim to check whether the signal is intended by confirming the source IP of authorized users after analyzing the header file. The figure 6 above depicts the conceptual diagram of signal authentication server Figure 6 Conceptual Diagram of Si gnal Authentication Server A Authors and Affiliations The operating principles are as follows 1 Managing the PC, the signal authentication server acknowledges the power is turned off 2 When the PC is waked up terminate the monitoring whereas if the PC is turned on by the signal, analyze it 3 Check whether the source IP is an authorized one; then send the confirmation packet if it is, and send the termination code if it is not 4 When the a response is transmitted after the confirmation packet is sent, do no t initiate any action, but if no response or a response that sign ifies unauthorized access, turn off the machine by sending the termination code 5 Restart monitoring when the corresponding PC is switched off The reason why the monitori ng is terminated when the machine is turned on is in order to prevent the overload on signal authentication server that could result from analyzing all signals since the PC receives numerous signals while it is awake. Furthermore, sending th e confirmation packet is for checking whether the header file of corresponding signal has been altered or not Figure 7 Operating Process of Serv er Authentication Server Figure 8 Operating Process in case the Header File is altered B Responding to Altered Header File If a malicious user is aware of these operating principles he/she can send a false signal by altering the IP of header file to an authorized IP. In order to pr event such attack, as mentioned 158 
+
+
+above, a confirmation packet is sent again. When a response which indicates that the signal is transmitted from a manager or authorized IP, no action is taken, but if not, termination code is sent. Through this process, the alteration status of the signal can be determined. Figure 8 below illustrates the operating process. Through this method, the risk derived from the header file\222s alteration can be prevented V C ONCLUSION WOW technology has a huge potential to be further improvement for accessing remote co mputerized systems. It is also convenient for managers and is also dangerous for being attacked by unapproved WOW a ttacks. In addition, as the technology is recently widely known, it is being applied to mobile devices such as smart-phones and mobile PADs However, due to its shortcomings in terms of security, the technology is not being easily adopted despite of its potentials In this research, we proposed a system which distinguishes authorized IP from unauthorized IP by adopting the signal authentication server, and switch es off the machine by sending termination code when the IP is unauthorized or unapproved Moreover, by processing the analysis only when the computer is turned on, we constructed a system that prevents overload on the authentication server, and circ umvents the risk if the header file is altered. Once each and ev ery computerized system in the same network area receives the code, the predetermined a piece of coded packets from a server is acquired, not only authorized users but also unapproved user within the area network can turn the computerized system on In this research, a novel technique to block Unapproved WOW attacks resulting from involuntary switch-on of a computerized system has been exploited, so that the good points can be achieved by getting controllability for the weak points. The vulnerability for the unapproved WOW attacks so that the possibility of inform ation leakage can be minimized Additionally, the good things such as Green energy can be maximized so that only the activated servers among the set of server-farm can be woke up and shut down In the near future, regarding WOW the Secure-On method can be achieved, and the plausibility of single-casting instead of broadcasting in WOW processing is incorrigible for the researches conducted afterwards A CKNOWLEDGMENT This work was supported by Defense Acquisition Program Administration and Agency for Defense Development under the contract UD080042AD, Korea R EFERENCES 1 AMD White Paper on WOL, http://www.amd.com/usen/assets/content_type/white_pa pers_and_tech_docs/20213.pdf 2 S. Tang, H. Yomo, Y. Kondo and S. Obana, Wakeup Receiver for Radio-On-Demand Wireless LANs, Proceedings of the Global Telecommunication Conference, Houston, USA, 2011, pp 1-6 3 N. Mishra, K. Chebrolu, B. Raman and A. Pathak, Wake-on-WLAN Proceedings of the 15th internati onal conference on World Wide Web New York, USA, 2006, pp 761-769 4 E. Shih, P. Bahl and M. J. Sinclair Wake on wireless: : an event driven energy saving strategy for battery op erated devices, Proceedings of the 8th annual international conference on Mobile computing and networking, New York, USA, 2002, pp 160-171 5 Y. Liang, J. Cao, L. Zhang, R. Wang and Q. Pan, CIMDS:Adapting Postprocessing Techniques of Associ ative Classification for Malware Detection , IEEE Transactions on Systems, Man, and Cybernetics, Part C:Applications and Reviews 40, 3,  2010, pp 298-307 6 technet.microsoft.com/libra ry/aa995746\(EXCHG.65\spx 7 P. Nikander, A. Gurtov and T. He nderson, Host Identity Protocal HIP\Mobility, Multi-H ming, Security and Privacy over IPv4 and IPv6 Networks, IEEE Communications Surveys and Tutorials 12, 2, 2010, pp 186-204 8 G. Iapichino and C. Bonnet, Host Identity Protocol and Proxy Mobile IPv6: A Secure Global and Localized Mobility Management Scheme for Multihomed Mobile Nodes, Proceeding of Global Telecommunications conference,   Honolulu, Hawaii, 2009, p 1-6 9 J. Zhong and J. Zhang, Energy-effi cient local wake-up scheduling in wireless sensor net-works, IEEE C ongress on Evolutionary Computation New Orleans, USA, 2011, pp 2280-2284 10 S. Wu, C. Chen and M. Chen, Coll aborative Wakeup in Clustered Ad Hoc Networks, IEEE Journal on Selected Areas in Communications 29 8, 2011, pp 1585-1594 11 D. Mukhopadhyay, An Improved Fault Based Attack of  the Advanced Encryption Standard, AfRICACRPT, Gammarth, Tunisia, 2009, pp 421434 12 M. Kermani and A. Reyhani-Masoleh, Concurrent StructureIndependent Fault Detection Sche mas for the Advanced Encryption Standard,  IEEE Transactions on Computers 59, 5, 2010, pp 608-622 13 A. P. Jardosh, K. Papagiannaki, E M. Belding, K. C. Almeroth, G lannaccone and B. Vinnakota, Green WLANs: On-Demand WLAN Infrastructures. Mobile Networks and Applications, 14, 6, 2009, pp 798814 14 R. Kumar and R. Khanna, Qua lity of Service Approach in UMTS_WLAN Handover, Green Co mputing and Communications 2012, pp 692-695 15 C. E. Perkins and D. B. Johnson Mobility Support in IPv6, ACM/IEEE International Conference on Mobile Computing and Networking, 1996 p27-37 16 W. Lee, C.S. Leung and J.J. Lee, Mobile Web Navigaion in Digital Ecosystems Using Rooted Directed Tree IEEE Transactions on Industrial Electronics 58, 6, 2011, pp 2154-2162 17 C. Lim, W. Lee and T. Jo, An Effective Protection Mechanism for SSL Man-in-t he-Middle Proxy Attacks Journal of KISS\(C\ Computing Practices and Letters 16 6, 2010, 693,697 159 
+
+
+                                    
+
+
+                                                       
+
+
+                 
+
+
+                                     
+
+
+                                                        
+
+
+                           
+
+
+                                        
+
+
+                  
+
+
+  
+
+
+                                               
+
+
+   
+
+
+                                
+
+
+                        
+
+
+                           
+
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     2 8    b 4      1 8             1 2     1  8 2  
+
+
+1 9    8      2 1       1     2    8    2 3\f        
+
+
+     8 D 4 9  F  \b 1 8 #J 9 1     2 1   2 #-@ 1   2 9  E 1   1   2 9      6  
+
+
+    8  8   1  D 1         1 F  \b0         2 D    F  \b 1 8  9  
+
+
+  1 9  1   E 1  2 9     1 1 F  \b       1    18   F   1    1 #-$+  \b  2 2  
+
+
+1 D     1 #-$+.B- 0/:% .0             9 1      18    1 6     1 2  1  1  
+
+
+1   6      2    1 2 E 8 D 1      1 2   1   1 #-4  #-@E     2  1  1  1       
+
+
+ 8     1          2 F    6   F  2   8    2 C<CC/C N\bO 5      
+
+
+CD    b$44NO F P Q 6   2 b$$$ ,=\b\bA  A N,O 2 C C  b$$4N  92 2   f  9-\b$$4 B N?O  !-    91  2 1 HH111-18-N+O    -1 :3%   2     0-4 
+
+
+     b N4O 2   2- \f  C b$@$ \b# >\b\b$3\b$N@O  f :.% 9 /9 \f    1  6  f 2  4   A254 
+
+
+Advantages of Our M ethod Advantages of Our M ethod Exploit the memory v ertical data format utilizes slidin g windows to g form a much larger database to analyze  Flexibility in Choosing what to choose  Choosing what to choose to build the rules Computational and memory efficiency We have a team working only on this aspect 45 Associative IDS for NextGen Frameworks Dr S Dua LA Tech 45 
+
+
+Preliminary Results Intra transaction Relations Data rate simulator NH-134 Mb HOP PATH update \(Y/N Inference 11.5 Y Y 2 0.120 N N      Y   n 0.345 N NH134 Y/N   Inf 1 0.150 N N 2 0 120 Y N Inter transaction Relations 2 0  120 Y N       5 5.55 0.456 Y Relations  n 0.345 N N Nmap on DMRL nmap.org 
+
+
+Anticipated Outcome Anticipated Outcome Develop algorithm capable of learning from a given heterogeneous diverse Develop algorithm capable of learning from a given heterogeneous diverse data ff Dynamic algorithmic f ramework designed to shi f t modalities and sampling rates based on complex logic Flexibility of integration into the Snort intrusion detection system 47 Associative IDS for NextGen Frameworks Dr S Dua LA Tech 47 
+
+
+References References Aircraft Cockpit Image courtesy USAF http://www.faa.gov htt p   www.faa g ov  air traffic  technolo gy  p g  _ gy  Acharya R Dua S Du X Sree V Chua C K Automated Diagnosis of Glaucoma Using Texture and Higher Order Spectra Features To appear in IEEE Transactions on Information Technology in Biomedicine  Du X Dua S 2011 Cancer Prognosis Using Support Vector Regression in Imaging  Modality World Journal of Clinical Oncology 2  1   44 49 Du X Dua S 2010 Salient Frame Extraction Using Support Vector Regression and Motion Features pp 5 Proc of the National Aerospace and Electronics Conference July 14 16 2010 D M P D S 2010 Di i i ti Ft d Cl ifi ti Mthd f D essaue r  M  P  D ua S  2010  Di scr i m i na ti ve F ea t ures an d Cl ass ifi ca ti on M e th o d s f or Accurate Classification 1st ed vol 7704 pp 14 Bellingham WA Proceedings of SPIE Dessauer M P Dua S 2010 Low Resolution Vehicle Tracking using Dense and Reduced Local Gradient Features Maps 1st ed vol 7694 pp 8 Bellingham WA Proceedings of SPIE SPIE 
+
+
+Acknowledgements Acknowledgements Fundin g A g encies  US 4 1 Million direct fundin g g g 4 g LA BoR NIH NSF AFRL AFOSR and NASA Research Team Samuel Kasimalla Brandy McKnight Dr Pradeep Chowriappa Connor Johnson Vasanth Nair Mihir Chowriappa  Connor Johnson  Vasanth Nair  Mihir Karnik Mohit Jain and Swadheen Songmen Associative IDS for NextGen Frameworks Dr S Dua LA Tech 49 All the respective Logos belong to their owners 
+
+
+Rf d Rdi R e f erence d R ea di ngs Copyright of cover pages held by respective publishers 
+
+
+Thank You Questions Thank You  Questions Dr Sumeet Dua E mail sdua@latech.edu Web http://dmrl.latech.edu Associative IDS for NextGen Frameworks Frameworks Dr S Dua LA Tech 51 Image Source roadtrafficsigns.com 
+
+

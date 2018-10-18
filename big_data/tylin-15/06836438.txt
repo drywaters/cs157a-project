@@ -1,0 +1,160 @@
+ 978-1-4799-1622-1/14/$31.00 \2512014 IEEE  1 A Particle Filter for Mutistatic Radar Tracking  El-Sayed Abdoul-Moaty Faculty of Engineering Alecxandria University Alexandria, Egypt Elsayed_moaty@hotmail.com Tarek Reda Abdoul-Shahid Faculty of Engineering Alexandria University Alexandria, Egypt Tarek_reda@yahoo.com Alaa El-Din Sayed Hafez Faculty of Engineering Alexandria University Alexandria, Egypt alaaahafez @yahoo.com Mohammed Abd-El-Latif Faculty of Engineering Alexandria University Alexandria, Egypt turbocode_2000@yahoo.com  Abstract 227 This paper introduce a new Automatic radar tracking system with multiple observations from Multistatic 
+radar using a Particle filter as a nonlinear predictor for data fusion and prediction. The algorithm is based on using Particle filter instead of using a linear or non-linear Kalman Filter Extended Kalman Filter\. Particle filtering, also known as Sequential Monte Carlo, is an attractive estimation procedure for non-linear dynamical systems. Recently several popular methods such as Forward Backward Smoother \(FBS\, and Maximum A-Posteriori Smoother \(MAP\ave been introduced into the literature. These techniques involve a re-computation of the discrete distribution obtained from the Particle filter While the smoother offers an improvement in the estimation there is a significant computation cost that often makes this step unattractive in practice. The system is simulated using 
+Matlab to compare the performance of the estimation routines of both the Kalman and Particle filters, and Particle filter without and with smoothers. The processing time is also studied. Simulation results shows that the Kalman filter improves the automatic tracking performance with multiple observations. Particle filter improves the fusion and prediction estimate of the non-linear moving object in presence of measurement errors  T ABLE OF C ONTENTS  1  I NTRODUCTION 1 2  T HEORITICAL D ESCRIPTION 1 3  T HE S IMULATION 
+P ROCESS 2 4  S IMULATION R ESULTS 2 5  S UMMARY 4 R EFERENCES 4 B IOGRAPHY 5   1  I NTRODUCTION  The radar tracking problem consists of sequentially estimating the state of one or more targets from noisy data In radar applications, these data generally result from the processing of the raw data via a matched filter step followed by a thresholding step. This pre-detection step produces detection at a constant false alarm rate and further signal processing is performed to achieve a synthesized signal 
+Though there are several methods for target tracking described in literature [1-5 e Kal m an  f ilteri n g ex te n d ed  Kalman filtering, Bayesian approach, IMM-PDA, ML-PDA particle filters, random set theory, covariance intersection neuro-fuzzy methods, tracking through genetic algorithms and so on, the goal has always been to adaptively tackle the changing situations. Since, no one sensor can perform well in all the conditions, multi-sensor adaptive processing has been the inherent focus. This paper confines our attention to investigating the performance of the Particle filter when combining estimates from multistatic radar systems. The approach, involves the use of a Particle filter to correct track errors. This filter improves the fusion and prediction estimate of the non-linear moving object in presence of 
+measurement errors  2  T HEORETICAL D ESCRIPTION  Now we consider nonlinear relationships between the state and observed variables to add more flexibility to the time series framework. A general description of such a stochastic state-space model would have the following form       1    2 where f and g can either be linear or nonlinear functions Assume a system of the form given in Equations \(1\ and \(2 
+This system can be used to generate a sequence of observations. Our goal is to obtain an estimate of x t given only the observations y t and the probability models that govern the data generating processes. An estimation of the discrete distribution, p\(x t y 1:t be obtained from a simulated system of particles. First, we assume an initial set of n particles   coming from some initial distribution p\(x1\he predicted state for particle I at the next time t = 1 is computed as follows      
+3 This iterative procedure is done for all particles I up to time T. The next step is to compute a weight for these predicted samples by applying Bayes theorem, which shows how to determine inverse probabilities: if the conditional probability  of A given B, what is the conditional probability  of B given A?. These weights can be thought of as corrections to the predictions. Prediction particles that have a large error in predicting y t are given smaller weights probabilities\d particles with small estimation errors are given larger weights. The filtering procedure is a two steps iterative process that can be stated more generally as follows  
+
+
+  2 Prediction Step : Assume we are given samples [6        Obtain the predicted samples at the next time    using the following equation for i=1,2\205N       4 Correction Step: Take samples from  and generate samples from the next posterior                      5 So the particle  is therefore a sample from the discrete distribution  according to the following probability             6 The forward-backward algorithm is an inference algorithm  for hidden Markov models  which computes the posterior  marginals  of all hidden state variables given a sequence of observations/emissions y1:t, i.e. it computes for all hidden state variables x1:t, the distribution   This inference task is usually called smoothing The algorithm makes use of the principle of dynamic programming  to efficiently compute the values that are required to obtain the posterior marginal distributions in two passes. The first pass goes forward in time while the second goes backward in time; hence the name Forward-Backward Algorithm. Maximum A Posteriori probability \(MAP estimate is a mode  of the posterior distribution [7   T h e MAP can be used to obtain a point estimate  of an unobserved quantity on the basis of empirical data. It is closely related to Fisher 's method of Maximum Likelihood ML\, but employs an augmented optimization objective which incorporates a prior distribution  over the quantity one wants to estimate. MAP estimation can therefore be seen as a regularization  of ML estimation   Figure 1 - Multistatic Radar Particle Filter  3  T HE S IMULATION P ROCESS  The paper considers a nonlinear system of the following form     7   8 Then      9     10 For this illustration, we assume that the parameters 002 a, b  n o w n q u an t i t i e s  1012]. We w a nt t o obt ai n estimates of the state process X given observations from the data vector Y. To compare the performance of the estimation routines of both the filters and smoothers, we apply these procedures on a simple nonlinear model where 002  6, .2, .2, .2 u atio n s 9  an d 1 0  a r e u s ed to si m u late  T = 80 observations under 002 to obtain X and Y from the state and measurement systems. These simulated values for X and Y represent the latent values of the process and the observed data of this process, respectively. Treating the data Y and 002 as known, we apply both the filters and smoothers using n = 100 particles to re-estimate X. We then test how well each estimation procedure fits the initial simulated unobserved time-series X 4  S IMULATION R ESULS  The generated non-linear data is processed using four different kinds of Kalman filter [13-15 c o m p ared to a  Particle filter. Figure 1 show a simulated state variable X against several estimates. The first estimate, represent estimate obtained from Centralized Fused \(CEF\alman filter, against the Particle filter estimate in the presence of the noisy observations. The same comparisons for Decentralized Fused \(DCEF\r Covariance \(EC\, IMM Kalman filter are demonstrated in Figures 2 to 4 respectively. For all comparisons it is clear that the particle filter has superiority over Linear Kalman Filter or Extended Kalman filter for tracking the combined observation from multistatic radar receivers. Table 1 illustrates the processing time for each filter and it is clear that Particle filter has shortest time than extended Kalman filter techniques. FBS and MAP smoothers are applied to the Particle filter to improve its operation, the results in Figures 6 - 7 and show that these smoothers improve the performance of the filter but pay much time for processing than the filter so it is not suitable for fast real time applications. Figure 8 shows the Root Mean Square Error \(RMSE\or the particle filter at 10 20, and 50 particles     
+
+
+20 80 True State 10 0.2 Particle Filter  Sample state    DCEF Kalman                                        Particle Filter  True St ate 50 20 30 40 70 80 0.4 0.2 0.4 0.6 0.8 30 50 70 0.6 0.4 0.2 0.4 0.6 0.8 Particle Filter  Observation 0.8 Sample state   CEF Kalman                                        20 30 40 50 80 0.6 0.4 0.2 0.4 0.6 0.8 Filter 20 60 20 30 40 50 60 70 0.4 0.2 0.4 0.6 0.8 Sample state    Sample state   60 0.8 True State 0.6 10 40 60 0.2 20 50 80 True State 10 60 0.2 True State FBS-Smoother  10 40 80 0.2   3      Figure 2 - A comparison between Particle filter and Centralized Fused Kalman filter      Figure 3 - A comparison between Particle filter and Decentralized Fused Kalman filter     Figure 4 - A comparison between Particle filter and Error Covariance Kalman filter              Figure 5 - A comparison between Particle filter and IMM  Kalman filter      Figure 6 - A comparison between Particle filter and Forward Backward Smoother \(FBS     Figure 7 - A comparison between Particle filter and Maximum A posteriori Smoother \(MAP                                            Observation Observation IMM Kalman                                      10 40 0.2 Particle Filter  80 Observation                                     0.8 10 70 0.2 Sample state    MAP-Smoother  True State 0.8 EC Kalman                                        30 50 60 70 0.6 0.4 0.2 0.4 0.6 0.8 Observation 0 1  0 0 1  0 0 1  0 0 1  0 0 1  0 0 1  Filter 0 30 70 0.6 0.4 0.2 0.4 0.6 0.8 0.6 Sample state    Observation 
+
+
+30   4   Figure 8 - Root Mean Square Error \(RMSE\ for Particle filter for various part icle number quantities   Table 1.  Processing Time for Each Filter  Filter CEF DCEF EC IMM Particle FBS MAP Proc. T sec 0.0114 0.013431 0.013050 0.013078 0.011808 0.708754 0.179904 R elative time 1.0000 1.1739 1.1406 1.1431 1.0321 61.9486 15.7245  5  S UMMARY  Particle filter as a nonlinear predictor for data fusion and prediction is used with multistatic radar to correct its paths in the presence of the noisy observations.  The Filter receives the observation from radar receiver or combination between them. The simulated results show the superiority of the Particle filter over linear or non-linear Kalman filter results. This will benefit the accurate tracking and prediction of the targets   R EFERENCES    i n g h J.P 224Ev olu tion  of th e radar targ et trac k i ng algorithms: a move towards knowledge based multisensor adaptive processing,\224 Computational Advances in Multi-Sensor Adaptive Processing, 2005 1st IEEE International Workshop on, 13-15 Dec. 2005, Dehra Dun, India 2005   P Sin g h   D ev elop m e n t T r en ds in  th e Sens o r  Technology: A New BCG Matrix Analysis as a Potential Tool of Technology Selection for a Sensor Suite", IEEE Sensors Journal,Vol. 4, No. 5, October 2004   L H a l l a n d J L l i n a s  H an d Book of  Mu l t i s e n s or D a t a  Fusion" CRC Press, 2001    4 a m s Neu ral Net w o r k  Op ti m i za tio n  f o r Mu lt iTarget Multi Sensor Passive Tracking" Proceedings of the IEEE, October 1996  5 Sko l ni k M I   I nt r o d u c t i o n t o Ra d a r S y st e m s  Se c o nd  Edition, Tata Mcgraw Hill, New Delhi, 1999   Brow n  G  R 224In t r odu ct i o n To R a n dom Si gn al  A n al y s i s  And Kalman Filtering\223: John Wiley & Sons 1992  7  Do u cet, N Freitas, a n d N. Go rd o n Seq u e n tial Mo n t e  Carlo Methods in Practice. SpringerVerlag, first edition, 2001  8 d s ill A r n a u d Do u c et, an d M. W e st. Ma x i m u m  a  posteriori sequence estimation using monte carlo particles filters. Ann. Inst. Stat. Math, 53, 2001   s  M. B r ier, N Frei ta, A  Dou cet S. Mas k ell, a n d  D. Lang. Fast particle smoothing: If i had a million particles. Proceeding of the 23rd Internation Conference on Machine, 2006   b e,\224Stoch as t i c Models an d In ter f aces  f o r  Commodity Futures Pricing,\224 Ph.D. Depatment of Statistics, Florida State University, 2009    A ru l a m pal a m  S  Mask el l  N  G o rdon an d T  C l app   A tutorial on particle filters for on-linenon-linear/nongaussian bayesian tracking. IEEE Transactions on Signal Processing,  50\(2\174\226 188, February 2002  12 Fre d rik Gu sta f sso n   223 P article Filter T h eo ry a n d p r actice with Positioning Applications,\224 IEEE A&E Systems Magazine Vol. 25 No. 7, July, 2010    B a rl et t  R  L e g ran d&E.S t at on 224 A n a l y s i s   S i m u l ation of Discrete Kalman Filtering Applied to GPS Receiver\223, NAVAL Engineering Journal, January 1996, pp 29-36  14  M  S G r e w a l D  H e nd e r so n  R S M i ya sa ko  224  Application of Kalman Filtering to the Calibration and Alignment of INS \223: IEEE Trans. on AC, Vol.36 January 1991, pp 4-13  15 Rach el Klei n b au er Kam a n Filter I m p l e m en tat i o n  w i th  Matlab,"Study Report, Stuttgart University, 2004                                   0 20 40 60 70 80 0.1 0.15 0.2 0.25  20 Particles  50 Particles Sample RMSE    10 50 0.05 0 10 Particles  
+
+
+  5 B IOGRAPHY   El-Sayed Abdoul-Moaty El-Badawy was born on 24 October 1941, at Damietta, Egypt. He got his B. Sc. in EE, with Distinction, 1964, at Alexandria Univ., Egypt, and both his D.E.A. D\222Electronique, 1971, and his Ph D \(Docteur Ing\351nieur\ with First Degree of Honor and Written Congratulations of Jury, 1974, at Universit\351 Paris VI, Paris, France. Since his graduation in 1964 from Alexandria University, he joined the EE Dept, Fac. of Eng., Alexandria University, Alexandria Egypt as Teaching Assistant; promoted Assistant Professor in Nov. 1974, Associate Professor in Nov 1979, Professor of Communications and Electronics in Dec. 1984, and Distinguished Professor in Dec. 1994. He tought many technical courses in Electrical engineering system design and Implementation, works as System Engineer for more than 35 years, teach up to 30 undergraduate, postgraduate subjects, supervising more than 85 thesis, publish more than 220 papers in different international conferences, Forums and Journals    Mohamed Abd El Latif is an affiliate instructor in Faculty of Engineering Alexandria University, and Alexandria Egypt. He holdsB.Sc. in Communications and signal processing  from Faculty of Engineering, Cairo University, M.Sc and Ph.D in Communication and signal processing from Alexandria University in 2001and 2008 respectively. He worked as radar maintenance engineer fourteen years .He interested in signal processing applications in both radar and mobile communication systems                    Alaa El-Din Sayed Hafez is an affiliate instructor in Faculty of Engineering, Alexandria University, Alexandria, Egypt. He was born in Cairo, Egypt in 1967and became a member of IEEE in 2000, a Senior member of IEEE in 2011. He holds B.Sc. in Electronics and Communications from Faculty of Engineering Alexandria University, M.Sc. in Electronics and Communication from Arab Academy for Science and Technology and Maritime Transpor t, Alexandria. He also holds M.Sc. and Ph.D. in Electrical Engineering from Faculty of Engineering, Alexandria University. He received many technical c ourses in Surveillance Radar design and Implementation, work as Radar System Engineer for more than 5 years, teach up to 20 undergraduate subjects, supervising more than 12 thesis publish more than 50 papers in different international conferences and journals    Tarek Reda Abdoul-Shahid is a Post Graduate Student \(Ph.D.\, Alexandria University, Alexandria, Egypt. He was born in Minoufia,  Egypt in 1970. He holds B.Sc. in Electronics and Communications from Faculty of Engineering, Alexandria University M.Sc. in Electrical Engineering from Faculty of Engineering, Alexandria Uni versity. He received many technical courses in electronic engineering design and Implementation        
+
+
+            
+
+
+       
+
+
+               
+
+
+                                     
+
+
+                                                        
+
+
+                           
+
+
+                                        
+
+
+                  
+
+
+  
+
+
+                                               
+
+
+   
+
+
+                                
+
+
+                        
+
+
+                           
+
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     2 8    b 4      1 8             1 2     1  8 2  
+
+
+1 9    8      2 1       1     2    8    2 3\f        
+
+
+     8 D 4 9  F  \b 1 8 #J 9 1     2 1   2 #-@ 1   2 9  E 1   1   2 9      6  
+
+
+    8  8   1  D 1         1 F  \b0         2 D    F  \b 1 8  9  
+
+
+  1 9  1   E 1  2 9     1 1 F  \b       1    18   F   1    1 #-$+  \b  2 2  
+
+
+1 D     1 #-$+.B- 0/:% .0             9 1      18    1 6     1 2  1  1  
+
+
+1   6      2    1 2 E 8 D 1      1 2   1   1 #-4  #-@E     2  1  1  1       
+
+
+ 8     1          2 F    6   F  2   8    2 C<CC/C N\bO 5      
+
+
+CD    b$44NO F P Q 6   2 b$$$ ,=\b\bA  A N,O 2 C C  b$$4N  92 2   f  9-\b$$4 B N?O  !-    91  2 1 HH111-18-N+O    -1 :3%   2     0-4 
+
+
+     b N4O 2   2- \f  C b$@$ \b# >\b\b$3\b$N@O  f :.% 9 /9 \f    1  6  f 2  4   A254 
+
+
+Advantages of Our M ethod Advantages of Our M ethod Exploit the memory v ertical data format utilizes slidin g windows to g form a much larger database to analyze  Flexibility in Choosing what to choose  Choosing what to choose to build the rules Computational and memory efficiency We have a team working only on this aspect 45 Associative IDS for NextGen Frameworks Dr S Dua LA Tech 45 
+
+
+Preliminary Results Intra transaction Relations Data rate simulator NH-134 Mb HOP PATH update \(Y/N Inference 11.5 Y Y 2 0.120 N N      Y   n 0.345 N NH134 Y/N   Inf 1 0.150 N N 2 0 120 Y N Inter transaction Relations 2 0  120 Y N       5 5.55 0.456 Y Relations  n 0.345 N N Nmap on DMRL nmap.org 
+
+
+Anticipated Outcome Anticipated Outcome Develop algorithm capable of learning from a given heterogeneous diverse Develop algorithm capable of learning from a given heterogeneous diverse data ff Dynamic algorithmic f ramework designed to shi f t modalities and sampling rates based on complex logic Flexibility of integration into the Snort intrusion detection system 47 Associative IDS for NextGen Frameworks Dr S Dua LA Tech 47 
+
+
+References References Aircraft Cockpit Image courtesy USAF http://www.faa.gov htt p   www.faa g ov  air traffic  technolo gy  p g  _ gy  Acharya R Dua S Du X Sree V Chua C K Automated Diagnosis of Glaucoma Using Texture and Higher Order Spectra Features To appear in IEEE Transactions on Information Technology in Biomedicine  Du X Dua S 2011 Cancer Prognosis Using Support Vector Regression in Imaging  Modality World Journal of Clinical Oncology 2  1   44 49 Du X Dua S 2010 Salient Frame Extraction Using Support Vector Regression and Motion Features pp 5 Proc of the National Aerospace and Electronics Conference July 14 16 2010 D M P D S 2010 Di i i ti Ft d Cl ifi ti Mthd f D essaue r  M  P  D ua S  2010  Di scr i m i na ti ve F ea t ures an d Cl ass ifi ca ti on M e th o d s f or Accurate Classification 1st ed vol 7704 pp 14 Bellingham WA Proceedings of SPIE Dessauer M P Dua S 2010 Low Resolution Vehicle Tracking using Dense and Reduced Local Gradient Features Maps 1st ed vol 7694 pp 8 Bellingham WA Proceedings of SPIE SPIE 
+
+
+Acknowledgements Acknowledgements Fundin g A g encies  US 4 1 Million direct fundin g g g 4 g LA BoR NIH NSF AFRL AFOSR and NASA Research Team Samuel Kasimalla Brandy McKnight Dr Pradeep Chowriappa Connor Johnson Vasanth Nair Mihir Chowriappa  Connor Johnson  Vasanth Nair  Mihir Karnik Mohit Jain and Swadheen Songmen Associative IDS for NextGen Frameworks Dr S Dua LA Tech 49 All the respective Logos belong to their owners 
+
+
+Rf d Rdi R e f erence d R ea di ngs Copyright of cover pages held by respective publishers 
+
+
+Thank You Questions Thank You  Questions Dr Sumeet Dua E mail sdua@latech.edu Web http://dmrl.latech.edu Associative IDS for NextGen Frameworks Frameworks Dr S Dua LA Tech 51 Image Source roadtrafficsigns.com 
+
+

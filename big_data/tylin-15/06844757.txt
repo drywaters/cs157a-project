@@ -1,0 +1,205 @@
+Abstract 
+The Big Data Obstacle of Lifelogging Chelsea Dobbins, Madjid Merabti, Paul Fergus, David Llewellyn-Jones School of Computing and Mathematical Sciences Liverpool John Moores University Liverpool, UK C.M.Dobbins, M.Merabti, P.Fergus, D.Llewellyn-Jones}@ljmu.ac.uk  
+Living in the digital age has resulted in a data rich society where the ability to log every moment of our lives is now possible. This chronicle is known as a human digital memory and is a heterogeneous record of our lives, which grows alongside its human counterpart. Managing a lifetime of data results in these sets of big data growing to enormous proportions; as these records increase in size the problem of 
+Index Terms 
+ 
+effectively managing them becomes more difficult. This paper explores the challenges of searching such big data sets of human digital memory data and posits a new approach that treats the searching of human digital memory data as a machine learning problem 
+I NTRODUCTION  
+Time is physically irreversible. The unidirectionality of time is one of natureês most fundamental laws and as long as the universe has existed governs all occurrences; there is no return to yesterday [1  A l t h o u g h it is i m p o s sib l e to  
+Human Digital Memory; Lifelogging Sensors; Big Data; Clustering; Machine Learning I 
+physically go back in time, mental time travel occurs every day. As stated by Tulving 
+ This unique ability resides within all of us and occurs on a daily basis, without hesitation. As such, human memory is considered to be the most basic and important operation of the brain, with very few cognitive processes recognition, language, planning, etc.\ being able to 
+Timeês flow is irreversible The singular exception is provid ed by the human ability to remember past happenings. When one thinks today about what one did yesterday, timeês arrow is bent into a loop The rememberer has mentally travelled back into her past and thus violated th e law of the irreversibility of the flow of time 
+operate effectively without a contribution from it [2   However, retaining every aspect of our lives, for example, how we felt or what we did on a specific day is virtually impossible. For example, a birthday party that occurred yesterday is typically remembered in greater detail than a similar event from twenty years ago. As people get older, the ability to remember information declin erth eless, r ecen t adv an ce s in techn o log y  can alleviate this problem, to a certain extent. Devices are now capable of capturing every moment of daily life. As such, this has led to the ph enomenon of èlifelogging which refers to the process of automatically recording aspects of oneês life in digital form s des c ri bed by  
+Dodge and Kitchin 
+Such extensive digital collections are often referred to as human digital memories \(HDMs\. As defined by Kelly These personal archives are constructed from a wide range of data sources, across various media ty o w beco m i ng a  reality and reflecting upon those items has become an active part of peopleês lives 
+A life-log is conceived as a form of pervasive computing consisting of a unified digital record of the totality of an individualês experiences captured multimodally through digital sensors and stored permanently as a personal multimedia archive A HDM is typically a combination of many types of media audio, video and images 
+As such, HDMs are becoming ri cher in content. This is due to the consequences of le ading an increasingly digital lifestyle, which results in copious amounts of information being generated. We are living in a data rich society, where the ability to generate and access a number of different data sources is possible. Any object, embedded with a sensor, can provide us with information. Through unique addressing schemes, these pervasive devices are able to interact with each other and cooperate with their neighbours, to reach common go  T h is rev o lu tion is  known as the Internet of Things \(IoT\d can be defined as 
+a worldwide network of uniquely addressable interconnected objects, based on shared communication 
+protocols 
+ T h ese s m art obj ectsé n o w  f it sea m le ssl y into our world, instead of forcing users to enter their environment, a concept first envisioned by Weis s  it becomes more socially accept able to continually capture content, whether it is from a wearable camera or sensors the pool of data that is being amassed is growing rapidly According to IBM [12 
+Every day, 2.5 quintillion bytes of data are created Ñ so much that 90% of the data in the world today has been created in the last two years alone This data comes from everywhe re: sensors used to gather climate information, posts to social media sites, digital pictures and videos, purchase transaction records, and cell phone GPS signals to name a few 
+Using this data, an entire lifetime can be reconstructed, thus creating human digital memories of life experiences A powerful source of information that is often used to generate and collect data comes from mobile devices According to a recent report by Cisc 2012, g l obal mobile data traffic grew by 70%, compared to 2011. In 2012, this type of traffic reached 885 petabytes per month and was nearly twelve times greater than the total global Internet traffic in 2000 \(75 petabytes per month Reiterating this growth in data is Intel t  depiction of the exchange of data in a minute \(see Fig. 1 
+2014 28th International Conference on Advanced Information Networking and Applications Workshops 978-1-4799-2652-7/14 $31.00 © 2014 Crown Copyright DOI 10.1109/WAINA.2014.142 922 
+2014 28th International Conference on Advanced Information Networking and Applications Workshops 978-1-4799-2652-7/14 $31.00 © 2014 Crown Copyright DOI 10.1109/WAINA.2014.142 922 
+
+
+Memex the five Rs 1 Recollecting \(mentally re-living specific life experiences 2 Reminiscing \(re-living past experiences for emotional or sentimental reasons, either individually or social in groups 3 Retrieving \(recovering specific digital information weêve encountered over the years, for example documents, email, and Web pages 4 Reflecting \(the reviewing of past experiences that may include examining patterns of about oneês behaviour over time 5 Remembering intentions \(remembering prospective events in oneês life PhotoTOC et al A browser for personal digital photographs that uses a clustering algorithm to automatically generate a table of contents of a userês personal photograph collection et al et al et al Memories for Life: managing information over a human lifetime entire Memories are rich because they are formed through associations. When we experience an event, our brains tie the sights, smells sounds, and our own impressions together into a relationship. That relationship itself is the memory of the event 
+II B ACKGROUND  III T HE R ESEARCH C HALLENGES OF S EARCHING A L IFETIME OF D ATA  
+  
+     
+Fig. 1   
+Data Exchange In One Minute On The Internet  
+As it can be seen, the generation of data, even in a single minute, is staggering. With all of this data at our fingertips searching such vast heterogeneous digital archives, in order to find specific moments in time, is a significant challenge. As more data is accumulated, the ability to manage it becomes harder. This interest has led to the task of managing, and using, human digital memories, over a lifetime, being declared a grand challenge in computing  This paper explores the challenges of searching such big data sets of HDM information and posits a new approach that treats the searching of HDM data as a machine learning problem. The preliminary results that have been achieved are interesting and i llustrate how a userês HDM information can be successfully searched without the need to define complex queries Research into capturing and creating human digital memories has received a great deal of attention, from researchers, over the la st few decades. Since the   n 1945, res earch i n t o h o w a s pect s o f ou r l i v e s can be captured and organised, have been investigated. Over time this vision of storing accumulated items has evolved into digitally capturing and storing information about ourselves and our environment. The culmination of this practise has been to lifelog, i.e. continuall y capture content with the aid of wearable systems. Lifelogging has many benefits Sellen and Whittaker [17 sum m ar ize these as   Human digital memories are a digital representation of ourselves that evolve and grow alongside us and are seen as a window into our past As technology advances and sensors become more prevalent, within our environment the range of data that we have access to is increasing. This has led to HDMs becoming richer in content. However, as people collect more and more data there is a danger of information overloadé and inadvertently, significant mementos are being lost and forgotten One such approach that explores the use of machine learning is proposed by Platt   T h i s  application is In this implementation, time-based clustering has been used to choose one photograph from a cluster which is the most representative of that cluster. These photographs then provide an overview of the entire collection. While Harada  e l oped a t i m e l i n e  browser for PDAês that uses a timeÖbased clustering algorithm to organise related photos together. Similarly Harada s g o ri t hm h a s been bas e d on pre v i o u s  work by Graham 20 in w h ich the i r o r igi n al s y ste m  uses the recursive way in which photographs are taken, in bursts, and represents this us ing a tree of clusters where photos are stored only at the leaf nodes Whilst these developments are interesting, in terms of organisation and the way in which data is retrieved, a memory is composed of much more information than just photographs. More data is required so that detailed human digital memories can be created. Information such as physiological changes, temperature, location, etc. would provide more context about such captured times. However the inclusion of more data cr eates new challenges in terms of information retrieval Creating such heterogeneous records requires s ophisticated searching methods that can cope with retrieving a variety of data items The vision of the grand challenge is to help people manage and use their digital memories across their lifetime [15  Co llectin g d a ta o v er thi s  extensive period of time yields a phenomenal amount of information. When human digital memories are created this enormous amount of data needs to be intelligently searched and the associated information succinctly brought together. As stated by Ranpura [2  Whilst humans can do this type of processing subconsciously, in a matter of nanoseconds, creating these associations, digitally, poses a greater challenge. The complex and heterogeneous nature of a human digital memory means that the simple ranked retrieval of information is unlikely to support many of the userês information searching tasks [22 Fur ther m o r e, q u er ie s t h at   
+923 
+923 
+
+
+K-means 
+kmeans K-means time frequency geographic mean median standard deviation energy entropy peak frequency geographic mean k-means 
+IV E VALUATION  
+ 
+Fig. 3 Fig. 2  
+ Analysis Ö When Was I Most Active  DigMem Questions Web Page 
+require sophisticated interpretation need to be efficiently handled [15  Fo r e x a m p l e  q u e r ie s s u c h a s   W he n ha ve I  spoken to Joe?é or çFind all of my happy memories requires an intelligent method of data analysis that enables multiÖdimensional queries to be executed across a vast amount of data. Consequently, the system needs to learn about its user and understand their data Machine learning techniques are seen as a way to overcome some of these challenge. Intelligent search instead of keyword matching, and query answering is facilitated and provides a way to search data from distributed sources, irrespective of its format i n g a  matrix representation of the data, allows the searching of this information to be searched based on the similarities in a vector object. Consequently, a wider range of information can be included in the memory; the user is not limited by needing to have a pre-existing knowledge of the information. For example, structuring queries requires the user to define exactly what they are looking for and the location of this data. This approach is limited because as more data is amassed managing this information becomes harder. However, clustering enables this data to be explored without the user necessarily knowing what they are looking for; instead similar pieces of information are automatically retrieved In exploring this idea, this section presents the preliminary results that have been achieved from searching human digital memory data, using the well-known clustering technique was chosen because of its simplicity, and because it is the most widely used clustering algorithm in practice, which has been used in a variety of application domain 2 6  In order to demonstrate this idea, the user undertook a variety of activities, over several days. This included lying down, sitting, standing, walking, running, ascending and descending stairs, vacuum cleaning and ironing. As a result, a sample of photographs, location, heart rate and data from three accelerometers, which were worn on the ankle, chest and hand have been collected. This information has been pre-proce ssed and features have been extracted. The feature set comprises of a variety of features from the  and domains, for example      and to name but a few Using this set of features, the results from the  algorithm have been analysed. In order to explore this idea the user first logs into the DigMem [27 sy ste m and  chooses from a set of pre-defined questions \(see Fig. 2 how they would like the system to query their data Questions enable the user to gather more of an insight into their behaviours, without defining search queries. Using questions one and four as an example, these are used to explore times of high and low energy expenditure. In this instance, èhigh-energyê activity refers to walking, running ascending and descending stairs and vacuum cleaning whilst èlow-energyê activities denotes lying down, sitting standing and ironing   In order to demonstrate this idea, the first question that was selected was, çWhen have I been active?é Fig. 3 illustrates these results. As it can be seen, two clearly defined clusters are present. Cluster 1 is composed of 45 of the data, whilst cluster 2 is 55%. As it can be seen, there is a clear divide in the data. This illustrates that the majority of the high-energy activities, which were being performed, had a higher irregular motion pattern, as the entropy levels are quite high. Entropy characterizes the consistency in an activity, and helps to differentiate between signals that have similar energy values but correspond to different activity patterns  A s  more energy is used, the activities become more repetitive in their frequency. In particular, it can be seen that there are three periods of time that exhibit particularly high energy but lower entropy levels. Therefore, less time was spent doing high-energy activities that involved a high repeated frequency, such as running, since a lesser portion of the data is in cluster 1   
+924 
+924 
+
+
+ 
+ 1  E. T u lv ing   E pis o dic Me m o r y  Fr om Mind t o B r a i n    vol. 53, pp. 1Ö25, Jan. 2002 2  D  T r a ne l a nd A  R  Dam a s i o C ha pte r 2  Neurobiological Foundations of Human Memory,é in in John Wiley Sons, 2003, p. 17 3  M  W   P r u l l  L  L  C  D a w e s  A  M  M a r t i n  H   F   Rosenberg, and L. L. Light, çRecollection and familiarity in recognition memory: adult age differences and neuropsychological test correlates  vol. 21, no. 1, pp. 107Ö18, Mar. 2006 4 A  R. Dohe rty  N. Ca pra n i C  Cona ire   V  Ka lnik a ite  C. Gurrin, A. F. Smeaton, and N. E. OêConnor Passively Recognising Human Activities Through Lifelogging vol. 27, no. 5, pp 1948Ö1958, Sep. 2011 5  M. D odg e a nd R  K itc hi n  O u tl ine s of a  w o r l d c o m i ng into existenceê: pervasive computing and the ethics of 
+ V S UMMARY AND F UTURE W ORK  R EFERENCES  
+Find a picture of me playing with Peter when he was a toddler 
+Fig. 4 
+ Analysis Ö When Was I Least Active 
+K-means 
+  The second question çWhen have I been the least active?é has also been asked. Fig. 4 illustrates the results from the question. As it can be seen, the range of energy has decreased. This illustrat es that fewer intensive activities have been performed. Lower entropy also suggests that those activities we re also repetitive in nature such as sitting down. Cluster 1 is composed of 46% of the data, whilst cluster 2 is 54%. Since Cluster 1 has higher energy but lower entropy is can be deduced that during those times the user was walking, as this has a high repetitive frequency As it can be seen, these preliminary results support the idea that clustering data is a viable method of searching HDM data. They clearly illustrate the periods of time that the user has spent being active and sedentary. A direct correlation between energy and entropy is also visible Simply searching this data with specific queries, or keywords, is cumbersome and the potential for humanerror to omit information in the search queries is greater As demonstrated, unsupervised machine learning is able to treat the challenge of searching this data as a clustering problem and to retrieve information based on features. The user simply selects a query from a set of pre-defined questions and the clustering algorithm retrieves this information automatically, thus eliminating the need for the user to define their search criteria By treating the searching of HDM data as a clustering problem removes the need to label the feature vectors. By letting the algorithm cluster similar pieces of data together removes the need to have a pre-existing knowledge about the data. Furthermore, the system is not èlearningê about the userês memories; therefore, testing and training sets are not required, as is the case in classification. Additionally this method is beneficial as it overcomes the limitations of searching data with complex query languages, such as the SPARQL Protocol for RDF \(SPARQL P A R QL is a complicated language that relies on the user understanding the domain before queries can be constructed. If the user is unfamiliar with the underlying data, then finding information can almost be impossible. In addition navigating SPARQLês complex labyrinth of syntax is a difficult task entirely. However, by transforming the raw data into HDM vectors, and treating the searching of this data as a clustering problem eliminates the need to have a pre-existing knowledge of the dataset. Furthermore, these vectors can become extremely large, especially if a lifetime of data is being recorded. In spite of this clustering algorithms are able to deal with these sets of big data quite easily. By transforming extremely large datasets of raw data, into features enables the HDM vectors to be rich with information. The bigger the feature space is the more detailed a memory is As more and more data is being generated, a great deal of information can be gathered about ourselves and the environment. This information can then be used to recreate any time throughout our lives. However, there is a danger of information overload. As we accumulate more data, the difficulty in managing it becomes apparent. For example, finding key moments in twenty yearsê worth of data can seem almost impossible. Advanced searching techniques are required, which can find information with minimal user involvement. As posited in this paper clustering techniques aim to address this challenge. Using pre-defined questions, the algorithms group data based on similarity. The user does not need to define their search criteria, thus limiting the possibility of overlooking data items One limitation of the system is that the questions approach only considers data that is straightforward to measure \(location, accelerometer and heartbeat\ine learning algorithms can easily classify this type of data Future work would consider expanding the range of questions so that photographic data could be queried instead of being linked in at a later time. Executing such queries requires sophisticated interpretation, such as   T h is t y pe of q u er y pl aces con s iderable f o cu s on computer vision and image understanding   order to execute this query, an innate understanding of who the people in the picture are and activity recognition are required. Incorporating this type of question is an exciting avenue for the research, as is the idea of allowing the user to create customised questions. This would enable the system to fully understand its user 
+Annu. Rev. Psychol The Handbook of Memory Disorders Psychol. Aging Comput. Human Behav 
+925 
+925 
+
+
+Environ. Plan. B Plan. Des BCS IRSG Symposium Future Directions in Information 5th International Conference on Visual Information Engineering Int. J. Hum. Comput. Stud Comput. Networks 19th International Conference on Software, Telecommunications and Computer Networks SoftCOM ACM SIGMOBILE Mob. Comput. Commun. Rev Conference on Grand Challenges in Computing Research The Atlantic Monthly Commun. ACM Fourth International Conference on Information, Communications and Signal Processing 2003 and the Fourth Pacific Rim Conference on Multimedia. Proceedings of the 2 003 Joint Proceedings of the 2004 joint ACM/IEEE conference on Digital libraries - JCDL  ê04 Proceedings of the second ACM/IEEE-CS joint conference on Digital libraries - JCDL  ê02 BrainConnection.com Workshop on Supporting Human Memory with Interactive Systems, Lancaster, UK Se mantic Web: Why, What, and How Proceedings of the Eighteenth International Conference on Machine Learning \(ICML Knowl. Inf. Syst Real-Time Imaging Proceedings of 10th IEEE International Conferen ce on Networking, Sensing and Control \(ICNSCê13 Pers Ubiquitous Comput 2012 Annual International Conference of the IEEE Engineering in Medicine and Biology Society \(EMBC Procedings Br. Mach. Vis Conf IEEE International Conference on Pervasive Computing and Communications \(PerCom Report for Massachusetts Institute of Technology \(MIT\tificial Intelligence Laboratory and Center for Biological and Computational Learning a Department Of Brain and Cognitive Sciences 
+forgetting vol. 34, no. 3 pp. 431Ö445, 2007 6 L Ke ll y  T he Inf o rm a tion R e trie v a l Cha lle ng e of  Human Digital Memories,é in 2007 7 C. G u rrin  D. By rn e, N. OêCo nnor, G. J. F. Jones, and A F. Smeaton, çArchitecture and Challenges of Maintaining a Large-scale, Context-aware Human Digital Memory,é in 2008, pp. 158Ö163 8 V Ka l n ik a ite a nd S W h itta k e r A Sa unte r Dow n  Memory Lane: Digital Reflection on Personal Mementos vol. 69, no. 5 pp. 298Ö310, Jan. 2011 9 L   A t zo ri, A  Iera, an d  G  Morabito, çThe Internet of Things: A survey vol. 54, no. 15 pp. 2787Ö2805, Oct. 2010 10  L Ma ine tti, L  P a tro n o a n d A V i le i Ev o l u tio n of wireless sensor networks towa rds the Internet of Things A survey,é in 2011, pp. 1Ö6 11  M. W e is e r T he C o m pute r f o r the 21s t C e ntur y    vol. 3, no 3, pp. 3Ö11, Jul. 1999 12  I B M.c o m   W ha t is big da t a    201 3  O nline    Available: http://www01.ibm.com/software/data/bigdata/. [Accessed: 19-Mar20  13  C i s c o C is c o  Vis u a l N e tw or k i ng I nde x  G l oba l M obi le  Data Traffic Forecast Update, 2012Ö2017.é pp. 1Ö34 2013 14  inte l W ha t Ha ppe ns in a n I n t e rne t Min u te   2 0 1 3   Online  Av a ila ble  http://www.intel.com/content/www/us/en/communicatio ns/internet-minute-infographic.html. [Accessed: 19-Mar20  15  A  Fitz g i bbon a n d E. R e ite r    G r a nd C h a lle ng e s in  Computing Research: GC3 Memories for life: managing information over a human lifetime,é in 2005, pp 13Ö16 1 V  Bu sh, çA s W e M a y T h in k   no. JULY 1945, 1945 17  A  J  Se lle n a nd S. W h itta k e r B e y ond T o ta l Ca pture  A  Constructive Critique of Lifelogging  vol. 53, no. 5, pp. 70Ö77, May 2010 18  J  C   Pla tt M C z e r w i ns k i a nd B  A  Fie l d   P hot oT O C  automatic clustering for browsing personal photographs,é in 2003, pp. 6 10 19  S. H a r a da M. N a a m a n Y  J  S ong Q  W a ng a nd A   Paepcke, çLost in Memories: Interacting With Photo Collections On PDAs,é in  2004, p. 325 2 A   G r ah a m  H G a r c i a M o l i n a A  P aep cke an d T   Winograd, çTime as Essence for Photo Browsing Through Personal Digital Libraries,é in 2002, p. 326 21  A  R a npur a   H ow  W e  R e m e m b e r a nd W h y  We Forget 2000. [Online   Available: http://brainconnection.positscience.com/howwe-remember-and-why-we-forget 2 L  Kel l y an d G  J F J o n e s V ent u ri n g i n t o t h e labyrinth: the information retrieval challenge of human digital memories,é in 2007 pp. 37Ö40 2 D F e n s el  J Hend l e r H L i eb er man  an d W  W a h l st er  Berlin Heidelberg: Springer Berlin Heidelberg, 2011, pp. 1 653 24  K  W a g s taf f C  C a r d ie  S  R o g e r s a nd S Sc hr oe dl  Constrained K-means Clustering with Background Knowledge,é in  2001, pp. 577Ö584 2 X  W u  V. K u m a r, J. Ro ss Q u inl a n  J G h o s h  Q Yan g  H. Motoda, G. J. McLachlan, A. Ng, B. Liu, P. S. Yu Z.-H. Zhou, M. Steinbach, D. J. Hand, and D. Steinberg Top 10 algorithms in data mining  vol. 14, no. 1, pp. 1Ö37, Dec. 2007 26  M. G  For e r o F. Sr ou be k  a nd G  C r is tÛba l  Identification of tuberculosis bacteria based on shape and color vol. 10, no. 4, pp. 251 262, Aug. 2004 2  C  Do bb in s M M e r a b t i   P  F e r g u s  an d D Ll ew el l y n Jones, çCreating Human Digital Memories for a Richer Recall of Life Experiences,é in 2013, pp. 246Ö251 28  D Fig o  P. C D i niz D R Fe rre ira a nd J  M P  Cardoso, çPreprocessing Techniques for Context Recognition from Accelerometer Data vol. 14, no. 7, pp. 645Ö662, Mar 2010 29  W  So n g  C. A d e, R  Br o x terman T  Barsto w  T   Nelson, and S. Warren, çActivity Recognition in Planetary Navigation Field Tests Using Classification Algorithms Applied to Accelerometer Data,é in  2012, vol. 2012, pp. 1586Ö1589 30  W 3 C   S P A R Q L P r otoc o l f o r R D F 200 8  O n line    Available: http://www.w3.org/TR/rdf-sparql-protocol Accessed: 27-Jun-2013   3 V  Del ai t r e I L ap t ev and J S i vi c Reco gn i zi n g hu m an  actions in still images: a study of bag-of-features and part-based representations vol. 2, no. 5, p. 7, 2010 32  N  Bic o c c h i, M  L a s a g n i, a nd F Za m bone lli B ridg ing  Vision and commonsense for Multimodal Situation Recognition in Pervasive Systems,é in 2012, pp. 48Ö56 33  C  N a k a ji m a M. Pont il, B  H e is e l e  a nd T  Pog g i o  People Recognition in Image Sequences by Supervised Learning,é in 2000, no 1688, pp. 1Ö12    
+926 
+926 
+
+
+  
+
+
+
+
+
+           
+
+
+            
+
+
+                  
+
+
+                  
+
+
+           
+
+
+               
+
+
+       
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     2 8    b 4      1 8             1 2     1  8 2  
+
+
+1 9    8      2 1       1     2    8    2 3\f        
+
+
+     8 D 4 9  F  \b 1 8 #J 9 1     2 1   2 #-@ 1   2 9  E 1   1   2 9      6  
+
+
+    8  8   1  D 1         1 F  \b0         2 D    F  \b 1 8  9  
+
+
+  1 9  1   E 1  2 9     1 1 F  \b       1    18   F   1    1 #-$+  \b  2 2  
+
+
+1 D     1 #-$+.B- 0/:% .0             9 1      18    1 6     1 2  1  1  
+
+
+1   6      2    1 2 E 8 D 1      1 2   1   1 #-4  #-@E     2  1  1  1       
+
+
+ 8     1          2 F    6   F  2   8    2 C<CC/C N\bO 5      
+
+
+CD    b$44NO F P Q 6   2 b$$$ ,=\b\bA  A N,O 2 C C  b$$4N  92 2   f  9-\b$$4 B N?O  !-    91  2 1 HH111-18-N+O    -1 :3%   2     0-4 
+
+
+     b N4O 2   2- \f  C b$@$ \b# >\b\b$3\b$N@O  f :.% 9 /9 \f    1  6  f 2  4   A254 
+
+
+Advantages of Our M ethod Advantages of Our M ethod Exploit the memory v ertical data format utilizes slidin g windows to g form a much larger database to analyze  Flexibility in Choosing what to choose  Choosing what to choose to build the rules Computational and memory efficiency We have a team working only on this aspect 45 Associative IDS for NextGen Frameworks Dr S Dua LA Tech 45 
+
+
+Preliminary Results Intra transaction Relations Data rate simulator NH-134 Mb HOP PATH update \(Y/N Inference 11.5 Y Y 2 0.120 N N      Y   n 0.345 N NH134 Y/N   Inf 1 0.150 N N 2 0 120 Y N Inter transaction Relations 2 0  120 Y N       5 5.55 0.456 Y Relations  n 0.345 N N Nmap on DMRL nmap.org 
+
+
+Anticipated Outcome Anticipated Outcome Develop algorithm capable of learning from a given heterogeneous diverse Develop algorithm capable of learning from a given heterogeneous diverse data ff Dynamic algorithmic f ramework designed to shi f t modalities and sampling rates based on complex logic Flexibility of integration into the Snort intrusion detection system 47 Associative IDS for NextGen Frameworks Dr S Dua LA Tech 47 
+
+
+References References Aircraft Cockpit Image courtesy USAF http://www.faa.gov htt p   www.faa g ov  air traffic  technolo gy  p g  _ gy  Acharya R Dua S Du X Sree V Chua C K Automated Diagnosis of Glaucoma Using Texture and Higher Order Spectra Features To appear in IEEE Transactions on Information Technology in Biomedicine  Du X Dua S 2011 Cancer Prognosis Using Support Vector Regression in Imaging  Modality World Journal of Clinical Oncology 2  1   44 49 Du X Dua S 2010 Salient Frame Extraction Using Support Vector Regression and Motion Features pp 5 Proc of the National Aerospace and Electronics Conference July 14 16 2010 D M P D S 2010 Di i i ti Ft d Cl ifi ti Mthd f D essaue r  M  P  D ua S  2010  Di scr i m i na ti ve F ea t ures an d Cl ass ifi ca ti on M e th o d s f or Accurate Classification 1st ed vol 7704 pp 14 Bellingham WA Proceedings of SPIE Dessauer M P Dua S 2010 Low Resolution Vehicle Tracking using Dense and Reduced Local Gradient Features Maps 1st ed vol 7694 pp 8 Bellingham WA Proceedings of SPIE SPIE 
+
+
+Acknowledgements Acknowledgements Fundin g A g encies  US 4 1 Million direct fundin g g g 4 g LA BoR NIH NSF AFRL AFOSR and NASA Research Team Samuel Kasimalla Brandy McKnight Dr Pradeep Chowriappa Connor Johnson Vasanth Nair Mihir Chowriappa  Connor Johnson  Vasanth Nair  Mihir Karnik Mohit Jain and Swadheen Songmen Associative IDS for NextGen Frameworks Dr S Dua LA Tech 49 All the respective Logos belong to their owners 
+
+
+Rf d Rdi R e f erence d R ea di ngs Copyright of cover pages held by respective publishers 
+
+
+Thank You Questions Thank You  Questions Dr Sumeet Dua E mail sdua@latech.edu Web http://dmrl.latech.edu Associative IDS for NextGen Frameworks Frameworks Dr S Dua LA Tech 51 Image Source roadtrafficsigns.com 
+
+

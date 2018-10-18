@@ -1,0 +1,311 @@
+e 
+L 
+e  d 
+l n m  
+s 
+t 
+g 
+0018-9340 \(c This article has been accepted for publication in a future issue of this\ journal, but has not been fully edited. Content may change prior to fin\al publication. Citation information: DOI 10.1109/TC.2017.2679180, IEEE Transactions on Computers 
+1 A e s hao 
+e g n d 
+ F I N N ge o r 1  le n r e  l in D le y h O 2   3   4   5   A m o n g v a r io u s FT L s  lo gb lo c kb a s e d FT L s c h e m e s 017 
+Y r n h n y d e  g  017  s t  6   7    8    9   t h e p h ys ic a l ks l d a m g n le 0  d og  B l og n g ks kks e d  d g ge a d e y n r e  ks a g 
+ n a  s 
+ 
+
+
+e B e B e  k 8 e  T p  
+s e  T s  s e  T w  s e  T e  s e s g B n r e d  ge f D 8  Fo r S L C 003 a s h m e m o r y  it s u p p o r t s t h e  n is 8  Fo r M L C 003 a s h m e m o r y  o n ly o n e p a r t ia lp a ge e  D wD in 9   2 0    2  O n ly o n e p a r t ia lp a ge 1  T h e s e n e w in g  n t L 2   2 3   b lo c k o f f s e t s a r e u s e d t o d e t e r m in e t h e s ls a ge e wo g e  es s n 6  a lo g b lo c k c a n o n ly b e u s e d b y o n e d a t a b lo c k d  s 7  
+0018-9340 \(c This article has been accepted for publication in a future issue of this\ journal, but has not been fully edited. Content may change prior to fin\al publication. Citation information: DOI 10.1109/TC.2017.2679180, IEEE Transactions on Computers 
+1 4   
+0 026 0 026 0 026 0 026 
+2 b s  o s m we d L  a n in in d d a s ia e e  r h t 1  D FT L  1 2   S u p e r b lo c k FT L  9   a n d G FT L 3 h a v e b e e n im p le m e n t e d o n t h e e v a lu a t io n p la t f o r m  T h e ly f e     e  n  B D lash d k ic a s   e e   h  ly 0 026 0 026 e e 0 026 0 026 k h 5  6 o r 003 a s h b a s e d 002 le s ys t e m  1 7   T h is p a p e r f o c u s e s o n if 
+ 
+
+
+ S  d ks r d  f  e d  s is d  e in d ne s o d e o N  k s r e s k k e ge g k n s d s ly e r  
+0018-9340 \(c This article has been accepted for publication in a future issue of this\ journal, but has not been fully edited. Content may change prior to fin\al publication. Citation information: DOI 10.1109/TC.2017.2679180, IEEE Transactions on Computers 
+3 a s n  a is e  8 s o lv e s t h is p r o b le m b y lim it in g t h e a s s o c ia t iv o t K e ks e  k e ile k d  e ll  k 9  lo g b lo c ks a r e m a n a ge d wit h a n a p p r o a c h s im ila r  is N o M s N lly o N  M n p n ld  L L   N f o N  M e M l o N  N e N  M ge o N  M a k ge h k lly le  g e g ks  N 3  n a f s g o 000\000\000\000 000\000\000\000 001\001\001\001 001\001\001\001  000\000\000 000\000\000 000\000\000 001\001\001 001\001\001 001\001\001 000\000\000\000 000\000\000\000 000\000\000\000 001\001\001\001 001\001\001\001 001\001\001\001 000\000\000 000\000\000 000\000\000 001\001\001 001\001\001 001\001\001 000\000\000\000 000\000\000\000 000\000\000\000 001\001\001\001 001\001\001\001 001\001\001\001 000\000\000 000\000\000 000\000\000 001\001\001 001\001\001 001\001\001 000\000\000 000\000\000 001\001\001 001\001\001 000\000\000 000\000\000 000\000\000 001\001\001 001\001\001 001\001\001 000\000\000\000 000\000\000\000 000\000\000\000 001\001\001\001 001\001\001\001 001\001\001\001 000\000\000 000\000\000 000\000\000 001\001\001 001\001\001 001\001\001 000\000\000 000\000\000 001\001\001 001\001\001  Free page Invalid page Valid page Num LPN Page update requests \(Logical Page Numbers 0, 4, 8, 1, 2, 0, 12, 27, 5, 9 Superblock 2 Superblock 3 Superblock 1 4 0 8 1 2 0 12 27 5 0 1 4 7 10 11 12 5 8 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 24 25 26 27 32 9 Block Data Log 
+ 
+
+
+e e  a N f m is u  u y n  t  k g d n k  l k d  a ge C d T  e e  n e in g e d e n e e  e r s r s d k is r e y o t s n d g in d e l  t  is g e u 2 d l 3 in  d k l will g e e e t in le o T d k e s l e  n n e  1 f u a  u g is y ge  2 r o l  l e a d y   
+0018-9340 \(c This article has been accepted for publication in a future issue of this\ journal, but has not been fully edited. Content may change prior to fin\al publication. Citation information: DOI 10.1109/TC.2017.2679180, IEEE Transactions on Computers 
+4 3 B K L L G K M T e g e le  T  d k le  T   000\000\000 000\000\000 000\000\000 001\001\001 001\001\001 001\001\001  000\000\000 000\000\000 000\000\000 001\001\001 001\001\001 001\001\001 Num LPN Valid page Invalid page Free page PBN \(Physical Block Number LBN \( Logical Block Number 0 1 1 2 3 4 5 6 7 8 9 10 11 Data 5 12 13 14 15 20 8 24 25 26 27 32 Block Log 0 Page update request \(Logical Page Numbers 0 11 0 9 10 12 a B  Log lock-level         -block Management BLog The Log-block Management Table \(LMT Offset PBN LBN \(l=2 10 11 12 Data blocks Log block 0 0 1 0 The Data-block to Log-block mapping Table \(DLT LBN PBN u=2 Log blocks 0 9 Data block b 0 
+ 
+
+
+ 3 is y   w d ge k a e  e g is is  N a  y w h  ll d d k w f t e g  r C e n C  e N in g  a e n  n                 Index 2 Index 1 Index n 0 /  1 FLAG DLT_POSITION OFFSET Log-block Mangment Page_Mapping_Table_Directory Offset PBN Mapping Table \(LDMT The Logical-block to Data-block The Data-block to Log-block mapping Table \(DLT u PBN Log blocks L1 Data block LBN LBN L1 LOG 1 L1 K l LBN Log block PBN Offset The Log-block Management Table \(LMT Data blocks P Data blocks Log blocks NAND Flash memory 
+h g 
+ h ge illy e g g r k r C g n C  ink e ll e  a e is we ks y  kd in y f k d k L G L R H w d is r n d l k  d e 
+p s 
+f 
+0018-9340 \(c This article has been accepted for publication in a future issue of this\ journal, but has not been fully edited. Content may change prior to fin\al publication. Citation information: DOI 10.1109/TC.2017.2679180, IEEE Transactions on Computers 
+5 000\000\000\000 000\000\000\000 001\001\001\001 001\001\001\001 000\000\000 000\000\000 000\000\000 001\001\001 001\001\001 001\001\001 000\000\000\000 000\000\000\000 001\001\001\001 001\001\001\001 000\000\000\000 000\000\000\000 001\001\001\001 001\001\001\001 000\000\000 000\000\000 001\001\001 001\001\001 000\000\000\000 000\000\000\000 001\001\001\001 001\001\001\001 000\000\000 000\000\000 000\000\000 001\001\001 001\001\001 001\001\001 000\000\000\000 000\000\000\000 000\000\000\000 001\001\001\001 001\001\001\001 001\001\001\001 000\000\000\000 000\000\000\000 001\001\001\001 001\001\001\001 000\000\000\000 000\000\000\000 001\001\001\001 001\001\001\001 000\000\000 000\000\000 000\000\000 001\001\001 001\001\001 001\001\001   11 0 9 10 12 8 1 2 0 12 27 5 9 Num LPN Valid page Invalid page Free page 0 1 2 3 0 1 0 1 2 3 4 5 6 7 8 9 10 11 Data 5 12 13 14 15 20 8 24 25 26 27 32 Block Log a b B  Log lock-level         -block Management BLog The Log-block Management Table \(LMT Offset PBN LBN LBN \(l=2 PBN \(Physical Block Number LBN \( Logical Block Number 9 10 11 12 4 3 2 1 0 1 2 3 6 Log block PBN u=2 Log blocks 9 10 11 12 10 Page update requests \(Logical Page Numbers 0, 4, 8, 1, 2, 0, 12, 27, 5, 9 Data block Data blocks 6 The Data-block to Log-block mapping Table\(DLT 
+e 
+B L 
+ 
+
+
+k N y 
+  
+n n 
+x N 
+n 
+n 
+ 
+L  
+  
+n 
+W TL 
+m   
+  
+ 
+s 
+e N k k  d e   l  e P o h u 8 in is T h O 4   8 1 1   a n d t h r e e O O B s a r e b ig e n o u gh h d 5 ll g s in   g e e e  n k d a e o  
+T   
+f N 
+t 
+T   
+f f f f 
+ e N 
+  
+  
+f N f f k f f e f 
+  
+t 
+0018-9340 \(c This article has been accepted for publication in a future issue of this\ journal, but has not been fully edited. Content may change prior to fin\al publication. Citation information: DOI 10.1109/TC.2017.2679180, IEEE Transactions on Computers 
+t 
+ n N 
+6 d l e d l in  ge a r s e in  e y e y B l e in o we o  is e x s T d t g T n o e a  T k n we m n h 2 ld t u 8 d is r T s f  d l y a ge  l D h u 8 ks s  d r s 1 
+ 
+
+
+ e N 
+    
+f N 
+ A  d e y e le x l n  L  s we d e e k lly  e m 2 
+t t 
+ 
+L  
+ 
+d T 
+y r T 
+e N 
+ g t r t te    T l k 1 y O r e O t te    1 is 1 ge d  d t d X k e n  t te    is s  l k 0 d t te    gs N  wo g s N t te    a y   
+0018-9340 \(c This article has been accepted for publication in a future issue of this\ journal, but has not been fully edited. Content may change prior to fin\al publication. Citation information: DOI 10.1109/TC.2017.2679180, IEEE Transactions on Computers 
+f f f 
+ e N 
+g   
+n n 
+f 
+ m T 
+R TL 
+   T 
+ n N 
+7 Write\(A,35 4 11 1 0/0/0\(88 AM A 0 88  4 11 2 0/0/0\(88 0/0/1\(89 B 1 1 89  4 11 3 0/0/2\(90 9 C 0 90 Write\(D,34 4 11 3  9 D 0 136  4 11 3  9 E 0 137  4 11 4 0/0/3\(91 9 F 0 91 Write\(G,37 4 11 5 0/0/3\(91 2 G 1 92 Write\(H,35 4 11 5  2 H 0 138  4 11 5  2 I 0 139 Write\(J,39 4 11 6  3 J 1 93 Write\(K,37 4 11 6  1/0/4\(140 K 1 140 D M\(u=2 RAM   1  2 140 3  B 89  4 5   N N BO 0 1 P N B Memory  L     0 2 0 0 0 1 0 3 1 0 1 4 3 1 2 3 3 2 1 4 5 1 4 5 N BO 0 N 0 1 N1 4 11 6  1/0/4\(140 9 4 17 17 1 4 4 17 17 2 4 4 17 17 3 4 4 17 17 4 4 4 17 17 5 4 K 1 1 4 5 
+ 
+
+
+L T r 
+ T w 
+L  T o  T r 
+s e e L T r 
+ T w N p 002  T r  T w   T e  T w T r  N p 002  T r  T w   T e  T w 
+ l 002 f  T r  T w  002 N p  T e g  T e e i in in t  l d t d  d y  e is B is  P E A S 1  2  S u p e r b lo c k FT L  9   G FT L  1 3   a n d t h e p r o p o s e d e  ysis L s T r  T w  T o d T e e e  N p in a s n t e n d e e  e ll e g e  ysis e e in o ks L ld e o e s u d l o d k g   ld e  ysis l e e N lk s N p 4 ge is N lk 002 N p 002 8   we e N a d N g 1  6 e   e f n N a 002 8   d u r  2 u s n N a 002 2 u   r N g e N g h d l o  l 002 2 l e is N g 002 2 l  e is 2 u 002 N a  2 l  002 N g 2  u d l is e e  f  n e is 
+0018-9340 \(c This article has been accepted for publication in a future issue of this\ journal, but has not been fully edited. Content may change prior to fin\al publication. Citation information: DOI 10.1109/TC.2017.2679180, IEEE Transactions on Computers 
+8 
+L  2 002 T o  T r 
+T 2  
+ N 002 f  T r  T w  002 N p  T e g  T e 
+ 
+
+
+e  
+m s  K B  
+e B 5 6 1 e B 7 6 9 k B 3 8 3 k B 0 3 2 h d 4 3 2 h d 3 0 3 d e 1 4 8 d e 9 0 3 S e 5 5 9 S e 4 6 8 1 0 9 2 2 0 0 6 
+s s   t e  
+  8  I n o r d e r t o h a v e a f a ir c o m p a r is o n  e a c h t im e b e f o r e   e c e r e c d e c l n o y t e  n e e e e t k  s e t a f M e  s is n  
+0018-9340 \(c This article has been accepted for publication in a future issue of this\ journal, but has not been fully edited. Content may change prior to fin\al publication. Citation information: DOI 10.1109/TC.2017.2679180, IEEE Transactions on Computers 
+3  
+9 r e M is 4 002 N lk f N lk n  E N  e e 1  D FT L  1 2   9  a n d G FT L  1 3   B o t h B L o gFT L a n d a e  is t s  p e M 6 m h r t  4  5 a n d T io b e n c h  2 6  t o e v a lu a t e t h e p r o p o s e d n e d k  ls d d FS  r File d File gle e r d File d File s r s 1 d 2 A 7  T h e d e t a ile d c h a r a c t e r is t ic s o f  1  D FT L  1 2   S u 9  a n d G FT L  1 3  a s b lo c k d e v ic e d r iv e r s in g y v h s 2  h le gh c b S Memory r   m m 2 Cache D NFS C s s    s   Card l Driver ace K ace l 
+ 
+
+
+5 T m g 
+ 
+s s 
+ 4 8 6 2 4 e B 4 0 5 9 9 e B 7 0 7 9 9 k B 9 1 7 1 6 k B 7 8 7 8 7 h d 5 3 3 4 1 h d 7 3 1 2 6 d e 0 0 0 5 2 d e 8 0 8 1 1 S e 0 9 9 6 6 S e 1 9 5 6 0 n I h is y u  l  e s u d l o r  th u 1 and u 2 g u 1 d u 2 ll n u 2 s n u 1  u 1  ll  r u   s f x u 2 d l 4 m e g  y r ks nnie  k d h ge g y e s SD d d FS  w s g  t  l s u d l r u g r l is k t l k f s u d l  e f u d l  s d d FS f u d l o s t  ks nnie  k d h e r u d l r u t e f u e t n r l m n l ge m is o in  ke t a 2 n l  l 4 d u t  e  n u  u 2 r l 4 e l 2 s e r n l d 
+    
+0 
+d l 4 
+1 2 e B 4 9 e B 9 9 k B 1 1 k B 7 8 h d 0 4 h d 0 2 d e 5 5 d e 1 1 S e 6 6 S e 6 6 
+l 
+0018-9340 \(c This article has been accepted for publication in a future issue of this\ journal, but has not been fully edited. Content may change prior to fin\al publication. Citation information: DOI 10.1109/TC.2017.2679180, IEEE Transactions on Computers 
+u u 
+l 
+s  
+s  u  2 
+d u 2 
+T 4 h u 1 
+ 
+
+
+l l 
+                    
+l 
+u u u 
+s  
+l l 
+u 
+l 
+ 2  
+T 6 e  026 
+m g 
+l 
+s  
+l l 
+l u 
+2 3 4 5 6 e B 9 2 3 8 6 e B 9 6 6 8 6 k B 1 0 6 5 0 k B 8 1 5 1 3 h d 4 5 3 9 4 h d 2 3 7 4 0 d e 5 5 5 5 5 d e 1 1 1 1 1 S e 6 6 6 6 6 S e 6 6 6 6 6 1 9 1 5 1 3 2 0 9 9 0 5 s   2  2 2 2 2 2 e B 6 3 9 5 4 e B 2 4 9 3 8 k B 7 1 1 2 0 k B 7 0 8 9 8 h d 0 3 4 9 7 h d 6 6 2 0 4 d e 5 5 5 5 5 d e 1 1 1 1 1 S e 6 6 6 6 6 S e 6 6 6 6 6 1 4 8 9 0 5 2 1 7 0 1 9 B B d e e 0 0 0 0 0 0 0 0 0   y L L L L L  B B d e e 0 0 0 0 0 0 0 0 0 0   y L L L L L  
+ r l 4  Ls h t u 2 d l 4  a  N 4 d M 2 e 9  N o c a c h e M d r r e e  l m  us d e B B d e e 0 0 0 0 0 0 0 0 0 0   s L L L L L  B B d e e 0 0 0 0 0 0 0 0 0 0 0   s L L L L L   B B d e e 0 0 0 0 0 0 0 0    L L L L L  B B d e e 0 0 0 0 0 0 0 0    L L L L L  n  e t  d d s t  e File ge o d B  d e n 
+u u u u u u u 
+ 
+l l 
+1 
+0018-9340 \(c This article has been accepted for publication in a future issue of this\ journal, but has not been fully edited. Content may change prior to fin\al publication. Citation information: DOI 10.1109/TC.2017.2679180, IEEE Transactions on Computers 
+t 
+d 
+ 
+
+
+7 P t  
+                    
+l u 
+s s s e L L t d s 5 9  s 5 1  e  026 
+u u u u u 
+l l 
+u 
+9 4  d s 9 7  s 0 3  e  026 0 5  d s 1 2  s 5 5  e  026 9 3  d s 5 7  s 5 3  e  026 9 8  d s 5 8  s 5 9  e  026 8 0  m d o  e d gh in r  e o e o  e ge  s o n we e d e  l r  s  u l s n e is will n e e in r e t r n t e ge e s 
+ 2  
+T 8 t 
+u u u u u 
+s  
+l l 
+2 3 4 5 6 e B 0 8 9 8 1 e B 8 0 3 8 0 k B 4 3 8 2 7 k B 2 4 8 3 9 h d 4 2 0 3 7 h d 0 3 7 6 7 1 4 3 5 6 7 2 5 9 8 9 3 s   2  2 2 2 2 2 e B 2 4 0 4 9 e B 9 9 8 8 0 k B 8 2 4 0 7 k B 2 4 2 3 9 h d 8 5 4 0 7 h d 4 1 0 3 7 1 7 4 8 2 7 2 4 0 5 2 9 
+l l 
+ 
+l 
+l l 
+l 
+2 
+s  s  s  s  s  
+0018-9340 \(c This article has been accepted for publication in a future issue of this\ journal, but has not been fully edited. Content may change prior to fin\al publication. Citation information: DOI 10.1109/TC.2017.2679180, IEEE Transactions on Computers 
+l 
+d 
+ 
+
+
+9 
+ 
+l e 
+6 
+n s 
+ 9 223 Sa m s u n g E l e c t r o n i c s  P a g e p r o g r a m a d d r e s s i n g f o r M L C N A N D 224 
+  0 J  B o u k h o b z a  P  O l i v i e r  S R u b i n i  L  L e m a r c h a n d  Y  H a d j a d j t 224 
+9 
+d s 
+ 
+ 5 J  K a t c h e r  223 P o s t m a r k  A n e w 002 l e s y s t e m b e n c h m a r k  r   224 
+ 8 H  C h o  D  Sh i n  a n d Y  I  E o m  223 K A ST  K a s s o c i a t i v e s e c t o r n 
+ 6 M  K u o p p a l a  223 T i o b e n c h t h r e a d e d I  O b e n c h f o r l i n u x  j   224 2 0 0 2  7  223 SN I A I O T T A t r a c e r e p o s i t o r y  224 
+ 6 J  K i m  J  M  K i m  S H  H o h  S L  M i n  a n d Y  C h o  223 A s p a c e 224 
+ 4 B  T i m  223 B o n n i e  224 
+ 6 Y  W a n g  Z  Q i n  R  C h e n  Z  Sh a o  Q  W a n g  S L i  a n d L  T  Y a n g  224 
+ 2 S J  K w o n  223 A c a c h e b a s e d 003 a s h t r a n s l a t i o n l a y e r f o r T L C b a s e d 224 
+  4 M  H u a n g  Z  L i u  L  Q i a o  Y  W a n g  a n d Z  Sh a o  223 A n e n d u r a n c e y 224 
+ 5 Q  Z h a n g  X  L i  L  W a n g  T  Z h a n g  Y  W a n g  a n d Z  Sh a o  h D 224 
+ 3 S C h o u d h u r i a n d T  G i v a r g i s  223 D e t e r m i n i s t i c s e r v i c e g u a r a n t e e s n 
+  8 M i c r o n T e c h n o l o g y  I n c   223 T N 2 9 1 9  N A N D F l a s h 1 0 1  A n I n t r o t 224 
+ 1 223 Sa m s u n g E l e c t r o n i c s  K 9 L B G 0 8 U 0 M  v 1  0  3 2 G B D D P M L C d a t a 224 
+  1 A  B i r r e l l  M  I s a r d  C  T h a c k e r  a n d T  W o b b e r  223 A d e s i g n f o r h i g h 224 
+d s 
+ 3 Y  W a n g  Z  Q i n  R  C h e n  Z  Sh a o  a n d L  T  Y a n g  223 A n a d a p t i v e e 224 
+m 
+  2 A  G u p t a  Y  K i m  a n d B  U r g a o n k a r  223 D F T L  A 003 a s h t r a n s l a t i o n l n 
+m 
+  7 P  O l i v i e r  J  B o u k h o b z a  E  Se n n  a n d H  O u a r n o u g h i  223 A m e t h o d f 224 
+ 4 S C o r p o r a t i o n  223 Sa m s u n g e l e c t r o n i c s  s a m s u n g 224  5 R  C h e n  Y  W a n g  D  L i u  Z  Sh a o  a n d S J i a n g  223 H e a t i n g d i s 224 
+0018-9340 \(c This article has been accepted for publication in a future issue of this\ journal, but has not been fully edited. Content may change prior to fin\al publication. Citation information: DOI 10.1109/TC.2017.2679180, IEEE Transactions on Computers 
+  
+3 
+e 
+E s 
+ 
+3 
+1 
+  8 R  C h e n  Z  Q i n  Y  W a n g  D  L i u  Z  Sh a o  a n d Y  G u a n  223 O n h 
+  3 L  P  C h a n g  Y  S L i u  a n d W  H  L i n  223 St a b l e g r e e d y  A d a p t i v e 224 
+  7 C  P a r k  W  C h e o n  J  K a n g  K  R o h  W  C h o  a n d J  S K i m  r 224 
+w 
+M  
+ 9 J  U  K a n g  H  J o  J  S K i m  a n d J  L e e  223 A s u p e r b l o c k b a s e d n 
+3 o f u d l ge  C K d g s e a d e y n n g d L ie  l D ge s ge 9  W e p la n t o c o m b in e B L o g wit h p h ys ic a l e  0   3 1   s t o r a ge c la s s 2  s p in t r a n s f e r t o r q u e R A M  S T T R A M   3 3   4  a n d 3 D m e m o r y h ie r a r c h y  3 5    3 6  t o e  A S d f s  g  e d n  f d 7  R S 
+1 L  P  C h a n g  Y  C  Su  a n d I  C  W u  223 P l u g g i n g v e r s u s l o g g i n g  224 
+ 
+ 0 Z  Q i n  Y  W a n g  D  L i u  Z  Sh a o  a n d Y  G u a n  223 M N F T L  A n y n  2 T  W  K u o  Y  H  C h a n g  P  C  H u a n g  a n d C  W  C h a n g  223 Sp e c i a l n 
+s 
+8 
+c  
+S 8 
+ 
+
+
+w  
+ 5 Y  W a n g  Z  Sh a o  H  C h a n  L  B a t h e n  a n d N  D u t t  223 A r e l i a b i l i t y 224 
+ 7 Y  G u a n  G  W a n g  Y  W a n g  R  C h e n  a n d Z  Sh a o  223 B L o g  B l o c k n 
+ 6 Y  W a n g  M  Z h a n g  L  D o n g  a n d X  Y a n g  223 A t h e r m a l a w a r e e n 
+s 224 
+f e 
+  
+r c  m y e s  
+e s 
+e 
+e  
+9 
+ 4 D  N i u  Y  C h e n  C  X u  a n d Y  X i e  223 I m p a c t o f p r o c e s s v a r i a t i o n s n 
+a n g o 
+  0 P  Z h o u  B  Z h a o  J  Y a n g  a n d Y  Z h a n g  223 A d u r a b l e a n d e n e r g y 224 n 
+ 1 D  L i u  K  Z h o n g  T  W a n g  Y  W a n g  Z  Sh a o  E  H  M  Sh a  a n d e 224 
+s 
+ 3 Q  L i  J  L i  L  Sh i  M  Z h a o  C  X u e  a n d Y  H e  223 C o m p i l e r a s s i s t e d 224 
+ s 
+G l  g e n l  
+0018-9340 \(c This article has been accepted for publication in a future issue of this\ journal, but has not been fully edited. Content may change prior to fin\al publication. Citation information: DOI 10.1109/TC.2017.2679180, IEEE Transactions on Computers 
+n g 
+E  
+r r e e l  h e  e  
+  9 Y  W a n g  D  L i u  Z  Q i n  a n d Z  Sh a o  223 A n e n d u r a n c e e n h a n c e d e n 
+r g s M  o g  
+4 
+s 
+  2 Y  W a n g  T  W a n g  D  L i u  Z  Sh a o  a n d J  X u e  223 F i n e g r a i n e d  d i r e c t 224 
+r  e n e n h  e d  
+i n g c  g  
+ 
+
+
+S K Sharma X Wang Live Data Analytics With Collaborative Edge and Cloud Processing in Wireless IoT Networks    D Mazza D Tarchi and G E Corazza A cluster based computation of\035oading technique for mobile cloud computing in smart cities in Proc IEEE Int Conf Commun 050ICC\051  May 2016 pp 1\0256   D Kreutz F Ramos P E Ver\355ssimo C E Rothenberg S Azodolmolky and S Uhlig Software-de\034ned networking A comprehensive survey Proc IEEE  vol 103 no 1 pp 14\02576 Jan 2015   C Liang and F R Yu Wireless network virtualization A survey some research issues and challenges IEEE Commun Surveys Tuts  vol 17 no 1 pp 358\025380 Mar 2015   R Deng R Lu C Lai T H Luan and H Liang Optimal workload allocation in fog-cloud computing toward balanced delay and power consumption IEEE Internet Things J  vol 3 no 6 pp 1171\0251181 Dec 2016   S Prathibha B Latha and G Sumathi Improving energy ef\034ciency of computing servers and communication fabric in cloud data centers in Proc Int Conf Res Comput Intell Commun Netw 050ICRCICN\051  Sep 2016 pp 17\02521   I Park D Kim and D Har MAC achieving low latency and energy ef\034ciency in hierarchical m2m networks with clustered nodes IEEE Sensors J  vol 15 no 3 pp 1657\0251661 Mar 2015   S Vural P Navaratnam N Wang C Wang L Dong and R Tafazolli In-network caching of Internet-of-Things data in Proc IEEE Int Conf Commun 050ICC\051  Jun 2014 pp 3185\0253190   X.-Q Pham and E.-N Huh Towards task scheduling in a cloudfog computing system in Proc Asia\025Paci\034c Netw Oper Manage Symp 050APNOMS\051  Oct 2016 pp 1\0254   J Zhang X Zhang and W Wang Cache-enabled software de\034ned heterogeneous networks for green and 035exible 5G networks IEEE Access  vol 4 pp 3591\0253604 2016   E Bjornson E A Jorswieck M Debbah and B Ottersten Multiobjective signal processing optimization The way to balance con\035icting metrics in 5G systems IEEE Signal Process Mag  vol 31 no 6 pp 14\02523 Nov 2014   M N Tehrani M Uysal and H Yanikomeroglu Device-to-device communication in 5G cellular networks Challenges solutions and future directions IEEE Commun Mag  vol 52 no 5 pp 86\02592 May 2014   J Wang Y Wu N Yen S Guo and Z Cheng Big data analytics for emergency communication networks A survey IEEE Commun Surveys Tuts  vol 18 no 3 pp 1758\0251778 3rd Quart 2016   O Bello and S Zeadally Intelligent device-to-device communication in the Internet of Things IEEE Syst J  vol 10 no 3 pp 1172\0251182 Sep 2016   D O Kang J H Choi J Y Jung K Kang and C Bae SDIF Social device interaction framework for encounter and play in smart home service IEEE Trans Consum Electron  vol 62 no 1 pp 85\02593 Feb 2016   A Papageorgiou R Bifulco E Kovacs and H J Kolbe Dynamic M2M device attachment and redirection in virtual home gateway environments in Proc IEEE Int Conf Commun 050ICC\051  May 2016 pp 1\0256   M Danancher J J Lesage and L Litz Model-based location tracking of an a priori unknown number of inhabitants in smart homes IEEE Trans Autom Sci Eng  vol 13 no 2 pp 1090\0251101 Apr 2016   P Kolios C Panayiotou G Ellinas and M Polycarpou Data-driven event triggering for IoT applications IEEE Internet Things J  vol 3 no 6 pp 1146\0251158 Dec 2016   S Zhao L Yu and B Cheng An event-driven service provisioning mechanism for IoT 050Internet of Things\051 system interaction IEEE Access  vol 4 pp 5038\0255051 2016   A M Akhtar X Wang and L Hanzo Synergistic spectrum sharing in 5G HetNets A harmonized SDN-enabled approach IEEE Commun Mag  vol 54 no 1 pp 40\02547 Jan 2016   N Bizanis and F A Kuipers SDN and virtualization solutions for the Internet of Things A survey IEEE Access  vol 4 pp 5591\0255606 2016   J Zhou Z Cao X Dong and X Lin Security and privacy in cloudassisted wireless wearable communications Challenges solutions and future directions IEEE Wireless Commun  vol 22 no 2 pp 136\025144 Apr 2015   P Porambage M Ylianttila C Schmitt P Kumar A Gurtov and A V Vasilakos The quest for privacy in the Internet of Things IEEE Cloud Comput  vol 3 no 2 pp 36\02545 Mar 2016 SHREE KRISHNA SHARMA 050S'12\025M'15\051 received the M.Sc degree in information and communication engineering from the Institute of Engineering at Pulchowk Nepal the M.A degree in economics from Tribhuvan University Nepal the M.Res degree in computing science from Staffordshire University Staffordshire U.K and the Ph.D degree in wireless communications from the University of Luxembourg Luxembourg in 2014 He was a Research Associate with the Interdisciplinary Center for Security Reliability and Trust University of Luxembourg for two years where he was involved in the EU FP7 CoRaSat Project EU H2020 SANSA ESA Project ASPIM Luxembourgish National Projects Co2Sat and SeMIGod He is currently a Post-Doctoral Fellow with Western University Canada His research interests include 5G and beyond wireless systems Internet of Things  adaptive optimization of distributed communication computing and caching resources cognitive and cooperative communications and interference mitigation and resource allocation in heterogeneous wireless networks He was with Kathmandu University Dhulikhel Nepal as a Teaching Assistant and a Part-Time Lecturer with eight engineering colleges in Nepal He was with Nepal Telecom for over four years as a Telecom Engineer in the 034eld of information technology and telecommunication He has authored over 70 technical papers in refereed international journals scienti\034c books and conferences He has been serving as a TPC Member of a number of international conferences including the IEEE ICC the IEEE PIMRC the IEEE Globecom the IEEE ISWCS and the CROWNCOM He received an Indian Embassy Scholarship for the B.E degree an Erasmus Mundus Scholarship for the M.Res degree and an AFR Ph.D Grant from the National Research Fund 050FNR\051 of Luxembourg He received the Best Paper Award at the CROWNCOM 2015 conference His Ph.D thesis received the FNR Award for Outstanding Ph.D Thesis 2015 from FNR Luxembourg He has been serving as a Reviewer for several international journals and conferences XIANBIN WANG 050S'98\025M'99\025SM'06\025F'17\051 received the Ph.D degree in electrical and computer engineering from the National University of Singapore in 2001 He is currently a Professor and the Canada Research Chair with Western University Canada From 2001 to 2002 he was a System Designer with STMicroelectronics where he was responsible for the system design of DSL and Gigabit Ethernet chipsets He was with the Communications Research Center Canada 050CRC\051 as a Research Scientist/Senior Research Scientist from 2002 and 2007 He has authored over 280 PeerReviewed journal and conference papers 26 Granted and pending patents and several standard contributions His current research interests include 5G technologies signal processing for communications adaptive wireless systems communications security and locationing technologies Dr Wang is an IEEE Distinguished Lecturer He has received many awards and recognition including the Canada Research Chair the CRC President's Excellence Award the Canadian Federal Government Public Service Award the Ontario Early Researcher Award and 034ve IEEE Best Paper Awards He was involved in a number of IEEE conferences including the GLOBECOM the ICC the VTC the PIMRC the WCNC and the CWIT in different roles such as the Symposium Chair the Tutorial Instructor the Track Chair the Session Chair and the TPC Co-Chair He was an Associate Editor of the IEEE T RANSACTIONS ON W IRELESS C OMMUNICATIONS from 2007 to 2011 and the IEEE W IRELESS C OMMUNICATIONS L ETTERS from 2011 to 2016 He currently serves as an Editor/Associate Editor of the IEEE T RANSACTIONS ON C OMMUNICATIONS  the IEEE T RANSACTIONS ON B ROADCASTING  and the IEEE T RANSACTIONS ON V EHICULAR T ECHNOLOGY  VOLUME 5 2017 4635 
+
+
+1924 IEEE TRANSACTIONS ON SIGNAL PROCESSING VOL 65 NO 7 APRIL 1 2017  X W e n K L La w S J Alabed a nd M Pesa v e nto Rank-tw o b eamforming for single-group multicasting networks using OSTBC in Proc 7th IEEE Sensor Array Multichannel Signal Process Workshop  Jun 2012 pp 69–72  S X W u  W K Ma and A M.-C S o Physical-layer multicasting b y stochastic transmit beamforming and Alamouti space-time coding IEEE Trans Signal Process  vol 61 no 17 pp 4230–4245 Sep 2013  K L La w X W e n and M  P esa v ento  General-rank transmit beamforming for multi-group multicasting networks using OSTBC in Proc 14th IEEE Workshop Signal Process Adv Wireless Commun  Jun 2013 pp 475–479  S X W u  Q  Li A M.-C S o and W K Ma  A s tochastic beamformed amplify-and-forward scheme in a multigroup multicast MIMO relay network with per-antenna power constraints IEEE Trans Wireless Commun  vol 15 no 7 pp 4973–4986 Apr 2016  A W iesel Y  C Eldar  and S  S hamai Linear precoding via c onic optimization for xed MIMO receivers IEEE Trans Signal Process  vol 54 no 1 pp 161–176 Jan 2006  G P ataki On t he rank of e x treme m atrices in semideﬁnite programs a nd the multiplicity of optimal eigenvalues Math Oper Res  vol 23 no 2 pp 339–358 1998  A Lemon A M.-C S o and Y  Y e Lo w rank semideﬁnite programming Theory and applications Found Trends Optim  vol 2 no 1–2 pp 1 156 2016  W  K M a J P a n A M.-C S o and T H Chang A supplementary note for Unraveling the rank-one solution mystery of robust MISO downlink transmit optimization A veriﬁable sufﬁcient condition via a new duality result Dep Electron Eng The Chinese Univ Hong Kong Hong Kong Tech Rep 2016 A v ailable http://www.ee.cuhk.edu.hk 027 wkma/publications/robust-rank1-TR.pdf  A Ben-T a l a nd A Nemiro vski Lectures on Modern Convex Optimization Analysis Algorithms and Engineering Applications MPS-SIAM Series on Optimization Philadelphia PA USA SIAM 2001  W  C L iao T H Chang W  K M a and C Y  Chi QoS-based transmit beamforming in the presence of eavesdroppers An optimized artiﬁcialnoise-aided approach IEEE Trans Signal Process  vol 59 no 3 pp 1202–1216 Mar 2011  Z.-Q L uo W  K M a A M.-C S o Y  Y e  a nd S Zhang Semideﬁnite relaxation of quadratic optimization problems IEEE Signal Process Mag  vol 27 no 3 pp 20–34 May 2010  A Beck and Y  C  E ldar   Strong duality in noncon v e x quadratic optimization with two quadratic constraints SIAM J Optim  vol 17 no 3 pp 844–860 2006  Y  Huang a nd S Zhang Comple x matrix decomposition a nd quadratic programming Math Oper Res  vol 32 no 3 pp 758–768 Aug 2007  J.-P  P enot Calculus Without Derivatives  volume 266 of Graduate Texts in Mathematics  New York NY USA Springer Science+Business Media 2013  A Beck and A  B en-T al Duality in rob u st optimization Primal w o rst equals dual best Oper Res Lett  vol 37 no 1 pp 1–6 2009  M Sion On g eneral minimax t heorems  Paci\036c J Math  vol 8 no 1 pp 171–176 1958  H K o miya  Elementary p roof for S ion s m inimax theorem  Kodai Math J  vol 11 no 1 pp 5–7 1988  M Medra Y  Huang W  K M a and T  N  D a v idson Lo w comple x ity robust MISO downlink precoder design under imperfect CSI IEEE Trans Signal Process  vol 64 no 12 pp 3237–3249 Jun 2016  D Tse a nd P  V i sw anath Fundamentals of Wireless Communication  Cambridge U.K Cambridge Univ Press 2005 Wing-Kin Ma M’01–SM’11–F’17 received the B.Eng degree in electrical and electronic engineering from the University of Portsmouth Portsmouth U.K in 1995 and the M.Phil and Ph.D degrees both in electronic engineering from The Chinese University of Hong Kong CUHK Hong Kong in 1997 and 2001 respectively He is currently an Associate Professor in the Department of Electronic Engineering CUHK His research interests include signal processing communications and optimization He currently serves as Senior Area Editor of IEEE T RANSACTIONS ON S IGNAL P ROCESSING and an Associate Editor of Signal Processing  and he is a member of the Signal Processing Theory and Methods Technical Committee TC and the Signal Processing for Communications and Networking TC He received 2013–2014 CUHK Research Excellence Award the 2015 IEEE Signal Processing Magazine Best Paper Award and the 2016 IEEE Signal Processing Letters Best Paper Award Jiaxian Pan received the B.Eng degree from Sun Yat-sen Zhongshan University Guangzhou China in 2008 and the Ph.D degree in electronic engineering from the Chinese University of Hong Kong CUHK Hong Kong in 2014 He was a Research Associate in CUHK from 2014 to 2015 He is currently a Senior Engineer with MediaTek Inc Hsinchu Taiwan He received the Best Student Paper Award from International Conference on Acoustics Speech and Signal Processing 2011 Anthony Man-Cho So M’12 received the Ph.D degree in computer science with a Ph.D minor in mathematics from Stanford University Stanford CA USA He joined The Chinese University of Hong Kong CUHK in 2007 He is currently the Assistant Dean of the Faculty of Engineering and is an Associate Professor in the Department of Systems Engineering and Engineering Management He also holds a courtesy appointment as an Associate Professor in the CUHKBGI Innovation Institute of Transomics Dr So is currently with the editorial boards of IEEE T RANSACTIONS ON S IG NAL P ROCESSING the Journal of Global Optimization  Optimization Methods and Software and SIAM Journal on Optimization  He received the 2015 IEEE Signal Processing Society Signal Processing Magazine Best Paper Award the 2014 IEEE Communications Society Asia-Paciﬁc Outstanding Paper Award the 2010 Institute for Operations Research and the Management Sciences Optimization Society Optimization Prize for Young Researchers and the 2010 CUHK Young Researcher Award Tsung-Hui Chang S’07–M’08 received the B.S degree in electrical engineering and the Ph.D degree in communications engineering from the National Tsing Hua University NTHU Hsinchu Taiwan in 2003 and 2008 respectively He is currently an Assistant Professor with the School of Science and Engineering The Chinese University of Hong Kong Shenzhen China His research interests include signal processing and optimization problems in data communications and machine learning He received the Young Scholar Research Award from National Taiwan University of Science and Technology in 2014 the IEEE ComSoc Asian-Paciﬁc Outstanding Young Researcher Award in 2015 and The Thousand Talents Program of China for Young Professionals in 2016 He is currently an Associate Editor of the IEEE T RANSACTIONS ON S IGNAL P ROCESSING and the IEEE T RANSACTIONS ON S IGNAL AND I NFORMATION P ROCESSING OVER N ETWORKS  
+
+
+This article has been accepted for inclusion in a future issue of this j\ournal. Content is final as presented, with the exception of pagination EEE   17      e  224         l  h          224 s      264  264 d e           224 h        g y         d e   a                e 224        r n            e       3   G   e   t  1     e  n        g 224       6   T   l 224        7   A e c 224        8   D            t         t         n o l      224 s       224 s         n  t  3         7    6   C e    g      7   G    n          n n 224          d 224  s          224  s      n  224 n e      2   L D e         224         e          r e  e        d    t      g 224        e          r   s       r 224           224 s      2   W    224 s        g e e          e       5   I  s        A  s   
+
+
+This article has been accepted for inclusion in a future issue of this j\ournal. Content is final as presented, with the exception of pagination 8   EEE     h  e       p 224 s       d 224 n          224        1   G t g  e      2   J  r n   t      l  224 s          e       5   I c 264  t 224         l                  8   Y e  l        9   D            0   M d  g  e       A 224         l e A v a i l a b l e  2    3   K    6 n  A v a i l a b l e  h t t p s   a r x i v o r g  7    4   G r  n   t       g     0      224 n a       g 224        n   s        e       f  ut        r   ut        l h a   s  0     p   t            nt       n  nt      l h   t                  f n l  0      n  o   5                224        n  t      n    s       l n  t       e n E t       224    1 
+
+
+This article has been accepted for inclusion in a future issue of this j\ournal. Content is final as presented, with the exception of pagination EEE   19 S Gong Cheng om Xidian  in 2007 and the M.S. and technical  3   He is currently an Associate Professor with Northwestern Polytechnical University. His main research interests are computer vision and pat tern recognition ei Han ently techni ch The ersity cher at the Uni His omputer vision, multi and brain imaging analysis. He es such as IEEE T C t T IONS  ON P A t t T ERN  A A YSIS  AND M CHINE  I I N t T ELLIGENCE AMI I I N t T ER NA t T IONAL J OURNAL  OF  C C O m p MP U t T ER V ISION V T C t T IONS  ON  I I m M GE P SSING  TIP C C ONFERENCE  ON  C C O m p MP U t T ER V ISION  AND P A t t T ERN  R R OGNI t T ION VPR I I N t T ERNA t T IONAL  C C ONFERENCE  ON  C C O m p MP U t T ER V ISION V I I N t T ERNA t T IONAL J OIN t T  C C ONFER ENCE  ON  A A R t T IFICIAL  I I N t T ELLIGENCE IJCAI Prof. Han is an Associate Editor of the I E E E IEEE T RANSAC t T IONS  ON  H H U m M AN M ACHINE  S S YS t T E m M S  Neurocomputing   Processing and Machine Vision and Applications  u ently f  tor ests include emote sensing om e eas  international journal, including Neurocomputing Elsevier Cognitive  Computation Springer International Journal of Image and Graphics  World of Scientific 
+
+

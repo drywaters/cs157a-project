@@ -1,0 +1,160 @@
+              
+            
+               
+             
+            
+   
+ 
+    
+
+
+                             
+
+
+                                 
+
+
+                        
+
+
+                  
+
+
+        
+
+
+1   Isa D, Lee L H, Kallimani V P, and Rajkumar R 223Text document preprocessing with the Bayes formula for classification using the support vector machine\224 IEEE T ransactions on Knowledge and Data Engineering, Vol. 20, 2008, pp. 23 227 31  1   Wan C H, Lee L H, Rajkumar R and Isa D, \223A hybrid text classification approach with low dependency on parameter by integrating K nearest neighbor and support vector machine\224, Journal of Expert Systems with Applications, Vol. 39\(15\, 2012, pp. 11880 226  11888  1   Salton G, Wang A, and Yang C S, \223A Vector Space Model for Automatic Indexing\224, Communications of the ACM, Vol. 18, 1975, pp. 613 226  620  1   Deerwester S C, Dumais S T, Landauer T K, Fur nas G W and Harshman R A, \223Indexing by Latent Semantic Analysis\224, Journal of the American Society of Information Science, Vol. 41\(16\, 1990,  pp. 391 226  407  1   He X, Cai D, Liu H and Ma W. Y, \223Locality Preserving Indexing for document representation\224 Proceed ings of International Conference on Research and Development I Information Retrieval \(SIGIR\222 04 UK, 2004, pp. 96 226  103  1   Cai D, He X, Zhang W V and Han J, \223Regularized Locality Preserving Indexing via Spectral Regression\224, Proceedings of  Conference on Inf ormation and Knowledge Management \(CIKM\22207 2007, pp. 741 226  750                                 1   Kyriakopoulou A and Kalamboukis T, \223Text classification using clustering. Proceedings of ECML PKDD Discovery Challenge Workshop, 2006  1   Pereira F, Tishby N and Lee L, \223Distributional clustering of English words\224, Proceedings of the 31 st  Annual Meeting of the Association for Computational Linguistics. 1993, pp. 183 226  190  1   Slonim N and Tishby, \223The power of word clustering for text classification\224, Proceedings of t he European Colloquium on IR Research \(ECIR\001  2   Dhillon I, Mallela, S and Kumar R, \223Enhanced word clustering for hierarchical text classification\224 Proceedings of the 8 th  ACM SIGKDD International Conference on Knowledge Discovery and Data Mining, Canada 2002, pp. 191 226  200  2   Takamura H and Matsumoto Y, \223Two dimensional clustering for text categorization\224, Proceedings of the Sixth Conference on Natural Language Learning CoNLL  2002\, Taiwan, 2002, pp. 29 226  35  2   Raskutti B., Ferr, H and Kowalczyk, A, \223Using  unlabeled data for text classification through addition of cluster parameters\224, Proceedings of the 19 th  International Conference on Machine Learning ICML Australia, 2002, pp. 514 226  521  2   Zeng H.J., Wang X.H., Chen Z., Lu H and Ma, W.Y 223CBC: Clustering ba sed text classification requiring minimal labeled data\224, Proceedings of the 3 rd  IEEE International Conference on Data Mining, USA, 2003 pp. 443 226  450  2   Guru, D. S., and Nagendraswamy, H. S, \223Symbolic Representation of Two Dimensional Shapes\224 Pattern Recognition Letters Vol.28, 2006, pp. 144 226  155  2   Bock, H.H and Diday, E, \223Analysis of symbolic Data\224, Springer Verlag  2   Bezdek, J.C, \223Pattern Recognition with Fuzzy Objective Algorithms. Kluwer Academic Publishers 1981  216 
+
+
+              
+
+
+     
+
+
+REQUIREMENTS  AND  TARGET  AUDIENCE Knowledge of LexisNexis’ High Performan ce Computing Cluster \(HPCC\not required \(the HPCC serves as Smart View’s backend  Anyone who is tasked with or has an interest in entity reso lution as it pertains to big data is encouraged to attend  DEMO  DURATION The demo will be presented in a 30-minute session  A/V AND EQUIPMENT Personal computer and a projector  PRESENTER’S  BIOGRAPHY Mary Galvin has a decade of professional expertise in the software industry serving in a variety of technical & management roles on pr oducts and projects. Mary s technical domain expertise encompasses both huma n language technology \(HLT as well as data intensive processing systems such as LexisNexis’ Hi gh Performance Computing Cluster \(HPCC  Mary earned her bachelor’s degree in comput er engineering from Villanova University in 2003, where she also received minors in comput er science, Spanish, and naval science. In addition to being proficient in Spanish, she has a strong knowledge of the Arabic and Chinese languages. Mary has been certified as a Project Management Professional \(PMP Management Institute \(PMI   
+
+
+The 2014 International Conference on Collabora tion Technologies and Systems \(CTS 2014 May 19 - 23, 2014, Minneapolis, Minnesota, USA   CTS 2014 DOCTORAL DISSERTATION COLLOQUIUM   A Federated Cloud of Things for Emergency Management Gilberto Taccari Adviser Luca Spalazzi Università Politecnica delle Marche, Ancona, Italy   Designing Mobile Interactions for Athletes Susanne Koch Stigberg Advisers Hilda Tellioglu and Steinar Kristoffersen Vienna University of Technology, Austria and Øs tfold University College, Halden, Norway       
+
+
+The 2014 International Conference on Collabora tion Technologies and Systems \(CTS 2014 May 19 - 23, 2014, Minneapolis, Minnesota, USA   CTS 2014 POSTER PAPERS AND POSTERS Partial List   POSTER PAPERS  Information Exchange and Fusion in a Collaborative Environment using Semantic Information Requirements Joshua M. Powers, Keith D. Shapiro, David S. Monk Securboration Inc., Florida, USA; C5T Corporation, Illinois, USA  An Effective Approach Using Eco-feedback to Motivate Energy Conservation Behaviors Hieu Huynh Chi stfold University College, Halden, Norway  Saving Energy with Pleasure: Designing EnergyRace Web Application Ksenia Dmitrieva stfold University College, Halden, Norway  Promoting Energy Efficient Behavior through Energy-Related Feedback Que Tran stfold University College, Halden, Norway  Collaborative System to Investigate Mental Models the Information Architecture Automatic Tool \(IAAT Cristina Olaverri-Monreal, Joel Gonçalves Technische Universität München, Germany  A New Scheme to Evaluate the Accuracy of Knowledge Representation in Automated Breast Cancer Diagnosis Juan Shan, Lin Li Pace University, New York, USA; Mu rray State University, Kentucky, USA  Disaster Relief Management and Resilience Using Photovoltaic Energy Salahuddin Qazi, William Young State University of New York Institute of Technology New York, USA; SUN Tree Consulting, Florida, USA   TECHNICAL POSTERS  From Microscope to Computer: Using Facebook to Assist Medical Laboratory Scientists in Nigeria Access and Navigate eLearning Courses Jarret Cassaniti, Nandini Jayarajan, Rebecca Shore, Simone Parrish, Lisa Mwaikambo Johns Hopkins Bloomberg School of Public Health Center for Communication Programs, Maryland, USA  Semantic Search & Integration to Climate Data Ranjeet Devarakonda, Giriprakash Palani samy, Line C. Pouchard, Biva Shrestha Oak Ridge National Laboratory, Tennessee, USA  
+
+
+Triggering Creativity through Semantic Cross-domain Web Crawling and Routing Francesco Taglino, Fabrizio Smith Institute for System Analysis and Co mputer Science, CNR, Rome, Italy  Integration of Emerging Learning Technologies in Secondary Schools: A Burkina Faso Case Study Romaric R. Zongo University of Minnesota – Twin Cities, Minnesota, USA  Visualization of Energy Consumption: Motivating fo r a Sustainable Behaviour Through Social Media Caroline So  e Olsen stfold University College, Halden, Norway   INDUSTRY POSTERS  Annotation and Deep Search of Se mi-Structured Technical Documents Chris Macks Progeny Systems Corporation, Virginia, USA   
+
+
+  Paper 2581 Version 2  14   Flight i nformation and processing   Presentation and projection of flight profiles   Real time operational information   Managing both pilot operator and air traffic controller workloads   Procedural processes supported by enhanced automation capabilities   Control sector complexity and management   Separation a ssurance   Airspace d esign and p rocedures   Investment in resolving these constraints  will drive the rate of adoption in civil UAS operations in the NAS One p art of the investment will be driven by the FAA\222s \223F acilities and Equipment\224 F&E Budget over  the next ten years Another part will be driven by defense and federal investment  in R&D  The remaining part will be driven by private investment seeking to develop profitable supplie r s and manufacturing firms of UAS Unfortunately   private investment will not fully launch until there is a clear indication of the public investment into implementing the requisite air traffic management  and air traffic control  ATM/ATC changes into the NAS infrastructure and there i s a common  approach through avionic standards in UA V  equipage   It is expected that avionic standards would lower the end user costs The impact on NAS infrastructure is the outline in the following subsection  Today\222s Air Traffic Control System  Today\222s air traffic control system is built around four basic pillars. These are communications, navigation, surveillance and infrastructure. The mortar holding these pillars together is aviation policy, rules and procedures  The FAA Air Traffic Organizat ion \(ATO\ has identified over 25 FAA procedural orders and notices that will need to be revised to accommodate routine  UAS operations in the NAS. This does not include advisory and informational materials that need to be developed and briefed to air traffi c controllers, pilots and other aviation stakeholders Additionally NAS investments to accommodate UAS efforts and associated costs must extend  beyond training requirements and procedural developments to include modification of infrastructure to permit an d to optimize efficiency and safety of UAS operations in the NAS  The majority of UAS operating in the NAS today are predominantly operated by the DoD. They were not designed with NAS compatibility in mind but rather to meet military mission needs. It is e xpected future commercial UAS will be designed and operated much more along the lines of manned aircraft. For example, current DoD UAS do not have Flight Management Systems and associated NAS aeronautical database and cannot be program m ed to fly approved F AA instrument procedures such as an instrument landing system \(ILS\ approach. Future commercial UAS operating in the NAS will need have integrated avionics systems and NAS capabilities similar to those of manned aircraft. However, unique challenges associa ted with UAS will remain and drive functional changes across many NAS project and programs. Some of these anticipated drivers or changes are listed by FAA program area below  En Route Automation Modernization \(ERAM 227 ERAM will be impacted by the need to be able to accept and process and display lengthy and complex UAS flight plans that include automated flight profile contingencies to the air traffic controller. This includes the ability to display a 20 minute planned route of flight on a controller\222s displa y suite  ERAM needs to be able to display to review to modify and to approve a UAS flight plan request originating in an en route center airspace environment as a 24 hour file and fly replacement to the current constrained  COA  process now is in use  Nati onal Voice System \(NVS  227 Future air traffic control voice switching systems must be able to provide timely and direct pilot to controller voice and data e.g text messaging\ communications via Voice Over Internet Protocol \(V o IP  Terminal Automation Mode rnization and Replacement TAMR  227 TAMR needs to be able to display to review to modify and to approve a UAS flight plan request originating in a terminal airspace environment as a 24 hour file and fly replacement to the current constrained COA  process now is use. TAMR also needs to be able to surveil approved UAS flights within the terminal environment  Terminal Information Display System \(IDS\ and En Route Information Display System \(ERIDS  227 Information support systems need to be able to inges t to and  to rapidly display unique local procedures and associated graphics associated with UAS operations. These include pilot communications and UAV control lost ink procedures  System Wide Information Management \(SWIM  227 SWIM  must be able to rapidly mov e critical UAS information around the NAS to provide the right information to the right controller or pilot at the right time and in the desired  format  Flight Information Exchange Model \(FIXM  227 UAS flight information needs to move to and from other Air Navigation Service Providers \(ANSP\ throughout the world and new data terminology must be created that supports the collection, processing and dissemination of UAS movements through the airspace  Air Traffic Control Optimum Training Solutions \(ATCOTS  227 UAS provides new training challenges for FAA in creating new teaching curricula that contains new procedures and paradigms used to accommodate UAS safely and efficiently in the NAS. This is notable c hallenge given 
+
+
+  Paper 2581 Version 2  15  the diversity and dynamic of evolving UAS technologies and missions  Future Facilities 227 FAA real estate assets may likely be affected as new UAS related systems are development and deployed. UAS NAS integration may drive additional FAA manpow er needs for positions of operations, coordination and management. This may require additional physical footprints to accommodate new positions of operations personnel and their supporting infrastructure  Next Generation Weather Processor \(NWP\ and Weathe r and Radar Processor \(WARP  227 The removal of a pilot in the cockpit also removes the ability to \223see\224 from a traditional pilot\222s perspective. Not only does this relate to the need for electronic systems for detect and avoid \(i.e., the FAR reference 91.113 for see and avoid\ but also affects many aspects of flight safety associated with detection and avoidance of hazardous weather from visual perspective of the manned cockpit. Determination of flight visibility is one such factor. It should also be noted tha t many of the UAS flying in the NAS today have a very low tolerance to hazardous weather such as turbulence and icing  Detect and Avoid \(DAA  227  Depending upon architecture and functionality, detect and avoid for UAS could have a profound impact on a variety of FAA systems and infrastructure components. DAA can be airborne based, and affect Automatic Dependent Surveillance Broadcast \(ADS B\ In and Out and an associated Cockpit Display of Traffic Information \(CDTI\nd Traffic Alert and Collision Avoida nce System \(TCAS\ functionality, including designs for the new Next Generation Airborne Collision Avoidance Systems \(ACAS X\. GBSAA that leverages ASR 11 Surveillance Radars and Standard Terminal Automation Replacement Systems \(STARS\ or TAMR also demands automation and surveillance system modification to provide this capability. Additional future work on portable primary three dimensional \(3D\ radars integrated in the NAS will also demand close analysis  The previous overview of FAA air traffic control sys tems gives insight in the investment required to be undertaken within the F AA\222s F&E  budget It also s erve s to illustrate the pervasiveness of changes that the UAS will eventually have on air traffic control and its supporting  ATM  infrastructure   It is impo rtant to recognize these ATM/ATC changes need to be planned for, funded and deployed. It must also be recognized that these UAS related investments do not stand alone in that these changes must be done while other planned ATC system improvements are taking  place I nvestments   such as   the Surveillance Broadcast System Program  National Voice Switch, Future Cyber Security Data Communications, and others are planned under the Next Generation Air Transport System  NextGen and others  Obviously   if future UA S forecasts are to be sustained it will entail a major shift in current FAA investment in addition to the  currently planned funding of NextGen  The forecasts outlined in this paper  will require an increase in funding levels of between $500 million and $1 billion dollars per year over and above current FAA requested F&E funding levels   Doing so will greatly facilitate realization of the $30 billion per year UAS market  9   S UMMARY  From an aviation perspective, UAS represents a new and disruptive technology  challenging the staid institutions policy, procedures and technologies that exist today and have served manned aircraft well for the last fifty years or more. This UAS technology supports an incredibly wide range of uses that not only allows old challeng es to be addressed in new ways but also creates new innovative world markets for hundreds, if not thousands, of new creative applications answering the call of \223better, faster and cheaper.\224  A growing number of early adopters and innovators of aviation tech nologies are beginning to realize the significance of a growing diversity and number of UAS  This growth  is  driven by a confluence of technological developments in airframes, powerplants, sensor s command and control sys tems and information management The  economic  value  of this industry projected to be $30 billion per year supporting 300,000 American jobs by 2035   As concluded b y the study team   the realization of UAS market forecasts will be constrained  unless key investment is performed in   The NAS ATC/A TM facilities needed to be updated to support new aircraft performance and controller capabilities   Training for ATC to be ready to adopt the new unmanned aircraft performance with acceptable workload    ATC to pilot communications that have the availability  integrity confidentiality and continuity as to not heavily impact either  pilot o r  controller workload   Development of Civil standards for the c ontrol and communications data link that w ill foster low cost access for a b road  range of UAS 226  this could in clude standards of f orm, fit and function as well as covering signal in space  networked channel  access and common control exchange applications    This key investment will develop a C 3  approach to support NAS integration.  It is agreed that other areas such as of DAA are important for investment, but there are already multiple economic incentive s  following this path  
+
+
+  Paper 2581 Version 2  16  R EFERENCES  1 223 Unmanned Aircraft System \(UAS\ Service Demand 2015 2 035: Literature Review and Projections of Future Usage 224  Volpe National Transportation Systems Center Cambridge MA September 2013, Version 0.1   2 AINonline, June 8, 2012, Bill Carey   3  UAV Vision Pty Ltd  2/10 Uralla Street  P ort  M acquarie  NSW 2444  Australia   4  M1 D  Thermal FLIR PTZ Camera, Sierra Pacific Corporation, Las Vegas, NV   5   Experimental Advanced Research Lidar  USGS.gov  Retrieved 8 August 2007   6  Luke Wallace  Arko Lucieer  Christopher Watson and Darren Turner 223Devel opment of a UAV LiDAR System with Application to Forest Inventory\224, Remote Sensing Volume 4 issue 6, May 25 2012 http://www.mdpi.com/2072 4292/4/6/1519  7 M ag r et t a  J o a n  223 Wh y B u s i n e s s M o d e l s M at t er  224 H ar v a r d  Business Review, pp 3 8, May 2002   B IOGRAPH IES  Chris Wargo  is a program manager and director business development for Mosaic ATM, Inc 226  a firm specializing in air traffic management systems development unmanned systems and data management systems for the aviation sector. He also leads the Autonomous  Systems Group and  served as a Chair of the System Engineering Working Group of RTCA SC 203  He has also held positions as President of Computer Network Software, Inc., Vice President and General Manager for ARINC, Inc., C3I Program Manager RC A Automated Systems and GE, as well as Systems Engineer for GTE Sylvania, Electronic Systems Group, and the US Army. In his role as a leader in aviation  next generation systems engineering, he has participated in numerous ICAO, RTCA AEEC, IEEE and IATA c ommittees and standards working groups throughout his 30 year defense and aeronautical systems career. He has presented a number of papers and chaired many industry conference sessions related to the CNS and network system programs, project and technologie s of the general, business and air transport community.   He has a BSEE from the University of Wisconsin and an MS, Systems Engineering, from the University of Southern California, and has attended the Defense Systems Management College and the Advanced Ma nagement Program at the Harvard Business Sch ool    Jason Glaneuski  is a Program Manager and Operations Research Analyst in the Air Traffic Management Systems Division at the Volpe National Transportation Systems Center \(Volpe Center\ in Cambridge, MA His  Division applies information technology and operations research disciplines to enhance the capacity, safety and security of the National Airspace System. A key component of this work is developing concepts and designing automated decision support tools a nd capabilities  that provide solutions to existing and anticipated traffic flow issues. Mr. Glaneuski has experience both performing and managing technical work in the areas of traffic flow management \(TFM\, time based flow management \(TBFM and unmanned aircraft systems \(UAS\ sense and avoid SAA\, among others. Mr. Glaneuski is a graduate of Daniel Webster College in Nashua, NH, where he received his B.S in Aviation Management and Flight Operations. Prior to joining the Volpe Center in 2001, Mr. Glaneus ki worked for the FAA\222s Free Flight Program Office in Washington, D.C   Mark Strout  is an Operations Research Analyst and Project Manager in the Air Traffic Management Systems Division at the Volpe Center in Cambridge, MA. Mr. Strout provides project oversight and technical expertise attendant to several ATM related concepts and capabili ties, including traffic flow management \(TFM\, time based flow management \(TBFM\, National Airspace System Common Reference \(NCR unmanned aircraft systems and flow based trajectory management \(FBTM\. Mr. Strout is a graduate of the University of Virgini a, where he received his B.S. in Aerospace Engineering   Gary Churc h is the President of Aviation Management Associates, Inc. a Washington, DC based aviation firm established in 1984 to provide consulting services related to the Federal Aviation Administ ration and the National Aeronautics and Space Administration Mr. Church leads a team of two dozen aviation domain experts. He is a former air traffic controller and Manager of Air Traffic Control for the Air Transport Association \(now known as Airlines fo r America as well as an instrument rated pilot. Mr. Church has authored many air traffic control related articles and reports over the years as well participat ing  in numerous  key aviation related committees on behalf of FAA and others Mr. Church majored in Economics and Physics at the Un iversity of California Berkeley       
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     2 8    b 4      1 8             1 2     1  8 2  
+
+
+1 9    8      2 1       1     2    8    2 3\f        
+
+
+     8 D 4 9  F  \b 1 8 #J 9 1     2 1   2 #-@ 1   2 9  E 1   1   2 9      6  
+
+
+    8  8   1  D 1         1 F  \b0         2 D    F  \b 1 8  9  
+
+
+  1 9  1   E 1  2 9     1 1 F  \b       1    18   F   1    1 #-$+  \b  2 2  
+
+
+1 D     1 #-$+.B- 0/:% .0             9 1      18    1 6     1 2  1  1  
+
+
+1   6      2    1 2 E 8 D 1      1 2   1   1 #-4  #-@E     2  1  1  1       
+
+
+ 8     1          2 F    6   F  2   8    2 C<CC/C N\bO 5      
+
+
+CD    b$44NO F P Q 6   2 b$$$ ,=\b\bA  A N,O 2 C C  b$$4N  92 2   f  9-\b$$4 B N?O  !-    91  2 1 HH111-18-N+O    -1 :3%   2     0-4 
+
+
+     b N4O 2   2- \f  C b$@$ \b# >\b\b$3\b$N@O  f :.% 9 /9 \f    1  6  f 2  4   A254 
+
+
+Advantages of Our M ethod Advantages of Our M ethod Exploit the memory v ertical data format utilizes slidin g windows to g form a much larger database to analyze  Flexibility in Choosing what to choose  Choosing what to choose to build the rules Computational and memory efficiency We have a team working only on this aspect 45 Associative IDS for NextGen Frameworks Dr S Dua LA Tech 45 
+
+
+Preliminary Results Intra transaction Relations Data rate simulator NH-134 Mb HOP PATH update \(Y/N Inference 11.5 Y Y 2 0.120 N N      Y   n 0.345 N NH134 Y/N   Inf 1 0.150 N N 2 0 120 Y N Inter transaction Relations 2 0  120 Y N       5 5.55 0.456 Y Relations  n 0.345 N N Nmap on DMRL nmap.org 
+
+
+Anticipated Outcome Anticipated Outcome Develop algorithm capable of learning from a given heterogeneous diverse Develop algorithm capable of learning from a given heterogeneous diverse data ff Dynamic algorithmic f ramework designed to shi f t modalities and sampling rates based on complex logic Flexibility of integration into the Snort intrusion detection system 47 Associative IDS for NextGen Frameworks Dr S Dua LA Tech 47 
+
+
+References References Aircraft Cockpit Image courtesy USAF http://www.faa.gov htt p   www.faa g ov  air traffic  technolo gy  p g  _ gy  Acharya R Dua S Du X Sree V Chua C K Automated Diagnosis of Glaucoma Using Texture and Higher Order Spectra Features To appear in IEEE Transactions on Information Technology in Biomedicine  Du X Dua S 2011 Cancer Prognosis Using Support Vector Regression in Imaging  Modality World Journal of Clinical Oncology 2  1   44 49 Du X Dua S 2010 Salient Frame Extraction Using Support Vector Regression and Motion Features pp 5 Proc of the National Aerospace and Electronics Conference July 14 16 2010 D M P D S 2010 Di i i ti Ft d Cl ifi ti Mthd f D essaue r  M  P  D ua S  2010  Di scr i m i na ti ve F ea t ures an d Cl ass ifi ca ti on M e th o d s f or Accurate Classification 1st ed vol 7704 pp 14 Bellingham WA Proceedings of SPIE Dessauer M P Dua S 2010 Low Resolution Vehicle Tracking using Dense and Reduced Local Gradient Features Maps 1st ed vol 7694 pp 8 Bellingham WA Proceedings of SPIE SPIE 
+
+
+Acknowledgements Acknowledgements Fundin g A g encies  US 4 1 Million direct fundin g g g 4 g LA BoR NIH NSF AFRL AFOSR and NASA Research Team Samuel Kasimalla Brandy McKnight Dr Pradeep Chowriappa Connor Johnson Vasanth Nair Mihir Chowriappa  Connor Johnson  Vasanth Nair  Mihir Karnik Mohit Jain and Swadheen Songmen Associative IDS for NextGen Frameworks Dr S Dua LA Tech 49 All the respective Logos belong to their owners 
+
+
+Rf d Rdi R e f erence d R ea di ngs Copyright of cover pages held by respective publishers 
+
+
+Thank You Questions Thank You  Questions Dr Sumeet Dua E mail sdua@latech.edu Web http://dmrl.latech.edu Associative IDS for NextGen Frameworks Frameworks Dr S Dua LA Tech 51 Image Source roadtrafficsigns.com 
+
+

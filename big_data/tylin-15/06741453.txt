@@ -1,0 +1,163 @@
+Mobile Augmented Reality System for In situ 3D Modeling and Authoring  Han Kyu Yoo Dept. of Digital Contents Sejong University Seoul, Korea tkehdkr@naver.com Jong Weon Lee Dept. of Digital Contents Sejong University Seoul, Korea jwlee@sejong.ac.kr Abstract 227 This paper proposes a mobile augmented reality system that can model 3D virtual objects and author augmented reality contents on site T he differences of the proposed system 
+from the existing ones are an interaction approaches used to generate and manipulate p rimitives and additional features such as a shadow and a multi freezing mode to create realistic augmented reality contents efficiently Keyword s 227 In situ authoring  modeling augmented reality  gesture recognition  interaction  I I NTRODUCTION Augmented Reality \(AR\ is a technology that combines virtual and real worlds in real time to help users complete their 
+work or to provide users new experience. The rapid spread of smartphones has made it possible to experience AR on smartphones. Various AR applications have been developed on smartphones using sensors such as a camera, a GPS and an inertial sensor. Contents of these AR applications are generally provided by application developers. Recently the paradigm has been shifted from developer created contents to user created contents T he needs for developing authoring systems for general users are emerged Research of authoring AR co 
+ntents has been started about 20 years ago T he early AR contents authoring systems are desktop based ones. AR contents require the relations between a real world and augmented virtual objects, so few researchers have developed in situ authoring systems. Pikarski et al  proposed an in situ author ing system for outdoor environment with a head mounted display and marker attached gloves Hand interactions were used to model 3D virtual objects and to manipulate them S everal authoring systems have been developed on mobile 
+devices such as tablets, smar tphones and smart pads. Guven et al. [2 p r o p o s ed w ay s t o an n o t a t e t ex t l ab el s  an d  au d i o s  o n  user 222 s surroundings  T hey froze the current AR scene displayed on a tablet and edited it to create AR contents. Liu et al. [3  developed mobile augmented note taki ng system I t allows users to put self authored notes onto physical objects on site T hese researches provide users efficient ways to author AR contents, but users can only create limited contents such as labels and notes using them 
+Langlotz et al. [4 pr o po s e d i n situ authoring for mobile AR for small indoor and large outdoor working spaces A user begins authoring by generating 3D primitives, such as cubes and cylinders T he user scales or moves the generated primitives or appl ied textures to them to create AR contents Additionally the system allows annotating 2D contents and provides a freeze mode T he proposed system shares some characteristics of the syste m developed by Langlotz et al. T he proposed system also 
+provides users modeling from primitives, primitive manipulation and freeze functions T he differences of the proposed system from the existing ones are an interaction approaches used to genera te and manipulate primitives and additio nal features such as a shadow and a multi freezing mode to create realistic AR contents efficiently II M ETHOD T he propose d system can be divided into four parts as shown in Figure 1 A user selects primitives and manipulates them to the right positions and orientations 
+T he resulting primitives are grouped together to create 3D virtual models I f it is desired, a shadow is added to the cr eated virtual models after estimating a lighting position Corresponding author  Figure 1  The system flow of creating AR contents 282 
+
+
+283 
+
+
+The best and the worst gesture recognition rate was 93.3% and 83.3%. The average gesture recognition rate is 88.5 The primitives with lower recognition rates were confused with primitives with similar shapes B Manipulation and Grouping T he Manipulation is composed of moving, rotating and scaling the generated primitives and adding textures to them W e developed dynamic constraint based user interface to manipulate primitives I t changes a constraint plane, which defines a translation area, a rotation axis and a scaling direction dynamically according to the orientation of a user 222 s smartphone T he con straint planes for translation motions are shown in Figure 4  T he orientations of the left and the right smartphones are different so the different corresponding constraint planes are defined The dotted rectangular in Figure 4 indicates a constraint plane  M ulti touch inputs on the display of a smartphone are directly mapped to t he motions of a primitive on a 2D constraint plane A primitive can be scaled along any direction using the interface A user can modify the size of a primitive using the scaling procedure to create diverse models I n the Grouping part, primitives are grouped together to form a single model similar to our pr evious works [7, 8   A 3D model is created by combining primitives together as a child creates an object by putting blocks together E xample model s are shown in Figure 3  C Shadows 3D model s used to create AR contents can be created using the proposed modeling steps or uploaded from a DB A fter adding 3D models to an AR scene, shadows can be added to them S hadows improve the reality of AR contents. A content user can recognize the relative p ositions between virtual objects or virtual and real objects if shadows are correctly rendered as shown in Figure 5  T o render shadows correctly we need to estimate the positions of lighting sources W e add a simple part, Shadow, to estimate a lighting source W e apply the shadow estimatin g process developed in [8  t o  t he pr o po s e d s y s t e m   First, o ne real object in an AR scene is selected as a reference object Figure 6 \(a\\ I t is overlaid by the correspondi ng virtual object Figure 6 b   I t is better to select a simple object a s a reference object because a user has to create a corresponding virtual object  S econd, a user manipula tes a virtual lighting source shown in Figure 6 \(b as a small sphere  W hen the virtual shadow is rendered closely to the real shadow of the reference object, we stop the estimating process as shown in Figure 6 \(c T he estimated lighting position or direction is used to create shadows of virtual models If the reference objec t was closely located to virtual objects in AR scene, the shadows of the virtual objects will closely resemble ones of the real objects  If we could estimate multiple lighting sources, this restriction would be less important W e only applied simple hard shadows because of limited computation power on smartphones W hen the processing power of smartphones is improved  more complex shadows can be rendered with the same estimating procedure D M ulti Freezing Mode T racking the camera attached to a smartphone is required to use the presented authoring system to create AR contents W e initially developed the system using the marker based tracking W e extend the system to use natural patter n s for tracking  It is easy to use natural patterns for tracking since there are few well known algorithms and SDK s  9 10  S ince the tracking is required for authoring AR contents, we also add the freeze mode similar to existing authoring systems to relieve possible pain s caused by holding a smartphone for long time U sers complained pains caused by holding a smartphone wh ile using an AR contents in a user study T he proposed freeze mode differs from the existing freeze modes I t uses multiple captured scenes and we call it a multi freezing mode W e use multiple captured scenes to locate an augmented 3D object at the correct location of the AR world I f only one captured scene is used, it is difficult to confirm whether the augmented object is located at the desired position especially along the direction orthogonal to the captured scene M ore than two captured scenes are required to locate an augmented object at the desired position TABLE II EVALUATION OF GESTUR E RECOGNIZATION  RES ULT Name N R Sphere 60 54 0 6 90.0 Tours 60 50 1 9 83.3 Cone 60 54 1 5 90.0 Cylinder 60 56 1 3 93.3 Triangle 60 55 0 5 91.6 Triangular pyramid 60 52 2 6 86.6 Cube 60 54 1 5 90.0 Quadrangular pyramid 60 50 2 8 83.3 Total 480 425 8 47 88.5 Figure 5.   Rendering a virtual shadow similar to a real one 284 
+
+
+III CONCLUSION We proposed a new mobile AR system that could create simple 3D models and author AR contents on site T he proposed system has some characteristics similar to existing authoring systems T he proposed system also has unique characteristics T he gesture based triggering, multi touch based interactions and the multi freezing mode were developed to provide users more intuitive and simple interactions S hadows were added to AR scene by estimating the light source of a real world to improve the realism of AR contents T he proposed system still needs additional improvement T he number of primitives has to be increas ed to create more complex objects W e could add a vision based modeling function to model real objects using a smartphone 222 s camera T he system is able to estimate a single lighting source currently We need to estimate multiple lighting sources since there are more than one lighting sources in a real environment. The estimated lighting position is currently static, so the proposed system cannot generate shadows correctly on dynamic lighting conditions We also need to evaluate the proposed system and to exp and the proposed system for outdoor environment A CKNOWLEDGMENT T his research \(Grants No. C0133918\ was supported by Business for Cooperative R D between Industry, Academy and Research Institute funded Korea Small and Medium Business Administration in 2013. This research is also supported by Ministry of Culture, Sports and Tourism and KOCCA in the CT R&D Program 2011 R EFERENCES  W. Piekarski and B. Thomax 223 Tinmith metro: new outdoor techniques for creating city models with an augmented reality wearable computer 224 Proc. of IEEE the fifth international symposium on wearable computers 2001, pp. 31 38   S. Guven, S. Feiner, and O. Oda 223 Mobile augmented reality interaction techniques for authoring situated media on site 224 Proc. IEEE and ACM Internat ional Symposim on Mixed and Augmented Reality, 2006, pp 235 236   C. Liu, J. Diehl, S. Huot, and J. Borchers 223 Mobile augmented note taking to support operating physical devices 224 Mobile Augmented Reality: Design Issue and Opportunities 226 1st Workshop on M obile Augmented Reality, MobileHCI, 2011   T. Langlotz, S. Mooslechner, S. Zollmann, C. Degendorfer, G. Reitmayr and D. Schmalstieg 223 Sketching up the world: in situ authoring for mobile augmented reality 224 J. Personal and Ubiquitous Computing, vol 16:6 Aug. 2012, pp. 623 630   M. Elmezain, A. Al Hamadi, and B. Michaelis 223 Hand trajectory based gesture spotting and recognition using HMM 224 Proc. International Conference on Image Processin, 2009, pp. 3577 3580  X. D. Huang, Y. Ariki, and M. A. Jack 223 Hidden M arkov Models for speech recognition 224 Edinburgh Univ. Presse, 1990  J. Y. Park and J. W. Lee 223 Tangible augmented reality modeling 224 Proc Entertainment Computing, LNCS No. 3166, Sep. 2004, pp. 254 259  D. Trien and J. W. Lee 223 3DARModeler: a 3D modeling system in augmented reality 224 J. Computer Systems Science and Engineering, vol 4:2, 2008, pp  Qualcomm Vuforia, https://www.vuforia.com 10 Metaio Augmented Reality SDK, http://www.metaio.com/sdk a  b\                                                \(c Figure 6.   Estimating a lighting position or direction. \(a\ Selecting a real object. \(b\ Overlaying the selected real object using the corresponding virtual object c\ Estimating the lighting position by aligning the real shadows and the virtual shadows 285 
+
+
+Environ. Plan. B Plan. Des BCS IRSG Symposium Future Directions in Information 5th International Conference on Visual Information Engineering Int. J. Hum. Comput. Stud Comput. Networks 19th International Conference on Software, Telecommunications and Computer Networks SoftCOM ACM SIGMOBILE Mob. Comput. Commun. Rev Conference on Grand Challenges in Computing Research The Atlantic Monthly Commun. ACM Fourth International Conference on Information, Communications and Signal Processing 2003 and the Fourth Pacific Rim Conference on Multimedia. Proceedings of the 2 003 Joint Proceedings of the 2004 joint ACM/IEEE conference on Digital libraries - JCDL  ê04 Proceedings of the second ACM/IEEE-CS joint conference on Digital libraries - JCDL  ê02 BrainConnection.com Workshop on Supporting Human Memory with Interactive Systems, Lancaster, UK Se mantic Web: Why, What, and How Proceedings of the Eighteenth International Conference on Machine Learning \(ICML Knowl. Inf. Syst Real-Time Imaging Proceedings of 10th IEEE International Conferen ce on Networking, Sensing and Control \(ICNSCê13 Pers Ubiquitous Comput 2012 Annual International Conference of the IEEE Engineering in Medicine and Biology Society \(EMBC Procedings Br. Mach. Vis Conf IEEE International Conference on Pervasive Computing and Communications \(PerCom Report for Massachusetts Institute of Technology \(MIT\tificial Intelligence Laboratory and Center for Biological and Computational Learning a Department Of Brain and Cognitive Sciences 
+forgetting vol. 34, no. 3 pp. 431Ö445, 2007 6 L Ke ll y  T he Inf o rm a tion R e trie v a l Cha lle ng e of  Human Digital Memories,é in 2007 7 C. G u rrin  D. By rn e, N. OêCo nnor, G. J. F. Jones, and A F. Smeaton, çArchitecture and Challenges of Maintaining a Large-scale, Context-aware Human Digital Memory,é in 2008, pp. 158Ö163 8 V Ka l n ik a ite a nd S W h itta k e r A Sa unte r Dow n  Memory Lane: Digital Reflection on Personal Mementos vol. 69, no. 5 pp. 298Ö310, Jan. 2011 9 L   A t zo ri, A  Iera, an d  G  Morabito, çThe Internet of Things: A survey vol. 54, no. 15 pp. 2787Ö2805, Oct. 2010 10  L Ma ine tti, L  P a tro n o a n d A V i le i Ev o l u tio n of wireless sensor networks towa rds the Internet of Things A survey,é in 2011, pp. 1Ö6 11  M. W e is e r T he C o m pute r f o r the 21s t C e ntur y    vol. 3, no 3, pp. 3Ö11, Jul. 1999 12  I B M.c o m   W ha t is big da t a    201 3  O nline    Available: http://www01.ibm.com/software/data/bigdata/. [Accessed: 19-Mar20  13  C i s c o C is c o  Vis u a l N e tw or k i ng I nde x  G l oba l M obi le  Data Traffic Forecast Update, 2012Ö2017.é pp. 1Ö34 2013 14  inte l W ha t Ha ppe ns in a n I n t e rne t Min u te   2 0 1 3   Online  Av a ila ble  http://www.intel.com/content/www/us/en/communicatio ns/internet-minute-infographic.html. [Accessed: 19-Mar20  15  A  Fitz g i bbon a n d E. R e ite r    G r a nd C h a lle ng e s in  Computing Research: GC3 Memories for life: managing information over a human lifetime,é in 2005, pp 13Ö16 1 V  Bu sh, çA s W e M a y T h in k   no. JULY 1945, 1945 17  A  J  Se lle n a nd S. W h itta k e r B e y ond T o ta l Ca pture  A  Constructive Critique of Lifelogging  vol. 53, no. 5, pp. 70Ö77, May 2010 18  J  C   Pla tt M C z e r w i ns k i a nd B  A  Fie l d   P hot oT O C  automatic clustering for browsing personal photographs,é in 2003, pp. 6 10 19  S. H a r a da M. N a a m a n Y  J  S ong Q  W a ng a nd A   Paepcke, çLost in Memories: Interacting With Photo Collections On PDAs,é in  2004, p. 325 2 A   G r ah a m  H G a r c i a M o l i n a A  P aep cke an d T   Winograd, çTime as Essence for Photo Browsing Through Personal Digital Libraries,é in 2002, p. 326 21  A  R a npur a   H ow  W e  R e m e m b e r a nd W h y  We Forget 2000. [Online   Available: http://brainconnection.positscience.com/howwe-remember-and-why-we-forget 2 L  Kel l y an d G  J F J o n e s V ent u ri n g i n t o t h e labyrinth: the information retrieval challenge of human digital memories,é in 2007 pp. 37Ö40 2 D F e n s el  J Hend l e r H L i eb er man  an d W  W a h l st er  Berlin Heidelberg: Springer Berlin Heidelberg, 2011, pp. 1 653 24  K  W a g s taf f C  C a r d ie  S  R o g e r s a nd S Sc hr oe dl  Constrained K-means Clustering with Background Knowledge,é in  2001, pp. 577Ö584 2 X  W u  V. K u m a r, J. Ro ss Q u inl a n  J G h o s h  Q Yan g  H. Motoda, G. J. McLachlan, A. Ng, B. Liu, P. S. Yu Z.-H. Zhou, M. Steinbach, D. J. Hand, and D. Steinberg Top 10 algorithms in data mining  vol. 14, no. 1, pp. 1Ö37, Dec. 2007 26  M. G  For e r o F. Sr ou be k  a nd G  C r is tÛba l  Identification of tuberculosis bacteria based on shape and color vol. 10, no. 4, pp. 251 262, Aug. 2004 2  C  Do bb in s M M e r a b t i   P  F e r g u s  an d D Ll ew el l y n Jones, çCreating Human Digital Memories for a Richer Recall of Life Experiences,é in 2013, pp. 246Ö251 28  D Fig o  P. C D i niz D R Fe rre ira a nd J  M P  Cardoso, çPreprocessing Techniques for Context Recognition from Accelerometer Data vol. 14, no. 7, pp. 645Ö662, Mar 2010 29  W  So n g  C. A d e, R  Br o x terman T  Barsto w  T   Nelson, and S. Warren, çActivity Recognition in Planetary Navigation Field Tests Using Classification Algorithms Applied to Accelerometer Data,é in  2012, vol. 2012, pp. 1586Ö1589 30  W 3 C   S P A R Q L P r otoc o l f o r R D F 200 8  O n line    Available: http://www.w3.org/TR/rdf-sparql-protocol Accessed: 27-Jun-2013   3 V  Del ai t r e I L ap t ev and J S i vi c Reco gn i zi n g hu m an  actions in still images: a study of bag-of-features and part-based representations vol. 2, no. 5, p. 7, 2010 32  N  Bic o c c h i, M  L a s a g n i, a nd F Za m bone lli B ridg ing  Vision and commonsense for Multimodal Situation Recognition in Pervasive Systems,é in 2012, pp. 48Ö56 33  C  N a k a ji m a M. Pont il, B  H e is e l e  a nd T  Pog g i o  People Recognition in Image Sequences by Supervised Learning,é in 2000, no 1688, pp. 1Ö12    
+926 
+926 
+
+
+  
+
+
+
+
+
+           
+
+
+            
+
+
+                  
+
+
+                  
+
+
+           
+
+
+               
+
+
+       
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     2 8    b 4      1 8             1 2     1  8 2  
+
+
+1 9    8      2 1       1     2    8    2 3\f        
+
+
+     8 D 4 9  F  \b 1 8 #J 9 1     2 1   2 #-@ 1   2 9  E 1   1   2 9      6  
+
+
+    8  8   1  D 1         1 F  \b0         2 D    F  \b 1 8  9  
+
+
+  1 9  1   E 1  2 9     1 1 F  \b       1    18   F   1    1 #-$+  \b  2 2  
+
+
+1 D     1 #-$+.B- 0/:% .0             9 1      18    1 6     1 2  1  1  
+
+
+1   6      2    1 2 E 8 D 1      1 2   1   1 #-4  #-@E     2  1  1  1       
+
+
+ 8     1          2 F    6   F  2   8    2 C<CC/C N\bO 5      
+
+
+CD    b$44NO F P Q 6   2 b$$$ ,=\b\bA  A N,O 2 C C  b$$4N  92 2   f  9-\b$$4 B N?O  !-    91  2 1 HH111-18-N+O    -1 :3%   2     0-4 
+
+
+     b N4O 2   2- \f  C b$@$ \b# >\b\b$3\b$N@O  f :.% 9 /9 \f    1  6  f 2  4   A254 
+
+
+Advantages of Our M ethod Advantages of Our M ethod Exploit the memory v ertical data format utilizes slidin g windows to g form a much larger database to analyze  Flexibility in Choosing what to choose  Choosing what to choose to build the rules Computational and memory efficiency We have a team working only on this aspect 45 Associative IDS for NextGen Frameworks Dr S Dua LA Tech 45 
+
+
+Preliminary Results Intra transaction Relations Data rate simulator NH-134 Mb HOP PATH update \(Y/N Inference 11.5 Y Y 2 0.120 N N      Y   n 0.345 N NH134 Y/N   Inf 1 0.150 N N 2 0 120 Y N Inter transaction Relations 2 0  120 Y N       5 5.55 0.456 Y Relations  n 0.345 N N Nmap on DMRL nmap.org 
+
+
+Anticipated Outcome Anticipated Outcome Develop algorithm capable of learning from a given heterogeneous diverse Develop algorithm capable of learning from a given heterogeneous diverse data ff Dynamic algorithmic f ramework designed to shi f t modalities and sampling rates based on complex logic Flexibility of integration into the Snort intrusion detection system 47 Associative IDS for NextGen Frameworks Dr S Dua LA Tech 47 
+
+
+References References Aircraft Cockpit Image courtesy USAF http://www.faa.gov htt p   www.faa g ov  air traffic  technolo gy  p g  _ gy  Acharya R Dua S Du X Sree V Chua C K Automated Diagnosis of Glaucoma Using Texture and Higher Order Spectra Features To appear in IEEE Transactions on Information Technology in Biomedicine  Du X Dua S 2011 Cancer Prognosis Using Support Vector Regression in Imaging  Modality World Journal of Clinical Oncology 2  1   44 49 Du X Dua S 2010 Salient Frame Extraction Using Support Vector Regression and Motion Features pp 5 Proc of the National Aerospace and Electronics Conference July 14 16 2010 D M P D S 2010 Di i i ti Ft d Cl ifi ti Mthd f D essaue r  M  P  D ua S  2010  Di scr i m i na ti ve F ea t ures an d Cl ass ifi ca ti on M e th o d s f or Accurate Classification 1st ed vol 7704 pp 14 Bellingham WA Proceedings of SPIE Dessauer M P Dua S 2010 Low Resolution Vehicle Tracking using Dense and Reduced Local Gradient Features Maps 1st ed vol 7694 pp 8 Bellingham WA Proceedings of SPIE SPIE 
+
+
+Acknowledgements Acknowledgements Fundin g A g encies  US 4 1 Million direct fundin g g g 4 g LA BoR NIH NSF AFRL AFOSR and NASA Research Team Samuel Kasimalla Brandy McKnight Dr Pradeep Chowriappa Connor Johnson Vasanth Nair Mihir Chowriappa  Connor Johnson  Vasanth Nair  Mihir Karnik Mohit Jain and Swadheen Songmen Associative IDS for NextGen Frameworks Dr S Dua LA Tech 49 All the respective Logos belong to their owners 
+
+
+Rf d Rdi R e f erence d R ea di ngs Copyright of cover pages held by respective publishers 
+
+
+Thank You Questions Thank You  Questions Dr Sumeet Dua E mail sdua@latech.edu Web http://dmrl.latech.edu Associative IDS for NextGen Frameworks Frameworks Dr S Dua LA Tech 51 Image Source roadtrafficsigns.com 
+
+

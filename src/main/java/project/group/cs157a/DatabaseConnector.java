@@ -17,7 +17,7 @@ public class DatabaseConnector {
 	private static final String USER_NAME = "root";
 	private static final String PASSWORD = "";
 	private static final String DB_URL = "jdbc:mysql://localhost?rewriteBatchedStatements=true";
-	private static final int BATCH_SIZE = 1000;
+	private static final int BATCH_SIZE = 100;
 
 	// Create a connection
 	DatabaseConnector() {
@@ -78,7 +78,7 @@ public class DatabaseConnector {
 			String drop = "DROP TABLE IF EXISTS project";
 			String table = "CREATE TABLE project (doc_id INTEGER, token VARCHAR(255) BINARY,"
 					+ "tf DECIMAL(20, 15), idf DECIMAL(20,15), tfidf DECIMAL(20, 15), " 
-					+ "PRIMARY KEY (doc_id, token))";
+					+ "PRIMARY KEY (doc_id, token), INDEX (doc_id, tfidf))";
 
 			st.executeUpdate(useDatabase);
 			st.executeUpdate(drop);

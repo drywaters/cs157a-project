@@ -17,12 +17,13 @@ public class DatabaseConnector {
 	private static final String USER_NAME = "root";
 	private static final String PASSWORD = "";
 	private static final String DB_URL = "jdbc:mysql://localhost?rewriteBatchedStatements=true";
-	private static final int BATCH_SIZE = 100;
+	private static final int BATCH_SIZE = 30000;
 
 	// Create a connection
 	DatabaseConnector() {
 		try {
 			conn = DriverManager.getConnection(DB_URL, USER_NAME, PASSWORD);
+			conn.setAutoCommit(false);
 		} catch (SQLException ex) {
 			System.out.println("SQLException: " + ex.getMessage());
 		}
@@ -77,13 +78,13 @@ public class DatabaseConnector {
 			String useDatabase = "USE cs157a_project";
 			String drop = "DROP TABLE IF EXISTS project";
 			String table = "CREATE TABLE project (doc_id INTEGER, token VARCHAR(255) BINARY,"
-					+ "tf DECIMAL(20, 15), idf DECIMAL(20,15), tfidf DECIMAL(20, 15), " 
-					+ "PRIMARY KEY (doc_id, token), INDEX (doc_id, tfidf))";
+					+ "tf DECIMAL(20, 15), idf DECIMAL(20,15), tfidf DECIMAL(20, 15), "
+					+ "PRIMARY KEY (doc_id, token))";
 
 			st.executeUpdate(useDatabase);
 			st.executeUpdate(drop);
 			st.executeUpdate(table);
-			
+
 			System.out.println("Successfully created table");
 		} catch (SQLException e) {
 			System.out.println("Unable to create table: " + e.getMessage());
@@ -103,51 +104,48 @@ public class DatabaseConnector {
 		}
 	}
 
-	private void insertData(HashMap<String, Token> freq) {
+	private void insertData(List<HashMap<String, Token>> freq) {
 		// Insert the calculated table data into the correct column
 		// Should look like ex.
 		// doc_id | token | tf | idf | tfidf
 		// ----------------------------------
-		// 1 | token1 | 1.23   | 2.23| 0.223
-		// 1 | token2 | 1.23   | 2.23| 0.223
-		// 2 | token1 | 1.23   | 2.23| 0.223
-		int documentId = freq.get("DOCUMENT NUMBER").getDocID();
-		int count = 0;
-		freq.remove("DOCUMENT NUMBER");
-		
-		PreparedStatement ps = null;
-		try {
-			ps = conn.prepareStatement("INSERT INTO project VALUES (?, ?, ?, ?, ?)");
-			for (Map.Entry<String, Token> entry : freq.entrySet()) {
-				ps.setInt(1,  documentId);
-				ps.setString(2, entry.getKey());
-				ps.setDouble(3,  entry.getValue().getTf());
-				ps.setDouble(4,  entry.getValue().getIdf());
-				ps.setDouble(5,  entry.getValue().getTfidf());
-				ps.addBatch();
-				if(++count % BATCH_SIZE == 0){
-					ps.executeBatch();
+		// 1 | token1 | 1.23 | 2.23| 0.223
+		// 1 | token2 | 1.23 | 2.23| 0.223
+		// 2 | token1 | 1.23 | 2.23| 0.223
+
+		try (PreparedStatement ps = conn.prepareStatement("INSERT INTO project VALUES (?, ?, ?, ?, ?)")) {
+			int count = 0;
+			Token tempToken = null;
+			
+			for (int i = 0; i < ProjectMain.NUMBER_OF_FILES; i++) {
+				int documentId = freq.get(i).get("DOCUMENT NUMBER").getDocID();
+				freq.get(i).remove("DOCUMENT NUMBER");
+				for (Map.Entry<String, Token> entry : freq.get(i).entrySet()) {
+					tempToken = entry.getValue();
+					ps.setInt(1, documentId);
+					ps.setString(2, tempToken.getWord());
+					ps.setDouble(3, tempToken.getTf());
+					ps.setDouble(4, tempToken.getIdf());
+					ps.setDouble(5, tempToken.getTfidf());
+
+					ps.addBatch();
+					count++;
+					
+					if (count % BATCH_SIZE == 0) {
+						ps.executeBatch();
+						count = 0;
+					}
 				}
 			}
-			ps.executeBatch();
+			
+			if (count != 0) {
+				ps.executeBatch();
+			}
 		} catch (SQLException e) {
 			System.out.println("Ran into an unexpected error when inserting Data: " + e.getMessage());
-			e.printStackTrace();
-		} catch (Exception e) {
-			System.out.println("Ran into an unexpected error when inserting Data: " + e.getMessage());
-			e.printStackTrace();
-		} finally {
-			if (ps != null) {
-				try {
-					ps.close();
-				} catch (SQLException e) {
-					System.out.println("Unable to close statement with error: " + e.getMessage());
-					e.printStackTrace();
-				}
-			}
 		}
 	}
-	
+
 	public void printTFIDF() {
 		// Prints out the table
 		try {
@@ -183,8 +181,6 @@ public class DatabaseConnector {
 	public void saveData(List<HashMap<String, Token>> tokenFreq) {
 		createDatabase();
 		createTable();
-		for (int i = 0; i < ProjectMain.NUMBER_OF_FILES; i++) {
-			insertData(tokenFreq.get(i));
-		}
+		insertData(tokenFreq);
 	}
 }

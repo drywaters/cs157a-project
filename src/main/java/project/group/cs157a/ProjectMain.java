@@ -19,7 +19,7 @@ public class ProjectMain {
 		
 		// Currently uses the number of files to set the number of threads open.  This
 		// should change later as number of files increases
-		ExecutorService executor = Executors.newFixedThreadPool(1);
+		ExecutorService executor = Executors.newFixedThreadPool(5);
 		
 		// Create a list to hold tokens returned, 10 threads that load files and token strings
 		// and 10 future objects to hold the return values from the Callable (Tokenizer)
@@ -67,16 +67,19 @@ public class ProjectMain {
 		
 		// Received all threads, shutdown
 		executor.shutdown();
-//		
-//		DatabaseConnector dc = new DatabaseConnector();
-//		dc.saveData(finalTokenFreq);
-//		
 		long endTime = System.nanoTime();
 		long elapsedTime = endTime-startTime;
+		System.out.println("Total time for token calculation taken is: " + (double)(elapsedTime/1000000000.0));
+		
+		DatabaseConnector dc = new DatabaseConnector();
+		dc.saveData(finalTokenFreq);
+		
+		endTime = System.nanoTime();
+		elapsedTime = endTime-startTime;
 		
 		System.out.println("Total time taken is: " + (double)(elapsedTime/1000000000.0));
 //		dc.printTFIDF();
-//		dc.killConnection();
+		dc.killConnection();
 	}
 
 }

@@ -23,7 +23,6 @@ public class DatabaseConnector {
 	DatabaseConnector() {
 		try {
 			conn = DriverManager.getConnection(DB_URL, USER_NAME, PASSWORD);
-			conn.setAutoCommit(false);
 		} catch (SQLException ex) {
 			System.out.println("SQLException: " + ex.getMessage());
 		}

@@ -13,7 +13,7 @@ import java.util.Map;
 public class DatabaseConnector {
 
 	private Connection conn = null;
-	private static final String DATABASE_NAME = "cs157a_project_lowercase";
+	private static final String DATABASE_NAME = "cs157a_project";
 	private static final String USER_NAME = "root";
 	private static final String PASSWORD = "";
 	private static final String DB_URL = "jdbc:mysql://localhost?rewriteBatchedStatements=true";

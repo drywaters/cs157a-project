@@ -72,17 +72,17 @@ public class ProjectMain {
 		long elapsedTime = endTime-startTime;
 		System.out.println("Total time for token calculation taken is: " + (double)(elapsedTime/1000000000.0));
 		
-//		CsvFileCreator csvCreator = new CsvFileCreator(finalTokenFreq);
+		CsvFileCreator csvCreator = new CsvFileCreator(finalTokenFreq);
 		
-		DatabaseConnector dc = new DatabaseConnector();
-		dc.saveData(finalTokenFreq);
+//		DatabaseConnector dc = new DatabaseConnector();
+//		dc.saveData(finalTokenFreq);
 		
 		endTime = System.nanoTime();
 		elapsedTime = endTime-startTime;
 		
 		System.out.println("Total time taken is: " + (double)(elapsedTime/1000000000.0));
 //		dc.printTFIDF();
-		dc.killConnection();
+//		dc.killConnection();
 	}
 
 }

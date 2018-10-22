@@ -70,9 +70,9 @@ public class Tokenizer implements Callable<HashMap<String, Integer>> {
 		this.totalTokens++;
 		if (tokenExists()) {
 			int currentOccur = tokens.get(tokenBuffer.toString());
-			tokens.replace(tokenBuffer.toString(), currentOccur + 1);
+			tokens.replace(tokenBuffer.toString().toLowerCase(), currentOccur + 1);
 		} else {
-			tokens.put(tokenBuffer.toString(), 1);
+			tokens.put(tokenBuffer.toString().toLowerCase(), 1);
 		}
 		clearBuffer();
 	}

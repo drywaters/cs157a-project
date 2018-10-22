@@ -6,16 +6,16 @@ public class Token {
 	private double tf;
 	private double idf;
 	private double tfidf;	
-	private int docID;
+	private int docid;
 	
 	public Token() {}
 	
-	public Token(int docID) {
-		this.docID = docID;
+	public Token(int docid) {
+		this.docid = docid;
 	}
 	
-	public Token(int docID, String word) {
-		this.docID = docID;
+	public Token(int docid, String word) {
+		this.docid = docid;
 		this.word = word;
 	}
 	
@@ -59,16 +59,16 @@ public class Token {
 		this.tfidf = tfidf;
 	}
 
-	public int getDocID() {
-		return docID;
+	public int getDocid() {
+		return docid;
 	}
 
-	public void setDocID(int docID) {
-		this.docID = docID;
+	public void setDocid(int docid) {
+		this.docid = docid;
 	}
 
 	@Override
 	public String toString() {
-		return "Token [word=" + word + ", tf=" + tf + ", idf=" + idf + ", tfidf=" + tfidf + "]";
+		return "Token [docid=" + docid + ", word=" + word + ", tf=" + tf + ", idf=" + idf + ", tfidf=" + tfidf + "]";
 	}
 }

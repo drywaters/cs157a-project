@@ -12,6 +12,7 @@ import java.util.concurrent.Future;
 public class ProjectMain {
 
 	public static final int NUMBER_OF_FILES = 7870;
+//	public static final int NUMBER_OF_FILES = 50;
 
 	public static void main(String[] args) {
 
@@ -70,6 +71,8 @@ public class ProjectMain {
 		long endTime = System.nanoTime();
 		long elapsedTime = endTime-startTime;
 		System.out.println("Total time for token calculation taken is: " + (double)(elapsedTime/1000000000.0));
+		
+//		CsvFileCreator csvCreator = new CsvFileCreator(finalTokenFreq);
 		
 		DatabaseConnector dc = new DatabaseConnector();
 		dc.saveData(finalTokenFreq);

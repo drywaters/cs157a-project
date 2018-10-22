@@ -3,7 +3,7 @@ package project.group.cs157a;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.Callable;
-import project.group.cs157a.Token;;
+import project.group.cs157a.Token;
 
 public class FrequencyCalculator implements Callable<HashMap<String, Token>> {
 

@@ -13,7 +13,7 @@ import java.util.Map;
 public class DatabaseConnector {
 
 	private Connection conn = null;
-	private static final String DATABASE_NAME = "cs157a_project";
+	private static final String DATABASE_NAME = "cs157a_project_lowercase";
 	private static final String USER_NAME = "root";
 	private static final String PASSWORD = "";
 	private static final String DB_URL = "jdbc:mysql://localhost?rewriteBatchedStatements=true";
@@ -23,6 +23,7 @@ public class DatabaseConnector {
 	DatabaseConnector() {
 		try {
 			conn = DriverManager.getConnection(DB_URL, USER_NAME, PASSWORD);
+			conn.setAutoCommit(false);
 		} catch (SQLException ex) {
 			System.out.println("SQLException: " + ex.getMessage());
 		}
@@ -74,7 +75,7 @@ public class DatabaseConnector {
 		Statement st = null;
 		try {
 			st = conn.createStatement();
-			String useDatabase = "USE cs157a_project";
+			String useDatabase = "USE " + DATABASE_NAME;
 			String drop = "DROP TABLE IF EXISTS project";
 			String table = "CREATE TABLE project (doc_id INTEGER, token VARCHAR(255) BINARY,"
 					+ "tf DECIMAL(20, 15), idf DECIMAL(20,15), tfidf DECIMAL(20, 15), "
@@ -117,7 +118,7 @@ public class DatabaseConnector {
 			Token tempToken = null;
 			
 			for (int i = 0; i < ProjectMain.NUMBER_OF_FILES; i++) {
-				int documentId = freq.get(i).get("DOCUMENT NUMBER").getDocID();
+				int documentId = freq.get(i).get("DOCUMENT NUMBER").getDocid();
 				freq.get(i).remove("DOCUMENT NUMBER");
 				for (Map.Entry<String, Token> entry : freq.get(i).entrySet()) {
 					tempToken = entry.getValue();
@@ -128,18 +129,21 @@ public class DatabaseConnector {
 					ps.setDouble(5, tempToken.getTfidf());
 
 					ps.addBatch();
-					count++;
 					
-					if (count % BATCH_SIZE == 0) {
+					if (count++ == BATCH_SIZE) {
 						ps.executeBatch();
+						ps.clearBatch();
 						count = 0;
 					}
 				}
 			}
 			
-			if (count != 0) {
+			if (count > 0) {
 				ps.executeBatch();
 			}
+			
+			conn.commit();
+			
 		} catch (SQLException e) {
 			System.out.println("Ran into an unexpected error when inserting Data: " + e.getMessage());
 		}

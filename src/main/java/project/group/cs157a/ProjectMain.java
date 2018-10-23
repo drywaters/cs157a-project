@@ -43,11 +43,14 @@ public class ProjectMain {
 		// that contain each token frequency for each document
 		for (Future<HashMap<String, Integer>> tokens : futureValues) {
 			try {
-				tokenFreq.add(tokens.get());
+				tokenFreq.add(new HashMap<String, Integer> (tokens.get()));
+				tokens.get().clear();
 			} catch (InterruptedException | ExecutionException e) {
 				e.printStackTrace();
 			}
 		}
+		tokenizers = null;
+		
 		
 		// Future returned values for final frequency calculation
 		List<Future<HashMap<String, Token>>> futureValues2 = new ArrayList<>(NUMBER_OF_FILES);
@@ -59,13 +62,15 @@ public class ProjectMain {
 		List<HashMap<String, Token>> finalTokenFreq = new ArrayList<>(NUMBER_OF_FILES);
 		Callable<HashMap<String, Token>> frequencyCalculators[] = new FrequencyCalculator[NUMBER_OF_FILES];
 		for (int i = 0; i < NUMBER_OF_FILES; i++) {
-			frequencyCalculators[i] = new FrequencyCalculator(tokenFreq.get(i), documentFrequency);
+			frequencyCalculators[i] = new FrequencyCalculator(new HashMap<String, Integer>(tokenFreq.get(i)), documentFrequency);
 			futureValues2.add(executor.submit(frequencyCalculators[i]));
+			tokenFreq.get(i).clear();
 		}
 		
 		for (Future<HashMap<String, Token>> tokens : futureValues2) {
 			try {
-				finalTokenFreq.add(tokens.get());
+				finalTokenFreq.add(new HashMap<String, Token> (tokens.get()));
+				tokens.get().clear();
 			} catch (InterruptedException | ExecutionException e) {
 				e.printStackTrace();
 			}
@@ -78,7 +83,6 @@ public class ProjectMain {
 		System.out.println("Total time for token calculation taken is: " + (double)(elapsedTime/1000000000.0));
 		
 //		CsvFileCreator csvCreator = new CsvFileCreator(finalTokenFreq);
-		
 		DatabaseConnector dc = new DatabaseConnector();
 		dc.saveData(finalTokenFreq);
 

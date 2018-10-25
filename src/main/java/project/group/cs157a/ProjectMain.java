@@ -11,36 +11,40 @@ import java.util.concurrent.Future;
 
 public class ProjectMain {
 
-	public static final int NUMBER_OF_FILES = 7870;
-//	public static final int NUMBER_OF_FILES = 500;
+//	public static final int NUMBER_OF_FILES = 7870;
+	public static final int NUMBER_OF_FILES = 55;
 
 	public static void main(String[] args) {
 
 		long startTime = System.nanoTime();
 		
-		// Currently uses the number of files to set the number of threads open.  This
-		// should change later as number of files increases
+		// Set the number of threads to run concurrently.
 		ExecutorService executor = Executors.newFixedThreadPool(5);
 		
-		// Create a list to hold tokens returned, 10 threads that load files and token strings
-		// and 10 future objects to hold the return values from the Callable (Tokenizer)
+		// Create a list to hold words returned, threads load files and returns stems of words
 		List<HashMap<String, Integer>> tokenFreq = new ArrayList<>(NUMBER_OF_FILES);
 		
-		// Use actual words or stemmed words
+		// Use Tokenizer if you want actual words
+		// Use TokenizerStemmer if you want stemmed words
 //		Callable<HashMap<String, Integer>> tokenizers[] = new Tokenizer[NUMBER_OF_FILES];		
 		Callable<HashMap<String, Integer>> tokenizers[] = new TokenizerStemmer[NUMBER_OF_FILES];
 		
+		// Future Interface holds the values that are returned from the tokenizer
 		List<Future<HashMap<String, Integer>>> futureValues = new ArrayList<>(NUMBER_OF_FILES);
 
 		// Create a new Callable for each file name and execute
 		for (int i = 0; i < NUMBER_OF_FILES; i++) {
+			
+			// Use Tokenizer if you want actual words
+			// Use TokenizerStemmer if you want stemmed words
 //			tokenizers[i] = new Tokenizer(i+1);
 			tokenizers[i] = new TokenizerStemmer(i+1);
 			futureValues.add(executor.submit(tokenizers[i]));
 		}
 
-		// When thread finishes and returns a value, assign to ArrayList of HashMaps<String, Double>
-		// that contain each token frequency for each document
+		// When thread finishes and returns a value, assign to ArrayList of HashMaps<String, Integer>
+		// that contain how many times each word is found in a document
+		// and the total words/stems for each document
 		for (Future<HashMap<String, Integer>> tokens : futureValues) {
 			try {
 				tokenFreq.add(new HashMap<String, Integer> (tokens.get()));
@@ -51,14 +55,14 @@ public class ProjectMain {
 		}
 		tokenizers = null;
 		
-		
-		// Future returned values for final frequency calculation
+		// Future returned values for final frequency calculation that 
+		// contains an Map of Word/Stem and the TFIDF for each document
 		List<Future<HashMap<String, Token>>> futureValues2 = new ArrayList<>(NUMBER_OF_FILES);
 
-		// Calculate DF from list of token frequencies
+		// Calculate DF from list of word/stem frequencies
 		HashMap<String, Integer> documentFrequency = DocumentFrequency.calculateDF(tokenFreq);
 
-		// Calculate Frequency for each Document
+		// Calculate final TFIDF Frequency for each Document
 		List<HashMap<String, Token>> finalTokenFreq = new ArrayList<>(NUMBER_OF_FILES);
 		Callable<HashMap<String, Token>> frequencyCalculators[] = new FrequencyCalculator[NUMBER_OF_FILES];
 		for (int i = 0; i < NUMBER_OF_FILES; i++) {
@@ -82,16 +86,20 @@ public class ProjectMain {
 		long elapsedTime = endTime-startTime;
 		System.out.println("Total time for token calculation taken is: " + (double)(elapsedTime/1000000000.0));
 		
-//		CsvFileCreator csvCreator = new CsvFileCreator(finalTokenFreq);
-		DatabaseConnector dc = new DatabaseConnector();
-		dc.saveData(finalTokenFreq);
+		
+		// Use CsvFileCreator if you want to save to local file
+		// Use DatabaseConnect if you want to save to DB
+		
+		CsvFileCreator csvCreator = new CsvFileCreator(finalTokenFreq);
+//		DatabaseConnector dc = new DatabaseConnector();
+//		dc.saveData(finalTokenFreq);
 
 		endTime = System.nanoTime();
 		elapsedTime = endTime-startTime;
 		
 		System.out.println("Total time taken is: " + (double)(elapsedTime/1000000000.0));
 //		dc.printTFIDF();
-		dc.killConnection();
+//		dc.killConnection();
 	}
 
 }

@@ -11,8 +11,8 @@ import java.util.concurrent.Future;
 
 public class ProjectMain {
 
-	public static final int NUMBER_OF_FILES = 7870;
-//	public static final int NUMBER_OF_FILES = 500;
+//	public static final int NUMBER_OF_FILES = 7870;
+	public static final int NUMBER_OF_FILES = 55;
 
 	public static void main(String[] args) {
 
@@ -24,13 +24,13 @@ public class ProjectMain {
 		
 		// Create a list to hold tokens returned, 10 threads that load files and token strings
 		// and 10 future objects to hold the return values from the Callable (Tokenizer)
-		List<HashMap<String, Integer>> tokenFreq = new ArrayList<>(NUMBER_OF_FILES);
+		List<HashMap<String, Double>> tokenFreq = new ArrayList<>(NUMBER_OF_FILES);
 		
 		// Use actual words or stemmed words
 //		Callable<HashMap<String, Integer>> tokenizers[] = new Tokenizer[NUMBER_OF_FILES];		
-		Callable<HashMap<String, Integer>> tokenizers[] = new TokenizerStemmer[NUMBER_OF_FILES];
+		Callable<HashMap<String, Double>> tokenizers[] = new TokenizerStemmer[NUMBER_OF_FILES];
 		
-		List<Future<HashMap<String, Integer>>> futureValues = new ArrayList<>(NUMBER_OF_FILES);
+		List<Future<HashMap<String, Double>>> futureValues = new ArrayList<>(NUMBER_OF_FILES);
 
 		// Create a new Callable for each file name and execute
 		for (int i = 0; i < NUMBER_OF_FILES; i++) {
@@ -41,7 +41,7 @@ public class ProjectMain {
 
 		// When thread finishes and returns a value, assign to ArrayList of HashMaps<String, Double>
 		// that contain each token frequency for each document
-		for (Future<HashMap<String, Integer>> tokens : futureValues) {
+		for (Future<HashMap<String, Double>> tokens : futureValues) {
 			try {
 				tokenFreq.add(tokens.get());
 			} catch (InterruptedException | ExecutionException e) {
@@ -49,23 +49,22 @@ public class ProjectMain {
 			}
 		}
 		
-		// Future returned values for final frequency calculation
-		List<Future<HashMap<String, Token>>> futureValues2 = new ArrayList<>(NUMBER_OF_FILES);
 
 		// Calculate DF from list of token frequencies
 		HashMap<String, Integer> documentFrequency = DocumentFrequency.calculateDF(tokenFreq);
+		tokenizers = null;
 
 		// Calculate Frequency for each Document
-		List<HashMap<String, Token>> finalTokenFreq = new ArrayList<>(NUMBER_OF_FILES);
-		Callable<HashMap<String, Token>> frequencyCalculators[] = new FrequencyCalculator[NUMBER_OF_FILES];
+		Callable<HashMap<String, Double>> frequencyCalculators[] = new FrequencyCalculator[NUMBER_OF_FILES];
 		for (int i = 0; i < NUMBER_OF_FILES; i++) {
 			frequencyCalculators[i] = new FrequencyCalculator(tokenFreq.get(i), documentFrequency);
-			futureValues2.add(executor.submit(frequencyCalculators[i]));
+			futureValues.set(i, executor.submit(frequencyCalculators[i]));
 		}
 		
-		for (Future<HashMap<String, Token>> tokens : futureValues2) {
+		for (int i = 0; i < NUMBER_OF_FILES; i++) {
+
 			try {
-				finalTokenFreq.add(tokens.get());
+				tokenFreq.set(i, futureValues.get(i).get());
 			} catch (InterruptedException | ExecutionException e) {
 				e.printStackTrace();
 			}
@@ -80,7 +79,7 @@ public class ProjectMain {
 //		CsvFileCreator csvCreator = new CsvFileCreator(finalTokenFreq);
 		
 		DatabaseConnector dc = new DatabaseConnector();
-		dc.saveData(finalTokenFreq);
+		dc.saveData(tokenFreq);
 
 		endTime = System.nanoTime();
 		elapsedTime = endTime-startTime;

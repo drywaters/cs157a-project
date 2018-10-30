@@ -78,7 +78,7 @@ public class DatabaseConnector {
 			String useDatabase = "USE " + DATABASE_NAME;
 			String drop = "DROP TABLE IF EXISTS project";
 			String table = "CREATE TABLE project (doc_id INTEGER, token VARCHAR(255) BINARY,"
-					+ "tf DECIMAL(20, 15), idf DECIMAL(20,15), tfidf DECIMAL(20, 15), "
+					+ " tfidf DECIMAL(20, 15), "
 					+ "PRIMARY KEY (doc_id, token))";
 
 			st.executeUpdate(useDatabase);
@@ -104,7 +104,7 @@ public class DatabaseConnector {
 		}
 	}
 
-	private void insertData(List<HashMap<String, Token>> freq) {
+	private void insertData(List<HashMap<String, Double>> freq) {
 		// Insert the calculated table data into the correct column
 		// Should look like ex.
 		// doc_id | token | tf | idf | tfidf
@@ -113,20 +113,17 @@ public class DatabaseConnector {
 		// 1 | token2 | 1.23 | 2.23| 0.223
 		// 2 | token1 | 1.23 | 2.23| 0.223
 
-		try (PreparedStatement ps = conn.prepareStatement("INSERT INTO project VALUES (?, ?, ?, ?, ?)")) {
+		try (PreparedStatement ps = conn.prepareStatement("INSERT INTO project VALUES (?, ?, ?)")) {
 			int count = 0;
-			Token tempToken = null;
 			
 			for (int i = 0; i < ProjectMain.NUMBER_OF_FILES; i++) {
-				int documentId = freq.get(i).get("DOCUMENT NUMBER").getDocid();
+				
+				int docId = freq.get(i).get("DOCUMENT NUMBER").intValue();
 				freq.get(i).remove("DOCUMENT NUMBER");
-				for (Map.Entry<String, Token> entry : freq.get(i).entrySet()) {
-					tempToken = entry.getValue();
-					ps.setInt(1, documentId);
-					ps.setString(2, tempToken.getWord());
-					ps.setDouble(3, tempToken.getTf());
-					ps.setDouble(4, tempToken.getIdf());
-					ps.setDouble(5, tempToken.getTfidf());
+				for (Map.Entry<String, Double> entry : freq.get(i).entrySet()) {
+					ps.setInt(1, docId);
+					ps.setString(2, entry.getKey());
+					ps.setDouble(3, entry.getValue());
 
 					ps.addBatch();
 					
@@ -181,7 +178,7 @@ public class DatabaseConnector {
 		}
 	}
 
-	public void saveData(List<HashMap<String, Token>> tokenFreq) {
+	public void saveData(List<HashMap<String, Double>> tokenFreq) {
 		createDatabase();
 		createTable();
 		insertData(tokenFreq);

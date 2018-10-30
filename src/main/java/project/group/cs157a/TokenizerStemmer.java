@@ -9,11 +9,11 @@ import java.util.concurrent.Callable;
 import org.apache.commons.io.IOUtils;
 import org.tartarus.snowball.ext.PorterStemmer;
 
-public class TokenizerStemmer implements Callable<HashMap<String, Integer>> {
+public class TokenizerStemmer implements Callable<HashMap<String, Double>> {
 
 	private int fileNumber;
 	private int totalTokens;
-	private HashMap<String, Integer> tokens;
+	private HashMap<String, Double> tokens;
 	private StringBuffer tokenBuffer;
 	private PorterStemmer stemmer;
 
@@ -25,13 +25,14 @@ public class TokenizerStemmer implements Callable<HashMap<String, Integer>> {
 	}
 
 	@Override
-	public HashMap<String, Integer> call() throws Exception {
+	public HashMap<String, Double> call() throws Exception {
 
 		tokens = new HashMap<>();
-		tokens.put("TOTAL TOKENS", 0);
-		tokens.put("DOCUMENT NUMBER", this.fileNumber);
+		tokens.put("TOTAL TOKENS", 0.0);
+		tokens.put("DOCUMENT NUMBER", (double) this.fileNumber);
 
-		try (InputStream file = new FileInputStream("./big_data/" + this.fileNumber + ".txt")) {
+		try (InputStream file = new FileInputStream("./sql/doc" + this.fileNumber + ".txt")) {
+//		try (InputStream file = new FileInputStream("./big_data/" + this.fileNumber + ".txt")) {
 //		try (InputStream file = new FileInputStream("./files/Data_" + this.fileNumber + ".txt")) {
 //		try (InputStream file = new FileInputStream("./tokenTestData/TT20")) {
 			String content = IOUtils.toString(file, Charset.defaultCharset());
@@ -50,7 +51,7 @@ public class TokenizerStemmer implements Callable<HashMap<String, Integer>> {
 				}
 			}
 
-			tokens.put("TOTAL TOKENS", totalTokens);
+			tokens.put("TOTAL TOKENS", (double) totalTokens);
 
 			file.close();
 			return tokens;
@@ -76,10 +77,10 @@ public class TokenizerStemmer implements Callable<HashMap<String, Integer>> {
 		String token = stemmer.getCurrent();
 		if (token.length() > 0) {
 			if (tokens.containsKey(token)) {
-				int currentOccur = tokens.get(token);
+				double currentOccur = tokens.get(token);
 				tokens.replace(token, currentOccur + 1);
 			} else {
-				tokens.put(token, 1);
+				tokens.put(token, 1.0);
 			}
 		}
 		clearBuffer();

@@ -5,35 +5,27 @@ import java.util.Map;
 import java.util.concurrent.Callable;
 import project.group.cs157a.Token;
 
-public class FrequencyCalculator implements Callable<HashMap<String, Token>> {
+public class FrequencyCalculator implements Callable<HashMap<String, Double>> {
 
-	private HashMap<String, Integer> tokenFreqs = null;
+	private HashMap<String, Double> tokenFreqs = null;
 	private HashMap<String, Integer> docFreqs = null;
-	private HashMap<String, Token> finalFreqs = null;
 
-	FrequencyCalculator(HashMap<String, Integer> tokenFreqs, HashMap<String, Integer> docFreqs) {
+	FrequencyCalculator(HashMap<String, Double> tokenFreqs, HashMap<String, Integer> docFreqs) {
 		this.tokenFreqs = tokenFreqs;
 		this.docFreqs = docFreqs;
-		finalFreqs = new HashMap<String, Token>();
 	}
 
 	@Override
-	public HashMap<String, Token> call() throws Exception {
-		int documentID = tokenFreqs.get("DOCUMENT NUMBER");
-		int totalTokens = tokenFreqs.get("TOTAL TOKENS");
-		finalFreqs.put("DOCUMENT NUMBER", new Token(documentID));
-		tokenFreqs.remove("DOCUMENT NUMBER");
+	public HashMap<String, Double> call() throws Exception {
+		double totalTokens = tokenFreqs.get("TOTAL TOKENS");
 		tokenFreqs.remove("TOTAL TOKENS");
-		for (Map.Entry<String, Integer> entry : tokenFreqs.entrySet()) {
-		
-			finalFreqs.put(entry.getKey(), new Token(documentID, entry.getKey()));
-			Token token = finalFreqs.get(entry.getKey());
-			token.setTf(entry.getValue() / (double) totalTokens);
-			token.setIdf(Math.log(ProjectMain.NUMBER_OF_FILES / (double) docFreqs.get(entry.getKey())));
-			token.setTfidf(token.getTf() * token.getIdf());
+		for (Map.Entry<String, Double> entry : tokenFreqs.entrySet()) {
+			if (!entry.getKey().equals(("DOCUMENT NUMBER"))) {
+				tokenFreqs.put(entry.getKey(), (entry.getValue() / totalTokens) * Math.log(ProjectMain.NUMBER_OF_FILES / (double) docFreqs.get(entry.getKey())));
+			}
 		}
 
-		return finalFreqs;
+		return tokenFreqs;
 	}
 
 }

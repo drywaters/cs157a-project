@@ -78,7 +78,7 @@ public class DatabaseConnector {
 			String useDatabase = "USE " + DATABASE_NAME;
 			String drop = "DROP TABLE IF EXISTS project";
 			String table = "CREATE TABLE project (doc_id INTEGER, token VARCHAR(255) BINARY,"
-					+ " tfidf DECIMAL(20, 15), "
+					+ " tfidf DECIMAL(20, 15) ,"  
 					+ "PRIMARY KEY (doc_id, token))";
 
 			st.executeUpdate(useDatabase);

@@ -1,88 +1,116 @@
 package project.group.cs157a;
 
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.Charset;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.concurrent.Callable;
 
 import org.apache.commons.io.IOUtils;
 
-public class Tokenizer implements Callable<HashMap<String, Integer>> {
+public class Tokenizer {
 
-	private int fileNumber;
-	private int totalTokens;
-	private HashMap<String, Integer> tokens;
+	private double totalTokens;
+	private List<HashMap<String, Double>> tokens;
 	private StringBuffer tokenBuffer;
 
-	Tokenizer(int fileNumber) {
-		this.fileNumber = fileNumber;
+	Tokenizer() {
 		this.totalTokens = 0;
 		this.tokenBuffer = new StringBuffer(10);
+		tokens = new ArrayList<>();
 	}
 
-	@Override
-	public HashMap<String, Integer> call() throws Exception {
+	public List<HashMap<String, Double>> getTokens() {
 
-		tokens = new HashMap<>();
-		tokens.put("TOTAL TOKENS", 0);
-		tokens.put("DOCUMENT NUMBER", this.fileNumber);
+		String[] splitText = splitFile();
 
-		try (InputStream file = new FileInputStream("./big_data/" + this.fileNumber + ".txt")) {
-//		try (InputStream file = new FileInputStream("./files/Data_" + this.fileNumber + ".txt")) {
-//		try (InputStream file = new FileInputStream("./tokenTestData/TT20")) {
-			String content = IOUtils.toString(file, Charset.defaultCharset());
-			
-			for (int i = 0; i < content.length(); i++) {
-				
-				char currentChar = content.charAt(i);
-				int currentCharValue = (int) currentChar;
-				
-				if (currentCharValue > 96 && currentCharValue < 123) {  // Lower case letter
-					tokenBuffer.append(currentChar);
-				}  else if (currentCharValue > 64 && currentCharValue < 91) { 	// Capital letter
-					tokenBuffer.append(currentChar);
-				} else { 
-					nonAlphabet();
-				}
+		for (int i = 0; i < splitText.length; i++) {
+			try {
+				this.tokens.add(tokenStrings(splitText[i], (double) i+1));
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
-			
-			tokens.put("TOTAL TOKENS", totalTokens);
-
-			file.close();
-			return tokens;
 		}
+		return tokens;
 	}
-	
+
+	public String[] splitFile() {
+
+		try (InputStream file = new FileInputStream("./singleFile/1.txt")) {
+			String content = IOUtils.toString(file, Charset.defaultCharset());
+			return content.split("\\.");
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+		return null;
+	}
+
+	public HashMap<String, Double> tokenStrings(String content, double fileNumber) throws Exception {
+
+		HashMap<String, Double> fileMap = new HashMap<>();
+		fileMap.put("TOTAL TOKENS", 0.0);
+		fileMap.put("DOCUMENT NUMBER", fileNumber);
+
+		for (int i = 0; i < content.length(); i++) {
+
+			char currentChar = content.charAt(i);
+			int currentCharValue = (int) currentChar;
+
+			if (currentCharValue > 96 && currentCharValue < 123) { // Lower case letter
+				tokenBuffer.append(currentChar);
+			} else if (currentCharValue > 64 && currentCharValue < 91) { // Capital letter
+				tokenBuffer.append(currentChar);
+			} else {
+				nonAlphabet(fileMap);
+			}
+		}
+
+		fileMap.put("TOTAL TOKENS", totalTokens);
+
+
+		return fileMap;
+
+	}
+
 	// clear buffer, add token that is there
 	// if character is not A-Za-z
-	private void nonAlphabet() {
-		checkBuffer();
+	private void nonAlphabet(HashMap<String, Double> fileMap) {
+		checkBuffer(fileMap);
 	}
-	
-	private void checkBuffer() {
+
+	private void checkBuffer(HashMap<String, Double> fileMap) {
 		if (tokenBuffer.length() > 0) {
-			addToken();
+			addToken(fileMap);
 		}
 	}
-	
-	private void addToken() {
+
+	private void addToken(HashMap<String, Double> fileMap) {
 		this.totalTokens++;
-		if (tokenExists()) {
-			int currentOccur = tokens.get(tokenBuffer.toString());
-			tokens.replace(tokenBuffer.toString().toLowerCase(), currentOccur + 1);
+		if (tokenExists(fileMap)) {
+			double currentOccur = fileMap.get(tokenBuffer.toString());
+			fileMap.replace(tokenBuffer.toString().toLowerCase(), currentOccur + 1);
 		} else {
-			tokens.put(tokenBuffer.toString().toLowerCase(), 1);
+			fileMap.put(tokenBuffer.toString().toLowerCase(), 1.0);
 		}
 		clearBuffer();
 	}
-	
+
 	private void clearBuffer() {
-		tokenBuffer.delete(0,  tokenBuffer.length());
+		tokenBuffer.delete(0, tokenBuffer.length());
 	}
-	
-	private boolean tokenExists() {
-		return tokens.containsKey(tokenBuffer.toString());
+
+	private boolean tokenExists(HashMap<String, Double> fileMap) {
+		return fileMap.containsKey(tokenBuffer.toString());
 	}
-	
+
 }

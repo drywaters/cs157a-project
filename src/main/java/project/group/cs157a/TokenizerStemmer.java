@@ -65,7 +65,7 @@ public class TokenizerStemmer {
 
 		for (int i = 0; i < content.length(); i++) {
 
-			char currentChar = content.charAt(i);
+			char currentChar = Character.toLowerCase(content.charAt(i));
 			int currentCharValue = (int) currentChar;
 
 			if (currentCharValue > 96 && currentCharValue < 123) { // Lower case letter

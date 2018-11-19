@@ -67,6 +67,9 @@ public class ProjectMain {
 		System.out.println("Total time taken is: " + (double)(elapsedTime/1000000000.0));
 //		dc.printTFIDF();
 		dc.killConnection();
+		
+		ConceptCreator concept = new ConceptCreator(tokenFreq);
+		
 	}
 
 }

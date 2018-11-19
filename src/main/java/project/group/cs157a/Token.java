@@ -18,6 +18,12 @@ public class Token {
 		this.docid = docid;
 		this.word = word;
 	}
+
+	public Token(int docid, String word, double tfidf) {
+		this.docid = docid;
+		this.word = word;
+		this.tfidf = tfidf;
+	}
 	
 	public Token(String word, double tf, double idf, double tfidf) {
 		super();
@@ -69,6 +75,6 @@ public class Token {
 
 	@Override
 	public String toString() {
-		return "Token [docid=" + docid + ", word=" + word + ", tf=" + tf + ", idf=" + idf + ", tfidf=" + tfidf + "]";
+		return "Token [docid=" + docid + ", word=" + word + ", tfidf=" + tfidf + "]";
 	}
 }

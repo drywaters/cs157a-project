@@ -22,7 +22,9 @@ public class ProjectMain {
 		// should change later as number of files increases
 		ExecutorService executor = Executors.newFixedThreadPool(5);
 				
+
 		TokenizerStemmer tokenizer = new TokenizerStemmer();
+
 		List<HashMap<String, Double>> tokenFreq = tokenizer.getTokens();
 		
 		// Calculate DF from list of token frequencies
@@ -59,6 +61,13 @@ public class ProjectMain {
 		
 		DatabaseConnector dc = new DatabaseConnector();
 		dc.saveData(tokenFreq);
+		
+		// Saves the 1-concept table using an arbitrary gap as the separator between keywords and stopwords
+		ArrayList<Token> keywords = dc.generateKeywordList(0.01);
+		dc.save1Concepts(0.01, keywords);
+		
+		// Saves the 2-Concept Table
+		dc.save2Concepts(keywords);
 
 		endTime = System.nanoTime();
 		elapsedTime = endTime-startTime;

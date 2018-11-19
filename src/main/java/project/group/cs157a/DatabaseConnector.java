@@ -1,7 +1,6 @@
 package project.group.cs157a;
 
 import java.sql.Connection;
-import java.sql.DatabaseMetaData;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -228,6 +227,7 @@ public class DatabaseConnector {
 
 			Set<String> uniqueKeywords = new HashSet<>();
 
+			// Creates the 1 Concept table by using unique keywords as the  columns
 			String table = "CREATE TABLE 1Concepts (doc_id INT, ";
 			for (Token keyword : keywords) {
 				if (!uniqueKeywords.contains(keyword.getWord())) {
@@ -288,7 +288,8 @@ public class DatabaseConnector {
 		insert1Concepts(keywords, gap);
 	}
 
-	// Counts pairs of keywords found in the 1 Concept table and returns a hashmap of them
+	// Counts pairs of keywords found in the 1 Concept table and returns a
+	// hashmap of them
 	private HashMap<String, Integer> get2Concepts(ArrayList<Token> keywords) {
 		HashMap<String, Integer> pairFrequencies = new HashMap<>();
 
@@ -299,25 +300,30 @@ public class DatabaseConnector {
 			while (rs.next()) {
 				String value;
 				String keyword;
-				HashSet<String> keywordsInDocument = new HashSet<>();
-				
+				ArrayList<String> keywordsInDocument = new ArrayList<>();
+
+				// Adds the keywords of a document into a list
 				for (int i = 0; i < keywords.size(); i++) {
 					keyword = keywords.get(i).getWord();
 					value = rs.getString(keyword);
-					if(Integer.parseInt(value) == 1){
-						keywordsInDocument.add(keyword);
+					if (Integer.parseInt(value) == 1) {
+						if (!keywordsInDocument.contains(keyword)) {
+							keywordsInDocument.add(keyword);
+						}
 					}
 				}
 
-				for(String word1: keywordsInDocument){
-					for(String word2: keywordsInDocument){
-						if(!word1.equals(word2)){
-							String pair = word1 + "," + word2;
-							if (pairFrequencies.containsKey(pair)) {
-								pairFrequencies.put(pair, pairFrequencies.get(pair) + 1);
-							} else {
-								pairFrequencies.put(pair, 1);
-							}
+				// If two keywords appear in the same document, increase the
+				// frequency of that pair of keywords by 1
+				for (int i = 0; i < keywordsInDocument.size(); i++) {
+					for (int j = i + 1; j < keywordsInDocument.size(); j++) {
+						String word1 = keywordsInDocument.get(i);
+						String word2 = keywordsInDocument.get(j);
+						String pair = word1 + "," + word2;
+						if (pairFrequencies.containsKey(pair)) {
+							pairFrequencies.put(pair, pairFrequencies.get(pair) + 1);
+						} else {
+							pairFrequencies.put(pair, 1);
 						}
 					}
 				}
@@ -367,7 +373,8 @@ public class DatabaseConnector {
 		}
 	}
 
-	// Uses the hashmap generated from get2Concepts() to insert data into the 2Concepts table
+	// Uses the hashmap generated from get2Concepts() to insert data into the
+	// 2Concepts table
 	private void insert2Concepts(HashMap<String, Integer> pairs) {
 		try (PreparedStatement ps = conn.prepareStatement("INSERT INTO 2Concepts VALUES (?, ?)")) {
 			int count = 0;
@@ -395,8 +402,8 @@ public class DatabaseConnector {
 			System.out.println("Ran into an unexpected error when inserting Data: " + e.getMessage());
 		}
 	}
-	
-	public void save2Concepts(ArrayList<Token> keywords){
+
+	public void save2Concepts(ArrayList<Token> keywords) {
 		create2ConceptTable();
 		HashMap<String, Integer> pairs = get2Concepts(keywords);
 		insert2Concepts(pairs);

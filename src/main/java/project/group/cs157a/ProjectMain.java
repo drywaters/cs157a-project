@@ -51,8 +51,6 @@ public class ProjectMain {
 		// Received all threads, shutdown
 		executor.shutdown();
 		
-		
-		
 		long endTime = System.nanoTime();
 		long elapsedTime = endTime-startTime;
 		System.out.println("Total time for token calculation taken is: " + (double)(elapsedTime/1000000000.0));
@@ -72,12 +70,9 @@ public class ProjectMain {
 		endTime = System.nanoTime();
 		elapsedTime = endTime-startTime;
 		
-		
 		System.out.println("Total time taken is: " + (double)(elapsedTime/1000000000.0));
 //		dc.printTFIDF();
 		dc.killConnection();
-		
-		ConceptCreator concept = new ConceptCreator(tokenFreq);
 		
 	}
 

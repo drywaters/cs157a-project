@@ -12,43 +12,36 @@ import org.supercsv.cellprocessor.constraint.NotNull;
 import org.supercsv.cellprocessor.ift.CellProcessor;
 import org.supercsv.io.CsvBeanWriter;
 import org.supercsv.io.CsvListWriter;
+import org.supercsv.io.CsvMapWriter;
 import org.supercsv.io.ICsvBeanWriter;
 import org.supercsv.io.ICsvListWriter;
+import org.supercsv.io.ICsvMapWriter;
 import org.supercsv.prefs.CsvPreference;
 
 public class CsvFileCreator {
 
-	public CsvFileCreator(List<HashMap<String, Token>> words) {
+	public CsvFileCreator(List<HashMap<String, Double>> words) {
 
-		final CellProcessor[] processors = new CellProcessor[] { new NotNull(), new NotNull(), new NotNull(),
-				new NotNull(), new NotNull()
-		};
+		final CellProcessor[] processors = new CellProcessor[] { new NotNull(), new NotNull(), new NotNull()};
 
-		final String[] header = new String[] { "docID", "word", "tf", "idf", "tfidf" };
+		final String[] header = new String[] { "doc_id", "token", "tfidf" };
 
-		ICsvBeanWriter beanWriter = null;
+		ICsvMapWriter mapWriter = null;
 		try {
-			beanWriter = new CsvBeanWriter(new FileWriter("target/finalTFIDF.csv"),
+			mapWriter = new CsvMapWriter(new FileWriter("target/writeWithMapWriter.csv"),
 					CsvPreference.STANDARD_PREFERENCE);
 
 			// write the header
-			beanWriter.writeHeader(header);
-
-			for (int i = 0; i < ProjectMain.NUMBER_OF_FILES; i++) {
-				for (Map.Entry<String, Token> entry : words.get(i).entrySet()) {
-					if (!entry.getKey().equals("DOCUMENT NUMBER")) {
-						beanWriter.write(entry.getValue(), header, processors);
-					}
-				}
-			}
+			mapWriter.writeHeader(header);
+//			mapWriter.write(words, header);
 
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
-			if (beanWriter != null) {
+			if (mapWriter != null) {
 				try {
-					beanWriter.close();
+					mapWriter.close();
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();

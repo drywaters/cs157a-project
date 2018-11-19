@@ -22,7 +22,7 @@ public class ProjectMain {
 		// should change later as number of files increases
 		ExecutorService executor = Executors.newFixedThreadPool(5);
 				
-		Tokenizer tokenizer = new Tokenizer();
+		TokenizerStemmer tokenizer = new TokenizerStemmer();
 		List<HashMap<String, Double>> tokenFreq = tokenizer.getTokens();
 		
 		// Calculate DF from list of token frequencies
@@ -48,6 +48,9 @@ public class ProjectMain {
 		
 		// Received all threads, shutdown
 		executor.shutdown();
+		
+		
+		
 		long endTime = System.nanoTime();
 		long elapsedTime = endTime-startTime;
 		System.out.println("Total time for token calculation taken is: " + (double)(elapsedTime/1000000000.0));
@@ -59,6 +62,7 @@ public class ProjectMain {
 
 		endTime = System.nanoTime();
 		elapsedTime = endTime-startTime;
+		
 		
 		System.out.println("Total time taken is: " + (double)(elapsedTime/1000000000.0));
 //		dc.printTFIDF();

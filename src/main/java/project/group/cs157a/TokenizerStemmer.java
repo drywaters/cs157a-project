@@ -8,7 +8,6 @@ import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.concurrent.Callable;
 
 import org.apache.commons.io.IOUtils;
 import org.tartarus.snowball.ext.PorterStemmer;
@@ -26,6 +25,7 @@ public class TokenizerStemmer {
 		tokens = new ArrayList<>();
 		stemmer = new PorterStemmer();
 	}
+
 
 	public List<HashMap<String, Double>> getTokens() {
 
@@ -67,6 +67,7 @@ public class TokenizerStemmer {
 
 			char currentChar = Character.toLowerCase(content.charAt(i));
 			int currentCharValue = (int) currentChar;
+
 
 			if (currentCharValue > 96 && currentCharValue < 123) { // Lower case letter
 				tokenBuffer.append(currentChar);

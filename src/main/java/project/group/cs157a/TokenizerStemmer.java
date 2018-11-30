@@ -44,7 +44,7 @@ public class TokenizerStemmer {
 
 	public String[] splitFile() {
 
-		try (InputStream file = new FileInputStream("./singleFile/1.txt")) {
+		try (InputStream file = new FileInputStream("./singleFile/2.txt")) {
 			String content = IOUtils.toString(file, Charset.defaultCharset());
 			return content.split("\\.");
 		} catch (FileNotFoundException e) {

@@ -1,0 +1,1326 @@
+
+Discovering Long Maximal Frequent Pattern 
+
+Shu-Jing Lin  Yi-Chung Chen and Don-Lin Yang  Jungpin Wu  
+National Chung-Shan Institute  Department of Information  Department of Statistics  
+ of Science & Technology  Engineering and Computer Science  Feng Chia University  
+Taoyuan, Taiwan  Feng Chia University  Taichung, Taiwan  
+Taichung, Taiwan  
+
+Abstract¡ªAssociation rule mining, the most commonly used method for data mining, has numerous applications. Although many approaches that can find association rules have been developed, most utilize maximum frequent itemsets that are short. Existing methods fail to perform well in applications involving large amounts of data and incur longer itemsets. Apriori-like algorithms have this problem because they generate many candidate itemsets and spend considerable time scanning databases; that is, their processing method is bottom-up and layered. This paper solves this problem via a novel hybrid Multilevel-Search algorithm. The algorithm concurrently uses the bidirectional Pincer-Search and parameter prediction mechanism along with the bottom-up search of the Parameterised method to reduce the number of candidate itemsets and consequently, the number of database scans. Experimental results demonstrate that the proposed algorithm performs well, especially when the length of the maximum frequent itemsets are longer than or equal to eight. The concurrent approach of our multilevel algorithm results in faster execution time and improved efficiency. 
+Keywords¡ªdata mining; association rule; maximum frequent itemset; long itemset; multilevel search 
+I. INTRODUCTION 
+In data mining or knowledge discovery [1, 2], an analytic method is applied automatically or semi-automatically to look for meaningful rules or patterns in large amounts of data. The main goal of data mining is to extract useful information from huge databases in an effective and efficient manner [3]. Data mining is very useful in both data management and decision making. Association rule mining [4], the most frequently used data mining technique, uses the Apriori algorithm to discover the relationships between various points of data in a database. Many mining algorithms are based on the Apriori algorithm as it is simple and straightforward. The Apriori algorithm has two phases, for finding frequent itemsets: candidate generation and verification. A frequent itemset is a set of items that appear together in a number of database records and their occurrence frequency meets a pre-defined threshold. To find all frequent m-itemsets for m starting from 1 to the maximal length of frequent itemsets, the algorithm must produce all 2m of its subsets and scan the database m times. With their exponential complexity, Apriori-like algorithms are restricted to only short frequent itemsets. 
+To overcome this limitation, this paper proposes the Multilevel-Search algorithm that efficiently extracts the maximal frequent itemsets, where an itemset is maximal frequent when it has no superset that is frequent. Experimental results demonstrate that the proposed approach is most efficient when maximum frequent itemsets are long. This paper¡¯s contribution to literature is its novel approach to effectively seeking longer association rules [5] using bottom-up and top-down searches concurrently with a multilevel approach. The remainder of this paper is organized as follows. Section II explores relevant methods related to literature. Section III introduces the concept and pseudo code of the proposed Multilevel-Search algorithm. Section IV presents detailed implementation and explanatory examples. Section V provides comparisons, experimental analysis, and efficiency evaluations, and Section VI contains concluding remarks and future directions for research. 
+II. RELATED WORK 
+The number of organizations utilizing mining association rules [6] to discover useful information is increasing. 
+Definition of association rules: Let I = {i1, i2,..., ik} be a set of k distinct items. A transaction T is a set of items in I and T . I. A transaction T can represent items purchased by a customer from a supermarket. A database D is a set of transactions. An itemset is a set X of items (X . I). The number of items in an itemset is its length. Itemsets of length k are referred to as k-itemsets. A transaction T is said to support an itemset X . I if and only if X . T. The fraction of transactions in D that support X is the support of X, denoted as support(X). A user can define a minimum support threshold, which is a fraction (or percentage). 
+An association rule has the form R: X . Y; X, Y . I and X . Y = .. The support for rule R is defined as support(X . Y). A confidence factor for such a rule (customarily represented by percentage) is defined as 100% ¡Á support(X . Y) / support(X), and is used to evaluate the strength of an association rule. An itemset is frequent when its support meets the minimum support; otherwise, it is infrequent. A frequent itemset is interesting (or strong) when its confidence meets the minimum confidence level. 
+This paper focuses on finding the maximal frequent itemsets [7-9]. An itemset is a maximal frequent itemset when it is frequent and no proper superset of it is frequent. The maximal frequent set (MFS) is the set of all maximal frequent itemsets. To find maximal frequent itemsets (MFI) efficiently, Lin and Kedem (2002) [10] applied the Pincer-Search algorithm that quickly searched for maximal frequent itemsets in two directions: bottom-up and top-down. Denwattana and Getta (2001) [11] proposed the Parameterised algorithm based on the Apriori algorithm. Hong et al. (2009) [12], who proposed a mining algorithm based on the Parameterised algorithm, applied the idea of a bottom-up search with multiple levels to reduce the number of candidate itemsets and the number of database scans to accelerate the process of finding maximal frequent itemsets. The method proposed in this paper mainly integrates concepts from both the Parameterised and 
+
+
+n := The number of lattice levels traversed at a time; 
+minsup := The minimum support; 
+tm := The user specified threshold of itemset m-support; 
+
+tl := The user specified threshold of transaction length;; 
+Ck  := Predicted-frequent k-itemsets; 
+Ck  := Predicted-infrequent k-itemsets; 
+
+Pincer-Search algorithms. 
+III. OUR EFFICIENT ALGORITHM FOR DISCOVERING MAXIMAL FREQUENT ITEMSETS 
+A. The Concept Informing the Proposed Approach 
+The proposed Multilevel-Search algorithm is based on bottom-up and top-down searches of maximal frequent itemsets of the Pincer-Search and Parameterised algorithms. This algorithm can go up or down many levels in one pass. First, the Multilevel-Search algorithm constructs a statistics table and sets the required parameters, as does the Parameterised algorithm. For instance, a parameter n indicates how many lattice levels [13] can be traversed at a time. Parameter k is the start level of the mining process. The next step is to predict the candidate from k to (k+n-1)-itemsets and scan the database once to verify them. When the prediction is incorrect, the database is scanned again to correct the error. The process continues and works efficiently by using a bidirectional search until the end condition is met. Thus, the Multilevel-Search algorithm can eliminate more redundant itemsets than other methods and also reduces the number of database scans. 
+B. No Missing Candidate Itemsets 
+The algorithm starts from the lattice level of the parameter k = 2; the value of k is increased by parameter n. Then predicted-frequent (k+n-1)-itemsets are produced and used to eliminate lower-level candidate itemsets. Section IV.D describes the process in detail. 
+Lemma 1. Pruning of redundant candidate itemsets in the Multilevel-Search algorithm is based on the prediction that a lattice level does not result in any candidate missing from the next level. 
+Proof: When the prediction is correct, the algorithm finds the correct result without the need to recover any candidate itemset; otherwise, the recovery procedure in Section IV.D is used to make the necessary correction. Here is the end of the proof. 
+C. Multilevel-Search Algorithm 
+The definition of symbols: 
+Algorithm: Multilevel-Search algorithm 
+Input: A database and user-defined parameters minsup, k, n, 
+tm , tl 
+
+Output: MFI contains all maximal frequent itemsets 
+Results := .; k := 2; 
+Call the Statistics table procedure to generate a statistics 
+table ( i.e., ST ); 
+Scan ST and count supports for every 1-item to generate L1; 
+Join L1 to generate C2; 
+
+
+;. } ; MFI := L1.
+i.}iMFCI :={ { do)..
+ and Ck..
+k-1while ( L1. 
+2. Call the Predict_candidates procedure to generate  
+
+3. predicted-frequent and predicted-infrequent itemsets; 
+
+4. 	Scan database and count supports for predicted-candidate  itemsets and MFCI; 
+
+5. /* both in the bottom-up and top-down approach */ 
+
+6. Move frequent itemsets from MFCI to MFI; 
+
+7. inf := { infrequent itemsets in candidate itemsets };
+
+
+
+;. .
+Update the MFCI if inf	8. 
+9. /* in the top-down approach */ 
+
+10.  if there is an incorrect prediction 
+
+11.  	Call the Recovery procedure to generate remaining  candidate itemsets (RC); 
+
+12.  Scan database and count supports for RC and MFCI; 
+
+13.  /* both in the bottom-up and top-down approaches */ 
+
+14.  Move frequent itemsets from MFCI to MFI; 
+
+15. inf := { infrequent itemsets in RC }; 
+
+
+
+;. .
+Update the MFCI if inf	16.  
+17.  /* in the top-down approach */ 
+
+18.  end-if 
+
+19.  Join frequent (n+k-1)-itemsets to generate Cn+k; 
+
+20. /* in the bottom-up approach */ 
+
+
+
+{subsets of MFI }; .
+}n+kCn+k:= { C21.  {subsets of .
+)-itemsets }n+k-1 { frequent( :=n+k-1L22.  
+MFI }; 
+23.  Results := {Results . { LkìÂ Lk+1ìÂ ¡­..ìÂ Lk+n-
+
+{subsets of MFI }; .
+}}1 
+24. k := k+n; 
+
+25. end-while; 
+
+26. MFI := Results . MFI; 
+
+27. return MFI; 
+
+
+MFCI := Maximal frequent candidate itemsets; Fig. 1.  The pseudo code of the Multilevel-Search algorithm. 
+Here, MFCI is the set of the candidate-to-be-frequent MFI := Maximal frequent itemsets; 
+Ck := Candidate k-itemsets; itemsets with the maximal length; MFI is the set of the frequent 
+itemsets with the maximal length; the m-support of tm is the Lk := Frequent k-itemsets; support of an itemset appearing in the transactions of length m; 
+tl <= the maximal transaction length based on the available inf := Infrequent itemsets; 
+RC := Remaining candidate itemsets; resource. 
+ST := Statistics table; 
+
+Fig. 1 shows the pseudo code of the proposed Multilevel-Search algorithm. A detailed description of the algorithm is provided in Section IV, in which various examples are used to explain its implementation. 
+IV. THE IMPLEMENTATION OF THE MULTILEVEL-SEARCH ALGORITHM 
+Implementation of the Multilevel-Search algorithm has the following four tasks. 
+A. 	Generate a Statistics Table 
+A statistics table (ST) is built by scanning the database once (Fig. 2). The ST records the number of times every 1-item appears in database transactions. The ST is then used to find frequent 1-itemsets (i.e., L1). The default k value of the k-level is 2. The MFCI is the combination of all items in L1. If Lk-1 and Ck are not empty, the Predict_candidates procedure is used. The range of traversed levels to be predicted is from level k to level k+n-1 and a bottom-up approach is used. 
+Algorithm: Statistics table procedure Input: A database Output: A statistics table 
+1. 	
+Scan the database to find the support of 1-item appearing in transactions of m-length and m ranges from 1 to the maximal length of a transaction; 
+
+2. 	
+For each value of m, find the total number of m-
+
+
+length transactions in the database. Fig. 2. The pseudo code of the statistics table procedure. 
+TABLE I 
+EXAMPLE DB 
+
+TID  Itemset  
+1  ABCEF  
+2  ABCEF  
+3  BCDEF  
+4  ABCD  
+5  ABCE  
+6  ABC  
+7  ABF  
+8  ACE  
+9  BCE  
+10  BDE  
+
+Example 1. To elucidate how the proposed approach evolves from the Parameterised algorithm, Denwattana and Getta¡¯s dataset [11] is used (Tables I and II). With the use of this dataset, this paper demonstrates that the proposed is more efficient than their approach. Each record in the example database (DB) contains a transaction¡¯s TID and a set of items. A total of six unique items exist in the database with letters A~F. Table II shows the occurrences of each 1-item in transactions of various lengths. The values of m start from the minimal length of a transaction to the maximal length of a transaction (i.e., m = 3, 4, and 5). Specifically, among the ten transactions, five are 3-length, two are 4-length, and three are 5-length. 
+TABLE II 
+STATISTICS TABLE [11] 
+
+Items  3-length  4-length  5-length  Total sup.  
+A  3  2  2  7  
+B  4  2  3  9  
+C  3  2  3  8  
+D  1  1  1  3  
+E  3  1  3  7  
+F  1  0  3  4  
+# of m- 
+length  5  2  3  10  
+transactions  
+
+B. 	Predict Candidate Itemsets 
+The Predict_candidates procedure (Fig. 3,) generates predicted-candidate itemsets according to the statistics table, Lk-1, k-level, and the user-defined parameters. The parameters include the user-specified threshold of 1-item in any length (i.e., tm), the user-specified threshold of transaction length (i.e., tl) and the number of levels to traverse in each pass (i.e., n). Here, tm is the support of 1-item appearing in transactions of m-length and m ranges from the minimal length of a transaction to the tl. Additionally, tl must be less than or equal to the maximal length of a transaction based on the available resource. The Predict_candidates procedure begins its prediction from k-level and uses Lk-1 to generate Ck. 
+When the candidate k-itemsets belong to predicted-frequent itemsets, they are marked Ck  . Predicted-infrequent itemsets 
+are marked Ck  . The support calculation for a 1-item appearing in m-length transactions is defined as follows: 
+An item x¡¯s support value in the m-length transactions 
+The number of x itemappearingin the m -length tra nsactions 
+
+= 	(1)
+The number of the m -length transactions 
+The calculation scope is from m-length transactions to tl-length transactions. Qualified items that satisfy tm are combined, becoming MCk itemsets. If Ck is a subset of MCk, Ck belongs to the predicted-frequent itemsets. Otherwise, it belongs to the predicted-infrequent itemsets. Lk is used to produce Ck+1. This prediction procedure is repeated until it reaches the (k+n-1)-level in a bottom-up search. While the predicted-frequent (k+n-1)-itemsets are generated at the (k+n-1)-level, they are used to eliminate other candidate itemsets at lower levels. 
+Example 2. To simplify the discussion, parameters are set as minsup = 20%, n = 3, tm= 80%, and tl = 5. Based on the statistics table (Table II), the frequent 1-itemsets are {A}, {B}, {C}, {D}, {E}, and {F}. These 1-itemsets are combined to generate C2 ={{A, B}, {A, C}, {A, D}, {A, E}, {A, F}, {B, C}, {B, D}, {B, E}, {B, F}, {C, D}, {C, E}, {C, F}, {D, E}, {D, F}, {E, F}}. Thus, MFCI is L={A, B, C, D, E, F}. If 
+1
+
+TABLE III 
+
+Algorithm: Predict_candidates procedure Input: A statistics table (ST ), Lk-1, k-level and the user defined parameters (tm.tl.n) 
+Output: Predicted-frequent and predicted-infrequent itemsets from k to k+n-1 level 
+1. 
+Scan statistics table; 
+
+2. 
+Ck is generated from the Lk-1; 
+
+3. 
+if Ck . (subsets of MCk) move Ck toCk ; 
+
+4. 
+else move C to Ck ;
+
+k
+
+5. 
+for i from k+1 to n+k-1 
+
+6. 
+C generated from the ;
+
+
+k+1Ck 
+
+;1MC ) move C to Ck(subsets of .
+if C7. 
+k+1k+1k+1
+8. 
+else move Cto Ck 1;
+
+k+1 
+
+9. 
+end-for; 
+
+
+
+) then delete; Ck(subsets of .
+10.if predicted itemsets 
+n 1 
+   
+ 
+  
+Fig. 3. The pseudo code of the Predict_candidates procedure. some i infrequent 1-itemsets exist, the cardinality of the MFCI would be reduced by i. In this case, the top-down search goes down i levels in one pass, as with the Pincer-Search algorithm. 
+ 
+22 
+  
+
+Initially, the MFI is an empty set. Next, the prediction MCCprocedure finds  for to obtain and . Because noCC22 2-length transaction exists in the example, the process starts 3from -length transactions. Only one 1-item{B} satisfies t= m 80% because {B} item¡¯s support value in 3-length 
+4
+transactions is 80% 80% . 
+5 Three 1-itemsets {A}, {B}, and {C} satisfy the threshold in 
+  
+4-length transactions (Table III). The user-specified value of tl 
+
+ 
+tis 5, so this value is used to consider transactions up to 5-
+
+ 
+length. In the last column of PC2, all 1-itemsets under 
+ 
+different m-length transactions are merged as MC2 = {A, B, C, E, F}. As {A, D} is not a subset of MC2, it is predicted as infrequent and belongs to C2 . Consequently, C2 = {{A, B}, {A, C}, {A, E}, {A, F}, {B, C}, {B, E}, {B, F}, {C, E}, {C, 
+
+ 
+F}, {E, F}} and C2 = {{A, D}, {B, D}, {C, D}, {D, E}, {D, 
+F}}. Then the itemsets inC2 are joined to generate C = {{A, 
+3
+B, C}, {A, B, E}, {A, B, F}, {A, C, E}, {A, C, F}, {A, E, F}, {B, C, E}, {B, C, F}, {B, E, F}, {C, E, F}}. These procedures are repeated to obtainC3 = {{A, B, C}, {A, B, E}, {A, B, F}, {A, C, E}, {A, C, F}, {A, E, F}, {B, C, E}, {B, C, F}, {B, E, F}, {C, E, F}} and C3 is an empty set; and C4 = {{A, B, C, E}, {A, B, C, F}, {A, B, E, F}, {A, C, E, F}, {B, C, E, F}}, and C4 is an empty set. 
+THE ITEMSETS SATISFYING THE 1-ITEM THRESHOLD (TM) 
+m-length  3-length trans.  4-length trans.  5-length trans.  Merged candidate itemsets  
+PC2  B  A,B,C  B,C,E,F  MC2={A,B,C,E,F}  
+PC3  B  A,B,C  B,C,E,F  MC3={A,B,C,E,F}  
+PC4  A,B,C  B,C,E,F  MC4={A,B,C,E,F}  
+PC5  B,C,E,F  MC5={B,C,E,F}  
+
+
+ 
+ 
+ 
+
+  
+ 
+  
+ 
+As k = 2, n = 3, and k+n-1 = 4 in this example, the prediction process has completed a pass ofC2, C2, C3, C3, C4 and 
+C4 . Since this work wants to find maximal frequent itemsets, their sub-itemsets can be pruned from lower-level candidates 
+ 
+using the predicted-frequent 4-itemsets and predicted-
+ 
+infrequent 4-itemsets in the top-down approach. 
+After eliminating itemsets, the predicted candidate itemsets, MFCI, and MFI are generated as follows:C2 ={}; C2 ={A, 
+D}, {B, D}, {C, D}, {D, E}, {D, F}; C3 ={}; C3 ={} C4 ={A, B, C, E}, {A, B, C, F}, {A, B, E, F}, {A, C, E, F}, {B, C, E, F}; C4 ={} and MFCI={A, B, C, D, E, F}; MFI={} 
+C. Update the Maximal Frequent Candidate Itemsets 
+The database is scanned again to find the actual support of predicted-frequent, predicted-infrequent itemsets, and MFCI. If the frequent-candidate itemsets in MFCI are verified after counting their frequencies, they are moved to the MFI. The MFCI is updated according to the infrequent itemsets inf. Then, an examination is required to check whether any incorrect prediction occurs. 
+Example 3. After scanning the database to count support, the frequent k-itemsets and infrequent itemset inf are found: 
+L={B, D}, {C, D}, {D, E}; inf ={A, D}, {D, F}; L={}
+23
+L={A, B, C, E}, {A, B, C, F}, {A, B, E, F}, {A, C, E, F}, 
+4
+{B, C, E, F} 
+Then, it utilizes the infrequent itemset inf to update the MFCI using the top-down approach. Considering {A, D}, the MFCI becomes {{B, C, D, E, F}, {A, B, C, E, F}}. Finally, MFCI = {{A, B, C, E, F}, {B, C, D, E}} after processing {D, E} to generate {B, C, D, E} and {B, C, E, F}. However, {B, C, E, F} is removed from the MFCI because it is a subset of {A, B, C, E, F}. Both the MFCI and MFI are updated as follows: 
+MFCI={ {A, B, C, E, F}, {B, C, D, E} } and MFI={} 
+D. Recover Candidate Itemsets 
+There are two prediction error types: (1) a predicted-frequent itemset becomes an infrequent itemset after counting its support; and (2) a predicted-infrequent itemset becomes a frequent itemset after counting its support. To rectify these wrongly predicted itemsets, additional candidate itemsets must be generated, which are called Remaining Candidate k-
+
+itemsets (RC). Fig. 4, shows the recovery procedure. If any candidate 5-itemsets via the top-down approach, yielding the 
+Cj 
+infrequent itemset after calculation, all of its subsets from the 
+
+following results: 
+predicted-frequent j-itemset (i.e., 
+) turns out to be an 
+L={}; L={B, C, D}, {B, D, E}; L={};
+23	4
+C={}; MFCI={}; MFI = {A, B, C, E, F};
+5
+k-level to (j-1)-level will be produced. Similarly, if any Final result = {{B, C, D}, {B, D, E}, {A, B, C, E, F}}; 
+Cj itemset after calculation, all of its supersets from (j+1)-level 
+
+predicted-infrequent j-itemset (i.e., ) becomes a frequent Because the frequent 4-itemsets and candidate 5-itemsets 
+are empty, the entire procedure ends here. to (k+n-1)-level will be produced. After the RC from k-level to (k+n-1)-level is produced, the database is scanned again to 
+count the support of the RC and the MFCI for correcting prediction errors. 
+A. 
+V. EXPERIMENTAL RESULTS AND DISCUSSION 
+Experimental Environment 
+When a frequent-candidate itemset in the MFCI is qualified 
+after counting its support, it will be moved to the MFI. The 
+Experiments were performed on an Intel.
+R XeonTM MP CPU 
+at 2.00GHz with 3800 MB RAM running Windows 2000. The MFCI will be updated according to the inf found in the RC. As 
+in Section II, all supersets in an infrequent itemset must be programs were developed using Microsoft Visual Basic 6.0. 
+The Pincer-Search and Parameterised algorithms were also infrequent and all subsets of a frequent itemset must be 
+frequent. These two properties are used to produce a new implemented for comparison. The IBM dataset generator was 
+MFCI. By eliminating the found frequent (n+k-1)-itemsets used to produce test databases. Table IV defines parameters. 
+using the MFI, any subset belonging to the MFI is not listed in Table V lists the parameters used to generate the databases for 
+the frequent itemsets of L. Then it joins L itemsets 
+(n+k-1)(n+k-1)
+the experiments. We generated twenty databases in total and 
+each type of database in Table V had five databases. 
+to produce the candidate itemsets of C. If any itemset of 
+n+k
+Lin the above elimination procedure is deleted, candidate 
+(n+k-1) 
+TABLE IV 
+
+DEFINITIONS OF PARAMETERS 
+itemsets are then recovered to produce complete candidate (n+k)-itemsets of C. Then, the approach uses the MFI to 
+n+k
+prune C. The value k of the k-level is increased to n+k. It
+n+k
+repeats the above steps until L and C are empty. The final 
+(k-1)k
+result of the MFI is then returned. 
+Algorithm: Recovery procedure Input: Incorrect predicted-frequent and predicted-infrequent itemsets, k-level and the user defined parameters ( n ) 
+Output: Remaining candidate itemsets (RC) 
+1. 	
+Take apart incorrect predicted-frequent itemsets to generate remaining candidate itemsets (RC) 
+
+2. 	
+until k-level; 
+
+3. 	
+Join incorrect predicted-infrequent itemsets to generate remaining candidate itemsets (RC) 
+
+4. 	
+until (k+n-1)-level; 
+
+
+Fig. 4.  The pseudo code of the Recovery procedure 
+Example 4. From Example 3, some prediction errors are likely because three itemsets {B, D}, {C, D}, and {D, E} in 
+D The number of transactions T The average length of transactions L The number of maximal potentially-frequent N The number of distinct items 
+TABLE V  
+PARAMETERS OF DATABASES  
+Type of Database  T  L  N  D  
+T2.L10.N500.D100K  2  10  500  100000  
+T8.L10.N500.D100K  8  10  500  100000  
+T10.L10.N500.D100K  10  10  500  100000  
+T12.L10.N500.D100K  12  10  500  100000  
+
+The types of maximal frequent itemsets in these databases are mainly short, moderate, and long in length. The short maximal frequent itemsets range at 1~4; the moderate maximal frequent itemsets range at 5~8; and the long maximal frequent itemsets range at 9~12. All are used in the Multilevel-Search, Pincer-Search, and Parameterised algorithms to examine their respective performance. 
+
+
+C2
+these itemsets are combined to produce RC itemsets as follows: 
+RC2 ={}; RC3 ={B, C, D}, {B, D, E}, {C, D, E} 
+RC4 ={B, C, D, E}; MFCI={A, B, C, E, F}, {B, C, D, E} 
+The database is scanned again to count the support of the RC itemsets and the MFCI is updated. Thus, MFI = {A, B, C, E, F} after support is counted. The infrequent itemsets {C, D, E} and {B, C, D, E} are used to update the MFCI. The MFCI then becomes an empty set. The frequent 4-itemsets are combined to yield C ={A, B, C, E, F}. The MFI is used to 
+5
+eliminate the frequent itemsets (which are not maximal) and 
+ become frequent after support verification. For correction, 
+B. Data Analysis and Efficiency Assessment 
+Three parameters, n, tm, and tl in the Multilevel-Search algorithm affect efficiency and execution time. For instance, when parameter t is set too large, many infrequent itemsets 
+m 
+will be found. Conversely, when parameter t  is too small, 
+m
+many frequent itemsets will be found. To demonstrate its simplicity and ease-of-use, multiple experiments are performed with various parameters settings for the proposed approach without complex analysis of datasets. Suitable settings for the three parameters, n, tm, and tl, are adopted to 
+
+
+TABLE VI 
+THE AVERAGE TIMES OF DATABASE SCAN (MINSUP=20%) 
+
+
+Databases  Apriori  Pincer -search  Param eterise d  Multile vel-Search  
+T2.L10.N500.D100  4  2  3  2  
+T8.L10.N500.D100  8  5  4  3  
+T10.L10.N500.D100  11  6  7  4  
+T12.L10.N500.D100  13  7  7  4  
+
+
+
+perform an efficiency assessment of target algorithms. Consequently, these parameters are set as follows. 
+1. 
+If the average transaction length is 2, n is set to 2 and tm is 65%. 
+
+2. 
+If the average transaction length is 8~10, n = 4 and tm = 80%. 
+
+3. 
+The user-specified threshold of	 transaction length tl depends on the database used (Table V). In the first set of experiments, T2.L10.N500.D100K databases are used to compare the efficiency of the Multilevel-Search, Pincer-Search, and Parameterised algorithms. The average transaction length is 2. Fig. 5 shows that the Multilevel-Search algorithm performs better than the other 
+
+
+two algorithms for short maximal frequent itemsets. Here, multilevel and multilayer are used interchangeably. 
+
+The average length of transactions in T8.L10.N500.D100K datasets is 8 (Fig. 6). With the minimal support of 10%, the difference in execution time is not significant between Multilevel-search and Pincer-search algorithms, while the Parameterised algorithm performs poorly. When minimal support increases, fewer candidates of frequent itemsets are found, and the performance of the Multilevel-search and Parameterised algorithms increases. When minimal support is doubled to 20%, execution time of the Parameterised algorithm is less than that of the Pincer-Search algorithm while the Multilevel-search algorithm remains best. 
+The average length of transactions in T10.L10.N500.. D100K dataset is 10 (Fig. 7). When minimum support is 20%, the Multilevel-Search algorithm is over two times faster than the other two algorithms. Due to the efficiency of going up or down multiple levels in one pass, the Multilevel-search algorithm is the overall winner. 
+Using the databases T12.L10.N500.D100K (Fig. 8), experiment results show that the efficiency of the Multilevel-Search and Pincer-Search algorithms are similar, as both use the top-down approach to find the maximal frequent itemsets and improve their efficiency. 
+Since the goal in this paper is to find efficient solutions for long patterns, the times taken by database scans and the number of candidate itemsets for databases when T is 8, 10, and 12 are examined in detail. Experiment results (Tables VI and VII) show that the Multilevel-Search algorithm has the best performance for total times the database is scanned and the total number of candidate itemsets. Although the Pincer-search generates less candidate itemsets in two instances (Table VII), the Multilevel-Search algorithm is still the overall  
+
+TABLE VII THE AVERAGE NUMBER OF CANDIDATE ITEMSETS (MINSUP =20%) 
+The average length of transactions  Pincer-search  Parame-terised  Multilevel-Search  
+8  258  338  280  
+10  913  1356  782  
+12  1117  1778  1421  
+
+TABLE VIII 
+COMPARISON OF AVERAGE EXECUTION TIME (SECONDS) 
+
+Algorithm (minsup=20%)  The average length of  Average time 
+8  10  12  
+Pincer-Search  1885.48  3155.97  5155.97  3399.14  
+Parameterised  924.30  6157.23  9157.23  5412.92  
+Multilevel-Search  642.29  1290.64  3290.64  1741.19  
+
+TABLE IX 
+THE RATIO OF IMPROVEMENT IN TERMS OF EXECUTION TIME 
+
+
+Algorithm (minsup=20%)  The average length of transactions  Average ratio  
+8  10  12  
+Pincer-Search/ Multilevel-Search  2.94  2.45  1.57  2.32  
+Parameterised/ Multilevel-Search  1.44  4.77  2.78  2.99  
+[2] 	
+J. Han and M. Kamber, ¡°Data Mining: Concepts and Techniques,¡± Burlington: Morgan Kaufmann, 2011. 
+
+
+
+winner because the extra candidate itemsets come from the recovery procedure and no data scan is involved. 
+To assess the performance of these algorithms, this paper compares the average execution times for three kinds of databases with the minimal support of 20% and the experiments are performed fifteen times for each algorithm. Table VIII shows the average execution time with the transaction lengths of T = 8, 10, and 12. To elucidate the data in Table VIII, Table IX shows clearly that the Multilevel-Search algorithm is 2.32 times faster than the Pincer-Search algorithm and 2.99 times faster than the Parameterised algorithm. Separate data for the ratio of improvement in terms of transaction lengths of T = 8, 10, and 12 are also presented. 
+VI. CONCLUSIONS AND FUTURE WORK 
+This paper proposes a novel Multilevel-Search algorithm to mine efficiently long association rules. Using the concept of predicting frequent and infrequent itemsets by parameter settings, this Multilevel-Search algorithm combines the top-down search mechanism from the Pincer-Search algorithm and bottom-up multilevel searching from the Parameterised algorithm to rapidly identify maximal frequent itemsets. After finding the maximal frequent itemsets, the algorithm can also generate all frequent itemsets. This method is especially useful when an itemset is long. Experimental results verify that the proposed algorithm is faster than the Parameterised and Pincer-Search algorithms. 
+However, the Multilevel-Search algorithm has room for improvement in its prediction mechanism. The effects of settings for parameters n, tm, tl can be determined with further study. Experiments showed that prediction accuracy declines when too many levels are scanned in one pass. This also produces a large number of candidate itemsets. Better prediction accuracy will reduce the number of redundant candidate itemsets and the number of database scans. In the future, it is planned to use a statistical approach to improve the prediction mechanism and apply parallel computing [14] for better performance.  
+ACKNOWLEDGMENT 
+This work was supported in part by the Ministry of Science and Technology, Taiwan, under grants MOST 104-2221-E-035-089 and MOST 104-2218-E-035-012. 
+REFERENCES 
+[1] 	M. S. Chen, J. Han, and P. S. Yu, ¡°Data Mining: An Overview from a Database Perspective,¡± IEEE Transactions on Knowledge and Data Engineering, vol. 8, no. 6, pp. 866-883, 1996. 
+[3] 	
+J. Dong and M. Han, ¡°BitTableFI: An Efficient Mining Frequent Itemsets Algorithm,¡± Knowledge-Based Systems, vol. 20, no. 4, pp. 329-335, 2007. 
+
+[4] 	
+R. Agrawal and R. Srikant, ¡°Fast Algorithm for Mining Association Rules in Large Databases,¡± in Proc. of the 20th International Conference on Very Large Data Bases, Santiago, 1994, pp. 487-499. 
+
+[5] 	
+Y. Tsay and J. Chiang, ¡°CBAR: An Efficient Method for Mining Association Rules,¡± Knowledge-Based Systems, vol. 18, no. 2-3, pp. 99-105, 2005. 
+
+[6] 	Irina Tudor, Association rule mining as a data mining technique, BULETINUL universitatii Petrol-Gaze din. Ploiesti, vol. LX, no. 1, page 49-56, 2008. 
+[7] 	P. Dong and B. Chen, ¡°New Algorithm of Maximum Frequent Itemsets for Mining Multiple-Level Association Rules,¡± in Proc. of the 3rd International Conference on Innovative Computing Information and Control (ICICIC'08 Proceedings), 2008, pp. 332-335. 
+[8] 	D. Burdick, M. Calimlim, and J. Gehrke, ¡°Mafia: A maximal frequent itemset algorithm for transactional databases,¡± in Proc. of the 17th International Conference on Data Engineering (ICDE 2001), Heidelberg, Germany, 2001, pp. 443-452. 
+[9] 	D. Burdick, M. Calimlim, J. Flannick, J. Gehrke, and T. Yiu, ¡°MAFIA: A Performance Study of Mining Maximal Frequent Itemsets,¡± in Proc. of the 2003 Workshop on Frequent Itemset Mining Implementations (FIMI'03), Melbourne, Florida, November 2003. 
+[10] 	D. Lin and Z.M. Kedem, ¡°Pincer-search: An Efficient Algorithm for Discovering the Maximum Frequent Set,¡± IEEE Transactions on Knowledge and Data Engineering, vol. 14, no. 3, pp. 553-566, 2002. 
+[11] 	N. Denwattana and J.R. Getta, ¡°A Parameterised Algorithm for Mining Association Rules,¡± in Proc. of the 12th Australasian Database Conference, 2001, pp. 45-51. 
+[12] T. P. Hong, C. Y. Horng, C. H. Wu, and S. L. Wang, ¡°An improved data mining approach using predictive itemsets,¡± Expert Systems with Applications, vol. 36, no. 1, pp. 72-80, 2009. 
+[13] Z. Abdullah, T. Herawan, and M. M. Deris, ¡°Mining Highly Correlated Least Association Rules Using Scalable Trie-Based Algorithm,¡± Journal of the Chinese Institute of Engineers, vol. 35, no. 3, pp. 547-554, 2012. 
+[14] 	C. Yeh, ¡°Big Data Mining with Parallel Computing: A Comparison of Distributed and MapReduce Methodologies,¡± Master thesis, Dept. of Information Management, National Central University, Taiwan, 2015 
+
+
+FiDoop-DP: Data Partitioning in Frequent 
+Itemset Mining on Hadoop Clusters 
+
+Yaling Xun, Jifu Zhang, Xiao Qin, Senior Member, IEEE, and Xujun Zhao 
+Abstract—Traditional parallel algorithms for mining frequent itemsets aim to balance load by equally partitioning data among a group of computing nodes. We start this study by discovering a serious performance problem of the existing parallel Frequent Itemset Mining algorithms. Given a large dataset, data partitioning strategies in the existing solutions suffer high communication and mining overhead induced by redundant transactions transmitted among computing nodes. We address this problem by developing a data partitioning approach called FiDoop-DP using the MapReduce programming model. The overarching goal of FiDoop-DP is to boost the performance of parallel Frequent Itemset Mining on Hadoop clusters. At the heart of FiDoop-DP is the Voronoi diagram-based data partitioning technique, which exploits correlations among transactions. Incorporating the similarity metric and the Locality-Sensitive Hashing technique, FiDoop-DP places highly similar transactions into a data partition to improve locality without creating an excessive number of redundant transactions. We implement FiDoop-DP on a 24-node Hadoop cluster, driven by a wide range of datasets created by IBM Quest Market-Basket Synthetic Data Generator. Experimental results reveal that FiDoop-DP is conducive to reducing network and computing loads by the virtue of eliminating redundant transactions on Hadoop nodes. FiDoop-DP signi.cantly improves the performance of the existing parallel frequent-pattern scheme by up to 31 percent with an average of 18 percent. 
+Index Terms—Frequent itemset mining, parallel data mining, data partitioning, mapreduce programming model, hadoop cluster 
+. 
+1INTRODUCTION 
+
+T
+RADITIONAL parallel Frequent Itemset Mining techni-1.1 Motivations ques (a.k.a., FIM) are focused on load balancing; data The following three observations motivate us to develop are equally partitioned and distributed among computing FiDoop-DP in this study to improve the performance of nodes of a cluster. More often than not, the lack of analysis FIM on high-performance clusters. 
+of correlation among data leads to poor data locality. The . There is a pressing need for the development of par-absence of data collocation increases the data shuf.ing costs allel FIM techniques. 
+and the network overhead, reducing the effectiveness of . The MapReduce programming model is an ideal data partitioning. In this study, we show that redundant data-centric mode to address the rapid growth of transaction transmission and itemset-mining tasks are likely big-data mining. 
+to be created by inappropriate data partitioning decisions. 
+. Data partitioning in Hadoop clusters play a critical As a result, data partitioning in FIM affects not only net-role in optimizing the performance of applications work traf.c but also computing loads. Our evidence shows processing large datasets. 
+that data partitioning algorithms should pay attention to 
+Parallel frequent itemset mining. Datasets in modern data 
+network and computing loads in addition to the issue of mining applications become excessively large; therefore, load balancing. We propose a parallel FIM approach called improving performance of FIM is a practical way of signi.-FiDoop-DP using the MapReduce programming model. 
+cantly shortening data mining time of the applications.
+The key idea of FiDoop-DP is to group highly relevant Unfortunately, sequential FIM algorithms running on a sin-transactions into a data partition; thus, the number of gle machine suffer from performance deterioration due to redundant transactions is signi.cantly slashed. Importantly, limited computational and storage resources [1], [2]. To .ll we show how to partition and distribute a large dataset the deep gap between massive amounts of datasets and across data nodes of a Hadoop cluster to reduce network sequential FIM schemes, we are focusing on parallel FIM and computing loads induced by making redundant trans-algorithms running on clusters. 
+actions on remote nodes. FiDoop-DP is conducive to speed-
+The mapreduce programming model. MapReduce—a highly 
+ing up the performance of parallel FIM on clusters. 
+scalable and fault-tolerant parallel programming model— facilitates a framework for processing large scale datasets 
+
+. Y. Xun, J. Zhang, and X. Zhao are with the Taiyuan University of Science by exploiting parallelisms among data nodes of a cluster [3], and Technology, Taiyuan, Shanxi 030024, China. 
+[4]. In the realm of big data processing, MapReduce has 
+E-mail: {xunyl55, zxj}@126.com, jifuzh@sina.com. 
+been adopted to develop parallel data mining algorithms, 
+
+. X. Qin is with the Department of Computer Science and Software Engineering, Samuel Ginn College of Engineering, Auburn University, including Frequent Itemset Mining (e.g., Apriori-based [5], AL 36849-5347. E-mail: xqin@auburn.edu. [6], FP-Growth-based [7], [8], as well as other classic associa-
+Manuscript received 14 July 2015; revised 21 Apr. 2016; accepted 22 Apr. tion rule mining [9]). Hadoop is an open source implemen-2016. Date of publication 28 Apr. 2016; date of current version 14 Dec. 2016. tation of the MapReduce programming model [10]. In this Recommended for acceptance by D. Trystram. 
+study, we show that Hadoop cluster is an ideal computing 
+For information on obtaining reprints of this article, please send e-mail to: 
+framework for mining frequent itemsets over massive and 
+
+reprints@ieee.org, and reference the Digital Object Identi.er below. 
+Digital Object Identi.er no. 10.1109/TPDS.2016.2560176 distributed datasets. 
+
+1045-9219 1 2016 IEEE. Personal use is permitted, but republication/redistribution requires IEEE permission. See http://www.ieee.org/publications_standards/publications/rights/index.html for more information. 
+
+Fig. 1. A motivational example of items grouping and data partitioning. 
+Data partitioning in hadoop clusters. In modern distributed systems, execution parallelism is controlled through data partitioning which in turn provides the means necessary to achieve high ef.ciency and good scalability of distributed execution in a large-scale cluster. Thus, ef.cient perfor-mance of data-parallel computing heavily depends on the effectiveness of data partitioning. Existing data partitioning solutions of FIM built in Hadoop aim at balancing computa-tion load by equally distributing data among nodes. How-ever, the correlation between the data is often ignored which will lead to poor data locality, and the data shuf.ing costs and the network overhead will increase. We develop FiDoop-DP, a parallel FIM technique, in which a large data-set is partitioned across a Hadoop cluster’s data nodes in a way to improve data locality. 
+1.2 Data Partitioning Problems Solved in FiDoop-DP 
+In Hadoop clusters, the amount of transferred data during the shuf.ing phase heavily depends on localities and bal-ance of intermediate results. Unfortunately, when a data partitioning scheme partitions the intermediate results, data locality and balance are completely ignored. In the existing Hadoop-based FIM applications [7], [8], [11], the traditional data partitioning schemes impose a major performance problem due to the following reasons: 
+Conventional wisdoms in data partitioning aim to yield balanced partitions using either a hash function or a set of equally spaced range keys [12], [13]. Interestingly, we dis-cover that excessive computation and network loads are likely to be caused by inappropriate data partitions in paral-lel FIM. Fig. 1 offers a motivational example showing vari-ous item grouping and data partitioning decisions and their effects on communication and computing load. In Fig. 1, each row in the middle table represents a transaction (i.e., a total of ten transactions); twelve items (e.g., f, c, a, etc.) are managed in the transaction database (see the left-hand and right-hand columns in Fig. 1). Note that the two columns indicate two grouping strategies divided by a midline. The traditional grouping strategy evenly groups the items into two groups by descending frequency (see the column on the left-hand side of Fig. 1). Unfortunately, this grouping decision forces all the transactions to be transmitted to the two partitions prior to being processed. We argue that such a high transaction-transfer overhead can be reduced by making a good tradeoff between cross-node network traf.c and load balancing. 
+In a multi-stage parallel process of mining frequent item-sets, redundant mining tasks tend to occur in later stages. It is more often than not dif.cult to predict such redundant tasks before launching the parallel mining program. Hence, existing data partitioning algorithms that performed prior to the parallel mining process are inadequate for solving the problem of redundant tasks. 
+
+
+1.3 Basic Ideas 
+The overarching goal of FiDoop-DP is to boost the perfor-mance of parallel FIM applications running on Hadoop clusters. This goal is achieved in FiDoop-DP by reducing network and computing loads through the elimination of redundant transactions on multiple nodes. To alleviate the excessive network load problem illustrated in Fig. 1, we show that discovering correlations among items and trans-actions create ample opportunities to signi.cantly reduce the transaction transfer overhead (see the column on the right-hand side of Fig. 1). This new grouping decision makes it possible to construct small FP trees, which in turn lower communication and computation cost. 
+We incorporate the data partitioning scheme into Hadoop-based frequent-pattern-tree (FP-tree) algorithms. In addition to FP-tree algorithms (e.g., FP-Growth [14] and FUIT [15]), other FIM algorithms like Apriori [5], [6] can bene.t from our data partitioning idea (see further discus-sions in Section 8). Fig. 2 outlines the typical process .ow (see also [11]) adopted by our FiDoop-DP, which consists of four steps. In this process .ow, we optimize the data parti-tioning strategy of the second MapReduce job, because it is the most complicated and time-consuming job in FiDoop-DP. In the second MapReduce job, the mappers divide fre-quent 1-itemsets (FList in Fig. 2) into Q groups, while simul-taneously assigning transactions to computing nodes based on the grouping information. Then, the reducers concur-rently perform mining tasks for the partitioned groups. 
+
+
+Fig. 2. The process .ow of Pfp implemented in Mahout. 
+
+In the mappers of the second MapReduce job, we propose a novel way of incorporating LSH (a.k.a., Locality Sensitive Hashing) scheme into Voronoi diagram-based partitioning, thereby clustering similar transactions together and deter-mining correlation degrees among the transactions. Next, frequent items produced by the .rst MapReduce job are grouped according to the correlation degrees among items, and transactions are partitioned. This frequent-items group-ing and partitioning strategy is capable of reducing the num-ber of redundant transactions kept on multiple nodes and, as a result, both data transmission traf.c and redundant com-puting load are signi.cantly decreased. 
+
+
+1.4 Contributions 
+We summarize the main contributions of this study as follows: 
+. 	
+In the context of FIM, we design an ef.cient data partitioning scheme, which facilitates an analysis of correlations among transactions to reduce net-work and computing load. Our scheme prevents transactions from being repeatedly transmitted across multiple nodes. 
+
+. 	
+We implement the above data partitioning scheme by integrating Voronoi-diagram with LSH (Locality-Sensitive Hashing). 
+
+. 	
+To validate the effectiveness of our approach, we develop the FiDoop-DP prototype, where the data partitioning scheme is applied to a Hadoop-based FP-Growth algorithm. 
+
+. 	
+We conduct extensive experiments using synthetic datasets to show that FiDoop-DP is robust, ef.cient, and scalable on Hadoop clusters. 
+
+
+
+1.5 Roadmap 
+The remainder of this paper is organized as follows. Sec-tion 2 describes the background knowledge. Section 3 sum-marizes the traditional solutions and formulates the data partitioning problem. Section 4 presents the design issues of FiDoop-DP built on the MapReduce framework, followed by the implementation details in Section 5. Section 6 evalu-ates the performance of FiDoop-DP on a real-world cluster. Section 7 discusses the related work. Finally, Sections 8 and 9 conclude the paper with future research directions. 
+2PRELIMINARIES 
+In this section, we .rst brie.y review FIM. Then, to facilitate the presentation of FiDoop-DP, we introduce the Map-Reduce programming framework. Finally, we summarize the basic idea of Parallel FP-Growth Algorithm—Pfp [11] which has been implemented in mahout [16]. We use Pfp as a case study to demonstrate that data partitioning can help in improving the performance of FIM. 
+
+2.1 Frequent Itemset Mining 
+Frequent Itemset Mining is one of the most critical and time-consuming tasks in association rule mining (ARM), an often-used data mining task, provides a strategic resource for decision support by extracting the most important frequent patterns that simultaneously occur in a large transaction database. A typical application of ARM is the famous market basket analysis. 
+In FIM, support is a measure de.ned by users. An item-set X has support s if s% of transactions contain the itemset. We denote s .supporteXT; the support of the rule X )Y is supporteX [Y T. Here X and Y are two itemsets, and X \Y .;. The purpose of FIM is to identify all frequent itemsets whose support is greater than the minimum sup-port. The .rst phase is more challenging and complicated than the second one. Most prior studies are primarily focused on the issue of discovering frequent itemsets. 
+
+2.2 MapReduce Framework 
+MapReduce is a popular data processing paradigm for ef.-cient and fault tolerant workload distribution in large clus-ters. A MapReduce computation has two phases, namely, the Map phase and the Reduce phase. The Map phase splits an input data into a large number of fragments, which are evenly distributed to Map tasks across a cluster of nodes to process. Each Map task takes in a key-value pair and then generates a set of intermediate key-value pairs. After the MapReduce runtime system groups and sorts all the inter-mediate values associated with the same intermediate key, the runtime system delivers the intermediate values to Reduce tasks. Each Reduce task takes in all intermediate pairs associated with a particular key and emits a .nal set of key-value pairs. MapReduce applies the main idea of moving computation towards data, scheduling map tasks to the closest nodes where the input data is stored in order to maximize data locality. 
+Hadoop is one of the most popular MapReduce imple-mentations. Both input and output pairs of a MapReduce application are managed by an underlying Hadoop distrib-uted .le system (HDFS [17]). At the heart of HDFS is a sin-gle NameNode a master server managing the .le system namespace and regulates .le accesses. The Hadoop runtime system establishes two processes called JobTracker and TaskTracker. Job-Tracker is responsible for assigning and scheduling tasks; each TaskTracker handles mappers or reducers assigned by JobTracker. 
+When Hadoop exhibits an overwhelming development momentum, a new MapReduce programming model Spark attracts researchers’ attention [18]. The main abstraction in Spark is a resilient distributed dataset (RDD), which offers good fault tolerance and allows jobs to perform computa-tions in memory on large clusters. Thus, Spark becomes an attractive programming model to iterative MapReduce algorithms. We decide to develop FiDoop-DP on Hadoop clusters; in a future study, we plan to extend FiDoop-DP to Spark to gain further performance improvement. 
+
+
+2.3 Parallel FP-Growth Algorithm 
+In this study, we focus on a popular FP-Growth algorithm called Parallel FP-Growth or Pfp for short [11]. Pfp imple-mented in Mahout [16] is a parallel version of the FP-Growth algorithm [2]. Mahout is an open source machine learning library developed on Hadoop clusters. FP-Growth ef.ciently discovers frequent itemsets by constructing and mining a compressed data structure (i.e., FP-tree) rather than an entire database. Pfp was designed to address the syn-chronization issues by partitioning transaction database into independent partitions, because it is guaranteed that each partition contains all the data relevant to the features (or items) of that group. 
+
+Given a transaction database DB, Fig. 2 depicts the pro-cess .ow of Parallel FP-Growth implemented in Mahout. The parallel algorithm consists of four steps, three of which are MapReduce jobs. 
+Step 1. Parallel counting: The .rst MapReduce job counts the support values of all items residing in the database to dis-cover all frequent items or frequent 1-itemsets in parallel. It is worth noting that this step simply scans the database once. 
+Step 2. Sorting frequent 1-itemsets to FList: The second step sorts these frequent 1-itemsets in a decreasing order of fre-quency; the sorted frequent 1-itemsets are cached in a list named FList. Step 2 is a non-MapReduce process due to its simplicity as well as the centralized control. 
+Step 3. Parallel FP-growth: This is a core step of Pfp, where the map stage and reduce stage perform the following two important functions. 
+. 	
+Mapper—Grouping items and generating group-depen-dent transactions. First, the Mappers divide all the items in FList into Q groups. The list of groups is referred to as group list or GList, where each group is assigned a unique group ID (i.e., Gid). Then, the transactions are partitioned into multiple groups according to GLists. That is, each mapper outputs one or more key-value pairs, where a keys is a group ID and its corresponding value is a generated group-dependent transaction. 
+
+. 	
+Reducer—FP-Growth on group-dependent partitions. 
+
+
+local FPGrowth is conducted to generate local fre-
+quent itemsets. Each reducer conducts local 
+FPGrowth by processing one or more group-depen-
+dent partition one by one, and discovered patterns 
+are output in the .nal. 
+Step 4. Aggregating: The last MapReduce job produces .nal results by aggregating the output generated in Step 3. 
+The second MapReduce job (i.e., Step 3) is a performance bottleneck of the entire data mining process. The map tasks apply a second-round scan to sort and prune each transac-tion according to FList, followed by grouping the sorted frequent 1-itemsets in FList to form group list GList. Next, each transaction is placed into a group-dependent data par-tition; thus, multiple data partitions are constructed. Each data partition corresponds to a group identi.ed by Gid. 
+The above partitioning approach ensures data complete-ness with respect to one group of GList. A downside is that such data completeness comes at the cost of data redundancy, because a transaction might have duplicated copies in multi-ple data partitions. Not surprisingly, the data redundancy in data partitions are inevitable, because independence among the partitions has to be maintained to minimize synchroniza-tion overhead. Redundant transactions incur excessive data transfer cost and computing load of local FP-Growth. 
+3PROBLEM STATEMENT 
+
+
+3.1 Baseline Methods and Problems 
+Evidence [7] shows that most existing parallel FP-Growth algorithms basically followed the work.ow plotted in Fig. 2, where the second MapReduce job is the most performance critical and time-consuming among the four steps. Experiment results reported in [7] suggest that (1) local FP-Growth cost accounts for more than 50 percent of the overall mining time and (2) the grouping strategy plays the most important role in affecting subsequent data parti-tioning and local FP-Growth performance. 
+Reordered transactions are partitioned and assigned to corresponding reducers, each of which inserts the transac-tions into an FP-tree using the grouping strategy. That is, the grouping strategy not only directly governs the amount of transferred data in the partitioning stage, but also affects computing load of the local FP-Growth stage. To alleviate the problem of expensive grouping, we propose to cluster input data prior to running the grouping and partitioning stages. Our input data partitioning policy takes into account the correlations among transactions to optimize the group-ing process. 
+A straightforward MapReduce-based FIM method is to adopt the default data partitioning policy implemented in Hadoop; then, a simple grouping strategy (see [11]) is applied. The grouping strategy .rst computes group size, which equals to the total number of frequent 1-itemsets in FList divided by number of groups. 
+Let GListi be a set of items that belong to the ith group of GList. One can easily determine what items should be included in set GListi ei> 0Tby evenly distributing all the items into the groups. Speci.cally, the .rst item in GListi is 
+Pi:1
+the jth item in FList; j is calculated as ejGListi jTt1.
+i.0 
+Shuf.ing cost and computing load are not intentionally reduced in existing parallel FIM algorithms such as the Pfp algorithm implemented in Mahout. 
+An improvement to the aforementioned grouping and partitioning strategy is to incorporate a load balancing feature in Pfp (see, for example, the balanced parallel FP-Growth algorithm or BPFP [7]). BPFP divides all the items in FList into Q groups in a way to balance load among computing nodes during the entire mining process. BPFP estimates min-ing load using the number of recursive iterations during the course of FP-Growth execution, the input of which is condi-tional pattern bases of each item. The location of each item in FList is estimated to be the length of the longest path in the conditional pattern base. Meanwhile, the number of recursive iterations is exponentially proportional to the longest path in the conditional pattern base. Thus, the load of item i can be estimated as Ti .logLi,where Ti represents the estimated load and Li represents the location of item i in FList.As can be seen from the aforementioned description, BPFP only con-cerns the balance of CPU resource for each node by evenly dividing all computing load among the Q groups. However, Fig. 2 shows when one partitions items into grouped without considering the correlation among transactions, an excessive number of duplicated transactions must be transmitted among the nodes in order to guarantee data completeness with respect to each group. In other words, the number of transferred transactions coupled with participating comput-ing inevitably increases; thus, data transfer overhead (i.e., shuf.ing cost) and FIM load tend to be signi.cant. 
+
+
+3.2 Design Goals 
+FiDoop-DP aims to partition input transactions (1) to reduce the amount of data transferred through the network during the shuf.e phase and (2) to minimize local mining load. Recall that high shuf.ing cost and local mining load are incurred by redundant transactions. In what follows, we formally state the design goal of Fidoop-DP. 
+
+Let the input data for a MapReduce job be a set of trans-actions D .ft1;t2; ... ;tngand function DBPart : D !C partitions D into a set of chunks C .fC1;C2; ... ;Cpg. Cor-respondingly, map tasks M .fm1;m2... ;mpgand reduce tasks R .fr1;r2:::; rqgare running on a cluster. We denote a set of intermediate key-value pairs produced by the mappers as I .feG1;D1T; ... ; eGm;DmT, in which Di represents the collection of transactions belonging to group Gi. Intuitively, we have outputemiTcI and inputeriTcI, where outputemiT and inputeriTrespectively represent a set of intermediate pairs produced by map task mi and a set of intermediate pairs assigned to reduce task ri. After Map tasks are com-pleted, the shuf.e phase applies the default partitioning function to assign intermediate key-value pairs to reduce tasks according to the keys (i.e., Gi)of outputemiT. In this pro-cess, if intermediate key-value pair (eGi;DiT) is partitioned into a reducer running on a remote node, then intermediate data shuf.ing will take place. Let SeGiTand T eGiTbe a source node and a target node, respectively. We have 
+ 
+1;SeGiT6
+.T eGiT 
+pi . (1)
+0; Otherwise.
+where pi is set to 0 when the intermediate pair is produced on a local node running the corresponding reduce task; oth-erwise, pi is set to 1. 
+The design goal of FiDoop-DP is to partition transactions in a way to minimize the data transfer cost. Applying (1), we formally express the design goal as: 
+X
+m 
+Minimize: Di ×pi: (2)
+i.1 
+4DATA PARTITIONING 
+FIM is a multi-stage parallel process, where redundant transactions transmission and redundant mining tasks occur in the second MapReduce job. Recall that (see Section 3.1) it is a grand challenge to avoid these downsides by using traditional grouping strategies and default partition-ing function. And transferring redundant transactions is a main reason behind high network load and redundant min-ing cost. To solve this problem, we propose to partition transactions by considering correlations among transactions and items prior to the parallel mining process. That is, transactions with a great similarity are partitioned into one partition in order to prevent the transactions from being repeatedly transmitted to remote nodes. We adopt the Voro-noi diagram-based data partitioning technique [19], which is conducive to maintaining data proximity, especially for multi-dimensional data. Therefore, when the second Map-Reduce job is launched, a new Voronoi diagram-based data partitioning strategy is deployed to minimize unnecessary redundant transaction transmissions. 
+Voronoi diagram is a way of dividing a space into a num-ber of regions. A set of points referred to as pivots (or seeds) is speci.ed beforehand. For each pivot, there is a corre-sponding region consisting of all objects closer to it than to the other pivots. The regions are called Voronoi cells. The idea of Voronoi diagram-based partitioning can be formally described as follows. Given a dataset D, Voronoi diagram-based partitioning selects k objects as pivots (donated p1;p2; ... ;pk). Then, all objects of D are split into k disjoint partitions (donated C1;C2; ... ;Ck), where each object is assigned to the partition with its closest pivot. In this way, the entire data space is split into k cells. 
+Incorporating the characteristic of FIM, we adopt the simi-larity as the distance metric between transaction and pivot (or between two transactions) in Voronoi diagram (see Sec-tion 4.1 for details). In addition, Voronoi diagram-based par-titioning relies on a way of selecting a set of pivots. Thus, in what follows, we investigate distance measure and pivot-selection strategies, followed by partitioning strategies. 
+
+
+4.1 Distance Metric 
+Recall that to optimize FIM, a good partitioning strategy should cluster similar data objects to the same partition. Sim-ilarity is a metric to quantitatively measure the correlation strength between two objects. To capture the characteristics of transactions, we adopt the Jaccard similarity as a distance metric. Jaccard similarity is a statistic commonly used for comparing the similarity and diversity of sample data objects. A high Jaccard similarity value indicates that two data sets are very close to each other in terms of distance. 
+In order to quantify the distance among transactions, we model each transaction in a database as a set. Then, the dis-tance among transactions is measured using the Jaccard similarity among these sets. The Jaccard similarity of two sets A and B is de.ned as 
+jA \Bj
+JeA; BT.: (3)
+jA [Bj 
+Obviously, JeA; BTis a number ranging between 0 and 1; it is 0 when the two sets are disjoint, 1 when they are identi-cal, and strictly between 0 and 1 otherwise. That is, the dis-tance between two sets is close when their Jaccard index is closer to 1; if there is a large distance between the two sets, their Jaccard index is closer to 0. 
+
+
+4.2 K-means Selection of Pivots 
+Intuitively, selecting pivots directly affects the uniformity coef.cient of the remaining objects for voronoi diagram-based partitioning. In particular, we employ the K-means-based selection strategy (see [19]) to choose pivots. And the pivot selecting process is conducted as a data preprocessing phase. 
+K-means is a popular algorithm for clustering analysis in data mining. K-means clustering aims to partition n objects into k clusters [20], [21]. That is, given a set of objects ex1;x2;;xnT, where each object is a d-dimensional real vec-tor, k-means clustering partitions the n objects into k (k?n) sets C .C1;C2;;Ck, in which each object belongs to a clus-ter with the nearest mean. The clustering results can be applied to partition the data space into Voronoi cells. To reduce the computational cost of k-means, we perform sampling on the transaction database before running the k-means algorithm. It is worth mentioning that the selection of initial pivots (a.k.a., seeds) plays a critical role in clustering performance. Thus, k-means++ [22]-an extension of k-means, is adopted to conduct pivots selection. After the k data clusters are generated, we choose the center point of each cluster as a pivot for the Voronoi diagram-based data partitioning. 
+
+
+4.3 Partitioning Strategies 
+Upon the selection of pivots, we calculate the distances from the rest of the objects to these pivots to determine a partition to which each object belongs. We develop the LSH-based strategy to implement a novel grouping and partitioning process, prior to which MinHash is employed as a founda-tion for LSH. 
+4.3.1 MinHash 
+MinHash offers a quick solution to estimate how similar two sets are [23]. MinHash is increasingly becoming a popular solution for large-scale clustering problems. MinHash replaces large sets by much smaller representations called “signatures” composed of “minhash” of the characteristic matrix (i.e., a matrix representation of data sets). Then, Min-Hash computes an expected similarity of two data sets based on the signatures. Thus, these two phases are detailed below. 
+First, a characteristic matrix is created from transactions and items in a database. Given a transaction database D .ft1;t2; ...;tng, which contains m items. We create an m-by-n characteristic matrix M, where columns represent transactions; rows denote items of the universal item set. Given item r (i.e., a row in the matrix) and transaction c (i.e., a column in the matrix), we set the value in position er; cTto 1 if item r is a member in transaction c; otherwise, the value of er; cTis set to 0. 
+Second, a signature matrix is constructed using the charac-teristic matrix obtained in the above step. Let h be a hash function mapping members of any set to distinct integers. Given a set T .fx1; ...;xng, we de.ne hmineT Tto be T’s member x, whose hash value (i.e., hexT) is the minimal one among all the hash values of the members in T. Thus, we have 
+hmineTT.x; where hexT.Minn ehexiTT: (4)
+i.1
+We randomly permute, for the .rst time, the rows of the characteristic matrix. For each column (e.g., ci representing a transaction), we compute the column’s hash value hmineciTusing (4). Then, the value in position e1;iTof the signature matrix is set to hmineciT. Next, we permute the rows of the characteristic matrix, for a second time, to deter-mine the value in position e2;iT(1?i?n). We repeatedly perform the above steps to obtain the value in position ej; iT, where j denotes the jth permutation as well as the jth row in the signature matrix; i indicates the ith column in the sig-nature matrix. 
+Finally, it is necessary to collect multiple (e.g., l) indepen-dent MinHash values for each column in M to form an l ×n 
+0 
+signatures matrix M . We make use of the signature matrix to calculate the similarity of any pair of two transactions. 
+Though MinHash is widely applied to estimate the simi-larity of any pair of two sets, the number of pairs in a large database D is likely to be very big. If we decide to conduct thorough pair-wise comparisons, the computing cost would be unsustainable. 
+
+
+4.3.2 LSH-Based Partitioning 
+Locality sensitive hashing, or LSH, boosts the performance of MinHash by avoiding the comparisons of a large number of element pairs [24], [25]. Unlike MinHash repeatedly evaluat-ing an excessive number of pairs, LSH scans all the transac-tions once to identify all the pairs that are likely to be similar. We adopt LSH to map transactions in the feature space to a number of buckets in a way that similar transactions are likely to be mapped into the same buckets. More formally, the local-ity sensitive Hash function family is de.ned as follows. 
+For Hash family H, if any two points p and q satisfy the following conditions, then H is called eR; c; P1;P2T-sensitive: 
+1) If kp :qk?R, then PrH ehepT.heqTT_P1. 
+
+2) 	If kp :qk?cR, then PrH ehepT.heqTT? P2. A family is interesting when P1 >P2. The above condition 1) ensures two similar points are 
+
+
+mapped into the same buckets with a high probability; con-dition 2) guarantees two d points are less likely to be mapped into the same buckets. 
+LSH has to make use of the MinHash signature matrix obtained in 4.3.1 (i.e., M0). Given the l ×n signature matrix M0, we design an effective way of choosing the hash family by dividing the signature matrix into b bands consisting of r rows, where b ×r .l. For each band, there is a hash function that takes the r integers (the portion of one column within that band) as a vector, which is placed into a hash bucket. 
+It relies on the use of a family of locality preserving hash functions, creating several hash tables that similar items with high probability are more likely to be hashed into the same bucket than dissimilar items [26]. From the way of establishing Hash Table, we obtain that the time complexity of lookup is O(1). 
+5IMPLEMENTATION DETAILS 
+In this section, we present the implementation details of LSH-based FiDoop-DP running on Hadoop clusters. Please refer to Fig. 2 for FiDoop-DP’s processing .ow, which con-sists of four steps (i.e., one sequential-computing step and three parallel MapReduce jobs) (see Section 2.3). Speci.-cally, before launching the FiDoop-DP process, a prepro-cessing phase is performed in a master node to select a set of (k) pivots which serve as an input of the second MapRe-duce job that is responsible for the Voronoi diagram-based partitioning (see Section 4.2). 
+In the .rst MapReduce job, each mapper sequentially reads each transaction from its local input split on a data node to generate local 1-itemsets. Next, global 1-itemsets are produced by a speci.c reducer, which merges local 1-itemsets sharing the same key (i.e., item name). The out-put of these reducers include the global frequent 1-itemsets along with their counts. The second step sorts these global frequent 1-itemsets in a decreasing order of frequency; the sorted frequent 1-itemsets are saved in a cache named FList, which becomes an input of the second MapReduce job in FiDoop-DP. 
+The second MapReduce job applies a second-round scan-ning on the database to repartition database to form a com-plete dataset for item groups in the map phase. Each reducer conducts local FP-Growth based on the partitions to generate all frequent patterns. 
+
+The last MapReduce job aggregates the second MapRe-duce job’s output (i.e., all the frequent patterns) to generate the .nal frequent patterns for each item. For example, the output of the second MapReduce job includes three fre-quent patterns, namely, ‘abc’, ‘adc’, and ‘bdc’. Using these three frequent patterns as an input, the third MapReduce job creates the .nal results for each item as ‘a: abc,adc’, ‘b: abc,bdc’, ‘c: abc,adc,bdc’, and ‘d: adc,bdc’. 
+We pay attention to the second MapReduce job and the reason is three-fold. First, at the heart of FiDoop-DP is the construction of all frequent patterns, which is implemented in the second MapReduce job. Second, this MapReduce job is more complicated and comprehensive than the .rst and the third ones. Third, this job plays a vital role in achieving high performance of FiDoop-DP. To optimize the perfor-mance of Pfp, we make an improvement in the second Map-Reduce job by incorporating the Voronoi diagram-based partitioning idea. In what follows, we elaborate the algo-rithm for the second MapReduce job. 
+Given a set of k pivots (p1;p2; ...;pk) selected in the pre-processing step, we perform item grouping and data parti-tioning using statistical data collected for each partition. Algorithm 1 is an LSH-based approach that integrates the item grouping (see Step 3) and partitioning processes (see Steps 4-20). 
+In Algorithm 1, each mapper takes transactions as an input in the format of PairhLongWritableoffset; Textrecordi (see Step 1). The mappers concurrently load FList to .lter infrequent items of each transaction (see Step 2). Mean-while, FList is divided into Q groups (i.e., GLists) by deter-mining similarity among items and the given pivots (P1;P2; ...;Pk); each GList consists of Gid and the collection of items in the group (see Step 3). Then, each “record”, including the pivots (P1;P2; ...;Pk), Ti is transformed into a set, followed by applying the minhash function to generate a column ci of signatures matrix (see Steps 4-12 and algo-rithm 2). LSH is carried out using the above signature matrix M0 (l ×n) (see Steps 13-16). M0 is divided into b bands, each of which contains r rows (where b ×r .l). Then, these bands are hashed to a number of hash buckets; each hash bucket contains similar transactions (see Step 15). 
+Below we show the rationale behind applying LSH to determine similarity among transactions. Given two trans-actions (e.g., T1 and T2), if there exists at least a pair of bands (e.g., b1 2T1 and b2 2T2) such that bands b1 and b2 are hashed into the same bucket, then transactions T1 and T2 are considered similar (see Step 17). Assume the similarity between two columns (denoted as c1;c2) of a signature matrix is p, then the probability that c1 and c2 are exactly the same in a band is pr; the probability that c1 and c2 are 
+r
+completely different with respect to all the b bands is 1:s. We show that if selecting appropriate values of b and r, transactions with a great similarity are mapped into one bucket with a very high probability. 
+If a band of Ti shares the same bucket with a band of Pj, we assign Ti to the partition labelled as Pj. We donate such an assignment in form of a pair PairhPj;Tii) (see Steps 18-19). At the end of the map tasks, GLists are checked to guar-antee the data completeness (Steps 21-24). 
+Finally, the mappers emit PairhPi;Tii to be shuf.ed and combined for the second job’s reducers, and reducers conduct local FP-Growth to generate the .nal frequent pat-terns of each item (see Steps 28-42). 
+Algorithm 1. LSH-Fpgrowth 
+Input: FList, k pivots, DBi; 
+Output: transactions corresponding to each Gid; 
+
+1: function MAP(key offset, values DBi) 
+2: 
+3: 
+4: 
+5: 
+6: 
+7: 
+8: 
+9: 
+10: 
+11: 
+12: 
+13: 
+14: 
+15: 
+16: 
+17: 
+18: 
+19: 
+20: 
+21: 
+22: 
+23: 
+24: 
+25: 
+26: 
+load FList, k pivots; 
+Glists GenerateGlistseFList; kpivotsT;/* based on the 
+correlation of each item in FList and k pivots */ 
+
+for all (T in DBi) do items.] SpliteeachT T; for all (item in items[]) do 
+if item is in FList then 
+a.] item 
+end if 
+end for 
+
+Add Generate-signature-matrix(a[]) into Arrarylist sigMatrix; 
+end for 
+for all (ci in sigMatrix ) do divide ci into b bands with r rows; Hashbucket HashMapeeach band of cieTT; 
+end for if at least one band of ci and pivot pj is hashed into the same bucket then 
+Gid j; 
+Output(Gid, new TransactionTree(a[i])); 
+
+end if for all each GListt(t 6
+.i) do 
+if ci contains an item in GListt then 
+Gid t 
+
+Output(Gid, new TransactionTree(a[i])); /* guaran-tee the data completeness for each GList */ 
+end if end for 
+27: end function 
+Input: transactions corresponding to each Gid; Output: frequent k-itemsets; 
+28: function REDUCE(key Gid, values DBGid) 
+29: 
+30: 
+31: 
+32: 
+33: 
+34: 
+35: 
+36: 
+37: 
+38: 
+39: 
+40: 
+41: 
+Load GLists; 
+nowGroup GListGid 
+localFptree.clear; for all (Ti in DBGid) do insert-build-fp-tree(localFptree, Ti); 
+end for 
+for all (ai in nowGroup ) do De.ne a max heap HP with size K; Call TopKFPGrowth(localFptree,ai,HP ); for all (vi in HP ) do 
+Output(vi, support(vi)); 
+end for end for 
+42: end function 
+During the process of generating the signature matrix, it is infeasible to permute a large characteristic matrix due to high time complexity. This problem is addressed by employing the Minwise Independent permutation [27] to speed up the process (see algorithm 2). Let h(x) be a permu-tation function on a set X, for an element x cX , the value permuted is hexT.minehex1T;hex2T; ...;hexnTT. When we 
+
+TABLE 1 Dataset 
+Parameters  Avg.length  #Items  Avg.Size/Transaction  
+T10I4D  10  4000  17.5B  
+T40I10D  40  10000  31.5B  
+T60I10D  60  10000  43.6B  
+T85I10D  85  10000  63.7B  
+
+obtain the signature matrix, the original high-dimensional data are mapped to a low-dimensional space. And the time complexity of subsequent operations is greatly reduced thanks to the above dimensions reduction. 
+6EXPERIMENTAL EVALUATION 
+We implement and evaluate the performance of FiDoop-DP on our in-house Hadoop cluster equipped with 24 data nodes. Each node has an Intel E5-1620 v2 series 3.7gHZ 4 core processor, 16G main memory, and runs on the Centos 
+6.4 operating system, on which Java JDK 1.8.0_20 and Hadoop 1.1.2 are installed. The hard disk of NameNode is con.gured to 500 GB; and the capacity of disks in each Data-Node is 2 TB. All the data nodes of the cluster have Gigabit Ethernet NICs connected to Gigabit ports on the switch; the nodes can communicate with one another using the SSH pro-tocol. We use the default Hadoop parameter con.gurations to set up the replication factor (i.e., three) and the numbers of Map and Reduce tasks. Our experimental results show that over 90 percent of the processing time is spent running the second MapReduce job; therefore, we focus on performance evaluation of this job in our experiments. 
+To evaluate the performance of the proposed FiDoop-DP, We generate synthetic datasets using the IBM Quest Market-Basket Synthetic Data Generator [28], which can be .exibly con.gured to create a wide range of data sets to meet the needs of various test requirements. The parameters’ characteristics of our dataset are summarized in Table 1. 
+
+
+
+6.1 The Number of Pivots 
+We compare the performance of FiDoop-DP and Pfp [11] when the number k of pivots varies from 20 to 180. Please note that k in FiDoop-DP corresponds to the number of groups in Pfp. Fig. 3 reveals the running time, shuf.ing cost, and mining cost of FiDoop-DP and Pfp processing the 4G 61-block T40I10D dataset on the 8-node cluster. 
+Fig. 3 shows that FiDoop-DP improves the overall performance of Pfp. Such performance improvements are contributed by good data locality achieved by Fidoop-DP’s analysis of correlation among the data. FiDoop-DP opti-mizes data locality to reduce network and computing loads by eliminating of redundant transactions on multiple nodes. As a result, FiDoop-DP is capable of cutting mining cost (see Fig. 3b) and data shuf.ing cost (see Fig. 3c). 
+Algorithm 2. Generate-signature-matrix 
+Input: a[]; 
+Output: signature matrix of a[]; 
+
+1: function GENERATE-SIGNATURE-MATRIX(a[]) 
+2: for (i=0; i < numHashFunctions;i++) do 
+3: minHashValues.i].Integer:MAX VALUE; 
+4: end for 
+5: for (i=0; i < numHashFunctions;i++) do 
+6: for all ele: a[] do 
+7: value IntegereeleT; 
+8: bytesToHash[0]=(byte)(value > > 24); 
+9: bytesToHash[1]=(byte)(value > > 16); 
+10: bytesToHash[2]=(byte)(value > > 8); 
+11: bytesToHash[3]=(byte)value); 
+12: hashIndex hashFunction.i]:hashebytesToHashT; 
+13: if (minHashValues.i]T > hashIndex then 
+14: minHashValues[i]=hashIndex; 
+15: end if 
+16: end for 
+17: end for 
+18: end function 
+Fig. 3a illustrates that the performance improvement of FiDoop-DP over Pfp becomes pronounced when the num-ber k of pivots is large (e.g., 180). A large k in Pfp gives rise to a large number of groups, which in turn leads to an exces-sive number of redundant transactions processed and trans-fers among data nodes. As such, the large k offers a great opportunity for FiDoop-DP to alleviate Pfp’s heavy CPU and network loads induced by the redundant transactions. 
+Interestingly, we observe from Fig. 3a that the overall run-ning times of the two algorithms are minimized when num-ber k is set to 60. Such minimized running times are attributed to (1) the FP-Growth mining cost plotted in Fig. 3b and (2) the shuf.ing cost shown in Fig. 3c. Figs. 3b and 3c illustrate that the mining cost and shuf.ing cost are minimized when parameter k becomes 60ina range from 20to180. 
+The running times, mining cost, and shuf.ing cost exhibit a U-shape in Fig. 3 because of the following reasons. To con-duct the local FP-Growth algorithm, we need to group fre-quent 1-itemsets followed by partitioning transactions based 
+
+
+Fig. 3. Impacts of the number of pivots on FiDoop-DP and Pfp. 
+
+
+Fig. 4. Impact of minimum support on FiDoop-DP and Pfp. 
+on items contained in each item group. When the number of pivots increases, the entire database is split into a .ner gran-ularity and the number of partitions increase correspond-ingly. Such a .ne granularity leads to a reduction in distance computation among transactions. On the other hand, when the pivot number k continues growing, the number of trans-actions mapped into one hash bucket signi.cantly increases, thereby leading to a large candidate-object set and high shuf-.ing cost (see Figs. 3b and 3c). Consequently, the overall exe-cution time is optimized when k is 60 for both algorithms (see Fig. 3a). 
+
+
+6.2 Minimum Support 
+Recall that minimum support plays an important role in mining frequent itemsets. We increase minimum support thresholds from 0.0005 to 0.0025 percent with an increment of 0.0005 percent to evaluate the impact of minimum sup-port on FiDoop-DP. The other parameters are the same as those for the previous experiments. 
+Fig. 4a shows that the execution times of FiDoop-DP and Pfp decrease when the minimum support is increasing. Intuitively, a small minimum support leads to an increasing number of frequent 1-itemsets and transactions, which have to be scanned and transmitted. Table 2 illustrates the size of frequent 1-itemsets stored in FList and the number of .nal output records of the two parallel solutions under various minimum-support values. 
+Fig. 4a reveals that regardless of the minimum-support value, FiDoop-DP is superior to Pfp in terms of running time. Two reasons make this performance trend expected. First, FiDoop-DP optimizes the partitioning process by plac-ing transactions with a high similarity into one group rather than randomly and evenly grouping the transaction. Fig. 4b con.rms that FiDoop-DP’s shuf.ing cost is signi.cantly lower than that of Pfp thanks to optimal data partitions offered by FiDoop-DP. Second, this grouping strategy in 
+TABLE 2 
+The Size of FList and the Number of Final Output Records 
+Under Various Minimum-Support Values 
+
+minsupport 0.0005% 0.001% 0.0015% 0.002% 0.0025% 
+FList 14.69k 11.6k 9.71k 6.89k 5.51k 
+OutRecords 745 588 465 348 278 
+
+FiDoop-DP minimizes the number of transactions for each GList under the premise of data completeness, which leads to reducing mining load for each Reducer. The grouping strat-egy of FiDoop-DP introduces computing overhead including signature-matrix calculation and hashing each band into a bucket. Nevertheless, such small overhead is offset by the performance gains in the shuf.ing and reduce phases. 
+Fig. 4a also shows that the performance improvement of FiDoop-DP over Pfp is widened when the minimum sup-port increases. This performance gap between FiDoop-DP and Pfp is reasonable, because pushing minimum support up in FiDoop-DP .lters out an increased number of fre-quent 1-itemsets, which in turn shortens the transaction par-titioning cost. Small transactions simplify the correlation analysis among the transactions; thus, small transactions are less likely to have a large number of duplications in their partitions. As a result, the number of duplicated transac-tions to be transmitted among the partitions is signi.cantly reduced, which allows FiDoop-DP to deliver better perfor-mance than Pfp. 
+
+
+6.3 Data Characteristic 
+In this group of experiments, we respectively evaluate the impact of dimensionality and data correlation on the perfor-mance of FiDoop-DP and Pfp by changing the parameters in the process of generating the datasets using the IBM Quest Market-Basket Synthetic Data Generator. 
+
+6.3.1 Dimensionality 
+The average transaction length directly determines the dimensions of a test data. We con.gure the average transac-tion length to 10, 40, 60, and 85 to generate T10I4D (130 blocks), T40I10D (128 blocks), T60I10D (135 blocks), T85I10D (133 blocks) datasets, respectively. In this experiment, we measure the impacts of dimensions on the performance of FiDoop-DP and Pfp on the 8-node Hadoop cluster. 
+The experimental results plotted in Fig. 5a clearly indi-cate that an increasing number of dimensions signi.cantly raises the running times of FiDoop-DP and Pfp. This is because increasing the number of dimensions increases the number of groups; thus, the amount of data transmission sharply goes up as seen in Fig. 5b. 
+The performance improvements of FiDoop-DP over Pfp is diminishing when the dimensionality increases from 10 to 85. For example, FiDoop-DP offers an improvement of 
+29.4 percent when the dimensionality is set to 10; the improvement drops to 5.2 percent when the number of dimensions becomes 85. 
+In what follows, we argue that FiDoop-DP is inherently losing the power of reducing the number of redundant transactions in high-dimensional data. When a dataset has a low dimensionality, FiDoop-DP tends to build partitions, 
+
+
+Fig. 5. Impacts of data characteristics on FiDoop-DP and Pfp. 
+each of which has distinct characteristics compared with the other partitions. Such distinct features among the parti-tions allow FiDoop-DP to ef.ciently reduce the number of redundant transactions. In contrast, a dataset with high dimensionality has a long average transaction length; there-fore, data partitions produced by FiDoop-DP have no dis-tinct discrepancy. Redundant transactions are likely to be formed for partitions that lack distinct characteristics. Consequently, the bene.t offered by FiDoop-DP for high-dimensional datasets becomes insigni.cant. 
+
+
+6.3.2 Data Correlation 
+We set the correlation among transactions (i.e., -corr) to 0.15, 0.25, 0.35, 0.45, 0.55, 0.65 and 0.75 to measure the impacts of data correlation on the performance of the two algorithms on the 8-node Hadoop cluster. The Number of Pivots is set to 60 (see also Section 6.1). 
+The experimental results plotted in Fig. 5c clearly indi-cate that FiDoop-DP is more sensitive to data correlation than Pfp. This performance trend motivates us to investi-gate the correlation-related data partition strategy. Pfp conducts default data partition based on equal-size item group without taking into account the characteristics of the datasets. However, FiDoop-DP judiciously groups items with high correlation into one group and clustering similar transactions together. In this way, the number of redundant transactions kept on multiple nodes is substantially reduced. Consequently, FiDoop-DP is conducive to cutting back both data transmission traf.c and computing load. 
+As can be seen from Fig. 5c, there is an optimum balance point for data correlation degree to tune FiDoop-DP perfor-mance (e.g., 0.35 in Fig. 5c). If data correlation is too small, Fidoop-DP will degenerate into random partition schema. On the contrary, it is dif.cult to divide items into relatively independent groups when data correlation is high, meaning that an excessive number of duplicated transactions have to be transferred to multiple nodes. Thus, a high data correla-tion leads to redundant transactions formed for partitions, thereby increasing network and computing loads. 
+
+
+6.4 Speedup 
+Now we are positioned to evaluate the speedup perfor-mance of FiDoop-DP and Pfp by increasing the number of data nodes in our Hadoop cluster from 4 to 24. The T40I10D (128 blocks) dataset is applied to drive the speedup analysis of the these algorithms. Fig. 6 reveals the speedups of FiDoop-DP and Pfp as a function of the number of data nodes. 
+The experimental results illustrated in Fig. 6a show that the speedups of FiDoop-DP and Pfp linearly scale up with the increasing number of data nodes. Such a speedup trend can be attributed to the fact that increasing the number of data nodes under a .xed input data size inevitably (1) reduces the amount of itemsets being handled by each node and (2) increases communication overhead among mappers and reducers. 
+Fig. 6a shows that FiDoop-DP is better than Pfp in terms of the speedup ef.ciency. For instance, the FiDoop-DP improves the speedup ef.ciency of Pfp by up to 11.2 percent with an average of 6.1 percent. This trend suggests FiDoop-DP improves the speedup ef.ciency of Pfp in large-scale 
+The speedup ef.ciencies drop when the Hadoop cluster scales up. For example, the speedup ef.ciencies of FiDoop-DP and Pfp on the 4-node cluster are 0.970 and 0.995, respectively. These two speedup ef.ciencies become 0.746 and 0.800 on the 24-node cluster. Such a speedup-ef.ciency trend is driven by the cost of shuf.ing intermediate results, which sharply goes up when the number of data nodes scales up. Although the overall computing capacity is improved by increasing the number of nodes, the cost of synchronization and communication among data nodes tends to offset the gain in computing capacity. For example, the results plotted in Fig. 6b con.rm that the shuf.ing cost 
+
+Fig. 6. The speedup performance and shuf.ing cost of FiDoop-DP and Pfp. 
+
+
+Fig. 7. The scalability of FiDoop-DP and Pfp when the size of input data-set increases. 
+is linearly increasing when computing nodes are scaled from 4 to 24. Furthermore, the shuf.ing cost of Pfp is larger than that of FiDoop-DP. 
+
+
+6.5 Scalability 
+In this group of experiments, we evaluate the scalability of FiDoop-DP and Pfp when the size of input dataset dramati-cally grows. Fig. 7 shows the running times of the algo-rithms when we scale up the size of the T40I10D data series. Figs. 7a and 7b demonstrate the performance of FiDoop-DP processing various datasets on 8-node and 24-node clusters, respectively. 
+Fig. 7 clearly reveals that the overall execution times of FiDoop-DP and Pfp go up when the input data size is sharply enlarged. The parallel mining process is slowed down by the excessive data amount that has to be scanned twice. The increased dataset size leads to long scanning time. Interest-ingly, FiDoop-DP exhibits a better scalability than Pfp. 
+Recall that (see also from Algorithm 1) the second Map-Reduce job compresses an initial transaction database into a signature matrix, which is dealt by the subsequent process. The compress ratio is high when the input data size is large, thereby shortening the subsequent processing time. Fur-thermore, Fidoop-DP lowers the network traf.c induced by the random grouping strategy in Pfp. In summary, the scal-ability of FiDoop-DP is higher than that of Pfp when it comes to parallel mining of an enormous amount of data. 
+7RELATED WORK 
+
+
+7.1 Data Partitioning in MapReduce 
+Partitioning in databases has been widely studied, for both single system servers (e.g. [29]) and distributed storage systems (e.g., BigTable [30], PNUTS[31]). The existing approaches typically produce possible ranges or hash parti-tions, which are then evaluated using heuristics and cost models. These schemes offer limited support for OLTP workloads or query analysis in the context of the popular MapReduce programming model. In this study, we focus on the data partitioning issue in MapReduce. 
+High scalability is one of the most important design goals for MapReduce applications. Unfortunately, the partition-ing techniques in existing MapReduce platforms (e.g., Hadoop) are in their infancy, leading to serious perfor-mance problems. 
+Recently, a handful of data partitioning schemes have been proposed in the MapReduce platforms. Xie et al. devel-oped a data placement management mechanism for hetero-geneous Hadoop clusters. Their mechanism partitions data fragments to nodes in accordance to the nodes’ processing speed measured by computing ratios [32]. In addition, Xie et al. designed a data redistribution algorithm in HDFS to address the data-skew issue imposed by dynamic data insertions and deletions. CoHadoop [33] is a Hadoop’s lightweight extension, which is designed to identify relateddata.lesfollowedbyamodi.eddataplacement policy to co-locate copies of those related .les in the same server. CoHadoop considers the relevance among .les; that is, CoHadoop is an optimization of HaDoop for mul-tiple .les. A key assumption of the MapReduce program-ming model is that mappers are completely independent of one another. Vernica et al. broke such an assumption by introducing an asynchronous communication channel among mappers [34]. This channel enables the mappers to see global states managed in metadata. Such situation-aware mappers (SAMs) can enable MapReduce to .exibly partition the inputs. Apart from this, adaptive sampling and partitioning were proposed to produce balanced par-titions for the reducers by sampling mapper outputs and making use of obtained statistics. 
+Graph and hypergraph partitioning have been used to guide data partitioning in parallel computing. Graph-based partitioning schemes capture data relationships. For exam-ple, Ke et al. applied a graphic-execution-plan graph (EPG) to perform cost estimation and optimization by analyzing various properties of both data and computation [35]. Their estimation module coupled with the cost model estimate the runtime cost of each vertex in an EPG, which represents the overall runtime cost; a data partitioning plan is deter-mined by a cost optimization module. Liroz-Gistau et al. proposed the MR-Part technique, which partitions all input tuples producing the same intermediate key co-located in the same chunk. Such a partitioning approach minimizes data transmission among mappers and reducers in the shuf.e phase [36]. The approach captures the relationships between input tuples and intermediate keys by monitoring the execution of representative workload. Then, based on these relationships, their approach applies a min-cut k-way graph partitioning algorithm, thereby partitioning and assigning the tuples to appropriate fragments by modeling the workload with a hyper graph. In doing so, subsequent MapReduce jobs take full advantage of data locality in the reduce phase. Their partitioning strategy suffers from adverse initialization overhead. 
+
+
+7.2 Application-Aware Data Partitioning 
+Various ef.cient data partitioning strategies have been pro-posed to improve the performance of parallel computing systems. For example, Kirsten et al. developed two general partitioning strategies for generating entity match tasks to avoid memory bottlenecks and load imbalances [37]. Taking into account the characteristics of input data, Aridhi et al. proposed a novel density-based data partitioning technique for approximate large-scale frequent subgraph mining to balance computational load among a collection of machines. Kotoulas et al. built a data distribution mechanism based on clustering in elastic regions [38]. 
+Traditional term-based partitioning has limited scalability due to the existence of very skewed frequency distributions among terms. Load-balanced distributed clustering across networks and local clustering are introduced to improve the chance that triples with a same key are collocated. These self-organizing approaches need no data analysis or upfront parameter adjustments in a priori. Lu et al. studied k nearest neighbor join using MapReduce, in which a data partitioning approach was designed to reduce both shuf.ing and compu-tational costs [19]. In Lu’s study, objects are divided into par-titions using a Voronoi diagram with carefully selected pivots. Then, data partitions (i.e., Voronoi cells) are clustered into groups only if distances between them are restricted by a speci.c bound. In this way, their approach can answer the k-nearest-neighbour join queries by simply checking object pairs within each group. 
+FIM for data-intensive applications over computing clus-ters has received a growing attention; ef.cient data parti-tioning strategies have been proposed to improve the performance of parallel FIM algorithms. A MapReduce-based Apriori algorithm is designed to incorporate a new dynamic partitioning and distributing data method to improve mining performance [39]. This method divides input data into relatively small splits to provide .exibility for improved load-balance performance. Moreover, the master node doesn’t distribute all the data once; rather, the rest data are distributed based on dynamically changing workload and computing capability weight of each node. Similarly, Jumbo [40] adopted a dynamic partition assign-ment technology, enabling each task to process more than one partition. Thus, these partitions can be dynamically reassigned to different tasks to improve the load balancing performance of Pfp [11]. Uthayopas et al. investigated I/O and execution scheduling strategies to balance data process-ing load, thereby enhancing the utilization of a multi-core cluster system supporting association-rule mining. In order to pick a winning strategy in terms of data-blocks assign-ment, Uthayopas et al. incorporated three basic placement policies, namely, the round robin, range, and random place-ment. Their approach ignores data characteristics during the course of mining association rules. 
+8FURTHER DISCUSSIONS 
+In this study, we investigated the data partitioning issues in parallel FIM. We focused on MapReduce-based parallel FP-tree algorithms; in particular, we studied how to partition and distribute a large dataset across data nodes of a Hadoop cluster to reduce network and computing loads. 
+We argue that the general idea of FiDoop-DP proposed in this study can be extended to other FIM algorithms like Apriori running on Hadoop clusters. Apriori-based parallel FIM algorithms can be classi.ed into two camps, namely, count distribution and data distribution [41]. For the count dis-tribution camp, each node in a cluster calculates local sup-port counts of all candidate itemsets. Then, the global support counts of the candidates are computed by exchang-ing the local support counts. For the data distribution camp, each node only keeps the support counts of a subset of all candidates. Each node is responsible for delivering its local database partition to all the other processors to compute support counts. In general, the data distribution schemes have higher communication overhead than the count distri-bution ones; whereas the data distribution schemes have lower synchronization overhead than its competitor. 
+Regardless of the count distribution or data distribution approaches, the communication and synchronization cost induce adverse impacts on the performance of parallel min-ing algorithms. The basic idea of Fidoop-DP—grouping highly relevant transactions into a partition -allows the par-allel algorithms to exploit correlations among transactions in database to cut communication and synchronization overhead among Hadoop nodes. 
+9CONCLUSIONS AND FUTURE WORK 
+To mitigate high communication and reduce computing cost in MapReduce-based FIM algorithms, we developed FiDoop-DP, which exploits correlation among transactions to partition a large dataset across data nodes in a Hadoop cluster. FiDoop-DP is able to (1) partition transactions with high similarity together and (2) group highly correlated fre-quent items into a list. One of the salient features of FiDoop-DP lies in its capability of lowering network traf.c and com-puting load through reducing the number of redundant transactions, which are transmitted among Hadoop nodes. FiDoop-DP applies the Voronoi diagram-based data parti-tioning technique to accomplish data partition, in which LSH is incorporated to offer an analysis of correlation among transactions. At the heart of FiDoop-DP is the second MapReduce job, which (1) partitions a large database to form a complete dataset for item groups and (2) conducts FP-Growth processing in parallel on local partitions to gen-erate all frequent patterns. Our experimental results reveal that FiDoop-DP signi.cantly improves the FIM perfor-mance of the existing Pfp solution by up to 31 percent with an average of 18 percent. 
+We introduced in this study a similarity metric to facili-tate data-aware partitioning. As a future research direction, we will apply this metric to investigate advanced load-balancing strategies on a heterogeneous Hadoop cluster. In one of our earlier studies (see [32] for details), we addressed the data-placement issue in heterogeneous Hadoop clusters, where data are placed across nodes in a way that each node has a balanced data processing load. Our data placement scheme [32] can balance the amount of data stored in hetero-geneous nodes to achieve improved data-processing perfor-mance. Such a scheme implemented at the level of Hadoop distributed .le system (HDFS) is unaware of correlations among application data. To further improve load balancing mechanisms implemented in HDFS, we plan to integrate FiDoop-DP with a data-placement mechanism in HDFS on heterogeneous clusters. In addition to performance issues, energy ef.ciency of parallel FIM systems will be an intrigu-ing research direction. 
+
+ACKNOWLEDGMENTS 
+The work in this paper was in part supported by the National Natural Science Foundation of P.R. China (No.61272263, No.61572343). Xiao Qin’s work was sup-ported by the U.S. National Science Foundation under Grants CCF-0845257 (CAREER). The authors would also like to thank Mojen Lau for proof-reading. 
+REFERENCES 
+[1] 	M. J. Zaki, “Parallel and distributed association mining: A survey,” IEEE Concurrency, vol. 7, no. 4, pp. 14–25, Oct. 1999. 
+[2] 	I. Pramudiono and M. Kitsuregawa, “Fp-tax: Tree structure based generalized association rule mining,” in Proc. 9th ACM SIGMOD Workshop Res. Issues Data Mining Knowl. Discovery, 2004, pp. 60–63. 
+[3] 	J. Dean and S. Ghemawat, “Mapreduce: Simpli.ed data processing on large clusters,” ACM Commun, vol. 51, no. 1, pp. 107–113, 2008. 
+[4] 	S. Sakr, A. Liu, and A. G. Fayoumi, “The family of mapreduce and large-scale data processing systems,” ACM Comput. Surveys, vol. 46, no. 1, p. 11, 2013. 
+[5] 	M.-Y. Lin, P.-Y. Lee, and S.-C. Hsueh, “Apriori-based frequent itemset mining algorithms on mapreduce,” in Proc. 6th Int. Conf. Ubiquitous Inform. Manag. Commun., 2012, pp. 76:1–76:8. 
+[6] 	X. Lin, “Mr-apriori: Association rules algorithm based on mapreduce,” in Proc. IEEE 5th Int. Conf. Softw. Eng. Serv. Sci., 2014, pp. 141–144. 
+[7] 	L. Zhou, Z. Zhong, J. Chang, J. Li, J. Huang, and S. Feng, “Balanced parallel FP-growth with mapreduce,” in Proc. IEEE Youth Conf. Inform. Comput. Telecommun., 2010, pp. 243–246. 
+[8] 	S. Hong, Z. Huaxuan, C. Shiping, and H. Chunyan, “The study of improved FP-growth algorithm in mapreduce,” in Proc. 1st Int. Workshop Cloud Comput. Inform. Security, 2013, pp. 250–253. 
+[9] 	M. Riondato, J. A. DeBrabant, R. Fonseca, and E. Upfal, “Parma: A parallel randomized algorithm for approximate association rules mining in mapreduce,” in Proc. 21st ACM Int. Conf. Informa. Knowl. Manag., 2012, pp. 85–94. 
+[10] 	C. Lam, Hadoop in Action. Greenwich, USA: Manning Publications Co., 2010. 
+[11] 	H. Li, Y. Wang, D. Zhang, M. Zhang, and E. Y. Chang, “PFP: Parallel FP-growth for query recommendation,” in Proc. ACM Conf. Recommender Syst., 2008, pp. 107–114. 
+[12] 	C. Curino, E. Jones, Y. Zhang, and S. Madden, “Schism: A work-load-driven approach to database replication and partitioning,” Proc. VLDB Endowment, vol. 3, no. 1-2, pp. 48–57, 2010. 
+[13] 	P. Uthayopas and N. Benjamas, “Impact of i/o and execution scheduling strategies on large scale parallel data mining,” J. Next Generation Inform. Technol., vol. 5, no. 1, p. 78, 2014. 
+[14] 	I. Pramudiono and M. Kitsuregawa, “Parallel FP-growth on PC cluster,” in Proc.Adv.Knowl.Discovery Data Mining, 2003, pp. 467–473. 
+[15] 	Y. Xun, J. Zhang, and X. Qin, “Fidoop: Parallel mining of frequent itemsets using mapreduce,” IEEE Trans. Syst., Man, Cybern.: Syst., vol. 46, no. 3, pp. 313–325, Mar. 2016, doi: 10.1109/ TSMC.2015.2437327. 
+[16] 	S. Owen, R. Anil, T. Dunning, and E. Friedman, Mahout Action. Greenwich, USA: Manning, 2011. 
+[17] 	D. Borthakur, “Hdfs architecture guide,” HADOOP APACHE PROJECT. Available: http://hadoop.apache.org/common/docs/ current/hdfs design.pdf, 2008. 
+[18] 	M. Zaharia, M. Chowdhury, M. J. Franklin, S. Shenker, and 
+I. Stoica, “Spark: Cluster computing with working sets,” in Proc. 2nd USENIX Conf. Hot Topics Cloud Comput., 2010, p. 10. 
+[19] 	W. Lu, Y. Shen, S. Chen, and B. C. Ooi, “Ef.cient processing of k nearest neighbor joins using mapreduce,” Proc. VLDB Endowment, vol. 5, no. 10, pp. 1016–1027, 2012. 
+[20] 	T. Kanungo, D. M. Mount, N. S. Netanyahu, C. D. Piatko, 
+R. Silverman, and A. Y. Wu, “An ef.cient k-means clustering algorithm: Analysis and implementation,” IEEE Trans. Pattern Anal. Mach. Intell., vol. 24, no. 7, pp. 881–892, Jul. 2002. 
+[21] 	A. K. Jain, “Data clustering: 50 years beyond k-means,” Pattern Recog. Lett., vol. 31, no. 8, pp. 651–666, 2010. 
+[22] 	D. Arthur and S. Vassilvitskii, “k-means++: The advantages of careful seeding,” in Proc. 18th Annu. ACM-SIAM Symp. Discr. Algorithms, 2007, pp. 1027–1035. 
+[23] 	J. Leskovec, A. Rajaraman, and J. D. Ullman, Mining Massive Data-sets. Cambridge, U.K.: Cambridge Univ. Press, 2014. 
+[24] 	A. Stupar, S. Michel, and R. Schenkel, “Rankreduce–processing k-nearest neighbor queries on top of mapreduce,” in Proc. 8th Work-shop Large-Scale Distrib. Syst. Informa. Retrieval, 2010, pp. 13–18. 
+[25] 	B. Bahmani, A. Goel, and R. Shinde, “Ef.cient distributed locality sensitive hashing,” in Proc. 21st ACM Int. Conf. Inform. Knowl. Manag., 2012, pp. 2174–2178. 
+[26] 	R. Panigrahy, “Entropy based nearest neighbor search in high dimensions,” in Proc. 17th Annu. ACM-SIAM Symp. Discr. Algo-rithm, 2006, pp. 1186–1195. 
+[27] 	A. Z. Broder, M. Charikar, A. M. Frieze, and M. Mitzenmacher, “Min-wise independent permutations,” J. Comput. Syst. Sci., vol. 60, no. 3, pp. 630–659, 2000. 
+[28] 	L. Cristofor, “ARtool: Association rule mining algorithms and tools,” 2006. 
+[29] 	S. Agrawal, V. Narasayya, and B. Yang, “Integrating vertical and horizontal partitioning into automated physical database design,” in Proc. ACM SIGMOD Int. Conf. Manag. Data, 2004, pp. 359–370. 
+[30] 	F. Chang, J. Dean, S. Ghemawat, W. Hsieh, D. Wallach, M. Bur-rows, T. Chandra, A. Fikes, and R. Gruber, “Bigtable: A distrib-uted structured data storage system,” in Proc. 7th Symp. Operating Syst. Des. Implementation, 2006, pp. 305–314. 
+[31] 	B. F. Cooper, R. Ramakrishnan, U. Srivastava, A. Silberstein, P. Bohannon, H.-A. Jacobsen, N. Puz, D. Weaver, and R. Yerneni, “Pnuts: Yahoo!’s hosted data serving platform,” Proc. VLDB Endowment, vol. 1, no. 2, pp. 1277–1288, 2008. 
+[32] 	J. Xie and X. Qin, “The 19th heterogeneity in computing workshop (HCW 2010),” in Proc. IEEE Int. Symp. Parallel Distrib. Process., Workshops Phd Forum, Apr. 2010, pp. 1–5. 
+[33] M. Y. Eltabakh, Y. Tian, F. 	€Ozcan, R. Gemulla, A. Krettek, and 
+J. McPherson, “Cohadoop: Flexible data placement and its exploi-tation in hadoop,” Proc. VLDB Endowment, vol. 4, no. 9, pp. 575– 585, 2011. 
+[34] 	R. Vernica, A. Balmin, K. S. Beyer, and V. Ercegovac, “Adaptive mapreduce using situation-aware mappers,” in Proc. 15th Int. Conf. Extending Database Technol., 2012, pp. 420–431. 
+[35] 	Q. Ke, V. Prabhakaran, Y. Xie, Y. Yu, J. Wu, and J. Yang, “Optimizing data partitioning for data-parallel computing,” uS Patent App. 13/325,049, Dec. 13 2011. 
+[36] 	M. Liroz-Gistau, R. Akbarinia, D. Agrawal, E. Pacitti, and 
+P. Valduriez, “Data partitioning for minimizing transferred data in mapreduce,” in Proc. 6th Int. Conf. Data Manag. Cloud, Grid P2P Syst., 2013, pp. 1–12. 
+[37] T. Kirsten, L. Kolb, M. Hartung, A. Gro., H. K€opcke, and E. Rahm, “Data partitioning for parallel entity matching,” Proc. VLDB Endowment, vol. 3, no. 2, pp. 1–8, 2010. 
+[38] 	S. Kotoulas, E. Oren, and F. Van Harmelen, “Mind the data skew: Distributed inferencing by speeddating in elastic regions,” in Proc. 19th Int. Conf. World Wide Web, 2010, pp. 531–540. 
+[39] 	L. Li and M. Zhang, “The strategy of mining association rule based on cloud computing,” in Proc. Int. Conf. Bus. Comput. Global Inform., 2011, pp. 475–478. 
+[40] 	S. Groot, K. Goda, and M. Kitsuregawa, “Towards improved load balancing for data intensive distributed computing,” in Proc. ACM Symp. Appl. Comput., 2011, pp. 139–146. 
+[41] 	M. Z. Ashra., D. Taniar, and K. Smith, “ODAM: An optimized distributed association rule mining algorithm,” IEEE Distrib. Syst. Online, vol. 5, no. 3, p. 1, Mar. 2004. 
+
+Yaling Xun is currently a doctoral student at Taiyuan University of Science and Technology. She is currently a lecturer in the School of Computer Science and Technology, Taiyuan University of Science and Technology. Her research interests include data mining and par-allel computing. 
+
+
+
+Jifu Zhang received the BS and MS degrees in computer science and technology from the Hefei University of Tchnology, China, and the PhD degree in pattern recognition and intelligence systems from the Beijing Institute of Technology in 1983, 1989, and 2005, respectively. He is cur-rently a professor in the School of Computer Science and Technology, TYUST. His research interests include data mining, parallel and distrib-uted computing and arti.cial intelligence. 
+Xiao Qin received the PhD degree in computer science from the University of Nebraska-Lincoln in 2004. He is currently a professor in the Department of Computer Science and Software Engineering, Auburn University. His research interests include parallel and distributed systems, storage systems, fault tolerance, real-time systems, and perfor-mance evaluation. He received the U.S. NSF Computing Processes and Artifacts Award and the NSF Computer System Research Award in 2007 and the NSF CAREER Award in 2009. He is a senior member of the IEEE. 
+
+Xujun Zhao received the MS degree in computer science and technology in 2005 from the Taiyuan University of Technology, China. He is currently working toward the PhD degree at Taiyuan University of Science and Technology. His research interests include data mining and parallel computing. 
+" For more information on this or any other computing topic, please visit our Digital Library at www.computer.org/publications/dlib. 
+
+
+
+
+Privacy-Preserving-Outsourced Association Rule 
+Mining on Vertically Partitioned Databases 
+
+Lichun Li, Rongxing Lu, Senior Member, IEEE, Kim-Kwang Raymond Choo, Senior Member, IEEE, 
+Anwitaman Datta, and Jun Shao 
+
+Abstract? Association rule mining and frequent itemset mining are two popular and widely studied data analysis tech-niques for a range of applications. In this paper, we focus on privacy-preserving mining on vertically partitioned databases. In such a scenario, data owners wish to learn the association rules or frequent itemsets from a collective data set and disclose as little information about their (sensitive) raw data as possible to other data owners and third parties. To ensure data privacy, we design an ef.cient homomorphic encryption scheme and a secure comparison scheme. We then propose a cloud-aided frequent itemset mining solution, which is used to build an association rule mining solution. Our solutions are designed for outsourced databases that allow multiple data owners to ef.ciently share their data securely without compromising on data privacy. Our solutions leak less information about the raw data than most existing solutions. In comparison to the only known solution achieving a similar privacy level as our proposed solutions, the performance of our proposed solutions is three to .ve orders of magnitude higher. Based on our experiment .ndings using different parameters and data sets, we demonstrate that the run time in each of our solutions is only one order higher than that in the best non-privacy-preserving data mining algorithms. Since both data and computing work are outsourced to the cloud servers, the resource consumption at the data owner end is very low. 
+Index Terms? Association rule mining, frequent itemset mining, privacy-preserving data mining. 
+F
+I. INTRODUCTION REQUENT itemset mining and association rule mining, two widely used data analysis techniques, are generally used for discovering frequently co-occurring data items 
+Manuscript received August 30, 2015; revised February 24, 2016 and April 6, 2016; accepted April 16, 2016. Date of publication May 2, 2016; date of current version May 19, 2016. This work was supported by Nanyang Technological University within the Ministry of Education Tier 1 under Grant M4011450. The work of J. Shao was supported in part by the National Natural Science Foundation of China under Grant 61472364 and in part by NSFZJ under Grant LR13F020003. The associate editor coordinating the review of this manuscript and approving it for publication was Dr. Sherman S.-
+M. Chow. 
+L. Li and R. Lu are with the School of Electrical and Electronic Engineering, Nanyang Technological University, Singapore 639798 (e-mail: lilichun@gmail.com; rxlu@ntu.edu.sg). 
+K.-K. R. Choo is with the Department of Information Systems and Cyber Security, The University of Texas at San Antonio, San Antonio, TX 78249 USA, also with the School of Information Technology and Mathe-matical Sciences, University of South Australia, Adelaide, SA 5001, Australia, and also with the School of Computer Science, China University of Geo-sciences, Wuhan 430074, China (e-mail: raymond.choo@fulbrightmail.org). 
+A. Datta is with the School of Computer Science and Engineering, Nanyang Technological University, Singapore 639798 (e-mail: anwitaman@ntu.edu.sg). 
+J. Shao is with the Department of Information Security, Zhejiang Gongshang University, Hangzhou 310018, China (e-mail: chn.junshao@gmail.com). Color versions of one or more of the .gures in this paper are available 
+online at http://ieeexplore.ieee.org. Digital Object Identi.er 10.1109/TIFS.2016.2561241 
+and interesting association relationships between data items respectively in large transaction databases. These two tech-niques have been employed in applications such as market basket analysis [1], health care [2], web usage mining [3], bioinformatics [4] and prediction [5]. A transaction database is a set of transactions, and each transaction is a set of data items with a unique TID (Transaction ID). An itemset Z is regarded frequent if and only if Supp(Z) = Ts,where Ts is a threshold speci.ed by the data miner. Supp(Z) is Z*s support, which is de.ned as Z*s occurrence count in the database. An association rule is expressed using X . Y , where X and Y are two disjoint itemsets. X . Y indicates that X*s occurrence implies Y *s occurrence in the same trans-action with a certain con.dence. We will use a supermarket*s transaction database as an example, where a transaction is some customer*s shopping list. A customer buying ?bread§ and ?butter§ will also buy ?milk§. Then {bread, butter} . milk is a possible association rule. X . Y is meaningful and useful if the con.dence is high and X ? Y is frequent. More speci.cally, X . Y is regarded as an association rule if and only if Supp(X ? Y ) = Ts and Con f (X . Y ) = Tc. We de.ne Con f (X . Y ) as the con.dence of X . Y .The latter is the probability of Y *s occurrence given X*s occurrence 
+(i.e. Con f (X . Y ) = Supp(X ? Y )/Supp(X)). Tc denotes the threshold speci.ed by the data miner. We also remark that the values of Ts and Tc are generally con.gured based on the type of transactions, the usage of the mining result, the size of database, etc. It is easy to mine association rules after mining frequent itemsets and obtaining their supports. Most association rule mining algorithms are built based on frequent itemset mining algorithms. 
+Classic frequent itemset mining and association rule mining algorithms, such as Apriori [6], Eclat [7] and FP-growth [8], were designed for a centralized database setting where the raw data is stored in the central site for mining. Privacy concerns were not considered in this setting. Vaidya and Clifton [9] and Kantarcioglu and Clifton [10] are the .rst to identify and address privacy issues in horizontally / vertically partitioned databases. Due to an increased understanding of the impor-tance of data privacy (e.g. in the aftermath of the revelations by Edward Snowden, a former NSA contractor), a number of privacy-preserving mining solutions have been proposed in recent times. In their settings, there are multiple data owners wishing to learn association rules or frequent itemsets from their joint data. However, the data owners are not willing to send their raw data to a central site due to privacy concerns. If each data owner has one or more rows (i.e. transactions) 
+1556-6013 . 2016 IEEE. Personal use is permitted, but republication/redistribution requires IEEE permission. See http://www.ieee.org/publications_standards/publications/rights/index.html for more information. 
+in the joint database, we say that the database is horizontally partitioned. If each data owner has one or more columns in the joint database, the database is considered vertically parti-tioned. This paper focuses on vertically partitioned databases, and as explained in [11], such databases are useful for market basket analysis. For example, different businesses, such as a fashion designer and a luxury watch designer, sell different products to the same community. These businesses collaborate to mine customer buying patterns from the joint database. A transaction of the database contains the products that a customer had bought from one or more of the participating businesses, and attributes such as the customer credit card number and date of purchase are used as TIDs. Therefore, each of the businesses (i.e. data owners) will own some transaction partitions in the joint database. However, these businesses may not wish to disclose such data, which include trade secrets 
+(e.g. there may be other competing businesses sharing the same joint database) and customer privacy (e.g. due to reg-ulations in existing privacy regime). Therefore, a privacy-preserving mining solution must be applied. Other use cases can also be found in areas such as automotive safety [9] and national security [12]. 
+In this paper, we propose a cloud-aided privacy-preserving frequent itemset mining solution for vertically partitioned databases, which is then used to build a privacy-preserving association rule mining solution. Both solutions are designed for applications where data owners have a high level of privacy requirement. The solutions are also suitable for data owners looking to outsource data storage ? i.e. data owners can outsource their encrypted data and mining task to a semi-trusted (i.e. curious but honest) cloud in a privacy-preserving manner. To the best of our knowledge, this is the .rst work on outsourced association rule mining and frequent itemset mining for vertically partitioned databases. The key underlying techniques in our solutions are an ef.cient homomorphic encryption scheme and a secure outsourced comparison scheme. 
+The contributions of this paper are three-fold: 
+. 	This paper proposes privacy-preserving mining solutions for high privacy requirements. As shown in Figure 1, the proposed solutions are uniquely located in the design space. Compared with most solutions, our solutions achieve a higher privacy level, as most existing solutions require either the sharing / exposure of raw data or the disclosure of the exact supports to data owners. Such requirements result in the leakage of sensitive informa-tion of the raw data [11]. Our solutions are designed to avoid such complications. We note that one of the frequent itemset mining solutions in [13] can achieve the same privacy level as our proposed solutions. However, an association rule mining solution cannot be built based on the frequent itemset mining solution in [13]. In con-trast, we present solutions for both frequent itemset mining and association rule mining. Moreover, as shown in Section VII, our frequent itemset mining solution is 3 to 5 orders faster. Our solution is signi.cantly more ef.cient due to our customized homomorphic encryption scheme. The introduction of a semi-trusted third party 
+
+
+Fig. 1. Design space of association rule and frequent itemset mining solutions. 
+(i.e. the cloud) also allows us to securely compute sup-ports and compare supports with a threshold Ts more ef.ciently ? see Sections VIII and VII for related work and comparative summary, respectively. 
+. 	
+This paper proposes an ef.cient homomorphic encryption scheme and a secure outsourced comparison scheme. To avoid the disclosure of supports/con.dences, we design an ef.cient homomorphic encryption scheme to facilitate secure outsourced computation of supports/ con.dences, as well as a secure outsourced compar-ison scheme for comparing supports/con.dences with thresholds. The proposed (symmetric homomorphic) encryption scheme is tailored for the proposed compar-ison. The scheme only requires modular additions and multiplications, and is more ef.cient than the homomor-phic encryption schemes used in other association rule mining and frequent itemset mining solutions. For exam-ple, encryption computing in our scheme is three orders of magnitude faster than [14] and [15] respectively. To the best of our knowledge, the proposed secure comparison scheme is the .rst scheme based on symmetric homo-morphic encryption. The proposed schemes are designed for the data mining solutions outlined in this paper, but they can potentially be adopted in a wide range of secure computation applications. 
+
+. 	
+This paper proposes a ciphertext tag approach for canceling out .ctitious data*s effect on mining result. To ?hide§ the data owner*s raw data from the cloud, we adapt the concept outlined in [16] by encrypting items with a substitution cipher, and adding .ctitious transactions as a mitigation against frequency analy-sis attacks on the substitution cipher. To allow secure and accurate computation of supports, we design a ciphertext tag approach to cancel out .ctitious trans-actions in a privacy-preserving manner. Although our approach is designed for the data mining solutions outlined in this paper, it has potential applications in other secure computation contexts, such as secure data aggregation. 
+
+
+
+
+Fig. 2. System model of outsourced data mining on joint database. 
+
+A. Organization 
+The remainder of this paper is organized as follows. In Section II, we formalize the system model and secu-rity model considered in this paper, and identify the design goals. The required background material on cryptographic techniques is provided in Section III. In Section IV, we present our proposed homomorphic encryption scheme and secure comparison scheme, which will serve as the basis of our solutions. In Section V, we present our privacy-preserving solutions for association rule mining and frequent itemset mining on vertically partitioned databases, followed by the security analysis and performance evaluation in Section VI and Section VII, respectively. Related work is discussed in Section VIII. We conclude the paper in Section IX. 
+II. MODELS AND DESIGN GOALS In this section, we formalize the system model and secu-
+
+rity model used in this paper, and identify the design goals. 
+A. System Model 
+The system model (see Fig. 2) is comprised of two or more data owners and a cloud. Each data owner has a private database, and the data owners encrypt their private databases prior to outsourcing the encrypted databases to the cloud. Data owners can also request the cloud to mine association rules or frequent itemsets from the joint database on their behalf. The (honest but curious) cloud is tasked with the compiling and storing of databases received from different data owners, the mining of association rules or frequent itemsets for data owners, and the sending of the mining result to relevant data owners. 
+B. Security Model 
+The cloud is considered honest but curious in this paper. Firstly, the cloud honestly stores and mines data for data owners. Data owners pay for the cloud*s services, and they will naturally choose a cloud believed to be honest (e.g. a cloud provider with a trusted reputation). There are also techniques to detect dishonest clouds [17], [18], and dishonest clouds could be detected by simply comparing the mining results from different clouds. Secondly, although the cloud is not malicious, it is motivated to learn the data of data owners for .nancial gains (e.g. for paid advertisement). In other words, the cloud will attempt to learn the raw data of the private databases and the mining results. 
+The cloud is assumed to have some background knowledge of some items and their frequencies; hence, it can launch frequency analysis attacks. For each of these items, the cloud may also know which data owner*s private database the item belongs to. This makes such attacks easier because the cloud only needs to analyze frequencies in a private database to determine the ciphertext of a targeted item. However, we do not further assume the cloud has background knowledge of itemset frequency. This is reasonable for many cases; other-wise, even the data owners themselves need to learn frequent itemsets. Also, we do not assume the cloud to be colluding with any data owner. Hence, colluding attacks and insider attacks are not considered in this paper. 
+Data owners are also considered collaborative but curious in this paper. In the typical system setup for vertically partitioned databases, data owners participate in the collaborative data mining in order to obtain the mining result. For example, a fashion designer and a luxury watch designer located in a major capital city contributing their datasets regarding con-sumer buying habits and preferences, etc, so that they can better understand the consumer and suggest products to suit their preferences. Thus, data owners wish to learn the mining result, and are willing to collaborate with each other. However, some data owners may deviate from the cooperative mining protocol in order to learn the data of other data owner(s) as long as the deviation does not sabotage the mining result. As mentioned earlier, there are .nancial gains in doing so. 
+We assume each data owner has some knowledge of other owners* private databases. This is not surprising. Data owners are willing to participate in the collaborative mining, which indicates that they may already have such knowledge. With some knowledge of other owners* private databases, these data owners believe they can bene.t from the collaborative mining. We assume each data owner knows the items and the size of any other data owner*s private database. As vertically partitioned databases are being mined, we also assume that each owner has more knowledge about other private databases* TIDs. We remark that it is not required that all owners* private databases share the same set of TIDs, although it is expected that they share a lot of TIDs. Again, we do not assume any data owner to be colluding with the cloud. 
+C. Design Goals 
+The goals of our proposed privacy-preserving association rule mining and frequent itemset mining for vertically parti-tioned databases are as follow: 
+. 	Privacy. Data owners should learn as little informa-tion about databases belonging to other data owners as possible. More speci.cally, a data owner*s raw transaction details should not be disclosed, and the supports should be concealed to avoid leakage of information about the 
+
+TABLE I AN EXAMPLE OF SUBSTITUTION ALPHABET 
+
+raw data [11]. Similarly, exact con.dences should be concealed as they could be used to infer some information about the raw data. The proposed solutions should also protect the mining results from the cloud. 
+. 	Ef.ciency. Privacy-preserving measures usually result in decreased performance of data mining, and therefore, any trade-off has to be realistic. In our context, the data mining latency should be acceptable compared with the latencies of non-privacy-preserving data mining algorithms. 
+III. PRELIMINARY:SUBSTITUTION CIPHER, 
+CRYPTOGRAPHIC HASH FUNCTION AND 
+HOMOMORPHIC ENCRYPTION 
+
+
+In this section, we outline the substitution cipher, crypto-graphic hash function and homomorphic encryption, which serve as the building blocks in our privacy-preserving data mining solutions. 
+A. Substitution Cipher and Frequency Analysis 
+A substitution cipher encrypts a message by substituting the units of the message with ciphertext units according to a substitution alphabet. Substitution cipher has been used in outsourced association rule mining and frequent itemset mining [16], [19]?[21]. In such use cases, the message units are the items in a transaction database. Let L be the plaintext alphabet including all unique items appearing in a database. Every item in L has a corresponding unique ciphertext. A substitution alphabet example is shown in Table I. To encrypt the database, all items in the database are replaced with their corresponding ciphertexts. 
+Substitution cipher is subject to frequency analysis attack if the frequencies of message units are different. Frequency analysis, the analysis of frequencies of ciphertext units or unit groups, has been used to break classical ciphers such as substitution ciphers. Attackers with some knowledge of the frequencies of message units or unit groups can recover some plaintext through frequency analysis. For example, if an attacker knows that bread and milk are the most and second most frequent items in a transaction database, the attacker can infer that the most and second most frequent ciphertext units in the encrypted database correspond to bread and milk, respectively. To counter frequency analysis attack, .ctitious items or transactions can be added to hide item frequency. 
+B. Cryptographic Hash Function A cryptographic hash function H () has the properties of pre-image resistance and collision resistance. The former is 
+related to a one-way function. In other words, when given a hash value h, it is computationally infeasible to .nd a message m satisfying H (m) = h. The property of collision resistance means the collision of hash values are very rare 
+? i.e. it is computationally infeasible to .nd two distinct messages m1 and m2 satisfying H (m1) = H (m2). Commonly used cryptographic hash functions include SHA-1 [22] and SHA-2 [23]. 
+C. Homomorphic Encryption 
+Homomorphic encryption scheme allows one or more plain-text operations (e.g addition and multiplication) to be carried out on the ciphertexts. If the addition operation is allowed, then the scheme is known as additive homomorphic encryption. If the multiplication operation is allowed, then the scheme is known as multiplicative homomorphic encryption. 
+In an additive homomorphic encryption scheme, the cipher-text of the sum of two plaintexts, m1 + m2, can be obtained using some computation ?.§ on the ciphertexts of m1 and m2, without .rst decrypting m1 and m2 or requiring the decryption key. Additive homomorphic encryption also allows the user to obtain the ciphertext of m1?m2 by performing m2 times of ?.§ computation on m1*s ciphertext. The most common additive homomorphic encryption schemes are Paillier encryption [14] and a variant of ElGamal encryption [15]. For example, in Paillier encryption, let EPK () be the function of encrypting with the public key, and ?.§ is modular multiplication in Paillier. Given EPK (m1), EPK (m2) and the public key used in the encryption, one can compute EPK (m1+m2) by performing a modular multiplication of EPK (m1) and EPK (m2). Simi-larly, given EPK (m1), m2 and the public key, one can compute EPK (m1 ? m2) by performing a modular exponentiation EPK (m1)m2. 
+EPK (m1 + m2) = EPK (m1) ? EPK (m2) 
+EPK (m1 ? m2) = EPK (m1) ? EPK (m1) ? ...EPK (m1) 
+(m2 multiplications) = EPK (m1)m2 
+
+In the remainder of this paper, . denotes homomorphic addition, and the computing of the ciphertext of m1 ? m2 based on homomorphic addition is referred to as homomorphic scalar multiplication. 
+In a multiplicative homomorphic encryption scheme, the ciphertext of the product of two plaintexts, m1 ? m2, can be obtained with some kind of computation ?.§ on the cipher-texts of m1 and m2, without .rst decrypting m1 and m2 or requiring the decryption key. The most common multiplicative homomorphic encryption scheme is ElGamal encryption [24], which is an asymmetric scheme. 
+IV. 	PROPOSED HOMOMORPHIC ENCRYPTION AND SECURE OUTSOURCED COMPARISON SCHEMES 
+In this section, we propose an ef.cient homomorphic encryption scheme. Using the proposed homomorphic encryp-tion scheme, we construct a secure outsourced comparison scheme. Both schemes will then serve as the basis of our privacy-preserving mining solutions. 
+A. Proposed Homomorphic Encryption Scheme 
+Existing homomorphic encryption schemes are generally asymmetric [14], [15]. In this paper, we propose a sym-metric homomorphic encryption scheme (using only modular additions and multiplications), which is signi.cantly more ef.cient than asymmetric schemes. The scheme supports many homomorphic additions and limited number of homomorphic multiplications, and comprises the following three algorithms: 
+. Key generation algorithm KeyGen() 
+(s, q, p) ? KeyGen(?) 
+The key generation algorithm KeyGen() is a probabilistic algorithm, which takes a security parameter ? as input and outputs a secret key SK = (s, q) and a public parameter p.Both p and q are big primes, and p >q. The bit length of q depends on the security parameter, and s is a random number from Z . p. 
+. Encryption algorithm E() 
+E(SK, m, d) =sd (rq +m) mod p 
+The encryption algorithm E() is a probabilistic algorithm, which takes a secret key SK , a plaintext m ? Fq and a parameter d as inputs. The algorithm outputs a ciphertext c ? E(SK, m, d). The parameter d is a small positive integer called ciphertext degree, and we say the ciphertext is a d-degree ciphertext.Let r denote a big random positive integer, and the bit length of r, |r|, satis.es |r|+|q|< |p|.We say r is the random ingredient of c. The encryption of a plaintext m is denoted by E(m) for short. 
+. Decryption algorithm D() 
+D(SK, c, d) =(c ?s.d mod p) mod q 
+The decryption algorithm D() is a deterministic algo-rithm, which takes a secret key SK , a ciphertext c ?Fp and the ciphertext*s degree d as inputs. The algorithm outputs a plaintext m ? D(SK, c, d).Let s.d denote the multiplicative inverse of sd in the .eld Fp.The correctness proof of the decryption algorithm is given below. 
+D(SK, c, d) = (c ?s.d mod p) mod q = ((sd (rq +m) mod p) ?s.d mod p) mod q = (rq +m) mod q = m 
+
+B. Property of the Proposed Homomorphic Encryption 1) Homomorphic Multiplication: Let c1, c2 be the cipher-
+d1
+
+texts of two plaintexts m1, m2. Then, we have c1 = s(r1q + m1) mod p and c2 = sd2 (r2q + m2) mod p for some random ingredients r1 and r2. As shown below, given d1-degree ciphertext c1 and d2-degree ciphertext c2,the d1 +d2-degree ciphertext of m1 ?m2 can be computed with a modular multiplication. To correctly decrypt m1 ?m2 from its ciphertext, (r1r2q +r1m2 +m1r2)q +m1 ?m2 < p must be satis.ed where (r1r2q+r1m2+m1r2) is the random ingredient. 
+Therefore, in Section V, we choose the bit lengths which satisfy the condition and ensure the correctness of decryption. It is not hard to do so, as |q| > |m1| and |q| > |m2| and we have |r1r2q| > |r1m2|+|m1r2|. We only need to ensure |r1|+|r2|+2|q|+1 < |p|. 
+(c1 ?c2) mod p = sd1 (r1q +m1) mod p ?sd2 (r2q +m2) mod p = sd1+d2 (r1r2q2 +r1qm2 +m1r2q +m1 ?m2) mod p = sd1+d2 ((r1r2q +r1m2 +m1r2)q +m1 ?m2) mod p 
+2) Homomorphic Addition: As shown below, the ciphertext of m1 +m2 mod q can be computed by a modular addition of c1 and c2 if d1 = d2. To correctly decrypt m1 + m2 from its ciphertext, (r1 + r2)q + m1 + m2 < p must be satis.ed. Therefore, in Section V, we choose the bit lengths of p, q and random ingredients to ensure that all ciphertexts in our privacy-preserving mining solutions can be decrypted correctly. 
+c1 +c2 mod p = sd1 (r1q +m1) mod p +sd2 (r2q +m2) mod p = sd1 ((r1 +r2)q +m1 +m2) mod p if d1 =d2 
+
+3) Homomorphic Subtraction: Similarly, as shown below, homomorphic subtraction can be achieved with a modular subtraction. To correctly decrypt m1 .m2 from its ciphertext, r1 .r2 must be satis.ed. 
+(c1 .c2) mod p = (sd1 (r1q +m1) .sd2 (r2q +m2)) mod p = sd1 ((r1 .r2)q +m1 .m2) mod p if d1 =d2 
+
+4) Degree Alignment for Homomorphic Addition/ Subtraction: Homomorphic addition and subtraction requires ciphertexts sharing the same degree. If c1 and c2 have different ciphertext degrees, homomorphic addition/ subtraction can be performed after upgrading the lower-degree ciphertext to a ciphertext of the higher degree. Suppose c2*s 
+degree d2 is lower. A d1-degree ciphertext of m2, c2, can be computed by doing a homomorphic multiplication of c2 and a (d1 .d2) .degree ciphertext of 1. Then we can do 
+homomorphic addition/subtraction of c1 and c2. 
+5) Homomorphic Scalar Multiplication: Given m1*s cipher-text c1 and a plaintext m2, the ciphertext of m1 ?m2 can be computed with a modular multiplication. To correctly decrypt m1 ?m2 from its ciphertext, r1m2q +m1 ?m2 < p must be satis.ed. Therefore, in Section V, we choose the bit lengths that the condition is satis.ed which will ensure the correctness of decryption. 
+(c1 ?m2) mod p = sd1 (r1q +m1) mod p ?m2 mod p = sd1 (r1m2q +m1 ?m2) mod p 
+
+C. Proposed Secure Outsourced Comparison Scheme 
+The proposed secure comparison scheme is based on the symmetric homomorphic encryption scheme discussed in Section IV-A. In our privacy-preserving data mining solutions, data owners require the cloud to compare supports/ con.dences with thresholds. However, both supports and con.dences must be kept secret from the cloud and data owners, while the comparison results must be kept secret from the cloud. As shown in Section V, these secure comparison problems can be transformed to the same form below. 
+Let m be a secret integer unknown to the cloud and data owners, where m is in the range to the cloud, and q > ?, ?> 0. Data owners are indexed from 1 to t.Let ?i be a ciphertext of ?1§ generated by the i-th data owner. The cloud holds c = E(m mod q), p and q*s bit length |q| and {?i :t =i =1}. All these ciphertexts share the same degree d. (In our privacy-preserving data mining solutions, c is com-puted by the cloud from outsourced encrypted data utilizing the homomorphic property.) The data owners hold SK ,and want to know whether m =0. The data owners need the cloud to compare m with 0 in a privacy-preserving manner. However, as described in the preceding paragraph, m must be kept secret from the cloud and data owners, while the comparison result is kept secret from the cloud. 
+The secure comparison scheme for the above problem is as follows: 
+. 	Firstly, the cloud generates random integers, u, {vi :t = 
+i =1}, meeting the following four requirements. t
+ 
+u > vi i=1 vi >max(?,?) (t =i =1) t
+ 
+(q .1)/2 >? ?u + vi 
+i=1 t
+ 
+.? ?u + vi >.(q .1)/2 
+i=1 Note: The above requirements do not require q to be disclosed to the cloud, and the cloud can generate the u, {vi :t =i =1} meeting above requirements as long as it knows ?, ?, |q|. 
+vi
+. 	Secondly, the cloud computes Q =cu + ti=1 ?i mod p, and sends Q to data owners. Note: Due to the homomorphic property of the underlying encryption scheme, Q is the ciphertext of (m ?u + t 1 vi ) mod q.
+i=
+. 	Thirdly, each data owner computes . =D(SK,Q, d) = (m?u+ t 1 vi ) mod q, and compares . with (q .1)/2.
+i=If .<(q .1)/2, m =0. Otherwise, m < 0. Note: u, {vi :t =i =1}are used to mask the value of m, while preserving the sign of m. 1) Correctness: Let us now consider following two cases. Case of m =0: Since u > t 1 vi >? and (q .1)/2 >
+
+i=? ?u + t 1 vi ,we have 
+i=tt
+  
+(q .1)/2 >? ?u + vi =m ?u + vi >? 
+i=1 i=1 t
+ 
+.(m ?u + vi ) mod q 
+i=1 t
+ 
+= m ?u + vi <(q .1)/2 i=1 
+Fig. 3. Privacy-preserving outsourced association rule mining. 
+Case of m ?.1: Since u > t 1 vi >? and .? ?u +
+
+i= t 1 vi >.(q .1)/2, we have 
+i=
+t	t
+  
+.? >m ?u + vi =.? ?u + vi >.(q .1)/2 
+i=1 i=1 t
+ 
+.(m ?u + vi ) mod q 
+i=1 t
+ 
+= q .m ?u . vi >q .(q .1)/2 =(q +1)/2 i=1 
+Thus, we have m = 0 . (m ?u + t 1 vi ) mod q <
+i=
+ t
+
+(q .1)/2and m ?.1 . (m ?u +1 vi ) mod q >
+i=(q+1)/2. Therefore, a data owner can detect whether m =0or not by comparing . =(m ?u + t 1 vi ) mod q to (q .1)/2.
+i=
+V. PRIVACY-PRESERVING OUTSOURCED MINING 
+
+In this section, we present our privacy-preserving associa-tion rule mining and frequent itemset mining solutions using the homomorphic encryption scheme and secure comparison scheme proposed in Section IV as building blocks. 
+A. Main Idea 
+As shown in Fig. 3, in our association rule mining solu-tion, each data owner owns a private database, and data owners collaboratively mine their joint database*s association rules with the assistance of the cloud. Our association rule mining solution includes two stages, namely: preprocessing and mining. 
+In the preprocessing stage, data owners and the cloud collaborate to generate an encrypted joint database at the cloud*s end and some auxiliary data for privacy-preserving mining. Each data owner inserts .ctitious transactions to his private database, and encrypts items in the database with a sub-stitution cipher. The .ctitious transactions are used to mitigate frequency analysis attacks (due to the inherent weakness of the substitution cipher). Once the databases have been encrypted, they are outsourced to the cloud as part of the joint database 
+TABLE II 	TABLE III 
+ORIGINAL DATABASES (BEFORE PREPROCESSING STAGE) PREPROCESSED DATABASES FOR OUTSOURCING (AFTER STEP 5 OF PREPROCESSING STAGE) 
+maintained by the cloud. To allow the cloud to accurately mine the database (which has .ctitious transactions), data owners tag each transaction in their outsourced databases and joint database with an encrypted realness value (ERV) using our customized homomorphic encryption scheme. A realness value (RV for short) is either 0 or 1, which indicates that the transaction is .ctitious or real, respectively. All ERVs are sent to the cloud. Please note that the cloud is still unable to determine whether a transaction is .ctitious or not, even having ERVs. 
+In the mining stage, the cloud mines association rules for data owners in a privacy-preserving manner. The cloud mines association rule candidates from the encrypted joint database. Because of the existence of .ctitious transactions, some candidates will be ?false positives§. To allow data owners detecting false positives, the cloud veri.es candidates in a privacy-preserving manner. The cloud computes each candidate*s encrypted verifying result from the ERVs, utilizing our homomorphic encryption and secure comparison schemes. The cloud returns all candidates and their encrypted verifying results to the data owners. Finally, data owners decrypt the encrypted verifying results and association rule candidates to recover the real association rules. 
+The main idea of our frequent itemset mining solution is similar, and the only differences are in the mining stage. In the mining stage, the cloud mines frequent itemset can-didates (i.e. the seemingly frequent itemsets are de.ned later) instead of association rule candidates. The data owners then decrypt the encrypted verifying results and frequent itemset candidates to recover the real frequent itemsets. 
+B. Frequent Itemset Mining Solution 
+We describe our frequent itemset mining solution in the t-data-owner setting below, and an example is shown in Tables II, III and IV. 
+Preprocessing Stage: 
+1) 	Initialization for homomorphic encryption Let D1, D2...Dt be the data owners. A data owner, say D1, runs KeyGen(?) to generate a secret key key SK and a public parameter p of the proposed homomorphic encryption scheme. p is shared with other data owners and the cloud, while SK is shared only with data owners. To use the proposed homomorphic encryption and out-sourced secure comparison schemes in our solutions, the bit lengths of keys and parameters must be carefully selected based not only on the security parameter ? 
+TABLE IV 
+JOINT DATABASE IN THE CLOUD (AFTER PREPROCESSING STAGE) 
+
+but also estimated maximum ciphertext degree and joint database size. The selection rules are shown in Table V. D1 will select these bit lengths, and the other data own-ers will verify whether the lengths satisfy the selection rules. 
+2) 	Initialization for secure threshold comparison To enable outsourced secure comparison, each data owner computes a 1-degree ciphertext of ?1§, and sends it to the cloud. Let ?i be the ciphertext generated by the i-th data owner. A data owner, say D1, computes cs = E(SK, .Ts mod q, 1) and ce = E(SK, 1, 1). The owner sends cs, ce along with Ts to the cloud. To prevent D1 deviating from the cooperative mining protocol, the cloud sends the received cs , ce and Ts to other data owners for correctness veri.cation. 
+3) Each data owner hides data item frequencies by insert-ing .ctitious transactions to his private database. [16]*s algorithm is used to insert .ctitious transactions (see Appendix). After inserting the 
+
+.ctitious transactions, each item shares the same frequency with at least k . 1 other items in the same private database. The higher the value of k, the harder it is for the cloud to launch a frequency analysis attack. Data owners need to agree on k*s value. Data owners exchange their desirable values of k, and the highest value will be used for all private databases. 
+4) 	Each data owner tags his private database*s transac-tions with 1-degree ERVs. If a transaction is .ctitious, its RV is 0. Otherwise, the RV is 1. The homomorphic encryption scheme proposed in Section IV is used to encrypt RVs to obtain ERVs. We remark that any two ERVs are different even if their plaintexts are the same because of the probabilistic property of the encryption scheme. Therefore, the cloud cannot determine whether any two ERVs share the same plaintext or not. 
+5) 	Each data owner encrypts items in his private database with a substitution cipher. 
+6) 	Database outsourcing. Each data owner sends his encrypted database along with ERVs to the cloud, and the cloud joins received transactions by TIDs to create a joint database. Note that a transaction in a data owner*s private database is a transaction partition of data owners* joint database. 
+7) 	Aggregated veri.cation of ERVs. Let e be the set of all ERVs. The cloud computes r = c?e c mod p, and sends r to all data owners. Because of the homomorphic property of the encryp-tion scheme, r is the ciphertext of all RVs* sum, and r*s random ingredient is the sum of all ERVs* random ingredients. Every data owner decrypts r to verify the bit length of random ingredient (explained in Section VI-B). 
+Mining Stage: 
+1) 	The cloud runs a classic frequent itemset mining algo-rithm for centralized database named Eclat [7] to .nd out all frequent itemsets of the joint database. As the joint database contains .ctitious data, an itemset*s real support is the same as or lower than its support seen by the cloud. Therefore, a ?frequent§ itemset located here may not be real frequent itemset. Therefore, we refer to the frequent itemsets located here as ?seem-ingly frequent itemsets§, which contain all real frequent itemsets. The Eclat algorithm [7] is chosen over other classic algorithms here because it can generate the TID sets required in the next step as a byproduct. 
+2) 	The cloud computes the encrypted support for each seemingly frequent itemset. An itemset X*s encrypted support, E(Supp(X)),is computed using the ERVs of the transactions contain-ing X. The TID set of such transactions is generated in the previous step as a byproduct. Let the set V (X) be the indices of transactions containing X,and the set M(X) be the indices of the data owners involving X. (All items in X are from these data owners, and each of these owners has at least one item in X.) Let ERVi, j be the ERV for data owner Dj *s partition of the i-th transaction. The i-th transaction, which may contain .ctitious data, truly contains X if ERVi, j is a ciphertext of ?1§ for every j ? M(x). Due to the properties of the proposed homomorphic encryption scheme, the cloud can compute 
+ 
+E(Supp(X)) = ( ERVi, j ) mod p i?V (x)j?M(x) 
+without knowing the plaintexts. In the above equation,
+ 
+ERVi, j mod p is a ciphertext of ?1§ if and 
+j?M(x) only if each of the data owners M(X) has a real partition in the i-th transaction. Otherwise, it is a ciphertext of ?0§. 3) For each seemingly frequent itemset, the cloud veri.es whether it is real frequent or not in a privacy-preserving manner, and computes its ESVR. Suppose Z is such an itemset. Recall that E(Supp(Z)) has been computed in the previous step. Utilizing the homomorphic property of our encryption scheme, the cloud computes 
+E(Supp(Z) . Ts ) = (E(Supp(Z)) + cs ) mod p 
+and compares Supp(Z) . Ts with 0 using our secure comparison scheme. The (encrypted) comparison result is the ESVR. Note: As Supp(Z) . Ts = 0 . Supp(Z) = Ts, the data owners can decrypt Z*s ESVR to determine whether Z is a real frequent or not. 
+4) 	The cloud returns seemingly frequent itemsets and their ESVRs to involved data owners. 
+5) 	The data owners decrypt the received seemingly fre-quent itemsets* ESVRs to determine the real frequent itemsets, and decrypt the revealed real frequent itemsets (encrypted with a substitution cipher). For each seemingly frequent itemset, a data owner .rst decrypts its ESVR to determine whether the itemset is really a real frequent. If it is real frequent, then the data owner will decrypt it. 
+
+In the .rst step of preprocessing stage, using exact max-imum ciphertext degree and joint database size to select bit lengths could reduce ciphertext size. These exact values could be obtained from the cloud after the .rst step of mining stage. The maximum ciphertext degree in our solutions is the maximum number of data owners involved in one seemingly frequent itemset. 
+To reduce ciphertext size, data owners can defer the step of initialization for homomorphic encryption until the exact values are obtained. Subsequently, ERV generation and ini-tialization for secure comparison will also be deferred. The only drawback is an increase in the communication rounds required to obtain the above exact values and to send ERVs to the cloud separately. (Currently, ERVs are sent along with the databases.) 
+C. Association Rule Mining Solution 
+Based on the above frequent itemset mining solution, we can build a cloud-aided privacy-preserving association rule mining 
+solution for vertically partitioned databases. The solution is given below. 1) All data owners and the cloud run the above frequent itemset mining solution to mine frequent itemsets. 
+Eventually, the cloud .nds out all seemingly frequent itemsets, and obtains encrypted supports and ESVRs. If data owners only want to learn the association rules, without learning the frequent itemsets, the cloud does not need to return these itemsets and ESVRs in the running. In addition, data owners do not need to decrypt frequent itemsets. 
+2) 	Initialization for secure threshold comparison A data owner, say D1, computes cz =E(SK, 0),and sends cz along with n1and n2 to the cloud where n1and n2are twointegers and n2/n1 =Tc.To prevent D1 deviating from the cooperative mining protocol, the cloud sends these received ciphertexts and plaintexts to other data owners for correctness veri.cation. To reduce communication rounds, this step can be performed together with the ?initialization for secure threshold comparison§ step in frequent itemset mining. 
+3) 	The cloud generates association rule candidates. An association rule candidate X . Y that satis.es X ?Y =.and X ?Y ,where X, Y and X ?Y are seemingly frequent itemsets. 
+4) 	For each association rule candidate, the cloud veri.es its con.dence in a privacy-preserving manner, and com-putes its ECVR (Encrypted Con.dence Verifying Result). For any association rule candidate X . Y , both X ?Y and X are seemingly frequent itemsets. Using their encrypted supports computed earlier, the cloud computes 
+E(Supp(X ?Y ) ?n1 .Supp(X) ?n2) =(E(Supp(X ?Y )) ?n1 +(cz .E(Supp(X))) ?n2) mod p 
+and compares Supp(X ?Y )?n1 .Supp(X)?n2 with 0 using our secure comparison scheme. The encrypted comparison result is the ECVR. Note: From (1), we observe that the ECVR can be used to determine whether the con.dence is over Tc or not. 
+Supp(X ?Y ) ?n1 .Supp(X) ?n2 =0 
+.Supp(X ?Y )/Supp(X) =n2/n1 
+.Con f (X .Y ) =Tc (1) 
+5) 	The cloud returns association rule candidates, ESVRs and ECVRs to involved data owners. 
+6) 	The data owners decrypt association rule candidates, ESVRs and ECVRs to .nd out real association rules. For a candidate X .Y , the data owners will need to .rst decrypt the ESVR of X ?Y to determine whether Supp(X ?Y ) =Ts or not. If yes, the data owners will decrypt the ECVR of X .Y to determine whether Con f (X .Y ) =Tc or not. If yes, the data owners will then decrypt X and Y to recover the real association rule in plaintext (as items in the joint database are encrypted with a substitution cipher). 
+VI. SECURITY ANALYSIS 
+
+In this section, we analyze the security properties of the proposed solutions, focusing on how our solutions can pro-tect a data owner*s data from the cloud and the other data owners. 
+A. Security Under the Cloud*s Attacks 
+1) Con.dentiality of Transactions Under Frequency Analysis Attack: In our solutions, items are encrypted with a substitution cipher. Recall that substitution cipher is subject to frequency analysis attacks. To counter such an attack, item frequency is hidden by adding .ctitious transactions to data owners* private databases based on [16]*s algorithm. In contrast to the approach in [16], we apply this algorithm in vertically partitioned databases instead of a single database, and we tag transactions with ERVs. These differences will not, however, undermine the security under a frequency analysis attack, as explained below. 
+(1) 
+Applying this algorithm in vertically partitioned data-bases will not undermine the security. Data owners* encrypted databases are uploaded to the cloud, and these databases do not share any items. So cracking one of these databases by item frequency analysis is independent of other databases. Then, from [16, Th. 4], we know that the crack probability for an item or itemset in such a database is no more than 1/k.Now, let us analyze the security of the joined database. The cloud joins the above-mentioned databases. Let X be an itemset of the joined database, and suppose X*s item(s) are from b data owner(s). Then, X can be divided into b itemset(s), and each has only one data owner*s item(s). To crack X, the attacker has to crack all b itemset(s). Because cracking one of these itemsets is independent of the other itemsets, the probability of cracking X is no more than (1/k)b.As t =b =1, the crack probability for an item or itemset in our solutions is still no more than 1/k. 
+
+(2) 
+ERVs will not undermine the security. The use of ERVs cancels out .ctitious transactions in the mining result, result, but the cloud cannot detect .ctitious transactions and reveal real item frequency based on ERVs. ERVs are encrypted with a probabilistic encryption scheme, and any two ERVs are different even if their plaintexts are the same. Therefore, the cloud cannot distinguish whether a transaction is real or not from its ERV. The cloud is not able to tell whether any two given transactions share the same realness value. Without real item frequency, the cloud launch frequency analysis attack on the substitution cipher. Without knowing the plaintexts of encrypted items, the cloud cannot learn any sensitive information about the transaction data and mining result of the outsourced database. 
+
+
+2) Con.dentiality of TIDs: The original TIDs of some databases may contain sensitive information. To hide such information, the TIDs in the outsourced databases are replaced by the hash values of the original TIDs. Because of the pre-image resistance property of cryptographic hash function, the cloud cannot recover original TIDs from the TIDs used in the outsourced databases. 
+TABLE V EXPERIMENTAL SETTINGS 
+
+
+
+
+B. Security Under Data Owners* Attacks Attack Via Chosen Random Ingredients: In our solutions, data owners are not required to exchange any plaintext or ciphertext (i.e., encryption of their private data). In addition, due to the use of the underlying homomorphic encryption scheme and secure comparison scheme, the exact supports and con.dences are concealed from any data owner. However, there is still a possible attack via chosen random ingredients. A data owner may use ERVs* random ingredients to tag some transactions, and verify whether such a transaction contains a given itemset or not. For example, the data owner could compute an ERV with a customized random ingredient. The random ingredient*s bit length is longer than any other random ingredient*s in the preprocessing stage. For each received seemingly frequent itemset, the data owner decrypts its ESVR, and obtains the ESVR*s random ingredient. If the random ingredient matches the pattern of the customized random ingredient*s most signi.cant bits, it is an indication that the ERV with the customized random ingredient has been used to compute the ESVR. Thus, the data owner knows the transaction associated with the ERV contains the itemset. To prevent such an attack, we carefully con.gure the bit lengths of random ingredients. An example is presented in Table V. The random ingredients in ?1,?2 ...?t are used to mask chosen random ingredients in ERVs. Also, in the preprocessing stage, each data owner must verify cs,cz,ce and that ERVs are generated honestly with random ingredients of the right bit lengths. In the last step of preprocessing stage, the random ingredients of ERVs are veri.ed in an aggregated manner. By examining the sum of these random ingredients, 
+data owners can be assured that any chosen random ingredient will be masked. 
+C. Security of Underlying Homomorphic Encryption Scheme 
+The security of underlying homomorphic encryption scheme depends on the hardness of solving nonlinear systems. 
+In the proposed mining solutions, a number of plaintexts and their corresponding ciphertexts (i.e. cs, cz, {?i : t = i =1}) are disclosed to the cloud. Therefore, the underlying homomorphic encryption scheme should be secure under known-plaintext attacks. In our homomorphic encryption scheme, to encrypt a plaintext mi and obtain the correspond-ing ciphertext ci , we require the use of two secrets q,s and a random ingredient ri . From a known (mi ,ci ) pair, the attacker can get a nonlinear equation of three unknowns q,s,ri : 
+s(q ?ri +mi ) =ci 
+
+From w known pairs, the attacker can generate an under-determined nonlinear system of w equations, and the num-ber of unknowns are w + 2. If the attacker can solve this system, he can learn the secret key of the encryption scheme. 
+Security Can Be Achieved by Increasing Hardness of Solving Above Nonlinear System: Solving underdetermined nonlinear systems is NP-hard, while solving overdetermined systems can be done in polynomial time. The attacker may attack a nonlinear system by guessing the values of some unknowns [25] if guessing the correct values is not very hard. The attacker can generate many overdetermined systems from the targeted underdetermined nonlinear system by .xing some unknowns (3 unknowns for the system above) to all possible values. These unknowns will be viewed as constants in the generated systems. By solving the generated overdetermined systems, the attacker .nds the solution to the targeted under-determined nonlinear system. To prevent such attacks, we can con.gure large ranges or bit lengths for q,s,ri to compound the challenges of guessing the correct values. An example of the con.guration is presented in Table V. 
+D. Security of Underlying Secure Comparison Scheme 
+The proposed secure comparison scheme is used in our solutions to conceal the exact support values and con.dence values from the data owners. From the correctness proof in Section IV-C, we know that 
+mi =0 .(q .1)/2 >. >? mi ?.1 .q .? >. >(q +1)/2 
+
+
+
+Fig. 4. Running time comparison (t = 4and k = 12). 
+
+If .<(q . 1)/2, m could be any value in the range [0,?]. Otherwise, m couldbeany valuein [.?, 0]. By observing ., a data owner knows whether m = 0 or not, but m*s range cannot be deduced. As our design goal is to conceal exact supports, it is suf.cient to conceal m*s value in many possible values. In other words, we do not need a secure comparison scheme to conceal more information. 
+VII. PERFORMANCE EVALUATION In this section, we evaluate the computational complexity, communication complexity and storage cost of our association rule mining and frequent itemset mining solutions. In the evaluation, we choose one of [13]*s solutions and classic non-privacy-preserving algorithms as the baseline. The former is chosen because it and our solutions achieve the same privacy level. In contrast, other solutions achieve lower privacy levels. 
+Classic algorithms are chosen as baselines because they are the most ef.cient known solutions. 
+A. Computational Complexity 1) Comparing With Classic Algorithms: We used the run-ning time to evaluate the computational complexity. To demon-strate the feasibility of our solutions, we compare our solutions with classic non-privacy-preserving algorithms, which are the most ef.cient known solutions. We evaluated our solutions and three classic non-privacy-preserving algorithms (Apriori, Eclat and FP-growth) using two datasets (retail and pumsb) from [26]. The retail dataset from Tom Brijs contains anonymous retail market basket data in a Belgian retail store, while the pumsb dataset contains census data for population and housing. The retail and pumsb datasets contain 88,162 and 49,046 transactions, respectively. To simulate t data owners, we vertically partitioned each dataset into t databases randomly. Our solutions are implemented in JAVA, and we use a JAVA implementation [27] of Apriori, Eclat and FP-growth algorithms in our experiments. All implementations are single-threaded implementations. To ensure a fair comparison, in all experiments, machines playing the roles of cloud or data owner have the same hardware and software settings. The settings and the parameters of our solutions are shown in Table V. 
+The results are shown in Figs. 4, 5 and 6. As the running time of association rule mining is only slightly higher than 
+Fig. 5. Running time under different data owner count t (k is .xed to 16). 
+
+
+Fig. 6. Running time under different k (t is .xed to 2). 
+
+that of frequent itemset mining, only the results of association rule mining are presented. We show our solutions* running time at the cloud*s end (i.e. running time of mining) and data owner owner side (i.e. running time of preprocessing and decrypting) separately. As expected, our solutions are not as ef.cient as the most ef.cient algorithms / solutions of low privacy levels. However, they achieve a higher privacy level with an acceptable running time. Compared with the fastest algorithm*s running time, the cloud*s running time is about one order higher for most cases, while data owner*s running time is very low. This is the classic trade-off between privacy-preserving and ef.ciency. 
+From Figs. 5 and 6, we also observe that running time changes with increasing values of k and t. The cloud*s running time increases with t,as dmax increases with t and a larger dmax results in larger ciphertext size and more computations. The cloud*s running time increases with k for the retail dataset, but barely changes for the pumsb dataset. The increase in running time for retail dataset is due to the increase in .ctitious data. However, the pumsb dataset is very dense, and the supports are already very high without including .ctitious data. Thus, adding more .ctitious data hardly changes the number of seemingly frequent itemsets and their supports. We can also observe that data owner*s running time decreases 
+TABLE VI TABLE VII 
+ESTIMATED RUNNING TIME OF [13]*s SOLUTION TRANSACTION COUNT OF JOINT DATABASE (RETAIL) 
+
+
+
+when t increases. The reason is simple. If the same joint database is vertically partitioned to more data owners, each data owner*s dataset is smaller. Preprocessing a smaller dataset requires less time. Data owner*s running time doesn*t increase with k either. Such a phenomenon can also be explained using [16]*s algorithm for adding .ctitious trans-actions. Speci.cally, data owner*s running time is dominated by the time to run this algorithm, which is hardly affected by changes in the values of k. In summary, increasing t and k usually results in a higher running time at the cloud end, without resulting in an increase in data owner*s running time. 
+2) Comparing With the Solution Achieving the Same Privacy Level: To the best of our knowledge, the only existing privacy-preserving solution that does not leak sen-sitive information of the raw data is one of [13]*s frequent itemset mining solutions (hereafter referred to as ?[13]*s strong solution§ in this paper). This solution cannot be used for association rule mining, whilst we have solutions for both association rule mining and frequent itemset mining. Similar to our solutions, [13]*s strong solution uses homo-morphic encryption. However, it needs to use asymmetric homomorphic encryption scheme, which is computationally expensive. Reference [13]*s strong solution requires about n ? F encryptions as well as (n + Ts ) ? F homomorphic additions and scalar multiplications. F is the number of frequent itemsets. This solution*s running time is dominated by these expensive operations. We evaluate its running time by estimating the required time to undertake the operations 
+? see Table VI. To estimate the running time, we measure the speeds of two popular asymmetric additive homomor-phic encryption schemes (i.e., Paillier Paillier and ElGamal) implemented in Java, and we remark that ElGamal is the scheme suggested by [13]. The speeds are measured using a machine of the same speci.cations in our evaluations (see Table V), and so are the datasets and parameters. Compared with the result of our solution in Fig. 4, the running time of [13]*s strong solution is several orders of magnitude 
+B. Communication Complexity and Storage Cost 
+Similar to most other solutions, our solutions require con-stant communication rounds. In the preprocessing stage, some keys and parameters are shared among t data owners. These keys and parameters can be sent to data owners in parallel. In the mining stage, all mining results can be sent to data 
+TABLE VIII 
+TRANSACTION COUNT OF JOINT DATABASE (PUMSB) 
+
+
+
+owners in a communication round. Therefore, the number of communication rounds does not grow if t, frequent itemsets, or association rules increases. 
+The communication traf.c and storage cost in our solutions are dominated by the joint database size and the size of all ERVs. Let n and n be the transaction count of the joint database with and without .ctitious transactions, respectively. Tables VII and VIII list the joint database size of two datasets under different settings of k and t. The joint database in our solutions contains .ctitious transactions, while the one in class algorithms does not. We can observe from Tables VII and VII that the joint database size in our solutions is a few times larger and the size grows with k and t. 
+The number of ERVs is at most n ? t = O(n ? t). A ciphertext*s size is O(? ? dmax ) ? O(? ? t),where ? is the security parameter (typically 80). Normally, dmax can be viewed as a small constant. dmax is not larger than 4 for most settings in the above experiments, and the largest dmax observed in the above experiments is 6. Let m be the average transaction size. Then the communication traf.c and and storage cost in our solutions are both O(n ? m + n ? ? ? t ? dmax ). The traf.c and cost in classic algorithms are O(n ? m). For most reasonable transaction sizes, our solutions resulted in an in communication traf.c and storage cost only by a few times. The storage cost in [13]*s strong solution is O(n ? m), while the communication traf.c is O(Ts ?t ? F ?C) where F is the number of frequent itemsets. C is the ciphertext size in [13]*s strong solution, which is at least 2048 2048 bits. In many settings, our solutions* traf.c is not any higher than the traf.c of [13]*s strong solution. 
+VIII. RELATED WORK 
+
+A. Privacy-Preserving Association Rule Mining and Frequent Itemset Mining on Vertically Partitioned Databases 
+In [9], the .rst work to identify and address privacy issues in vertically partitioned databases, a secure scalar product protocol is presented and used to build a privacy-preserving frequent itemset mining solution. Association rules can then be found given frequent itemsets and their supports. Since the publication of this seminal work, a number of privacy-preserving association rule mining or frequent itemset mining solutions have been published in the literature (see [11]?[13], [28]?[31]). 
+The most relevant work is the privacy-preserving association rule mining solution presented in [11]. In this solution, a data owner known as the master is responsible for the mining. The other data owners (known as slaves) insert .ctitious transactions to their respective datasets, and send the datasets to the master. Each data owner will also send his set of real transactions* IDs to a semi-trusted third-party server. The third-party server is assumed not to be colluding with any data owner, but it cannot be trusted to hold the raw data. The master generates association rule candidates from the joint database containing .ctitious data. For each rule candidate X . Y , the master sends the ID lists of the transactions containing X ? Y and the transactions containing X to the third-party server. The server veri.es if the rule is quali.ed or not. Similar to our solutions, a semi-trusted third-party is utilized for the mining. However, unlike our solutions, a data owner (i.e. the master) does the majority of the computational work. Therefore, we can hardly say that such a solution is an outsourced mining solution. Though .ctitious data are added in datasets to lower data usability, the master is able to learn signi.cant information about other data owners* raw data from the received datasets. In contrast, our solutions do not leak such information as we do not rely on one particular data owner to undertake the computations and we also encrypt the datasets. 
+All existing solutions, with the exception of [11], do not utilize a third-party server to server to compute the mining result. Some solutions [12], [13] use asymmetric encryp-tion to compute the supports of itemsets, while other solu-tions [9], [28]?[30] use a secure scalar product protocol, a set intersection cardinality protocol or a secret sharing scheme to perform these computations. A majority of these solutions expose exact supports to all data owners, resulting in the leakage of information about the data owners* raw data [11]. The only exception is one of [13]*s solutions. In [13], there are two privacy-preserving solutions for frequent itemset mining. The .rst solution exposes exact supports, which is not desir-able. The second solution does not expose exact supports. However, association rules cannot be mined based on the result of second solution because con.dences cannot be computed without the exact supports. In addition, this solution*s method cannot be used to mine association rules because securely computing con.dence is more complicated than computing support. In comparison with this solution, our frequent itemset mining solution*s computational complexity is signi.cantly lower. Our solutions do not expose exact supports or con.-dences to data owners. Different from existing solutions based on homomorphic encryption, we use symmetric homomorphic encryption instead of asymmetric homomorphic encryption, and the manner in which we use homomorphic encryption also differs from existing solutions. In our approach, we use homomorphic encryption to create ERVs and build our secure outsourced comparison scheme. 
+B. Privacy-Preserving Outsourced Association Rule Mining and Frequent Itemset Mining 
+Privacy-preserving outsourced frequent itemset mining and association rule mining have been studied in the setting of a single data owner [16], [19]?[21]. In existing solutions, the data owner outsources their data and the mining task to the cloud, but at the same time, wish to keep the raw data secret from the cloud. Generally, data items in the database are encrypted using a substitution cipher prior to outsourcing. Reference [19] proposed a solution to counter fre-quency analysis attack on substitution cipher. However, a later work [20] demonstrated that [19]*s solution is not secure. Giannotti et al. proposed a solution based on k-anonymity frequency [16], [21]. To counter frequency analysis attack, the data owner inserts .ctitious transactions in the encrypted database to conceal the item frequency. After inserting the .ctitious transactions, any item in the encrypted database will share the same frequency with at least k . 1 other items. The data owner sends the encrypted database of both the real and .ctitious transactions to the cloud. The cloud runs a classic frequent itemset mining algorithm, and returns the result (frequent itemsets and their supports) to the data owner. The data owner revises these itemsets* supports by subtracting them with these itemsets* corresponding occurrence counts in the .ctitious transactions respectively. Finally, the data owner decrypts the received itemsets with the revised supports higher than the frequency threshold, and generates association rules based on found frequent itemsets. Our solutions use their techniques to conceal the raw data from the cloud and mitigate frequency analysis attack that can be undertaken by the cloud. Using these techniques alone, however, is not suf.cient to protect data privacy in the vertically partitioned database setting. To cancel out .ctitious transactions, both [21] and [16] require the data owner to count itemset occurrences in .cti-tious transactions. In the vertically partitioned database setting, data owners are unable to perform such calculation using the techniques described in [21] and [16]. In our solutions, the cloud rather than the data owners cancels out .ctitious transactions in a privacy-preserving manner, and the under-lying techniques are our homomorphic encryption, secure comparison and ciphertext tag schemes. 
+Another recent work [32] proposed a privacy-preserving outsourced association rule mining solution based on predi-cate encryption. This solution is resilient to chosen-plaintext attacks on encrypted items, but it is vulnerable to frequency analysis attacks. Applying this solution to vertically partitioned databases will also result in the leakage of the exact supports to data owners. In this paper, our adversary model is different. We assume the cloud has knowledge of the item frequencies instead of chosen plaintext-ciphertext pairs, and our solutions are resilient to frequency analysis attacks. 
+C. Other Related Work 
+Other than the settings of vertically partitioned databases and cloud/third-party-aided mining, privacy-preserving fre-quent itemset mining and association rule mining have been studied in the settings of horizontally partitioned databases [10], [33]?[35], data publishing [36] and differential privacy [37]. These settings are beyond the scope of this paper. 
+IX. CONCLUDING REMARKS 
+
+In this paper, we proposed a privacy-preserving outsourced frequent itemset mining solution for vertically partitioned databases. This allows the data owners to outsource mining task on their joint data in a privacy-preserving manner. privacy-preserving manner. Based on this solution, we built a privacy-preserving outsourced association rule partitioned databases. Our solutions protect data owner*s raw data from other data owners and the cloud. Our solutions also ensure the privacy of the mining results from the cloud. Compared with most existing solutions, our solutions leak less information about the data owners* raw data. Our evaluation has also demonstrated that our solutions are very ef.cient; therefore, our solutions are suitable to be used by data owners wishing to outsource their databases to the cloud but require a high level of privacy without compromising on performance. 
+To realize our solutions, an ef.cient homomorphic encryp-tion scheme and a secure outsourced comparison scheme were presented in this paper. Both schemes have potential usage in other secure computation applications, such as secure data aggregation, beyond the data mining solutions described in this paper. Demonstrating the utility of the proposed homomorphic encryption scheme and outsourced comparison scheme in other settings will be the focus of future research. 
+APPENDIX 
+INSERTING FICTITIOUS TRANSACTIONS 
+( [16]*s ALGORITHM) 
+
+
+An algorithm to counter frequency analysis attacks on the outsourced database encrypted with a substitution cipher was proposed in [16]. For the purpose of concealing the item frequency, this algorithm inserts .ctitious transactions in the database to be oursourced. The goal is to ensure that each item share the same frequency with at least k . 1 items. The algorithm is summarized as follows (also see [16]). 
+. 	
+Firstly, the data owner scans the database to count each individual item*s support. 
+
+. 	
+Secondly, the data owner groups items considering the supports and co-occurrence of items. The data owner sorts items in decreasing order of support. Starting from the .rst of the sorted item list (i.e. the item with the highest support), the data owner assigns every k adjacent items to a new created group. If there are less than k unassigned items remaining, these items will be assigned to the last created group. The data owner swaps items from different groups to ensure that all items in the same group do not occur together in the same transaction. 
+
+. 	
+Thirdly, for each item in each group, the data owner calculates the difference between the item*s support and the highest support in the group. The difference is de.ned as the ?noise§ of the item. 
+
+. 	
+Fourthly, to achieve k-anonymity frequency, the data owner generates .ctitious transactions based on the result of the third step. 
+
+
+The number of an item*s occurrences in the .ctitious transactions is equal to its noise calculated in the third step. After inserting the .ctitious transactions, all items in the same group share the same support. 
+ACKNOWLEDGMENT 
+
+The authors would like to thank Quach Vinh Thanh, the Associate Editor, and the three anonymous reviewers for providing constructive and generous feedback. Despite their invaluable assistance, any errors remaining in this paper are solely attributed to the authors. 
+REFERENCES 
+[1] 	T. Brijs, G. Swinnen, K. Vanhoof, and G. Wets, ?Using association rules for product assortment decisions: A case study,§ in Proc. SIGKDD, 1999, pp. 254?260. 
+[2] 	S. E. Brossette, A. P. Sprague, J. M. Hardin, K. B. Waites, W. T. Jones, and S. A. Moser, ?Association rules and data mining in hospital infection control and public health surveillance,§ J. Amer. Med. Inform. Assoc., vol. 5, no. 4, pp. 373?381, 1998. 
+[3] 	B. Mobasher, H. Dai, T. Luo, and M. Nakagawa, ?Effective personal-ization based on association rule discovery from Web usage data,§ in Proc. WIDM, 2001, pp. 9?15. 
+[4] 	C. Creighton and S. Hanash, ?Mining gene expression databases for association rules,§ Bioinformatics, vol. 19, no. 1, pp. 79?86, 2003. 
+[5] 	X. Yin and J. Han, ?CPAR: Classi.cation based on predictive association rules,§ in Proc. SIAM SDM, 2003, pp. 1?5. 
+[6] 	R. Agrawal and R. Srikant, ?Fast algorithms for mining association rules,§ in Proc. VLDB, 1994, pp. 1?13. 
+[7] 	M. J. Zaki, ?Scalable algorithms for association mining,§ IEEE Trans. Knowl. Data Eng., vol. 12, no. 3, pp. 372?390, May/Jun. 2000. 
+[8] 	J. Han, J. Pei, and Y. Yin, ?Mining frequent patterns without candidate generation,§ in Proc. ACM SIGMOD, pp. 1?12, 2000. 
+[9] 	J. Vaidya and C. Clifton, ?Privacy preserving association rule mining in vertically partitioned data,§ in Proc. SIGKDD, 2002, pp. 639?644. 
+
+[10] 	M. Kantarcioglu and C. Clifton, ?Privacy-preserving distributed mining of association rules on horizontally partitioned data,§ IEEE Trans. Knowl. Data Eng., vol. 16, no. 9, pp. 1026?1037, Sep. 2004. 
+[11] 	B. Rozenberg and E. Gudes, ?Association rules mining in vertically partitioned databases,§ Data Knowl. Eng., vol. 59, no. 2, pp. 378?396, 2006. 
+[12] 	J. Zhan, S. Matwin, and L. Chang, ?Privacy-preserving collaborative association rule mining,§ in Proc. DBSEC, 2005, pp. 153?165. 
+[13] 	S. Zhong, ?Privacy-preserving algorithms for distributed mining of frequent itemsets,§ Inf. Sci., vol. 177, no. 2, pp. 490?503, 2007. 
+[14] 	P. Paillier, ?Public-key cryptosystems based on composite degree resid-uosity classes,§ in Proc. EUROCRYPT, 1999, pp. 223?238. 
+[15] 	R. Cramer, R. Gennaro, and B. Schoenmakers, ?A secure and optimally ef.cient multi-authority election scheme,§ Eur. Trans. Telecommun., vol. 8, no. 5, pp. 481?490, 1997. 
+[16] 	F. Giannotti, L. V. S. Lakshmanan, A. Monreale, D. Pedreschi, and 
+H. Wang, ?Privacy-preserving mining of association rules from out-sourced transaction databases,§ IEEE Syst. J., vol. 7, no. 3, pp. 385?395, Sep. 2013. 
+
+[17] 	B. Dong, R. Liu, and H. Wang, ?Result integrity veri.cation of out-sourced frequent itemset mining,§ in Proc. 27th Annu. IFIP WG Conf. Data Appl. Secur. Privacy (DBSec), Newark, NJ, USA, Jul. 2013, pp. 258?265. [Online]. Available: http://dx.doi.org/10.1007/978-3-642-39256-6_17 
+[18] 	R. Liu and H. Wang, ?Result integrity veri.cation of outsourced privacy-preserving frequent itemset mining,§ in Proc. SIAM Int. Conf. Data Mining, Vancouver, BC, Canada, Apr./May 2015, pp. 244?252. [Online]. Available: http://dx.doi.org/10.1137/1.9781611974010.28 
+[19] 	W. K. Wong, D. W. Cheung, E. Hung, B. Kao, and N. Mamoulis, ?Security in outsourcing of association rule mining,§ in Proc. VLDB, 2007, pp. 111?122. 
+[20] 	I. Molloy, N. Li, and T. Li, ?On the (in)security and (im)practicality of outsourcing precise association rule mining,§ in Proc. ICDM, Dec. 2009, pp. 872?877. 
+[21] 	F. Giannotti, L. V. S. Lakshmanan, A. Monreale, D. Pedreschi, and 
+W. Wang, ?Privacy-preserving data mining from outsourced databases,§ in Proc. CPDP, 2011, pp. 411?426. 
+
+[22] 	FIPS Publication 180-1: Secure Hash Standard, Nat. Inst. Standards Technol., Gaithersburg, MD, USA, 1995. 
+[23] 	FIPS Publication 180-2: Secure Hash Standard, Nat. Inst. Standards Technol., Gaithersburg, MD, USA, 2002. 
+[24] 	T. ElGamal, ?A public key cryptosystem and a signature scheme based on discrete logarithms,§ IEEE Trans. Inf. Theory, vol. 31, no. 4, pp. 469?472, Jul. 1985. [Online]. Available: http://dx.doi.org/10.1109/ TIT.1985.1057074 
+[25] 	N. Courtois, A. Klimov, J. Patarin, and A. Shamir, ?Ef.cient algorithms for solving overde.ned systems of multivariate polynomial equations,§ in Proc. EUROCRYPT, 2000, pp. 392?407. 
+[26] 	P. Fournier-Viger. Real-life Datasets in SPMF Format, accessed on Apr. 6, 2016. [Online]. Available: http://www.philippe-fournier-viger.com/spmf/index.php?link=datasets.php 
+[27] 	P. Fournier-Viger, A. Gomariz, T. Gueniche, A. Soltani, C. W. Wu, and 
+V. S. Tseng, ?SPMF: A Java open-source pattern mining library,§ J. Mach.Learn.Res., vol. 15, no. 1, pp. 3389?3393, 2014 
+
+[28] 	J. Vaidya and C. Clifton, ?Secure set intersection cardinality with application to association rule mining,§ J. Comput. Secur., vol. 13, no. 4, pp. 593?622, 2005. 
+[29] 	X. Ge, L. Yan, J. Zhu, and W. Shi, ?Privacy-preserving distributed association rule mining based on the secret sharing technique,§ in Proc. SEDM, Jun. 2010, pp. 345?350. 
+[30] 	R. Kharat, M. Kumbhar, and P. Bhamre, ?Ef.cient privacy preserving distributed association rule mining protocol based on random number,§ in Intelligent Computing, Networking, and Informatics. Raipur, Chhat-tisgarh, India: Springer, 2014, pp. 827?836. 
+[31] 	C. Dong and L. Chen, ?A fast secure dot product protocol with application to privacy preserving association rule mining,§ in Proc. 18th Paci.c-Asia Conf. Adv. Knowl. Discovery Data Mining (PAKDD), Tainan, Taiwan, May 2014, pp. 606?617. [Online]. Available: http://dx.doi.org/10.1007/978-3-319-06608-0_50 
+[32] 	J. Lai, Y. Li, R. H. Deng, J. Weng, C. Guan, and Q. Yan, ?Towards semantically secure outsourcing of association rule mining on categorical data,§ Inf. Sci., vol. 267, pp. 267?286, May 2014. 
+[33] 	T. Fukasawa, J. Wang, T. Takata, and M. Miyazaki, ?An effective distributed privacy-preserving data mining algorithm,§ in Proc. 5th Int. Conf. IDEAL, 2004, pp. 320?325. 
+[34] 	C. Su and K. Sakurai, ?A distributed privacy-preserving association rules mining scheme using frequent-pattern tree,§ in Proc. ADMA, 2008, pp. 170?181. 
+[35] 	M. G. Kaosar, R. Paulet, and X. Yi, ?Secure two-party association rule mining,§ in Proc. ACSW-AISC, 2011, pp. 15?22. 
+[36] 	J.-L. Lin and J. Y.-C. Liu, ?Privacy preserving itemset mining through fake transactions,§ in Proc. ACM Symp. Appl. Comput. (SAC), Seoul, South Korea, Mar. 2007, pp. 375?379. [Online]. Available: http://doi.acm.org/10.1145/1244002.1244092 
+[37] 	B. N. Keshavamurthy, A. M. Khan, and D. Toshniwal, ?Privacy pre-serving association rule mining over distributed databases using genetic algorithm,§ Neural Comput. Appl., vol. 22, no. 1, pp. 351?364, 2013. 
+
+Lichun Li received the bachelor*s degree in infor-mation engineering from the Beijing University of Posts and Telecommunications, in 2002, the master*s degree in communication and information systems from the China Academy of Telecommunication Technology, in 2006, and the Ph.D. degree in computer science from the Beijing University of Posts and Telecommunications, in 2009. He is cur-rently a Postdoctoral Research Fellow with the INFINITUS Laboratory, School of Electrical and Electronic Engineering, Nanyang Technological 
+
+University, Singapore. His research interests include privacy and security in cloud and big data. 
+
+Rongxing Lu (S*09?M*11?SM*15) received the Ph.D. degree in computer science from Shanghai Jiao Tong University, Shanghai, China, in 2006, and the Ph.D. degree in electrical and computer engi-neering from the University of Waterloo, Waterloo, ON, Canada, in 2012. From 2012 to 2013, he was a Postdoctoral Fellow with the University of Water-loo. Since 2013, he has been an Assistant Profes-sor with the School of Electrical and Electronic Engineering, Nanyang Technological University, Singapore. His research interests include computer network security, mobile and wireless communication security, and applied cryptography. He was a recipient of the Canada Governor General Gold Metal. 
+
+Kim-Kwang Raymond Choo (SM*15) received the Ph.D. degree in information security from the Queensland University of Technology, Australia, in 2006. He is currently a Cloud Technology Endowed Associate Professor with the University of Texas at San Antonio, an Associate Professor with the University of South Australia, and a Guest Pro-fessor with the China University of Geosciences. He was named one of 10 Emerging Leaders in the Innovation category of The Weekend Australian Magazine/Microsoft*s Next 100 series in 2009, and is a recipient of the ESORICS 2015 Best Research Paper Award, the 2015 Winning Team of Germany*s University of Erlangen-Nuremberg Digital Forensics Research Challenge, the 2014 Australia New Zealand Policing Advisory Agency*s Highly Commended Award, the 2010 Australian Cap-ital Territory Pearcey Award, the Fulbright Scholarship in 2009, the 2008 Australia Day Achievement Medallion, and the British Computer Society*s Wilkes Award. 
+
+Anwitaman Datta is an Associate Professor with the School of Computer Science and Engineering, NTU Singapore. He leads the Self-* and Algo-rithmic aspects of Networked Distributed Systems Research Group at NTU. 
+
+Jun Shao received the Ph.D. degree from Shanghai Jiao Tong University, Shanghai, China, in 2008. He was a Postdoctoral Fellow with the School of Information Sciences and Technology, Pennsylvania State University, State College, PA, USA, from 2008 to 2010. He is currently a Full Professor with the Department of Information Security, Zhejiang Gong-shang University, Hangzhou, China. His research interests include network security and applied cryptography. 
+
+

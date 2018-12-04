@@ -12,7 +12,7 @@ import java.util.concurrent.Future;
 public class ProjectMain {
 
 //	public static final int NUMBER_OF_FILES = 7870;
-	public static final int NUMBER_OF_FILES = 146;
+	public static final int NUMBER_OF_FILES = 3144;
 
 	public static void main(String[] args) {
 

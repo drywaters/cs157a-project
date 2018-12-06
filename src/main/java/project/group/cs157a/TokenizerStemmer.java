@@ -26,7 +26,6 @@ public class TokenizerStemmer {
 		stemmer = new PorterStemmer();
 	}
 
-
 	public List<HashMap<String, Double>> getTokens() {
 
 		String[] splitText = splitFile();

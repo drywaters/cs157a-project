@@ -18,10 +18,7 @@ public class ProjectMain {
 
 		long startTime = System.nanoTime();
 		
-		// Currently uses the number of files to set the number of threads open.  This
-		// should change later as number of files increases
-		ExecutorService executor = Executors.newFixedThreadPool(5);
-				
+		ExecutorService executor = Executors.newFixedThreadPool(5);			
 
 		TokenizerStemmer tokenizer = new TokenizerStemmer();
 

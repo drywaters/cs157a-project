@@ -1,112 +1,87 @@
 package project.group.cs157a;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.Charset;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
+import java.util.concurrent.Callable;
 
 import org.apache.commons.io.IOUtils;
 import org.tartarus.snowball.ext.PorterStemmer;
 
-public class TokenizerStemmer {
+public class TokenizerStemmer implements Callable<HashMap<String, Double>> {
 
-	private double totalTokens;
-	private List<HashMap<String, Double>> tokens;
+	private int fileNumber;
+	private int totalTokens;
+	private HashMap<String, Double> tokens;
 	private StringBuffer tokenBuffer;
 	private PorterStemmer stemmer;
-	
-	TokenizerStemmer() {
+
+	TokenizerStemmer(int fileNumber) {
+		this.stemmer = new PorterStemmer();
+		this.fileNumber = fileNumber;
 		this.totalTokens = 0;
 		this.tokenBuffer = new StringBuffer(10);
-		tokens = new ArrayList<>();
-		stemmer = new PorterStemmer();
 	}
 
-	public List<HashMap<String, Double>> getTokens() {
+	@Override
+	public HashMap<String, Double> call() throws Exception {
 
-		String[] splitText = splitFile();
+		tokens = new HashMap<>();
+		tokens.put("TOTAL TOKENS", 0.0);
+		tokens.put("DOCUMENT NUMBER", (double) this.fileNumber);
 
-		for (int i = 0; i < splitText.length; i++) {
-			try {
-				this.tokens.add(tokenStrings(splitText[i], (double) i+1));
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-		return tokens;
-	}
-
-	public String[] splitFile() {
-
-		try (InputStream file = new FileInputStream("./singleFile/2.txt")) {
+		try (InputStream file = new FileInputStream("./finalDocuments/Data(" + this.fileNumber + ").txt")) {
+//		try (InputStream file = new FileInputStream("./sql/doc" + this.fileNumber + ".txt")) {
+//		try (InputStream file = new FileInputStream("./big_data/" + this.fileNumber + ".txt")) {
+//		try (InputStream file = new FileInputStream("./files/Data_" + this.fileNumber + ".txt")) {
+//		try (InputStream file = new FileInputStream("./tokenTestData/TT20")) {
 			String content = IOUtils.toString(file, Charset.defaultCharset());
-			return content.split("\\.");
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} 
-		return null;
-	}
 
-	public HashMap<String, Double> tokenStrings(String content, double fileNumber) throws Exception {
+			for (int i = 0; i < content.length(); i++) {
 
-		HashMap<String, Double> fileMap = new HashMap<>();
-		fileMap.put("TOTAL TOKENS", 0.0);
-		fileMap.put("DOCUMENT NUMBER", fileNumber);
+				char currentChar = content.charAt(i);
+				int currentCharValue = (int) currentChar;
 
-		for (int i = 0; i < content.length(); i++) {
-
-			char currentChar = Character.toLowerCase(content.charAt(i));
-			int currentCharValue = (int) currentChar;
-
-
-			if (currentCharValue > 96 && currentCharValue < 123) { // Lower case letter
-				tokenBuffer.append(currentChar);
-			} else if (currentCharValue > 64 && currentCharValue < 91) { // Capital letter
-				tokenBuffer.append(currentChar);
-			} else {
-				nonAlphabet(fileMap);
+				if (currentCharValue > 96 && currentCharValue < 123) { // Lower case letter
+					tokenBuffer.append(currentChar);
+				} else if (currentCharValue > 64 && currentCharValue < 91) { // Capital letter
+					tokenBuffer.append((char) (currentCharValue + 32));
+				} else {
+					nonAlphabet();
+				}
 			}
+
+			tokens.put("TOTAL TOKENS", (double) totalTokens);
+
+			file.close();
+			return tokens;
 		}
-
-		fileMap.put("TOTAL TOKENS", totalTokens);
-
-
-		return fileMap;
-
 	}
 
 	// clear buffer, add token that is there
 	// if character is not A-Za-z
-	private void nonAlphabet(HashMap<String, Double> fileMap) {
-		checkBuffer(fileMap);
+	private void nonAlphabet() {
+		checkBuffer();
 	}
 
-	private void checkBuffer(HashMap<String, Double> fileMap) {
+	private void checkBuffer() {
 		if (tokenBuffer.length() > 0) {
-			addToken(fileMap);
+			addToken();
 		}
 	}
 
-	private void addToken(HashMap<String, Double> fileMap) {
+	private void addToken() {
 		this.totalTokens++;
 		stemmer.setCurrent(tokenBuffer.toString());
 		stemmer.stem();
 		String token = stemmer.getCurrent();
 		if (token.length() > 0) {
-			if (fileMap.containsKey(token)) {
-				double currentOccur = fileMap.get(token);
-				fileMap.replace(token, currentOccur + 1);
+			if (tokens.containsKey(token)) {
+				double currentOccur = tokens.get(token);
+				tokens.replace(token, currentOccur + 1);
 			} else {
-				fileMap.put(token, 1.0);
+				tokens.put(token, 1.0);
 			}
 		}
 		clearBuffer();

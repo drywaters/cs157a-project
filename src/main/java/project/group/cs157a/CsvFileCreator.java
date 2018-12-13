@@ -22,14 +22,13 @@ public class CsvFileCreator {
 
 		final CellProcessor[] processors = new CellProcessor[] { new NotNull(), new NotNull(), new NotNull(),
 				new NotNull(), new NotNull()
-
 		};
 
 		final String[] header = new String[] { "docID", "word", "tf", "idf", "tfidf" };
 
 		ICsvBeanWriter beanWriter = null;
 		try {
-			beanWriter = new CsvBeanWriter(new FileWriter("target/writeWithBeanWriter.csv"),
+			beanWriter = new CsvBeanWriter(new FileWriter("target/finalTFIDF.csv"),
 					CsvPreference.STANDARD_PREFERENCE);
 
 			// write the header

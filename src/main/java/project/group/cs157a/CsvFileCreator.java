@@ -2,6 +2,8 @@ package project.group.cs157a;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -24,6 +26,19 @@ public class CsvFileCreator {
 				new NotNull(), new NotNull()
 
 		};
+		
+		List<Token> tokens = new ArrayList<>();
+		
+		for (int i = 0; i < ProjectMain.NUMBER_OF_FILES; i++) {
+			for (Map.Entry<String, Token> entry : words.get(i).entrySet()) {
+				if (!entry.getKey().equals("DOCUMENT NUMBER")) {
+					tokens.add(entry.getValue());
+				}
+			}
+		}
+		words = null;
+		
+		Collections.sort(tokens);	
 
 		final String[] header = new String[] { "docID", "word", "tf", "idf", "tfidf" };
 
@@ -34,14 +49,18 @@ public class CsvFileCreator {
 
 			// write the header
 			beanWriter.writeHeader(header);
-
-			for (int i = 0; i < ProjectMain.NUMBER_OF_FILES; i++) {
-				for (Map.Entry<String, Token> entry : words.get(i).entrySet()) {
-					if (!entry.getKey().equals("DOCUMENT NUMBER")) {
-						beanWriter.write(entry.getValue(), header, processors);
-					}
-				}
+			
+			for (int i = 0; i < tokens.size(); i++) {
+				beanWriter.write(tokens.get(i), header, processors);				
 			}
+
+//			for (int i = 0; i < ProjectMain.NUMBER_OF_FILES; i++) {
+//				for (Map.Entry<String, Token> entry : words.get(i).entrySet()) {
+//					if (!entry.getKey().equals("DOCUMENT NUMBER")) {
+//						beanWriter.write(entry.getValue(), header, processors);
+//					}
+//				}
+//			}
 
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

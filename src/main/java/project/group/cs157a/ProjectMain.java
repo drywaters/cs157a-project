@@ -11,8 +11,9 @@ import java.util.concurrent.Future;
 
 public class ProjectMain {
 
-//	public static final int NUMBER_OF_FILES = 7870;
-	public static final int NUMBER_OF_FILES = 55;
+	public static final int NUMBER_OF_FILES = 7870;
+//	public static final int NUMBER_OF_FILES = 55;
+//	public static final int NUMBER_OF_FILES = 10;
 
 	public static void main(String[] args) {
 
@@ -77,17 +78,17 @@ public class ProjectMain {
 		long elapsedTime = endTime-startTime;
 		System.out.println("Total time for token calculation taken is: " + (double)(elapsedTime/1000000000.0));
 		
-//		CsvFileCreator csvCreator = new CsvFileCreator(finalTokenFreq);
+		CsvFileCreator csvCreator = new CsvFileCreator(finalTokenFreq);
 		
-		DatabaseConnector dc = new DatabaseConnector();
-		dc.saveData(finalTokenFreq);
-
-		endTime = System.nanoTime();
-		elapsedTime = endTime-startTime;
-		
-		System.out.println("Total time taken is: " + (double)(elapsedTime/1000000000.0));
-//		dc.printTFIDF();
-		dc.killConnection();
+//		DatabaseConnector dc = new DatabaseConnector();
+//		dc.saveData(finalTokenFreq);
+//
+//		endTime = System.nanoTime();
+//		elapsedTime = endTime-startTime;
+//		
+//		System.out.println("Total time taken is: " + (double)(elapsedTime/1000000000.0));
+////		dc.printTFIDF();
+//		dc.killConnection();
 	}
 
 }

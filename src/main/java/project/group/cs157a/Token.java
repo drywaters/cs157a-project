@@ -1,6 +1,6 @@
 package project.group.cs157a;
 
-public class Token {
+public class Token implements Comparable<Token> {
 	
 	private String word;
 	private double tf;
@@ -65,6 +65,12 @@ public class Token {
 
 	public void setDocid(int docid) {
 		this.docid = docid;
+	}
+	
+	@Override
+	public int compareTo(Token token) {
+		double compareTfidf = ((Token)token).getTfidf();
+		return Double.compare(compareTfidf, this.tfidf);
 	}
 
 	@Override
